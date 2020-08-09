@@ -20,7 +20,7 @@ class AdminPastaController extends Controller
      */
     public function index()
     {
-        echo 'Módosítottam a szöveget';
+        echo 'Módosítottam a szöveget és elmentem a git-re.';
     }
 
     /**
