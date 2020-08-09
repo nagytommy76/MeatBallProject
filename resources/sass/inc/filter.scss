@@ -1,0 +1,45 @@
+.card-and-filter{
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+
+    .filter-container{
+        position: sticky;
+        left: 0;
+        top: 5rem;
+        margin: 6.5rem 1rem;
+        padding: 1.5rem;
+        background: $card-background;
+        border-radius: 5px;
+        height: 20rem;
+        display: flex;
+        flex-direction: column;
+        // z-index: -1;
+        .form-control{
+            padding: .5rem .4rem;
+            margin-bottom: 1rem;
+            font-size: .9rem;
+            border: none;
+            border-radius: 3px;
+        }
+        input[type="range"]{
+            padding: .5rem 0 .4rem 0;
+        }
+    }
+}
+
+// Tablet
+@media(max-width: $tablet-width){
+    .card-and-filter{
+        flex-direction: column;
+
+        .filter-container{
+            position: relative;
+        }
+    }
+}
+
+
+
+
+

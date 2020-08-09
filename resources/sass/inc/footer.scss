@@ -1,0 +1,104 @@
+// MAIN FOOTER
+.main-footer{
+    background: $card-background;
+    text-align: center;
+    color: white;
+    padding: 2rem;
+    // margin-top: 2rem;
+    
+    .footer{
+        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        align-items: center;
+
+        &-container{
+            max-width: 1280px;
+            margin: auto;
+        }
+
+        // Content Adress
+        &-address{
+            text-align: left;
+            line-height: 1.75rem;
+        }
+
+        &-form{
+            justify-content: center;
+            form{
+                display: flex;
+                flex-direction: column; 
+
+                label{
+                    align-self: flex-start;
+                    margin-bottom: .4rem;
+                    font-size: 1.1rem;
+                }
+
+                input[type='email']{
+                    // width: 100%;
+                    padding: .75rem;
+                    height: .7rem;
+                    font-size: 1.4rem;
+                    border: none;
+                    border-radius: 5px;
+                    outline: none;
+                }
+            }
+        }
+
+        // SOCIAL BUTTONS
+        &-social{
+            align-self: center;
+
+            a{
+                color: white;
+                padding: .5rem;
+                transition: ease-in .3s;
+
+                &:hover{
+                    color: $primary;
+                }
+            }
+        }
+    }
+
+    .footer-made{
+        background: #555;
+        padding: 1rem;
+        margin: .7rem;
+    }
+}
+
+
+@media(max-width: $mobile-width){
+    .main-footer{
+        .footer{
+            grid-template-columns: 1fr;
+
+            &-social{
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    }
+}
+
+@media(max-width: $tablet-width){
+    .main-footer{
+        .footer{
+            &-social{
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
