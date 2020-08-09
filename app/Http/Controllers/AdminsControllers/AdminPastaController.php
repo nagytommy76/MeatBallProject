@@ -20,7 +20,7 @@ class AdminPastaController extends Controller
      */
     public function index()
     {
-        echo 'helló tészta oldal';
+        echo 'Módosítottam a szöveget';
     }
 
     /**
