@@ -39650,7 +39650,9 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "food_card_container py-2" }, [
-      _c("h1", { staticClass: "py-1 text-center" }, [_vm._v("Pizzák")]),
+      _c("h1", { staticClass: "py-1 text-black text-center" }, [
+        _vm._v("Pizzák")
+      ]),
       _vm._v(" "),
       _c(
         "section",

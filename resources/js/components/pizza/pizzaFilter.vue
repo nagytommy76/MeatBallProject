@@ -18,7 +18,7 @@
         <!-- PIZZAS -->
         
         <div class="food_card_container py-2">
-            <h1 class="py-1 text-center">Pizzák</h1>
+            <h1 class="py-1 text-black text-center">Pizzák</h1>
             <section class="food_card_content">
             <div v-for="pizza in pizzas" :key="pizza.id">
                 <pizzaCard  

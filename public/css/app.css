@@ -5,7 +5,6 @@
 
 a {
   text-decoration: none;
-  color: black;
 }
 
 li {
@@ -26,7 +25,7 @@ li {
 body {
   font-family: "Oxygen", sans-serif;
   background: #f3f3f3;
-  color: black;
+  color: white;
 }
 
 .py-1 {
@@ -161,6 +160,10 @@ body {
 
 .text-white {
   color: white;
+}
+
+.text-black {
+  color: black;
 }
 
 .text-center {
