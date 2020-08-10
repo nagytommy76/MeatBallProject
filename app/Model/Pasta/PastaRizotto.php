@@ -18,14 +18,14 @@ class PastaRizotto extends Model
     *   Get the image record associated with the Pasta/rizotto
     */
     public function images(){
-        return $this->hasOne('App\Model\Pasta\PastaRizottoImage');
+        return $this->hasOne('App\Model\Pasta\PastaRizottoImage', 'id', 'image_id');
     }
 
     /**
     *   Get the price record associated with the Pasta/rizotto
     */
     public function prices(){
-        return $this->hasOne('App\Model\Pasta\PastaRizottoPrice');
+        return $this->hasOne('App\Model\Pasta\PastaRizottoPrice', 'id', 'price_id');
     }
 
 
