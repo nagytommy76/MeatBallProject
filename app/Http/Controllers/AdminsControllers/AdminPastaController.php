@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 use App\Model\Pasta\PastaRizotto;
+use App\Model\Pasta\PastaRizottoImage;
+use App\Model\Pasta\PastaRizottoPrice;
 
 class AdminPastaController extends Controller
 {
@@ -22,8 +24,9 @@ class AdminPastaController extends Controller
      */
     public function index()
     {
-        echo 'Módosítottam a szöveget és elmentem a git-re.';
-        var_dump(PastaRizotto::all());
+        return view('admin.pasta.pasta')->with([
+            'success' => ''
+        ]);
     }
 
     /**
@@ -44,7 +47,37 @@ class AdminPastaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $valid = Validator::make($request->all(), [
+            'name' => ['required', 'unique:pasta_and_rizotto'],
+            'image' => ['required', 'image', 'max:1999'],
+            'price' => ['required'],
+            'ingredient' => ['required']
+        ]);
+        if ($valid->fails()) {
+            return redirect('admin/pasta')->withErrors($valid)->withInput($request->all());
+        }
+        
+        // die(var_dump($pasta->types));
+        $price = new PastaRizottoPrice;
+        $price->price = $request->price;
+        $price->save();
+
+        $path = $request->file('image')->store('pasta');
+        $image = new PastaRizottoImage;
+        $image->image_path = $path;
+        $image->save();
+
+        $pasta = new PastaRizotto;
+        $pasta->name = $request->name;
+        $pasta->ingredients = $request->ingredient;
+        $pasta->image_id = $image->id;
+        $pasta->price_id = $price->id;
+        $pasta->type = $request->type;
+        $pasta->save();
+
+        return redirect('admin/pasta')->with([
+            'success' => "A(z) $pasta->name bevitele sikeres volt!"
+        ]);
     }
 
     /**

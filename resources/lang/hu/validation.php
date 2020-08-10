@@ -145,8 +145,8 @@ return [
     */
 
     'attributes' => [
-        'name'     => 'név',
-        'password' => 'jelszó',
+        'name'     => 'Név',
+        'password' => 'Jelszó',
         'phone' => 'Telefonszám',
         'zipCode' => 'Irányítószám',
         'lastname' => 'Keresztnév',
@@ -156,9 +156,11 @@ return [
         'houseNumber' => 'Házszám',
         // KÉP attributes
         'Pimage' => 'Kép',
+        'image' => 'Kép',
         'Pname' => 'Pizza név',
         'ingredient' => 'Feltét',
         'ingred_price' => 'Feltét ár',
-        'Pprice' => 'Ár'
+        'Pprice' => 'Ár',
+        'price' => 'Ár'
     ],
 ];

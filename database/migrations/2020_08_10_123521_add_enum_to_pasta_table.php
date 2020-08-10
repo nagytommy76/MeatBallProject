@@ -14,7 +14,7 @@ class AddEnumToPastaTable extends Migration
     public function up()
     {
         Schema::table('pasta_and_rizotto', function (Blueprint $table) {
-            $table->enum('type', ["Rizottó","Tészta"]);
+            $table->tinyInteger('type');
         });
     }
 

@@ -1,9 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    {{-- <div class="container"> --}}
-        {{-- <h1>Admin kezelő felület</h1>
-        <p>Ide (CARD-ba) majd jön egy JavaScript-es cucc, hogy melyik étel. Pizza Tészták stb</p> --}}
         <div class="container">
             {{-- <div class="card-container"> --}}
                 <section class="card-content card-content-admin text-white">

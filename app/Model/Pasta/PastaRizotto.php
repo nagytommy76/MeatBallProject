@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class PastaRizotto extends Model
 {
+    public const TYPES = [
+        0 => "Rizottó",
+        1 => "Tészta"
+    ];
+
     protected $table = 'pasta_and_rizotto';
     public $timestamps = false;
 
@@ -22,4 +27,32 @@ class PastaRizotto extends Model
     public function prices(){
         return $this->hasOne('App\Model\Pasta\PastaRizottoPrice');
     }
+
+
+    /**
+    * Get the Type of Pasta/Rizotto.
+    *
+    * @return string
+    */
+    public function getTypeAttribute()
+    {
+        return self::TYPES[$this->attributes['type']];
+    }
+
+
+//     /**
+//    * set type
+//    */
+//    public function setTypeAttribute($type)
+//    {
+//       $roleID = self::getRoleID($type);
+//       if ($roleID) {
+//          $this->attributes['type'] = $roleID;
+//       }
+//    }
+
+//    public static function getRoleID($type)
+//    {
+//       return array_search($type, self::TYPES);
+//    }
 }
