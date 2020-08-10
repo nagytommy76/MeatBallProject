@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Validator;
 
+use App\Model\Pasta\PastaRizotto;
+
 class AdminPastaController extends Controller
 {
     public function __construct(){
@@ -21,6 +23,7 @@ class AdminPastaController extends Controller
     public function index()
     {
         echo 'Módosítottam a szöveget és elmentem a git-re.';
+        var_dump(PastaRizotto::all());
     }
 
     /**
