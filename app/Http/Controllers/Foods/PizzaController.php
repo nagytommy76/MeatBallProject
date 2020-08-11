@@ -17,8 +17,12 @@ use App\Model\Foods\PizzaIngredPrices;
 use App\Http\Resources\PizzaResource;
 use App\Http\Resources\PizzaIPResource;
 
+use App\Http\Controllers\Traits\FoodControllerHelper;
+
 class PizzaController extends Controller
 {
+    use FoodControllerHelper;
+
     /**
      * Display a listing of the resource.
      *
@@ -31,9 +35,10 @@ class PizzaController extends Controller
 
     // Get all Pizza ordered by asc at page load
     public function getAllPizza(){    
-        return PizzaResource::collection(Pizzas::get()->sortBy( function($q){
-            return $q->prices->price;
-        })->all());
+        // return PizzaResource::collection(Pizzas::get()->sortBy( function($q){
+        //     return $q->prices->price;
+        // })->all());
+        return FoodControllerHelper::getAllFood(PizzaResource::class, Pizzas::class);
     }
 
     public function getPizzaByOrder(Request $request){

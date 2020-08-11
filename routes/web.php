@@ -43,17 +43,14 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-// Route::get('getTokenForUser', 'Auth\LoginController@getTokenForUser');
 // Users Controller
 
 Route::resource('/userinfo', 'UserControllers\UserInfoController');
 
-// Foods Pizza
-
+// Foods
 Route::get('/pizza', 'Foods\PizzaController@index')->name('pizza.index');
-
+Route::get('/pastas', 'Foods\PastaRizottoController@index')->name('pasta.index');
 
 Route::get('/login' , 'Auth\LoginController@showLoginForm')->name('login');
-// Route::post('/login' , 'Auth\LoginController@login')->name('login.submit');
 
 Route::get('/logout' , 'Auth\LoginController@logout')->name('user.logout');

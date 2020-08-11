@@ -19,7 +19,7 @@
                             <i class="fas fa-pizza-slice"></i>
                             Pizzák
                         </a>
-                        <a href="#" class="dropdown-item">
+                        <a href="{{ route('pasta.index') }}" class="dropdown-item">
                             <i class="fas fa-cloud-meatball"></i>
                             Tészta Ételek
                         </a>

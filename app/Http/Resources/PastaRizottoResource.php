@@ -19,7 +19,7 @@ class PastaRizottoResource extends JsonResource
             'name' => $this->name,
             'ingredients' => explode(',', str_replace(' ', '', $this->ingredients)),
             'type' => $this->type,
-            'price' => $this->prices,
+            'price' => intval($this->prices->price),
             'image' => $this->images
         ];
     }

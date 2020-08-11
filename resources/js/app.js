@@ -25,14 +25,12 @@ import store from './store';
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('Filtering', require('./components/pizza/pizzaFilter.vue').default);
+Vue.component('pasta-filtering', require('./components/pasta/pastaFilter.vue').default);
 
 
 Vue.component('cart-items', require('./components/cart/itemsInCart.vue').default);
 Vue.component('cart-modal', require('./components/cart/cartModal.vue').default);
 Vue.component('login', require('./components/Auth/login.vue').default);
-// Vue.component('morengredients', require('./components/moreIngredients.vue'));
-// Vue.component('pizzacard', require('./components/pizza_card.vue').default);
-
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

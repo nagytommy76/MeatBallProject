@@ -4,7 +4,7 @@
       <img v-bind:src="'storage/'+image" alt="Pizza Kép" />
     </div>
     <div class="food_card_inner">
-      <h1 class="food_card_heading">{{ pizzaName }}</h1>
+      <h1 class="food_card_heading text-center">{{ pizzaName }}</h1>
       <h3>Feltétek:</h3>
       <div class="ingredients">
         <span v-for="ingred in ingredients" v-bind:key="ingred.id">
@@ -44,7 +44,7 @@
 
 <script>
 // import Filtering from './filter';
-import { mapActions, mapState } from "vuex";
+// import { mapActions, mapState } from "vuex";
 import moreIngredients from "./moreIngredients";
 export default {
   components: {

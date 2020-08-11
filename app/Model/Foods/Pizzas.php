@@ -8,9 +8,6 @@ class Pizzas extends Model
 {
     protected $table = 'pizzas';
     public $timestamps = false;
-    protected $casts = [
-        'price' => 'integer'
-    ];
 
     public function ingredients(){
         return $this->belongsToMany('App\Model\Foods\PizzaIngredients','pivot_pizza_ingredients','pizza_id','ingredient_id');

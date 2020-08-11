@@ -19,7 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function () {
     return Auth::user();
 });
 
-Route::get('pasta', 'Foods\PastaRizottoController@test');
+Route::get('pastas', 'Foods\PastaRizottoController@getAllPasta');
+Route::get('getPastaMinMaxPrice', 'Foods\PastaRizottoController@getMinMaxPrice');
 
 
 // List Pizzas

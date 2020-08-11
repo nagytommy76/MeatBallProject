@@ -64,7 +64,13 @@ export default {
     },
     methods: {
         async fetchPizza(){
-            await fetch('api/pizzas')
+            await fetch('api/pizzas', {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                }
+            })
             .then(resp => resp.json())
             .then(res => {
                 this.pizzas = res.data;
