@@ -20,6 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function () {
 });
 
 Route::get('pastas', 'Foods\PastaRizottoController@getAllPasta');
+Route::post('getPastaByOrder', 'Foods\PastaRizottoController@getPastaByOrder');
 Route::get('getPastaMinMaxPrice', 'Foods\PastaRizottoController@getMinMaxPrice');
 
 

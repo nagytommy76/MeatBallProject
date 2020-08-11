@@ -2367,11 +2367,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   methods: {
     getPastaByOrder: function getPastaByOrder() {
+      var _this = this;
+
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                _context.next = 2;
+                return fetch('api/getPastaByOrder', {
+                  method: 'POST',
+                  headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                    order: _this.order,
+                    minPrice: _this.minPrice,
+                    maxPrice: _this.maxPrice
+                  })
+                }).then(function (resp) {
+                  return resp.json();
+                }).then(function (result) {
+                  _this.pasta = result.data;
+                });
+
+              case 2:
               case "end":
                 return _context.stop();
             }
@@ -2380,7 +2401,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     fetchPasta: function fetchPasta() {
-      var _this = this;
+      var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
@@ -2397,7 +2418,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 }).then(function (response) {
                   return response.json();
                 }).then(function (result) {
-                  _this.pasta = result.data;
+                  _this2.pasta = result.data;
                 });
 
               case 2:
@@ -2422,7 +2443,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     getPrices: function getPrices() {
-      var _this2 = this;
+      var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
@@ -2433,9 +2454,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return fetch('api/getPastaMinMaxPrice').then(function (response) {
                   return response.json();
                 }).then(function (res) {
-                  _this2.priceValue = res.minPrice;
-                  _this2.minPrice = res.minPrice;
-                  _this2.maxPrice = res.maxPrice;
+                  _this3.priceValue = res.minPrice;
+                  _this3.minPrice = res.minPrice;
+                  _this3.maxPrice = res.maxPrice;
                 });
 
               case 2:

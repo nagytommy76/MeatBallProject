@@ -20,12 +20,12 @@ class PastaRizottoController extends Controller
         return view('foods.pasta');
     }
 
-    // public function getAllPasta(){
-    //     return PastaRizottoResource::collection(PastaRizotto::all());
-    // }
-
     public function getAllPasta(){
         return FoodControllerHelper::getAllFood(PastaRizottoResource::class, PastaRizotto::class);
+    }
+
+    public function getPastaByOrder(Request $request){
+        return FoodControllerHelper::getFoodByOrder($request, PastaRizottoResource::class, PastaRizotto::class);
     }
 
     public function getMinMaxPrice(){

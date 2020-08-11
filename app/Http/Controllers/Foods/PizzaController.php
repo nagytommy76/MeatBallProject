@@ -35,28 +35,26 @@ class PizzaController extends Controller
 
     // Get all Pizza ordered by asc at page load
     public function getAllPizza(){    
-        // return PizzaResource::collection(Pizzas::get()->sortBy( function($q){
-        //     return $q->prices->price;
-        // })->all());
         return FoodControllerHelper::getAllFood(PizzaResource::class, Pizzas::class);
     }
 
     public function getPizzaByOrder(Request $request){
-        $pizza = $this->getPizzasByPrice($request->minPrice, $request->maxPrice);
+        return FoodControllerHelper::getFoodByOrder($request, PizzaResource::class, Pizzas::class);
+        // $pizza = $this->getPizzasByPrice($request->minPrice, $request->maxPrice);
 
-        if ($request->orderBy == 'asc') {
-            return PizzaResource::collection($pizza->sortBy(
-                function($q){
-                    return $q->prices->price;
-                }
-            ));
-        }else{
-            return PizzaResource::collection($pizza->sortByDesc(
-                function($q){
-                    return $q->prices->price;
-                }
-            ));
-        }
+        // if ($request->orderBy == 'asc') {
+        //     return PizzaResource::collection($pizza->sortBy(
+        //         function($q){
+        //             return $q->prices->price;
+        //         }
+        //     ));
+        // }else{
+        //     return PizzaResource::collection($pizza->sortByDesc(
+        //         function($q){
+        //             return $q->prices->price;
+        //         }
+        //     ));
+        // }
     }
 
     public function getMinMaxPrice(){

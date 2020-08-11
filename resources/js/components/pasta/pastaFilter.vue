@@ -54,7 +54,22 @@ export default {
     },
     methods: {
         async getPastaByOrder(){
-
+            await fetch('api/getPastaByOrder', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    order: this.order,
+                    minPrice: this.minPrice,
+                    maxPrice: this.maxPrice
+                })
+            })
+            .then(resp => resp.json())
+            .then(result => {
+                this.pasta = result.data;
+            });
         },
         async fetchPasta(){
             await fetch('api/pastas', {
