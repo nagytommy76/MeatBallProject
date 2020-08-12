@@ -3,8 +3,8 @@
         <div class="card-and-filter">
             <aside class="filter-container">
                 <h2 class="py-1 text-center">Szűrő</h2>
-                <label for="order">Rendezés:</label>
-                <select class="form-control" name="order" v-model="order" v-on:change="getPastaByOrder">
+                <label for="orderBy">Rendezés:</label>
+                <select class="form-control" name="orderBy" v-model="orderBy" v-on:change="getPastaByOrder">
                     <option value="asc">Ár Növekvő</option>
                     <option value="desc">Ár Csökkenő</option>
                 </select>
@@ -16,7 +16,7 @@
                 <input class="form-control" type="text" v-on:keyup="searchByName">
             </aside>
             <div class="food_card_container py-2">
-                <h1 class="py-1 text-black text-center">Tészta Ételek</h1>
+                <h1 class="py-3 text-black text-center">Tészták és Roizottók</h1>
                 <section class="food_card_content">
                     <div v-for="pastas in pasta" :key="pastas.id">
                         <PastaCard
@@ -25,6 +25,7 @@
                             v-bind:pastaName="pastas.name"
                             v-bind:pastaPrice="pastas.price"
                             v-bind:ingredients="pastas.ingredients"
+                            v-bind:foodType="pastas.type"
                         />
                     </div>
                 </section>
@@ -42,7 +43,7 @@ export default {
     data: () => {
         return {
             pasta: {},
-            order: 'asc',
+            orderBy: 'asc',
             minPrice: 0,
             maxPrice: 10000,
             priceValue: 0,
@@ -61,8 +62,8 @@ export default {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    order: this.order,
-                    minPrice: this.minPrice,
+                    orderBy: this.orderBy,
+                    minPrice: this.priceValue,
                     maxPrice: this.maxPrice
                 })
             })
@@ -84,8 +85,21 @@ export default {
                 this.pasta = result.data;
             });
         },
-        async searchByName(){
-
+        async searchByName(event){
+            await fetch('api/getPastaByName', {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: event.target.value
+                })
+            })
+            .then(response => response.json())
+            .then(result => {
+                this.pasta = result.data
+            });
         },
         async getPrices(){
             await fetch('api/getPastaMinMaxPrice')

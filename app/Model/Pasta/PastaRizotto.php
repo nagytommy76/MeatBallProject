@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class PastaRizotto extends Model
 {
     public const TYPES = [
-        0 => "Rizottó",
-        1 => "Tészta"
+        0 => "risotto",
+        1 => "pasta"
     ];
 
     protected $table = 'pasta_and_rizotto';

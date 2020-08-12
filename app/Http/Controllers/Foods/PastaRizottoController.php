@@ -28,6 +28,10 @@ class PastaRizottoController extends Controller
         return FoodControllerHelper::getFoodByOrder($request, PastaRizottoResource::class, PastaRizotto::class);
     }
 
+    public function getPastaByName(Request $request){
+        return FoodControllerHelper::searchFoodByName($request, PastaRizottoResource::class, PastaRizotto::class);
+    }
+
     public function getMinMaxPrice(){
         return FoodControllerHelper::getMinMaxPrice(PastaRizottoPrice::class);
     }

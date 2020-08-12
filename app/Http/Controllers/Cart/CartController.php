@@ -8,13 +8,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Auth;
 
-
+// PIZZA
 use App\Model\Cart;
 use App\Model\Foods\Pizzas;
 use App\Model\Foods\PizzaIngredPrices;
 
-// use App\Model\Foods\PizzaPrice;
-// use App\Model\Foods\PizzaIngredients;
+// PASTA
+use App\Model\Pasta\PastaRizotto;
 
 
 class CartController extends Controller
@@ -62,10 +62,9 @@ class CartController extends Controller
 
 
     private function addElementToCart($dataFromCard){       
+        $anyTypeOfFood = $this->getDataFromDatabaseByFoodType($dataFromCard);
 
-        $anyTypeOfFood = Pizzas::find($dataFromCard->foodId);
-
-        $onePizzaItem = [
+        $oneFoodItem = [
             'id' => $dataFromCard->foodId,
             'foodName' => $anyTypeOfFood->name,
             'price' => intval($anyTypeOfFood->prices->price),
@@ -75,7 +74,7 @@ class CartController extends Controller
         $oldCart = Session::has($this->sessionName) ? $this->getParamsFromSession() : null;
 
         $cart = new Cart($oldCart);
-        $cart->addToCart($onePizzaItem, $dataFromCard->foodId, $dataFromCard->foodType);
+        $cart->addToCart($oneFoodItem, $dataFromCard->foodId, $dataFromCard->foodType);
 
         Session::put($this->sessionName, $cart);
 
@@ -121,7 +120,9 @@ class CartController extends Controller
             case 'pizza':
                 return Pizzas::find($dataFromCard->foodId);
                 break;
-            
+            case 'pasta' || 'rizotto':
+                return PastaRizotto::find($dataFromCard->foodId);
+                break;
             default:
                 return;
                 break;

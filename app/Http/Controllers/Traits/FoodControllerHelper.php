@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Builder;
 
 trait FoodControllerHelper{
 
+    /**
+    * @param FoodResource
+    * @param FoodModel
+    * @return Resource collection
+    */
     public static function getAllFood($resource, $foodModel){
         return $resource::collection($foodModel::get()->sortBy( function($q){
             return $q->prices->price;
@@ -37,6 +42,10 @@ trait FoodControllerHelper{
             'minPrice' => $foodPriceModel::min('price'),
             'maxPrice' => $foodPriceModel::max('price')
         ]);
+    }
+
+    public static function searchFoodByName($request, $foodResource, $foodModel){
+        return $foodResource::collection($foodModel::where('name', 'LIKE', "%$request->name%")->paginate(10));
     }
 
     private static function getFoodByPrice($foodModel, $minPrice, $maxPrice){

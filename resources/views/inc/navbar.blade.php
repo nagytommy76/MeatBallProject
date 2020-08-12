@@ -14,6 +14,7 @@
                     <a href="#" class="nav-link dropdown-toggle"
                     role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Étel Rendelés</a>
+                    
                     <div class="dropdown-menu">
                         <a href="{{ route('pizza.index') }}" class="dropdown-item">
                             <i class="fas fa-pizza-slice"></i>
@@ -25,6 +26,9 @@
                         </a>
                     </div>
                 </li>{{-- Nav Item End FOODS END --}}
+                <li class="nav-item">
+                    <a href="{{ route('pizza.index') }}" class="nav-link">Étel Rendelés 2.0</a>
+                </li>
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">

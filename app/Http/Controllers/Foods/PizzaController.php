@@ -30,7 +30,7 @@ class PizzaController extends Controller
      */
     public function index()
     { 
-        return view('foods.pizza');
+        return view('foods.foods');
     }
 
     // Get all Pizza ordered by asc at page load
@@ -40,28 +40,14 @@ class PizzaController extends Controller
 
     public function getPizzaByOrder(Request $request){
         return FoodControllerHelper::getFoodByOrder($request, PizzaResource::class, Pizzas::class);
-        // $pizza = $this->getPizzasByPrice($request->minPrice, $request->maxPrice);
-
-        // if ($request->orderBy == 'asc') {
-        //     return PizzaResource::collection($pizza->sortBy(
-        //         function($q){
-        //             return $q->prices->price;
-        //         }
-        //     ));
-        // }else{
-        //     return PizzaResource::collection($pizza->sortByDesc(
-        //         function($q){
-        //             return $q->prices->price;
-        //         }
-        //     ));
-        // }
     }
 
     public function getMinMaxPrice(){
-       return response()->json([
-        'minPrice' => PizzaPrice::min('price'),
-        'maxPrice' => PizzaPrice::max('price')
-       ]);
+        return FoodControllerHelper::getMinMaxPrice(PizzaPrice::class);
+    }
+
+    public function searchPizzaByName(Request $request){
+        return FoodControllerHelper::searchFoodByName($request, PizzaResource::class, Pizzas::class);
     }
 
     public function getPlusIngreds(){
@@ -69,15 +55,4 @@ class PizzaController extends Controller
             PizzaIngredPrices::orderBy('price', 'asc')->get()
         );
     }
-
-    public function searchPizzaByName(Request $request){
-        return PizzaResource::collection(Pizzas::where('name', 'LIKE', "%$request->name%")->paginate(10));
-    }
-
-    private function getPizzasByPrice($minPrice, $maxPrice){
-        return Pizzas::whereHas('prices', function(Builder $query) use($minPrice, $maxPrice) {
-            $query->whereBetween('price', [$minPrice, $maxPrice]);
-        })->get();
-    }
-
 }

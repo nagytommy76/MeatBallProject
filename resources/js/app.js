@@ -32,6 +32,9 @@ Vue.component('cart-items', require('./components/cart/itemsInCart.vue').default
 Vue.component('cart-modal', require('./components/cart/cartModal.vue').default);
 Vue.component('login', require('./components/Auth/login.vue').default);
 
+
+Vue.component('food-filter', require('./components/foodFilter.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

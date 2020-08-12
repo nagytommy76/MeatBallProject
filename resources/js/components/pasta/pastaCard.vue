@@ -12,10 +12,13 @@
             </span> )
             </div>            
             <button class="btn btn-primary">Kell ez a gomb?</button>
+            <div class="alert alert-success" v-if="addedToCart">
+                <p>A termék a kosárban</p>
+            </div>
         </div>
         <div class="food_card_footer">
         <!-- <form> -->
-        <button v-bind:id="pastaId" class="btn btn-primary">Kosárba!</button>
+        <button @click="addToCart" v-bind:id="pastaId" class="btn btn-primary">Kosárba!</button>
         <strong class="price">
             Ár:
             <span class="primary-color">{{finalPrice}}</span> Ft
@@ -27,9 +30,9 @@
 export default {
     data () {
         return{
-            foodType: 'pasta',
             addedToCart: false,
             finalPrice: this.pastaPrice,
+            selectedIngreds: [],
         }
     },
     props: {
@@ -38,6 +41,41 @@ export default {
         pastaName: String,
         pastaPrice: Number,
         ingredients: Array,
+        foodType: String,
     },
+    methods: {
+        async addToCart(){
+            await fetch(`api/addFoodToCart`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + this.$parent.$parent.accessToken
+                },
+                body: JSON.stringify({
+                    foodType: this.foodType,
+                    foodId: this.pastaId,
+                    plusIngreds: this.selectedIngreds,
+                }),
+            }
+        )
+        .then(response => response.json())
+        .then(result => {
+            this.$parent.$parent.$store.commit('setCartItems', result);
+            this.selectedIngreds = [];
+            this.finalPrice = this.pastaPrice;
+
+            this.hideSuccessMsg();
+            setTimeout(this.hideSuccessMsg, 3000);
+            // if(this.moreButton){
+            //   this.moreButton = !this.moreButton;
+            // }
+        }); 
+        },
+        hideSuccessMsg(){
+            this.addedToCart = !this.addedToCart;
+        },
+    }
 }
 </script>
