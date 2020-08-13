@@ -1,0 +1,31 @@
+.navigation{
+    width: 80%;
+    margin: .7rem auto .7rem auto;
+    padding: 1rem;
+  
+    text-align: center;
+    background: $card-background;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: space-evenly;
+    gap: 1rem;
+
+    h4{
+        text-decoration: none;
+        color: white;
+        font-size: 1.2rem;
+    }
+    .router-link-exact-active{
+        h4{
+            color: $favColor;
+        }
+    } 
+}
+
+@media(max-width: $mobile-width){
+    .navigation{
+        grid-template-columns: repeat(2, 1fr);
+
+        margin: 3rem auto 0rem auto;
+    }
+}

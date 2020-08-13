@@ -10,6 +10,7 @@ Vue.use(require('vue-cookies'))
 const axios = require('axios');
 
 import store from './store';
+import router from './router';
 
 
 
@@ -24,8 +25,8 @@ import store from './store';
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('Filtering', require('./components/pizza/pizzaFilter.vue').default);
-Vue.component('pasta-filtering', require('./components/pasta/pastaFilter.vue').default);
+// Vue.component('Filtering', require('./components/pizza/pizzaFilter.vue').default);
+// Vue.component('pasta-filtering', require('./components/pasta/pastaFilter.vue').default);
 
 
 Vue.component('cart-items', require('./components/cart/itemsInCart.vue').default);
@@ -34,25 +35,22 @@ Vue.component('login', require('./components/Auth/login.vue').default);
 
 
 Vue.component('food-filter', require('./components/foodFilter.vue').default);
-
+// import foodFilter from './components/foodFilter';
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// const router = new VueRouter({
-//     routes: [
-//         {path : '/pizzaFilter', component: Filtering}
-//     ]
-// })
-
 import { mapState, mapActions } from "vuex";
 
 const app = new Vue({
     store,
-    // router,
+    router,
     el: '#app',
+    components: {
+        // foodFilter
+    },
     data: () => {
         return{
             
@@ -68,7 +66,7 @@ const app = new Vue({
     methods: {
         ...mapActions([
             'fetchAccessToken',
-            'getCartItem'
+            'getCartItems'
         ]),
         checkExpiration(){
             if(this.accessToken != null){
@@ -84,7 +82,7 @@ const app = new Vue({
     created() {
         this.fetchAccessToken();
         if(this.accessToken != null){
-            this.getCartItem(this.accessToken);
+            this.getCartItems(this.accessToken)
         }
     },
     mounted() {

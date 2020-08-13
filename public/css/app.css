@@ -506,6 +506,18 @@ body {
 
   .card-and-filter .filter-container {
     position: relative;
+    margin: 2rem 1rem 5rem 1rem;
+  }
+}
+
+@media (max-width: 1360px) {
+  .card-and-filter {
+    flex-direction: column;
+  }
+
+  .card-and-filter .filter-container {
+    position: relative;
+    margin: 2rem 1rem 5rem 1rem;
   }
 }
 
@@ -598,6 +610,35 @@ body {
 @media (max-width: 1136px) {
   .modal-bg .modal {
     width: 75%;
+  }
+}
+
+.navigation {
+  width: 80%;
+  margin: 0.7rem auto 0.7rem auto;
+  padding: 1rem;
+  text-align: center;
+  background: #212F3C;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-content: space-evenly;
+  gap: 1rem;
+}
+
+.navigation h4 {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.navigation .router-link-exact-active h4 {
+  color: #E2BC00;
+}
+
+@media (max-width: 720px) {
+  .navigation {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 3rem auto 0rem auto;
   }
 }
 

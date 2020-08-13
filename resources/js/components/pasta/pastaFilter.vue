@@ -16,7 +16,7 @@
                 <input class="form-control" type="text" v-on:keyup="searchByName">
             </aside>
             <div class="food_card_container py-2">
-                <h1 class="py-3 text-black text-center">Tészták és Roizottók</h1>
+                 <h1 class="py-1 text-black text-center">Tészták és Roizottók</h1>
                 <section class="food_card_content">
                     <div v-for="pastas in pasta" :key="pastas.id">
                         <PastaCard

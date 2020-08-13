@@ -4,7 +4,9 @@ export default{
         
     },
     state: {
-        cartItems: {},
+        cartItems: {
+            message: ''
+        },
     },
     getters: {
         // cartItems: state => state.cartItems
@@ -24,16 +26,28 @@ export default{
                     'Authorization': 'Bearer '+ accessToken
                 },
             })
-            return response.json();      
+            // console.log(response.statusText)
+            if(response.status != 401){
+                let result = response.json(); 
+                result.then(res => {
+                    commit('setCartItems', res);
+                });
+            }else{
+                commit('setCartItems', {message: response.statusText});
+            }
+            
+                 
         },
 
-        async getCartItem({ commit, dispatch }, accessToken){
-            await dispatch('getCartItems', accessToken)
-            .then(result => {
-                commit('setCartItems', result);
-            }).catch(err => {
-                console.log(err)
-            })            
-        }
+        // async getCartItem({ commit, dispatch }, accessToken){
+        //     await dispatch('getCartItems', accessToken)
+        //     .then(result => {
+        //         if(result.message != 'Unauthenticated'){
+        //             commit('setCartItems', result);
+        //         }               
+        //     }).catch(err => {
+        //         console.log(err)
+        //     })            
+        // }
     },
 }

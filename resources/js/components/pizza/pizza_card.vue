@@ -27,8 +27,10 @@
           </div>
         </div>
       </div>
-      <div class="alert alert-success" v-if="addedToCart">
-        <p>A termék a kosárban</p>
+      <div >
+        <div class="alert alert-success" v-if="addedToCart">
+          <p>A termék a kosárban</p>
+        </div>
       </div>
     </div>
     <div class="food_card_footer">
@@ -116,7 +118,7 @@ export default {
             this.$parent.$parent.$store.commit('setCartItems', result);
             this.selectedIngreds = [];
             this.finalPrice = this.pizzaPrice;
-
+            console.log(this.$parent.$parent.$parent.cartItems.message);
             this.hideSuccessMsg();
             setTimeout(this.hideSuccessMsg, 3000);
             if(this.moreButton){

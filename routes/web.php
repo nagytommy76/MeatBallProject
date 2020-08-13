@@ -43,13 +43,18 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+
 // Users Controller
 
 Route::resource('/userinfo', 'UserControllers\UserInfoController');
 
+
+Route::get('/pizza', function () {
+    return view('foods.foods');
+})->name('pizza');
 // Foods
-Route::get('/pizza', 'Foods\PizzaController@index')->name('pizza.index');
-Route::get('/pastas', 'Foods\PastaRizottoController@index')->name('pasta.index');
+// Route::get('/pizza', 'Foods\PizzaController@index')->name('pizza.index');
+// Route::get('/pastas', 'Foods\PastaRizottoController@index')->name('pasta.index');
 
 Route::get('/login' , 'Auth\LoginController@showLoginForm')->name('login');
 

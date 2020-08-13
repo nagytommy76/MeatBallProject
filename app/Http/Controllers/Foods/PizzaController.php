@@ -28,10 +28,10 @@ class PizzaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    { 
-        return view('foods.foods');
-    }
+    // public function index()
+    // { 
+    //     return view('foods.foods');
+    // }
 
     // Get all Pizza ordered by asc at page load
     public function getAllPizza(){    

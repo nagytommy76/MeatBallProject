@@ -10,8 +10,8 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav">
                 {{-- FOODS --}}
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle"
+                {{-- <li class="nav-item dropdown"> --}}
+                    {{-- <a href="#" class="nav-link dropdown-toggle"
                     role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Étel Rendelés</a>
                     
@@ -24,10 +24,10 @@
                             <i class="fas fa-cloud-meatball"></i>
                             Tészta Ételek
                         </a>
-                    </div>
-                </li>{{-- Nav Item End FOODS END --}}
+                    </div> --}}
+                {{-- </li>Nav Item End FOODS END --}}
                 <li class="nav-item">
-                    <a href="{{ route('pizza.index') }}" class="nav-link">Étel Rendelés 2.0</a>
+                    <a href="{{ route('pizza') }}" class="nav-link">Étel Rendelés</a>
                 </li>
                 <!-- Authentication Links -->
                 @guest
