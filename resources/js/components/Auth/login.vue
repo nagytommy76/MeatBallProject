@@ -100,7 +100,6 @@ export default {
             }).catch(err => console.log(err))
         },
         setExpirationToLocalSt(accessToken){
-            this.$parent.checkExpiration();
             let hour = new Date();
             hour.setHours(hour.getHours() + 2)
             let data = {

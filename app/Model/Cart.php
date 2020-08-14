@@ -42,9 +42,9 @@ class Cart
                 // Nincs Plussz feltét
                 // If items !NULL
                 if ($this->items) {
-                    if ($this->elementExistsInArray($this->items, $id)) {
-                        // Meg kell keresnem a termék KEY-jét ha benne van már a kosárba
-                        $keresettArrayIndex = $this->getItemsArrayKey($this->items, $id);
+                    if ($this->elementExistsInArray($this->items, $id, $foodType)) {
+                       
+                        $keresettArrayIndex = $this->getItemsArrayKey($this->items, $id, $foodType);
                         $this->arrayKey = $keresettArrayIndex;
                         $this->storedItem['qty'] = $this->items[$keresettArrayIndex]['qty'];
                     }                    
@@ -74,9 +74,9 @@ class Cart
     //                              PRIVATE FUNCTIONS
     // ============================================================================
 
-    private function elementExistsInArray($array, $id){
+    private function elementExistsInArray($array, $id, $foodType){
         foreach ($array as $value) {
-            if (in_array($id, $value['item']) && $value['item']['plusIngreds'] == null) {
+            if (in_array($id, $value['item']) && $value['item']['plusIngreds'] == null && $value['foodType'] == $foodType) {
                 return true;
             }
         }
@@ -84,9 +84,9 @@ class Cart
     }
     
     // Visszaküldi azt az ITEMS Key-t amely elemben megtalálható az adott $id
-    private function getItemsArrayKey($array, $id){
+    private function getItemsArrayKey($array, $id, $foodType){
         foreach ($array as $key => $value) {
-            if (in_array($id, $value['item']) && $value['item']['plusIngreds'] == null) {
+            if (in_array($id, $value['item']) && $value['item']['plusIngreds'] == null && $value['foodType'] == $foodType) {
                 return $key;
             }
         }

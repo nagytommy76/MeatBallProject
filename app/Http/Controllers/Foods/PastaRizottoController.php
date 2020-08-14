@@ -12,27 +12,23 @@ use App\Model\Pasta\PastaRizottoPrice;
 
 use App\Http\Controllers\Traits\FoodControllerHelper;
 
-class PastaRizottoController extends Controller
+class PastaRizottoController extends BaseFoodController
 {
     use FoodControllerHelper;
 
-    public function index(){
-        return view('foods.pasta');
-    }
-
     public function getAllPasta(){
-        return FoodControllerHelper::getAllFood(PastaRizottoResource::class, PastaRizotto::class);
+        return self::getAllFood(PastaRizottoResource::class, PastaRizotto::class);
     }
 
     public function getPastaByOrder(Request $request){
-        return FoodControllerHelper::getFoodByOrder($request, PastaRizottoResource::class, PastaRizotto::class);
+        return self::getFoodByOrder($request, PastaRizottoResource::class, PastaRizotto::class);
     }
 
     public function getPastaByName(Request $request){
-        return FoodControllerHelper::searchFoodByName($request, PastaRizottoResource::class, PastaRizotto::class);
+        return self::searchFoodByName($request, PastaRizottoResource::class, PastaRizotto::class);
     }
 
     public function getMinMaxPrice(){
-        return FoodControllerHelper::getMinMaxPrice(PastaRizottoPrice::class);
+        return self::getMinMaxPrices(PastaRizottoPrice::class);
     }
 }

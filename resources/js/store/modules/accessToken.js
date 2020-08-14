@@ -18,9 +18,13 @@ export default{
         fetchAccessToken({ commit }){
             const localST = JSON.parse(localStorage.getItem('accessToken'));
             if(localST != null){
-                commit('setAccessToken', localST.accessToken); 
-                commit('setExpiration', localST.expiration)  
-            }                   
+                if(Date.parse(localST.expiration) < Date.now()){
+                    localStorage.removeItem('accessToken');
+                }else{
+                    commit('setAccessToken', localST.accessToken); 
+                    commit('setExpiration', localST.expiration) 
+                }
+            }
         }
     }
 }

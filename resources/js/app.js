@@ -68,16 +68,16 @@ const app = new Vue({
             'fetchAccessToken',
             'getCartItems'
         ]),
-        checkExpiration(){
-            if(this.accessToken != null){
-                if(Date.parse(this.accessToken.expiration) < Date.now()){
-                    localStorage.removeItem('accessToken');
-                    return false;
-                }
-                return true;
-            }  
-            return false;          
-        },
+        // checkExpiration(){
+        //     if(this.accessToken != null){
+        //         if(Date.parse(this.accessToken.expiration) < Date.now()){
+        //             localStorage.removeItem('accessToken');
+        //             return false;
+        //         }
+        //         return true;
+        //     }  
+        //     return false;          
+        // },
     },
     created() {
         this.fetchAccessToken();
@@ -86,6 +86,6 @@ const app = new Vue({
         }
     },
     mounted() {
-        this.checkExpiration();
+        // this.checkExpiration();
     }
 });

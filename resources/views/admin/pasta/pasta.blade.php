@@ -51,6 +51,7 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
+                        </div>
                             <div class="col">
                                 <label for="type">Étel típus:</label>
                                 <select class="form-control" name="type" id="type">
@@ -60,10 +61,10 @@
                             </div>                            
                         </div>
                     </div>
-                    @if ($success)
-                    <div class="alert alert-success">
-                        {{$success}}
-                    </div>
+                    @if ($errors->first('success'))
+                        <div class="alert alert-success">
+                            {{$errors->first('success')}}
+                        </div>
                     @endif
                    
                 </div>
@@ -72,6 +73,84 @@
                         <input type="submit" class="btn btn-confirm" value="Bevitel">
                     </div>
                 </div>
+                </form>
+            </div> <!-- Input Pasta CARD END -->
+
+            <h1 class="text-black p-2 text-center">Tészták és Rizottók törlése</h1>
+            <div class="card p-2">
+                <div class="card-header">
+                    <h2>Tészta/Rizottó törlése</h2>                            
+                </div>
+                <form action="{{ route('pasta.destroy') }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="pastaId">Törlendő étel:</label>
+                            <select class="form-control" name="pastaId" id="pastaId">
+                                @foreach ($allPasta as $pasta)
+                                    <option value="{{$pasta->id}}">{{$pasta->name}} ({{$pasta->prices->price}} Ft)</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-delete text-white" value="Törlés">
+                        </div>
+                    </div>
+                    @if ($errors->any())
+                        @if ($errors->first('fail'))
+                            <div class="alert alert-danger">
+                                <p>Sajnos hiba történt: </p>
+                                <p>{{$errors->first('fail')}}</p>
+                            </div>
+                        @else
+                            <div class="alert alert-success">
+                                <p>{{$errors->first('deleteSuccess')}}</p>
+                            </div>
+                        @endif
+                        
+                    @endif
+                </form>
+            </div>
+
+            <h1 class="text-black p-2 text-center">Tészták és Rizottók módosítása</h1>
+            <div class="card p-2">
+                <div class="card-header">
+                    <h2>Tészta/Rizottó módosítása</h2>                            
+                </div>
+                <form action="{{ route('pasta.edit') }}" method="POST">
+                    @csrf
+                    @method('PATCH')
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="pastaId">Törlendő étel:</label>
+                            <select class="form-control" name="pastaId" id="pastaId">
+                                @foreach ($allPasta as $pasta)
+                                    <option value="{{$pasta->id}}">{{$pasta->name}} ({{$pasta->prices->price}} Ft)</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary text-white" value="Módosítás">
+                        </div>
+                    </div>
+                    @if ($errors->any())
+                        @if ($errors->first('fail'))
+                            <div class="alert alert-danger">
+                                <p>Sajnos hiba történt: </p>
+                                <p>{{$errors->first('fail')}}</p>
+                            </div>
+                        @else
+                            <div class="alert alert-success">
+                                <p>{{$errors->first('deleteSuccess')}}</p>
+                            </div>
+                        @endif
+                        
+                    @endif
                 </form>
             </div>
         </section>

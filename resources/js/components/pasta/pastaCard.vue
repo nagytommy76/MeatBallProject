@@ -12,9 +12,16 @@
             </span> )
             </div>            
             <button class="btn btn-primary">Kell ez a gomb?</button>
-            <div class="alert alert-success" v-if="addedToCart">
-                <p>A termék a kosárban</p>
-            </div>
+            <div v-if="loggedIn == 'Unauthorized'">
+          <div class="alert alert-danger" v-if="addedToCart">
+            <p>Kérem jelentkezzen be!</p>
+          </div>
+        </div>
+        <div v-else>
+          <div class="alert alert-success" v-if="addedToCart">
+            <p>A termék a kosárban</p>
+          </div>
+        </div>
         </div>
         <div class="food_card_footer">
         <!-- <form> -->
@@ -33,6 +40,7 @@ export default {
             addedToCart: false,
             finalPrice: this.pastaPrice,
             selectedIngreds: [],
+            loggedIn: this.$parent.$parent.$parent.cartItems.message,
         }
     },
     props: {

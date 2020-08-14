@@ -2049,7 +2049,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     setExpirationToLocalSt: function setExpirationToLocalSt(accessToken) {
-      this.$parent.checkExpiration();
       var hour = new Date();
       hour.setHours(hour.getHours() + 2);
       var data = {
@@ -2080,6 +2079,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
 //
 //
 //
@@ -2241,37 +2241,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/foodFilter.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/foodFilter.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {};
-  },
-  methods: {}
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pasta/pastaCard.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pasta/pastaCard.vue?vue&type=script&lang=js& ***!
@@ -2317,12 +2286,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       addedToCart: false,
       finalPrice: this.pastaPrice,
-      selectedIngreds: []
+      selectedIngreds: [],
+      loggedIn: this.$parent.$parent.$parent.cartItems.message
     };
   },
   props: {
@@ -2908,8 +2885,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-// import Filtering from './filter';
-// import { mapActions, mapState } from "vuex";
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2928,7 +2910,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       selectedIngreds: [],
       finalPrice: this.pizzaPrice,
       foodType: 'pizza',
-      addedToCart: false
+      addedToCart: false,
+      loggedIn: this.$parent.$parent.$parent.cartItems.message
     };
   },
   created: function created() {},
@@ -2953,12 +2936,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.finalPrice -= ingredPrice;
         var found = this.selectedIngreds.findIndex(function (item) {
           return item == ingredId;
-        }); // console.log(found);
-
+        });
         this.selectedIngreds.splice(found, 1);
       }
     },
-    addCart: function addCart(e) {
+    addCart: function addCart() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
@@ -2986,7 +2968,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                   _this.selectedIngreds = [];
                   _this.finalPrice = _this.pizzaPrice;
-                  console.log(_this.$parent.$parent.$parent.cartItems.message);
 
                   _this.hideSuccessMsg();
 
@@ -39719,7 +39700,7 @@ var render = function() {
                     _c("img", {
                       attrs: {
                         src: "storage/" + item.item.imagePath,
-                        alt: "teszt"
+                        alt: "Kép helye"
                       }
                     })
                   ]),
@@ -39738,20 +39719,20 @@ var render = function() {
                         return _c("div", { key: ingred.ingredId }, [
                           _c(
                             "span",
-                            { attrs: { title: ingred.ingredPrice + " Ft " } },
-                            [_vm._v(_vm._s(ingred.ingredName) + " ")]
+                            { attrs: { title: ingred.ingredPrice + "Ft" } },
+                            [_vm._v(_vm._s(ingred.ingredName))]
                           )
                         ])
                       }),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("item.id: " + _vm._s(item.item.id))]),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("index: " + _vm._s(index))]),
                       _vm._v(" "),
                       _c("h4", { attrs: { title: "Mennyiség: " + item.qty } }, [
                         _vm._v(
                           "Egységár: " + _vm._s(item.oneItemTotalPrice) + " Ft"
                         )
+                      ]),
+                      _vm._v(" "),
+                      _c("h4", [
+                        _vm._v("Mennyiség: " + _vm._s(item.qty) + " db")
                       ])
                     ],
                     2
@@ -39885,6 +39866,8 @@ var render = function() {
           _vm._v(" "),
           _c("h4", [_vm._v("Teszt Link")]),
           _vm._v(" "),
+          _c("h4", [_vm._v("Teszt Link")]),
+          _vm._v(" "),
           _c("h4", [_vm._v("Teszt Link")])
         ],
         1
@@ -39948,11 +39931,21 @@ var render = function() {
         _vm._v("Kell ez a gomb?")
       ]),
       _vm._v(" "),
-      _vm.addedToCart
-        ? _c("div", { staticClass: "alert alert-success" }, [
-            _c("p", [_vm._v("A termék a kosárban")])
+      _vm.loggedIn == "Unauthorized"
+        ? _c("div", [
+            _vm.addedToCart
+              ? _c("div", { staticClass: "alert alert-danger" }, [
+                  _c("p", [_vm._v("Kérem jelentkezzen be!")])
+                ])
+              : _vm._e()
           ])
-        : _vm._e()
+        : _c("div", [
+            _vm.addedToCart
+              ? _c("div", { staticClass: "alert alert-success" }, [
+                  _c("p", [_vm._v("A termék a kosárban")])
+                ])
+              : _vm._e()
+          ])
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "food_card_footer" }, [
@@ -40390,11 +40383,21 @@ var render = function() {
         : _vm._e(),
       _vm._v(" "),
       _c("div", [
-        _vm.addedToCart
-          ? _c("div", { staticClass: "alert alert-success" }, [
-              _c("p", [_vm._v("A termék a kosárban")])
+        _vm.loggedIn == "Unauthorized"
+          ? _c("div", [
+              _vm.addedToCart
+                ? _c("div", { staticClass: "alert alert-danger" }, [
+                    _c("p", [_vm._v("Kérem jelentkezzen be!")])
+                  ])
+                : _vm._e()
             ])
-          : _vm._e()
+          : _c("div", [
+              _vm.addedToCart
+                ? _c("div", { staticClass: "alert alert-success" }, [
+                    _c("p", [_vm._v("A termék a kosárban")])
+                  ])
+                : _vm._e()
+            ])
       ])
     ]),
     _vm._v(" "),
@@ -56838,20 +56841,7 @@ var app = new Vue({
       return state.getCartItems.cartItems;
     }
   })),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(['fetchAccessToken', 'getCartItems']), {
-    checkExpiration: function checkExpiration() {
-      if (this.accessToken != null) {
-        if (Date.parse(this.accessToken.expiration) < Date.now()) {
-          localStorage.removeItem('accessToken');
-          return false;
-        }
-
-        return true;
-      }
-
-      return false;
-    }
-  }),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(['fetchAccessToken', 'getCartItems'])),
   created: function created() {
     this.fetchAccessToken();
 
@@ -56859,8 +56849,7 @@ var app = new Vue({
       this.getCartItems(this.accessToken);
     }
   },
-  mounted: function mounted() {
-    this.checkExpiration();
+  mounted: function mounted() {// this.checkExpiration();
   }
 });
 
@@ -57128,17 +57117,15 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _foodFilter_vue_vue_type_template_id_6bb489fe___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./foodFilter.vue?vue&type=template&id=6bb489fe& */ "./resources/js/components/foodFilter.vue?vue&type=template&id=6bb489fe&");
-/* harmony import */ var _foodFilter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./foodFilter.vue?vue&type=script&lang=js& */ "./resources/js/components/foodFilter.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-
-
+var script = {}
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _foodFilter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
   _foodFilter_vue_vue_type_template_id_6bb489fe___WEBPACK_IMPORTED_MODULE_0__["render"],
   _foodFilter_vue_vue_type_template_id_6bb489fe___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -57152,20 +57139,6 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/components/foodFilter.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/foodFilter.vue?vue&type=script&lang=js&":
-/*!*************************************************************************!*\
-  !*** ./resources/js/components/foodFilter.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_foodFilter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./foodFilter.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/foodFilter.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_foodFilter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -57552,14 +57525,14 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
+  mode: 'history',
   routes: [{
     path: '/pasta',
     component: _components_pasta_pastaFilter__WEBPACK_IMPORTED_MODULE_2__["default"]
   }, {
     path: '/pizza',
     component: _components_pizza_pizzaFilter__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }],
-  mode: 'history'
+  }]
 }));
 
 /***/ }),
@@ -57626,8 +57599,12 @@ __webpack_require__.r(__webpack_exports__);
       var localST = JSON.parse(localStorage.getItem('accessToken'));
 
       if (localST != null) {
-        commit('setAccessToken', localST.accessToken);
-        commit('setExpiration', localST.expiration);
+        if (Date.parse(localST.expiration) < Date.now()) {
+          localStorage.removeItem('accessToken');
+        } else {
+          commit('setAccessToken', localST.accessToken);
+          commit('setExpiration', localST.expiration);
+        }
       }
     }
   }

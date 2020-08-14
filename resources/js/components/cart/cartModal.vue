@@ -12,17 +12,18 @@
                         <div class="card-body" v-for="(item, index) in cartItems.items" :key="item.id">
                             <div class="cart-card">
                                 <div class="image">
-                                    <img v-bind:src="'storage/'+item.item.imagePath" alt="teszt">
+                                    <img v-bind:src="'storage/'+item.item.imagePath" alt="Kép helye">
                                 </div>
                                 <div class="body">
                                     <h3 class="text-center">{{item.item.foodName}}</h3>
                                     <h5>Feltétek:</h5>
-                                    <div v-for="ingred in item.item.plusIngreds" :key="ingred.ingredId">
-                                        <span v-bind:title="ingred.ingredPrice+' Ft '">{{ingred.ingredName}} </span>
+
+                                    <div v-for="ingred of item.item.plusIngreds" :key="ingred.ingredId">
+                                        <span v-bind:title="ingred.ingredPrice + 'Ft'">{{ingred.ingredName}}</span>
                                     </div>
-                                    <p>item.id: {{item.item.id}}</p>
-                                    <p>index: {{index}}</p>
+
                                     <h4 v-bind:title="'Mennyiség: '+item.qty">Egységár: {{item.oneItemTotalPrice}} Ft</h4>
+                                    <h4>Mennyiség: {{item.qty}} db</h4>
                                 </div>
                                 <div class="left">
                                     <form @click="deleteItem">

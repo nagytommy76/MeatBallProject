@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\AdminsControllers;
 
+use Exception;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -24,8 +26,10 @@ class AdminPastaController extends Controller
      */
     public function index()
     {
+        $allPasta = PastaRizotto::all();
         return view('admin.pasta.pasta')->with([
-            'success' => ''
+            'success' => '',
+            'allPasta' => $allPasta,
         ]);
     }
 
@@ -97,9 +101,17 @@ class AdminPastaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit(Request $request)
+    {   
+        $pasta = PastaRizotto::find($request->pastaId);
+        return view('admin.pasta.edit-pasta')->with([
+            'pastaName' => $pasta->name,
+            'pastaId' => $request->pastaId,
+            'pastaType' => $pasta->type,
+            'ingredients' => $pasta->ingredients,
+            'prices' => $pasta->prices,
+            'images' => $pasta->images
+        ]);
     }
 
     /**
@@ -109,7 +121,7 @@ class AdminPastaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
     }
@@ -120,8 +132,25 @@ class AdminPastaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        try {
+            $toDeletePasta = PastaRizotto::find($request->pastaId);
+            $deleteImage = PastaRizottoImage::find($toDeletePasta->image_id);
+            $deletePrice = PastaRizottoPrice::find($toDeletePasta->price_id);
+
+            $toDeletePasta->delete();
+            $deleteImage->delete();
+            $deletePrice->delete();            
+    
+            return redirect('admin/pasta')->withErrors([
+                'deleteSuccess' => "A $toDeletePasta->name törlése sikeres volt"
+            ]);
+        } catch (Exception $ex) {
+            return redirect('admin/pasta')->withErrors([
+                'fail' => $ex->getMessage()
+            ]);
+        }
+       
     }
 }

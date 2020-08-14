@@ -28,8 +28,15 @@
         </div>
       </div>
       <div >
-        <div class="alert alert-success" v-if="addedToCart">
-          <p>A termék a kosárban</p>
+        <div v-if="loggedIn == 'Unauthorized'">
+          <div class="alert alert-danger" v-if="addedToCart">
+            <p>Kérem jelentkezzen be!</p>
+          </div>
+        </div>
+        <div v-else>
+          <div class="alert alert-success" v-if="addedToCart">
+            <p>A termék a kosárban</p>
+          </div>
         </div>
       </div>
     </div>
@@ -45,8 +52,7 @@
 </template>
 
 <script>
-// import Filtering from './filter';
-// import { mapActions, mapState } from "vuex";
+
 import moreIngredients from "./moreIngredients";
 export default {
   components: {
@@ -66,13 +72,14 @@ export default {
       finalPrice: this.pizzaPrice,
       foodType: 'pizza',
       addedToCart: false,
+      loggedIn: this.$parent.$parent.$parent.cartItems.message,
     };
   },
   created() {
 
   },
   computed: {
-
+      
   },
   methods: {
     loadPlusIngreds(){
@@ -92,12 +99,12 @@ export default {
         }else{
           this.finalPrice -= ingredPrice;
           const found = this.selectedIngreds.findIndex(item => item == ingredId)
-          // console.log(found);
+          
           this.selectedIngreds.splice(found,1);
         }
 
     },
-    async addCart(e){
+    async addCart(){
         await fetch(`api/addFoodToCart`,
           {
             method: 'POST',
@@ -118,13 +125,13 @@ export default {
             this.$parent.$parent.$store.commit('setCartItems', result);
             this.selectedIngreds = [];
             this.finalPrice = this.pizzaPrice;
-            console.log(this.$parent.$parent.$parent.cartItems.message);
+            
             this.hideSuccessMsg();
             setTimeout(this.hideSuccessMsg, 3000);
             if(this.moreButton){
               this.moreButton = !this.moreButton;
             }
-        });       
+        });      
     },
     hideSuccessMsg(){
       this.addedToCart = !this.addedToCart;

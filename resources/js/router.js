@@ -6,9 +6,9 @@ import pizzaFilter from './components/pizza/pizzaFilter';
 Vue.use(VueRouter);
 
 export default new VueRouter({
+    mode: 'history',
     routes: [
         { path: '/pasta', component: foodFilter },
         { path: '/pizza', component: pizzaFilter},
     ],
-    mode: 'history',
 })
