@@ -64,9 +64,19 @@
                                 </span>
                                 @enderror
                             </div>
-                            {{-- Kép --}}
-                            
+                            {{-- Kép --}}                           
                         </div>
+                        @if ($errors->has('inputSuccess') || $errors->has('inputFail'))
+                            @if ($errors->first('inputSuccess'))
+                                <div class="alert alert-success">
+                                    {{$errors->first('inputSuccess')}}
+                                </div>
+                            @else
+                                <div class="alert alert-danger">
+                                    {{$errors->first('inputFail')}}
+                                </div>
+                            @endif                                                
+                        @endif
                         <div class="card-footer">
                             <div class="form-group">
                                 <input class="btn btn-confirm" type="submit" value="Bevitel">
@@ -100,6 +110,17 @@
                                 @enderror
                             </div>
                         </div>
+                        @if ($errors->has('ingredInputSuccess') || $errors->has('ingredInputFail'))
+                            @if ($errors->first('ingredInputSuccess'))
+                                <div class="alert alert-success">
+                                    {{$errors->first('ingredInputSuccess')}}
+                                </div>
+                            @else
+                                <div class="alert alert-danger">
+                                    {{$errors->first('ingredInputFail')}}
+                                </div>
+                            @endif                                                
+                        @endif
                         <div class="card-footer">
                             <div class="form-group">
                                 <input type="submit" class="btn btn-confirm" value="Feltét Bevitel">
@@ -129,8 +150,16 @@
                                 <div class="form-group">
                                     <input type="submit" class="btn btn-delete text-white" value="Pizza Törlése">
                                 </div>
-                                @if (isset($success))
-                                   <h3>{{$success}}</h3> 
+                                @if ($errors->has('deleteSuccess') || $errors->has('deleteFail'))
+                                    @if ($errors->first('deleteSuccess'))
+                                        <div class="alert alert-success">
+                                            {{$errors->first('deleteSuccess')}}
+                                        </div>
+                                    @else
+                                        <div class="alert alert-danger">
+                                            {{$errors->first('deleteFail')}}
+                                        </div>
+                                    @endif                                                
                                 @endif
                             </div>
                         </form>

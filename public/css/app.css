@@ -768,6 +768,19 @@ body {
   justify-self: start;
 }
 
+.card-content .card-body .admin-image {
+  width: 500px;
+  height: 350px;
+  margin: auto;
+}
+
+.card-content .card-body .admin-image img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 @media (max-width: 720px) {
   .card-container {
     width: 100vw;
@@ -781,6 +794,11 @@ body {
   .card-container .card-content .card {
     min-width: 100%;
     margin: 5rem 0;
+  }
+
+  .card-container .card-content .card-body .admin-image {
+    width: 85%;
+    height: 350px;
   }
 }
 

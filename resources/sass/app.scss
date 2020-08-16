@@ -2,8 +2,6 @@
 // @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Variables
-// @import 'variables';
-@import 'admin';
 @import 'variables';
 @import 'utility';
 
@@ -146,6 +144,17 @@
                         justify-self: start;
                     }             
                 }
+
+                .admin-image{
+                    width: 500px;
+                    height: 350px;
+                    margin: auto;
+                    img{
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                    }
+                }
             }
         }
     }
@@ -160,6 +169,12 @@
             .card{
                 min-width: 100%;
                 margin: 5rem 0;
+                &-body{
+                    .admin-image{
+                        width: 85%;
+                        height: 350px;
+                    }
+                }
             }
         }
     }

@@ -32,14 +32,14 @@ Route::prefix('admin')->group(function() {
 
     // Modify Pizza
     Route::patch('/showModifyPizza', 'AdminsControllers\AdminPizzaController@showModifyPizza')->name('admin.showModifyPizza');
-    Route::patch('/modifyPizza', 'AdminsControllers\AdminPizzaController@modifyPizza')->name('admin.modifyPizza');
+    Route::patch('/{id}/modifyPizza', 'AdminsControllers\AdminPizzaController@modifyPizza')->name('admin.modifyPizza');
 
-    // Route::resource('/pasta', 'AdminsControllers\AdminPastaController');
+
     Route::get('/pasta', 'AdminsControllers\AdminPastaController@index')->name('pasta.index');
     Route::post('/pasta/store', 'AdminsControllers\AdminPastaController@store')->name('pasta.store');
 
     Route::patch('/pasta/edit', 'AdminsControllers\AdminPastaController@edit')->name('pasta.edit');
-    Route::patch('/pasta/update', 'AdminsControllers\AdminPastaController@update')->name('pasta.update');
+    Route::patch('/pasta/{id}/update', 'AdminsControllers\AdminPastaController@update')->name('pasta.update');
 
 
     Route::delete('/pasta/delete', 'AdminsControllers\AdminPastaController@destroy')->name('pasta.destroy');

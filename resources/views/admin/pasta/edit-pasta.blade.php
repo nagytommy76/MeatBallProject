@@ -5,14 +5,14 @@
     <h1 class="text-black p-2 text-center">A(z) {{$pastaName}} étel módosítása</h1>
     <section class="card-content card-content-admin">
         <div class="card p-2">
-            <form enctype="multipart/form-data" method="POST" action="{{ route('pasta.update') }}">
+            <form enctype="multipart/form-data" method="POST" action="{{ route('pasta.update', $pastaId) }}">
             @csrf
             @method('PATCH')
             <div class="card-header">
                 <h2>{{ $pastaName }} módosítása</h2>                            
             </div>
             <div class="card-body">
-                <div class="form-group row">
+                <div class="form-group">
                     <div class="col">
                         <label for="name">Étel neve:</label>
                         <input class="form-control" type="text" name="name" id="name" value="{{$pastaName}}">
@@ -44,15 +44,15 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    {{-- <div class="col">
+                    <div class="col">
                         <label for="image">Kép feltöltése</label>
-                        <input type="file" value="{{asset("storage/$images->image_path")}}" name="image" id="image">
+                        <input type="file" name="image" id="image">
                         @error('image')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                    </div> --}}
+                    </div>
                         <div class="col">
                             <label for="type">Étel típus:</label>
                             <select class="form-control" name="type" id="type">
@@ -64,6 +64,14 @@
                                 @endif>Tészta</option>
                             </select>
                         </div>                            
+                    </div>
+                    <div class="form-group">
+                        <h3 class="py-2">Jelenlegi kép</h3>
+                        {{-- <div class="col"> --}}
+                            <div class="admin-image">
+                                <img src="{{asset("storage/$images->image_path")}}" alt="Kép">
+                            </div>                            
+                        {{-- </div> --}}
                     </div>
                 </div>
                 <div class="card-footer">

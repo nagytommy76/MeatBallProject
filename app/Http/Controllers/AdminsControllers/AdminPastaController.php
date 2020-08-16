@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 use App\Model\Pasta\PastaRizotto;
 use App\Model\Pasta\PastaRizottoImage;
@@ -28,19 +29,8 @@ class AdminPastaController extends Controller
     {
         $allPasta = PastaRizotto::all();
         return view('admin.pasta.pasta')->with([
-            'success' => '',
             'allPasta' => $allPasta,
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -61,38 +51,32 @@ class AdminPastaController extends Controller
             return redirect('admin/pasta')->withErrors($valid)->withInput($request->all());
         }
         
-        // die(var_dump($pasta->types));
-        $price = new PastaRizottoPrice;
-        $price->price = $request->price;
-        $price->save();
+        try {
+            $price = new PastaRizottoPrice;
+            $price->price = $request->price;
+            $price->save();
 
-        $path = $request->file('image')->store('pasta');
-        $image = new PastaRizottoImage;
-        $image->image_path = $path;
-        $image->save();
+            $path = $request->file('image')->store('pasta');
+            $image = new PastaRizottoImage;
+            $image->image_path = $path;
+            $image->save();
 
-        $pasta = new PastaRizotto;
-        $pasta->name = $request->name;
-        $pasta->ingredients = $request->ingredient;
-        $pasta->image_id = $image->id;
-        $pasta->price_id = $price->id;
-        $pasta->type = $request->type;
-        $pasta->save();
+            $pasta = new PastaRizotto;
+            $pasta->name = $request->name;
+            $pasta->ingredients = $request->ingredient;
+            $pasta->image_id = $image->id;
+            $pasta->price_id = $price->id;
+            $pasta->type = $request->type;
+            $pasta->save();
 
-        return redirect('admin/pasta')->with([
-            'success' => "A(z) $pasta->name bevitele sikeres volt!"
-        ]);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+            return redirect('admin/pasta')->withErrors([
+                'success' => "A(z) $pasta->name bevitele sikeres volt!"
+            ]);
+        } catch (Exception $ex) {
+            return redirect('admin/pasta')->withErrors([
+                'inputFail' => "A(z) $pasta->name bevitele sikertelen volt Hiba: ".$ex->getMessage()
+            ]);
+        }    
     }
 
     /**
@@ -121,9 +105,48 @@ class AdminPastaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update($id, Request $request)
     {
-        //
+        // die(var_dump($request->file('image')));
+        try {
+            $pasta = PastaRizotto::find($id);
+
+            $pasta->name = $request->name;
+            $pasta->type = $request->type;
+            $pasta->ingredients = $request->ingredient;
+
+            if ($request->file('image') != null) {
+                $pasta->images()->delete();
+                $newImage = new PastaRizottoImage;
+                $newImage->image_path = $request->file('image')->store('pasta');
+
+                $oldImage = PastaRizottoImage::find($pasta->image_id);
+                
+                $newImage->save();
+                
+                $pasta->image_id = $newImage->id;
+                
+                Storage::delete($oldImage->image_path);
+                $oldImage->delete();
+            }
+
+            $pasta->save();
+
+            $prices = PastaRizottoPrice::where('id', '=', $pasta->price_id)->first();
+            $prices->price = $request->price;
+            
+            $prices->save();
+
+            return redirect('admin/pasta')->withErrors([
+                'modifySuccess' => "A(z) $pasta->name módosítása sikeres volt"
+            ]);            
+        } catch ( Exception $ex ) {
+            return redirect('admin/pasta')->withErrors([
+                'modifyFail' => $ex->getMessage()
+            ]);
+        }
+        
+        
     }
 
     /**
@@ -138,6 +161,8 @@ class AdminPastaController extends Controller
             $toDeletePasta = PastaRizotto::find($request->pastaId);
             $deleteImage = PastaRizottoImage::find($toDeletePasta->image_id);
             $deletePrice = PastaRizottoPrice::find($toDeletePasta->price_id);
+
+            Storage::delete($deleteImage->image_path);
 
             $toDeletePasta->delete();
             $deleteImage->delete();

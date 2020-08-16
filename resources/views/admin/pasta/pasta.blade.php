@@ -61,13 +61,18 @@
                             </div>                            
                         </div>
                     </div>
-                    @if ($errors->first('success'))
-                        <div class="alert alert-success">
-                            {{$errors->first('success')}}
-                        </div>
+                    @if ($errors->has('success') || $errors->has('inputFail'))
+                        @if ($errors->first('success'))
+                            <div class="alert alert-success">
+                                {{$errors->first('success')}}
+                            </div>
+                        @else
+                            <div class="alert alert-danger">
+                                {{$errors->first('inputFail')}}
+                            </div>
+                        @endif                                                
                     @endif
-                   
-                </div>
+                                  
                 <div class="card-footer">
                     <div class="form-group">
                         <input type="submit" class="btn btn-confirm" value="Bevitel">
@@ -99,7 +104,7 @@
                             <input type="submit" class="btn btn-delete text-white" value="Törlés">
                         </div>
                     </div>
-                    @if ($errors->any())
+                    @if ($errors->has('fail') || $errors->has('deleteSuccess'))
                         @if ($errors->first('fail'))
                             <div class="alert alert-danger">
                                 <p>Sajnos hiba történt: </p>
@@ -138,18 +143,17 @@
                             <input type="submit" class="btn btn-primary text-white" value="Módosítás">
                         </div>
                     </div>
-                    @if ($errors->any())
-                        @if ($errors->first('fail'))
+                    @if ($errors->has('modifyFail') || $errors->has('modifySuccess'))
+                        @if ($errors->first('modifyFail'))
                             <div class="alert alert-danger">
                                 <p>Sajnos hiba történt: </p>
-                                <p>{{$errors->first('fail')}}</p>
+                                <p>{{$errors->first('modifyFail')}}</p>
                             </div>
                         @else
                             <div class="alert alert-success">
-                                <p>{{$errors->first('deleteSuccess')}}</p>
+                                <p>{{$errors->first('modifySuccess')}}</p>
                             </div>
                         @endif
-                        
                     @endif
                 </form>
             </div>
