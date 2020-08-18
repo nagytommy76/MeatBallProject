@@ -13,4 +13,12 @@ class PizzaIngredients extends Model
     protected $hidden = [
         'pivot'
     ];
+
+    protected $fillable = [
+        'ingredient'
+    ];
+
+    public function ingredPrices(){
+        return $this->belongsTo('App\Model\Foods\PizzaIngredPrices', 'id', 'ingredient_id');
+    }
 }

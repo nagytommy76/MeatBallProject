@@ -5,6 +5,7 @@ namespace App\Http\Controllers\AdminsControllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Exception;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
@@ -16,7 +17,7 @@ use App\Model\Foods\PizzaImages;
 use App\Model\Foods\PizzaPrice;
 use App\Model\Foods\PizzaIngredPrices;
 
-class AdminPizzaController extends Controller
+class AdminPizzaController extends AdminBaseFoodController
 {
     public function __construct(){
         $this->middleware('auth:admin');
@@ -26,6 +27,7 @@ class AdminPizzaController extends Controller
         $allPizza = Pizzas::all();
         // All Ingredients
         $ingredients = PizzaIngredients::orderBy('ingredient', 'asc')->get();
+        // die(var_dump($ingredients[0]->ingredPrices));
         return view('admin.pizza.pizza')->with([
             'allPizza' => $allPizza,
             'ingredients' => $ingredients,
@@ -34,41 +36,32 @@ class AdminPizzaController extends Controller
 
     public function foodInput(Request $request){ 
         $validator = Validator::make($request->all(), [
-            'Pname' => ['required','unique:pizzas,name'],
-            'Pimage' => ['image','required','max:1999'],
-            'Pprice' => ['required']
+            'name' => ['required','unique:pizzas,name'],
+            'image' => ['image','required','max:1999'],
+            'price' => ['required']
         ]);
 
         if ($validator->fails()) {
             return redirect('admin/pizza')->withErrors($validator)->withInput($request->all());
         }
         try {
-            //Pizza Price
-            $pPrice = new PizzaPrice;
-            $pPrice->price = $request->Pprice;
-            $pPrice->save();
-            // Save the img
-            $path = $request->file('Pimage')->store('pizza');
-            
-            // Pizza Images
-            $pImage = new PizzaImages;
-            $pImage->image_path = $path;
-            $pImage->save();
-
-            // Insert Pizzas
             $pizza = new Pizzas;
-            $pizza->name = $request->Pname;
-            $pizza->image_id = $pImage->id;
-            $pizza->price_id = $pPrice->id;
-            $pizza->save();
+            $pizza->name = $request->name;
+            
+            $imageId = $pizza->images()->create([
+                'image_path' => $request->file('image')->store('pizza')
+            ]);
 
-            // Save ingredients
-            foreach ($request->ingredType as $ingred) {
-                $ingreds = new PivotPI;
-                $ingreds->ingredient_id = $ingred;
-                $ingreds->pizza_id = $pizza->id;
-                $ingreds->save();
-            }         
+            $priceId = $pizza->prices()->create([
+                'price' => $request->price
+            ]);
+            $pizza->image_id = $imageId->id;
+            $pizza->price_id = $priceId->id;
+            $pizza->save();
+            $pizza->ingredients()->attach($request->ingredType, [
+                'pizza_id' => $pizza->id
+            ]);
+
             return redirect('admin/pizza')->withErrors([
                 'inputSuccess' => "A(z) $pizza->name bevitele sikeres volt!"
             ]);
@@ -92,13 +85,14 @@ class AdminPizzaController extends Controller
         }
 
         try {
-            $ing = new PizzaIngredients;
-            $ing->ingredient = $request->ingredient;
-            $ing->save();
-            // die(var_dump($ing));
             $ingredPrice = new PizzaIngredPrices;
-            $ingredPrice->ingredient_id = $ing->id;
+
             $ingredPrice->price = $request->ingred_price;
+            
+            $ingredId = $ingredPrice->ingredients()->create([
+                'ingredient' => $request->ingredient
+            ]);
+            $ingredPrice->ingredient_id = $ingredId->id;
             $ingredPrice->save();
 
             return redirect('admin/pizza')->withErrors([
@@ -114,17 +108,10 @@ class AdminPizzaController extends Controller
     public function deletePizza(Request $request){
         try {
             $pizzaToDelete = Pizzas::find($request->pizzaDelete);
-            $imageToDelete = PizzaImages::find($pizzaToDelete->image_id);
-            $pizzaPriceToDelete = PizzaPrice::find($pizzaToDelete->price_id);
-            $pivotToDelete = PivotPI::where('pizza_id', '=', $pizzaToDelete->id)->get();
-
-            foreach ($pivotToDelete as $pivot) {
-                $pivot->delete();
-            }
+            Storage::delete($pizzaToDelete->images->image_path);
+            $pizzaToDelete->images()->delete();
+            $pizzaToDelete->prices()->delete();
             $pizzaToDelete->delete();
-            $pizzaPriceToDelete->delete();
-            Storage::delete($imageToDelete->image_path);
-            $imageToDelete->delete();
 
             return redirect('admin/pizza')->withErrors([
                 'deleteSuccess' => "A $pizzaToDelete->name pizza törlése sikeres volt"
@@ -134,6 +121,20 @@ class AdminPizzaController extends Controller
                 'deleteFail' => $ex->getMessage()
             ]);
         }  
+    }
+
+    public function deleteIngred(Request $request){
+        try {
+            PizzaIngredients::find($request->ingred)->delete();
+            return redirect('admin/pizza')->withErrors([
+                'deleteIngredSuccess' => "A törlés sikeres volt"
+            ]);
+        } catch (Exception $ex) {
+            return redirect('admin/pizza')->withErrors([
+                'deleteIngredFail' => $ex->getMessage()
+            ]);
+        }
+        
     }
 
     public function showModifyPizza(Request $request){
@@ -156,6 +157,7 @@ class AdminPizzaController extends Controller
 
     public function modifyPizza($id, Request $request){
         try {
+            // $this->updateFood(Pizzas::class);
             $pizza = Pizzas::find($id);
 
             $pizza->name = $request->Pname;

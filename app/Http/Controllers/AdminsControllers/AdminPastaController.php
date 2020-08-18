@@ -14,7 +14,7 @@ use App\Model\Pasta\PastaRizotto;
 use App\Model\Pasta\PastaRizottoImage;
 use App\Model\Pasta\PastaRizottoPrice;
 
-class AdminPastaController extends Controller
+class AdminPastaController extends AdminBaseFoodController
 {
     public function __construct(){
         $this->middleware('auth:admin');
@@ -52,21 +52,21 @@ class AdminPastaController extends Controller
         }
         
         try {
-            $price = new PastaRizottoPrice;
-            $price->price = $request->price;
-            $price->save();
-
-            $path = $request->file('image')->store('pasta');
-            $image = new PastaRizottoImage;
-            $image->image_path = $path;
-            $image->save();
-
             $pasta = new PastaRizotto;
             $pasta->name = $request->name;
             $pasta->ingredients = $request->ingredient;
-            $pasta->image_id = $image->id;
-            $pasta->price_id = $price->id;
             $pasta->type = $request->type;
+
+            $imageId = $pasta->images()->create([
+                'image_path' => $request->file('image')->store('pasta')
+            ]);
+
+            $priceId = $pasta->prices()->create([
+                'price' => $request->price
+            ]);
+            $pasta->image_id = $imageId->id;
+            $pasta->price_id = $priceId->id;
+            
             $pasta->save();
 
             return redirect('admin/pasta')->withErrors([
@@ -108,6 +108,7 @@ class AdminPastaController extends Controller
     public function update($id, Request $request)
     {
         try {
+            // $this->updateFood(PastaRizotto::class);
             $pasta = PastaRizotto::find($id);
 
             $pasta->name = $request->name;

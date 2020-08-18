@@ -9,4 +9,8 @@ class PizzaPrice extends Model
     protected $table = 'pizza_price';
 
     public $timestamps = false;
+
+    protected $fillable = [
+        'price'
+    ];
 }

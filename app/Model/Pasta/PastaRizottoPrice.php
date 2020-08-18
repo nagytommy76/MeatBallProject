@@ -8,4 +8,8 @@ class PastaRizottoPrice extends Model
 {
     protected $table = 'pasta_and_rizotto_price';
     public $timestamps = false;
+
+    protected $fillable = [
+        'price'
+    ];
 }

@@ -30,10 +30,16 @@ Route::prefix('admin')->group(function() {
     // Delete Pizza
     Route::delete('/deletePizza', 'AdminsControllers\AdminPizzaController@deletePizza')->name('admin.deletePizza');
 
+    Route::delete('/deleteIngred', 'AdminsControllers\AdminPizzaController@deleteIngred')->name('admin.deleteIngred');
+
+
+
     // Modify Pizza
     Route::patch('/showModifyPizza', 'AdminsControllers\AdminPizzaController@showModifyPizza')->name('admin.showModifyPizza');
     Route::patch('/{id}/modifyPizza', 'AdminsControllers\AdminPizzaController@modifyPizza')->name('admin.modifyPizza');
 
+
+    // PASTA -------------------------------------------------------------
 
     Route::get('/pasta', 'AdminsControllers\AdminPastaController@index')->name('pasta.index');
     Route::post('/pasta/store', 'AdminsControllers\AdminPastaController@store')->name('pasta.store');

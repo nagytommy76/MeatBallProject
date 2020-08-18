@@ -15,9 +15,9 @@
                             <div class="form-group row">
                                 <div class="col">
 
-                                    <label for="Pname">Pizza megnevezése</label>
-                                    <input class="@error('Pname') is-invalid @enderror form-control " type="text" name="Pname" id="Pname">
-                                    @error('Pname')
+                                    <label for="name">Pizza megnevezése</label>
+                                    <input class="@error('name') is-invalid @enderror form-control " type="text" name="name" id="name">
+                                    @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -27,9 +27,9 @@
 
                                 </div>
                                 <div class="col">
-                                    <label for="Pprice">Ár:</label>
-                                    <input class="form-control" type="number" name="Pprice" id="Pprice">  
-                                    @error('Pprice')
+                                    <label for="price">Ár:</label>
+                                    <input class="form-control" type="number" name="price" id="price">  
+                                    @error('price')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -56,9 +56,9 @@
                                 </div>
                             
                             <div class="form-group">
-                                <label for="Pimage">Kép Feltöltése</label>
-                                <input class="form-control" type="file" name="Pimage">
-                                @error('Pimage')
+                                <label for="image">Kép Feltöltése</label>
+                                <input class="form-control" type="file" name="image">
+                                @error('image')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -127,7 +127,44 @@
                             </div>
                         </div>
                         </form>
+
+                        <form action="{{ route('admin.deleteIngred') }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <div class="card-header">
+                                <h3>Feltét törlése</h3>
+                            </div>
+                            <div class="card-body">                            
+                                <div class="form-group">
+                                    <label for="ingred">Feltét törlése</label>
+                                    <select class="form-control" name="ingred" id="ingred">
+                                        @foreach ($ingredients as $ingred)
+                                            <option value="{{$ingred->id}}">
+                                                {{$ingred->ingredient}} ({{optional($ingred->ingredPrices)->price}}) Ft
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                @if ($errors->has('deleteIngredSuccess') || $errors->has('deleteIngredFail'))
+                                    @if ($errors->first('deleteIngredSuccess'))
+                                        <div class="alert alert-success">
+                                            {{$errors->first('deleteIngredSuccess')}}
+                                        </div>
+                                    @else
+                                        <div class="alert alert-danger">
+                                            {{$errors->first('deleteIngredFail')}}
+                                        </div>
+                                    @endif                                                
+                                @endif
+                                <div class="card-footer">
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-delete text-white" value="Feltét Törlése">
+                                    </div>
+                                </div>                            
+                            </div>
+                        </form>
                     </div>
+                        
                     {{-- DELETE PIZZA --}}
                     <div class="card m-2 p-2">
                         <div class="card-header">

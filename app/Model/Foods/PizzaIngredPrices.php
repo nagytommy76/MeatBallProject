@@ -14,6 +14,10 @@ class PizzaIngredPrices extends Model
         'price' => 'integer'
     ];
 
+    protected $fillable = [
+        'price'
+    ];
+
     public function ingredients(){
         return $this->hasOne('App\Model\Foods\PizzaIngredients', 'id', 'ingredient_id');
     }

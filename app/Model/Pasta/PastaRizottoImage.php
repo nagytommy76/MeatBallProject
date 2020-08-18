@@ -8,4 +8,8 @@ class PastaRizottoImage extends Model
 {
     protected $table = 'pasta_and_rizotto_images';
     public $timestamps = false;
+
+    protected $fillable = [
+        'image_path'
+    ];
 }
