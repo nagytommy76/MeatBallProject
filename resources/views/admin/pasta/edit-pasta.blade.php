@@ -67,11 +67,9 @@
                     </div>
                     <div class="form-group">
                         <h3 class="py-2">Jelenlegi kép</h3>
-                        {{-- <div class="col"> --}}
-                            <div class="admin-image">
-                                <img src="{{asset("storage/$images->image_path")}}" alt="Kép">
-                            </div>                            
-                        {{-- </div> --}}
+                        <div class="admin-image">
+                            <img src="{{asset("storage/$images->image_path")}}" alt="Kép">
+                        </div>                            
                     </div>
                 </div>
                 <div class="card-footer">

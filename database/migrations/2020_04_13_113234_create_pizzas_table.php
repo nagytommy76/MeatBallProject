@@ -18,8 +18,6 @@ class CreatePizzasTable extends Migration
             $table->string('name');
             $table->unsignedBigInteger('image_id');
             $table->unsignedBigInteger('price_id');
-            // $table->foreign('image_id')->references('id')->on('pizza_images');
-            // $table->foreign('price_id')->references('id')->on('pizza_price');
         });
     }
 

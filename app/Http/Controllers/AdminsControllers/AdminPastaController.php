@@ -107,7 +107,6 @@ class AdminPastaController extends Controller
      */
     public function update($id, Request $request)
     {
-        // die(var_dump($request->file('image')));
         try {
             $pasta = PastaRizotto::find($id);
 

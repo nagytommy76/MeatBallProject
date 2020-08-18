@@ -17,7 +17,7 @@ class CreateIngredientPriceTable extends Migration
             $table->id();
             $table->unsignedBigInteger('ingredient_id');
             $table->decimal('price', 15,0);
-            $table->foreign('ingredient_id')->references('id')->on('pizza_ingredients');
+            $table->foreign('ingredient_id')->references('id')->on('pizza_ingredients')->onDelete('cascade');
         });
     }
 

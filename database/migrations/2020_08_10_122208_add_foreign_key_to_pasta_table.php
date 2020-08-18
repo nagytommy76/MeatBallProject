@@ -16,8 +16,8 @@ class AddForeignKeyToPastaTable extends Migration
         Schema::table('pasta_and_rizotto', function (Blueprint $table) {
             $table->unsignedBigInteger('image_id');
             $table->unsignedBigInteger('price_id');
-            $table->foreign('image_id')->references('id')->on('pasta_and_rizotto_images');
-            $table->foreign('price_id')->references('id')->on('pasta_and_rizotto_price');
+            $table->foreign('image_id')->references('id')->on('pasta_and_rizotto_images')->onDelete('cascade');
+            $table->foreign('price_id')->references('id')->on('pasta_and_rizotto_price')->onDelete('cascade');
         });
     }
 

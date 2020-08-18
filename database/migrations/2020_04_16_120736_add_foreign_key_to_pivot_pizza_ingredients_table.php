@@ -14,8 +14,8 @@ class AddForeignKeyToPivotPizzaIngredientsTable extends Migration
     public function up()
     {
         Schema::table('pivot_pizza_ingredients', function (Blueprint $table) {
-            $table->foreign('pizza_id')->references('id')->on('pizzas');
-            $table->foreign('ingredient_id')->references('id')->on('pizza_ingredients');
+            $table->foreign('pizza_id')->references('id')->on('pizzas')->onDelete('cascade');
+            $table->foreign('ingredient_id')->references('id')->on('pizza_ingredients')->onDelete('cascade');
         });
     }
 

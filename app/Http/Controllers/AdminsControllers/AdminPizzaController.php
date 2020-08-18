@@ -133,11 +133,7 @@ class AdminPizzaController extends Controller
             return redirect('admin/pizza')->withErrors([
                 'deleteFail' => $ex->getMessage()
             ]);
-        }
-        
-        
-
-        
+        }  
     }
 
     public function showModifyPizza(Request $request){
@@ -147,40 +143,49 @@ class AdminPizzaController extends Controller
         foreach ($pizza->ingredients as $key => $value) {
             array_push($checkedIngreds, $value->id);
         }
-        $data = [
+
+        return view('admin.pizza.modify-pizza')->with([
             'pizzaId' => $pizza->id,
             'pizzaName' => $pizza->name,
             'pizzaImage' => $pizza->images,
             'pizzaIngreds' => $checkedIngreds,
             'pizzaPrice' => $pizza->prices,
             'allIngred' => PizzaIngredients::orderBy('ingredient', 'asc')->get(),
-        ];
-        return view('admin.pizza.modify-pizza')->with(
-            'data', $data
-        );
+        ]);
     }
 
     public function modifyPizza($id, Request $request){
-        // var_dump($request->all());
         try {
             $pizza = Pizzas::find($id);
-            $price = PizzaPrice::find($pizza->price_id);
 
             $pizza->name = $request->Pname;
-            $pizza->prices->price = $request->Pprice;
-            $ingreds = PivotPI::where('pizza_id', '=', $id)->get();
-            foreach ($ingreds as $value) {
-               echo "$value <br/>";
+            $pizza->ingredients()->detach();
+            foreach ($request->ingredType as $value) {
+                $pizza->ingredients()->attach($value);
             }
+
+            if ($request->hasFile('image')) {
+                Storage::delete(PizzaImages::find($pizza->image_id)->image_path);
+
+                $pizza->images()->update([
+                    'image_path' => $request->file('image')->store('pizza')
+                ]);
+            }
+
             
-            
-            // foreach ($pizza->ingredients as $value) {
-            //     echo "$value <br/>";
-            // }
-        } catch (Exception $ex ) {
-            
+            $pizza->save();
+            $price = PizzaPrice::find($pizza->price_id);
+            $price->price = $request->Pprice;
+            $price->save();
+
+            return redirect('admin/pizza')->withErrors([
+                'modifySuccess' => "A(z) $pizza->name módosítása sikeres volt!"
+            ]);;
+
+        }catch(Exception $ex) {
+            return redirect('admin/pizza')->withErrors([
+                'modifyFail' => $ex->getMessage()
+            ]);;
         }
     }
-
-
 }

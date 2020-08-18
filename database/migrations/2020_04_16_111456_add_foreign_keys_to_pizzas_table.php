@@ -14,8 +14,8 @@ class AddForeignKeysToPizzasTable extends Migration
     public function up()
     {
         Schema::table('pizzas', function (Blueprint $table) {
-            $table->foreign('image_id')->references('id')->on('pizza_images');
-            $table->foreign('price_id')->references('id')->on('pizza_price');
+            $table->foreign('image_id')->references('id')->on('pizza_images')->onDelete('cascade');
+            $table->foreign('price_id')->references('id')->on('pizza_price')->onDelete('cascade');
         });
     }
 

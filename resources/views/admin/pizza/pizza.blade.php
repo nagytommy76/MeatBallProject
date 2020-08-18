@@ -139,7 +139,7 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="pizzaDelete"><p>Válassz egy törlendő pizzát</p></label>
-                                    <select name="pizzaDelete" class="form-control">
+                                    <select name="pizzaDelete" id="pizzaDelete" class="form-control">
                                         @foreach ($allPizza as $pizza)
                                             <option value="{{$pizza->id}}">{{$pizza->name}}</option>
                                         @endforeach
@@ -169,8 +169,8 @@
                             {{-- MODIFY --}}
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="pizzaDelete"><p>Válassz egy módosítani kívánt pizzát</p></label>
-                                    <select name="pizzaModify" class="form-control">
+                                    <label for="pizzaModify"><p>Válassz egy módosítani kívánt pizzát</p></label>
+                                    <select name="pizzaModify" id="pizzaModify" class="form-control">
                                         @foreach ($allPizza as $pizza)
                                             <option value="{{$pizza->id}}">{{$pizza->name}}</option>
                                         @endforeach
@@ -181,8 +181,16 @@
                                 <div class="form-group">
                                     <input type="submit" class="btn btn-modify text-white" value="Pizza Módosítása">
                                 </div>
-                                @if (isset($success))
-                                   <h3>{{$success}}</h3> 
+                                @if ($errors->has('modifySuccess') || $errors->has('modifyFail'))
+                                    @if ($errors->first('modifySuccess'))
+                                        <div class="alert alert-success">
+                                            {{$errors->first('modifySuccess')}}
+                                        </div>
+                                    @else
+                                        <div class="alert alert-danger">
+                                            {{$errors->first('modifyFail')}}
+                                        </div>
+                                    @endif                                                
                                 @endif
                             </div>
                         </form>
