@@ -12,12 +12,12 @@
                 <div class="card-body">
                     <div class="form-group row">
                         <div class="col">
-                            <label for="Pname">Pizza Neve:</label>
-                            <input class="form-control" type="text" name="Pname" id="Pname" value="{{$pizzaName}}">
+                            <label for="name">Pizza Neve:</label>
+                            <input class="form-control" type="text" name="name" id="name" value="{{$pizzaName}}">
                         </div>
                         <div class="col">
-                            <label for="Pprice">Ár: (Ft)</label>
-                            <input type="number" min="0" name="Pprice" id="Pprice" class="form-control" value="{{$pizzaPrice->price}}">
+                            <label for="price">Ár: (Ft)</label>
+                            <input type="number" min="0" name="price" id="price" class="form-control" value="{{$pizzaPrice->price}}">
                         </div>
                     </div>
                     <div class="form-group">
@@ -48,6 +48,7 @@
                 </div>
                 <div class="card-footer">
                     <div class="form-group">
+                        <input type="hidden" name="foodType" value="pizza">
                         <input type="submit" class="btn btn-primary text-white" value="Módosítás">
                     </div>
                 </div>

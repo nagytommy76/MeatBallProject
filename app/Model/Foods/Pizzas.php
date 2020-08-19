@@ -20,4 +20,13 @@ class Pizzas extends Model
     public function prices(){
         return $this->belongsTo('App\Model\Foods\PizzaPrice','price_id','id')->orderBy('price','ASC');
     }
+
+    public static function boot() {
+        parent::boot();
+
+        static::deleting(function($pizza) {
+            $pizza->images()->delete();
+            $pizza->prices()->delete();             
+        });
+    }
 }

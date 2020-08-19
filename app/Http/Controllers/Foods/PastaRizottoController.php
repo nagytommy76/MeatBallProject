@@ -10,11 +10,8 @@ use App\Http\Resources\PastaRizottoResource;
 use App\Model\Pasta\PastaRizotto;
 use App\Model\Pasta\PastaRizottoPrice;
 
-use App\Http\Controllers\Traits\FoodControllerHelper;
-
 class PastaRizottoController extends BaseFoodController
 {
-    use FoodControllerHelper;
 
     public function getAllPasta(){
         return self::getAllFood(PastaRizottoResource::class, PastaRizotto::class);

@@ -19,15 +19,10 @@ use App\Model\Foods\PizzaIngredPrices;
 
 class AdminPizzaController extends AdminBaseFoodController
 {
-    public function __construct(){
-        $this->middleware('auth:admin');
-    }
-
     public function index(){
         $allPizza = Pizzas::all();
-        // All Ingredients
         $ingredients = PizzaIngredients::orderBy('ingredient', 'asc')->get();
-        // die(var_dump($ingredients[0]->ingredPrices));
+        
         return view('admin.pizza.pizza')->with([
             'allPizza' => $allPizza,
             'ingredients' => $ingredients,
@@ -107,14 +102,9 @@ class AdminPizzaController extends AdminBaseFoodController
 
     public function deletePizza(Request $request){
         try {
-            $pizzaToDelete = Pizzas::find($request->pizzaDelete);
-            Storage::delete($pizzaToDelete->images->image_path);
-            $pizzaToDelete->images()->delete();
-            $pizzaToDelete->prices()->delete();
-            $pizzaToDelete->delete();
-
+            $pizzaName = $this->destroyFood($request, Pizzas::class);
             return redirect('admin/pizza')->withErrors([
-                'deleteSuccess' => "A $pizzaToDelete->name pizza törlése sikeres volt"
+                'deleteSuccess' => "A $pizzaName pizza törlése sikeres volt"
             ]);
         } catch (Exception $ex) {
             return redirect('admin/pizza')->withErrors([
@@ -157,37 +147,28 @@ class AdminPizzaController extends AdminBaseFoodController
 
     public function modifyPizza($id, Request $request){
         try {
-            // $this->updateFood(Pizzas::class);
             $pizza = Pizzas::find($id);
+            $pizza->name = $request->name;
 
-            $pizza->name = $request->Pname;
-            $pizza->ingredients()->detach();
-            foreach ($request->ingredType as $value) {
-                $pizza->ingredients()->attach($value);
-            }
+            $pizza->ingredients()->sync($request->ingredType);
 
             if ($request->hasFile('image')) {
-                Storage::delete(PizzaImages::find($pizza->image_id)->image_path);
-
-                $pizza->images()->update([
-                    'image_path' => $request->file('image')->store('pizza')
-                ]);
+                $this->updateFoodImage($pizza, $request, PizzaImages::class, 'pizza');
             }
 
-            
+            $pizza->prices()->update([
+                'price' => $request->price
+            ]);
             $pizza->save();
-            $price = PizzaPrice::find($pizza->price_id);
-            $price->price = $request->Pprice;
-            $price->save();
 
             return redirect('admin/pizza')->withErrors([
                 'modifySuccess' => "A(z) $pizza->name módosítása sikeres volt!"
-            ]);;
+            ]);
 
         }catch(Exception $ex) {
             return redirect('admin/pizza')->withErrors([
                 'modifyFail' => $ex->getMessage()
-            ]);;
+            ]);
         }
     }
 }

@@ -10,18 +10,23 @@ use Illuminate\Support\Facades\Storage;
 
 class AdminBaseFoodController extends Controller
 {
-    protected function storeFood($foodModel, $priceModel, $imageModel){
-        
+    public function __construct(){
+        $this->middleware('auth:admin');
+    }
+    
+    protected function updateFoodImage(&$food, $request, $imageModel, $foodType){
+        Storage::delete($imageModel::find($food->image_id)->image_path);
+
+        $food->images()->update([
+            'image_path' => $request->file('image')->store($foodType)
+        ]);
     }
 
-    protected function updateFood($request, $foodModel){
-        $food = $foodModel::find(1);
-        if (isset($food->ingredients)){
-            $food->ingredients()->detach();
-            foreach ($request->ingredType as $value) {
-                $food->ingredients()->attach($value);
-            }
-        }
-        
+    protected function destroyFood($request, $foodModel){
+        $foodToDelete = $foodModel::find($request->foodId);
+
+        Storage::delete($foodToDelete->images->image_path);
+        $foodToDelete->delete();
+        return $foodToDelete->name;
     }
 }

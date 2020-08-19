@@ -91,8 +91,8 @@
                     @method('DELETE')
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="pastaId">Törlendő étel:</label>
-                            <select class="form-control" name="pastaId" id="pastaId">
+                            <label for="foodId">Törlendő étel:</label>
+                            <select class="form-control" name="foodId" id="foodId">
                                 @foreach ($allPasta as $pasta)
                                     <option value="{{$pasta->id}}">{{$pasta->name}} ({{$pasta->prices->price}} Ft)</option>
                                 @endforeach
@@ -130,8 +130,8 @@
                     @method('PATCH')
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="pastaId">Törlendő étel:</label>
-                            <select class="form-control" name="pastaId" id="pastaId">
+                            <label for="foodId">Módosítandó étel:</label>
+                            <select class="form-control" name="foodId" id="foodId">
                                 @foreach ($allPasta as $pasta)
                                     <option value="{{$pasta->id}}">{{$pasta->name}} ({{$pasta->prices->price}} Ft)</option>
                                 @endforeach

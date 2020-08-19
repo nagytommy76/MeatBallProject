@@ -28,6 +28,14 @@ class PastaRizotto extends Model
         return $this->hasOne('App\Model\Pasta\PastaRizottoPrice', 'id', 'price_id');
     }
 
+    public static function boot() {
+        parent::boot();
+
+        static::deleting(function($pasta) {
+            $pasta->images()->delete();
+            $pasta->prices()->delete();             
+        });
+    }
 
     /**
     * Get the Type of Pasta/Rizotto.
@@ -38,21 +46,4 @@ class PastaRizotto extends Model
     {
         return self::TYPES[$this->attributes['type']];
     }
-
-
-//     /**
-//    * set type
-//    */
-//    public function setTypeAttribute($type)
-//    {
-//       $roleID = self::getRoleID($type);
-//       if ($roleID) {
-//          $this->attributes['type'] = $roleID;
-//       }
-//    }
-
-//    public static function getRoleID($type)
-//    {
-//       return array_search($type, self::TYPES);
-//    }
 }

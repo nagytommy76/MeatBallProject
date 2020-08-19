@@ -175,8 +175,8 @@
                         @method('DELETE')
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="pizzaDelete"><p>Válassz egy törlendő pizzát</p></label>
-                                    <select name="pizzaDelete" id="pizzaDelete" class="form-control">
+                                    <label for="foodId"><p>Válassz egy törlendő pizzát</p></label>
+                                    <select name="foodId" id="foodId" class="form-control">
                                         @foreach ($allPizza as $pizza)
                                             <option value="{{$pizza->id}}">{{$pizza->name}}</option>
                                         @endforeach

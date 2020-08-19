@@ -16,15 +16,6 @@ use App\Model\Pasta\PastaRizottoPrice;
 
 class AdminPastaController extends AdminBaseFoodController
 {
-    public function __construct(){
-        $this->middleware('auth:admin');
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $allPasta = PastaRizotto::all();
@@ -33,12 +24,6 @@ class AdminPastaController extends AdminBaseFoodController
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $valid = Validator::make($request->all(), [
@@ -79,18 +64,13 @@ class AdminPastaController extends AdminBaseFoodController
         }    
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Request $request)
     {   
-        $pasta = PastaRizotto::find($request->pastaId);
+        $pasta = PastaRizotto::find($request->foodId);
         return view('admin.pasta.edit-pasta')->with([
             'pastaName' => $pasta->name,
-            'pastaId' => $request->pastaId,
+            'pastaId' => $request->foodId,
             'pastaType' => $pasta->type,
             'ingredients' => $pasta->ingredients,
             'prices' => $pasta->prices,
@@ -98,13 +78,7 @@ class AdminPastaController extends AdminBaseFoodController
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update($id, Request $request)
     {
         try {
@@ -116,26 +90,13 @@ class AdminPastaController extends AdminBaseFoodController
             $pasta->ingredients = $request->ingredient;
 
             if ($request->file('image') != null) {
-                $pasta->images()->delete();
-                $newImage = new PastaRizottoImage;
-                $newImage->image_path = $request->file('image')->store('pasta');
-
-                $oldImage = PastaRizottoImage::find($pasta->image_id);
-                
-                $newImage->save();
-                
-                $pasta->image_id = $newImage->id;
-                
-                Storage::delete($oldImage->image_path);
-                $oldImage->delete();
+                $this->updateFoodImage($pasta, $request, PastaRizottoImage::class, 'pasta');
             }
 
+            $pasta->prices()->update([
+                'price' => $request->price
+            ]);
             $pasta->save();
-
-            $prices = PastaRizottoPrice::where('id', '=', $pasta->price_id)->first();
-            $prices->price = $request->price;
-            
-            $prices->save();
 
             return redirect('admin/pasta')->withErrors([
                 'modifySuccess' => "A(z) $pasta->name módosítása sikeres volt"
@@ -144,32 +105,17 @@ class AdminPastaController extends AdminBaseFoodController
             return redirect('admin/pasta')->withErrors([
                 'modifyFail' => $ex->getMessage()
             ]);
-        }
-        
-        
+        } 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Request $request)
     {
         try {
-            $toDeletePasta = PastaRizotto::find($request->pastaId);
-            $deleteImage = PastaRizottoImage::find($toDeletePasta->image_id);
-            $deletePrice = PastaRizottoPrice::find($toDeletePasta->price_id);
-
-            Storage::delete($deleteImage->image_path);
-
-            $toDeletePasta->delete();
-            $deleteImage->delete();
-            $deletePrice->delete();            
+            $pastaName = $this->destroyFood($request ,PastaRizotto::class);
     
             return redirect('admin/pasta')->withErrors([
-                'deleteSuccess' => "A $toDeletePasta->name törlése sikeres volt"
+                'deleteSuccess' => "A $pastaName törlése sikeres volt"
             ]);
         } catch (Exception $ex) {
             return redirect('admin/pasta')->withErrors([

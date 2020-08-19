@@ -12,12 +12,8 @@ use App\Model\Foods\PizzaIngredPrices;
 use App\Http\Resources\PizzaResource;
 use App\Http\Resources\PizzaIPResource;
 
-use App\Http\Controllers\Traits\FoodControllerHelper;
-
 class PizzaController extends BaseFoodController
 {
-    use FoodControllerHelper;
-
     // Get all Pizza ordered by asc at page load
     public function getAllPizza(){    
         return self::getAllFood(PizzaResource::class, Pizzas::class);
