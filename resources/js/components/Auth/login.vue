@@ -5,8 +5,9 @@
             <div class="card">
                 <div class="card-header">Belépés</div>
                 <div class="card-body">
-                    <form action="">
+                    <form>
                         <div class="form-group">
+                            <div class="col">
                             <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Cím</label>
 
                             <input id="email" type="email" class="form-control" v-model="formData.email" name="email" value="" autofocus>
@@ -16,11 +17,12 @@
                                         <strong>{{ emailErr }}</strong>
                                     </div> 
                             </span>
-
+                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">Jelszó</label>
+                            <div class="col">
+                                 <label for="password" class="col-md-4 col-form-label text-md-right">Jelszó</label>
                                 <input id="password" type="password" class="form-control" v-model="formData.password" name="password" required>
                                 
                                 <span v-if="hasError" class="invalid-feedback" role="alert">
@@ -28,18 +30,9 @@
                                         <strong>{{ passErr }}</strong>
                                     </div>                                    
                                 </span>
-                        </div>
-
-                        <!-- <div class="form-group">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember">
-
-                                    <label class="form-check-label" for="remember">
-                                        Emlékezz Rám!
-                                    </label>
-                                </div>
-                        </div> -->
-                
+                            </div>
+                           
+                        </div>                
                 <div class="card-footer">
                     <div class="form-group">
                         <div class="col-md-8 offset-md-4">

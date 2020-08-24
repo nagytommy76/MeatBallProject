@@ -15,4 +15,17 @@ class Userinfo extends Model
     protected $keyType = 'string';
 
     public $timestamps = false;
+
+    protected $fillable = [
+        'user_email',
+        'firstname',
+        'lastname',
+        'city',
+        'zipCode',
+        'street',
+        'houseNumber',
+        'floorDoor',
+        'phone',
+        'userinfo_filled',
+    ];
 }

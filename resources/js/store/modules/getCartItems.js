@@ -26,7 +26,6 @@ export default{
                     'Authorization': 'Bearer '+ accessToken
                 },
             })
-            // console.log(response.statusText)
             if(response.status != 401){
                 let result = response.json(); 
                 result.then(res => {

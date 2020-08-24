@@ -64,18 +64,13 @@
 
 // ================== LOGIN, Reg ETC... ===========
 .card-container{
-    height: $container-height;
+    min-height: $container-height;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-// .card-container{
-//     height: $container-height;
     .card-content{
-        // padding: 2rem 0 2rem 0;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        // flex-direction: column;
-
+        min-height: 100%;        
         &-admin{
             padding: 2rem 0 2rem 0;
             flex-direction: column;
@@ -110,6 +105,7 @@
                 }
                 .form-group{
                     display: grid;
+                    grid-template-columns: repeat(1, 1fr);
                     width: 100%;
                     margin: .5rem 0;
                     label{
@@ -132,7 +128,8 @@
                     }
                 }
                 .row{
-                    display: flex;
+                    // display: flex;
+                    grid-template-columns: repeat(2, 1fr);
                     width: 100%;
                 }
 
@@ -158,7 +155,7 @@
             }
         }
     }
-// }
+
 
 @media(max-width: $mobile-width){
     .card-container{
@@ -167,9 +164,12 @@
             width: 90%;
             margin: auto;
             .card{
-                min-width: 100%;
+                min-width: 16rem;
                 margin: 5rem 0;
                 &-body{
+                    .form-group{
+                        grid-template-columns: repeat(1, 1fr);
+                    }
                     .admin-image{
                         width: 85%;
                         height: 350px;

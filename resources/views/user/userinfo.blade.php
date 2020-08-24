@@ -4,7 +4,7 @@
 <div class="container">
     <div class="card-container">
     <section class="card-content">
-    <div class="card">
+    <div class="card p-2">
         <form action="{{ url('userinfo') }}" method="POST">
         <div class="card-header">
             <h1>Személyes adatok kitöltése</h1>
@@ -52,7 +52,8 @@
                         </span>
                     @enderror
                 </div> {{-- COL END --}}
-
+            </div> {{-- 2ND ROW END --}}
+            <div class="form-group row">
                 <div class="col">
                     <label for="city">Város: </label>
                     <input class="form-control @error('city') is-invalid @enderror" type="text" name="city" id=""
@@ -63,10 +64,6 @@
                         </span>
                     @enderror
                 </div> {{-- COL END --}}
-
-            </div> {{-- 2ND ROW END --}}
-            
-            <div class="form-group row">
                 <div class="col">
                     <label for="zipCode">Ir. Szám: </label>
                     <input class="form-control @error('zipCode') is-invalid @enderror" type="number" min="0" max="9999" name="zipCode" id=""
@@ -77,6 +74,8 @@
                         </span>
                     @enderror
                 </div> {{-- COL END --}}
+            </div>
+            <div class="form-group row">
                 <div class="col">
                     <label for="street">Utca: </label>
                     <input class="form-control @error('street') is-invalid @enderror" type="text" name="street" id=""

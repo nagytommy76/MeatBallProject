@@ -4,7 +4,6 @@ namespace App\Http\Controllers\UserControllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Model\User\Userinfo;
 use App\User;
 use Auth;
 
@@ -12,8 +11,13 @@ use Auth;
 
 class UserInfoController extends Controller
 {
+    private $user;
+    
     public function __construct(){
         $this->middleware('auth');
+        if (Auth::user()) {
+            $this->user = Auth::user();
+        }
     }
     /**
      * Display a listing of the resource.
@@ -22,13 +26,10 @@ class UserInfoController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        $userinfo = Userinfo::where('user_email','like',$user->email)->first();
-        
-        if ($userinfo === null) {
+        if ($this->user->userinfo === null) {
             return view('user.userinfo')->with([
-                'username' => $user->username,
-                'email' => $user->email,
+                'username' => $this->user->username,
+                'email' => $this->user->email,
                 'firstname' => '',
                 'lastname' => '',
                 'city' => '',
@@ -42,16 +43,16 @@ class UserInfoController extends Controller
             ]);
         }else{
             return view('user.userinfo')->with([
-                'username' => $user->username,
-                'email' => $user->email,
-                'firstname' => $userinfo->firstName,
-                'lastname' => $userinfo->lastName,
-                'city' => $userinfo->city,
-                'zipCode' => $userinfo->zipCode,
-                'street' => $userinfo->street,
-                'houseNumber' => $userinfo->houseNumber,
-                'floorDoor' => $userinfo->floorDoor,
-                'phone' => $userinfo->phone,
+                'username' => $this->user->username,
+                'email' => $this->user->email,
+                'firstname' => $this->user->userinfo->firstName,
+                'lastname' => $this->user->userinfo->lastName,
+                'city' => $this->user->userinfo->city,
+                'zipCode' => $this->user->userinfo->zipCode,
+                'street' => $this->user->userinfo->street,
+                'houseNumber' => $this->user->userinfo->houseNumber,
+                'floorDoor' => $this->user->userinfo->floorDoor,
+                'phone' => $this->user->userinfo->phone,
                 'modify' => '',
                 'input' => 'disabled'
             ]);
@@ -67,8 +68,10 @@ class UserInfoController extends Controller
     public function store(Request $request)
     {
         $valid = $request->validate([
+            'email' => ['required', 'max:255'],
             'phone' => ['required', 'max:11'],
-            'zipCode' => ['required'],
+            'phone' => ['required', 'max:11'],
+            'zipCode' => ['required', 'size:4'],
             'firstname' => ['required'],
             'lastname' => ['required'],
             'city' => ['required'],
@@ -77,58 +80,42 @@ class UserInfoController extends Controller
         ]);
         switch ($request->input('action')) {
             case 'Mentés':
-                $info = new UserInfo;                
-                //$info->username = $request->username;
-                $info->user_email = $request->email;
-                $info->firstname = $request->firstname;
-                $info->lastname = $request->lastname;
-                $info->city = $request->city;
-                $info->zipCode = $request->zipCode;
-                $info->street = $request->street;
-                $info->houseNumber = $request->houseNumber;
-                $info->floorDoor = $request->floorDoor;
-                $info->phone = $request->phone;
+                $this->user->userinfo_filled = 1;
 
-                $info->save();
-
-                return redirect()->route('userinfo.index');
-            break;
-            case 'Módosítás' :
-                $valid = $request->validate([
-                    'email' => ['required', 'max:255'],
-                    'phone' => ['required', 'max:11'],
-                    'zipCode' => ['required'],
-                    'firstname' => ['required'],
-                    'lastname' => ['required'],
-                    'city' => ['required'],
-                    'street' => ['required'],
-                    'houseNumber' => ['required']
+                $this->user->userinfo()->create([
+                    'user_email' => $request->email,
+                    'firstname' => $request->firstname,
+                    'lastname' => $request->lastname,
+                    'city' => $request->city,
+                    'zipCode' => $request->zipCode,
+                    'street' => $request->street,
+                    'houseNumber' => $request->houseNumber,
+                    'floorDoor' => $request->floorDoor,
+                    'phone' => $request->phone,                    
                 ]);
-                $user = Auth::user();
-                
-                $userInDB = User::where('email','like',$user->email)->first();
-                $info = UserInfo::where('user_email','like',$user->email)->first();
-        
-                $userInDB->email = $request->email;
-                $userInDB->username = $request->username;
+                $this->user->save();
 
-                $info->user_email = $request->email;
-                $info->firstname = $request->firstname;
-                $info->lastname = $request->lastname;
-                $info->city = $request->city;
-                $info->zipCode = $request->zipCode;
-                $info->street = $request->street;
-                $info->houseNumber = $request->houseNumber;
-                $info->floorDoor = $request->floorDoor;
-                $info->phone = $request->phone;
-        
-                $userInDB->save();
-                $info->save();
+                return redirect()->route('userinfo.index');
+            break;
+            case 'Módosítás' :                
+                $this->user->email = $request->email;
+                $this->user->username = $request->username;
+
+                $this->user->userinfo()->update([
+                    'user_email' => $request->email,
+                    'firstname' => $request->firstname,
+                    'lastname' => $request->lastname,
+                    'city' => $request->city,
+                    'zipCode' => $request->zipCode,
+                    'street' => $request->street,
+                    'houseNumber' => $request->houseNumber,
+                    'floorDoor' => $request->floorDoor,
+                    'phone' => $request->phone,                    
+                ]);
+                $this->user->save();              
         
                 return redirect()->route('userinfo.index');
             break;
-        }
-
-        
+        } 
     }
 }

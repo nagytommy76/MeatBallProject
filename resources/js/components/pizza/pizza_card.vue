@@ -28,7 +28,7 @@
         </div>
       </div>
       <div >
-        <div v-if="loggedIn == 'Unauthorized'">
+        <div v-if="loggedIn == 'Unauthorized' || loggedIn == 'Unauthenticated' || loggedIn == ''">
           <div class="alert alert-danger" v-if="addedToCart">
             <p>Kérem jelentkezzen be!</p>
           </div>
