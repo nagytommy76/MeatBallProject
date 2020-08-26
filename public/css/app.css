@@ -110,7 +110,7 @@ body {
   border: 2px #F79600 solid;
   border-radius: 50px;
   outline: none;
-  transition: ease 0.4s;
+  transition: ease-out 0.1s;
 }
 
 .btn-primary {
@@ -120,7 +120,7 @@ body {
 .btn-primary:hover {
   background: #F79600;
   border-color: #F7BF00;
-  transform: scale(1.075);
+  transform: scale(1.035);
 }
 
 .btn-confirm {
@@ -132,7 +132,7 @@ body {
   border-color: #44D500;
   background: #2B8600;
   color: white;
-  transform: scale(1.075);
+  transform: scale(1.035);
 }
 
 .btn-delete {
@@ -140,7 +140,7 @@ body {
 }
 
 .btn-delete:hover {
-  transform: scale(1.075);
+  transform: scale(1.035);
 }
 
 .btn-modify {
@@ -152,6 +152,45 @@ body {
   background: #F79600;
   border-color: #F7BF00;
   transform: scale(1.075);
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: default;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }
 
 .primary-color {
@@ -187,7 +226,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   top: 0;
   position: -webkit-sticky;
   position: sticky;
@@ -542,18 +581,14 @@ body {
   position: relative;
   background: white;
   color: black;
+  background-color: #DFDFDF;
   overflow-x: hidden;
   min-height: 5rem;
   max-height: 70%;
-  width: 35%;
-  padding: 2rem;
+  width: 600px;
+  padding: 1rem;
   box-shadow: black 6px 6px 20px;
   border-radius: 10px;
-}
-
-.modal-bg .modal .modal-body {
-  display: flex;
-  flex-direction: column;
 }
 
 .modal-bg .modal .modal-body .cart-body {
@@ -561,27 +596,48 @@ body {
 }
 
 .modal-bg .modal .modal-body .cart-card {
-  width: 100%;
   border: 1px solid black;
   display: grid;
   grid-template-columns: 35% 50% 15%;
-  gap: 0.4rem;
+  gap: 0.2rem;
+  margin: 1rem;
 }
 
 .modal-bg .modal .modal-body .cart-card .body {
   margin-top: 0.5rem;
 }
 
+.modal-bg .modal .modal-body .cart-card .body .ingreds {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .modal-bg .modal .modal-body .cart-card .left {
-  margin-top: 0.5rem;
+  margin: 0.5rem auto 0 auto;
 }
 
 .modal-bg .modal .modal-body .cart-card .left .deleteIcon {
   cursor: pointer;
 }
 
+.modal-bg .modal .modal-body .cart-card .left .deleteIcon:hover {
+  color: #B90000;
+}
+
+.modal-bg .modal .modal-body .cart-card .image {
+  height: 100%;
+}
+
 .modal-bg .modal .modal-body .cart-card .image img {
+  -o-object-fit: cover;
+     object-fit: cover;
   width: 100%;
+  height: 100%;
+}
+
+.modal-bg .modal .modal-footer {
+  margin: 1rem;
+  display: flex;
 }
 
 .modal-close {
@@ -591,6 +647,10 @@ body {
   color: black;
   font-size: 30px;
   cursor: pointer;
+}
+
+.modal-close:hover {
+  color: #B90000;
 }
 
 .bg-closed {
@@ -603,13 +663,13 @@ body {
 
 @media (max-width: 720px) {
   .modal-bg .modal {
-    width: 75%;
+    width: 200px;
   }
 }
 
 @media (max-width: 1136px) {
   .modal-bg .modal {
-    width: 75%;
+    width: 600px;
   }
 }
 
@@ -693,6 +753,8 @@ body {
 
 .card-content {
   min-height: 100%;
+  width: 45%;
+  margin: auto;
 }
 
 .card-content-admin {
@@ -720,55 +782,6 @@ body {
   margin: 1rem 0;
 }
 
-.card-content .card-body form {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  justify-content: center;
-  margin: auto;
-  width: 80%;
-}
-
-.card-content .card-body .form-group {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  width: 100%;
-  margin: 0.5rem 0;
-}
-
-.card-content .card-body .form-group label {
-  font-size: 1.1rem;
-  text-align: left;
-  margin-bottom: 1rem;
-}
-
-.card-content .card-body .form-group .form-control {
-  padding: 0.75rem 0.4rem;
-  font-size: 1.1rem;
-  border: none;
-  border-radius: 3px;
-}
-
-.card-content .card-body .form-group .col {
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
-  margin-right: 1.4rem;
-}
-
-.card-content .card-body .row {
-  grid-template-columns: repeat(2, 1fr);
-  width: 100%;
-}
-
-.card-content .card-body .checkbox {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.card-content .card-body .checkbox div {
-  justify-self: start;
-}
-
 .card-content .card-body .admin-image {
   width: 500px;
   height: 350px;
@@ -780,6 +793,55 @@ body {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  justify-content: center;
+  margin: auto;
+  width: 80%;
+}
+
+.form-group {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+.form-group label {
+  font-size: 1.1rem;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.form-group .form-control {
+  padding: 0.75rem 0.4rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 3px;
+}
+
+.form-group .col {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  margin-right: 1.4rem;
+}
+
+.row {
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+}
+
+.checkbox {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.checkbox div {
+  justify-self: start;
 }
 
 @media (max-width: 720px) {

@@ -4,7 +4,7 @@
         <div class="container">
             {{-- <div class="card-container"> --}}
                 <section class="card-content card-content-admin text-white">
-                    <div class="card p-2">
+                    <div class="card">
                         <form enctype="multipart/form-data" method="POST" action="{{ route('admin.foodInput') }}">
                             @csrf
                         <div class="card-header">
@@ -85,7 +85,7 @@
                         </form>
                     </div>
                     {{-- INGREDIENTS --}}
-                    <div class="card m-2 p-2">
+                    <div class="card m-2">
                         <div class="card-header">
                             <h3>Pizza Feltétek bevitele</h3>
                         </div>
@@ -166,7 +166,7 @@
                     </div>
                         
                     {{-- DELETE PIZZA --}}
-                    <div class="card m-2 p-2">
+                    <div class="card m-2">
                         <div class="card-header">
                             <h3>Pizzák törlése/módosítása</h3>
                         </div>

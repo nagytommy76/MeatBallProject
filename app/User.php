@@ -10,6 +10,10 @@ class User extends Admin
 
     protected $guard = 'user';
 
+    protected $casts = [
+        'userinfo_filled' => 'boolean'
+    ];
+
     public function userinfo(){
         return $this->hasOne("App\Model\User\Userinfo", "user_email", "email");
     }

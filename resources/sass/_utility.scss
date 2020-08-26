@@ -86,16 +86,15 @@ body{
     border: 2px #F79600 solid;
     border-radius: 50px;
     outline: none;
-    transition: ease .4s;
+    transition: ease-out .1s;
 
     &-primary{
         background: $primary;
-        // background: transparent;
 
         &:hover{
             background: #F79600;
             border-color: $primary;
-            transform: scale(1.075);
+            transform: scale(1.035);
         }
     }
 
@@ -106,14 +105,14 @@ body{
             border-color: #44D500;
             background: #2B8600;
             color: white;
-            transform: scale(1.075);
+            transform: scale(1.035);
         }
     }
 
     &-delete{
         background: $deleteColor;
         &:hover{
-            transform: scale(1.075);
+            transform: scale(1.035);
         }
     }
 
@@ -125,6 +124,43 @@ body{
             border-color: $primary;
             transform: scale(1.075);
         }
+    }
+}
+
+.tooltip{
+    position: relative;
+    display: inline-block;
+    cursor: default;
+    .tooltiptext{
+        visibility: hidden;
+        width: 120px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 150%;
+        left: 50%;
+        margin-left: -60px;
+
+        opacity: 0;
+        transition: opacity .5s;
+        &::after{
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+    }
+    &:hover .tooltiptext{
+        visibility: visible;
+        opacity: 1;
     }
 }
 

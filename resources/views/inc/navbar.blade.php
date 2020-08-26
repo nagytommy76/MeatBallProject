@@ -1,31 +1,9 @@
 <nav role="navigation" class="navbar">
-    {{-- <div class="navbar-container"> --}}
         <a class="navbar-brand" href="{{ url('/') }}">
             <span class="primary-color">Húsgolyó</span> Étterem
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav">
-                {{-- FOODS --}}
-                {{-- <li class="nav-item dropdown"> --}}
-                    {{-- <a href="#" class="nav-link dropdown-toggle"
-                    role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Étel Rendelés</a>
-                    
-                    <div class="dropdown-menu">
-                        <a href="{{ route('pizza.index') }}" class="dropdown-item">
-                            <i class="fas fa-pizza-slice"></i>
-                            Pizzák
-                        </a>
-                        <a href="{{ route('pasta.index') }}" class="dropdown-item">
-                            <i class="fas fa-cloud-meatball"></i>
-                            Tészta Ételek
-                        </a>
-                    </div> --}}
-                {{-- </li>Nav Item End FOODS END --}}
                 <li class="nav-item">
                     <a href="{{ route('pizza') }}" class="nav-link">Étel Rendelés</a>
                 </li>

@@ -1,10 +1,5 @@
 <template>
-    <div>
-        <!-- <transition name="fade"> -->
-        
-        <div class="modal-bg bg-closed">
-                <div class="modal">
-                    <span @click="closeModal" class="modal-close"><i class="far fa-times-circle"></i></span>
+    <div>        
                     <div class="modal-head">
                         <h2 class="text-center py-1">A Kosár tartalma</h2>
                     </div>
@@ -16,17 +11,22 @@
                                 </div>
                                 <div class="body">
                                     <h3 class="text-center">{{item.item.foodName}}</h3>
-                                    <h5>Feltétek:</h5>
-
-                                    <div v-for="ingred of item.item.plusIngreds" :key="ingred.ingredId">
-                                        <span v-bind:title="ingred.ingredPrice + 'Ft'">{{ingred.ingredName}}</span>
+                                    <h5>További feltétek:</h5>
+                                    <div class="ingreds">
+                                        <div class="tooltip" v-for="ingred of item.item.plusIngreds" :key="ingred.ingredId">
+                                        <span class="tooltiptext" >
+                                            {{ingred.ingredPrice}} Ft
+                                        </span>
+                                        <span>{{ingred.ingredName}}</span>
+                                        </div>
                                     </div>
+                                    
 
                                     <h4 v-bind:title="'Mennyiség: '+item.qty">Egységár: {{item.oneItemTotalPrice}} Ft</h4>
                                     <h4>Mennyiség: {{item.qty}} db</h4>
                                 </div>
                                 <div class="left">
-                                    <form @click="deleteItem">
+                                    <form @click="deleteItem" class="deleteIcon">
                                         <input type="hidden" class="foodId" v-bind:value="item.item.id">
                                         <input type="hidden" class="foodType" v-bind:value="item.foodType">
                                         <i v-bind:id="index" v-bind:class="iconName"></i>                                      
@@ -39,18 +39,15 @@
                         </div>                       
                     </div>
                     <div class="modal-footer">
-                        <h2>Végösszeg: {{ cartItems.totalPrice }} Ft</h2>
-                        
+                        <h1 class="py-1">Végösszeg: {{ cartItems.totalPrice }} Ft</h1>
                     </div>
                 </div>
-            </div>
-            <!-- </transition> -->
-    </div>
 </template>
 
 <script>
 export default {
-    name: "cart-modal",
+    name: "cartmodal",
+    template: 'cartmodal',
     data(){
         return{
             iconName: "far fa-trash-alt fa-2x",
@@ -59,7 +56,7 @@ export default {
     },
     computed: {
         cartItems(){
-            return this.$parent.cartItems;
+            return this.$parent.$parent.cartItems;
         }
     },
     created(){

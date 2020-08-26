@@ -30,7 +30,8 @@ import router from './router';
 
 
 Vue.component('cart-items', require('./components/cart/itemsInCart.vue').default);
-Vue.component('cart-modal', require('./components/cart/cartModal.vue').default);
+Vue.component('cart-modal', require('./components/cart/modal.vue').default);
+// Vue.component('summary-cart', require('./components/cart/summaryCart.vue').default);
 Vue.component('login', require('./components/Auth/login.vue').default);
 
 

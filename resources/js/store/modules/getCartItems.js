@@ -5,7 +5,7 @@ export default{
     },
     state: {
         cartItems: {
-            message: ''
+            message: 'Unauthenticated'
         },
     },
     getters: {

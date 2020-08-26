@@ -60,7 +60,10 @@ class CartController extends Controller
 
         return \response()->json($cart);
     }
-
+    
+    // ========================================================================
+    //                             PRIVATE FUNCTIONS
+    // ========================================================================
 
     private function addElementToCart($dataFromCard){       
         $anyTypeOfFood = $this->getDataFromDatabaseByFoodType($dataFromCard);
