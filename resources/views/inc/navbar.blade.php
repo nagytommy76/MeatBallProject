@@ -26,9 +26,7 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('user.logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
+                            <a class="dropdown-item" id="logOutBtn" href="{{ route('user.logout') }}">
                                 <i class="fas fa-sign-out-alt"></i> 
                                 Kilépés
                             </a>

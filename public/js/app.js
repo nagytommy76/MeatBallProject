@@ -2043,7 +2043,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     setExpirationToLocalSt: function setExpirationToLocalSt(accessToken) {
       var hour = new Date();
-      hour.setHours(hour.getHours() + 4);
+      hour.setHours(hour.getHours() + 2);
       var data = {
         accessToken: accessToken,
         'expiration': hour
@@ -2240,9 +2240,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _cartModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cartModal */ "./resources/js/components/cart/cartModal.vue");
-/* harmony import */ var _userInfo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./userInfo */ "./resources/js/components/cart/userInfo.vue");
-/* harmony import */ var _summaryCart__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./summaryCart */ "./resources/js/components/cart/summaryCart.vue");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _cartModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cartModal */ "./resources/js/components/cart/cartModal.vue");
+/* harmony import */ var _userInfo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./userInfo */ "./resources/js/components/cart/userInfo.vue");
+/* harmony import */ var _summaryCart__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./summaryCart */ "./resources/js/components/cart/summaryCart.vue");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
 //
 //
 //
@@ -2270,15 +2281,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    cartModal: _cartModal__WEBPACK_IMPORTED_MODULE_0__["default"],
-    summaryCart: _summaryCart__WEBPACK_IMPORTED_MODULE_2__["default"],
-    userInfo: _userInfo__WEBPACK_IMPORTED_MODULE_1__["default"]
+    cartModal: _cartModal__WEBPACK_IMPORTED_MODULE_1__["default"],
+    summaryCart: _summaryCart__WEBPACK_IMPORTED_MODULE_3__["default"],
+    userInfo: _userInfo__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
       pages: ['cartModal', 'userInfo', 'summaryCart'],
       step: 0,
-      adatokKitoltve: false
+      isUserinfoFilled: false,
+      user: {}
     };
   },
   computed: {
@@ -2286,7 +2298,84 @@ __webpack_require__.r(__webpack_exports__);
       return this.pages[this.step];
     }
   },
+  created: function created() {
+    if (this.$parent.accessToken != null) {
+      this.getUserInfo();
+    }
+  },
   methods: {
+    userinfoFilled: function userinfoFilled() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return fetch('api/userInfoFilled', {
+                  method: "GET",
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + _this.$parent.accessToken
+                  }
+                });
+
+              case 2:
+                res = _context.sent;
+                _context.next = 5;
+                return res.json();
+
+              case 5:
+                return _context.abrupt("return", _context.sent);
+
+              case 6:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    getUserInfo: function getUserInfo() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _this2.userinfoFilled().then(function (user) {
+                  _this2.user = user;
+                  _this2.isUserinfoFilled = user.user.userinfo_filled;
+                });
+
+              case 1:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    makeOrder: function makeOrder() {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                console.log("Rendelés leadása");
+
+              case 1:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    },
     closeModal: function closeModal() {
       var modalBg = document.querySelector('.modal-bg').classList;
       modalBg.remove('bg-activate');
@@ -2295,14 +2384,14 @@ __webpack_require__.r(__webpack_exports__);
     nextPage: function nextPage() {
       this.step++;
 
-      if (this.step == 1 && this.adatokKitoltve) {
+      if (this.step == 1 && this.isUserinfoFilled) {
         this.step++;
       }
     },
     previousPage: function previousPage() {
       this.step--;
 
-      if (this.step == 1 && this.adatokKitoltve) {
+      if (this.step == 1 && this.isUserinfoFilled) {
         this.step--;
       }
     }
@@ -2328,9 +2417,49 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "summaryCart",
-  template: "summarycart"
+  template: "summarycart",
+  computed: {
+    user: function user() {
+      return this.$parent.user.user;
+    },
+    cartItems: function cartItems() {
+      return this.$parent.$parent.cartItems;
+    }
+  },
+  methods: {}
 });
 
 /***/ }),
@@ -2344,6 +2473,66 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2397,6 +2586,7 @@ __webpack_require__.r(__webpack_exports__);
   template: "userinfo",
   data: function data() {
     return {
+      hasError: false,
       formData: {
         firstname: '',
         lastname: '',
@@ -2404,7 +2594,8 @@ __webpack_require__.r(__webpack_exports__);
         zipCode: 0,
         street: '',
         houseNumber: '',
-        floorDoor: ''
+        floorDoor: '',
+        phone: ''
       },
       errors: {
         firstname: '',
@@ -2413,12 +2604,68 @@ __webpack_require__.r(__webpack_exports__);
         zipCode: '',
         street: '',
         houseNumber: '',
-        floorDoor: ''
+        floorDoor: '',
+        phone: ''
       }
     };
   },
   methods: {
-    addUserInfo: function addUserInfo() {}
+    showErrors: function showErrors(error) {
+      this.hasError = !this.hasError;
+      this.errors.firstname = error.firstname;
+      this.errors.lastname = error.lastname;
+      this.errors.city = error.city;
+      this.errors.zipCode = error.zipCode;
+      this.errors.street = error.street;
+      this.errors.houseNumber = error.houseNumber;
+      this.errors.floorDoor = error.floorDoor;
+      this.errors.phone = error.phone;
+    },
+    addUserInfo: function addUserInfo() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return fetch('api/addUserInfo', {
+                  method: "POST",
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + _this.$parent.accessToken
+                  },
+                  body: JSON.stringify(_this.formData)
+                }).then(function (response) {
+                  return response.json();
+                }).then(function (result) {
+                  console.log(result);
+
+                  if (result.hasError) {
+                    _this.showErrors(result.errors);
+                  } else {
+                    if (!result.hasError && !result.exception) {
+                      _this.$parent.userinfoFilled().then(function (user) {
+                        _this.$parent.user = user;
+                        _this.$parent.isUserinfoFilled = user.user.userinfo_filled;
+                        _this.$parent.step++;
+                      });
+                    }
+                  }
+                })["catch"](function (error) {
+                  return console.log(error);
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
   }
 });
 
@@ -2764,32 +3011,56 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {
-      ingreds: [],
-      selectedIngreds: []
+    return {// selectedIngreds: []
     };
   },
-  props: [],
-  created: function created() {// this.fetchIngredients();
+  computed: {
+    ingredients: function ingredients() {
+      return this.$parent.$parent.ingreds;
+    }
   },
   methods: {
-    // fetchIngredients(){
-    //     fetch('api/getPlusIngreds')
-    //     .then(resp => resp.json())
-    //     .then(res => {
-    //         this.ingreds = res.data;
-    //     })
-    // },
     select: function select(e) {
-      // console.log(e.target.checked)
-      // console.log(e.target.value)
-      var currentObject = {
-        ingredId: e.target.id,
-        ingredPrice: e.target.value
-      };
-      this.selectedIngreds.push(currentObject);
+      var ingredId = e.target.id;
+      var ingredPrice = parseInt(e.target.value);
+
+      if (e.target.checked) {
+        if (!this.$parent.selectedIngreds.includes(ingredId)) {
+          this.$parent.finalPrice += ingredPrice;
+          this.$parent.selectedIngreds.push(ingredId);
+        }
+      } else {
+        this.$parent.finalPrice -= ingredPrice;
+        var found = this.$parent.selectedIngreds.findIndex(function (item) {
+          return item == ingredId;
+        });
+        this.$parent.selectedIngreds.splice(found, 1);
+      }
+    },
+    inSelectedIngreds: function inSelectedIngreds(ingredId) {// console.log(ingredId);
+      // console.log(this.$parent.selectedIngreds.includes(ingredId))
+      // this.$parent.selectedIngreds.forEach(element => {
+      //     console.log(element + " : "+ingredId)
+      //     if(element == ingredId){
+      //         console.log("CSÁCÁSÁCSÁCSÁCSCÁCÁ")
+      //         return true;
+      //     }  else{
+      //         return false;
+      //     } 
+      // });
+      // if(this.$parent.selectedIngreds.includes(ingredId)){
+      //     return true;
+      // }  
+      // return false;          
     }
   }
 });
@@ -3068,13 +3339,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3097,31 +3361,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       loggedIn: this.$parent.$parent.$parent.cartItems.message
     };
   },
-  created: function created() {},
-  computed: {},
   methods: {
     loadPlusIngreds: function loadPlusIngreds() {
       this.moreButton = !this.moreButton;
-
-      if (!this.moreButton) {
-        this.finalPrice = this.pizzaPrice;
-        this.selectedIngreds = [];
-      }
-    },
-    select: function select(e) {
-      var ingredId = e.target.id;
-      var ingredPrice = parseInt(e.target.value);
-
-      if (e.target.checked) {
-        this.finalPrice += ingredPrice;
-        this.selectedIngreds.push(ingredId);
-      } else {
-        this.finalPrice -= ingredPrice;
-        var found = this.selectedIngreds.findIndex(function (item) {
-          return item == ingredId;
-        });
-        this.selectedIngreds.splice(found, 1);
-      }
     },
     addCart: function addCart() {
       var _this = this;
@@ -40082,7 +40324,7 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c(
-                    "button",
+                    "span",
                     {
                       directives: [
                         {
@@ -40091,11 +40333,43 @@ var render = function() {
                           value: _vm.step < _vm.pages.length - 1,
                           expression: "step<pages.length-1"
                         }
-                      ],
-                      staticClass: "btn btn-primary",
-                      on: { click: _vm.nextPage }
+                      ]
                     },
-                    [_vm._v("Tovább")]
+                    [
+                      _c(
+                        "button",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: this.isUserinfoFilled || _vm.step != 1,
+                              expression: "this.isUserinfoFilled || step != 1"
+                            }
+                          ],
+                          staticClass: "btn btn-primary",
+                          on: { click: _vm.nextPage }
+                        },
+                        [_vm._v("Tovább")]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.step == _vm.pages.length - 1,
+                          expression: "step == pages.length-1"
+                        }
+                      ],
+                      staticClass: "btn btn-confirm",
+                      on: { click: _vm.makeOrder }
+                    },
+                    [_vm._v("A végén a leadáshoz")]
                   )
                 ]
               )
@@ -40130,16 +40404,97 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "modal-body" }, [
+      _c("div", { staticClass: "userData" }, [
+        _c("h3", [_vm._v("Személyes adatok: ")]),
+        _vm._v(" "),
+        _c("h4", [
+          _vm._v(
+            "Név: " +
+              _vm._s(_vm.user.userinfo.firstName) +
+              " " +
+              _vm._s(_vm.user.userinfo.lastName)
+          )
+        ]),
+        _vm._v(" "),
+        _c("h4", [_vm._v("E-mail: " + _vm._s(_vm.user.email))]),
+        _vm._v(" "),
+        _c("h4", [_vm._v("Telefon: " + _vm._s(_vm.user.userinfo.phone))]),
+        _vm._v(" "),
+        _c("h4", [
+          _vm._v(
+            "\n                Cím: \n                " +
+              _vm._s(_vm.user.userinfo.zipCode) +
+              "\n                " +
+              _vm._s(_vm.user.userinfo.city) +
+              "\n                " +
+              _vm._s(_vm.user.userinfo.street) +
+              "\n                " +
+              _vm._s(_vm.user.userinfo.houseNumber) +
+              "\n                " +
+              _vm._s(_vm.user.userinfo.floorDoor) +
+              "\n            "
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "order" },
+        [
+          _c("h3", [_vm._v("Rendelt ételeid:")]),
+          _vm._v(" "),
+          _vm._l(_vm.cartItems.items, function(food, index) {
+            return _c("div", { key: index }, [
+              _c("h4", [
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(food.qty) +
+                    " DB\n                    " +
+                    _vm._s(food.item.foodName) +
+                    "\n                    (" +
+                    _vm._s(food.oneItemTotalPrice) +
+                    ") Ft\n                "
+                )
+              ]),
+              _vm._v(" "),
+              food.item.plusIngreds != null
+                ? _c(
+                    "p",
+                    _vm._l(food.item.plusIngreds, function(ingred) {
+                      return _c("span", { key: ingred.ingredId }, [
+                        _c("span", [
+                          _vm._v(
+                            _vm._s(ingred.ingredName) +
+                              " (" +
+                              _vm._s(ingred.ingredPrice) +
+                              ") Ft"
+                          )
+                        ])
+                      ])
+                    }),
+                    0
+                  )
+                : _vm._e()
+            ])
+          })
+        ],
+        2
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "modal-head" }, [
-        _c("h2", { staticClass: "text-center py-1" }, [_vm._v("Véglegesítés")])
+    return _c("div", { staticClass: "modal-head" }, [
+      _c("h1", { staticClass: "text-center py-1" }, [
+        _vm._v("Rendelés véglegesítése")
       ])
     ])
   }
@@ -40172,9 +40527,7 @@ var render = function() {
       _c("form", [
         _c("div", { staticClass: "form-group row" }, [
           _c("div", { staticClass: "col" }, [
-            _c("label", { attrs: { for: "firstname" } }, [
-              _vm._v("Vezetéknév")
-            ]),
+            _vm._m(1),
             _vm._v(" "),
             _c("input", {
               directives: [
@@ -40196,11 +40549,24 @@ var render = function() {
                   _vm.$set(_vm.formData, "firstname", $event.target.value)
                 }
               }
-            })
+            }),
+            _vm._v(" "),
+            _vm.hasError
+              ? _c(
+                  "span",
+                  { staticClass: "invalid-feedback", attrs: { role: "alert" } },
+                  _vm._l(_vm.errors.firstname, function(fNameErr, index) {
+                    return _c("div", { key: index }, [
+                      _c("strong", [_vm._v(_vm._s(fNameErr))])
+                    ])
+                  }),
+                  0
+                )
+              : _vm._e()
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col" }, [
-            _c("label", { attrs: { for: "lastname" } }, [_vm._v("Keresztnév")]),
+            _vm._m(2),
             _vm._v(" "),
             _c("input", {
               directives: [
@@ -40222,13 +40588,26 @@ var render = function() {
                   _vm.$set(_vm.formData, "lastname", $event.target.value)
                 }
               }
-            })
+            }),
+            _vm._v(" "),
+            _vm.hasError
+              ? _c(
+                  "span",
+                  { staticClass: "invalid-feedback", attrs: { role: "alert" } },
+                  _vm._l(_vm.errors.lastname, function(fNameErr, index) {
+                    return _c("div", { key: index }, [
+                      _c("strong", [_vm._v(_vm._s(fNameErr))])
+                    ])
+                  }),
+                  0
+                )
+              : _vm._e()
           ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group row" }, [
           _c("div", { staticClass: "col" }, [
-            _c("label", { attrs: { for: "city" } }, [_vm._v("Város")]),
+            _vm._m(3),
             _vm._v(" "),
             _c("input", {
               directives: [
@@ -40250,11 +40629,24 @@ var render = function() {
                   _vm.$set(_vm.formData, "city", $event.target.value)
                 }
               }
-            })
+            }),
+            _vm._v(" "),
+            _vm.hasError
+              ? _c(
+                  "span",
+                  { staticClass: "invalid-feedback", attrs: { role: "alert" } },
+                  _vm._l(_vm.errors.city, function(fNameErr, index) {
+                    return _c("div", { key: index }, [
+                      _c("strong", [_vm._v(_vm._s(fNameErr))])
+                    ])
+                  }),
+                  0
+                )
+              : _vm._e()
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col" }, [
-            _c("label", { attrs: { for: "zipCode" } }, [_vm._v("Ir. Szám")]),
+            _vm._m(4),
             _vm._v(" "),
             _c("input", {
               directives: [
@@ -40276,13 +40668,26 @@ var render = function() {
                   _vm.$set(_vm.formData, "zipCode", $event.target.value)
                 }
               }
-            })
+            }),
+            _vm._v(" "),
+            _vm.hasError
+              ? _c(
+                  "span",
+                  { staticClass: "invalid-feedback", attrs: { role: "alert" } },
+                  _vm._l(_vm.errors.zipCode, function(fNameErr, index) {
+                    return _c("div", { key: index }, [
+                      _c("strong", [_vm._v(_vm._s(fNameErr))])
+                    ])
+                  }),
+                  0
+                )
+              : _vm._e()
           ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group row" }, [
           _c("div", { staticClass: "col" }, [
-            _c("label", { attrs: { for: "street" } }, [_vm._v("Utca")]),
+            _vm._m(5),
             _vm._v(" "),
             _c("input", {
               directives: [
@@ -40304,11 +40709,24 @@ var render = function() {
                   _vm.$set(_vm.formData, "street", $event.target.value)
                 }
               }
-            })
+            }),
+            _vm._v(" "),
+            _vm.hasError
+              ? _c(
+                  "span",
+                  { staticClass: "invalid-feedback", attrs: { role: "alert" } },
+                  _vm._l(_vm.errors.street, function(fNameErr, index) {
+                    return _c("div", { key: index }, [
+                      _c("strong", [_vm._v(_vm._s(fNameErr))])
+                    ])
+                  }),
+                  0
+                )
+              : _vm._e()
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col" }, [
-            _c("label", { attrs: { for: "houseNumber" } }, [_vm._v("Házszám")]),
+            _vm._m(6),
             _vm._v(" "),
             _c("input", {
               directives: [
@@ -40330,11 +40748,24 @@ var render = function() {
                   _vm.$set(_vm.formData, "houseNumber", $event.target.value)
                 }
               }
-            })
+            }),
+            _vm._v(" "),
+            _vm.hasError
+              ? _c(
+                  "span",
+                  { staticClass: "invalid-feedback", attrs: { role: "alert" } },
+                  _vm._l(_vm.errors.houseNumber, function(fNameErr, index) {
+                    return _c("div", { key: index }, [
+                      _c("strong", [_vm._v(_vm._s(fNameErr))])
+                    ])
+                  }),
+                  0
+                )
+              : _vm._e()
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
+        _c("div", { staticClass: "form-group row" }, [
           _c("div", { staticClass: "col" }, [
             _c("label", { attrs: { for: "floorDoor" } }, [
               _vm._v("Emelet/Ajtó:")
@@ -40360,7 +40791,59 @@ var render = function() {
                   _vm.$set(_vm.formData, "floorDoor", $event.target.value)
                 }
               }
-            })
+            }),
+            _vm._v(" "),
+            _vm.hasError
+              ? _c(
+                  "span",
+                  { staticClass: "invalid-feedback", attrs: { role: "alert" } },
+                  _vm._l(_vm.errors.floorDoor, function(fNameErr, index) {
+                    return _c("div", { key: index }, [
+                      _c("strong", [_vm._v(_vm._s(fNameErr))])
+                    ])
+                  }),
+                  0
+                )
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _vm._m(7),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.formData.phone,
+                  expression: "formData.phone"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", id: "phone" },
+              domProps: { value: _vm.formData.phone },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.formData, "phone", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm.hasError
+              ? _c(
+                  "span",
+                  { staticClass: "invalid-feedback", attrs: { role: "alert" } },
+                  _vm._l(_vm.errors.phone, function(fNameErr, index) {
+                    return _c("div", { key: index }, [
+                      _c("strong", [_vm._v(_vm._s(fNameErr))])
+                    ])
+                  }),
+                  0
+                )
+              : _vm._e()
           ])
         ]),
         _vm._v(" "),
@@ -40387,6 +40870,69 @@ var staticRenderFns = [
       _c("h2", { staticClass: "text-center py-1" }, [
         _vm._v("Szállítási információk megadása (kötelező!)")
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "firstname" } }, [
+      _vm._v("Vezetéknév: "),
+      _c("sup", [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "lastname" } }, [
+      _vm._v("Keresztnév: "),
+      _c("sup", [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "city" } }, [
+      _vm._v("Város: "),
+      _c("sup", [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "zipCode" } }, [
+      _vm._v("Ir. Szám: "),
+      _c("sup", [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "street" } }, [
+      _vm._v("Utca "),
+      _c("sup", [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "houseNumber" } }, [
+      _vm._v("Házszám: "),
+      _c("sup", [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "phone" } }, [
+      _vm._v("Telefon: "),
+      _c("sup", [_vm._v("*")])
     ])
   }
 ]
@@ -40699,21 +41245,29 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "moreIngredients" },
-    _vm._l(_vm.ingreds, function(ing) {
+    _vm._l(_vm.ingredients, function(ing) {
       return _c("div", { key: ing.ingred_id }, [
-        _c("label", { attrs: { for: "plusIngreds[]" } }, [
-          _vm._v("\r\n        " + _vm._s(ing.ingredient_name) + " "),
+        _c("label", [
+          _c("input", {
+            attrs: {
+              type: "checkbox",
+              name: "plusIngreds[]",
+              id: ing.ingred_id
+            },
+            domProps: {
+              value: ing.price,
+              checked: _vm.inSelectedIngreds(ing.ingred_id)
+            },
+            on: { click: _vm.select }
+          }),
+          _vm._v(
+            "            \r\n        " + _vm._s(ing.ingredient_name) + " "
+          ),
           _c("span", { staticClass: "primary-color" }, [
             _vm._v("(" + _vm._s(ing.price) + ") ")
           ]),
-          _vm._v(" Ft")
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          attrs: { type: "checkbox", name: "plusIngreds[]", id: ing.ingred_id },
-          domProps: { value: ing.price },
-          on: { click: _vm.select }
-        })
+          _vm._v(" Ft\r\n        ")
+        ])
       ])
     }),
     0
@@ -40910,39 +41464,7 @@ var render = function() {
         [_vm._v("További Feltétek")]
       ),
       _vm._v(" "),
-      _vm.moreButton
-        ? _c("div", [
-            _c(
-              "div",
-              { staticClass: "moreIngredients" },
-              _vm._l(this.$parent.ingreds, function(ing) {
-                return _c("div", { key: ing.ingred_id }, [
-                  _c("label", [
-                    _c("input", {
-                      attrs: {
-                        type: "checkbox",
-                        name: "plusIngreds[]",
-                        id: ing.ingred_id
-                      },
-                      domProps: { value: ing.price },
-                      on: { click: _vm.select }
-                    }),
-                    _vm._v(
-                      "\n          \n          " +
-                        _vm._s(ing.ingredient_name) +
-                        " "
-                    ),
-                    _c("span", { staticClass: "primary-color" }, [
-                      _vm._v("(" + _vm._s(ing.price) + ") ")
-                    ]),
-                    _vm._v(" Ft")
-                  ])
-                ])
-              }),
-              0
-            )
-          ])
-        : _vm._e(),
+      _vm.moreButton ? _c("div", [_c("moreIngredients")], 1) : _vm._e(),
       _vm._v(" "),
       _c("div", [
         _vm.loggedIn == "Unauthorized" || _vm.loggedIn == "Unauthenticated"
@@ -58414,8 +58936,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       message: 'Unauthenticated'
     }
   },
-  getters: {// cartItems: state => state.cartItems
-  },
   mutations: {
     setCartItems: function setCartItems(state, value) {
       state.cartItems = value;
@@ -58461,17 +58981,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee);
       }))();
-    } // async getCartItem({ commit, dispatch }, accessToken){
-    //     await dispatch('getCartItems', accessToken)
-    //     .then(result => {
-    //         if(result.message != 'Unauthenticated'){
-    //             commit('setCartItems', result);
-    //         }               
-    //     }).catch(err => {
-    //         console.log(err)
-    //     })            
-    // }
-
+    }
   }
 });
 

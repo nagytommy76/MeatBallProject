@@ -16,9 +16,9 @@
 
     .modal{
         position: relative;
-        background: white;
+        // background: white;
         color: black;
-        background-color: #DFDFDF;
+        background-color: #ececec;
         overflow-x: hidden;
         min-height: 5rem;
         max-height: 70%;
@@ -60,6 +60,20 @@
                         width: 100%;
                         height: 100%;                      
                     }
+                }
+            }
+            .userData{
+                padding: 1rem;
+                h3{
+                    font-size: 1.5rem;
+                    margin-bottom: .4rem;
+                }
+            }
+            .order{
+                padding: 1rem;
+                h3{
+                    font-size: 1.5rem;
+                    margin-bottom: .4rem;
                 }
             }
         }

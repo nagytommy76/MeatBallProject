@@ -17,16 +17,9 @@
       >További Feltétek</button>
 
       <div v-if="moreButton">
-        <div class="moreIngredients">
-          <div v-for="ing in this.$parent.ingreds" :key="ing.ingred_id">
-            <label>
-            <input @click="select" type="checkbox" name="plusIngreds[]" v-bind:id="ing.ingred_id" v-bind:value="ing.price">
-            
-            {{ing.ingredient_name}} <span class="primary-color">({{ ing.price }}) </span> Ft</label>
-        
-          </div>
-        </div>
+        <moreIngredients></moreIngredients>
       </div>
+
       <div >
         <div v-if="loggedIn == 'Unauthorized' || loggedIn == 'Unauthenticated'">
           <div class="alert alert-danger" v-if="addedToCart">
@@ -75,36 +68,12 @@ export default {
       loggedIn: this.$parent.$parent.$parent.cartItems.message,
     };
   },
-  created() {
-
-  },
-  computed: {
-      
-  },
   methods: {
     loadPlusIngreds(){
       this.moreButton = !this.moreButton;
-      if(!this.moreButton){
-        this.finalPrice = this.pizzaPrice;
-        this.selectedIngreds = [];
-      }
-    },
-    select(e){        
-        let ingredId = e.target.id;
-        let ingredPrice = parseInt(e.target.value);
-
-        if(e.target.checked){
-          this.finalPrice += ingredPrice;
-          this.selectedIngreds.push(ingredId)
-        }else{
-          this.finalPrice -= ingredPrice;
-          const found = this.selectedIngreds.findIndex(item => item == ingredId)
-          
-          this.selectedIngreds.splice(found,1);
-        }
-
     },
     async addCart(){
+      // if(this.$parent.$parent.accessToken != null){
         await fetch(`api/addFoodToCart`,
           {
             method: 'POST',
@@ -131,7 +100,11 @@ export default {
             if(this.moreButton){
               this.moreButton = !this.moreButton;
             }
-        });      
+        });  
+      // }else{
+      //   this.hideSuccessMsg();
+      //   setTimeout(this.hideSuccessMsg, 3000);
+      // }    
     },
     hideSuccessMsg(){
       this.addedToCart = !this.addedToCart;

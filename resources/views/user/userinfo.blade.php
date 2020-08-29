@@ -21,7 +21,7 @@
                  <div class="col">
                     <label for="email">Email: </label>
                     <input class="form-control" type="email" name="email" id=""
-                    value="{{$email}}">
+                    value="{{$email}}" {{$modify}}>
                     @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

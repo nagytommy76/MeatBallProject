@@ -94,7 +94,7 @@ export default {
         },
         setExpirationToLocalSt(accessToken){
             let hour = new Date();
-            hour.setHours(hour.getHours() + 4)
+            hour.setHours(hour.getHours() + 2)
             let data = {
                 accessToken,
                 'expiration': hour

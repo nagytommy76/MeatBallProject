@@ -7,38 +7,90 @@
             <form>
                 <div class="form-group row">
                     <div class="col">
-                        <label for="firstname">Vezetéknév</label>
+                        <label for="firstname">Vezetéknév: <sup>*</sup></label>
                         <input v-model="formData.firstname" type="text" id="firstname" class="form-control">
+
+                        <span v-if="hasError" class="invalid-feedback" role="alert">
+                            <div v-for="(fNameErr, index) in errors.firstname" :key="index">
+                                <strong>{{ fNameErr }}</strong>
+                            </div> 
+                        </span>
                     </div>
                     <div class="col">
-                        <label for="lastname">Keresztnév</label>
+                        <label for="lastname">Keresztnév: <sup>*</sup></label>
                         <input v-model="formData.lastname" type="text" id="lastname" class="form-control">
+
+                        <span v-if="hasError" class="invalid-feedback" role="alert">
+                            <div v-for="(fNameErr, index) in errors.lastname" :key="index">
+                                <strong>{{ fNameErr }}</strong>
+                            </div> 
+                        </span>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col">
-                        <label for="city">Város</label>
+                        <label for="city">Város: <sup>*</sup></label>
                         <input v-model="formData.city" type="text" name="city" id="city" class="form-control">
+
+                        <span v-if="hasError" class="invalid-feedback" role="alert">
+                            <div v-for="(fNameErr, index) in errors.city" :key="index">
+                                <strong>{{ fNameErr }}</strong>
+                            </div> 
+                        </span>
                     </div>
                     <div class="col">
-                        <label for="zipCode">Ir. Szám</label>
+                        <label for="zipCode">Ir. Szám: <sup>*</sup></label>
                         <input v-model="formData.zipCode" type="number" name="zipCode" id="zipCode" class="form-control">
+
+                        <span v-if="hasError" class="invalid-feedback" role="alert">
+                            <div v-for="(fNameErr, index) in errors.zipCode" :key="index">
+                                <strong>{{ fNameErr }}</strong>
+                            </div> 
+                        </span>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col">
-                        <label for="street">Utca</label>
+                        <label for="street">Utca <sup>*</sup></label>
                         <input v-model="formData.street" type="text" id="street" class="form-control">
+
+                        <span v-if="hasError" class="invalid-feedback" role="alert">
+                            <div v-for="(fNameErr, index) in errors.street" :key="index">
+                                <strong>{{ fNameErr }}</strong>
+                            </div> 
+                        </span>
                     </div>
                     <div class="col">
-                        <label for="houseNumber">Házszám</label>
+                        <label for="houseNumber">Házszám: <sup>*</sup></label>
                         <input v-model="formData.houseNumber" type="text" id="houseNumber" class="form-control">
+
+                        <span v-if="hasError" class="invalid-feedback" role="alert">
+                            <div v-for="(fNameErr, index) in errors.houseNumber" :key="index">
+                                <strong>{{ fNameErr }}</strong>
+                            </div> 
+                        </span>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group row">
                     <div class="col">
                         <label for="floorDoor">Emelet/Ajtó:</label>
                         <input v-model="formData.floorDoor" type="text" id="floorDoor" class="form-control">
+
+                        <span v-if="hasError" class="invalid-feedback" role="alert">
+                            <div v-for="(fNameErr, index) in errors.floorDoor" :key="index">
+                                <strong>{{ fNameErr }}</strong>
+                            </div> 
+                        </span>
+                    </div>
+                    <div class="col">
+                        <label for="phone">Telefon: <sup>*</sup></label>
+                        <input v-model="formData.phone" type="text" id="phone" class="form-control">
+
+                        <span v-if="hasError" class="invalid-feedback" role="alert">
+                            <div v-for="(fNameErr, index) in errors.phone" :key="index">
+                                <strong>{{ fNameErr }}</strong>
+                            </div> 
+                        </span>
                     </div>
                 </div>
                 <input type="submit" value="Adatok megadása" @click.prevent="addUserInfo" class="btn btn-confirm" />
@@ -52,6 +104,7 @@ export default {
     template: "userinfo",
     data:() => {
         return{
+            hasError: false,
             formData: {
                 firstname: '',
                 lastname: '',
@@ -59,7 +112,8 @@ export default {
                 zipCode: 0,
                 street: '',
                 houseNumber: '',
-                floorDoor: ''
+                floorDoor: '',
+                phone: ''
             },
             errors: {
                 firstname: '',
@@ -68,13 +122,48 @@ export default {
                 zipCode: '',
                 street: '',
                 houseNumber: '',
-                floorDoor: ''
+                floorDoor: '',
+                phone: ''
             }
         }
     },
     methods:{
-        addUserInfo(){
-
+        showErrors(error){
+            this.hasError = !this.hasError;
+            this.errors.firstname = error.firstname;
+            this.errors.lastname = error.lastname;
+            this.errors.city = error.city;
+            this.errors.zipCode = error.zipCode;
+            this.errors.street = error.street;
+            this.errors.houseNumber = error.houseNumber;
+            this.errors.floorDoor = error.floorDoor;
+            this.errors.phone = error.phone;
+        },
+        async addUserInfo(){
+            await fetch('api/addUserInfo',{
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + this.$parent.accessToken
+                },
+                body: JSON.stringify(this.formData)
+            }).then(response => response.json())
+            .then(result => {
+                console.log(result)
+                if (result.hasError) {
+                    this.showErrors(result.errors)
+                }else{
+                    if(!result.hasError && !result.exception){
+                        this.$parent.userinfoFilled()
+                        .then(user => {
+                            this.$parent.user = user;
+                            this.$parent.isUserinfoFilled = user.user.userinfo_filled;
+                            this.$parent.step++;
+                        })                        
+                    }                    
+                }              
+            }).catch(error => console.log(error))
         }
     },
 }

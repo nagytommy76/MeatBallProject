@@ -4,6 +4,8 @@ namespace App\Http\Controllers\UserControllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 use App\User;
 use Auth;
 
@@ -70,7 +72,6 @@ class UserInfoController extends Controller
         $valid = $request->validate([
             'email' => ['required', 'max:255'],
             'phone' => ['required', 'max:11'],
-            'phone' => ['required', 'max:11'],
             'zipCode' => ['required', 'size:4'],
             'firstname' => ['required'],
             'lastname' => ['required'],
@@ -80,20 +81,7 @@ class UserInfoController extends Controller
         ]);
         switch ($request->input('action')) {
             case 'Mentés':
-                $this->user->userinfo_filled = 1;
-
-                $this->user->userinfo()->create([
-                    'user_email' => $request->email,
-                    'firstname' => $request->firstname,
-                    'lastname' => $request->lastname,
-                    'city' => $request->city,
-                    'zipCode' => $request->zipCode,
-                    'street' => $request->street,
-                    'houseNumber' => $request->houseNumber,
-                    'floorDoor' => $request->floorDoor,
-                    'phone' => $request->phone,                    
-                ]);
-                $this->user->save();
+                $this->saveInfoData($request);
 
                 return redirect()->route('userinfo.index');
             break;
@@ -117,5 +105,43 @@ class UserInfoController extends Controller
                 return redirect()->route('userinfo.index');
             break;
         } 
+    }
+
+    public function apiStrore(Request $request){
+        $valid = Validator::make($request->all(), [
+            'phone' => ['required', 'max:11'],
+            'zipCode' => ['required', 'size:4'],
+            'firstname' => ['required'],
+            'lastname' => ['required'],
+            'city' => ['required'],
+            'street' => ['required'],
+            'houseNumber' => ['required']
+        ]);
+        if ($valid->fails()) {
+            return response()->json(['exception' => false,'hasError' => true, 'errors' => $valid->errors()]);
+        }
+        $this->saveInfoData($request);
+        return response()->json(['exception' => false,'hasError' => false]);
+    }
+
+    private function saveInfoData($request){
+        try {
+            $this->user->userinfo_filled = 1;
+            $this->user->userinfo()->create([
+                'user_email' => Auth::user()->email,
+                'firstname' => $request->firstname,
+                'lastname' => $request->lastname,
+                'city' => $request->city,
+                'zipCode' => $request->zipCode,
+                'street' => $request->street,
+                'houseNumber' => $request->houseNumber,
+                'floorDoor' => $request->floorDoor,
+                'phone' => $request->phone,                    
+            ]);
+            $this->user->save();
+        } catch (Exception $ex) {
+            return response()->json(['exception' => $ex->getMessage()]);
+        }
+        
     }
 }

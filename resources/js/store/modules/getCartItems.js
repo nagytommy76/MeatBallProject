@@ -8,9 +8,6 @@ export default{
             message: 'Unauthenticated'
         },
     },
-    getters: {
-        // cartItems: state => state.cartItems
-    },
     mutations: {
         setCartItems(state, value){
             state.cartItems = value;
@@ -37,16 +34,5 @@ export default{
             
                  
         },
-
-        // async getCartItem({ commit, dispatch }, accessToken){
-        //     await dispatch('getCartItems', accessToken)
-        //     .then(result => {
-        //         if(result.message != 'Unauthenticated'){
-        //             commit('setCartItems', result);
-        //         }               
-        //     }).catch(err => {
-        //         console.log(err)
-        //     })            
-        // }
     },
 }

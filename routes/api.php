@@ -1,8 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function () {
-    return Auth::user();
-});
+// Route::middleware('auth:sanctum')->post('/userInfoFilled', function () {
+//     return response()->json(Auth::user());
+// });
 
 Route::get('pastas', 'Foods\PastaRizottoController@getAllPasta');
 Route::post('getPastaByOrder', 'Foods\PastaRizottoController@getPastaByOrder');
@@ -36,6 +34,11 @@ Route::post('login', 'Auth\LoginController@login');
 
 // CART CONTROLLER
 Route::group(['middleware' => ['auth:sanctum']], function(){
+    Route::post('addUserInfo', 'UserControllers\UserInfoController@apiStrore');
+    Route::get('userInfoFilled', function(){
+        return response()->json(['user' => Auth::user(), 'userInfo' => Auth::user()->userinfo]);
+    });
+
     Route::post('addFoodToCart','Cart\CartController@addFoodToCart');
     Route::get('getCartItemsFromSession', 'Cart\CartController@getCartItemsFromSession');
     Route::delete('removeItemFromCart', 'Cart\CartController@removeItemFromCart');
