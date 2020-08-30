@@ -17,12 +17,17 @@
                                         <span class="tooltiptext" >
                                             {{ingred.ingredPrice}} Ft
                                         </span>
-                                        <span>{{ingred.ingredName}}</span>
+                                            <span>{{ingred.ingredName}}</span>
                                         </div>
                                     </div>
-                                    
-
-                                    <h4 v-bind:title="'Mennyiség: '+item.qty">Egységár: {{item.oneItemTotalPrice}} Ft</h4>
+                                    <div class="tooltip">
+                                        <span class="tooltiptext">
+                                            Eredeti ár: {{item.item.price}} Ft
+                                        </span>
+                                        <span>
+                                            <h4>Egységár: {{item.oneItemTotalPrice}} Ft</h4>
+                                        </span>
+                                    </div>
                                     <h4>Mennyiség: {{item.qty}} db</h4>
                                 </div>
                                 <div class="left">

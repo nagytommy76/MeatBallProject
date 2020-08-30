@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+
+use App\Mail\OrderConfirm;
+use Illuminate\Support\Facades\Mail;
+
 use Auth;
 
 // PIZZA
@@ -20,10 +24,12 @@ use App\Model\Pasta\PastaRizotto;
 class CartController extends Controller
 {
     protected $sessionName;
+    protected $cartItems;
 
     public function __construct(){
         if (Auth::user()) {           
-            $this->sessionName = 'cart_'.Auth::user()->username;           
+            $this->sessionName = 'cart_'.Auth::user()->username;  
+            $this->cartItems = $this->getCartItemsFromSession();         
         }
     }
 
@@ -60,7 +66,13 @@ class CartController extends Controller
 
         return \response()->json($cart);
     }
+
+    public function sendEmail(){
+        var_dump(Auth::user()->userinfo);
+        Mail::to(Auth::user()->email)->send(new OrderConfirm($this->cartItems, Auth::user()->userinfo));
+    }
     
+
     // ========================================================================
     //                             PRIVATE FUNCTIONS
     // ========================================================================

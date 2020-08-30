@@ -66,8 +66,10 @@ export default {
         async getUserInfo(){
             this.userinfoFilled()
             .then(user => {
-                this.user = user;
-                this.isUserinfoFilled = user.user.userinfo_filled;
+                if(!user.message){
+                    this.user = user;
+                    this.isUserinfoFilled = user.user.userinfo_filled;
+                }                
             })            
         },
         async makeOrder(){

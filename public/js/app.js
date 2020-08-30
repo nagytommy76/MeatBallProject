@@ -2118,6 +2118,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "cartmodal",
   template: 'cartmodal',
@@ -2348,8 +2353,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 _this2.userinfoFilled().then(function (user) {
-                  _this2.user = user;
-                  _this2.isUserinfoFilled = user.user.userinfo_filled;
+                  if (!user.message) {
+                    _this2.user = user;
+                    _this2.isUserinfoFilled = user.user.userinfo_filled;
+                  }
                 });
 
               case 1:
@@ -40156,8 +40163,22 @@ var render = function() {
                   0
                 ),
                 _vm._v(" "),
-                _c("h4", { attrs: { title: "Mennyiség: " + item.qty } }, [
-                  _vm._v("Egységár: " + _vm._s(item.oneItemTotalPrice) + " Ft")
+                _c("div", { staticClass: "tooltip" }, [
+                  _c("span", { staticClass: "tooltiptext" }, [
+                    _vm._v(
+                      "\n                                        Eredeti ár: " +
+                        _vm._s(item.item.price) +
+                        " Ft\n                                    "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("span", [
+                    _c("h4", [
+                      _vm._v(
+                        "Egységár: " + _vm._s(item.oneItemTotalPrice) + " Ft"
+                      )
+                    ])
+                  ])
                 ]),
                 _vm._v(" "),
                 _c("h4", [_vm._v("Mennyiség: " + _vm._s(item.qty) + " db")])

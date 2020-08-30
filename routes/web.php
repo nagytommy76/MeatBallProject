@@ -52,7 +52,7 @@ Route::prefix('admin')->group(function() {
 
 });
 
-
+Route::get('/test', 'Cart\CartController@sendEmail');
 
 Route::get('/', function () {
     return view('welcome');
