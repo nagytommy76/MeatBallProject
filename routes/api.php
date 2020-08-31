@@ -42,6 +42,8 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::post('addFoodToCart','Cart\CartController@addFoodToCart');
     Route::get('getCartItemsFromSession', 'Cart\CartController@getCartItemsFromSession');
     Route::delete('removeItemFromCart', 'Cart\CartController@removeItemFromCart');
-    
+
+    // Sending order E-mail
+    Route::get('/sendOrderEmail', 'Cart\CartController@sendOrderEmail');
 });
 

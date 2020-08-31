@@ -17,4 +17,8 @@ class User extends Admin
     public function userinfo(){
         return $this->hasOne("App\Model\User\Userinfo", "user_email", "email");
     }
+
+    public function orders(){
+        return $this->hasMany("App\Model\Order\Orders", 'user_email', 'email');
+    }
 }

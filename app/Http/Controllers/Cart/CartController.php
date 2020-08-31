@@ -20,6 +20,7 @@ use App\Model\Foods\PizzaIngredPrices;
 // PASTA
 use App\Model\Pasta\PastaRizotto;
 
+use App\User;
 
 class CartController extends Controller
 {
@@ -29,7 +30,7 @@ class CartController extends Controller
     public function __construct(){
         if (Auth::user()) {           
             $this->sessionName = 'cart_'.Auth::user()->username;  
-            $this->cartItems = $this->getCartItemsFromSession();         
+            $this->cartItems = $this->getParamsFromSession();         
         }
     }
 
@@ -40,8 +41,8 @@ class CartController extends Controller
 
     public function getCartItemsFromSession()
     {
-        if ($this->getParamsFromSession()) {
-            return response()->json($this->getParamsFromSession());
+        if ($this->cartItems) {
+            return response()->json($this->cartItems);
         }
         return response()->json([
             'totalQty' => 0,
@@ -56,7 +57,7 @@ class CartController extends Controller
     public function removeItemFromCart(Request $request){
         $response = json_decode($request->getContent());
         
-        $oldCart = Session::has($this->sessionName) ? $this->getParamsFromSession() : null;
+        $oldCart = Session::has($this->sessionName) ? $this->cartItems : null;
 
         $cart = new Cart($oldCart, true);
 
@@ -67,9 +68,30 @@ class CartController extends Controller
         return \response()->json($cart);
     }
 
-    public function sendEmail(){
-        var_dump(Auth::user()->userinfo);
-        Mail::to(Auth::user()->email)->send(new OrderConfirm($this->cartItems, Auth::user()->userinfo));
+    public function sendOrderEmail(){
+        try {
+            Mail::to(Auth::user()->email)->send(new OrderConfirm($this->cartItems, Auth::user()->userinfo));
+            return \response()->json(['message' => 'Összegző E-mail elküldve', 'exception' => false]);
+            // Folyt
+            // Szeretnék egy pörgő icon-t addig amíg el enm küldi a mailt
+            // törli a sessiont, visszaállít mindent.
+            // Talán 2 async/await egymásba ágyazva???
+        } catch (Exception $ex) {
+            return \response()->json(['message' => $ex->getMessage(), 'exception' => true]);
+        }        
+    }
+
+    public function saveOrder(){
+        try {
+            Auth::user()->orders()->create([
+                'user_email' => Auth::user()->email,
+                'cartItems' => json_encode($this->cartItems),
+                'orderNumber' => \rand(0, 9999999999)
+            ]);
+            Auth::user()->save();
+        } catch (Exception $ex) {
+            
+        }
     }
     
 
