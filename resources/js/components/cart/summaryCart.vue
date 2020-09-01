@@ -50,8 +50,5 @@ export default {
             return this.$parent.$parent.cartItems;
         }
     },
-    methods: {
-
-    },
 }
 </script>

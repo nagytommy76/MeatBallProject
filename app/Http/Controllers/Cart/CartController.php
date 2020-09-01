@@ -6,11 +6,13 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use \Illuminate\Database\QueryException;
 
 use App\Mail\OrderConfirm;
 use Illuminate\Support\Facades\Mail;
 
 use Auth;
+use Exception;
 
 // PIZZA
 use App\Model\Cart;
@@ -71,11 +73,8 @@ class CartController extends Controller
     public function sendOrderEmail(){
         try {
             Mail::to(Auth::user()->email)->send(new OrderConfirm($this->cartItems, Auth::user()->userinfo));
-            return \response()->json(['message' => 'Összegző E-mail elküldve', 'exception' => false]);
-            // Folyt
-            // Szeretnék egy pörgő icon-t addig amíg el enm küldi a mailt
-            // törli a sessiont, visszaállít mindent.
-            // Talán 2 async/await egymásba ágyazva???
+
+            return \response()->json(['exception' => false]);
         } catch (Exception $ex) {
             return \response()->json(['message' => $ex->getMessage(), 'exception' => true]);
         }        
@@ -83,14 +82,19 @@ class CartController extends Controller
 
     public function saveOrder(){
         try {
-            Auth::user()->orders()->create([
+            $userOrder = Auth::user()->orders()->create([
                 'user_email' => Auth::user()->email,
                 'cartItems' => json_encode($this->cartItems),
                 'orderNumber' => \rand(0, 9999999999)
+                // 'orderNumber' => \rand(0, 9999999999)
             ]);
             Auth::user()->save();
-        } catch (Exception $ex) {
-            
+            if ($userOrder->wasRecentlyCreated) {
+                Session::forget($this->sessionName);
+            }
+            return \response()->json(['exception' => false]);
+        } catch (QueryException $ex) {
+            return \response()->json(['message' => $ex->getMessage(), 'exception' => true]);
         }
     }
     

@@ -44,6 +44,7 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::delete('removeItemFromCart', 'Cart\CartController@removeItemFromCart');
 
     // Sending order E-mail
-    Route::get('/sendOrderEmail', 'Cart\CartController@sendOrderEmail');
+    Route::post('/sendOrderEmail', 'Cart\CartController@sendOrderEmail');
+    Route::post('/saveOrder', 'Cart\CartController@saveOrder');
 });
 

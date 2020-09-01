@@ -1,6 +1,8 @@
 @component('mail::message')
 # Köszönjük a rendelést Kedves **{{$user->firstName}} {{$user->lastName}}!**
 
+_Rendelve: {{date('Y').'. '.date('m').'. '.date('d').'. '.date('H').':'.date('i').':'.date('s')}}_
+
 _A rendelés kiszállítása rajtunk kívülálló okokból 60-90 perc is lehet._
 
 # Rendelés összegzése (Ételek: {{$cart->totalQty}} Db)

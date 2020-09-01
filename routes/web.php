@@ -52,9 +52,6 @@ Route::prefix('admin')->group(function() {
 
 });
 
-Route::get('/test', 'Cart\CartController@sendOrderEmail');
-Route::get('/test2', 'Cart\CartController@saveOrder');
-
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
