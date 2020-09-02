@@ -20,7 +20,7 @@
 export default {
     data: () =>{
         return {
-            // selectedIngreds: []
+            
         }
     },
     computed:{
@@ -47,20 +47,13 @@ export default {
         },
         inSelectedIngreds(ingredId){
             // console.log(ingredId);
-            // console.log(this.$parent.selectedIngreds.includes(ingredId))
+            if(this.$parent.selectedIngreds.length > 0){
+                // console.log('CSÁ');
+                console.log(this.$parent.selectedIngreds.includes(ingredId))
+            }
             // this.$parent.selectedIngreds.forEach(element => {
-            //     console.log(element + " : "+ingredId)
-            //     if(element == ingredId){
-            //         console.log("CSÁCÁSÁCSÁCSÁCSCÁCÁ")
-            //         return true;
-            //     }  else{
-            //         return false;
-            //     } 
-            // });
-            // if(this.$parent.selectedIngreds.includes(ingredId)){
-            //     return true;
-            // }  
-            // return false;          
+               
+            // });          
         }
     }
 }

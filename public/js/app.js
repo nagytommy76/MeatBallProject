@@ -2313,6 +2313,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
 
@@ -2329,7 +2330,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
-      pages: ['cartModal', 'userInfo', 'summaryCart'],
+      pages: ['cartModal', 'userInfo', 'summaryCart', 'afterOrder'],
       step: 0,
       isUserinfoFilled: false,
       user: {},
@@ -2413,23 +2414,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                console.log("Rendelés leadása");
                 _this3.isLoading = true;
 
                 _this3.sendOrderEmail().then(function (email) {
-                  console.log(email);
-                  console.log("rendelés elküldve EMAIL");
-
                   if (!email.exception) {
                     _this3.saveOrder().then(function (saved) {
-                      console.log('Mentve az adatbázisba');
-                      console.log(saved);
+                      if (!saved.exception) {
+                        _this3.$parent.getCartItems(_this3.$parent.accessToken);
+
+                        _this3.step = 3;
+                      } else {
+                        console.log(saved.exception);
+                      }
+
                       _this3.isLoading = false;
                     });
+                  } else {
+                    console.log(email.exception);
+                    _this3.isLoading = false;
                   }
                 });
 
-              case 3:
+              case 2:
               case "end":
                 return _context3.stop();
             }
@@ -2852,7 +2858,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2935,6 +2940,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _pastaCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pastaCard */ "./resources/js/components/pasta/pastaCard.vue");
+/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-loading-overlay */ "./node_modules/vue-loading-overlay/dist/vue-loading.min.js");
+/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-loading-overlay/dist/vue-loading.css */ "./node_modules/vue-loading-overlay/dist/vue-loading.css");
+/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_3__);
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2976,11 +2985,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "pasta-filtering",
   components: {
-    PastaCard: _pastaCard__WEBPACK_IMPORTED_MODULE_1__["default"]
+    PastaCard: _pastaCard__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Loading: vue_loading_overlay__WEBPACK_IMPORTED_MODULE_2___default.a
   },
   data: function data() {
     return {
@@ -2988,7 +3005,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       orderBy: 'asc',
       minPrice: 0,
       maxPrice: 10000,
-      priceValue: 0
+      priceValue: 0,
+      isLoading: false
     };
   },
   created: function created() {
@@ -3004,7 +3022,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                _this.isLoading = true;
+                _context.next = 3;
                 return fetch('api/getPastaByOrder', {
                   method: 'POST',
                   headers: {
@@ -3020,9 +3039,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   return resp.json();
                 }).then(function (result) {
                   _this.pasta = result.data;
+                  _this.isLoading = false;
                 });
 
-              case 2:
+              case 3:
               case "end":
                 return _context.stop();
             }
@@ -3038,7 +3058,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _context2.next = 2;
+                _this2.isLoading = true;
+                _context2.next = 3;
                 return fetch('api/pastas', {
                   method: 'GET',
                   headers: {
@@ -3049,9 +3070,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   return response.json();
                 }).then(function (result) {
                   _this2.pasta = result.data;
+                  _this2.isLoading = false;
                 });
 
-              case 2:
+              case 3:
               case "end":
                 return _context2.stop();
             }
@@ -3067,7 +3089,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                _context3.next = 2;
+                _this3.isLoading = true;
+                _context3.next = 3;
                 return fetch('api/getPastaByName', {
                   method: "POST",
                   headers: {
@@ -3081,9 +3104,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   return response.json();
                 }).then(function (result) {
                   _this3.pasta = result.data;
+                  _this3.isLoading = false;
                 });
 
-              case 2:
+              case 3:
               case "end":
                 return _context3.stop();
             }
@@ -3150,8 +3174,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {// selectedIngreds: []
-    };
+    return {};
   },
   computed: {
     ingredients: function ingredients() {
@@ -3176,21 +3199,14 @@ __webpack_require__.r(__webpack_exports__);
         this.$parent.selectedIngreds.splice(found, 1);
       }
     },
-    inSelectedIngreds: function inSelectedIngreds(ingredId) {// console.log(ingredId);
-      // console.log(this.$parent.selectedIngreds.includes(ingredId))
-      // this.$parent.selectedIngreds.forEach(element => {
-      //     console.log(element + " : "+ingredId)
-      //     if(element == ingredId){
-      //         console.log("CSÁCÁSÁCSÁCSÁCSCÁCÁ")
-      //         return true;
-      //     }  else{
-      //         return false;
-      //     } 
-      // });
-      // if(this.$parent.selectedIngreds.includes(ingredId)){
-      //     return true;
-      // }  
-      // return false;          
+    inSelectedIngreds: function inSelectedIngreds(ingredId) {
+      // console.log(ingredId);
+      if (this.$parent.selectedIngreds.length > 0) {
+        // console.log('CSÁ');
+        console.log(this.$parent.selectedIngreds.includes(ingredId));
+      } // this.$parent.selectedIngreds.forEach(element => {
+      // });          
+
     }
   }
 });
@@ -3209,6 +3225,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _pizza_card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pizza_card */ "./resources/js/components/pizza/pizza_card.vue");
+/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-loading-overlay */ "./node_modules/vue-loading-overlay/dist/vue-loading.min.js");
+/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-loading-overlay/dist/vue-loading.css */ "./node_modules/vue-loading-overlay/dist/vue-loading.css");
+/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_3__);
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -3251,13 +3271,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Filtering",
   components: {
-    pizzaCard: _pizza_card__WEBPACK_IMPORTED_MODULE_1__["default"]
+    pizzaCard: _pizza_card__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Loading: vue_loading_overlay__WEBPACK_IMPORTED_MODULE_2___default.a
   },
-  props: {},
   data: function data() {
     return {
       pizzas: [],
@@ -3265,10 +3295,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       minPrice: 0,
       maxPrice: 10000,
       priceValue: 0,
-      ingreds: []
+      ingreds: [],
+      isLoading: false
     };
   },
-  computed: {},
   created: function created() {
     this.fetchPizza();
     this.getPrices();
@@ -3283,7 +3313,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                _this.isLoading = true;
+                _context.next = 3;
                 return fetch('api/pizzas', {
                   method: 'GET',
                   headers: {
@@ -3294,9 +3325,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   return resp.json();
                 }).then(function (res) {
                   _this.pizzas = res.data;
+                  _this.isLoading = false;
                 });
 
-              case 2:
+              case 3:
               case "end":
                 return _context.stop();
             }
@@ -3312,14 +3344,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _context2.next = 2;
+                _this2.isLoading = true;
+                _context2.next = 3;
                 return fetch("api/getPizzaByOrder?orderBy=".concat(_this2.order, "&minPrice=").concat(_this2.priceValue, "&maxPrice=").concat(_this2.maxPrice)).then(function (resp) {
                   return resp.json();
                 }).then(function (res) {
                   _this2.pizzas = res.data;
+                  _this2.isLoading = false;
                 });
 
-              case 2:
+              case 3:
               case "end":
                 return _context2.stop();
             }
@@ -3336,15 +3370,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
+                _this3.isLoading = true;
                 pizzaName = e.target.value;
-                _context3.next = 3;
+                _context3.next = 4;
                 return fetch("api/searchPizzaByName?name=".concat(pizzaName)).then(function (respons) {
                   return respons.json();
                 }).then(function (res) {
                   _this3.pizzas = res.data;
+                  _this3.isLoading = false;
                 });
 
-              case 3:
+              case 4:
               case "end":
                 return _context3.stop();
             }
@@ -40860,13 +40896,15 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("div", { staticClass: "modal-head" }, [
+      _c("div", { staticClass: "modal-head p-2" }, [
         _c("h1", { staticClass: "text-center" }, [
           _vm._v("Köszönjük rendelését!")
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "modal-body" })
+      _c("div", { staticClass: "modal-body" }, [
+        _c("h3", [_vm._v("A visszaigazoló E-mail-t elküldük!")])
+      ])
     ])
   }
 ]
@@ -41108,8 +41146,8 @@ var render = function() {
                     {
                       name: "show",
                       rawName: "v-show",
-                      value: _vm.step > 0,
-                      expression: "step>0"
+                      value: _vm.step > 0 && _vm.step != 3,
+                      expression: "step>0 && step != 3"
                     }
                   ],
                   staticClass: "btn btn-delete text-white",
@@ -41125,8 +41163,8 @@ var render = function() {
                     {
                       name: "show",
                       rawName: "v-show",
-                      value: _vm.step < _vm.pages.length - 1,
-                      expression: "step<pages.length-1"
+                      value: _vm.step < _vm.pages.length - 1 && _vm.step != 2,
+                      expression: "step<pages.length-1 && step != 2"
                     }
                   ]
                 },
@@ -41157,8 +41195,8 @@ var render = function() {
                     {
                       name: "show",
                       rawName: "v-show",
-                      value: _vm.step == _vm.pages.length - 1,
-                      expression: "step == pages.length-1"
+                      value: _vm.step == _vm.pages.length - 2,
+                      expression: "step == pages.length-2"
                     }
                   ],
                   staticClass: "btn btn-confirm",
@@ -41173,8 +41211,8 @@ var render = function() {
             attrs: {
               active: _vm.isLoading,
               "is-full-page": false,
-              "background-color": "#FFF",
-              color: "#F0A700",
+              "background-color": "#979797",
+              color: "#80FF00",
               height: 100,
               width: 100
             }
@@ -41838,10 +41876,6 @@ var render = function() {
         2
       ),
       _vm._v(" "),
-      _c("button", { staticClass: "btn btn-primary" }, [
-        _vm._v("Kell ez a gomb?")
-      ]),
-      _vm._v(" "),
       _vm.loggedIn == "Unauthorized"
         ? _c("div", [
             _vm.addedToCart
@@ -41902,8 +41936,10 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "card-and-filter" }, [
+  return _c(
+    "div",
+    { staticClass: "card-and-filter" },
+    [
       _c("aside", { staticClass: "filter-container" }, [
         _c("h2", { staticClass: "py-1 text-center" }, [_vm._v("Szűrő")]),
         _vm._v(" "),
@@ -42019,9 +42055,20 @@ var render = function() {
           }),
           0
         )
-      ])
-    ])
-  ])
+      ]),
+      _vm._v(" "),
+      _c("Loading", {
+        attrs: {
+          active: _vm.isLoading,
+          opacity: 0,
+          color: "#00DC00",
+          height: 130,
+          width: 130
+        }
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -42193,25 +42240,37 @@ var render = function() {
       _c(
         "section",
         { staticClass: "food_card_content" },
-        _vm._l(_vm.pizzas, function(pizza) {
-          return _c(
-            "div",
-            { key: pizza.id },
-            [
-              _c("pizzaCard", {
-                attrs: {
-                  pizzaId: pizza.id,
-                  image: pizza.image_path,
-                  pizzaName: pizza.name,
-                  ingredients: pizza.ingredients,
-                  pizzaPrice: pizza.price
-                }
-              })
-            ],
-            1
-          )
-        }),
-        0
+        [
+          _c("Loading", {
+            attrs: {
+              active: _vm.isLoading,
+              opacity: 0,
+              color: "#00DC00",
+              height: 130,
+              width: 130
+            }
+          }),
+          _vm._v(" "),
+          _vm._l(_vm.pizzas, function(pizza) {
+            return _c(
+              "div",
+              { key: pizza.id },
+              [
+                _c("pizzaCard", {
+                  attrs: {
+                    pizzaId: pizza.id,
+                    image: pizza.image_path,
+                    pizzaName: pizza.name,
+                    ingredients: pizza.ingredients,
+                    pizzaPrice: pizza.price
+                  }
+                })
+              ],
+              1
+            )
+          })
+        ],
+        2
       )
     ])
   ])
@@ -58711,11 +58770,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
@@ -58725,30 +58779,10 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
 
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-// Vue.component('Filtering', require('./components/pizza/pizzaFilter.vue').default);
-// Vue.component('pasta-filtering', require('./components/pasta/pastaFilter.vue').default);
-
 Vue.component('cart-items', __webpack_require__(/*! ./components/cart/itemsInCart.vue */ "./resources/js/components/cart/itemsInCart.vue")["default"]);
-Vue.component('cart-modal', __webpack_require__(/*! ./components/cart/modal.vue */ "./resources/js/components/cart/modal.vue")["default"]); // Vue.component('summary-cart', require('./components/cart/summaryCart.vue').default);
-
+Vue.component('cart-modal', __webpack_require__(/*! ./components/cart/modal.vue */ "./resources/js/components/cart/modal.vue")["default"]);
 Vue.component('login', __webpack_require__(/*! ./components/Auth/login.vue */ "./resources/js/components/Auth/login.vue")["default"]);
-Vue.component('food-filter', __webpack_require__(/*! ./components/foodFilter.vue */ "./resources/js/components/foodFilter.vue")["default"]); // import foodFilter from './components/foodFilter';
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
+Vue.component('food-filter', __webpack_require__(/*! ./components/foodFilter.vue */ "./resources/js/components/foodFilter.vue")["default"]);
 
 var app = new Vue({
   store: _store__WEBPACK_IMPORTED_MODULE_0__["default"],

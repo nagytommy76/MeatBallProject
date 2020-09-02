@@ -1,5 +1,4 @@
 <template>
-    <div>
         <div class="card-and-filter">
             <aside class="filter-container">
                 <h2 class="py-1 text-center">Szűrő</h2>
@@ -30,15 +29,26 @@
                     </div>
                 </section>
             </div>
+            <Loading
+                :active="isLoading"
+                :opacity=0
+                color="#00DC00"
+                :height=130
+                :width=130
+                ></Loading>
         </div>
-    </div>
 </template>
 <script>
 import PastaCard from './pastaCard';
+
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css';
+
 export default {
     name: "pasta-filtering",
     components: {
-        PastaCard
+        PastaCard,
+        Loading
     },
     data: () => {
         return {
@@ -47,6 +57,7 @@ export default {
             minPrice: 0,
             maxPrice: 10000,
             priceValue: 0,
+            isLoading: false
         }
     },
     created(){
@@ -55,6 +66,7 @@ export default {
     },
     methods: {
         async getPastaByOrder(){
+            this.isLoading = true;
             await fetch('api/getPastaByOrder', {
                 method: 'POST',
                 headers: {
@@ -70,9 +82,11 @@ export default {
             .then(resp => resp.json())
             .then(result => {
                 this.pasta = result.data;
+                this.isLoading = false;
             });
         },
         async fetchPasta(){
+            this.isLoading = true;
             await fetch('api/pastas', {
                 method: 'GET',
                 headers: {
@@ -83,9 +97,11 @@ export default {
             .then(response => response.json())
             .then(result => {
                 this.pasta = result.data;
+                this.isLoading = false;
             });
         },
         async searchByName(event){
+            this.isLoading = true;
             await fetch('api/getPastaByName', {
                 method: "POST",
                 headers: {
@@ -99,6 +115,7 @@ export default {
             .then(response => response.json())
             .then(result => {
                 this.pasta = result.data
+                this.isLoading = false;
             });
         },
         async getPrices(){

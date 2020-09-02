@@ -20,6 +20,13 @@
         <div class="food_card_container py-2">
             <h1 class="py-1 text-black text-center">Pizzák</h1>
             <section class="food_card_content">
+                <Loading
+                :active="isLoading"
+                :opacity=0
+                color="#00DC00"
+                :height=130
+                :width=130
+                ></Loading>
             <div v-for="pizza in pizzas" :key="pizza.id">
                 <pizzaCard  
                     v-bind:pizzaId="pizza.id"
@@ -28,21 +35,24 @@
                     v-bind:ingredients="pizza.ingredients"
                     v-bind:pizzaPrice="pizza.price"
                 />
-            </div>
-            </section>
+            </div>            
+            </section>            
         </div>
+         
     </div>
 </template>
 
 <script>
 import pizzaCard from './pizza_card';
+
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css';
+
 export default {
     name: "Filtering",
     components: {
-        pizzaCard
-    },
-    props:{
-        
+        pizzaCard,
+        Loading
     },
     data: () => {
         return {
@@ -52,10 +62,8 @@ export default {
             maxPrice: 10000,
             priceValue: 0,
             ingreds: [],
+            isLoading: false,
         }
-    },
-    computed: {
-        
     },
     created(){
         this.fetchPizza();
@@ -64,6 +72,7 @@ export default {
     },
     methods: {
         async fetchPizza(){
+            this.isLoading = true;
             await fetch('api/pizzas', {
                 method: 'GET',
                 headers: {
@@ -74,21 +83,26 @@ export default {
             .then(resp => resp.json())
             .then(res => {
                 this.pizzas = res.data;
+                this.isLoading = false
             });
         },
         async getPizzaByOrder(event){
+            this.isLoading = true;
             await fetch(`api/getPizzaByOrder?orderBy=${this.order}&minPrice=${this.priceValue}&maxPrice=${this.maxPrice}`)
             .then(resp => resp.json())
             .then(res => {
                 this.pizzas = res.data;
+                this.isLoading = false;
             });
         },
         async searchByName(e){
+            this.isLoading = true;
             let pizzaName = e.target.value;
             await fetch(`api/searchPizzaByName?name=${pizzaName}`)
             .then(respons => respons.json())
             .then(res => {
                 this.pizzas = res.data;
+                this.isLoading = false;
             })
         },
         async getPrices(){

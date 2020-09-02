@@ -11,7 +11,6 @@
                 {{ ingred }}, 
             </span> )
             </div>            
-            <button class="btn btn-primary">Kell ez a gomb?</button>
             <div v-if="loggedIn == 'Unauthorized'">
           <div class="alert alert-danger" v-if="addedToCart">
             <p>Kérem jelentkezzen be!</p>

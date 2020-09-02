@@ -7,18 +7,19 @@
                 <component :is="currentPage"></component>
 
                 <div v-show="this.$parent.cartItems.totalQty > 0" class="">
-                    <button v-show="step>0" @click="previousPage" class="btn btn-delete text-white">Vissza</button>
-                    <span v-show="step<pages.length-1">
+                    <button v-show="step>0 && step != 3" @click="previousPage" class="btn btn-delete text-white">Vissza</button>
+                    <span v-show="step<pages.length-1 && step != 2">
                         <button v-show="this.isUserinfoFilled || step != 1" @click="nextPage" class="btn btn-primary" >Tovább</button>
                     </span>
                         
-                    <button @click="makeOrder" v-show="step == pages.length-1" class="btn btn-confirm">A végén a leadáshoz</button>
+                    <button @click="makeOrder" v-show="step == pages.length-2" class="btn btn-confirm">A végén a leadáshoz</button>
+                    
                 </div>
                 <Loading
                     :active="isLoading"
                     :is-full-page="false"
-                    background-color="#FFF"
-                    color="#F0A700"
+                    background-color="#979797"
+                    color="#80FF00"
                     :height=100
                     :width=100
                 ></Loading>
@@ -46,7 +47,7 @@ export default {
     },
     data:() => {
         return {
-            pages: ['cartModal','userInfo','summaryCart'],
+            pages: ['cartModal','userInfo','summaryCart','afterOrder'],
             step: 0,
             isUserinfoFilled: false,
             user: {},
@@ -85,17 +86,21 @@ export default {
             })            
         },
         async makeOrder(){
-            console.log("Rendelés leadása")
             this.isLoading = true;
             this.sendOrderEmail().then(email => {
-                console.log(email);
-                console.log("rendelés elküldve EMAIL");
                 if(!email.exception){
-                    this.saveOrder().then(saved => {
-                        console.log('Mentve az adatbázisba')
-                        console.log(saved)
+                    this.saveOrder().then(saved => { 
+                        if(!saved.exception){
+                            this.$parent.getCartItems(this.$parent.accessToken);
+                            this.step = 3;
+                        }else{
+                            console.log(saved.exception)
+                        }                    
                         this.isLoading = false;
                     })
+                }else{
+                    console.log(email.exception)
+                    this.isLoading = false;
                 }
             });
         },

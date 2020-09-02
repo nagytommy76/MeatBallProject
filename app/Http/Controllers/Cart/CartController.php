@@ -19,6 +19,8 @@ use App\Model\Cart;
 use App\Model\Foods\Pizzas;
 use App\Model\Foods\PizzaIngredPrices;
 
+use App\Model\Order\Orders;
+
 // PASTA
 use App\Model\Pasta\PastaRizotto;
 
@@ -80,13 +82,12 @@ class CartController extends Controller
         }        
     }
 
-    public function saveOrder(){
+    public function saveOrder(){        
         try {
             $userOrder = Auth::user()->orders()->create([
                 'user_email' => Auth::user()->email,
                 'cartItems' => json_encode($this->cartItems),
-                'orderNumber' => \rand(0, 9999999999)
-                // 'orderNumber' => \rand(0, 9999999999)
+                'orderNumber' => $this->checkNumberInOrders()
             ]);
             Auth::user()->save();
             if ($userOrder->wasRecentlyCreated) {
@@ -102,6 +103,19 @@ class CartController extends Controller
     // ========================================================================
     //                             PRIVATE FUNCTIONS
     // ========================================================================
+
+    protected function generateOrderNumber($min = 0, $max = 9999999999){
+        return rand($min, $max);
+    }
+
+    protected function checkNumberInOrders(){
+        $number = $this->generateOrderNumber();
+        $order = Orders::where('orderNumber', '=', $number)->get();
+        if (count($order) > 0) {
+            $number = $this->generateOrderNumber();
+        }
+        return $number;
+    }
 
     private function addElementToCart($dataFromCard){       
         $anyTypeOfFood = $this->getDataFromDatabaseByFoodType($dataFromCard);
