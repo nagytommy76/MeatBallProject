@@ -2,21 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
-
-// Route::middleware('auth:sanctum')->post('/userInfoFilled', function () {
-//     return response()->json(Auth::user());
-// });
-
 Route::get('pastas', 'Foods\PastaRizottoController@getAllPasta');
 Route::post('getPastaByOrder', 'Foods\PastaRizottoController@getPastaByOrder');
 Route::post('getPastaByName', 'Foods\PastaRizottoController@getPastaByName');
@@ -29,6 +14,12 @@ Route::get('getPizzaByOrder', 'Foods\PizzaController@getPizzaByOrder');
 Route::get('getMinMaxPrice', 'Foods\PizzaController@getMinMaxPrice');
 Route::get('searchPizzaByName', 'Foods\PizzaController@searchPizzaByName');
 Route::get('getPlusIngreds', 'Foods\PizzaController@getPlusIngreds');
+
+// Soups
+Route::get('soup', 'Foods\SoupController@getAllSoup');
+Route::post('getSoupByOrder', 'Foods\SoupController@getSoupByOrder');
+Route::post('getSoupByName', 'Foods\SoupController@getSoupByName');
+Route::get('getMinMaxPrice', 'Foods\SoupController@getMinMaxPrice');
 
 Route::post('login', 'Auth\LoginController@login');
 

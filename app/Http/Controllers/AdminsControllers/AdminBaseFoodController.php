@@ -13,13 +13,38 @@ class AdminBaseFoodController extends Controller
     public function __construct(){
         $this->middleware('auth:admin');
     }
-    
-    protected function updateFoodImage(&$food, $request, $imageModel, $foodType){
-        Storage::delete($imageModel::find($food->image_id)->image_path);
 
-        $food->images()->update([
-            'image_path' => $request->file('image')->store($foodType)
+    protected function saveFood($foodModel, $request, $imageStorage){
+        $food = new $foodModel;
+        $food->name = $request->name;
+        $food->ingredients = $request->ingredient;
+
+        $imageId = $food->images()->create([
+            'image_path' => $request->file('image')->store($imageStorage)
         ]);
+
+        $priceId = $food->prices()->create([
+            'price' => $request->price
+        ]);
+
+        $food->price_id = $priceId->id;
+        $food->image_id = $imageId->id;
+
+        return $food;
+    }
+
+    protected function updateFood($foodModel, $id, $request, $foodType){
+        $food = $foodModel::find($id);
+        $food->name = $request->name;
+        $food->ingredients = $request->ingredient;
+
+        if ($request->file('image') != null) {
+            $this->updateFoodImage($food, $request ,$food->images->image_path, $foodType);
+        }
+        $food->prices()->update([
+            'price' => $request->price
+        ]);
+        return $food;
     }
 
     protected function destroyFood($request, $foodModel){
@@ -28,5 +53,13 @@ class AdminBaseFoodController extends Controller
         Storage::delete($foodToDelete->images->image_path);
         $foodToDelete->delete();
         return $foodToDelete->name;
+    }
+
+    private function updateFoodImage(&$food, $request ,$imagePath, $foodType){
+        Storage::delete($imagePath);
+
+        $food->images()->update([
+            'image_path' => $request->file('image')->store($foodType)
+        ]);
     }
 }

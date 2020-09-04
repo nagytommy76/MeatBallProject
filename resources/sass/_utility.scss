@@ -82,19 +82,42 @@ body{
     background: white;
     margin: 1rem;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.1rem;
     border: 2px #F79600 solid;
-    border-radius: 50px;
+    border-radius: 5px;
     outline: none;
-    transition: ease-out .1s;
+    transition: linear .1s;
+    color: white;
+
+    &:before {
+        content: "";
+        background-color: rgba(22, 22, 22, 0.5);
+        height: 100%;
+        width: 3em;
+        top: 0;
+        left: -4.5em;
+        transform: skewX(-45deg) translateX(0);
+        transition: none;
+      }
+
+    &:hover {
+        background-color: #F79600;
+        color: #fff;
+        border-bottom: 2px solid darken(#F79600, 10%);
+        &:before {
+          transform: skewX(-45deg) translateX(13.5em);
+         transition: all 0.5s ease-in-out;
+        }
+      }
 
     &-primary{
-        background: $primary;
+        // background: $primary;
+        background: $card-background;
 
         &:hover{
             background: #F79600;
             border-color: $primary;
-            transform: scale(1.035);
+            // transform: scale(1.035);
         }
     }
 
@@ -105,14 +128,14 @@ body{
             border-color: #44D500;
             background: #2B8600;
             color: white;
-            transform: scale(1.035);
+            // transform: scale(1.035);
         }
     }
 
     &-delete{
         background: $deleteColor;
         &:hover{
-            transform: scale(1.035);
+            // transform: scale(1.035);
         }
     }
 
@@ -122,10 +145,19 @@ body{
         &:hover{
             background: #F79600;
             border-color: $primary;
-            transform: scale(1.075);
+            // transform: scale(1.075);
         }
     }
 }
+
+@keyframes sheen {
+    0% {
+      transform: skewY(-45deg) translateX(0);
+    }
+    100% {
+      transform: skewY(-45deg) translateX(12.5em);
+    }
+  }
 
 .tooltip{
     position: relative;

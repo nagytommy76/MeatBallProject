@@ -69,94 +69,94 @@
     justify-content: center;
     align-items: center;
 }
-    .card-content{
-        min-height: 100%; 
-        width: 45%;
-        margin: auto;       
-        &-admin{
-            padding: 2rem 0 2rem 0;
-            flex-direction: column;
+.card-content{
+    min-height: 100%; 
+    width: 45%;
+    margin: auto;       
+    &-admin{
+        padding: 2rem 0 2rem 0;
+        flex-direction: column;
+    }
+    .card{
+        background: $card-background;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        min-height: 25rem;
+        min-width: 30rem;
+        border-radius: 5px;
+        box-shadow: 2px 2px 10px $dark;
+
+        &-header{
+            padding: 1rem;
+            font-size: 1.8rem;
         }
 
-        .card{
-            background: $card-background;
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-            min-height: 25rem;
-            min-width: 30rem;
-            border-radius: 5px;
-            box-shadow: 2px 2px 10px $dark;
-            // z-index: 0;
-
-            &-header{
-                padding: 1rem;
-                font-size: 1.8rem;
-            }
-
-            &-body{
-                margin: 1rem 0;
-                
-                .admin-image{
-                    width: 500px;
-                    height: 350px;
-                    margin: auto;
-                    img{
-                        height: 100%;
-                        width: 100%;
-                        object-fit: cover;
-                    }
+        &-body{
+            margin: 1rem 0;
+            
+            .admin-image{
+                width: 500px;
+                height: 350px;
+                margin: auto;
+                img{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
                 }
             }
         }
     }
+}
     
-    form{
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        justify-content: center;
-        margin: auto;
-        width: 80%;
-        
+form{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: center;
+    margin: auto;
+    width: 80%;
+    
+}
+.form-group{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+    margin: .5rem 0;
+    label{
+        font-size: $input-font-size;
+        text-align: left;
+        margin-bottom: 1rem;
     }
-    .form-group{
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        width: 100%;
-        margin: .5rem 0;
-        label{
-            font-size: $input-font-size;
-            text-align: left;
-            margin-bottom: 1rem;
-        }
-        .form-control{
-            padding: .75rem .4rem;
-            font-size: $input-font-size;
-            border: none;
-            border-radius: 3px;
-        }
-        .col{
-            display: flex;
-            flex-direction: column;
-            max-width: 100%;
-            // padding: 1rem;
-            margin-right: 1.4rem;
-        }
+    .form-control{
+        padding: .75rem .4rem;
+        font-size: $input-font-size;
+        border: none;
+        border-radius: 3px;
     }
-    .row{
-        // display: flex;
-        grid-template-columns: repeat(2, 1fr);
-        width: 100%;
+    .col{
+        display: flex;
+        flex-direction: column;
+        max-width: 100%;
+        margin-right: 1.4rem;
     }
+}
+.row{
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+}
 
-    .checkbox{                    
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-           
-        div{
-            justify-self: start;
-        }             
-    }
+.shadowed{
+    box-shadow: black 1px 1px 5px;
+}
+
+.checkbox{                    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+       
+    div{
+        justify-self: start;
+    }             
+}
 
 @media(max-width: $mobile-width){
     .card-container{

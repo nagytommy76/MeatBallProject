@@ -143,15 +143,15 @@
                             <input type="submit" class="btn btn-primary text-white" value="Módosítás">
                         </div>
                     </div>
-                    @if ($errors->has('modifyFail') || $errors->has('modifySuccess'))
-                        @if ($errors->first('modifyFail'))
+                    @if ($errors->has('fail') || $errors->has('success'))
+                        @if ($errors->first('fail'))
                             <div class="alert alert-danger">
                                 <p>Sajnos hiba történt: </p>
-                                <p>{{$errors->first('modifyFail')}}</p>
+                                <p>{{$errors->first('fail')}}</p>
                             </div>
                         @else
                             <div class="alert alert-success">
-                                <p>{{$errors->first('modifySuccess')}}</p>
+                                <p>{{$errors->first('success')}}</p>
                             </div>
                         @endif
                     @endif

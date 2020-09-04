@@ -21,7 +21,8 @@
         position: relative;
         // background: white;
         color: black;
-        background-color: #ececec;
+        // background-color: #ececec;
+        background-color: white;
         overflow-x: hidden;
         min-height: 5rem;
         max-height: 70%;
@@ -35,7 +36,7 @@
                 padding: 0 1rem 0 1rem;
             }
             .cart-card{
-                border: 1px solid black;
+                box-shadow: black 1px 1px 7px;
                 display: grid;
                 grid-template-columns: 35% 50% 15%;
                 gap: .2rem;

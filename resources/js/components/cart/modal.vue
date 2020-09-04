@@ -12,7 +12,7 @@
                         <button v-show="this.isUserinfoFilled || step != 1" @click="nextPage" class="btn btn-primary" >Tovább</button>
                     </span>
                         
-                    <button @click="makeOrder" v-show="step == pages.length-2" class="btn btn-confirm">A végén a leadáshoz</button>
+                    <button @click="makeOrder" v-show="step == pages.length-2" class="btn btn-confirm">Rendelés Leadása!</button>
                     
                 </div>
                 <Loading

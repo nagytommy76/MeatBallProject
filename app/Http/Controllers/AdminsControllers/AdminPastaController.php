@@ -37,21 +37,9 @@ class AdminPastaController extends AdminBaseFoodController
         }
         
         try {
-            $pasta = new PastaRizotto;
-            $pasta->name = $request->name;
-            $pasta->ingredients = $request->ingredient;
+            $pasta = $this->saveFood(PastaRizotto::class, $request, 'pasta');
             $pasta->type = $request->type;
 
-            $imageId = $pasta->images()->create([
-                'image_path' => $request->file('image')->store('pasta')
-            ]);
-
-            $priceId = $pasta->prices()->create([
-                'price' => $request->price
-            ]);
-            $pasta->image_id = $imageId->id;
-            $pasta->price_id = $priceId->id;
-            
             $pasta->save();
 
             return redirect('admin/pasta')->withErrors([
@@ -63,7 +51,6 @@ class AdminPastaController extends AdminBaseFoodController
             ]);
         }    
     }
-
 
     public function edit(Request $request)
     {   
@@ -78,36 +65,22 @@ class AdminPastaController extends AdminBaseFoodController
         ]);
     }
 
-
     public function update($id, Request $request)
     {
         try {
-            // $this->updateFood(PastaRizotto::class);
-            $pasta = PastaRizotto::find($id);
-
-            $pasta->name = $request->name;
+            $pasta = $this->updateFood(PastaRizotto::class, $id, $request, 'pasta');
             $pasta->type = $request->type;
-            $pasta->ingredients = $request->ingredient;
-
-            if ($request->file('image') != null) {
-                $this->updateFoodImage($pasta, $request, PastaRizottoImage::class, 'pasta');
-            }
-
-            $pasta->prices()->update([
-                'price' => $request->price
-            ]);
             $pasta->save();
 
             return redirect('admin/pasta')->withErrors([
-                'modifySuccess' => "A(z) $pasta->name módosítása sikeres volt"
+                'success' => "A(z) $pasta->name módosítása sikeres volt"
             ]);            
         } catch ( Exception $ex ) {
             return redirect('admin/pasta')->withErrors([
-                'modifyFail' => $ex->getMessage()
+                'fail' => $ex->getMessage()
             ]);
         } 
     }
-
 
     public function destroy(Request $request)
     {

@@ -1,10 +1,10 @@
 <template>
     <div class="food_card">
         <div class="food_card_header">
-            <img v-bind:src="'storage/'+image" alt="Pizza Kép" />
+            <img v-bind:src="'storage/'+image" alt="Leves Kép" />
         </div>
         <div class="food_card_inner">
-            <h1 class="food_card_heading text-center">{{pastaName}}</h1>
+            <h1 class="food_card_heading text-center">{{soupName}}</h1>
             <h3>Összetevők:</h3>
 
             <div class="ingredients">
@@ -24,7 +24,7 @@
         </div>
         <div class="food_card_footer">
         <!-- <form> -->
-        <button @click="addToCart" v-bind:id="pastaId" class="btn btn-primary">Kosárba!</button>
+        <button @click="addToCart" v-bind:id="soupId" class="btn btn-primary">Kosárba!</button>
         <strong class="price">
             Ár:
             <span class="primary-color">{{finalPrice}}</span> Ft
@@ -37,18 +37,17 @@ export default {
     data () {
         return{
             addedToCart: false,
-            finalPrice: this.pastaPrice,
+            finalPrice: this.soupPrice,
             selectedIngreds: [],
             loggedIn: this.$parent.$parent.$parent.cartItems.message,
         }
     },
     props: {
-        pastaId: Number,
+        soupId: Number,
         image: String,
-        pastaName: String,
-        pastaPrice: Number,
+        soupName: String,
+        soupPrice: Number,
         ingredients: String,
-        foodType: String,
     },
     methods: {
         async addToCart(){
@@ -62,24 +61,24 @@ export default {
                 },
                 body: JSON.stringify({
                     foodType: this.foodType,
-                    foodId: this.pastaId,
+                    foodId: this.soupId,
                     plusIngreds: this.selectedIngreds,
                 }),
             }
         )
-        .then(response => response.json())
-        .then(result => {
-            this.$parent.$parent.$store.commit('setCartItems', result);
-            this.selectedIngreds = [];
-            this.finalPrice = this.pastaPrice;
+            .then(response => response.json())
+            .then(result => {
+                this.$parent.$parent.$store.commit('setCartItems', result);
+                this.selectedIngreds = [];
+                this.finalPrice = this.pastaPrice;
 
-            this.hideSuccessMsg();
-            setTimeout(this.hideSuccessMsg, 3000);
-        }); 
+                this.hideSuccessMsg();
+                setTimeout(this.hideSuccessMsg, 3000);
+            }); 
         },
         hideSuccessMsg(){
             this.addedToCart = !this.addedToCart;
         },
-    }
+    },
 }
 </script>

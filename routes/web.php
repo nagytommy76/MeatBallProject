@@ -47,8 +47,15 @@ Route::prefix('admin')->group(function() {
     Route::patch('/pasta/edit', 'AdminsControllers\AdminPastaController@edit')->name('pasta.edit');
     Route::patch('/pasta/{id}/update', 'AdminsControllers\AdminPastaController@update')->name('pasta.update');
 
-
     Route::delete('/pasta/delete', 'AdminsControllers\AdminPastaController@destroy')->name('pasta.destroy');
+
+    Route::prefix('soup')->group(function() {
+        Route::get('/', 'AdminsControllers\AdminSoupController@index')->name('soup.index');
+        Route::post('/store', 'AdminsControllers\AdminSoupController@store')->name('soup.store');
+        Route::patch('/edit', 'AdminsControllers\AdminSoupController@edit')->name('soup.edit');
+        Route::patch('/{id}/update', 'AdminsControllers\AdminSoupController@update')->name('soup.update');
+        Route::delete('/destroy', 'AdminsControllers\AdminSoupController@destroy')->name('soup.destroy');
+    });
 
 });
 

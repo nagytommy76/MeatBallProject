@@ -44,6 +44,10 @@
                                     <i class="fas fa-pizza-slice"></i>
                                     Tészta ételek kezelése
                                 </a>                               
+                                <a class="dropdown-item" href="{{route('soup.index')}}">
+                                    <i class="fas fa-pizza-slice"></i>
+                                    Levesek kezelése
+                                </a>                               
                             @endauth
                             {{-- ONLY USERS SEEs IT --}}
                             @auth('web')

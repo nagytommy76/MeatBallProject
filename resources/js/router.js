@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import foodFilter from './components/pasta/pastaFilter';
 import pizzaFilter from './components/pizza/pizzaFilter';
+import soupFilter from './components/soup/soupFilter';
 
 import cartModal from './components/cart/cartModal';
 import summaryCart from './components/cart/summaryCart';
@@ -13,6 +14,7 @@ export default new VueRouter({
     routes: [
         { path: '/pasta', component: foodFilter },
         { path: '/pizza', component: pizzaFilter},
+        { path: '/soup', component: soupFilter},
         { path: '/cartModal', component: cartModal},
         { path: '/summaryCart', component: summaryCart},
     ],

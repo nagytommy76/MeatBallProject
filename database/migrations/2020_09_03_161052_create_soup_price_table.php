@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class StorePizzaImages extends Migration
+class CreateSoupPriceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class StorePizzaImages extends Migration
      */
     public function up()
     {
-        Schema::create('pizza_images', function (Blueprint $table) {
-            $table->id('id');
-            $table->string('image_path');
+        Schema::create('soup_price', function (Blueprint $table) {
+            $table->id();
+            $table->decimal('price', 15, 0);
         });
     }
 
@@ -26,6 +26,6 @@ class StorePizzaImages extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pizza_images');
+        Schema::dropIfExists('soup_price');
     }
 }
