@@ -33,6 +33,7 @@
    </div>
 </template>
 <script>
+import addToCart from '../../helpers/addToCart'
 export default {
     data () {
         return{
@@ -52,30 +53,15 @@ export default {
     },
     methods: {
         async addToCart(){
-            await fetch(`api/addFoodToCart`,
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'Authorization': 'Bearer ' + this.$parent.$parent.accessToken
-                },
-                body: JSON.stringify({
-                    foodType: this.foodType,
-                    foodId: this.pastaId,
-                    plusIngreds: this.selectedIngreds,
-                }),
-            }
-        )
-        .then(response => response.json())
-        .then(result => {
-            this.$parent.$parent.$store.commit('setCartItems', result);
-            this.selectedIngreds = [];
-            this.finalPrice = this.pastaPrice;
+            await addToCart.addFoodToCart(this.foodType, this.pastaId, this.$parent.$parent.accessToken)
+            .then(result => {
+                this.$parent.$parent.$store.commit('setCartItems', result);
+                this.selectedIngreds = [];
+                this.finalPrice = this.pastaPrice;
 
-            this.hideSuccessMsg();
-            setTimeout(this.hideSuccessMsg, 3000);
-        }); 
+                this.hideSuccessMsg();
+                setTimeout(this.hideSuccessMsg, 3000);
+            }); 
         },
         hideSuccessMsg(){
             this.addedToCart = !this.addedToCart;

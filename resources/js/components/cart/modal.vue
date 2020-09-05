@@ -7,12 +7,12 @@
                 <component :is="currentPage"></component>
 
                 <div v-show="this.$parent.cartItems.totalQty > 0" class="">
-                    <button v-show="step>0 && step != 3" @click="previousPage" class="btn btn-delete text-white">Vissza</button>
+                    <button v-show="step>0 && step != 3" @click="previousPage" class="btn btn-delete-dark">Vissza</button>
                     <span v-show="step<pages.length-1 && step != 2">
-                        <button v-show="this.isUserinfoFilled || step != 1" @click="nextPage" class="btn btn-primary" >Tovább</button>
+                        <button v-show="this.isUserinfoFilled || step != 1" @click="nextPage" class="btn btn-confirm-dark" >Tovább</button>
                     </span>
                         
-                    <button @click="makeOrder" v-show="step == pages.length-2" class="btn btn-confirm">Rendelés Leadása!</button>
+                    <button @click="makeOrder" v-show="step == pages.length-2" class="btn btn-confirm-dark">Rendelés Leadása!</button>
                     
                 </div>
                 <Loading
@@ -93,6 +93,7 @@ export default {
                         if(!saved.exception){
                             this.$parent.getCartItems(this.$parent.accessToken);
                             this.step = 3;
+                            this.setDefaultPage()
                         }else{
                             console.log(saved.exception)
                         }                    
@@ -143,6 +144,11 @@ export default {
                 this.step--;
             }  
         },
+        setDefaultPage(){
+            setTimeout(() => {
+                this.step = 0
+            }, 5000)
+        }
     }
 }
 </script>

@@ -40,6 +40,7 @@
 </template>
 <script>
 import PastaCard from './pastaCard';
+import loadData from '../../helpers/loadData';
 
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
@@ -67,19 +68,7 @@ export default {
     methods: {
         async getPastaByOrder(){
             this.isLoading = true;
-            await fetch('api/getPastaByOrder', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    orderBy: this.orderBy,
-                    minPrice: this.priceValue,
-                    maxPrice: this.maxPrice
-                })
-            })
-            .then(resp => resp.json())
+            await loadData.getFoodByOrder('getPastaByOrder', this.orderBy, this.priceValue, this.maxPrice)
             .then(result => {
                 this.pasta = result.data;
                 this.isLoading = false;
@@ -87,14 +76,7 @@ export default {
         },
         async fetchPasta(){
             this.isLoading = true;
-            await fetch('api/pastas', {
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                }
-            })
-            .then(response => response.json())
+            await loadData.fetchData('pastas')
             .then(result => {
                 this.pasta = result.data;
                 this.isLoading = false;
@@ -102,25 +84,14 @@ export default {
         },
         async searchByName(event){
             this.isLoading = true;
-            await fetch('api/getPastaByName', {
-                method: "POST",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name: event.target.value
-                })
-            })
-            .then(response => response.json())
+            await loadData.searchFoodByName('getPastaByName', event.target.value)
             .then(result => {
                 this.pasta = result.data
                 this.isLoading = false;
             });
         },
         async getPrices(){
-            await fetch('api/getPastaMinMaxPrice')
-            .then(response => response.json())
+            await loadData.getMinMaxPrice("getPastaMinMaxPrice")
             .then(res =>{
                 this.priceValue = res.minPrice;
                 this.minPrice = res.minPrice;

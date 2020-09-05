@@ -1,4 +1,6 @@
 {
+    "name": "meatballproject",
+    "author": "Nagy Tamás",
     "private": true,
     "scripts": {
         "dev": "npm run development",

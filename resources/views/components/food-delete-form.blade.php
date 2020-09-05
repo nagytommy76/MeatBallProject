@@ -18,9 +18,7 @@
                 </div>
             </div>
             <div class="card-footer">
-                <div class="form-group">
-                    <input type="submit" class="{{$btnClass ?? ''}}" value="{{$btnValue}}">
-                </div>
+                <input type="submit" class="{{$btnClass ?? ''}}" value="{{$btnValue}}">
             </div>
             @if ($errors->has('fail') || $errors->has('success'))
                 @if ($errors->first('fail'))

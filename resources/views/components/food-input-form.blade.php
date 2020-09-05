@@ -62,9 +62,7 @@
             @endif
                           
         <div class="card-footer">
-            <div class="form-group">
-                <input type="submit" class="btn btn-confirm" value="Bevitel">
-            </div>
+            <input type="submit" class="btn btn-confirm" value="Bevitel">
         </div>
         </form>
     </div> <!-- Input Pasta CARD END -->

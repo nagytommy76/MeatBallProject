@@ -26,8 +26,6 @@
 
                         <div class="form-group">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Jelszó') }}</label>
-
-                            {{-- <div class="col-md-6"> --}}
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
@@ -35,22 +33,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            {{-- </div> --}}
-                        </div>
-
-                        <div class="form-group">
-                            {{-- <div class="col-md-6 offset-md-4"> --}}
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Emlékezz Rám!') }}
-                                    </label>
-                                </div>
-                            {{-- </div> --}}
-                        </div>
-                    
-                
+                        </div>                   
                 <div class="card-footer">
                     <div class="form-group">
                         <div>

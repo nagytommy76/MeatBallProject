@@ -18,7 +18,6 @@ Auth::routes();
 Route::prefix('admin')->group(function() {
     Route::middleware(['guest'])->get('/login', 'AdminsControllers\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'AdminsControllers\AdminLoginController@login')->name('admin.login.submit');
-
     // Show Pizza Manager....
     Route::get('/pizza', 'AdminsControllers\AdminPizzaController@index')->name('admin.pizza');
 
@@ -31,23 +30,21 @@ Route::prefix('admin')->group(function() {
     Route::delete('/deletePizza', 'AdminsControllers\AdminPizzaController@deletePizza')->name('admin.deletePizza');
 
     Route::delete('/deleteIngred', 'AdminsControllers\AdminPizzaController@deleteIngred')->name('admin.deleteIngred');
-
-
-
     // Modify Pizza
     Route::patch('/showModifyPizza', 'AdminsControllers\AdminPizzaController@showModifyPizza')->name('admin.showModifyPizza');
     Route::patch('/{id}/modifyPizza', 'AdminsControllers\AdminPizzaController@modifyPizza')->name('admin.modifyPizza');
 
 
     // PASTA -------------------------------------------------------------
+    Route::prefix('pasta')->group(function() {
+        Route::get('/', 'AdminsControllers\AdminPastaController@index')->name('pasta.index');
+        Route::post('/store', 'AdminsControllers\AdminPastaController@store')->name('pasta.store');
 
-    Route::get('/pasta', 'AdminsControllers\AdminPastaController@index')->name('pasta.index');
-    Route::post('/pasta/store', 'AdminsControllers\AdminPastaController@store')->name('pasta.store');
+        Route::patch('/edit', 'AdminsControllers\AdminPastaController@edit')->name('pasta.edit');
+        Route::patch('/{id}/update', 'AdminsControllers\AdminPastaController@update')->name('pasta.update');
 
-    Route::patch('/pasta/edit', 'AdminsControllers\AdminPastaController@edit')->name('pasta.edit');
-    Route::patch('/pasta/{id}/update', 'AdminsControllers\AdminPastaController@update')->name('pasta.update');
-
-    Route::delete('/pasta/delete', 'AdminsControllers\AdminPastaController@destroy')->name('pasta.destroy');
+        Route::delete('/delete', 'AdminsControllers\AdminPastaController@destroy')->name('pasta.destroy');
+    });
 
     Route::prefix('soup')->group(function() {
         Route::get('/', 'AdminsControllers\AdminSoupController@index')->name('soup.index');
@@ -57,22 +54,27 @@ Route::prefix('admin')->group(function() {
         Route::delete('/destroy', 'AdminsControllers\AdminSoupController@destroy')->name('soup.destroy');
     });
 
+    // Desserts
+    Route::prefix('dessert')->group(function(){
+        Route::get('/', 'AdminsControllers\AdminDessertController@index')->name('dessert.index');
+        Route::post('/store', 'AdminsControllers\AdminDessertController@store')->name('dessert.store');
+        Route::patch('/edit', 'AdminsControllers\AdminDessertController@edit')->name('dessert.edit');
+        Route::patch('/{id}/update', 'AdminsControllers\AdminDessertController@update')->name('dessert.update');
+        Route::delete('/destroy', 'AdminsControllers\AdminDessertController@destroy')->name('dessert.destroy');
+    });
+
 });
 
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-
 // Users Controller
-
 Route::resource('/userinfo', 'UserControllers\UserInfoController');
-
 
 Route::get('/pizza', function () {
     return view('foods.foods');
 })->name('pizza');
-
 
 Route::get('/login' , 'Auth\LoginController@showLoginForm')->name('login');
 

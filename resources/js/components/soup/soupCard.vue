@@ -33,6 +33,7 @@
    </div>
 </template>
 <script>
+import addToCart from '../../helpers/addToCart'
 export default {
     data () {
         return{
@@ -40,6 +41,7 @@ export default {
             finalPrice: this.soupPrice,
             selectedIngreds: [],
             loggedIn: this.$parent.$parent.$parent.cartItems.message,
+            foodType: 'soup',
         }
     },
     props: {
@@ -51,22 +53,7 @@ export default {
     },
     methods: {
         async addToCart(){
-            await fetch(`api/addFoodToCart`,
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'Authorization': 'Bearer ' + this.$parent.$parent.accessToken
-                },
-                body: JSON.stringify({
-                    foodType: this.foodType,
-                    foodId: this.soupId,
-                    plusIngreds: this.selectedIngreds,
-                }),
-            }
-        )
-            .then(response => response.json())
+            await addToCart.addFoodToCart(this.foodType, this.soupId, this.$parent.$parent.accessToken)
             .then(result => {
                 this.$parent.$parent.$store.commit('setCartItems', result);
                 this.selectedIngreds = [];

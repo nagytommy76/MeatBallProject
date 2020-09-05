@@ -10,10 +10,10 @@ import summaryCart from './components/cart/summaryCart';
 Vue.use(VueRouter);
 
 export default new VueRouter({
-    mode: 'history',
+    // mode: 'history',
     routes: [
         { path: '/pasta', component: foodFilter },
-        { path: '/pizza', component: pizzaFilter},
+        { path: '/', component: pizzaFilter},
         { path: '/soup', component: soupFilter},
         { path: '/cartModal', component: cartModal},
         { path: '/summaryCart', component: summaryCart},

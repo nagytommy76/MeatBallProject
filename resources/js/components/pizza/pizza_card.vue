@@ -45,8 +45,9 @@
 </template>
 
 <script>
-
 import moreIngredients from "./moreIngredients";
+import addToCart from '../../helpers/addToCart';
+
 export default {
   components: {
     moreIngredients,
@@ -73,38 +74,18 @@ export default {
       this.moreButton = !this.moreButton;
     },
     async addCart(){
-      // if(this.$parent.$parent.accessToken != null){
-        await fetch(`api/addFoodToCart`,
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json',
-              'Authorization': 'Bearer ' + this.$parent.$parent.accessToken
-            },
-            body: JSON.stringify({
-              foodType: this.foodType,
-              foodId: this.pizzaId,
-              plusIngreds: this.selectedIngreds,
-            }),
+      await addToCart.addFoodToCart(this.foodType, this.pizzaId, this.$parent.$parentaccessToken, this.selectedIngreds)
+      .then(result => {
+          this.$parent.$parent.$store.commit('setCartItems', result);
+          this.selectedIngreds = [];
+          this.finalPrice = this.pizzaPrice;
+          
+          this.hideSuccessMsg();
+          setTimeout(this.hideSuccessMsg, 3000);
+          if(this.moreButton){
+            this.moreButton = !this.moreButton;
           }
-        )
-        .then(response => response.json())
-        .then(result => {
-            this.$parent.$parent.$store.commit('setCartItems', result);
-            this.selectedIngreds = [];
-            this.finalPrice = this.pizzaPrice;
-            
-            this.hideSuccessMsg();
-            setTimeout(this.hideSuccessMsg, 3000);
-            if(this.moreButton){
-              this.moreButton = !this.moreButton;
-            }
-        });  
-      // }else{
-      //   this.hideSuccessMsg();
-      //   setTimeout(this.hideSuccessMsg, 3000);
-      // }    
+      });     
     },
     hideSuccessMsg(){
       this.addedToCart = !this.addedToCart;

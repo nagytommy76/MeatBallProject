@@ -79,63 +79,66 @@ body{
 .btn{
     display: inline-block;
     padding: .6rem 3rem;
-    background: white;
+    position: relative;
+    background: transparent;
     margin: 1rem;
     cursor: pointer;
     font-size: 1.1rem;
-    border: 2px #F79600 solid;
-    border-radius: 5px;
+    border: 2px $primary solid;
+    border-radius: 3px;
     outline: none;
-    transition: linear .1s;
-    color: white;
 
-    &:before {
-        content: "";
-        background-color: rgba(22, 22, 22, 0.5);
-        height: 100%;
-        width: 3em;
-        top: 0;
-        left: -4.5em;
-        transform: skewX(-45deg) translateX(0);
-        transition: none;
-      }
+    color: #fff;
+    background-image: -webkit-linear-gradient(10deg, $primary 50%,transparent 50%);
+    background-image: linear-gradient(10deg, $primary 50%,transparent 50%);
+    background-position: 100%;
+    background-size: 400%;
+    -webkit-transition: all 400ms ease-in-out;
+    transition: all 400ms ease-in-out;
 
-    &:hover {
-        background-color: #F79600;
-        color: #fff;
-        border-bottom: 2px solid darken(#F79600, 10%);
-        &:before {
-          transform: skewX(-45deg) translateX(13.5em);
-         transition: all 0.5s ease-in-out;
-        }
-      }
-
-    &-primary{
-        // background: $primary;
-        background: $card-background;
-
+    &-primary{       
         &:hover{
-            background: #F79600;
-            border-color: $primary;
-            // transform: scale(1.035);
+            background-position: 0;
+            color:black;
         }
     }
 
     &-confirm{
-        background: #44D500;
         border-color: #2B8600;
+        background-image: linear-gradient(10deg, #2B8600 50%,transparent 50%);
+        transition: all 400ms ease-in-out;
         &:hover{
-            border-color: #44D500;
-            background: #2B8600;
+            background-position: 0;
             color: white;
-            // transform: scale(1.035);
+        }
+        &-dark{
+            border-color: #2B8600;
+            color: #2B8600;
+            background-image: linear-gradient(10deg, #2B8600 50%,transparent 50%);
+            transition: all 400ms ease-in-out;
+            &:hover{
+                background-position: 0;
+                color: black;
+            }
         }
     }
 
     &-delete{
-        background: $deleteColor;
+        background-image: linear-gradient(10deg, $deleteColor 50%,transparent 50%);
+        transition: all 400ms ease-in-out;
+        border-color: $deleteColor;
         &:hover{
-            // transform: scale(1.035);
+            background-position: 0;
+        }
+        &-dark{
+            border-color: $deleteColor;
+            color: $deleteColor;
+            background-image: linear-gradient(10deg, $deleteColor 50%,transparent 50%);
+            transition: all 400ms ease-in-out;
+            &:hover{
+                background-position: 0;
+                color: #FFF;
+            }
         }
     }
 
@@ -145,19 +148,10 @@ body{
         &:hover{
             background: #F79600;
             border-color: $primary;
-            // transform: scale(1.075);
         }
     }
 }
 
-@keyframes sheen {
-    0% {
-      transform: skewY(-45deg) translateX(0);
-    }
-    100% {
-      transform: skewY(-45deg) translateX(12.5em);
-    }
-  }
 
 .tooltip{
     position: relative;

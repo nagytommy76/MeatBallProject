@@ -78,9 +78,7 @@
                             @endif                                                
                         @endif
                         <div class="card-footer">
-                            <div class="form-group">
                                 <input class="btn btn-confirm" type="submit" value="Bevitel">
-                            </div>
                         </div>
                         </form>
                     </div>
@@ -122,9 +120,7 @@
                             @endif                                                
                         @endif
                         <div class="card-footer">
-                            <div class="form-group">
                                 <input type="submit" class="btn btn-confirm" value="Feltét Bevitel">
-                            </div>
                         </div>
                         </form>
 
@@ -157,9 +153,7 @@
                                     @endif                                                
                                 @endif
                                 <div class="card-footer">
-                                    <div class="form-group">
                                         <input type="submit" class="btn btn-delete text-white" value="Feltét Törlése">
-                                    </div>
                                 </div>                            
                             </div>
                         </form>
@@ -184,9 +178,7 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <div class="form-group">
                                     <input type="submit" class="btn btn-delete text-white" value="Pizza Törlése">
-                                </div>
                                 @if ($errors->has('deleteSuccess') || $errors->has('deleteFail'))
                                     @if ($errors->first('deleteSuccess'))
                                         <div class="alert alert-success">
@@ -215,9 +207,7 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <div class="form-group">
-                                    <input type="submit" class="btn btn-modify text-white" value="Pizza Módosítása">
-                                </div>
+                                    <input type="submit" class="btn btn-primary" value="Pizza Módosítása">
                                 @if ($errors->has('modifySuccess') || $errors->has('modifyFail'))
                                     @if ($errors->first('modifySuccess'))
                                         <div class="alert alert-success">

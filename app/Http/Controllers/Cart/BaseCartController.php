@@ -8,7 +8,11 @@ use Illuminate\Support\Facades\Session;
 
 use App\Model\Pasta\PastaRizotto;
 use App\Model\Foods\Pizzas;
+use App\Model\Soup\Soup;
 use App\Model\Foods\PizzaIngredPrices;
+
+
+
 use App\Model\Cart;
 
 use App\Model\Order\Orders;
@@ -59,6 +63,22 @@ class BaseCartController extends Controller
         return response()->json($this->getParamsFromSession());
     }
 
+    protected function getDataFromDatabaseByFoodType($dataFromCard){
+        switch ($dataFromCard->foodType) {
+            case 'pizza':
+                return Pizzas::find($dataFromCard->foodId);
+                break;
+            case 'soup':
+                return Soup::find($dataFromCard->foodId);
+                break;
+            case 'pasta' || 'rizotto':
+                return PastaRizotto::find($dataFromCard->foodId);
+                break;
+            default:
+                return;
+        }
+    }
+
     /** 
     * @param Array ingredientIds
     * Get Ingredient prices and return an array: ingredientName => price
@@ -86,20 +106,6 @@ class BaseCartController extends Controller
             case 'pizza':
                 return PizzaIngredPrices::where('ingredient_id','=',$ingredId)->first();
                 break;            
-            default:
-                return;
-                break;
-        }
-    }
-
-    protected function getDataFromDatabaseByFoodType($dataFromCard){
-        switch ($dataFromCard->foodType) {
-            case 'pizza':
-                return Pizzas::find($dataFromCard->foodId);
-                break;
-            case 'pasta' || 'rizotto':
-                return PastaRizotto::find($dataFromCard->foodId);
-                break;
             default:
                 return;
                 break;

@@ -93,7 +93,7 @@
                         </span>
                     </div>
                 </div>
-                <input type="submit" value="Adatok megadása" @click.prevent="addUserInfo" class="btn btn-confirm" />
+                <input type="submit" value="Adatok megadása" @click.prevent="addUserInfo" class="btn btn-confirm-dark" />
             </form>            
         </div>
     </div>

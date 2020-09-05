@@ -48,6 +48,10 @@
                                     <i class="fas fa-pizza-slice"></i>
                                     Levesek kezelése
                                 </a>                               
+                                <a class="dropdown-item" href="{{route('dessert.index')}}">
+                                    <i class="fas fa-pizza-slice"></i>
+                                    Desszertek
+                                </a>                               
                             @endauth
                             {{-- ONLY USERS SEEs IT --}}
                             @auth('web')

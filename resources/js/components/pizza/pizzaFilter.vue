@@ -44,6 +44,7 @@
 
 <script>
 import pizzaCard from './pizza_card';
+import loadData from '../../helpers/loadData'
 
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
@@ -73,14 +74,7 @@ export default {
     methods: {
         async fetchPizza(){
             this.isLoading = true;
-            await fetch('api/pizzas', {
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                }
-            })
-            .then(resp => resp.json())
+            await loadData.fetchData('pizzas')
             .then(res => {
                 this.pizzas = res.data;
                 this.isLoading = false
@@ -88,8 +82,7 @@ export default {
         },
         async getPizzaByOrder(event){
             this.isLoading = true;
-            await fetch(`api/getPizzaByOrder?orderBy=${this.order}&minPrice=${this.priceValue}&maxPrice=${this.maxPrice}`)
-            .then(resp => resp.json())
+            await loadData.getFoodByOrder('getPizzaByOrder', this.order, this.priceValue, this.maxPrice)
             .then(res => {
                 this.pizzas = res.data;
                 this.isLoading = false;
@@ -97,17 +90,14 @@ export default {
         },
         async searchByName(e){
             this.isLoading = true;
-            let pizzaName = e.target.value;
-            await fetch(`api/searchPizzaByName?name=${pizzaName}`)
-            .then(respons => respons.json())
+            await loadData.searchFoodByName('searchPizzaByName', e.target.value)
             .then(res => {
                 this.pizzas = res.data;
                 this.isLoading = false;
             })
         },
         async getPrices(){
-            await fetch('api/getMinMaxPrice')
-            .then(response => response.json())
+            await loadData.getMinMaxPrice('getMinMaxPrice')
             .then(res =>{
                 this.priceValue = res.minPrice;
                 this.minPrice = res.minPrice;

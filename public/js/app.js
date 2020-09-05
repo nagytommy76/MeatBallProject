@@ -2423,6 +2423,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                         _this3.$parent.getCartItems(_this3.$parent.accessToken);
 
                         _this3.step = 3;
+
+                        _this3.setDefaultPage();
                       } else {
                         console.log(saved.exception);
                       }
@@ -2531,6 +2533,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       if (this.step == 1 && this.isUserinfoFilled) {
         this.step--;
       }
+    },
+    setDefaultPage: function setDefaultPage() {
+      var _this6 = this;
+
+      setTimeout(function () {
+        _this6.step = 0;
+      }, 5000);
     }
   }
 });
@@ -2818,6 +2827,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_addToCart__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../helpers/addToCart */ "./resources/js/helpers/addToCart.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2858,6 +2868,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2885,21 +2896,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return fetch("api/addFoodToCart", {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'Authorization': 'Bearer ' + _this.$parent.$parent.accessToken
-                  },
-                  body: JSON.stringify({
-                    foodType: _this.foodType,
-                    foodId: _this.pastaId,
-                    plusIngreds: _this.selectedIngreds
-                  })
-                }).then(function (response) {
-                  return response.json();
-                }).then(function (result) {
+                return _helpers_addToCart__WEBPACK_IMPORTED_MODULE_1__["default"].addFoodToCart(_this.foodType, _this.pastaId, _this.$parent.$parent.accessToken).then(function (result) {
                   _this.$parent.$parent.$store.commit('setCartItems', result);
 
                   _this.selectedIngreds = [];
@@ -2938,10 +2935,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _pastaCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pastaCard */ "./resources/js/components/pasta/pastaCard.vue");
-/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-loading-overlay */ "./node_modules/vue-loading-overlay/dist/vue-loading.min.js");
-/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-loading-overlay/dist/vue-loading.css */ "./node_modules/vue-loading-overlay/dist/vue-loading.css");
-/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _helpers_loadData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../helpers/loadData */ "./resources/js/helpers/loadData.js");
+/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-loading-overlay */ "./node_modules/vue-loading-overlay/dist/vue-loading.min.js");
+/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-loading-overlay/dist/vue-loading.css */ "./node_modules/vue-loading-overlay/dist/vue-loading.css");
+/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_4__);
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2991,11 +2989,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "pasta-filtering",
   components: {
     PastaCard: _pastaCard__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Loading: vue_loading_overlay__WEBPACK_IMPORTED_MODULE_2___default.a
+    Loading: vue_loading_overlay__WEBPACK_IMPORTED_MODULE_3___default.a
   },
   data: function data() {
     return {
@@ -3022,20 +3021,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _this.isLoading = true;
                 _context.next = 3;
-                return fetch('api/getPastaByOrder', {
-                  method: 'POST',
-                  headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify({
-                    orderBy: _this.orderBy,
-                    minPrice: _this.priceValue,
-                    maxPrice: _this.maxPrice
-                  })
-                }).then(function (resp) {
-                  return resp.json();
-                }).then(function (result) {
+                return _helpers_loadData__WEBPACK_IMPORTED_MODULE_2__["default"].getFoodByOrder('getPastaByOrder', _this.orderBy, _this.priceValue, _this.maxPrice).then(function (result) {
                   _this.pasta = result.data;
                   _this.isLoading = false;
                 });
@@ -3058,15 +3044,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _this2.isLoading = true;
                 _context2.next = 3;
-                return fetch('api/pastas', {
-                  method: 'GET',
-                  headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                  }
-                }).then(function (response) {
-                  return response.json();
-                }).then(function (result) {
+                return _helpers_loadData__WEBPACK_IMPORTED_MODULE_2__["default"].fetchData('pastas').then(function (result) {
                   _this2.pasta = result.data;
                   _this2.isLoading = false;
                 });
@@ -3089,18 +3067,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _this3.isLoading = true;
                 _context3.next = 3;
-                return fetch('api/getPastaByName', {
-                  method: "POST",
-                  headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify({
-                    name: event.target.value
-                  })
-                }).then(function (response) {
-                  return response.json();
-                }).then(function (result) {
+                return _helpers_loadData__WEBPACK_IMPORTED_MODULE_2__["default"].searchFoodByName('getPastaByName', event.target.value).then(function (result) {
                   _this3.pasta = result.data;
                   _this3.isLoading = false;
                 });
@@ -3122,9 +3089,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context4.prev = _context4.next) {
               case 0:
                 _context4.next = 2;
-                return fetch('api/getPastaMinMaxPrice').then(function (response) {
-                  return response.json();
-                }).then(function (res) {
+                return _helpers_loadData__WEBPACK_IMPORTED_MODULE_2__["default"].getMinMaxPrice("getPastaMinMaxPrice").then(function (res) {
                   _this4.priceValue = res.minPrice;
                   _this4.minPrice = res.minPrice;
                   _this4.maxPrice = res.maxPrice;
@@ -3216,10 +3181,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _pizza_card__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pizza_card */ "./resources/js/components/pizza/pizza_card.vue");
-/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-loading-overlay */ "./node_modules/vue-loading-overlay/dist/vue-loading.min.js");
-/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-loading-overlay/dist/vue-loading.css */ "./node_modules/vue-loading-overlay/dist/vue-loading.css");
-/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _helpers_loadData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../helpers/loadData */ "./resources/js/helpers/loadData.js");
+/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-loading-overlay */ "./node_modules/vue-loading-overlay/dist/vue-loading.min.js");
+/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-loading-overlay/dist/vue-loading.css */ "./node_modules/vue-loading-overlay/dist/vue-loading.css");
+/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_4__);
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -3273,11 +3239,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Filtering",
   components: {
     pizzaCard: _pizza_card__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Loading: vue_loading_overlay__WEBPACK_IMPORTED_MODULE_2___default.a
+    Loading: vue_loading_overlay__WEBPACK_IMPORTED_MODULE_3___default.a
   },
   data: function data() {
     return {
@@ -3306,15 +3273,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _this.isLoading = true;
                 _context.next = 3;
-                return fetch('api/pizzas', {
-                  method: 'GET',
-                  headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                  }
-                }).then(function (resp) {
-                  return resp.json();
-                }).then(function (res) {
+                return _helpers_loadData__WEBPACK_IMPORTED_MODULE_2__["default"].fetchData('pizzas').then(function (res) {
                   _this.pizzas = res.data;
                   _this.isLoading = false;
                 });
@@ -3337,9 +3296,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _this2.isLoading = true;
                 _context2.next = 3;
-                return fetch("api/getPizzaByOrder?orderBy=".concat(_this2.order, "&minPrice=").concat(_this2.priceValue, "&maxPrice=").concat(_this2.maxPrice)).then(function (resp) {
-                  return resp.json();
-                }).then(function (res) {
+                return _helpers_loadData__WEBPACK_IMPORTED_MODULE_2__["default"].getFoodByOrder('getPizzaByOrder', _this2.order, _this2.priceValue, _this2.maxPrice).then(function (res) {
                   _this2.pizzas = res.data;
                   _this2.isLoading = false;
                 });
@@ -3356,22 +3313,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
-        var pizzaName;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
                 _this3.isLoading = true;
-                pizzaName = e.target.value;
-                _context3.next = 4;
-                return fetch("api/searchPizzaByName?name=".concat(pizzaName)).then(function (respons) {
-                  return respons.json();
-                }).then(function (res) {
+                _context3.next = 3;
+                return _helpers_loadData__WEBPACK_IMPORTED_MODULE_2__["default"].searchFoodByName('searchPizzaByName', e.target.value).then(function (res) {
                   _this3.pizzas = res.data;
                   _this3.isLoading = false;
                 });
 
-              case 4:
+              case 3:
               case "end":
                 return _context3.stop();
             }
@@ -3388,9 +3341,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context4.prev = _context4.next) {
               case 0:
                 _context4.next = 2;
-                return fetch('api/getMinMaxPrice').then(function (response) {
-                  return response.json();
-                }).then(function (res) {
+                return _helpers_loadData__WEBPACK_IMPORTED_MODULE_2__["default"].getMinMaxPrice('getMinMaxPrice').then(function (res) {
                   _this4.priceValue = res.minPrice;
                   _this4.minPrice = res.minPrice;
                   _this4.maxPrice = res.maxPrice;
@@ -3444,6 +3395,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _moreIngredients__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moreIngredients */ "./resources/js/components/pizza/moreIngredients.vue");
+/* harmony import */ var _helpers_addToCart__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../helpers/addToCart */ "./resources/js/helpers/addToCart.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -3497,6 +3449,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     moreIngredients: _moreIngredients__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -3531,21 +3484,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return fetch("api/addFoodToCart", {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'Authorization': 'Bearer ' + _this.$parent.$parent.accessToken
-                  },
-                  body: JSON.stringify({
-                    foodType: _this.foodType,
-                    foodId: _this.pizzaId,
-                    plusIngreds: _this.selectedIngreds
-                  })
-                }).then(function (response) {
-                  return response.json();
-                }).then(function (result) {
+                return _helpers_addToCart__WEBPACK_IMPORTED_MODULE_2__["default"].addFoodToCart(_this.foodType, _this.pizzaId, _this.$parent.$parentaccessToken, _this.selectedIngreds).then(function (result) {
                   _this.$parent.$parent.$store.commit('setCartItems', result);
 
                   _this.selectedIngreds = [];
@@ -3587,6 +3526,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _helpers_addToCart__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../helpers/addToCart */ "./resources/js/helpers/addToCart.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -3627,13 +3567,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       addedToCart: false,
       finalPrice: this.soupPrice,
       selectedIngreds: [],
-      loggedIn: this.$parent.$parent.$parent.cartItems.message
+      loggedIn: this.$parent.$parent.$parent.cartItems.message,
+      foodType: 'soup'
     };
   },
   props: {
@@ -3653,21 +3595,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return fetch("api/addFoodToCart", {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'Authorization': 'Bearer ' + _this.$parent.$parent.accessToken
-                  },
-                  body: JSON.stringify({
-                    foodType: _this.foodType,
-                    foodId: _this.soupId,
-                    plusIngreds: _this.selectedIngreds
-                  })
-                }).then(function (response) {
-                  return response.json();
-                }).then(function (result) {
+                return _helpers_addToCart__WEBPACK_IMPORTED_MODULE_1__["default"].addFoodToCart(_this.foodType, _this.soupId, _this.$parent.$parent.accessToken).then(function (result) {
                   _this.$parent.$parent.$store.commit('setCartItems', result);
 
                   _this.selectedIngreds = [];
@@ -3710,6 +3638,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-loading-overlay/dist/vue-loading.css */ "./node_modules/vue-loading-overlay/dist/vue-loading.css");
 /* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _helpers_loadData__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../helpers/loadData */ "./resources/js/helpers/loadData.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -3758,6 +3687,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "soup-filtering",
   components: {
@@ -3789,15 +3719,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _this.isLoading = true;
                 _context.next = 3;
-                return fetch('api/soup', {
-                  method: 'GET',
-                  headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                  }
-                }).then(function (response) {
-                  return response.json();
-                }).then(function (result) {
+                return _helpers_loadData__WEBPACK_IMPORTED_MODULE_4__["default"].fetchData('soup').then(function (result) {
                   _this.soups = result.data;
                   _this.isLoading = false;
                 });
@@ -3820,20 +3742,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _this2.isLoading = true;
                 _context2.next = 3;
-                return fetch('api/getSoupByOrder', {
-                  method: 'POST',
-                  headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify({
-                    orderBy: _this2.orderBy,
-                    minPrice: _this2.priceValue,
-                    maxPrice: _this2.maxPrice
-                  })
-                }).then(function (resp) {
-                  return resp.json();
-                }).then(function (result) {
+                return _helpers_loadData__WEBPACK_IMPORTED_MODULE_4__["default"].getFoodByOrder('getSoupByOrder', _this2.orderBy, _this2.priceValue, _this2.maxPrice).then(function (result) {
                   _this2.soups = result.data;
                   _this2.isLoading = false;
                 });
@@ -3856,18 +3765,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _this3.isLoading = true;
                 _context3.next = 3;
-                return fetch('api/getSoupByName', {
-                  method: "POST",
-                  headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify({
-                    name: event.target.value
-                  })
-                }).then(function (response) {
-                  return response.json();
-                }).then(function (result) {
+                return _helpers_loadData__WEBPACK_IMPORTED_MODULE_4__["default"].searchFoodByName('getSoupByName', event.target.value).then(function (result) {
                   _this3.soups = result.data;
                   _this3.isLoading = false;
                 });
@@ -3889,15 +3787,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context4.prev = _context4.next) {
               case 0:
                 _context4.next = 2;
-                return fetch('api/getMinMaxPrice', {
-                  method: 'GET',
-                  headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                  }
-                }).then(function (response) {
-                  return response.json();
-                }).then(function (result) {
+                return _helpers_loadData__WEBPACK_IMPORTED_MODULE_4__["default"].getMinMaxPrice('getSoupMinMaxPrice').then(function (result) {
                   _this4.priceValue = result.minPrice;
                   _this4.minPrice = result.minPrice;
                   _this4.maxPrice = result.maxPrice;
@@ -41481,7 +41371,7 @@ var render = function() {
                       expression: "step>0 && step != 3"
                     }
                   ],
-                  staticClass: "btn btn-delete text-white",
+                  staticClass: "btn btn-delete-dark",
                   on: { click: _vm.previousPage }
                 },
                 [_vm._v("Vissza")]
@@ -41511,7 +41401,7 @@ var render = function() {
                           expression: "this.isUserinfoFilled || step != 1"
                         }
                       ],
-                      staticClass: "btn btn-primary",
+                      staticClass: "btn btn-confirm-dark",
                       on: { click: _vm.nextPage }
                     },
                     [_vm._v("Tovább")]
@@ -41530,7 +41420,7 @@ var render = function() {
                       expression: "step == pages.length-2"
                     }
                   ],
-                  staticClass: "btn btn-confirm",
+                  staticClass: "btn btn-confirm-dark",
                   on: { click: _vm.makeOrder }
                 },
                 [_vm._v("Rendelés Leadása!")]
@@ -42020,7 +41910,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("input", {
-          staticClass: "btn btn-confirm",
+          staticClass: "btn btn-confirm-dark",
           attrs: { type: "submit", value: "Adatok megadása" },
           on: {
             click: function($event) {
@@ -42136,7 +42026,7 @@ var render = function() {
         "div",
         { staticClass: "navigation" },
         [
-          _c("router-link", { attrs: { to: "/pizza" } }, [
+          _c("router-link", { attrs: { to: "/" } }, [
             _c("h4", [_vm._v("Pizzák")])
           ]),
           _vm._v(" "),
@@ -60429,6 +60319,279 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/helpers/addToCart.js":
+/*!*******************************************!*\
+  !*** ./resources/js/helpers/addToCart.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return addToCart; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var addToCart = /*#__PURE__*/function () {
+  function addToCart() {
+    _classCallCheck(this, addToCart);
+  }
+
+  _createClass(addToCart, null, [{
+    key: "addFoodToCart",
+    value: function () {
+      var _addFoodToCart = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(foodType, foodId, accessToken) {
+        var selectedIngreds,
+            response,
+            _args = arguments;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                selectedIngreds = _args.length > 3 && _args[3] !== undefined ? _args[3] : [];
+                _context.next = 3;
+                return fetch("api/addFoodToCart", {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + accessToken
+                  },
+                  body: JSON.stringify({
+                    foodType: foodType,
+                    foodId: foodId,
+                    plusIngreds: selectedIngreds
+                  })
+                });
+
+              case 3:
+                response = _context.sent;
+                return _context.abrupt("return", response.json());
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      function addFoodToCart(_x, _x2, _x3) {
+        return _addFoodToCart.apply(this, arguments);
+      }
+
+      return addFoodToCart;
+    }()
+  }]);
+
+  return addToCart;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/helpers/loadData.js":
+/*!******************************************!*\
+  !*** ./resources/js/helpers/loadData.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return loadData; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var loadData = /*#__PURE__*/function () {
+  function loadData() {
+    _classCallCheck(this, loadData);
+  }
+
+  _createClass(loadData, null, [{
+    key: "fetchData",
+    value: function () {
+      var _fetchData = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(apiRouteName) {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return fetch("api/".concat(apiRouteName), {
+                  method: 'GET',
+                  headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                  }
+                });
+
+              case 2:
+                response = _context.sent;
+                return _context.abrupt("return", response.json());
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      function fetchData(_x) {
+        return _fetchData.apply(this, arguments);
+      }
+
+      return fetchData;
+    }()
+  }, {
+    key: "getFoodByOrder",
+    value: function () {
+      var _getFoodByOrder = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(apiRouteName, orderBy, priceValue, maxPrice) {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return fetch("api/".concat(apiRouteName), {
+                  method: 'POST',
+                  headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                    orderBy: orderBy,
+                    minPrice: priceValue,
+                    maxPrice: maxPrice
+                  })
+                });
+
+              case 2:
+                response = _context2.sent;
+                return _context2.abrupt("return", response.json());
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      function getFoodByOrder(_x2, _x3, _x4, _x5) {
+        return _getFoodByOrder.apply(this, arguments);
+      }
+
+      return getFoodByOrder;
+    }()
+  }, {
+    key: "searchFoodByName",
+    value: function () {
+      var _searchFoodByName = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(apiRouteName, eventValue) {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return fetch("api/".concat(apiRouteName), {
+                  method: "POST",
+                  headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                    name: eventValue
+                  })
+                });
+
+              case 2:
+                response = _context3.sent;
+                return _context3.abrupt("return", response.json());
+
+              case 4:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }));
+
+      function searchFoodByName(_x6, _x7) {
+        return _searchFoodByName.apply(this, arguments);
+      }
+
+      return searchFoodByName;
+    }()
+  }, {
+    key: "getMinMaxPrice",
+    value: function () {
+      var _getMinMaxPrice = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(apiRouteName) {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.next = 2;
+                return fetch("api/".concat(apiRouteName), {
+                  method: 'GET',
+                  headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                  }
+                });
+
+              case 2:
+                response = _context4.sent;
+                return _context4.abrupt("return", response.json());
+
+              case 4:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }));
+
+      function getMinMaxPrice(_x8) {
+        return _getMinMaxPrice.apply(this, arguments);
+      }
+
+      return getMinMaxPrice;
+    }()
+  }]);
+
+  return loadData;
+}();
+
+
+
+/***/ }),
+
 /***/ "./resources/js/router.js":
 /*!********************************!*\
   !*** ./resources/js/router.js ***!
@@ -60455,12 +60618,12 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
-  mode: 'history',
+  // mode: 'history',
   routes: [{
     path: '/pasta',
     component: _components_pasta_pastaFilter__WEBPACK_IMPORTED_MODULE_2__["default"]
   }, {
-    path: '/pizza',
+    path: '/',
     component: _components_pizza_pizzaFilter__WEBPACK_IMPORTED_MODULE_3__["default"]
   }, {
     path: '/soup',

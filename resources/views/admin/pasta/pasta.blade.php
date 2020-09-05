@@ -74,9 +74,7 @@
                     @endif
                                   
                 <div class="card-footer">
-                    <div class="form-group">
-                        <input type="submit" class="btn btn-confirm" value="Bevitel">
-                    </div>
+                    <input type="submit" class="btn btn-confirm" value="Bevitel">
                 </div>
                 </form>
             </div> <!-- Input Pasta CARD END -->
@@ -100,9 +98,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <div class="form-group">
-                            <input type="submit" class="btn btn-delete text-white" value="Törlés">
-                        </div>
+                        <input type="submit" class="btn btn-delete text-white" value="Törlés">
                     </div>
                     @if ($errors->has('fail') || $errors->has('deleteSuccess'))
                         @if ($errors->first('fail'))
@@ -139,9 +135,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <div class="form-group">
-                            <input type="submit" class="btn btn-primary text-white" value="Módosítás">
-                        </div>
+                        <input type="submit" class="btn btn-primary text-white" value="Módosítás">
                     </div>
                     @if ($errors->has('fail') || $errors->has('success'))
                         @if ($errors->first('fail'))

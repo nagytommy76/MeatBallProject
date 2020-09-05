@@ -58,9 +58,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <div class="form-group">
                         <input type="submit" class="btn btn-modify" value="Módosítás">
-                    </div>
                 </div>
             </div>
             </form>

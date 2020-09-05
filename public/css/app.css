@@ -103,61 +103,69 @@ body {
 .btn {
   display: inline-block;
   padding: 0.6rem 3rem;
-  background: white;
+  position: relative;
+  background: transparent;
   margin: 1rem;
   cursor: pointer;
   font-size: 1.1rem;
-  border: 2px #F79600 solid;
-  border-radius: 5px;
+  border: 2px #F7BF00 solid;
+  border-radius: 3px;
   outline: none;
-  transition: linear 0.1s;
-  color: white;
-}
-
-.btn:before {
-  content: "";
-  background-color: rgba(22, 22, 22, 0.5);
-  height: 100%;
-  width: 3em;
-  top: 0;
-  left: -4.5em;
-  transform: skewX(-45deg) translateX(0);
-  transition: none;
-}
-
-.btn:hover {
-  background-color: #F79600;
   color: #fff;
-  border-bottom: 2px solid #c47700;
-}
-
-.btn:hover:before {
-  transform: skewX(-45deg) translateX(13.5em);
-  transition: all 0.5s ease-in-out;
-}
-
-.btn-primary {
-  background: #212F3C;
+  background-image: linear-gradient(10deg, #F7BF00 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  transition: all 400ms ease-in-out;
 }
 
 .btn-primary:hover {
-  background: #F79600;
-  border-color: #F7BF00;
+  background-position: 0;
+  color: black;
 }
 
 .btn-confirm {
-  background: #44D500;
   border-color: #2B8600;
+  background-image: linear-gradient(10deg, #2B8600 50%, transparent 50%);
+  transition: all 400ms ease-in-out;
 }
 
 .btn-confirm:hover {
-  border-color: #44D500;
-  background: #2B8600;
+  background-position: 0;
   color: white;
 }
 
+.btn-confirm-dark {
+  border-color: #2B8600;
+  color: #2B8600;
+  background-image: linear-gradient(10deg, #2B8600 50%, transparent 50%);
+  transition: all 400ms ease-in-out;
+}
+
+.btn-confirm-dark:hover {
+  background-position: 0;
+  color: black;
+}
+
 .btn-delete {
-  background: #C80600;
+  background-image: linear-gradient(10deg, #C80600 50%, transparent 50%);
+  transition: all 400ms ease-in-out;
+  border-color: #C80600;
+}
+
+.btn-delete:hover {
+  background-position: 0;
+}
+
+.btn-delete-dark {
+  border-color: #C80600;
+  color: #C80600;
+  background-image: linear-gradient(10deg, #C80600 50%, transparent 50%);
+  transition: all 400ms ease-in-out;
+}
+
+.btn-delete-dark:hover {
+  background-position: 0;
+  color: #FFF;
 }
 
 .btn-modify {
@@ -168,26 +176,6 @@ body {
 .btn-modify:hover {
   background: #F79600;
   border-color: #F7BF00;
-}
-
-@-webkit-keyframes sheen {
-  0% {
-    transform: skewY(-45deg) translateX(0);
-  }
-
-  100% {
-    transform: skewY(-45deg) translateX(12.5em);
-  }
-}
-
-@keyframes sheen {
-  0% {
-    transform: skewY(-45deg) translateX(0);
-  }
-
-  100% {
-    transform: skewY(-45deg) translateX(12.5em);
-  }
 }
 
 .tooltip {

@@ -43,6 +43,7 @@ import SoupCard from './soupCard';
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
 
+import loadData from '../../helpers/loadData'
 export default {
     name: "soup-filtering",
     components: {
@@ -66,14 +67,7 @@ export default {
     methods: {
         async fetchSoup(){
             this.isLoading = true;
-            await fetch('api/soup', {
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                }
-            })
-            .then(response => response.json())
+            await loadData.fetchData('soup')
             .then(result => {
                 this.soups = result.data;
                 this.isLoading = false;
@@ -81,19 +75,7 @@ export default {
         },
         async getSoupByOrder(){
             this.isLoading = true;
-            await fetch('api/getSoupByOrder', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    orderBy: this.orderBy,
-                    minPrice: this.priceValue,
-                    maxPrice: this.maxPrice
-                })
-            })
-            .then(resp => resp.json())
+            await loadData.getFoodByOrder('getSoupByOrder', this.orderBy, this.priceValue, this.maxPrice)
             .then(result => {
                 this.soups = result.data;
                 this.isLoading = false;
@@ -101,31 +83,14 @@ export default {
         },
         async searchByName(){
             this.isLoading = true;
-            await fetch('api/getSoupByName', {
-                method: "POST",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name: event.target.value
-                })
-            })
-            .then(response => response.json())
+            await loadData.searchFoodByName('getSoupByName', event.target.value)
             .then(result => {
                 this.soups = result.data
                 this.isLoading = false;
             });
         },
         async getMinMaxPrice(){
-            await fetch('api/getMinMaxPrice', {
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                }
-            })
-            .then(response => response.json())
+            await loadData.getMinMaxPrice('getSoupMinMaxPrice')
             .then(result => {
                 this.priceValue = result.minPrice;
                 this.minPrice = result.minPrice;
