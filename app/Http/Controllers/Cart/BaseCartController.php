@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Session;
 use App\Model\Pasta\PastaRizotto;
 use App\Model\Foods\Pizzas;
 use App\Model\Soup\Soup;
+use App\Model\Dessert\Dessert;
+
 use App\Model\Foods\PizzaIngredPrices;
 
 
@@ -24,6 +26,7 @@ class BaseCartController extends Controller
     protected $cartItems;
 
     public function __construct(){
+        $this->middleware('auth:sanctum');
         if (Auth::user()) {           
             $this->sessionName = 'cart_'.Auth::user()->username;  
             $this->cartItems = $this->getParamsFromSession();         
@@ -70,6 +73,9 @@ class BaseCartController extends Controller
                 break;
             case 'soup':
                 return Soup::find($dataFromCard->foodId);
+                break;
+            case 'dessert':
+                return Dessert::find($dataFromCard->foodId);
                 break;
             case 'pasta' || 'rizotto':
                 return PastaRizotto::find($dataFromCard->foodId);

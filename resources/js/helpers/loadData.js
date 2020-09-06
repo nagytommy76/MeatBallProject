@@ -24,7 +24,7 @@ export default class loadData{
         })
         return response.json();
     }
-    static async searchFoodByName(apiRouteName, eventValue){
+    static async searchFoodByName(apiRouteName, eventValue, orderBy, priceValue, maxPrice){
         let response = await fetch(`api/${apiRouteName}`, {
             method: "POST",
             headers: {
@@ -32,7 +32,10 @@ export default class loadData{
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                name: eventValue
+                name: eventValue,
+                orderBy: orderBy,
+                minPrice: priceValue,
+                maxPrice: maxPrice
             })
         })
         return response.json();

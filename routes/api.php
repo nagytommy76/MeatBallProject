@@ -29,6 +29,12 @@ Route::post('getDessertByOrder', 'Foods\DessertController@getDessertByOrder');
 Route::post('getDessertByName', 'Foods\DessertController@getDessertByName');
 Route::get('getDessertMinMaxPrice', 'Foods\DessertController@getDessertMinMaxPrice');
 
+// Meals
+Route::get('meal', 'Foods\MealController@getAllMeal');
+Route::post('getMealByOrder', 'Foods\MealController@getMealByOrder');
+Route::post('getMealByName', 'Foods\MealController@getMealByName');
+Route::get('getDessertMinMaxPrice', 'Foods\MealController@getMinMaxPrice');
+
 
 // CART CONTROLLER
 Route::group(['middleware' => ['auth:sanctum']], function(){

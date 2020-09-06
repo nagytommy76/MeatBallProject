@@ -31,7 +31,7 @@ class AdminDessertController extends AdminBaseFoodController
 
     public function store(Request $request){
         $valid = Validator::make($request->all(), [
-            'name' => ['required', 'unique:soup'],
+            'name' => ['required', 'unique:dessert'],
             'image' => ['required', 'image', 'max:1999'],
             'price' => ['required'],
             'ingredient' => ['required']
@@ -61,7 +61,6 @@ class AdminDessertController extends AdminBaseFoodController
             'ingredients' => $dessert->ingredients,
             'prices' => $dessert->prices,
             'images' => $dessert->images
-
         ]);
     }
 

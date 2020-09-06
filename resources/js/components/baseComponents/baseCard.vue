@@ -4,14 +4,14 @@
             <img v-bind:src="'storage/'+image" alt="Leves Kép" />
         </div>
         <div class="food_card_inner">
-            <h1 class="food_card_heading text-center">{{soupName}}</h1>
+            <h1 class="food_card_heading text-center">{{foodName}}</h1>
             <h3>Összetevők:</h3>
 
             <div class="ingredients">
                 <span>({{ingredients}})</span>
             </div>   
 
-            <div v-if="loggedIn == 'Unauthorized'">
+            <div v-if="loggedIn == 'Unauthorized' || loggedIn == 'Unauthenticated'">
           <div class="alert alert-danger" v-if="addedToCart">
             <p>Kérem jelentkezzen be!</p>
           </div>
@@ -24,12 +24,12 @@
         </div>
         <div class="food_card_footer">
         <!-- <form> -->
-        <button @click="addToCart" v-bind:id="soupId" class="btn btn-primary">Kosárba!</button>
-        <strong class="price">
-            Ár:
-            <span class="primary-color">{{finalPrice}}</span> Ft
-        </strong>
-    </div>
+            <button @click="addToCart" v-bind:id="foodId" class="btn btn-primary">Kosárba!</button>
+            <strong class="price">
+                Ár:
+                <span class="primary-color">{{finalPrice}}</span> Ft
+            </strong>
+        </div>
    </div>
 </template>
 <script>
@@ -38,26 +38,26 @@ export default {
     data () {
         return{
             addedToCart: false,
-            finalPrice: this.soupPrice,
+            finalPrice: this.foodPrice,
             selectedIngreds: [],
             loggedIn: this.$parent.$parent.$parent.cartItems.message,
-            foodType: 'soup',
         }
     },
     props: {
-        soupId: Number,
+        foodType: String,
+        foodId: Number,
         image: String,
-        soupName: String,
-        soupPrice: Number,
+        foodName: String,
+        foodPrice: Number,
         ingredients: String,
     },
     methods: {
         async addToCart(){
-            await addToCart.addFoodToCart(this.foodType, this.soupId, this.$parent.$parent.accessToken)
+            await addToCart.addFoodToCart(this.foodType, this.foodId, this.$parent.$parent.accessToken)
             .then(result => {
                 this.$parent.$parent.$store.commit('setCartItems', result);
                 this.selectedIngreds = [];
-                this.finalPrice = this.pastaPrice;
+                this.finalPrice = this.foodPrice;
 
                 this.hideSuccessMsg();
                 setTimeout(this.hideSuccessMsg, 3000);

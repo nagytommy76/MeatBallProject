@@ -42,13 +42,17 @@ class BaseFoodController extends Controller
 
     protected static function getMinMaxPrices($foodPriceModel){
         return response()->json([
-            'minPrice' => $foodPriceModel::min('price'),
-            'maxPrice' => $foodPriceModel::max('price')
+            'minPrice' => intval($foodPriceModel::min('price')),
+            'maxPrice' => intval($foodPriceModel::max('price'))
         ]);
     }
 
     protected static function searchFoodByName($request, $foodResource, $foodModel){
-        return $foodResource::collection($foodModel::where('name', 'LIKE', "%$request->name%")->paginate(10));
+        return $foodResource::collection($foodModel::where('name', 'LIKE', "%$request->name%")->get()->sortBy(
+            function($q){
+                return $q->prices->price;
+            }
+        ));
     }
 
     private static function getFoodByPrice($foodModel, $minPrice, $maxPrice){

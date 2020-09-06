@@ -52,6 +52,10 @@
                                     <i class="fas fa-pizza-slice"></i>
                                     Desszertek
                                 </a>                               
+                                <a class="dropdown-item" href="{{route('meal.index')}}">
+                                    <i class="fas fa-pizza-slice"></i>
+                                    Főételek
+                                </a>                               
                             @endauth
                             {{-- ONLY USERS SEEs IT --}}
                             @auth('web')

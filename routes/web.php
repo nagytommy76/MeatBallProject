@@ -63,6 +63,15 @@ Route::prefix('admin')->group(function() {
         Route::delete('/destroy', 'AdminsControllers\AdminDessertController@destroy')->name('dessert.destroy');
     });
 
+    // Meals
+    Route::prefix('meal')->group(function(){
+        Route::get('/', 'AdminsControllers\AdminMealController@index')->name('meal.index');
+        Route::post('/store', 'AdminsControllers\AdminMealController@store')->name('meal.store');
+        Route::patch('/edit', 'AdminsControllers\AdminMealController@edit')->name('meal.edit');
+        Route::patch('/{id}/update', 'AdminsControllers\AdminMealController@update')->name('meal.update');
+        Route::delete('/destroy', 'AdminsControllers\AdminMealController@destroy')->name('meal.destroy');
+    });
+
 });
 
 Route::get('/', function () {

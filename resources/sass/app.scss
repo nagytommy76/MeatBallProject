@@ -93,8 +93,7 @@
         }
 
         &-body{
-            margin: 1rem 0;
-            
+            margin: 1rem 0;            
             .admin-image{
                 width: 500px;
                 height: 350px;
@@ -122,6 +121,10 @@ form{
     grid-template-columns: repeat(1, 1fr);
     width: 100%;
     margin: .5rem 0;
+    select{
+        max-width: 75%;
+        margin: auto;
+    }
     label{
         font-size: $input-font-size;
         text-align: left;

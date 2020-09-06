@@ -4,8 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-
-class PizzaResource extends JsonResource
+class MealResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,8 +17,8 @@ class PizzaResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'image' => $this->images,
             'ingredients' => $this->ingredients,
+            'image' => $this->images,
             'price' => intval($this->prices->price)
         ];
     }
