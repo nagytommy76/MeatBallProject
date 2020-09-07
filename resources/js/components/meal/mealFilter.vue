@@ -5,8 +5,8 @@
             v-bind:byName="byName"
             v-bind:minMaxPrice="minMaxPrice"
         />
-        <div class="food_card_container py-2">
-            <h1 class="py-1 text-black text-center">Levesek</h1>
+         <div class="food_card_container py-2">
+            <h1 class="py-1 text-black text-center">Főételek</h1>
             <section class="food_card_content">
                 <div v-for="food in foods" :key="food.id">
                     <baseCard
@@ -15,7 +15,7 @@
                         v-bind:image="food.image.image_path"
                         v-bind:foodName="food.name"
                         v-bind:foodPrice="food.price"
-                        v-bind:ingredients="food.ingredients"
+                        v-bind:ingredients="food.ingredients"                            
                     />
                 </div>
             </section>
@@ -25,12 +25,12 @@
 <script>
 export default {
     data: () => {
-        return{
+        return {
             foods: {},
-            orderRoute: "getDessertByOrder",
-            byName: "getDessertByName",
-            minMaxPrice: "getDessertMinMaxPrice",
-            foodType: "dessert",
+            orderRoute: "getMealByOrder",
+            byName: "getMealByName",
+            minMaxPrice: "getMealMinMaxPrice",
+            foodType: "meal",
         }
     },
 }

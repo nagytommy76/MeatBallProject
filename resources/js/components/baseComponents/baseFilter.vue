@@ -6,29 +6,24 @@
             <option value="asc">Ár Növekvő</option>
             <option value="desc">Ár Csökkenő</option>
         </select>
-
         <label for="price">Ár: <span>{{ priceValue }} Ft</span> - <span>{{maxPrice}} Ft</span></label>
         <input class="form-control" type="range" name="price" v-bind:min="minPrice" v-bind:max="maxPrice" step="10" v-on:change="getFoodByOrder" v-model="priceValue">
 
         <label for="">Étel Neve: </label>
         <input class="form-control" type="text" v-on:keyup="searchByName">
+        <loading :isLoading="isLoading"/>
     </aside>
 </template>
 <script>
-import Loading from 'vue-loading-overlay';
-import 'vue-loading-overlay/dist/vue-loading.css';
-
 import loadData from '../../helpers/loadData'
 export default {
-    components: {
-        Loading,
-    },
     data: () =>{
         return{
             priceValue: 0,
             maxPrice: 10000,
             minPrice: 0,
             orderBy: 'asc',
+            isLoading: false,
         }
     },
     computed:{

@@ -81,9 +81,9 @@ Route::get('/', function () {
 // Users Controller
 Route::resource('/userinfo', 'UserControllers\UserInfoController');
 
-Route::get('/pizza', function () {
+Route::get('/foods', function () {
     return view('foods.foods');
-})->name('pizza');
+})->name('foods');
 
 Route::get('/login' , 'Auth\LoginController@showLoginForm')->name('login');
 

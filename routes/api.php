@@ -33,7 +33,7 @@ Route::get('getDessertMinMaxPrice', 'Foods\DessertController@getDessertMinMaxPri
 Route::get('meal', 'Foods\MealController@getAllMeal');
 Route::post('getMealByOrder', 'Foods\MealController@getMealByOrder');
 Route::post('getMealByName', 'Foods\MealController@getMealByName');
-Route::get('getDessertMinMaxPrice', 'Foods\MealController@getMinMaxPrice');
+Route::get('getMealMinMaxPrice', 'Foods\MealController@getMinMaxPrice');
 
 
 // CART CONTROLLER

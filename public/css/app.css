@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Oxygen&display=swap);* {
+@import url(https://fonts.googleapis.com/css2?family=Varela+Round&display=swap);* {
   padding: 0;
   margin: 0;
 }
@@ -23,7 +23,7 @@ li {
 }
 
 body {
-  font-family: "Oxygen", sans-serif;
+  font-family: "Varela Round", sans-serif;
   background: #f3f3f3;
   color: white;
 }
@@ -107,7 +107,9 @@ body {
   background: transparent;
   margin: 1rem;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  font-family: "Varela Round", sans-serif;
+  text-transform: uppercase;
   border: 2px #F7BF00 solid;
   border-radius: 3px;
   outline: none;
@@ -254,15 +256,20 @@ body {
   top: 0;
   position: -webkit-sticky;
   position: sticky;
-  z-index: 1;
-  padding: 1.5rem;
-  opacity: 0.8;
+  z-index: 9999;
+  padding: 1.8rem 0;
+  opacity: 0.9;
   transition: ease-in 0.1s;
 }
 
 .navbar:hover {
   opacity: 1;
-  box-shadow: 1px 1px 10px #333;
+  box-shadow: 2px 2px 10px #333;
+}
+
+.navbar .navbar-brand {
+  color: white;
+  font-size: 1.5rem;
 }
 
 .navbar .navbar-nav {
@@ -272,9 +279,9 @@ body {
 .navbar .navbar-nav .nav-item .nav-link {
   padding: 0.7rem 1.4rem;
   margin: 0.15rem 0.5rem;
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: white;
-  transition: ease-in 0.3s;
+  transition: all ease-in 0.3s;
   border-radius: 10px;
 }
 
@@ -326,11 +333,6 @@ body {
   background: #212F3C;
   color: white;
   transition: all 0.4s;
-}
-
-.navbar .navbar-brand {
-  color: white;
-  font-size: 1.4rem;
 }
 
 .navbar .navbar-toggler {
@@ -540,7 +542,7 @@ body {
   position: -webkit-sticky;
   position: sticky;
   left: 0;
-  top: 5rem;
+  top: 6rem;
   margin: 6.5rem 1rem;
   padding: 1.5rem;
   background: #212F3C;
@@ -729,7 +731,7 @@ body {
 .navigation h4 {
   text-decoration: none;
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 .navigation .router-link-exact-active h4 {
@@ -746,7 +748,7 @@ body {
 .main-header {
   height: 100vh;
   background: #333 url(/images/header-img.jpg?b3661915bb2808614bbce65c84edd490) no-repeat center center/cover;
-  margin-top: -4.75rem;
+  margin-top: -5.4rem;
 }
 
 .main-header .main-title {
@@ -772,7 +774,7 @@ body {
 
 @media (max-width: 720px) {
   .main-header {
-    margin-top: -11.5rem;
+    margin-top: -12.5rem;
   }
 
   .main-header .main-title h1 {

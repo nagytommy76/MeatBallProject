@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Oxygen&display=swap');
-// font-family: 'Oxygen', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
 *{
     padding: 0;
@@ -8,7 +7,6 @@
 
 a{
     text-decoration: none;
-    // color: black;
 }
 
 li{
@@ -17,7 +15,6 @@ li{
 
 .container{
     max-width: 1280px;
-    // position: relative;
     min-height: $container-height;
     margin: auto;
 }
@@ -27,7 +24,7 @@ li{
 }
 
 body{
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Varela Round', sans-serif;
     background: $main;
     color: white;
 }
@@ -83,7 +80,9 @@ body{
     background: transparent;
     margin: 1rem;
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    font-family: 'Varela Round', sans-serif;
+    text-transform: uppercase;
     border: 2px $primary solid;
     border-radius: 3px;
     outline: none;

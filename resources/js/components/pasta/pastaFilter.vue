@@ -20,29 +20,11 @@
                     </div>
                 </section>
             </div>
-            <Loading
-                :active="isLoading"
-                :opacity=0
-                color="#00DC00"
-                :height=130
-                :width=130
-            ></Loading>
         </div>
 </template>
 <script>
-import baseCard from '../baseComponents/baseCard'
-import baseFilter from '../baseComponents/baseFilter'
-
-import Loading from 'vue-loading-overlay';
-import 'vue-loading-overlay/dist/vue-loading.css';
-
 export default {
     name: "pasta-filtering",
-    components: {
-        baseCard,
-        baseFilter,
-        Loading
-    },
     data: () => {
         return {
             foods: {},
@@ -50,7 +32,6 @@ export default {
             byName: "getPastaByName",
             minMaxPrice: "getPastaMinMaxPrice",
             foodType: "pastas",
-            isLoading: false
         }
     },
 }

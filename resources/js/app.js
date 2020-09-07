@@ -11,7 +11,12 @@ Vue.component('cart-items', require('./components/cart/itemsInCart.vue').default
 Vue.component('cart-modal', require('./components/cart/modal.vue').default);
 Vue.component('login', require('./components/Auth/login.vue').default);
 
+Vue.component('baseCard', require('./components/baseComponents/baseCard.vue').default);
+Vue.component('baseFilter', require('./components/baseComponents/baseFilter.vue').default);
 Vue.component('food-filter', require('./components/foodFilter.vue').default);
+
+// Others
+Vue.component('loading', require('./components/baseComponents/loading.vue').default);
 
 import { mapState, mapActions } from "vuex";
 
@@ -20,7 +25,7 @@ const app = new Vue({
     router,
     el: '#app',
     components: {
-        // foodFilter
+
     },
     data: () => {
         return{

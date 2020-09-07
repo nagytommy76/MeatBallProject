@@ -7,16 +7,19 @@
     justify-content: space-around;
     top: 0;
     position: sticky;
-    z-index: 1;
-    padding: 1.5rem;
-    opacity: .8;
+    z-index: 9999;
+    padding: 1.8rem 0;
+    opacity: .9;
     transition: ease-in .1s;
 
     &:hover{
         opacity: 1;
-        box-shadow: 1px 1px 10px $dark;
+        box-shadow: 2px 2px 10px $dark;
     }
-
+    .navbar-brand{
+        color: white;
+        font-size: 1.5rem;
+    }
     // Right side of the NAV
     .navbar-nav{
         display: flex;
@@ -25,9 +28,9 @@
             .nav-link{
                 padding: .7rem 1.4rem;
                 margin: .15rem .5rem;
-                font-size: 1rem;
+                font-size: 1.1rem;
                 color: white;
-                transition: ease-in 0.3s;
+                transition: all ease-in 0.3s;
                 border-radius: 10px;
     
                 &:hover{
@@ -84,12 +87,6 @@
             }
         }
     }    
-
-    .navbar-brand{
-        color: white;
-        font-size: 1.4rem;
-    }
-
     .navbar-toggler{
         display: none;
     }

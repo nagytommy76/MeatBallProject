@@ -5,7 +5,9 @@ export default{
     },
     state: {
         cartItems: {
-            message: 'Unauthenticated'
+            message: 'Unauthenticated',
+            totalPrice: 0,
+            totalQty: 0
         },
     },
     mutations: {

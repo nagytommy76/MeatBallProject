@@ -21,7 +21,7 @@
       </div>
 
       <div >
-        <div v-if="loggedIn == 'Unauthorized' || loggedIn == 'Unauthenticated'">
+        <div v-if="!loggedIn">
           <div class="alert alert-danger" v-if="addedToCart">
             <p>Kérem jelentkezzen be!</p>
           </div>
@@ -66,7 +66,7 @@ export default {
       finalPrice: this.pizzaPrice,
       foodType: 'pizza',
       addedToCart: false,
-      loggedIn: this.$parent.$parent.$parent.cartItems.message,
+      loggedIn: false,
     };
   },
   methods: {
@@ -74,21 +74,26 @@ export default {
       this.moreButton = !this.moreButton;
     },
     async addCart(){
-      await addToCart.addFoodToCart(this.foodType, this.pizzaId, this.$parent.$parentaccessToken, this.selectedIngreds)
-      .then(result => {
-          this.$parent.$parent.$store.commit('setCartItems', result);
-          this.selectedIngreds = [];
-          this.finalPrice = this.pizzaPrice;
-          
-          this.hideSuccessMsg();
-          setTimeout(this.hideSuccessMsg, 3000);
-          if(this.moreButton){
-            this.moreButton = !this.moreButton;
-          }
-      });     
+      if(this.$parent.$parent.$parent.accessToken != null){
+        await addToCart.addFoodToCart(this.foodType, this.pizzaId, this.$parent.$parent.$parent.accessToken, this.selectedIngreds)
+        .then(result => {
+            this.$parent.$parent.$store.commit('setCartItems', result);
+            this.selectedIngreds = [];
+            this.finalPrice = this.pizzaPrice;
+            this.loggedIn = !this.loggedIn
+            this.hideSuccessMsg();
+            if(this.moreButton){
+              this.moreButton = !this.moreButton;
+            }
+        });  
+      }else{
+        // this.loggedIn = !this.loggedIn
+        this.hideSuccessMsg();
+      }
     },
     hideSuccessMsg(){
-      this.addedToCart = !this.addedToCart;
+        this.addedToCart = !this.addedToCart;
+        setTimeout(() => {this.addedToCart = !this.addedToCart}, 3000);
     },
   }
 };

@@ -12,21 +12,7 @@
 <script>
 
 export default {
-    components:{
-      
-    },
     name: "cart-items",
-    data() {
-        return{
-           
-        }
-    },
-    computed: {
-        
-    },
-    mounted() {
-
-    },
     methods: {
         showModal(){
             let modalBg = document.querySelector('.modal-bg');

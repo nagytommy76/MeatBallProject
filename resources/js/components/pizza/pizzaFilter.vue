@@ -20,29 +20,15 @@
             </div>            
             </section>            
         </div>
-         <Loading
-            :active="isLoading"
-            :opacity=0
-            color="#00DC00"
-            :height=130
-            :width=130
-        ></Loading>
     </div>
 </template>
 
 <script>
 import pizzaCard from './pizza_card';
-import baseFilter from '../baseComponents/baseFilter'
-
-import Loading from 'vue-loading-overlay';
-import 'vue-loading-overlay/dist/vue-loading.css';
-
 export default {
     name: "Filtering",
     components: {
         pizzaCard,
-        baseFilter,
-        Loading
     },
     data: () => {
         return {
@@ -51,7 +37,6 @@ export default {
             byName: "searchPizzaByName",
             minMaxPrice: "getMinMaxPrice",
             ingreds: [],
-            isLoading: false,
             foodType: "pizzas"
         }
     },

@@ -5,7 +5,7 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="{{ route('pizza') }}" class="nav-link">Étel Rendelés</a>
+                    <a href="{{ route('foods') }}" class="nav-link">Étel Rendelés</a>
                 </li>
                 <!-- Authentication Links -->
                 @guest
