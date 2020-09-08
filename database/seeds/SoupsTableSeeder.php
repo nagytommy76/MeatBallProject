@@ -11,6 +11,6 @@ class SoupsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Model\Soup\Soup::class ,10)->create();
+        factory(\App\Model\Soup\Soup::class ,1)->create();
     }
 }

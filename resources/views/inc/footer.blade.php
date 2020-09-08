@@ -34,6 +34,6 @@
         </div>
     </div>
     <div class="footer-made">
-        <p>Minden Jog Fenntartva &copy; Budapest. Nagy Tamás 2020</p>
+        <p>Minden Jog Fenntartva &copy; Budapest. Nagy Tamás {{date('Y')}}</p>
     </div>
 </footer>

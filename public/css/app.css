@@ -188,12 +188,12 @@ body {
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 120px;
+  min-width: 120px;
   background-color: black;
   color: #fff;
   text-align: center;
   border-radius: 6px;
-  padding: 5px 0;
+  padding: 5px;
   position: absolute;
   z-index: 1;
   bottom: 150%;
@@ -247,7 +247,7 @@ body {
 }
 
 .navbar {
-  background: #212F3C;
+  background: #333;
   color: white;
   display: flex;
   flex-direction: row;
@@ -366,7 +366,7 @@ body {
 }
 
 .main-footer {
-  background: #212F3C;
+  background: #333;
   text-align: center;
   color: white;
   padding: 2rem;
@@ -785,6 +785,79 @@ body {
     font-size: 1.4rem;
     width: 85%;
   }
+}
+
+.main-content {
+  color: #333;
+  min-height: 72vh;
+  display: flex;
+}
+
+.main-content .main-left-content {
+  padding: 3rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #333;
+  color: #FFF;
+}
+
+.main-content .main-left-content .image {
+  align-self: flex-end;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 180px;
+  border-radius: 50%;
+}
+
+.main-content .main-left-content .left-title {
+  text-align: right;
+  font-size: 2rem;
+  padding: 1.4rem 0;
+}
+
+.main-content .main-left-content .stack-icon {
+  align-self: flex-end;
+  text-align: right;
+  margin-bottom: auto;
+}
+
+.main-content .main-left-content .stack-icon .icon-title {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.main-content .main-left-content .stack-icon i {
+  color: #FFF;
+  margin: 0.2rem 0.3rem;
+  font-size: 2.4rem;
+}
+
+.main-content .main-left-content .footer-contact {
+  margin: auto 0 1rem 0;
+  align-self: flex-end;
+}
+
+.main-content .main-left-content .footer-contact .icon-title {
+  text-align: right;
+}
+
+.main-content .main-left-content .footer-contact .contact-icon i {
+  color: #FFF;
+  font-size: 2.4rem;
+  margin: 0.2rem 0.3rem;
+}
+
+.main-content .main-right-content {
+  flex: 2;
+  padding: 2rem;
+  text-align: justify;
+}
+
+.main-content .main-right-content .main-title {
+  font-size: 3rem;
+  text-align: center;
+  margin: 2rem 0;
 }
 
 .card-container {

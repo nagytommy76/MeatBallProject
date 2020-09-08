@@ -1,0 +1,64 @@
+.main-content{
+    color: $dark;
+    min-height: 72vh;
+    
+    display: flex;
+    .main-left-content{
+        padding: 3rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        background-color: $dark;
+        color: #FFF;
+        .image{
+            align-self: flex-end;
+            object-fit: cover;
+            width: 180px;
+            border-radius: 50%;
+        }
+        .left-title{
+            text-align: right;
+            font-size: 2rem;
+            padding: 1.4rem 0;
+        }
+        .stack-icon{
+            align-self: flex-end;
+            text-align: right;
+            margin-bottom: auto;
+            .icon-title{
+                margin: .5rem 0;
+                font-size: 1.1rem;
+            }
+            i{
+                color: #FFF;
+                margin: .2rem 0.3rem;
+                font-size: 2.4rem;
+            }
+        }
+        .footer-contact{
+            margin: auto 0 1rem 0;
+            align-self: flex-end;
+            .icon-title{
+                text-align: right;
+            }
+            .contact-icon{
+                i{
+                    color: #FFF;
+                    font-size: 2.4rem;
+                    margin: .2rem 0.3rem;
+                }
+            }
+            
+        }
+    }
+    .main-right-content{
+        flex: 2;
+        padding: 2rem;
+        text-align: justify;
+        .main-title{
+            font-size: 3rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+    }
+}
