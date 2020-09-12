@@ -71,11 +71,12 @@
                         <span class="tooltiptext">LinkedIn</span>
                         <span><a target="_blank" href="https://www.linkedin.com/in/nagy-tam%C3%A1s-27355116b/"><i class="fab fa-linkedin"></i></a></span>
                     </div>
-                </div>                                             
+                </div>                                                      
             </footer>
         </aside>
         <section class="main-right-content">
             <h1 class="main-title">Ide jönnek az egyéb infók!</h1>
+
             <p>Fő erősségemnek jelenleg a back-end technológiákat tartom</p>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime vitae nobis nulla recusandae fugiat doloribus suscipit repudiandae eum quia unde aperiam in, accusamus est rerum temporibus nisi placeat vel minima. Laudantium architecto eum deserunt quae soluta dicta totam consequatur ut, mollitia esse magnam officia distinctio perferendis. Maxime, ducimus! Sunt, perspiciatis eveniet corporis neque unde nostrum esse quaerat, nam commodi nihil, similique porro voluptatem veritatis praesentium dicta molestiae assumenda at sint rerum. Aliquid, velit. Iste omnis esse illum inventore. Expedita, exercitationem ipsa eum architecto eius sequi reiciendis sunt, dolorum laudantium amet ipsam inventore quibusdam debitis iure? Dicta itaque officia ea accusamus.</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, omnis? Aperiam, cumque sed perferendis blanditiis praesentium laboriosam reprehenderit distinctio quasi maiores quae nihil obcaecati, aut dolorum ullam earum neque iste?</p>

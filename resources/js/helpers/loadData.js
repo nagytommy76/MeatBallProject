@@ -1,4 +1,15 @@
 export default class loadData{
+    static async fetchAuthData(apiRouteName, method, accessToken){
+        let response = await fetch(`api/${apiRouteName}`, {
+            method: method,
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + accessToken
+            }
+        })
+        return response.json()
+    }
     static async fetchData(apiRouteName){
         let response = await fetch(`api/${apiRouteName}`, {
             method: 'GET',

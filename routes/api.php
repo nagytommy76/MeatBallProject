@@ -42,6 +42,7 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::get('userInfoFilled', function(){
         return response()->json(['user' => Auth::user(), 'userInfo' => Auth::user()->userinfo]);
     });
+    Route::get('myOrders', 'UserControllers\UserInfoController@getUserOrders');
 
     Route::post('addFoodToCart','Cart\CartController@addFoodToCart');
     Route::get('getCartItemsFromSession', 'Cart\CartController@getCartItemsFromSession');

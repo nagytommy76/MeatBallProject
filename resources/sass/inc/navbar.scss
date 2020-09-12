@@ -7,7 +7,7 @@
     justify-content: space-around;
     top: 0;
     position: sticky;
-    z-index: 9999;
+    z-index: 1;
     padding: 1.8rem 0;
     opacity: .9;
     transition: ease-in .1s;
@@ -55,7 +55,7 @@
                 padding: 0 0;
                 margin: 1.1rem 0;
                 border-radius: 5px;
-                background: $card-background; 
+                background: $dark; 
 
             }
             &-item{
@@ -78,7 +78,7 @@
                     color: $dark;
                     transition: all .4s;
                     .noOfFoodsInCart{
-                        background: $card-background;
+                        background: $dark;
                         color: white;
                         transition: all .4s;
                     }

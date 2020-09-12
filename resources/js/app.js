@@ -10,6 +10,8 @@ import router from './router';
 Vue.component('cart-items', require('./components/cart/itemsInCart.vue').default);
 Vue.component('cart-modal', require('./components/cart/modal.vue').default);
 Vue.component('login', require('./components/Auth/login.vue').default);
+Vue.component('my-orders', require('./components/Auth/myOrders.vue').default);
+Vue.component('order-modal', require('./components/Auth/orderModal.vue').default);
 
 Vue.component('baseCard', require('./components/baseComponents/baseCard.vue').default);
 Vue.component('baseFilter', require('./components/baseComponents/baseFilter.vue').default);

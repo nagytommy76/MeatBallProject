@@ -3,7 +3,6 @@
         <div class="modal-bg bg-closed">
             <div class="modal">
                 <span @click="closeModal" class="modal-close"><i class="far fa-times-circle"></i></span>
-
                 <component :is="currentPage"></component>
 
                 <div v-show="this.$parent.cartItems.totalQty > 0" class="">

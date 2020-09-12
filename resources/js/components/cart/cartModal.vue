@@ -10,7 +10,7 @@
                                     <img v-bind:src="'storage/'+item.item.imagePath" alt="Kép helye">
                                 </div>
                                 <div class="body">
-                                    <h3 class="text-center">{{item.item.foodName}}</h3>
+                                    <h3 class="">{{item.item.foodName}}</h3>
                                     <h5>További feltétek:</h5>
                                     <div class="ingreds">
                                         <div class="tooltip" v-for="ingred of item.item.plusIngreds" :key="ingred.ingredId">

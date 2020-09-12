@@ -64,6 +64,7 @@
                                     Személyes adatok
                                 </a>
                                 <cart-items></cart-items>
+                                <my-orders></my-orders>
                             @endauth
                         </div>
                     </li>
@@ -71,3 +72,4 @@
             </ul>
 </nav>
 <cart-modal></cart-modal>
+<order-modal></order-modal>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\UserControllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Resources\UserOrdersResource;
 
 use App\User;
 use Auth;
@@ -123,6 +124,11 @@ class UserInfoController extends Controller
         $this->saveInfoData($request);
         return response()->json(['exception' => false,'hasError' => false]);
     }
+
+    public function getUserOrders(){
+        return UserOrdersResource::collection(Auth::user()->orders);
+    }
+
 
     private function saveInfoData($request){
         try {
