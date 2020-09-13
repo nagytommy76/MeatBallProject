@@ -6,13 +6,17 @@ use Illuminate\View\Component;
 
 class FoodInputForm extends Component
 {
+    public $ingredients;
     public $route;
     public $cardName;
+    public $capacity;
 
-    public function __construct($route, $cardName)
+    public function __construct($ingredients, $route, $cardName, $capacity)
     {
+        $this->ingredients = $ingredients;
         $this->route = $route;
         $this->cardName = $cardName;
+        $this->capacity = $capacity;
     }
     /**
      * Get the view / contents that represent the component.

@@ -27,6 +27,20 @@
                     @enderror 
                 </div>
             </div>
+            @if ($capacity ?? false)
+                <div class="form-group">
+                    <div class="col">
+                        <label for="capacity">Térfogat (ml)</label>
+                        <input type="number" class="form-control" name="capacity" id="capacity" cols="10" rows="10">
+                        @error('capacity')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+            @endif
+            @if ($ingredients ?? true)              
             <div class="form-group">
                 <div class="col">
                     <label for="ingredient">Összetevők (, elválasztva!)</label>
@@ -38,6 +52,7 @@
                     @enderror
                 </div>
             </div>
+            @endif
             <div class="form-group row">
                 <div class="col">
                     <label for="image">Kép feltöltése</label>

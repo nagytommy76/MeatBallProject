@@ -36,7 +36,7 @@ class AdminPastaController extends AdminBaseFoodController
         try {
             $pasta = $this->saveFood(PastaRizotto::class, $request, 'pasta');
             $pasta->type = $request->type;
-
+            $pasta->ingredients = $request->ingredient;
             $pasta->save();
 
             return redirect('admin/pasta')->withErrors([
@@ -67,6 +67,7 @@ class AdminPastaController extends AdminBaseFoodController
         try {
             $pasta = $this->updateFood(PastaRizotto::class, $id, $request, 'pasta');
             $pasta->type = $request->type;
+            $pasta->ingredients = $request->ingredient;
             $pasta->save();
 
             return redirect('admin/pasta')->withErrors([

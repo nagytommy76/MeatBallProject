@@ -38,23 +38,27 @@
                             @auth('admin')
                                 <a class="dropdown-item" href="{{route('admin.pizza')}}">
                                     <i class="fas fa-pizza-slice"></i>
-                                    Pizzák Kezelése
+                                    Pizzák
                                 </a>                               
                                 <a class="dropdown-item" href="{{route('pasta.index')}}">
-                                    <i class="fas fa-pizza-slice"></i>
-                                    Tészta ételek kezelése
+                                    <i class="fas fa-cloud-meatball"></i>
+                                    Tészta
                                 </a>                               
                                 <a class="dropdown-item" href="{{route('soup.index')}}">
-                                    <i class="fas fa-pizza-slice"></i>
-                                    Levesek kezelése
+                                    <i class="fas fa-soap"></i>
+                                    Levesek
                                 </a>                               
                                 <a class="dropdown-item" href="{{route('dessert.index')}}">
-                                    <i class="fas fa-pizza-slice"></i>
+                                    <i class="fas fa-birthday-cake"></i>
                                     Desszertek
                                 </a>                               
                                 <a class="dropdown-item" href="{{route('meal.index')}}">
-                                    <i class="fas fa-pizza-slice"></i>
+                                    <i class="fas fa-weight"></i>
                                     Főételek
+                                </a>                               
+                                <a class="dropdown-item" href="{{route('drink.index')}}">
+                                    <i class="fas fa-wine-glass-alt"></i>
+                                    Italok
                                 </a>                               
                             @endauth
                             {{-- ONLY USERS SEEs IT --}}

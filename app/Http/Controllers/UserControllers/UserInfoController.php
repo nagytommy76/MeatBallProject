@@ -126,7 +126,7 @@ class UserInfoController extends Controller
     }
 
     public function getUserOrders(){
-        return UserOrdersResource::collection(Auth::user()->orders);
+        return UserOrdersResource::collection($this->user->orders);
     }
 
 

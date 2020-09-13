@@ -4,13 +4,16 @@
             <img v-bind:src="'storage/'+image" alt="Leves Kép" />
         </div>
         <div class="food_card_inner">
-            <h1 class="food_card_heading text-center">{{foodName}}</h1>
-            <h3>Összetevők:</h3>
+            <h1 class="food_card_heading text-center">{{foodName}}</h1>            
 
-            <div class="ingredients">
+            <div v-if="ingredients != undefined" class="ingredients">
+                <h3>Összetevők:</h3>
                 <span>({{ingredients}})</span>
             </div>   
-            <!--  == 'Unauthorized' || loggedIn == 'Unauthenticated' -->
+            <div class="" v-if="capacity != undefined">
+                <h3>Térfogat:</h3>
+                <p>{{capacity}} (ml)</p>
+            </div>
             <div v-if="!loggedIn">
                 <div class="alert alert-danger" v-if="addedToCart">
                     <p>Kérem jelentkezzen be!</p>
@@ -23,7 +26,6 @@
             </div>
         </div>
         <div class="food_card_footer">
-        <!-- <form> -->
             <button @click="addToCart" v-bind:id="foodId" class="btn btn-primary">Kosárba!</button>
             <strong class="price">
                 Ár:
@@ -40,7 +42,6 @@ export default {
             addedToCart: false,
             finalPrice: this.foodPrice,
             selectedIngreds: [],
-            // loggedIn: this.$parent.$parent.$parent.cartItems.message,
             loggedIn: false,
         }
     },
@@ -50,7 +51,14 @@ export default {
         image: String,
         foodName: String,
         foodPrice: Number,
-        ingredients: String,
+        ingredients:{
+            type: String,
+            requried: false
+        },
+        capacity: {
+            type: Number,
+            requried: false
+        }
     },
     methods: {
         async addToCart(){
@@ -65,7 +73,6 @@ export default {
                 })
                 .catch(error => console.log(error)) 
             }else{
-                // this.loggedIn = !this.loggedIn
                 this.hideSuccessMsg();
             }
             

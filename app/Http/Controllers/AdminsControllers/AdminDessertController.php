@@ -14,6 +14,8 @@ class AdminDessertController extends AdminBaseFoodController
     public function index(){
         return view('admin.dessert.dessert')->with([
             'allFood' =>  Dessert::all(),
+            'isIngredients' => true,
+            'isCapacity' => false,
             'routeStore' => 'dessert.store',
             'routeDestroy' => 'dessert.destroy',
             'routeEdit' => 'dessert.edit',
@@ -41,13 +43,14 @@ class AdminDessertController extends AdminBaseFoodController
         }
         try {
             $dessert = $this->saveFood(Dessert::class, $request, 'dessert');
+            $dessert->ingredients = $request->ingredient;
             $dessert->save();
             return redirect('admin/dessert')->withErrors([
                 'inputSuccess' => "A(z) $dessert->name bevitele sikeres volt!"
             ]);
         } catch (QueryException $ex) {
             return redirect('admin/dessert')->withErrors([
-                'inputFail' => "A(z) $dessert->name bevitele sikertelen volt: $ex->getMessasge()"
+                'inputFail' => "A(z) $dessert->name bevitele sikertelen volt: $ex->getMessage()"
             ]);
         }
     }
@@ -56,6 +59,8 @@ class AdminDessertController extends AdminBaseFoodController
         $dessert = Dessert::find($request->foodId);
         return view('admin.dessert.edit-dessert')->with([
             'foodName' => $dessert->name,
+            'isIngredients' => true,
+            'isCapacity' => false,
             'route' => 'dessert.update',
             'foodId' => $dessert->id,
             'ingredients' => $dessert->ingredients,
@@ -67,6 +72,7 @@ class AdminDessertController extends AdminBaseFoodController
     public function update($id, Request $request){
         try {
             $dessert = $this->updateFood(Dessert::class, $id, $request, 'dessert');
+            $dessert->ingredients = $request->ingredient;
             $dessert->save();
             return redirect('admin/dessert')->withErrors([
                 'success' => "A(z) $dessert->name módosítása sikeres volt"

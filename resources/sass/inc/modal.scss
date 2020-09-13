@@ -81,6 +81,20 @@
                     margin-bottom: .4rem;
                 }
             }
+
+            .orderCard{
+                margin: 1rem;
+                padding: .7rem;
+                box-shadow: 1px 1px 7px black;
+                h3{
+                    margin: .6rem 0 .6rem 0;
+                    text-align: center;
+                }
+                .orders{
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                }                
+            }
         }
         .modal-footer{
             margin: 1rem;
@@ -137,6 +151,11 @@
                         margin-bottom: .6rem;
                         
                     }
+                }
+                .orderCard{
+                    .orders{
+                        grid-template-columns: repeat(1, 1fr);
+                    }   
                 }
             }
         }

@@ -4,8 +4,8 @@
     <x-food-input-form
         :ingredients="$isIngredients"
         :route="$routeStore"
-        :cardName="$inputCardName"
-        :capacity="$isCapacity"
+        :cardName="$inputCardName" 
+        :capacity="$isCapacity"       
     />
 
     <x-food-delete-form
@@ -15,7 +15,8 @@
     :allFood="$allFood"
     :btnClass="$btnModifyClass"
     :btnValue="$btnModifyValue"
-/>
+    />
+
 <x-food-delete-form
     :route="$routeDestroy"
     :method="$deleteMethod"

@@ -19,6 +19,6 @@ class User extends Admin
     }
 
     public function orders(){
-        return $this->hasMany("App\Model\Order\Orders", 'user_email', 'email');
+        return $this->hasMany("App\Model\Order\Orders", 'user_email', 'email')->orderBy('created_at','DESC');
     }
 }

@@ -1,8 +1,8 @@
 <template>
         <div>
             <a @click="showModal" class="dropdown-item modal-button">
-            <i class="fas fa-shopping-cart"></i> 
-            Kosár
+            <i class="fas fa-cart-arrow-down"></i>
+            Korábbi rendelések
             </a>
         </div>
 </template>

@@ -17,7 +17,6 @@ class AdminBaseFoodController extends Controller
     protected function saveFood($foodModel, $request, $imageStorage){
         $food = new $foodModel;
         $food->name = $request->name;
-        $food->ingredients = $request->ingredient;
 
         $imageId = $food->images()->create([
             'image_path' => $request->file('image')->store($imageStorage)
@@ -36,7 +35,6 @@ class AdminBaseFoodController extends Controller
     protected function updateFood($foodModel, $id, $request, $foodType){
         $food = $foodModel::find($id);
         $food->name = $request->name;
-        $food->ingredients = $request->ingredient;
 
         if ($request->file('image') != null) {
             $this->updateFoodImage($food, $request ,$food->images->image_path, $foodType);

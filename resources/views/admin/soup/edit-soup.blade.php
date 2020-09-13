@@ -6,6 +6,7 @@
             :foodName="$foodName"
             :foodId="$foodId"            
             :ingredients="$ingredients"
+            :capacity="$isCapacity"
             :prices="$prices"
             :images="$images"
         />

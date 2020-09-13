@@ -4,9 +4,9 @@
     <x-edit-food
     :route="$route"
     :foodName="$foodName"
-    :foodId="$foodId"            
-    :ingredients="$ingredients"
-    :capacity="$isCapacity"
+    :foodId="$foodId" 
+    :ingredients="$isIngredients"           
+    :capacity="$capacity"
     :prices="$prices"
     :images="$images"
     />

@@ -3,8 +3,10 @@
 <div class="container">
     <h1 class="text-black text-center p-1">Levesek bevitele</h1>
     <x-food-input-form
+        :ingredients="$isIngredients"
         :route="$routeStore"
         :cardName="$inputCardName"
+        :capacity="$isCapacity" 
     />
 
     <x-food-delete-form

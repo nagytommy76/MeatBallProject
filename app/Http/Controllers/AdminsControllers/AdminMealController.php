@@ -14,6 +14,8 @@ class AdminMealController extends AdminBaseFoodController
     public function index(){
         return view('admin.meal.meal')->with([
             'allFood' =>  Meal::all(),
+            'isIngredients' => true,
+            'isCapacity' => false,
             'routeStore' => 'meal.store',
             'routeDestroy' => 'meal.destroy',
             'routeEdit' => 'meal.edit',
@@ -41,6 +43,7 @@ class AdminMealController extends AdminBaseFoodController
         }
         try {
             $meal = $this->saveFood(Meal::class, $request, 'meal');
+            $meal->ingredients = $request->ingredient;
             $meal->save();
             return redirect('admin/meal')->withErrors([
                 'inputSuccess' => "A(z) $meal->name bevitele sikeres volt!"
@@ -56,6 +59,8 @@ class AdminMealController extends AdminBaseFoodController
         $meal = Meal::find($request->foodId);
         return view('admin.meal.edit-meal')->with([
             'foodName' => $meal->name,
+            'isIngredients' => true,
+            'isCapacity' => false,
             'route' => 'meal.update',
             'foodId' => $meal->id,
             'ingredients' => $meal->ingredients,
@@ -67,6 +72,7 @@ class AdminMealController extends AdminBaseFoodController
     public function update($id, Request $request){
         try {
             $meal = $this->updateFood(Meal::class, $id, $request, 'meal');
+            $meal->ingredients = $request->ingredient;
             $meal->save();
             return redirect('admin/meal')->withErrors([
                 'success' => "A(z) $meal->name módosítása sikeres volt"

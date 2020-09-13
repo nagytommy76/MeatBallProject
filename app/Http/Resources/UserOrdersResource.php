@@ -20,8 +20,9 @@ class UserOrdersResource extends JsonResource
             'id' => $this->id,
             'cartItems' => json_decode($this->cartItems),
             'created_at' => $finalDate,
+            // 'created_at' => $this->created_at,
             'orderNumber' => $this->orderNumber,
-            'userEmail' => $this->userEmail
+            'userEmail' => $this->user_email
         ];
     }
 }

@@ -5,6 +5,7 @@ import pizzaFilter from './components/pizza/pizzaFilter';
 import soupFilter from './components/soup/soupFilter';
 import dessertFilter from './components/dessert/dessertFilter';
 import mealFilter from './components/meal/mealFilter';
+import drinkFilter from './components/drink/drinkFilter';
 
 import cartModal from './components/cart/cartModal';
 import summaryCart from './components/cart/summaryCart';
@@ -19,6 +20,7 @@ export default new VueRouter({
         { path: '/soup', component: soupFilter},
         { path: '/dessert', component: dessertFilter},
         { path: '/meal', component: mealFilter},
+        { path: '/drink', component: drinkFilter},
         { path: '/cartModal', component: cartModal},
         { path: '/summaryCart', component: summaryCart},
     ],

@@ -10,15 +10,17 @@ class EditFood extends Component
     public $foodName;
     public $foodId;
     public $ingredients;
+    public $capacity;
     public $prices;
     public $images;
 
-    public function __construct($route, $foodName, $foodId, $ingredients, $prices, $images)
+    public function __construct($route, $foodName, $foodId, $ingredients, $capacity, $prices, $images)
     {
         $this->route = $route;
         $this->foodName = $foodName;
         $this->foodId = $foodId;
         $this->ingredients = $ingredients;
+        $this->capacity = $capacity;
         $this->prices = $prices;
         $this->images = $images;
     }

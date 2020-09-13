@@ -11,6 +11,7 @@ use App\Model\Foods\Pizzas;
 use App\Model\Soup\Soup;
 use App\Model\Dessert\Dessert;
 use App\Model\Meal\Meal;
+use App\Model\Drink\Drink;
 
 use App\Model\Foods\PizzaIngredPrices;
 
@@ -79,6 +80,9 @@ class BaseCartController extends Controller
                 break;
             case 'meal':
                 return Meal::find($dataFromCard->foodId);
+                break;
+            case 'drink':
+                return Drink::find($dataFromCard->foodId);
                 break;
             case 'pasta' || 'rizotto':
                 return PastaRizotto::find($dataFromCard->foodId);

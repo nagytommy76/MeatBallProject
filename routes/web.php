@@ -72,6 +72,15 @@ Route::prefix('admin')->group(function() {
         Route::delete('/destroy', 'AdminsControllers\AdminMealController@destroy')->name('meal.destroy');
     });
 
+    // DRINKS
+    Route::prefix('drink')->group(function(){
+        Route::get('/', 'AdminsControllers\AdminDrinkController@index')->name('drink.index');
+        Route::post('/store', 'AdminsControllers\AdminDrinkController@store')->name('drink.store');
+        Route::patch('/edit', 'AdminsControllers\AdminDrinkController@edit')->name('drink.edit');
+        Route::patch('/{id}/update', 'AdminsControllers\AdminDrinkController@update')->name('drink.update');
+        Route::delete('/destroy', 'AdminsControllers\AdminDrinkController@destroy')->name('drink.destroy');
+    });
+
 });
 
 Route::get('/', function () {

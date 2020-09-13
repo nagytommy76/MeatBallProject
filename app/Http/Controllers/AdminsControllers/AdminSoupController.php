@@ -14,6 +14,8 @@ class AdminSoupController extends AdminBaseFoodController
     public function index(){
         return view('admin.soup.soup')->with([
             'allFood' => Soup::all(),
+            'isIngredients' => true,
+            'isCapacity' => false,
             'routeStore' => 'soup.store',
             'routeDestroy' => 'soup.destroy',
             'routeEdit' => 'soup.edit',
@@ -41,6 +43,7 @@ class AdminSoupController extends AdminBaseFoodController
         }
         try {
             $food = $this->saveFood(Soup::class, $request, 'soup');
+            $food->ingredients = $request->ingredient;
             $food->save();
             return redirect('admin/soup')->withErrors([
                 'inputSuccess' => "A(z) $food->name bevitele sikeres volt!"
@@ -56,6 +59,8 @@ class AdminSoupController extends AdminBaseFoodController
         $soup = Soup::find($request->foodId);
         return view('admin.soup.edit-soup')->with([
             'foodName' => $soup->name,
+            'isIngredients' => true,
+            'isCapacity' => false,
             'route' => 'soup.update',
             'foodId' => $soup->id,
             'ingredients' => $soup->ingredients,
@@ -68,6 +73,7 @@ class AdminSoupController extends AdminBaseFoodController
     public function update($id, Request $request){
         try {
             $soup = $this->updateFood(Soup::class, $id, $request, 'soup');
+            $soup->ingredients = $request->ingredient;
             $soup->save();
             return redirect('admin/soup')->withErrors([
                 'success' => "A(z) $soup->name módosítása sikeres volt"
