@@ -168,10 +168,18 @@ body{
     bottom: 0;
     transform: rotate(180deg);
     transition: all .3s;
+    z-index: 999;
     &:hover{
         transform: rotate(0deg);
     }
 }
+
+@media(max-width: $mobile-width){
+    .btn-up{
+        font-size: 1rem;
+    }
+}
+
 
 
 .tooltip{

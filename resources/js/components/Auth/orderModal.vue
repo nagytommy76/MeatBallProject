@@ -56,8 +56,7 @@ export default {
         async getOrders(){
             loadData.fetchAuthData('myOrders','GET', this.$parent.accessToken)
             .then(result => {
-                this.orders = result.data;
-                
+                this.orders = result.data;                
             })
         },
         closeModal(){

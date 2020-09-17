@@ -35,11 +35,6 @@
                     border-bottom: 1px solid $primary;
                 }
 
-                // .show-more-ingredients{
-                //     display: none;    
-                     
-                // }
-
                 .ingredients{
                     margin: .4rem 0;
                     cursor: default;
@@ -76,6 +71,20 @@
     .food_card_container{
         .food_card_content{
             grid-template-columns: 1fr;
+            .food_card{
+                width: 20rem;
+                min-height: 30rem;
+                .food_card_header{
+                    height: 235px;
+                }
+                .food_card_footer{
+                    display: flex;
+                    flex-direction: column;
+                    .price{
+                        margin: 0 auto .5rem auto;
+                    }
+                }
+            }
         }
     }
 }

@@ -203,10 +203,17 @@ body {
   bottom: 0;
   transform: rotate(180deg);
   transition: all 0.3s;
+  z-index: 999;
 }
 
 .btn-up:hover {
   transform: rotate(0deg);
+}
+
+@media (max-width: 720px) {
+  .btn-up {
+    font-size: 1rem;
+  }
 }
 
 .tooltip {
@@ -289,6 +296,10 @@ body {
   padding: 1.8rem 0;
   opacity: 0.9;
   transition: ease-in 0.1s;
+}
+
+.navbar #navOpen {
+  display: none;
 }
 
 .navbar:hover {
@@ -389,8 +400,7 @@ body {
   }
 
   .navbar .navbar-brand {
-    font-size: 1.7rem;
-    margin-bottom: 1rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -502,7 +512,7 @@ body {
   flex-flow: column;
   width: 21.7rem;
   min-height: 42rem;
-  background: #212F3C;
+  background: #2C302E;
   transition: all 0.1s;
 }
 
@@ -560,6 +570,24 @@ body {
   .food_card_container .food_card_content {
     grid-template-columns: 1fr;
   }
+
+  .food_card_container .food_card_content .food_card {
+    width: 20rem;
+    min-height: 30rem;
+  }
+
+  .food_card_container .food_card_content .food_card .food_card_header {
+    height: 235px;
+  }
+
+  .food_card_container .food_card_content .food_card .food_card_footer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .food_card_container .food_card_content .food_card .food_card_footer .price {
+    margin: 0 auto 0.5rem auto;
+  }
 }
 
 .card-and-filter {
@@ -575,7 +603,7 @@ body {
   top: 6rem;
   margin: 6.5rem 1rem;
   padding: 1.5rem;
-  background: #212F3C;
+  background: #2C302E;
   border-radius: 5px;
   height: 20rem;
   display: flex;
@@ -806,7 +834,7 @@ body {
   margin: 0.7rem auto 0.7rem auto;
   padding: 1rem;
   text-align: center;
-  background: #212F3C;
+  background: #2C302E;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   justify-content: space-evenly;
@@ -975,7 +1003,7 @@ body {
 }
 
 .card-content .card {
-  background: #212F3C;
+  background: #2C302E;
   display: flex;
   flex-direction: column;
   text-align: center;
