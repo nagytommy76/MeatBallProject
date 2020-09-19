@@ -1,8 +1,9 @@
 <nav role="navigation" class="navbar">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <span class="primary-color">Húsgolyó</span> Étterem
-            </a>
-            <div id="navOpen"><i class="fas fa-bars"></i></div>       
+            <div class="navbar-brand">
+                <a href="{{ url('/') }}"><span class="primary-color">Húsgolyó</span> Étterem</a>
+                <span id="navOpen"><i class="fas fa-bars"></i></span>
+            </div>
+            {{-- <div id="navOpen"><i class="fas fa-bars"></i></div>        --}}
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav">
                 <li class="nav-item">

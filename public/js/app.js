@@ -2020,8 +2020,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 }).then(function (response) {
                   return response.json();
                 }).then(function (result) {
-                  console.log(result);
-
                   if (result.accessToken == null) {
                     _this.showErrors(result.hasError);
                   } else {
@@ -2736,8 +2734,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
-//
 //
 //
 //
@@ -41581,9 +41577,9 @@ var render = function() {
                       [
                         _c("span", { staticClass: "tooltiptext" }, [
                           _vm._v(
-                            "\n                                        " +
+                            "\n                            " +
                               _vm._s(ingred.ingredPrice) +
-                              " Ft\n                                    "
+                              " Ft\n                        "
                           )
                         ]),
                         _vm._v(" "),
@@ -41597,9 +41593,9 @@ var render = function() {
                 _c("div", { staticClass: "tooltip" }, [
                   _c("span", { staticClass: "tooltiptext" }, [
                     _vm._v(
-                      "\n                                        Eredeti ár: " +
+                      "\n                            Eredeti ár: " +
                         _vm._s(item.item.price) +
-                        " Ft\n                                    "
+                        " Ft\n                        "
                     )
                   ]),
                   _vm._v(" "),
@@ -41728,115 +41724,113 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "modal-bg bg-closed" }, [
-      _c(
-        "div",
-        { staticClass: "modal" },
-        [
-          _c(
-            "span",
-            { staticClass: "modal-close", on: { click: _vm.closeModal } },
-            [_c("i", { staticClass: "far fa-times-circle" })]
-          ),
-          _vm._v(" "),
-          _c(_vm.currentPage, { tag: "component" }),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              directives: [
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: this.$parent.cartItems.totalQty > 0,
-                  expression: "this.$parent.cartItems.totalQty > 0"
-                }
-              ]
-            },
-            [
-              _c(
-                "button",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.step > 0 && _vm.step != 3,
-                      expression: "step>0 && step != 3"
-                    }
-                  ],
-                  staticClass: "btn btn-delete-dark",
-                  on: { click: _vm.previousPage }
-                },
-                [_vm._v("Vissza")]
-              ),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.step < _vm.pages.length - 1 && _vm.step != 2,
-                      expression: "step<pages.length-1 && step != 2"
-                    }
-                  ]
-                },
-                [
-                  _c(
-                    "button",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: this.isUserinfoFilled || _vm.step != 1,
-                          expression: "this.isUserinfoFilled || step != 1"
-                        }
-                      ],
-                      staticClass: "btn btn-confirm-dark",
-                      on: { click: _vm.nextPage }
-                    },
-                    [_vm._v("Tovább")]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.step == _vm.pages.length - 2,
-                      expression: "step == pages.length-2"
-                    }
-                  ],
-                  staticClass: "btn btn-confirm-dark",
-                  on: { click: _vm.makeOrder }
-                },
-                [_vm._v("Rendelés Leadása!")]
-              )
+  return _c("div", { staticClass: "modal-bg bg-closed" }, [
+    _c(
+      "div",
+      { staticClass: "modal" },
+      [
+        _c(
+          "span",
+          { staticClass: "modal-close", on: { click: _vm.closeModal } },
+          [_c("i", { staticClass: "far fa-times-circle" })]
+        ),
+        _vm._v(" "),
+        _c(_vm.currentPage, { tag: "component" }),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: this.$parent.cartItems.totalQty > 0,
+                expression: "this.$parent.cartItems.totalQty > 0"
+              }
             ]
-          ),
-          _vm._v(" "),
-          _c("Loading", {
-            attrs: {
-              active: _vm.isLoading,
-              "is-full-page": false,
-              "background-color": "#979797",
-              color: "#80FF00",
-              height: 100,
-              width: 100
-            }
-          })
-        ],
-        1
-      )
-    ])
+          },
+          [
+            _c(
+              "button",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.step > 0 && _vm.step != 3,
+                    expression: "step>0 && step != 3"
+                  }
+                ],
+                staticClass: "btn btn-delete-dark",
+                on: { click: _vm.previousPage }
+              },
+              [_vm._v("Vissza")]
+            ),
+            _vm._v(" "),
+            _c(
+              "span",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.step < _vm.pages.length - 1 && _vm.step != 2,
+                    expression: "step<pages.length-1 && step != 2"
+                  }
+                ]
+              },
+              [
+                _c(
+                  "button",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: this.isUserinfoFilled || _vm.step != 1,
+                        expression: "this.isUserinfoFilled || step != 1"
+                      }
+                    ],
+                    staticClass: "btn btn-confirm-dark",
+                    on: { click: _vm.nextPage }
+                  },
+                  [_vm._v("Tovább")]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.step == _vm.pages.length - 2,
+                    expression: "step == pages.length-2"
+                  }
+                ],
+                staticClass: "btn btn-confirm-dark",
+                on: { click: _vm.makeOrder }
+              },
+              [_vm._v("Rendelés Leadása!")]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c("Loading", {
+          attrs: {
+            active: _vm.isLoading,
+            "is-full-page": false,
+            "background-color": "#979797",
+            color: "#80FF00",
+            height: 100,
+            width: 100
+          }
+        })
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = []
@@ -59422,7 +59416,8 @@ module.exports = function(module) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./store */ "./resources/js/store/index.js");
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _helpers_navbarHelper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/navbarHelper */ "./resources/js/helpers/navbarHelper.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -59435,6 +59430,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 Vue.use(__webpack_require__(/*! vue-cookies */ "./node_modules/vue-cookies/vue-cookies.js"));
 
 var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+
 
 
 
@@ -59457,7 +59453,7 @@ var app = new Vue({
   data: function data() {
     return {};
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])({
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapState"])({
     accessToken: function accessToken(state) {
       return state.accessToken.accessToken;
     },
@@ -59468,13 +59464,17 @@ var app = new Vue({
       return state.getCartItems.cartItems;
     }
   })),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(['fetchAccessToken', 'getCartItems'])),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])(['fetchAccessToken', 'getCartItems'])),
   created: function created() {
     this.fetchAccessToken();
 
     if (this.accessToken != null) {
       this.getCartItems(this.accessToken);
     }
+  },
+  mounted: function mounted() {
+    _helpers_navbarHelper__WEBPACK_IMPORTED_MODULE_2__["default"].openBtn();
+    _helpers_navbarHelper__WEBPACK_IMPORTED_MODULE_2__["default"].logOutBTN();
   }
 });
 
@@ -61265,6 +61265,59 @@ var loadData = /*#__PURE__*/function () {
   }]);
 
   return loadData;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/js/helpers/navbarHelper.js":
+/*!**********************************************!*\
+  !*** ./resources/js/helpers/navbarHelper.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return navbarHelper; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var navbarHelper = /*#__PURE__*/function () {
+  function navbarHelper() {
+    _classCallCheck(this, navbarHelper);
+  }
+
+  _createClass(navbarHelper, null, [{
+    key: "openBtn",
+    value: function openBtn() {
+      var navOpen = document.getElementById('navOpen');
+      var navbarNav = document.querySelector('.navbar-nav');
+      navOpen.addEventListener('click', function () {
+        navbarNav.classList.toggle("open");
+      });
+    }
+  }, {
+    key: "logOutBTN",
+    value: function logOutBTN() {
+      var logOutBtn = document.getElementById('logOutBtn');
+      var localST = JSON.parse(localStorage.getItem('accessToken'));
+
+      if (logOutBtn != null) {
+        logOutBtn.addEventListener('click', function () {
+          if (localST != null) {
+            localStorage.removeItem('accessToken');
+          }
+        });
+      }
+    }
+  }]);
+
+  return navbarHelper;
 }();
 
 

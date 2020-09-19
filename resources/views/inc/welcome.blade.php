@@ -16,40 +16,44 @@
             <h1 class="left-title"><span class="primary-color">Nagy Tamás</span><div>Autodidakta back-end fejlesztő</div></h1>
             <div class="stack-icon">
                 <h4 class="icon-title">Back-end technológiák</h4>
-                <div class="tooltip">
-                    <span class="tooltiptext">PHP</span>
-                    <span><i class="fab fa-php fa-2x"></i></span>
-                </div>
-                <div class="tooltip">
-                    <span class="tooltiptext">Laravel</span>
-                    <span><i class="fab fa-laravel fa-2x"></i></span>
-                </div>
+                <div class="grid-tooltip">
+                    <div class="tooltip">
+                        <span class="tooltiptext">PHP</span>
+                        <span><i class="fab fa-php fa-2x"></i></span>
+                    </div>
+                    <div class="tooltip">
+                        <span class="tooltiptext">Laravel</span>
+                        <span><i class="fab fa-laravel fa-2x"></i></span>
+                    </div>
+                </div>                
 
                 <h4 class="icon-title">Front-end technológiák</h4>
-                <div class="tooltip">
-                    <span class="tooltiptext">JavaScript</span>
-                    <span><i class="fab fa-js-square fa-2x"></i></span>
-                </div>
-                <div class="tooltip">
-                    <span class="tooltiptext">Vue.js</span>
-                    <span><i class="fab fa-vuejs fa-2x"></i></span>
-                </div>
-                <div class="tooltip">
-                    <span class="tooltiptext">Bootstrap</span>
-                    <span><i class="fab fa-bootstrap fa-2x"></i></span>
-                </div>
-                <div class="tooltip">
-                    <span class="tooltiptext">CSS3</span>
-                    <span><i class="fab fa-css3-alt fa-2x"></i></span>
-                </div>
-                <div class="tooltip">
-                    <span class="tooltiptext">SASS</span>
-                    <span><i class="fab fa-sass fa-2x"></i></span>
-                </div>              
-                <div class="tooltip">
-                    <span class="tooltiptext">HTML5</span>
-                    <span><i class="fab fa-html5 fa-2x"></i></span>
-                </div>               
+                <div class="grid-tooltip">
+                    <div class="tooltip">
+                        <span class="tooltiptext">JavaScript</span>
+                        <span><i class="fab fa-js-square fa-2x"></i></span>
+                    </div>
+                    <div class="tooltip">
+                        <span class="tooltiptext">Vue.js</span>
+                        <span><i class="fab fa-vuejs fa-2x"></i></span>
+                    </div>
+                    <div class="tooltip">
+                        <span class="tooltiptext">Bootstrap</span>
+                        <span><i class="fab fa-bootstrap fa-2x"></i></span>
+                    </div>
+                    <div class="tooltip">
+                        <span class="tooltiptext">CSS3</span>
+                        <span><i class="fab fa-css3-alt fa-2x"></i></span>
+                    </div>
+                    <div class="tooltip">
+                        <span class="tooltiptext">SASS</span>
+                        <span><i class="fab fa-sass fa-2x"></i></span>
+                    </div>              
+                    <div class="tooltip">
+                        <span class="tooltiptext">HTML5</span>
+                        <span><i class="fab fa-html5 fa-2x"></i></span>
+                    </div>   
+                </div>                            
                 <h4 class="icon-title">Egyéb ismeretek</h4>                
                 <div class="tooltip">
                     <span class="tooltiptext">GitHub</span>
@@ -59,18 +63,20 @@
             <footer class="footer-contact">
                 <h4 class="icon-title">Elérhetőségeim</h4>
                 <div class="contact-icon">
-                    <div class="tooltip">
-                        <span class="tooltiptext">nagytommy76@gmail.com</span>
-                        <span><a class="" href="mailto:nagytommy76@gmail.com"><i class="fas fa-envelope"></i></a></span>
-                    </div> 
-                    <div class="tooltip">
-                        <span class="tooltiptext">Tel.: 06307862963</span>
-                        <span><a class="" href="tel:06307862963"><i class="fas fa-phone"></i></a></span>
-                    </div>
-                    <div class="tooltip">
-                        <span class="tooltiptext">LinkedIn</span>
-                        <span><a target="_blank" href="https://www.linkedin.com/in/nagy-tam%C3%A1s-27355116b/"><i class="fab fa-linkedin"></i></a></span>
-                    </div>
+                    {{-- <div class="grid-tooltip"> --}}
+                        <div class="tooltip">
+                            <span class="tooltiptext">nagytommy76@gmail.com</span>
+                            <span><a class="" href="mailto:nagytommy76@gmail.com"><i class="fas fa-envelope"></i></a></span>
+                        </div> 
+                        <div class="tooltip">
+                            <span class="tooltiptext">Tel.: 06307862963</span>
+                            <span><a class="" href="tel:06307862963"><i class="fas fa-phone"></i></a></span>
+                        </div>
+                        <div class="tooltip">
+                            <span class="tooltiptext">LinkedIn</span>
+                            <span><a target="_blank" href="https://www.linkedin.com/in/nagy-tam%C3%A1s-27355116b/"><i class="fab fa-linkedin"></i></a></span>
+                        </div>
+                    {{-- </div>                     --}}
                 </div>                                                      
             </footer>
         </aside>

@@ -1,5 +1,4 @@
 <template>
-    <div>
         <div class="modal-bg bg-closed">
             <div class="modal">
                 <span @click="closeModal" class="modal-close"><i class="far fa-times-circle"></i></span>
@@ -24,7 +23,6 @@
                 ></Loading>
             </div>
         </div>        
-    </div>
 </template>
 
 <script>

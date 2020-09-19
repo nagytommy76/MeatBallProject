@@ -1,6 +1,6 @@
 .main-content{
     color: $dark;
-    min-height: 72vh;
+    min-height: 90vh;
     
     display: flex;
     .main-left-content{
@@ -65,6 +65,10 @@
 }
 
 @media(max-width: $mobile-width){
+    .grid-tooltip{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
     .main-content{
         flex-direction: column;
     }

@@ -7,14 +7,11 @@
     justify-content: space-around;
     top: 0;
     position: sticky;
-    z-index: 1;
+    z-index: 3;
     padding: 1.8rem 0;
     opacity: .9;
     transition: ease-in .1s;
 
-    #navOpen{
-        display: none;
-    }
     &:hover{
         opacity: 1;
         box-shadow: 2px 2px 10px $dark;
@@ -22,10 +19,16 @@
     .navbar-brand{
         color: white;
         font-size: 1.5rem;
+        align-items: center;
+        #navOpen{
+            cursor: pointer;
+            display: none;
+        }
     }
     // Right side of the NAV
     .navbar-nav{
         display: flex;
+        flex-direction: row;
         // Navigation link, A-tag
         .nav-item{
             .nav-link{
@@ -74,7 +77,6 @@
                 i{
                     margin-right: .3rem;
                 }
-                // transition: ease-in .3s;
 
                 &:hover{
                     background: $primary;
@@ -96,29 +98,30 @@
 } // NAVBAR END 
 
 
+
 @media(max-width: $mobile-width){
+    .open{
+        display: flex !important;
+        flex-direction: column !important;
+    }  
     .navbar{
         flex-direction: column;
         opacity: 1;
         box-shadow: 1px 1px 10px $dark;
-        &:hover{
-            opacity: 1;
-        }
         .navbar-nav{
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            // display: none;
+            display: none;  
+            margin-top: 1rem;              
             .nav-item{
                 margin: .7rem 0;
             }
         }
-        // flex-direction: column;
-        // #navOpen{
-            // display: inline-block;
-        // }
         .navbar-brand{
             font-size: 1.5rem;
-            // margin-bottom: 1rem;
+            #navOpen{    
+                display: inline-flex;           
+                margin-left: 1rem;
+                font-size: 1.8rem;
+            }
         }
     }
 }

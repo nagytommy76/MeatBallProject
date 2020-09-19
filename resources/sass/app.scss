@@ -110,6 +110,10 @@ form{
 }
 
 @media(max-width: $mobile-width){
+    .row{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
     .card-container{
         width: 100vw;
         .card-content{

@@ -5,7 +5,7 @@ const axios = require('axios');
 
 import store from './store';
 import router from './router';
-
+import navbarHelper from './helpers/navbarHelper';
 
 Vue.component('cart-items', require('./components/cart/itemsInCart.vue').default);
 Vue.component('cart-modal', require('./components/cart/modal.vue').default);
@@ -53,4 +53,8 @@ const app = new Vue({
             this.getCartItems(this.accessToken)
         }
     },
+    mounted(){
+        navbarHelper.openBtn()
+        navbarHelper.logOutBTN()
+    }
 });
