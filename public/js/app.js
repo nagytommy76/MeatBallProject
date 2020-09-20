@@ -2025,7 +2025,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   } else {
                     _this.setExpirationToLocalSt(result.accessToken);
 
-                    window.location.href = "http://meatballproject.hu/";
+                    window.location.href = "https://nagytamas93.hu/";
                   }
                 })["catch"](function (err) {
                   return console.log(err);
@@ -2863,25 +2863,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _this3.isLoading = true;
 
-                _this3.sendOrderEmail().then(function (email) {
-                  if (!email.exception) {
-                    _this3.saveOrder().then(function (saved) {
-                      if (!saved.exception) {
-                        _this3.$parent.getCartItems(_this3.$parent.accessToken);
+                _this3.saveOrder().then(function (saved) {
+                  if (!saved.exception) {
+                    _this3.$parent.getCartItems(_this3.$parent.accessToken);
 
-                        _this3.step = 3;
+                    _this3.step = 3;
 
-                        _this3.setDefaultPage();
-                      } else {
-                        console.log(saved.exception);
-                      }
-
-                      _this3.isLoading = false;
-                    });
+                    _this3.setDefaultPage();
                   } else {
-                    console.log(email.exception);
-                    _this3.isLoading = false;
+                    console.log(saved.exception);
                   }
+
+                  _this3.isLoading = false;
+                })["catch"](function (error) {
+                  return console.log(error);
                 });
 
               case 2:
@@ -2892,17 +2887,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee3);
       }))();
     },
-    sendOrderEmail: function sendOrderEmail() {
+    saveOrder: function saveOrder() {
       var _this4 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
-        var emailResponse;
+        var saveResponse;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
                 _context4.next = 2;
-                return fetch('api/sendOrderEmail', {
+                return fetch('api/saveOrder', {
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json',
@@ -2912,9 +2907,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 });
 
               case 2:
-                emailResponse = _context4.sent;
+                saveResponse = _context4.sent;
                 _context4.next = 5;
-                return emailResponse.json();
+                return saveResponse.json();
 
               case 5:
                 return _context4.abrupt("return", _context4.sent);
@@ -2925,41 +2920,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             }
           }
         }, _callee4);
-      }))();
-    },
-    saveOrder: function saveOrder() {
-      var _this5 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
-        var saveResponse;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
-          while (1) {
-            switch (_context5.prev = _context5.next) {
-              case 0:
-                _context5.next = 2;
-                return fetch('api/saveOrder', {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'Authorization': 'Bearer ' + _this5.$parent.accessToken
-                  }
-                });
-
-              case 2:
-                saveResponse = _context5.sent;
-                _context5.next = 5;
-                return saveResponse.json();
-
-              case 5:
-                return _context5.abrupt("return", _context5.sent);
-
-              case 6:
-              case "end":
-                return _context5.stop();
-            }
-          }
-        }, _callee5);
       }))();
     },
     closeModal: function closeModal() {
@@ -2982,10 +2942,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     },
     setDefaultPage: function setDefaultPage() {
-      var _this6 = this;
+      var _this5 = this;
 
       setTimeout(function () {
-        _this6.step = 0;
+        _this5.step = 0;
       }, 5000);
     }
   }
@@ -3233,8 +3193,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 }).then(function (response) {
                   return response.json();
                 }).then(function (result) {
-                  console.log(result);
-
                   if (result.hasError) {
                     _this.showErrors(result.errors);
                   } else {
@@ -61297,9 +61255,12 @@ var navbarHelper = /*#__PURE__*/function () {
     value: function openBtn() {
       var navOpen = document.getElementById('navOpen');
       var navbarNav = document.querySelector('.navbar-nav');
-      navOpen.addEventListener('click', function () {
-        navbarNav.classList.toggle("open");
-      });
+
+      if (navOpen != null) {
+        navOpen.addEventListener('click', function () {
+          navbarNav.classList.toggle("open");
+        });
+      }
     }
   }, {
     key: "logOutBTN",

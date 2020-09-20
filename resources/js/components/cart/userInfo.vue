@@ -150,7 +150,6 @@ export default {
                 body: JSON.stringify(this.formData)
             }).then(response => response.json())
             .then(result => {
-                console.log(result)
                 if (result.hasError) {
                     this.showErrors(result.errors)
                 }else{

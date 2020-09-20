@@ -35,6 +35,7 @@ class OrderConfirm extends Mailable
     {
         return $this
         ->from(\env('MAIL_FROM_ADDRESS','nagytommy76@gmail.com'))
+        ->subject("Rendelés visszaigazolás Húsgolyó Étterem")
         ->markdown('emails.orders');
     }
 }

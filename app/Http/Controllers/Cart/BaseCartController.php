@@ -6,19 +6,18 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
+use App\Mail\OrderConfirm;
+use Illuminate\Support\Facades\Mail;
+
 use App\Model\Pasta\PastaRizotto;
 use App\Model\Foods\Pizzas;
 use App\Model\Soup\Soup;
 use App\Model\Dessert\Dessert;
 use App\Model\Meal\Meal;
 use App\Model\Drink\Drink;
-
 use App\Model\Foods\PizzaIngredPrices;
 
-
-
 use App\Model\Cart;
-
 use App\Model\Order\Orders;
 use Auth;
 
@@ -131,5 +130,30 @@ class BaseCartController extends Controller
 
     protected function getOldCartData(){
         return Session::has($this->sessionName) ? $this->cartItems : null;
+    }
+
+    // Send email
+    protected function sendOrderEmail(){
+        try {
+            Mail::to(Auth::user()->email)->send(new OrderConfirm($this->cartItems, Auth::user()->userinfo));
+            return true;
+        } catch (Exception $ex) {
+            return false;
+        }        
+    }
+
+    // create order
+    protected function createOrder(){        
+        try {
+            $userOrder = Auth::user()->orders()->create([
+                'user_email' => Auth::user()->email,
+                'cartItems' => json_encode($this->cartItems),
+                'orderNumber' => $this->checkNumberInOrders()
+            ]); 
+            Auth::user()->save();
+            return $userOrder;
+        } catch (Exception $ex) {
+            return false;
+        }
     }
 }

@@ -21,7 +21,7 @@ _A rendelés kiszállítása rajtunk kívülálló okokból 60-90 perc is lehet.
 @component('mail::panel')
     <h2>Kedves Felhasználó!</h2>
     <p>Szeretném megköszönni, hogy megtekintette a weboldalamat!</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus sit a quia iure!</p>
+    <p>Kérem vegye figyelembe, hogy valódi rendelés nem történt! :)</p>
 @endcomponent
 
 @endcomponent

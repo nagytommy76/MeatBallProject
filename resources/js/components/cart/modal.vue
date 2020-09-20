@@ -84,34 +84,16 @@ export default {
         },
         async makeOrder(){
             this.isLoading = true;
-            this.sendOrderEmail().then(email => {
-                if(!email.exception){
-                    this.saveOrder().then(saved => { 
-                        if(!saved.exception){
-                            this.$parent.getCartItems(this.$parent.accessToken);
-                            this.step = 3;
-                            this.setDefaultPage()
-                        }else{
-                            console.log(saved.exception)
-                        }                    
-                        this.isLoading = false;
-                    })
+            this.saveOrder().then(saved => {
+                if(!saved.exception){
+                    this.$parent.getCartItems(this.$parent.accessToken)
+                    this.step = 3
+                    this.setDefaultPage()
                 }else{
-                    console.log(email.exception)
-                    this.isLoading = false;
+                    console.log(saved.exception)
                 }
-            });
-        },
-        async sendOrderEmail(){
-            let emailResponse = await fetch('api/sendOrderEmail',{
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'Authorization': 'Bearer ' + this.$parent.accessToken
-                }
-            });
-            return await emailResponse.json();
+                this.isLoading = false;
+            }).catch(error => console.log(error))
         },
         async saveOrder(){
             let saveResponse = await fetch('api/saveOrder',{

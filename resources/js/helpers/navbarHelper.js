@@ -2,10 +2,11 @@ export default class navbarHelper{
     static openBtn(){
         const navOpen = document.getElementById('navOpen');
         const navbarNav = document.querySelector('.navbar-nav');
-
-        navOpen.addEventListener('click', () =>{
-            navbarNav.classList.toggle("open");
-        })
+        if (navOpen != null) {
+            navOpen.addEventListener('click', () =>{
+                navbarNav.classList.toggle("open");
+            })
+        }        
     }
     static logOutBTN(){
         const logOutBtn = document.getElementById('logOutBtn');

@@ -87,7 +87,7 @@ export default {
                     this.showErrors(result.hasError);
                 }else{
                     this.setExpirationToLocalSt(result.accessToken); 
-                    window.location.href = "http://meatballproject.hu/";
+                    window.location.href = "https://nagytamas93.hu/";
                 }
             }).catch(err => console.log(err))
         },

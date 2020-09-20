@@ -8,9 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use \Illuminate\Database\QueryException;
 
-use App\Mail\OrderConfirm;
-use Illuminate\Support\Facades\Mail;
-
 use Auth;
 use Exception;
 
@@ -52,30 +49,20 @@ class CartController extends BaseCartController
         return \response()->json($cart);
     }
 
-    public function sendOrderEmail(){
-        try {
-            Mail::to(Auth::user()->email)->send(new OrderConfirm($this->cartItems, Auth::user()->userinfo));
-
-            return \response()->json(['exception' => false]);
-        } catch (Exception $ex) {
-            return \response()->json(['message' => $ex->getMessage(), 'exception' => true]);
-        }        
-    }
-
     public function saveOrder(){        
-        try {
-            $userOrder = Auth::user()->orders()->create([
-                'user_email' => Auth::user()->email,
-                'cartItems' => json_encode($this->cartItems),
-                'orderNumber' => $this->checkNumberInOrders()
-            ]);
-            Auth::user()->save();
-            if ($userOrder->wasRecentlyCreated) {
-                Session::forget($this->sessionName);
+        try {  
+            $userOrder = $this->createOrder();
+            if ($userOrder && $userOrder->wasRecentlyCreated) { 
+                if ($this->sendOrderEmail()) {
+                    Session::forget($this->sessionName);
+                }              
             }
             return \response()->json(['exception' => false]);
-        } catch (QueryException $ex) {
+        } catch (Exception $ex) {
             return \response()->json(['message' => $ex->getMessage(), 'exception' => true]);
         }
     }
 }
+
+
+        
