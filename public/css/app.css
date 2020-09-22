@@ -284,6 +284,10 @@ body::-webkit-scrollbar-thumb {
   text-align: center;
 }
 
+.cell-cursor {
+  cursor: cell;
+}
+
 .noOfFoodsInCart {
   margin-left: 0.5rem;
   padding: 0.5rem;
@@ -979,7 +983,6 @@ body::-webkit-scrollbar-thumb {
   color: #FFF;
   margin: 0.2rem 0.3rem;
   font-size: 2.4rem;
-  cursor: cell;
 }
 
 .main-content .main-left-content .footer-contact {
@@ -1013,6 +1016,10 @@ body::-webkit-scrollbar-thumb {
   .grid-tooltip {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-tooltip .tooltip {
+    margin: auto;
   }
 
   .main-content {

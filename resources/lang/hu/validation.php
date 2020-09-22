@@ -146,6 +146,7 @@ return [
 
     'attributes' => [
         'name'     => 'Név',
+        'username' => 'Felhasználónév',
         'password' => 'Jelszó',
         'phone' => 'Telefonszám',
         'zipCode' => 'Irányítószám',

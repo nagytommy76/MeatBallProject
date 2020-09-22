@@ -10,7 +10,7 @@
                             <div class="col">
                             <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Cím</label>
 
-                            <input id="email" type="email" class="form-control" v-model="formData.email" name="email" value="" autofocus>
+                            <input id="email" type="email" class="form-control" v-model="formData.email" name="email" autofocus>
 
                             <span v-if="hasError" class="invalid-feedback" role="alert">
                                 <div v-for="(emailErr, index) in errors.email" :key="index">
@@ -49,7 +49,7 @@
 </div>
 </template>
 <script>
-
+import authHelper from '../../helpers/authHelper'
 export default {
     name: 'login',
     data(){
@@ -72,33 +72,15 @@ export default {
             this.errors.password = errors.password;
         },
         async logTheUserIn(){
-            await fetch('api/login', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body:JSON.stringify({
-                    formData: this.formData
-                })
-            }).then(response => response.json())
-            .then(result => {
-                if(result.accessToken == null){
-                    this.showErrors(result.hasError);
+            await authHelper.sendAuthData('login', this.formData)
+            .then(response => {
+                if(response.accessToken == null){
+                    this.showErrors(response.hasError);
                 }else{
-                    this.setExpirationToLocalSt(result.accessToken); 
-                    window.location.href = "https://nagytamas93.hu/";
+                    authHelper.setExpirationToLocalSt(response.accessToken); 
+                    window.location.href = "http://meatballproject.hu/";
                 }
-            }).catch(err => console.log(err))
-        },
-        setExpirationToLocalSt(accessToken){
-            let hour = new Date();
-            hour.setHours(hour.getHours() + 2)
-            let data = {
-                accessToken,
-                'expiration': hour
-            }
-            localStorage.setItem('accessToken', JSON.stringify(data));
+            }).catch(error => console.log(error))
         },
     }
 }

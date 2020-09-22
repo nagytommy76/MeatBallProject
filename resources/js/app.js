@@ -7,9 +7,11 @@ import store from './store';
 import router from './router';
 import navbarHelper from './helpers/navbarHelper';
 
+Vue.component('login', require('./components/Auth/login.vue').default);
+Vue.component('register', require('./components/Auth/register.vue').default);
+
 Vue.component('cart-items', require('./components/cart/itemsInCart.vue').default);
 Vue.component('cart-modal', require('./components/cart/modal.vue').default);
-Vue.component('login', require('./components/Auth/login.vue').default);
 Vue.component('my-orders', require('./components/Auth/myOrders.vue').default);
 Vue.component('order-modal', require('./components/Auth/orderModal.vue').default);
 

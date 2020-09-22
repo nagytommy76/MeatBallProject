@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Http\Request;
@@ -12,21 +10,7 @@ use Auth;
 use App\User;
 
 class LoginController extends Controller
-{
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
-    // use AuthenticatesUsers;
-
-    /**
+{    /**
      * Where to redirect users after login.
      *
      * @var string
@@ -53,8 +37,8 @@ class LoginController extends Controller
         $formData = json_decode($request->getContent())->formData;
 
         $valid = Validator::make($request->all()['formData'], [
-            'email' => ['required', 'email', 'exists:users'],
-            'password' => ['required', 'min:6']
+            'email' => ['required', 'string', 'email', 'exists:users'],
+            'password' => ['required', 'string', 'min:6']
         ]);
         if ($valid->fails()) {
             return \response()->json(['accessToken' => null,'hasError' => $valid->errors()]);

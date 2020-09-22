@@ -33,7 +33,6 @@
                 color: #FFF;
                 margin: .2rem 0.3rem;
                 font-size: 2.4rem;
-                cursor: cell;
             }
         }
         .footer-contact{
@@ -68,6 +67,9 @@
     .grid-tooltip{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        .tooltip{
+            margin: auto;
+        }        
     }
     .main-content{
         flex-direction: column;

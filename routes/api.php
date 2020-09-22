@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::post('login', 'Auth\LoginController@login');
+Route::post('register', 'Auth\RegisterController@register');
 
 Route::get('pastas', 'Foods\PastaRizottoController@getAllPasta');
 Route::post('getPastaByOrder', 'Foods\PastaRizottoController@getPastaByOrder');

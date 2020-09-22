@@ -57,7 +57,7 @@
                 <h4 class="icon-title">Egyéb ismeretek</h4>                
                 <div class="tooltip">
                     <span class="tooltiptext">GitHub</span>
-                    <span><i class="fab fa-github fa-2x"></i></span>
+                    <span><a target="_blank" href="https://github.com/nagytommy76"><i class="fab fa-github fa-2x"></i></a></span>
                 </div> 
             </div>
             <footer class="footer-contact">
