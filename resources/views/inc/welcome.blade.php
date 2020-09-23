@@ -6,7 +6,7 @@
             <p>Foglaljon aztalt, vagy rendeljen házhoz.</p>
             <p>Térképezze fel ételkínálatunkat</p>
             <a href="{{ route('foods') }}"><button class="btn btn-primary">Étel Rendelés</button></a>
-            <a href="#aboutMe"><button class="btn btn-primary">Rólam</button></a>
+            <a href="#aboutMe"><button class="btn btn-primary">Magamról</button></a>
             
         </div>
     </header>
@@ -63,29 +63,48 @@
             <footer class="footer-contact">
                 <h4 class="icon-title">Elérhetőségeim</h4>
                 <div class="contact-icon">
-                    {{-- <div class="grid-tooltip"> --}}
-                        <div class="tooltip">
-                            <span class="tooltiptext">nagytommy76@gmail.com</span>
-                            <span><a class="" href="mailto:nagytommy76@gmail.com"><i class="fas fa-envelope"></i></a></span>
-                        </div> 
-                        <div class="tooltip">
-                            <span class="tooltiptext">Tel.: 06307862963</span>
-                            <span><a class="" href="tel:06307862963"><i class="fas fa-phone"></i></a></span>
-                        </div>
-                        <div class="tooltip">
-                            <span class="tooltiptext">LinkedIn</span>
-                            <span><a target="_blank" href="https://www.linkedin.com/in/nagy-tam%C3%A1s-27355116b/"><i class="fab fa-linkedin"></i></a></span>
-                        </div>
-                    {{-- </div>                     --}}
+                    <div class="tooltip">
+                        <span class="tooltiptext">nagytommy76@gmail.com</span>
+                        <span><a class="" href="mailto:nagytommy76@gmail.com"><i class="fas fa-envelope"></i></a></span>
+                    </div> 
+                    <div class="tooltip">
+                        <span class="tooltiptext">Tel.: 06307862963</span>
+                        <span><a class="" href="tel:06307862963"><i class="fas fa-phone"></i></a></span>
+                    </div>
+                    <div class="tooltip">
+                        <span class="tooltiptext">LinkedIn</span>
+                        <span><a target="_blank" href="https://www.linkedin.com/in/nagy-tam%C3%A1s-27355116b/"><i class="fab fa-linkedin"></i></a></span>
+                    </div>
                 </div>                                                      
             </footer>
         </aside>
         <section class="main-right-content">
-            <h1 class="main-title">Ide jönnek az egyéb infók!</h1>
+            <h1 class="main-title">Nagy Tamás</h1>
+            <h3 class="main-sub-title">Pályakezdő webfejlesztő</h3>
 
-            <p>Fő erősségemnek jelenleg a back-end technológiákat tartom</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime vitae nobis nulla recusandae fugiat doloribus suscipit repudiandae eum quia unde aperiam in, accusamus est rerum temporibus nisi placeat vel minima. Laudantium architecto eum deserunt quae soluta dicta totam consequatur ut, mollitia esse magnam officia distinctio perferendis. Maxime, ducimus! Sunt, perspiciatis eveniet corporis neque unde nostrum esse quaerat, nam commodi nihil, similique porro voluptatem veritatis praesentium dicta molestiae assumenda at sint rerum. Aliquid, velit. Iste omnis esse illum inventore. Expedita, exercitationem ipsa eum architecto eius sequi reiciendis sunt, dolorum laudantium amet ipsam inventore quibusdam debitis iure? Dicta itaque officia ea accusamus.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, omnis? Aperiam, cumque sed perferendis blanditiis praesentium laboriosam reprehenderit distinctio quasi maiores quae nihil obcaecati, aut dolorum ullam earum neque iste?</p>
+            <div class="grid-container">
+                <div class="">
+                    <h3 class="">Projectek</h3>
+                    <h4>Computer Store Webáruház</h4>
+                    <p>2019 - 2020</p>
+                    <p>2019 őszén kezdtem el fejleszteni egy kitalált PC webáruház honlapját. Az alkalmazás megvalósításához MVC (Model-View-Controller) fejlesztési mintát használtam amihez 
+                    <span class="underline"><a class="text-black" target="_blank" href="https://www.udemy.com/course/object-oriented-php-mvc/">Brad Traversy</a></span>
+                    egyik Udemy kurzusa adta az alapot.</p>
+                    <p>A programmal a fő célom az MVC megismerése, megértése volt</p>
+                    <h4>Használt technológiák</h4>
+                        <ul>
+                            <li>Bootstrap 4</li>
+                            <li>JavaScript</li>
+                            <li>CSS3</li>
+                            <li>PHP</li>
+                            <li>SQL</li>
+                        </ul>
+                    <p>Fő erősségemnek jelenleg a back-end technológiákat tartom</p>
+                </div>
+                <div class="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex incidunt reprehenderit aliquid consequuntur illum excepturi voluptatibus, qui voluptatem error, alias aperiam officiis quidem sit delectus quaerat deleniti possimus? Sit, voluptate! Veritatis cumque placeat mollitia doloribus voluptatibus corporis distinctio minima nulla tempore. Rem repellendus illum non sequi quia beatae saepe voluptas.</p>
+                </div>
+            </div>            
         </section>
     </section>
 @endsection

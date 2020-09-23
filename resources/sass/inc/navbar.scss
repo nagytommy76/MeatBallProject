@@ -31,7 +31,8 @@
         flex-direction: row;
         // Navigation link, A-tag
         .nav-item{
-            .nav-link{
+            list-style: none;
+            .nav-link{                
                 padding: .7rem 1.4rem;
                 margin: .15rem .5rem;
                 font-size: 1.1rem;

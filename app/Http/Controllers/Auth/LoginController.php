@@ -9,19 +9,10 @@ use Illuminate\Http\Request;
 use Auth;
 use App\User;
 
-class LoginController extends Controller
-{    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/';
+use Illuminate\Support\Facades\Hash;
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+class LoginController extends BaseAuthController
+{   
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
@@ -34,25 +25,25 @@ class LoginController extends Controller
     
 
     public function login(Request $request){
-        $formData = json_decode($request->getContent())->formData;
+        $formData = $request->all()['formData'];
+        $valid = $this->validator($formData);
 
-        $valid = Validator::make($request->all()['formData'], [
-            'email' => ['required', 'string', 'email', 'exists:users'],
-            'password' => ['required', 'string', 'min:6']
-        ]);
         if ($valid->fails()) {
-            return \response()->json(['accessToken' => null,'hasError' => $valid->errors()]);
+            return $this->jsonResponse($valid->errors());
         }
+        try {
+            $this->revokeUserToken($formData['email']);
         
-        // attemt to log the user in
-        if (Auth::attempt(['email' => $formData->email, 'password' => $formData->password])) {
-            $this->revokeUserToken(Auth::user()->email);
-
-            $accessToken = Auth::user()->createToken('accessToken')->plainTextToken;
-
-            return \response()->json(['accessToken' => $accessToken,'hasError' => $valid->errors()]);
+            $user = $this->getUserByEmail($formData['email']);
+            if (Hash::check($formData['password'], $user->password)) {
+                $accessToken = $this->loginUserGetAccessToken($user);
+                return $this->jsonResponse($valid->errors(), $accessToken);
+            }else{
+                return $this->jsonResponse(['password' => ['A jelszó nem megfelelő']]);
+            }
+        } catch (Exception $ex) {
+            return $this->jsonResponse($valid->errors(),null,$ex->getMessage());
         }
-        return \response()->json(['accessToken' => null,'hasError' => ['password' => ['A jelszó nem megfelelő']]]);      
     }
 
     /**
@@ -82,11 +73,24 @@ class LoginController extends Controller
     // |-----------------------------------------------------
 
     /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    private function validator(array $data){
+        return Validator::make($data, [
+            'email' => ['required', 'string', 'email', 'exists:users'],
+            'password' => ['required', 'string', 'min:6']
+        ]);
+    }
+    
+    /**
     * Revoke all user's accessTokens 
     * @param String $userEmail
     * @return Int number of deleted items from personal_access_tokens table
     */
-    private function revokeUserToken($userEmail){
+    private function revokeUserToken(string $userEmail){
         $user = $this->getUserByEmail($userEmail);
         return $user->tokens()->where('tokenable_id', $userEmail)->delete();
         
@@ -97,7 +101,7 @@ class LoginController extends Controller
     *   @param userEmail
     *   @return User Model
     */
-    protected function getUserByEmail($email)
+    protected function getUserByEmail(string $email)
     {
         return User::where('email','like',$email)->first();
     }

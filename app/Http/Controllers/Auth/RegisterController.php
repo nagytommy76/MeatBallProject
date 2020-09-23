@@ -5,28 +5,15 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
-use Auth;
+use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\RegistersUsers;
+
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-class RegisterController extends Controller
+class RegisterController extends BaseAuthController
 {
-    // use RegistersUsers;
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('guest');
@@ -42,15 +29,15 @@ class RegisterController extends Controller
         $valid = $this->validator($formData);
 
         if ($valid->fails()) {
-            return \response()->json(['accessToken' => null,'hasError' => $valid->errors()]);
+            return $this->jsonResponse($valid->errors());
         }
-
-        $user = $this->create($formData);
-        Auth::guard()->login($user);
-        $accessToken = $user->createToken('accessToken')->plainTextToken;
-
-        return \response()->json(['accessToken' => $accessToken,'hasError' => $valid->errors()]);
-
+        try {
+            $user = $this->create($formData);
+            $accessToken = $this->loginUserGetAccessToken($user);
+            return $this->jsonResponse($valid->errors(), $accessToken);
+        } catch (Exception $ex) {
+            return $this->jsonResponse($valid->errors(),null, $ex->getMessage());
+        }
     }
 
     /**
