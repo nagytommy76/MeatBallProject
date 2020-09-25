@@ -59,6 +59,10 @@
                     <span class="tooltiptext">GitHub</span>
                     <span><a target="_blank" href="https://github.com/nagytommy76"><i class="fab fa-github fa-2x"></i></a></span>
                 </div> 
+                <div class="tooltip">
+                    <span class="tooltiptext">Windows 10</span>
+                    <span><i class="fab fa-windows"></i></span>
+                </div> 
             </div>
             <footer class="footer-contact">
                 <h4 class="icon-title">Elérhetőségeim</h4>
@@ -75,6 +79,10 @@
                         <span class="tooltiptext">LinkedIn</span>
                         <span><a target="_blank" href="https://www.linkedin.com/in/nagy-tam%C3%A1s-27355116b/"><i class="fab fa-linkedin"></i></a></span>
                     </div>
+                    <div class="tooltip">
+                        <span class="tooltiptext">GitHub</span>
+                        <span><a target="_blank" href="https://github.com/nagytommy76"><i class="fab fa-github fa-2x"></i></a></span>
+                    </div> 
                 </div>                                                      
             </footer>
         </aside>
@@ -83,26 +91,44 @@
             <h3 class="main-sub-title">Pályakezdő webfejlesztő</h3>
 
             <div class="grid-container">
-                <div class="">
-                    <h3 class="">Projectek</h3>
-                    <h4>Computer Store Webáruház</h4>
-                    <p>2019 - 2020</p>
-                    <p>2019 őszén kezdtem el fejleszteni egy kitalált PC webáruház honlapját. Az alkalmazás megvalósításához MVC (Model-View-Controller) fejlesztési mintát használtam amihez 
+                <div class="left-grid">
+                    <h3 class="sub-title">Projectek</h3>
+                    <h4 class="project-title"><a class="text-black" target="_blank" href="https://nagytamasweboldal.000webhostapp.com/">Computer Store Webáruház</a></h4>
+                    <p class="my-0">2019 - 2020</p>
+                    <p>2019 őszén kezdtem el fejleszteni egy kitalált számítástechnikai alkatrészeket árusító webáruház honlapját. Az alkalmazás megvalósításához MVC (Model-View-Controller) fejlesztési mintát használtam, amihez 
                     <span class="underline"><a class="text-black" target="_blank" href="https://www.udemy.com/course/object-oriented-php-mvc/">Brad Traversy</a></span>
                     egyik Udemy kurzusa adta az alapot.</p>
-                    <p>A programmal a fő célom az MVC megismerése, megértése volt</p>
-                    <h4>Használt technológiák</h4>
-                        <ul>
+                    <p>A program megvalósításával a fő célom az MVC működésének megismerése és megértése volt, valamint az, hogy keretrendszer nélkül tudjam megvalósítani egy webáruház alapvető funkcióit, más szóval: belássak a motorháztető alá :)</p>
+                    <h4 class="my-0">Használt technológiák</h4>
+                        <ul class="tech-list">
                             <li>Bootstrap 4</li>
-                            <li>JavaScript</li>
+                            <li>(vanilla) JavaScript</li>
                             <li>CSS3</li>
                             <li>PHP</li>
                             <li>SQL</li>
                         </ul>
+                    
                     <p>Fő erősségemnek jelenleg a back-end technológiákat tartom</p>
                 </div>
-                <div class="">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex incidunt reprehenderit aliquid consequuntur illum excepturi voluptatibus, qui voluptatem error, alias aperiam officiis quidem sit delectus quaerat deleniti possimus? Sit, voluptate! Veritatis cumque placeat mollitia doloribus voluptatibus corporis distinctio minima nulla tempore. Rem repellendus illum non sequi quia beatae saepe voluptas.</p>
+                <div class="right-grid">
+                    <h3 class="sub-title">Tanulmányok</h3>
+                    <h4 class="project-title">Szoftverfejlesztő OKJ</h4>
+                    <p class="my-0">2018 Január - 2019 Június</p>
+                    <h4 class="my-0">Soter-Line Oktatási Központ</h4>
+
+                    <h4 class="my-0">Tanult technológiák</h4>
+                        <ul class="tech-list">
+                            <li>C# (A programozás alapjait tanultuk meg vele)</li>
+                            <li>HTML</li>
+                            <li>JavaScript</li>
+                            <li>CSS3</li>
+                            <li>PHP</li>
+                            <li>MySQL</li>
+                        </ul>
+                    <h4 class="my-0">Egyéb</h4>
+                    <p>hálózati ismeretek, adatbázisok, számítógép architektúrák,
+                        programozási alapismeretek, Apache szerver, weblap készítés
+                    </p>
                 </div>
             </div>            
         </section>

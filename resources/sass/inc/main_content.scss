@@ -72,7 +72,31 @@ $height:70vh;
             display: grid;
             gap: 30px;
             grid-template-columns: auto auto;
+            .left-grid{
+
+            }
+            .right-grid{
+
+            }
         }
+    }
+}
+
+.tech-list{
+    margin-left: 1rem;
+    list-style: circle;
+}
+
+.sub-title{
+    font-size: 1.6rem;
+    margin-bottom: .7rem;
+}
+.project-title{
+    font-size: 1.3rem;
+    margin-bottom: .4rem;    
+    a:hover{
+        transition: ease .3s;
+        color: $primary;
     }
 }
 
