@@ -13,9 +13,6 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script defer src="https://kit.fontawesome.com/75af6afcaa.js" crossorigin="anonymous"></script>
 
-    <!-- Fonts -->
-    {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> --}}
-    {{-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> --}}
     <script src="https://unpkg.com/vue-router@3.3.4/dist/vue-router.js"></script>
 
     <!-- Styles -->
@@ -27,8 +24,6 @@
         @include('inc.navbar')    
         @yield('content')
         @include('inc.footer')
-    </main>
-    
-    
+    </main>  
 </body>
 </html>

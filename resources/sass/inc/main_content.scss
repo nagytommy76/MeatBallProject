@@ -57,9 +57,9 @@ $height:70vh;
         padding: 2rem;
         text-align: justify;
         .main-title{
-            font-size: 3rem;
+            font-size: 3.3rem;
             text-align: center;
-            margin: 2rem 0 .4rem 0;
+            margin: 0 0 .4rem 0;
         }
         .main-sub-title{
             font-size: 1.6rem;
@@ -72,11 +72,15 @@ $height:70vh;
             display: grid;
             gap: 30px;
             grid-template-columns: auto auto;
-            .left-grid{
-
+            .projects{
+                section{
+                    margin: 1rem 0 1rem 0;
+                }
             }
-            .right-grid{
-
+            .schools{
+                section{
+                    margin: 1rem 0 1rem 0;
+                }
             }
         }
     }
@@ -93,9 +97,13 @@ $height:70vh;
 }
 .project-title{
     font-size: 1.3rem;
-    margin-bottom: .4rem;    
-    a:hover{
+    margin-bottom: .4rem; 
+    
+    a{
         transition: ease .3s;
+        color: $dark;
+    }   
+    a:hover{
         color: $primary;
     }
 }

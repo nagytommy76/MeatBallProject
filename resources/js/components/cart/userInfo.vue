@@ -93,7 +93,14 @@
                         </span>
                     </div>
                 </div>
-                <input type="submit" value="Adatok megadása" @click.prevent="addUserInfo" class="btn btn-confirm-dark" />
+                <div class="form-group row">
+                    <div class="col">
+                        <input v-show="!this.$parent.isUserinfoFilled" type="submit" value="Adatok megadása" @click.prevent="addUserInfo" class="btn btn-confirm-dark" />
+                    </div>  
+                    <div class="col">
+                        <input v-show="this.$parent.isUserinfoFilled" type="submit" value="Módosítás" @click.prevent="modifyUserInfo" class="btn btn-delete-dark" />
+                    </div>                                       
+                </div>
             </form>            
         </div>
     </div>
@@ -163,6 +170,21 @@ export default {
                     }                    
                 }              
             }).catch(error => console.log(error))
+        },
+        async modifyUserInfo(){
+            await fetch('api/updateUserInfo', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + this.$parent.accessToken
+                },
+                body: JSON.stringify(this.formData)
+            }).then(response => response.json())
+            .then(result =>{
+                console.log(result)
+            })
+            .catch(error => console.log(error))
         }
     },
 }

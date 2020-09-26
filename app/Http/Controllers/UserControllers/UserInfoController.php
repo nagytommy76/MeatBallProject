@@ -80,6 +80,7 @@ class UserInfoController extends Controller
             'street' => ['required'],
             'houseNumber' => ['required']
         ]);
+        die(var_dump($valid->fails()));
         switch ($request->input('action')) {
             case 'Mentés':
                 $this->saveInfoData($request);
@@ -123,6 +124,10 @@ class UserInfoController extends Controller
         }
         $this->saveInfoData($request);
         return response()->json(['exception' => false,'hasError' => false]);
+    }
+
+    public function apiUpdate(Request $request){
+        
     }
 
     public function getUserOrders(){

@@ -3249,6 +3249,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "userinfo",
   template: "userinfo",
@@ -3330,6 +3337,39 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             }
           }
         }, _callee);
+      }))();
+    },
+    modifyUserInfo: function modifyUserInfo() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return fetch('api/updateUserInfo', {
+                  method: "POST",
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + _this2.$parent.accessToken
+                  },
+                  body: JSON.stringify(_this2.formData)
+                }).then(function (response) {
+                  return response.json();
+                }).then(function (result) {
+                  console.log(result);
+                })["catch"](function (error) {
+                  return console.log(error);
+                });
+
+              case 2:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
       }))();
     }
   }
@@ -42607,16 +42647,49 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("input", {
-          staticClass: "btn btn-confirm-dark",
-          attrs: { type: "submit", value: "Adatok megadása" },
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              return _vm.addUserInfo($event)
-            }
-          }
-        })
+        _c("div", { staticClass: "form-group row" }, [
+          _c("div", { staticClass: "col" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: !this.$parent.isUserinfoFilled,
+                  expression: "!this.$parent.isUserinfoFilled"
+                }
+              ],
+              staticClass: "btn btn-confirm-dark",
+              attrs: { type: "submit", value: "Adatok megadása" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.addUserInfo($event)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: this.$parent.isUserinfoFilled,
+                  expression: "this.$parent.isUserinfoFilled"
+                }
+              ],
+              staticClass: "btn btn-delete-dark",
+              attrs: { type: "submit", value: "Módosítás" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.modifyUserInfo($event)
+                }
+              }
+            })
+          ])
+        ])
       ])
     ])
   ])

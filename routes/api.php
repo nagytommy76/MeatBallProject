@@ -48,6 +48,7 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::get('userInfoFilled', function(){
         return response()->json(['user' => Auth::user(), 'userInfo' => Auth::user()->userinfo]);
     });
+    Route::post('updateUserInfo', 'UserControllers\UserInfoController@apiUpdate');
     Route::get('myOrders', 'UserControllers\UserInfoController@getUserOrders');
 
     Route::post('addFoodToCart','Cart\CartController@addFoodToCart');
