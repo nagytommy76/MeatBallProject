@@ -88,7 +88,7 @@ Route::get('/', function () {
 })->name('home');
 
 // Users Controller
-Route::resource('/userinfo', 'UserControllers\UserInfoController');
+// Route::resource('/userinfo', 'UserControllers\UserInfoController');
 
 Route::get('/foods', function () {
     return view('foods.foods');

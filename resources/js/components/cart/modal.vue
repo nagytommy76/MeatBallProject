@@ -13,14 +13,7 @@
                     <button @click="makeOrder" v-show="step == pages.length-2" class="btn btn-confirm-dark">Rendelés Leadása!</button>
                     
                 </div>
-                <Loading
-                    :active="isLoading"
-                    :is-full-page="false"
-                    background-color="#979797"
-                    color="#80FF00"
-                    :height=100
-                    :width=100
-                ></Loading>
+                <Loading :isLoading="isLoading" />
             </div>
         </div>        
 </template>
@@ -31,8 +24,7 @@ import userInfo from './userInfo';
 import summaryCart from './summaryCart';
 import afterOrder from './afterOrder';
 
-import Loading from 'vue-loading-overlay';
-import 'vue-loading-overlay/dist/vue-loading.css';
+import Loading from '../baseComponents/loading';
 
 export default {
     components: {
@@ -113,15 +105,15 @@ export default {
         },
         nextPage(){    
             this.step++;                  
-            if (this.step == 1 && this.isUserinfoFilled) {
-                this.step++;
-            }                 
+            // if (this.step == 1/* && this.isUserinfoFilled*/) {
+            //     this.step++;
+            // }                 
         },
         previousPage(){
             this.step--
-            if (this.step == 1 && this.isUserinfoFilled) {
-                this.step--;
-            }  
+            // if (this.step == 1/* && this.isUserinfoFilled*/) {
+            //     this.step--;
+            // }  
         },
         setDefaultPage(){
             setTimeout(() => {

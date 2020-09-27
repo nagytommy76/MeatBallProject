@@ -8,20 +8,20 @@
                 <div class="form-group row">
                     <div class="col">
                         <label for="firstname">Vezetéknév: <sup>*</sup></label>
-                        <input v-model="formData.firstname" type="text" id="firstname" class="form-control shadowed">
+                        <input v-model="formData.firstName" type="text" id="firstname" class="form-control shadowed">
 
                         <span v-if="hasError" class="invalid-feedback" role="alert">
-                            <div v-for="(fNameErr, index) in errors.firstname" :key="index">
+                            <div v-for="(fNameErr, index) in errors.firstName" :key="index">
                                 <strong>{{ fNameErr }}</strong>
                             </div> 
                         </span>
                     </div>
                     <div class="col">
                         <label for="lastname">Keresztnév: <sup>*</sup></label>
-                        <input v-model="formData.lastname" type="text" id="lastname" class="form-control shadowed">
+                        <input v-model="formData.lastName" type="text" id="lastname" class="form-control shadowed">
 
                         <span v-if="hasError" class="invalid-feedback" role="alert">
-                            <div v-for="(fNameErr, index) in errors.lastname" :key="index">
+                            <div v-for="(fNameErr, index) in errors.lastName" :key="index">
                                 <strong>{{ fNameErr }}</strong>
                             </div> 
                         </span>
@@ -62,7 +62,7 @@
                     </div>
                     <div class="col">
                         <label for="houseNumber">Házszám: <sup>*</sup></label>
-                        <input v-model="formData.houseNumber" type="text" id="houseNumber" class="form-control shadowed">
+                        <input v-model="formData.houseNumber" type="number" id="houseNumber" class="form-control shadowed">
 
                         <span v-if="hasError" class="invalid-feedback" role="alert">
                             <div v-for="(fNameErr, index) in errors.houseNumber" :key="index">
@@ -113,8 +113,8 @@ export default {
         return{
             hasError: false,
             formData: {
-                firstname: '',
-                lastname: '',
+                firstName: '',
+                lastName: '',
                 city: '',
                 zipCode: 0,
                 street: '',
@@ -123,8 +123,8 @@ export default {
                 phone: ''
             },
             errors: {
-                firstname: '',
-                lastname: '',
+                firstName: '',
+                lastName: '',
                 city: '',
                 zipCode: '',
                 street: '',
@@ -134,11 +134,14 @@ export default {
             }
         }
     },
+    created(){
+        this.fetchUserinfoData()
+    },
     methods:{
         showErrors(error){
             this.hasError = !this.hasError;
-            this.errors.firstname = error.firstname;
-            this.errors.lastname = error.lastname;
+            this.errors.firstName = error.firstName;
+            this.errors.lastName = error.lastName;
             this.errors.city = error.city;
             this.errors.zipCode = error.zipCode;
             this.errors.street = error.street;
@@ -182,9 +185,18 @@ export default {
                 body: JSON.stringify(this.formData)
             }).then(response => response.json())
             .then(result =>{
-                console.log(result)
+                if(result.hasError){
+                    this.showErrors(result.errors)
+                }else{
+                    console.log(result)
+                }
             })
             .catch(error => console.log(error))
+        },
+        fetchUserinfoData(){
+            if(this.$parent.isUserinfoFilled){
+                this.formData = this.$parent.user.userInfo
+            }
         }
     },
 }

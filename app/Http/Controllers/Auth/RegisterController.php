@@ -24,10 +24,9 @@ class RegisterController extends BaseAuthController
         return view('auth.register');
     }
 
-    public function register(Request $request){
+    public function register(Request $request){        
         $formData = $request->all()['formData'];
         $valid = $this->validator($formData);
-
         if ($valid->fails()) {
             return $this->jsonResponse($valid->errors());
         }

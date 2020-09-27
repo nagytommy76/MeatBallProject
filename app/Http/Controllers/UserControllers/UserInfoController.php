@@ -27,40 +27,40 @@ class UserInfoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        if ($this->user->userinfo === null) {
-            return view('user.userinfo')->with([
-                'username' => $this->user->username,
-                'email' => $this->user->email,
-                'firstname' => '',
-                'lastname' => '',
-                'city' => '',
-                'zipCode' => '',
-                'street' => '',
-                'houseNumber' => '',
-                'floorDoor' => '',
-                'phone' => '',
-                'modify' => 'disabled',
-                'input' => ''
-            ]);
-        }else{
-            return view('user.userinfo')->with([
-                'username' => $this->user->username,
-                'email' => $this->user->email,
-                'firstname' => $this->user->userinfo->firstName,
-                'lastname' => $this->user->userinfo->lastName,
-                'city' => $this->user->userinfo->city,
-                'zipCode' => $this->user->userinfo->zipCode,
-                'street' => $this->user->userinfo->street,
-                'houseNumber' => $this->user->userinfo->houseNumber,
-                'floorDoor' => $this->user->userinfo->floorDoor,
-                'phone' => $this->user->userinfo->phone,
-                'modify' => '',
-                'input' => 'disabled'
-            ]);
-        }
-    }
+    // public function index()
+    // {
+    //     if ($this->user->userinfo === null) {
+    //         return view('user.userinfo')->with([
+    //             'username' => $this->user->username,
+    //             'email' => $this->user->email,
+    //             'firstname' => '',
+    //             'lastname' => '',
+    //             'city' => '',
+    //             'zipCode' => '',
+    //             'street' => '',
+    //             'houseNumber' => '',
+    //             'floorDoor' => '',
+    //             'phone' => '',
+    //             'modify' => 'disabled',
+    //             'input' => ''
+    //         ]);
+    //     }else{
+    //         return view('user.userinfo')->with([
+    //             'username' => $this->user->username,
+    //             'email' => $this->user->email,
+    //             'firstname' => $this->user->userinfo->firstName,
+    //             'lastname' => $this->user->userinfo->lastName,
+    //             'city' => $this->user->userinfo->city,
+    //             'zipCode' => $this->user->userinfo->zipCode,
+    //             'street' => $this->user->userinfo->street,
+    //             'houseNumber' => $this->user->userinfo->houseNumber,
+    //             'floorDoor' => $this->user->userinfo->floorDoor,
+    //             'phone' => $this->user->userinfo->phone,
+    //             'modify' => '',
+    //             'input' => 'disabled'
+    //         ]);
+    //     }
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -68,57 +68,48 @@ class UserInfoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        $valid = $request->validate([
-            'email' => ['required', 'max:255'],
-            'phone' => ['required', 'max:11'],
-            'zipCode' => ['required', 'size:4'],
-            'firstname' => ['required'],
-            'lastname' => ['required'],
-            'city' => ['required'],
-            'street' => ['required'],
-            'houseNumber' => ['required']
-        ]);
-        die(var_dump($valid->fails()));
-        switch ($request->input('action')) {
-            case 'Mentés':
-                $this->saveInfoData($request);
+    // public function store(Request $request)
+    // {
+    //     $valid = $request->validate([
+    //         'email' => ['required', 'max:255'],
+    //         'phone' => ['required', 'max:11'],
+    //         'zipCode' => ['required', 'size:4'],
+    //         'firstname' => ['required'],
+    //         'lastname' => ['required'],
+    //         'city' => ['required'],
+    //         'street' => ['required'],
+    //         'houseNumber' => ['required']
+    //     ]);
+    //     switch ($request->input('action')) {
+    //         case 'Mentés':
+    //             $this->saveInfoData($request);
 
-                return redirect()->route('userinfo.index');
-            break;
-            case 'Módosítás' :                
-                $this->user->email = $request->email;
-                $this->user->username = $request->username;
+    //             return redirect()->route('userinfo.index');
+    //         break;
+    //         case 'Módosítás' :                
+    //             $this->user->email = $request->email;
+    //             $this->user->username = $request->username;
 
-                $this->user->userinfo()->update([
-                    'user_email' => $request->email,
-                    'firstname' => $request->firstname,
-                    'lastname' => $request->lastname,
-                    'city' => $request->city,
-                    'zipCode' => $request->zipCode,
-                    'street' => $request->street,
-                    'houseNumber' => $request->houseNumber,
-                    'floorDoor' => $request->floorDoor,
-                    'phone' => $request->phone,                    
-                ]);
-                $this->user->save();              
+    //             $this->user->userinfo()->update([
+    //                 'user_email' => $request->email,
+    //                 'firstname' => $request->firstname,
+    //                 'lastname' => $request->lastname,
+    //                 'city' => $request->city,
+    //                 'zipCode' => $request->zipCode,
+    //                 'street' => $request->street,
+    //                 'houseNumber' => $request->houseNumber,
+    //                 'floorDoor' => $request->floorDoor,
+    //                 'phone' => $request->phone,                    
+    //             ]);
+    //             $this->user->save();              
         
-                return redirect()->route('userinfo.index');
-            break;
-        } 
-    }
+    //             return redirect()->route('userinfo.index');
+    //         break;
+    //     } 
+    // }
 
     public function apiStrore(Request $request){
-        $valid = Validator::make($request->all(), [
-            'phone' => ['required', 'max:11'],
-            'zipCode' => ['required', 'size:4'],
-            'firstname' => ['required'],
-            'lastname' => ['required'],
-            'city' => ['required'],
-            'street' => ['required'],
-            'houseNumber' => ['required']
-        ]);
+        $valid = $this->validator($request->all());
         if ($valid->fails()) {
             return response()->json(['exception' => false,'hasError' => true, 'errors' => $valid->errors()]);
         }
@@ -127,6 +118,26 @@ class UserInfoController extends Controller
     }
 
     public function apiUpdate(Request $request){
+        $valid = $this->validator($request->all());
+        if ($valid->fails()) {
+            return response()->json(['exception' => false, 'hasError' => true, 'errors' => $valid->errors()]);
+        }
+        try {
+            $this->user->userinfo()->update([
+                'firstName' => $request->firstName,
+                'lastName' => $request->lastName,
+                'city' => $request->city,
+                'zipCode' => $request->zipCode,
+                'street' => $request->street,
+                'houseNumber' => $request->houseNumber,
+                'floorDoor' => $request->floorDoor,
+                'phone' => $request->phone,                    
+            ]);
+            $this->user->save();
+            return response()->json(['message' => 'A módosítás sikeres volt','exception' => false, 'hasError' => false, 'errors' => $valid->errors()]);
+        } catch (Exception $ex) {
+            
+        }
         
     }
 
@@ -134,14 +145,25 @@ class UserInfoController extends Controller
         return UserOrdersResource::collection($this->user->orders);
     }
 
+    protected function validator(array $data){
+        return Validator::make($data, [
+            'phone' => ['required', 'max:11'],
+            'zipCode' => ['required', 'integer', 'max:9999'],
+            'firstName' => ['required', 'string'],
+            'lastName' => ['required', 'string'],
+            'city' => ['required', 'string'],
+            'street' => ['required', 'string'],
+            'houseNumber' => ['required', 'integer']
+        ]);
+    }
 
     private function saveInfoData($request){
         try {
             $this->user->userinfo_filled = 1;
             $this->user->userinfo()->create([
                 'user_email' => Auth::user()->email,
-                'firstname' => $request->firstname,
-                'lastname' => $request->lastname,
+                'firstName' => $request->firstName,
+                'lastName' => $request->lastName,
                 'city' => $request->city,
                 'zipCode' => $request->zipCode,
                 'street' => $request->street,

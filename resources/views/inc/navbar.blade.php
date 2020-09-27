@@ -65,10 +65,10 @@
                             @endauth
                             {{-- ONLY USERS SEEs IT --}}
                             @auth('web')
-                                <a class="dropdown-item" href="{{ route('userinfo.index') }}">
+                                {{-- <a class="dropdown-item" href="{{ route('userinfo.index') }}">
                                     <i class="fas fa-address-card"></i>
                                     Személyes adatok
-                                </a>
+                                </a> --}}
                                 <cart-items></cart-items>
                                 <my-orders></my-orders>
                             @endauth

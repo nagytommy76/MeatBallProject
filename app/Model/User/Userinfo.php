@@ -18,8 +18,8 @@ class Userinfo extends Model
 
     protected $fillable = [
         'user_email',
-        'firstname',
-        'lastname',
+        'firstName',
+        'lastName',
         'city',
         'zipCode',
         'street',

@@ -44,9 +44,8 @@
                         <div class="card-footer">
                             <div class="form-group">
                                 <div>
-                                    <button @click.prevent="userRegister" class="btn btn-primary">
-                                        Regisztráció
-                                    </button>
+                                    <input value="Regisztráció" type="submit" @click.prevent="userRegister" class="btn btn-primary" />
+                                    
                                 </div>                                
                             </div>
                         </div>                     
@@ -77,15 +76,15 @@ export default {
         }
     },
     methods: {
-        async userRegister(event){
+        async userRegister(){
             await authHelper.sendAuthData('register', this.formData)
             .then(response => {
-                console.log(response);
                 if(response.accessToken == null){
                     this.showErrors(response.hasError)
                 }else{
                     authHelper.setExpirationToLocalSt(response.accessToken)
                     window.location.href = "http://meatballproject.hu/"
+                    // window.location.href = "https://nagytamas93.hu/"
                 }
             })
         },
