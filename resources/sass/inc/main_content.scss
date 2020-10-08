@@ -119,4 +119,9 @@ $height:70vh;
     .main-content{
         flex-direction: column;
     }
+    .main-right-content{
+        .grid-container{
+            grid-template-columns: 100% !important;
+        }
+    }
 }

@@ -1,5 +1,5 @@
-@extends('layouts.app')
-@section('content')
+@extends('layouts.admin')
+@section('admin')
 <div class="container">
     <h1 class="text-black text-center p-1">Levesek bevitele</h1>
     <x-food-input-form

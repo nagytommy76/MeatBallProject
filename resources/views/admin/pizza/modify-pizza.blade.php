@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
-@section('content')
+@section('admin')
 <div class="container">
     <h1 class="text-center text-black p-3"> A(z) {{ $pizzaName }} módosítása</h1>
     <section class="card-content ">       

@@ -15,6 +15,7 @@
     </aside>
 </template>
 <script>
+import loading from './loading'
 import loadData from '../../helpers/loadData'
 export default {
     data: () =>{
@@ -25,6 +26,9 @@ export default {
             orderBy: 'asc',
             isLoading: false,
         }
+    },
+    components:{
+        loading
     },
     computed:{
     },

@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
-@section('content')
+@section('admin')
         <div class="container">
             {{-- <div class="card-container"> --}}
                 <section class="card-content card-content-admin text-white">

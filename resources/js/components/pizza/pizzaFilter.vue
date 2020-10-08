@@ -24,11 +24,13 @@
 </template>
 
 <script>
+import baseFilter from '../baseComponents/baseFilter'
 import pizzaCard from './pizza_card';
 export default {
-    name: "Filtering",
+    name: "Pizza",
     components: {
         pizzaCard,
+        baseFilter
     },
     data: () => {
         return {
@@ -37,7 +39,7 @@ export default {
             byName: "searchPizzaByName",
             minMaxPrice: "getMinMaxPrice",
             ingreds: [],
-            foodType: "pizzas"
+            foodType: "pizzas",
         }
     },
     created(){

@@ -23,6 +23,9 @@
         </div>
 </template>
 <script>
+import baseFilter from '../baseComponents/baseFilter'
+import baseCard from '../baseComponents/baseCard'
+
 export default {
     name: "pasta-filtering",
     data: () => {
@@ -34,5 +37,9 @@ export default {
             foodType: "pastas",
         }
     },
+    components: {
+        baseFilter,
+        baseCard
+    }
 }
 </script>

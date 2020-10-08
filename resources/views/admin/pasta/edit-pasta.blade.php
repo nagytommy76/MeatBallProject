@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
-@section('content')
+@section('admin')
 <div class="container">
     <h1 class="text-black p-2 text-center">A(z) {{$pastaName}} étel módosítása</h1>
     <section class="card-content card-content-admin">

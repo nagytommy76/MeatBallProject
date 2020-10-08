@@ -18,7 +18,11 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
-<body id="top">
-    <main id="app"></main>  
+<body id="admin">
+    {{-- Ide jön csak az admin navbar! --}}
+    <main id="admin">
+        @include('inc.admin-navbar')
+        @yield('admin')
+    </main>
+    {{-- Talán valamiéyen admin footer --}}
 </body>
-</html>

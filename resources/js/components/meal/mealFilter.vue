@@ -23,6 +23,9 @@
     </div>
 </template>
 <script>
+import baseFilter from '../baseComponents/baseFilter'
+import baseCard from '../baseComponents/baseCard'
+
 export default {
     data: () => {
         return {
@@ -33,5 +36,9 @@ export default {
             foodType: "meal",
         }
     },
+    components: {
+        baseFilter,
+        baseCard
+    }
 }
 </script>

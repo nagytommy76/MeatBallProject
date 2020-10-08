@@ -1,5 +1,5 @@
-@extends('layouts.app')
-@section('content')
+@extends('layouts.admin')
+@section('admin')
     <div class="container">
         <x-edit-food
             :route="$route"
