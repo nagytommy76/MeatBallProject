@@ -13,6 +13,16 @@ export default class authHelper{
 
         return response.json()
     }
+    static async logOut(){
+        let response = await fetch('api/logout', {
+            method: 'POST',
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            }
+        })
+        return await response.json()
+    }
     static setExpirationToLocalSt(accessToken){
         let hour = new Date();
         hour.setHours(hour.getHours() + 2)

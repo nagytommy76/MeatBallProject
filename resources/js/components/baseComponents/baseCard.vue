@@ -36,7 +36,10 @@
 </template>
 <script>
 import addToCart from '../../helpers/addToCart'
+import { mapGetters } from "vuex";
+
 export default {
+    name: 'baseCard',
     data () {
         return{
             addedToCart: false,
@@ -61,11 +64,15 @@ export default {
         }
     },
     methods: {
+        ...mapGetters([
+            'getToken'
+        ]),
         async addToCart(){
-            if(this.$parent.$parent.$parent.accessToken != null){
-                await addToCart.addFoodToCart(this.foodType, this.foodId, this.$parent.$parent.$parent.accessToken)
+            if(this.getToken != null){
+                console.log()
+                await addToCart.addFoodToCart(this.foodType, this.foodId, this.getToken)
                 .then(result => {
-                    this.$parent.$parent.$store.commit('setCartItems', result);
+                    this.$store.commit('setCartItems', result);
                     this.selectedIngreds = [];
                     this.finalPrice = this.foodPrice;
                     this.loggedIn = !this.loggedIn

@@ -9,6 +9,9 @@
 import Footer from '../views/includes/Footer'
 import Navbar from '../views/includes/Navbar'
 import Welcome from '../views/includes/Welcome'
+
+import { mapState, mapActions } from "vuex";
+
 export default {
     name: 'App',
     components:{
@@ -16,5 +19,17 @@ export default {
         Navbar,
         Welcome,
     },
+    methods: {
+        // ...mapActions([
+        //     'fetchAccessToken',
+        //     'getCartItems'
+        // ]),
+    },
+    // created() {
+    //     this.fetchAccessToken();
+    //     if(this.accessToken != null){
+    //         this.getCartItems(this.accessToken)
+    //     }
+    // },
 }
 </script>

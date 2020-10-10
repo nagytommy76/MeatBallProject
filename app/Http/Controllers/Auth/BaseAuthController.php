@@ -28,7 +28,7 @@ class BaseAuthController extends Controller
         return $user->createToken('accessToken')->plainTextToken;
     }
 
-    protected function jsonResponse($hasError, $accessToken = null, $exception = null){
-        return response()->json(['accessToken' => $accessToken,'hasError' => $hasError, 'exception' => $exception]);
+    protected function jsonResponse($hasError, $accessToken = null, $userName = "", $exception = null){
+        return response()->json(['accessToken' => $accessToken, 'username' => $userName,'hasError' => $hasError, 'exception' => $exception]);
     }
 }

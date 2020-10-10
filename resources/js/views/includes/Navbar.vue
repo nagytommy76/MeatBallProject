@@ -31,36 +31,59 @@
                     <router-link to="/pasta" class="dropdown-item">
                         <i class="fas fa-weight"></i>
                         Tészta Ételek
-                    </router-link>
+                    </router-link> 
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Belépés</a>
+            <li v-show="!loggedIn" class="nav-item">
+                <router-link class="nav-link" to="/login">Belépés</router-link>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Regisztráció</a>
+            <li v-show="!loggedIn" class="nav-item">
+                <router-link class="nav-link" to="/register">Regisztráció</router-link>
             </li>
 
-            <li v-show="show" class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    Teszt Júzer<span class="caret"></span>
+            <li v-show="loggedIn" class="nav-item dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#">{{ userName }}<span class="caret"></span>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu">
                     <a class="dropdown-item" id="logOutBtn" href="#">
                         <i class="fas fa-sign-out-alt"></i> 
                         Kilépés
                     </a>
+                    <!-- <a @click="showModal" class="dropdown-item modal-button">
+                        <i class="fas fa-shopping-cart"></i> 
+                        Kosár
+                        <span class="noOfFoodsInCart">0</span>
+                    </a> -->
+                    <itemsInCart />
                 </div>
             </li>
         </ul>
     </nav>
 </template>
 <script>
+import navbarHelper from '../../helpers/navbarHelper'
+import itemsInCart from '../../components/cart/itemsInCart'
+
 export default {
-    data() {
-        return {
-            show: false,
+    components:{
+        itemsInCart
+    },
+    computed: {
+        loggedIn(){
+            return this.$store.getters.getUserLoggedIn
+        },
+        userName(){
+            return this.$store.getters.getUserName
         }
     },
+    mounted(){
+        navbarHelper.openBtn()
+        navbarHelper.logOutBTN(this.$store)
+    },
+    methods:{
+        showModal(){
+
+        }
+    }
 }
 </script>

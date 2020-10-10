@@ -77,9 +77,10 @@ export default {
                 if(response.accessToken == null){
                     this.showErrors(response.hasError);
                 }else{
-                    authHelper.setExpirationToLocalSt(response.accessToken); 
-                    window.location.href = "http://meatballproject.hu/";
-                    // window.location.href = "https://nagytamas93.hu/";
+                    this.$store.dispatch('setToken', response.accessToken)
+                    this.$store.dispatch('setUserName', response.username)
+                    this.$store.dispatch('setLoggedIn', true)
+                    this.$router.push({name: 'Welcome'})
                 }
             }).catch(error => console.log(error))
         },

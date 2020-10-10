@@ -1,5 +1,5 @@
 <template>
-    <div>        
+    <transition name="cartModal">        
         <div class="modal-head">
             <h2 class="text-center py-1">A Kosár tartalma</h2>
         </div>
@@ -46,7 +46,7 @@
             <div class="modal-footer">
                 <h1 class="py-1">Végösszeg: {{ cartItems.totalPrice }} Ft</h1>
             </div>
-    </div>
+    </transition>
 </template>
 
 <script>

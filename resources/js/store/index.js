@@ -2,6 +2,7 @@
  
 import Vue from "vue";
 import Vuex from "vuex";
+import createPersistedState from "vuex-persistedstate";
 
 import accessToken from './modules/accessToken';
 import getCartItems from './modules/getCartItems';
@@ -15,6 +16,9 @@ export default new Vuex.Store({
         accessToken,
         getCartItems,
     },
+    plugins: [createPersistedState({
+        key: 'accessToken'
+    })],
     state: {
 
     },

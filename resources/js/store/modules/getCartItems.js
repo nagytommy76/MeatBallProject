@@ -1,14 +1,14 @@
-
 export default{
-    methods: {
-        
-    },
     state: {
         cartItems: {
             message: 'Unauthenticated',
             totalPrice: 0,
             totalQty: 0
         },
+    },
+    getters:{
+        getTotalQty: state => state.cartItems.totalQty,
+        getCartItems: state => state.cartItems
     },
     mutations: {
         setCartItems(state, value){

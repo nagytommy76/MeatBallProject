@@ -3,41 +3,64 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
+import Welcome from '../views/includes/Welcome'
+import Login from '../components/Auth/login'
+import Register from '../components/Auth/register'
+
+import pizzaFilter from '../components/pizza/pizzaFilter'
+import soupFilter from '../components/soup/soupFilter'
+import dessertFilter from '../components/dessert/dessertFilter'
+import drinkFilter from '../components/drink/drinkFilter'
+import mealFilter from '../components/meal/mealFilter'
+import pastaFilter from '../components/pasta/pastaFilter'
+
+
 const routes = [
+    {
+        path: '/login',
+        name: 'Login',
+        component: Login 
+    },
+    {
+        path: '/register',
+        name: 'Register',
+        component: Register
+
+    },
     {
         path: '/',
         name: 'Welcome',
-        component: () => import('../views/includes/Welcome')
+        component: Welcome
     },
     {
         path: '/pizza',
         name: 'Pizza',
-        component: () => import('../components/pizza/pizzaFilter')
+        component: pizzaFilter
     },
     {
         path: '/soup',
         name: 'Soup',
-        component: () => import('../components/soup/soupFilter')
+        component: soupFilter
     },
     {
         path: '/dessert',
         name: 'Dessert',
-        component: () => import('../components/dessert/dessertFilter')
+        component: dessertFilter
     },
     {
         path: '/drink',
         name: 'Drink',
-        component: () => import('../components/drink/drinkFilter')
+        component: drinkFilter
     },
     {
         path: '/meal',
         name: 'Meal',
-        component: () => import('../components/meal/mealFilter')
+        component: mealFilter
     },
     {
         path: '/pasta',
         name: 'Pasta',
-        component: () => import('../components/pasta/pastaFilter')
+        component: pastaFilter
     },
 ];
 
