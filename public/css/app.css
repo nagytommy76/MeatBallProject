@@ -821,14 +821,6 @@ body::-webkit-scrollbar-thumb {
   color: #B90000;
 }
 
-.bg-closed {
-  visibility: hidden;
-}
-
-.bg-activate {
-  visibility: visible;
-}
-
 @media (max-width: 720px) {
   .modal-bg .modal {
     height: 85%;

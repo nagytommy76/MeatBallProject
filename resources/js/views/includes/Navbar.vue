@@ -49,41 +49,43 @@
                         <i class="fas fa-sign-out-alt"></i> 
                         Kilépés
                     </a>
-                    <!-- <a @click="showModal" class="dropdown-item modal-button">
+                    <a @click="showCartModal = true" class="dropdown-item modal-button">
                         <i class="fas fa-shopping-cart"></i> 
                         Kosár
-                        <span class="noOfFoodsInCart">0</span>
-                    </a> -->
-                    <itemsInCart />
+                        <span class="noOfFoodsInCart">{{ totalQty }}</span>
+                    </a>
                 </div>
             </li>
         </ul>
-    </nav>
+        <Modal v-if="showCartModal" @close="showCartModal = false"/>
+    </nav>    
 </template>
 <script>
+import { mapGetters } from "vuex";
+
 import navbarHelper from '../../helpers/navbarHelper'
-import itemsInCart from '../../components/cart/itemsInCart'
+import Modal from '../../components/cart/modal'
 
 export default {
     components:{
-        itemsInCart
+        Modal
     },
-    computed: {
-        loggedIn(){
-            return this.$store.getters.getUserLoggedIn
-        },
-        userName(){
-            return this.$store.getters.getUserName
+    data() {
+        return {
+            showCartModal: false,
         }
     },
+    computed: {
+        ...mapGetters({
+            loggedIn: 'getUserLoggedIn',
+            userName: 'getUserName',
+            totalQty: 'getTotalQty'
+        }),
+    },
     mounted(){
-        navbarHelper.openBtn()
         navbarHelper.logOutBTN(this.$store)
     },
     methods:{
-        showModal(){
-
-        }
     }
 }
 </script>

@@ -47,7 +47,7 @@ export default {
             return this.$parent.user.user;
         },
         cartItems: function(){
-            return this.$parent.$parent.cartItems;
+            return this.$store.getters.getCartItems;
         }
     },
 }

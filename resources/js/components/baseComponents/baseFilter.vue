@@ -12,6 +12,7 @@
         <label for="">Étel Neve: </label>
         <input class="form-control" type="text" v-on:keyup="searchByName">
         <loading :isLoading="isLoading"/>
+        <a class="btn-up" href="#top"><i class="fas fa-arrow-circle-up fa-3x"></i></a>
     </aside>
 </template>
 <script>

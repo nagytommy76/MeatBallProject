@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Illuminate\Http\Request;
 use Auth;
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Hash;
 
 class LoginController extends BaseAuthController
 {   
+    use AuthenticatesUsers;
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
@@ -36,8 +38,8 @@ class LoginController extends BaseAuthController
         
             $user = $this->getUserByEmail($formData['email']);
             if (Hash::check($formData['password'], $user->password)) {
-                $accessToken = $this->loginUserGetAccessToken($user);
-                return $this->jsonResponse($valid->errors(), $accessToken, $user->username);
+                $this->loginUserGetAccessToken($user);
+                return $this->jsonResponse($valid->errors(), $user->username);
             }else{
                 return $this->jsonResponse(['password' => ['A jelszó nem megfelelő']]);
             }
@@ -63,8 +65,6 @@ class LoginController extends BaseAuthController
 
         $request->session()->regenerateToken();
         return \response()->json(['message' =>'Sikeres kilépés']);
-        return \redirect()->route('home');
-
     }
 
 

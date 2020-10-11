@@ -20,16 +20,6 @@ export default {
         Welcome,
     },
     methods: {
-        // ...mapActions([
-        //     'fetchAccessToken',
-        //     'getCartItems'
-        // ]),
     },
-    // created() {
-    //     this.fetchAccessToken();
-    //     if(this.accessToken != null){
-    //         this.getCartItems(this.accessToken)
-    //     }
-    // },
 }
 </script>

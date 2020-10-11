@@ -11,17 +11,15 @@ export default class navbarHelper{
     }
     static logOutBTN(store){
         const logOutBtn = document.getElementById('logOutBtn');
-        const localST = JSON.parse(localStorage.getItem('accessToken'));
+        // const localST = JSON.parse(localStorage.getItem('accessToken'));
         if (logOutBtn != null) {
             logOutBtn.addEventListener('click', () =>{
                 authHelper.logOut()
                 .then(response => {
-                    store.dispatch('setToken', null)
-                    this.$store.dispatch('setUserName', '')
+                    // store.dispatch('setToken', null)
+                    store.dispatch('setUserName', '')
                     store.dispatch('setLoggedIn', false)
-                    if (localST != null) {
-                        localStorage.removeItem('accessToken');
-                    }
+                    localStorage.removeItem('accessToken');
                 })                
             }); 
         }       

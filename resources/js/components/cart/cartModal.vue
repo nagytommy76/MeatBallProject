@@ -1,5 +1,5 @@
 <template>
-    <transition name="cartModal">        
+    <div>        
         <div class="modal-head">
             <h2 class="text-center py-1">A Kosár tartalma</h2>
         </div>
@@ -46,10 +46,10 @@
             <div class="modal-footer">
                 <h1 class="py-1">Végösszeg: {{ cartItems.totalPrice }} Ft</h1>
             </div>
-    </transition>
+    </div>
 </template>
-
 <script>
+import {mapGetters} from 'vuex';
 export default {
     name: "cartmodal",
     template: 'cartmodal',
@@ -60,49 +60,38 @@ export default {
         }
     },
     computed: {
-        cartItems(){
-            return this.$parent.$parent.cartItems;
-        }
+        ...mapGetters({
+            cartItems: 'getCartItems',
+            accessToken: 'getToken'
+        })
     },
     created(){
         
     },
     methods:{
-        closeModal(){
-            let modalBg = document.querySelector('.modal-bg').classList;
-            modalBg.remove('bg-activate');
-            modalBg.add('bg-closed');
-        },
         async deleteItem(event){
             if(event.target.classList == this.iconName || event.target.tagName == "I"){
                 const foodId = event.target.parentElement.querySelector('.foodId').value;
                 const foodType = event.target.parentElement.querySelector('.foodType').value;
                 const selectedItemIndex = event.target.parentElement.querySelector('I').id;
-                await fetch('api/removeItemFromCart',
-                    {
-                        method: "DELETE",
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': 'Bearer '+ this.$parent.accessToken
-                        },
-                        body: JSON.stringify({
-                            foodId: foodId,
-                            foodType: foodType,
-                            selectedItemIndex: selectedItemIndex,
-                        }),
+
+                await axios.delete('api/removeItemFromCart',{
+                    data:{
+                        foodId: foodId,
+                        foodType: foodType,
+                        selectedItemIndex: selectedItemIndex,
                     }
-                ).then(result => result.json())
-                .then(res => {
-                    this.$parent.$store.commit('setCartItems', res);
-                    this.hideSuccessMsg(),
-                    setTimeout(this.hideSuccessMsg, 3000);
-                });
-                
+                }).then(deleted => {
+                    console.log(deleted)
+                        this.$store.commit('setCartItems', deleted.data);
+                        this.hideSuccessMsg(),
+                        setTimeout(this.hideSuccessMsg, 3000);
+                })
             }
         },
-            hideSuccessMsg(){
-                this.deleted = !this.deleted;
-            },
+        hideSuccessMsg(){
+            this.deleted = !this.deleted;
+        },
     },
 }
 </script>

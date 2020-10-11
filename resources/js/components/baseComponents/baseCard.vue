@@ -14,7 +14,7 @@
                 <h3>Térfogat:</h3>
                 <p>{{capacity}} (ml)</p>
             </div>
-            <div v-if="!loggedIn">
+            <div v-if="!userLoggedIn">
                 <div class="alert alert-danger" v-if="addedToCart">
                     <p>Kérem jelentkezzen be!</p>
                 </div>
@@ -44,8 +44,6 @@ export default {
         return{
             addedToCart: false,
             finalPrice: this.foodPrice,
-            selectedIngreds: [],
-            loggedIn: false,
         }
     },
     props: {
@@ -64,25 +62,21 @@ export default {
         }
     },
     methods: {
-        ...mapGetters([
-            'getToken'
-        ]),
+        ...mapGetters({
+            userLoggedIn: 'getUserLoggedIn',
+        }),
         async addToCart(){
-            if(this.getToken != null){
-                console.log()
-                await addToCart.addFoodToCart(this.foodType, this.foodId, this.getToken)
+            if(this.userLoggedIn){
+                await addToCart.addFoodToCart(this.foodType, this.foodId)
                 .then(result => {
-                    this.$store.commit('setCartItems', result);
-                    this.selectedIngreds = [];
+                    this.$store.commit('setCartItems', result.data);
                     this.finalPrice = this.foodPrice;
-                    this.loggedIn = !this.loggedIn
                     this.hideSuccessMsg();
                 })
                 .catch(error => console.log(error)) 
             }else{
                 this.hideSuccessMsg();
-            }
-            
+            }            
         },
         hideSuccessMsg(){
             this.addedToCart = !this.addedToCart;

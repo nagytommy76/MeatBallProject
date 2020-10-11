@@ -72,17 +72,35 @@ export default {
             this.errors.password = errors.password;
         },
         async logTheUserIn(){
-            await authHelper.sendAuthData('login', this.formData)
-            .then(response => {
-                if(response.accessToken == null){
-                    this.showErrors(response.hasError);
-                }else{
-                    this.$store.dispatch('setToken', response.accessToken)
-                    this.$store.dispatch('setUserName', response.username)
-                    this.$store.dispatch('setLoggedIn', true)
-                    this.$router.push({name: 'Welcome'})
-                }
-            }).catch(error => console.log(error))
+            // await authHelper.sendAuthData('login', this.formData)
+            // .then(response => {
+            //     if(response.accessToken == null){
+            //         this.showErrors(response.hasError);
+            //     }else{
+
+            //         this.$store.dispatch('setUserName', response.username)
+            //         this.$store.dispatch('setLoggedIn', true)
+            //         this.$router.push({name: 'Welcome'})
+            //     }
+            // }).catch(error => console.log(error))
+            axios.get('/sanctum/csrf-cookie')
+            .then(cookie =>{
+                axios.post('/api/login', {
+                    formData: this.formData
+                }).then(login => {
+                    console.log(login)
+                    if(login.status == 200){
+                        // this.$store.dispatch('setToken', response.accessToken)
+                        if (login.data.hasError.length !== 0) {
+                            this.showErrors(login.data.hasError);
+                        }else{
+                            this.$store.dispatch('setUserName', login.data.username)
+                            this.$store.dispatch('setLoggedIn', true)
+                            this.$router.push({name: 'Welcome'})
+                        }                        
+                    }
+                })
+            })
         },
     }
 }
