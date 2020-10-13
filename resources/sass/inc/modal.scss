@@ -2,25 +2,24 @@
 .modal-button{
     cursor: pointer;
 }
+
 .modal-bg{
     position: fixed;
     width: 100%;
     height: 100vh;
-    background: rgba($color: #000000, $alpha: .4);
+    // background: rgba($color: #333, $alpha: .4);
     top: 0;
     left: 0;
     z-index: 999;
     display: flex;
     justify-content: center;
-    align-items: center;
-    // margin: auto;      
+    align-items: center;      
 
     .modal{
         position: relative;
         color: black;
         background-color: white;
         overflow-x: hidden;
-        // min-height: 5rem;
         height: 70%;
         width: 670px;
         padding: 1rem;
@@ -112,23 +111,37 @@
     }
 }
 
-// .modal-enter-active {
-//   opacity: 0;
-// }
+.fade-in{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;  
+    background-color: rgba($color: #000, $alpha: .5);
+}
 
-// .modal-leave-active {
-//   opacity: 0;
-// }
+.modal-enter-active,
+.modal-leave-active {
+    transition: transform .4s;
+}
 
-// .modal-enter, .modal-leave-to /* .fade-leave-active below version 2.1.8 */ {
-//     opacity: 0;
-//   }
+.modal-enter{
+    transform: translateY(-100%)
+}
+.modal-leave-to {
+    transform: translateY(100%);
+}
 
-// .modal-enter .modal-container,
-// .modal-leave-active .modal-container {
-//   -webkit-transform: scale(1.1);
-//   transform: scale(1.1);
-// }
+.slide-enter-active,
+.slide-leave-active {
+    transition: opacity .5s;
+}
+
+.slide-enter,
+.slide-leave-to {
+    opacity: 0;
+}
 
 .modal-close{
     position: absolute;
@@ -141,14 +154,6 @@
         color: #B90000;
     }
 }
-
-// .bg-closed{
-//     visibility: hidden;
-// }
-
-// .bg-activate{
-//     visibility: visible;    
-// }
 
 @media(max-width: $mobile-width){
     .modal-bg{

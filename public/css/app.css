@@ -292,17 +292,6 @@ body::-webkit-scrollbar-thumb {
   cursor: cell;
 }
 
-.noOfFoodsInCart {
-  margin-left: 0.5rem;
-  padding: 0.5rem;
-  background: #E2BC00;
-  color: #333;
-  border-radius: 50%;
-  width: 13%;
-  height: 9%;
-  text-align: center;
-}
-
 .navbar {
   background: #333;
   color: white;
@@ -316,7 +305,7 @@ body::-webkit-scrollbar-thumb {
   z-index: 3;
   padding: 1.8rem 0;
   opacity: 0.9;
-  transition: ease-in 0.1s;
+  transition: opacity 0.2s, box-shadow 0.2s;
 }
 
 .navbar:hover {
@@ -366,7 +355,7 @@ body::-webkit-scrollbar-thumb {
 .navbar .navbar-nav .dropdown-menu {
   display: flex;
   flex-direction: column;
-  min-width: 8rem;
+  min-width: 10rem;
   visibility: hidden;
   position: absolute;
   padding: 0 0;
@@ -377,9 +366,8 @@ body::-webkit-scrollbar-thumb {
 
 .navbar .navbar-nav .dropdown-item {
   color: white;
-  padding: 0.7rem 0.5rem;
-  margin: 0 0;
-  min-height: 30px;
+  padding: 1rem 0.7rem;
+  min-height: 25px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -405,6 +393,18 @@ body::-webkit-scrollbar-thumb {
 
 .navbar .navbar-toggler {
   display: none;
+}
+
+.noOfFoodsInCart {
+  margin-left: 0.7rem;
+  padding: 0.7rem;
+  background: #E2BC00;
+  font-size: 1.1rem;
+  color: #333;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
 }
 
 @media (max-width: 720px) {
@@ -687,7 +687,6 @@ body::-webkit-scrollbar-thumb {
   position: fixed;
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
   top: 0;
   left: 0;
   z-index: 999;
@@ -808,6 +807,39 @@ body::-webkit-scrollbar-thumb {
   display: flex;
 }
 
+.fade-in {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-enter-active,
+.modal-leave-active {
+  transition: transform 0.4s;
+}
+
+.modal-enter {
+  transform: translateY(-100%);
+}
+
+.modal-leave-to {
+  transform: translateY(100%);
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: opacity 0.5s;
+}
+
+.slide-enter,
+.slide-leave-to {
+  opacity: 0;
+}
+
 .modal-close {
   position: absolute;
   top: 10px;
@@ -926,6 +958,10 @@ body::-webkit-scrollbar-thumb {
   font-size: 1.9rem;
   text-align: center;
   width: 50%;
+}
+
+.main-header .main-title .btn-group {
+  text-align: center;
 }
 
 @media (max-width: 720px) {

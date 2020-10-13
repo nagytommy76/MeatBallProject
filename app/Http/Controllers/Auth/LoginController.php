@@ -38,7 +38,7 @@ class LoginController extends BaseAuthController
         
             $user = $this->getUserByEmail($formData['email']);
             if (Hash::check($formData['password'], $user->password)) {
-                $this->loginUserGetAccessToken($user);
+                $this->loginUserGetAccessToken($user, $formData['remember']);
                 return $this->jsonResponse($valid->errors(), $user->username);
             }else{
                 return $this->jsonResponse(['password' => ['A jelszó nem megfelelő']]);

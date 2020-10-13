@@ -82,10 +82,9 @@ export default {
                         selectedItemIndex: selectedItemIndex,
                     }
                 }).then(deleted => {
-                    console.log(deleted)
-                        this.$store.commit('setCartItems', deleted.data);
-                        this.hideSuccessMsg(),
-                        setTimeout(this.hideSuccessMsg, 3000);
+                    this.$store.commit('setCartItems', deleted.data);
+                    this.hideSuccessMsg(),
+                    setTimeout(this.hideSuccessMsg, 3000);
                 })
             }
         },

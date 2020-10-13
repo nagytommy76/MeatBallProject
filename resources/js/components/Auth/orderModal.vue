@@ -1,7 +1,7 @@
 <template>
-    <div class="modal-bg modal-bg-xl bg-closed">
+    <div class="modal-bg">
         <div class="modal">
-            <span @click="closeModal" class="modal-close"><i class="far fa-times-circle"></i></span>
+            <span @click="$emit('close')" class="modal-close"><i class="far fa-times-circle"></i></span>
             <h1 class="text-center py-1">Korábbi rendeléseim</h1>
             <div class="modal-body">
                 <div class="orderCard" v-for="order in orders" :key="order.id">
@@ -40,7 +40,6 @@
     </div>    
 </template>
 <script>
-import loadData from '../../helpers/loadData';
 export default {
     data: () =>{
         return {
@@ -48,22 +47,16 @@ export default {
         }
     },
     created(){
-        if(this.orders == null && this.$parent.accessToken){
-            this.getOrders()
-        }
+        this.getOrders()
     },
     methods: {
-        async getOrders(){
-            loadData.fetchAuthData('myOrders','GET', this.$parent.accessToken)
+        getOrders(){
+            axios.get('api/myOrders')
             .then(result => {
-                this.orders = result.data;                
+                this.orders = result.data.data
             })
+            
         },
-        closeModal(){
-            let modalBg = document.querySelector('.modal-bg-xl').classList;
-            modalBg.remove('bg-activate');
-            modalBg.add('bg-closed');
-        }
     }
 }
 </script>

@@ -30,9 +30,14 @@
                                         <strong>{{ passErr }}</strong>
                                     </div>                                    
                                 </span>
-                            </div>
-                           
-                        </div>                
+                            </div>                           
+                        </div> 
+                        <div class="form-group row">
+                            <div class="col">
+                                <label for="remember">Emlékezz Rám!</label>
+                                <input type="checkbox" v-model="formData.remember" name="remember" id="remember">
+                            </div>                                   
+                        </div>               
                 <div class="card-footer">
                     <div class="form-group">
                         <div class="col">
@@ -56,7 +61,8 @@ export default {
         return{
             formData: {
                 email: '',
-                password: ''
+                password: '',
+                remember: false
             },
             hasError: false,
             errors: {
@@ -72,25 +78,13 @@ export default {
             this.errors.password = errors.password;
         },
         async logTheUserIn(){
-            // await authHelper.sendAuthData('login', this.formData)
-            // .then(response => {
-            //     if(response.accessToken == null){
-            //         this.showErrors(response.hasError);
-            //     }else{
-
-            //         this.$store.dispatch('setUserName', response.username)
-            //         this.$store.dispatch('setLoggedIn', true)
-            //         this.$router.push({name: 'Welcome'})
-            //     }
-            // }).catch(error => console.log(error))
             axios.get('/sanctum/csrf-cookie')
             .then(cookie =>{
                 axios.post('/api/login', {
                     formData: this.formData
                 }).then(login => {
-                    console.log(login)
+                    // console.log(login)
                     if(login.status == 200){
-                        // this.$store.dispatch('setToken', response.accessToken)
                         if (login.data.hasError.length !== 0) {
                             this.showErrors(login.data.hasError);
                         }else{

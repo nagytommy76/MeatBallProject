@@ -6,7 +6,7 @@
         </div>
         <ul class="navbar-nav">
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle">Étel Rendelés</a>
+                <a href="#" id="foodOrder" class="nav-link dropdown-toggle">Étel Rendelés</a>
                 <div class="dropdown-menu">
                     <router-link to="/pizza" class="dropdown-item">
                         <i class="fas fa-pizza-slice"></i>
@@ -49,7 +49,11 @@
                         <i class="fas fa-sign-out-alt"></i> 
                         Kilépés
                     </a>
-                    <a @click="showCartModal = true" class="dropdown-item modal-button">
+                    <a @click="$parent.showOrdersModal = true" class="dropdown-item modal-button">
+                        <i class="fas fa-cart-arrow-down"></i>
+                    Korábbi rendelések
+                    </a>
+                    <a @click="$parent.showCartModal = true" class="dropdown-item modal-button">
                         <i class="fas fa-shopping-cart"></i> 
                         Kosár
                         <span class="noOfFoodsInCart">{{ totalQty }}</span>
@@ -57,24 +61,14 @@
                 </div>
             </li>
         </ul>
-        <Modal v-if="showCartModal" @close="showCartModal = false"/>
     </nav>    
 </template>
 <script>
 import { mapGetters } from "vuex";
 
 import navbarHelper from '../../helpers/navbarHelper'
-import Modal from '../../components/cart/modal'
 
 export default {
-    components:{
-        Modal
-    },
-    data() {
-        return {
-            showCartModal: false,
-        }
-    },
     computed: {
         ...mapGetters({
             loggedIn: 'getUserLoggedIn',
@@ -84,6 +78,7 @@ export default {
     },
     mounted(){
         navbarHelper.logOutBTN(this.$store)
+        navbarHelper.openBtn()
     },
     methods:{
     }

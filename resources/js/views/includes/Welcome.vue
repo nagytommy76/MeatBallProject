@@ -5,9 +5,10 @@
             <h1>Üdvözöljük a <span class="primary-color">Húsgolyó</span> Étterem Honlapján!</h1>
             <p>Foglaljon aztalt, vagy rendeljen házhoz.</p>
             <p>Térképezze fel ételkínálatunkat</p>
-            <a href="#"><button class="btn btn-primary">Étel Rendelés</button></a>
-            <a href="#aboutMe"><button class="btn btn-primary">Magamról</button></a>
-            
+            <div class="btn-group">
+                <a href="#foodOrder"><button class="btn btn-primary">Étel Rendelés</button></a>
+                <a href="#aboutMe"><button class="btn btn-primary">Magamról</button></a>
+            </div>  
         </div>
     </header>
     <section id="aboutMe" class="main-content">
