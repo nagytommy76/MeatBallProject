@@ -38,13 +38,8 @@ export default {
         }
     },
     created(){
-        this.test()
     },
     methods: {
-            test(){
-                axios.get('/sanctum/csrf-cookie')
-                .then(cookie =>{})
-            }
     },
 }
 </script>

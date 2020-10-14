@@ -44,9 +44,11 @@
                         <div class="card-footer">
                             <div class="form-group">
                                 <div>
-                                    <input value="Regisztráció" type="submit" @click.prevent="userRegister" class="btn btn-primary" />
-                                    
+                                    <input value="Regisztráció" type="submit" @click.prevent="userRegister" class="btn btn-primary" />                                    
                                 </div>                                
+                            </div>
+                            <div class="alert alert-danger" v-if="hasException">
+                                <p>{{exceptionMsg}}</p>
                             </div>
                         </div>                     
                     </form>
@@ -68,6 +70,8 @@ export default {
                 password_confirmation: '',
             },
             hasError: false,
+            hasException: false,
+            exceptionMsg: '',
             errors: {
                 username: '',
                 email: '',
@@ -77,16 +81,22 @@ export default {
     },
     methods: {
         async userRegister(){
-            await authHelper.sendAuthData('register', this.formData)
-            .then(response => {
-                if(response.accessToken == null){
-                    this.showErrors(response.hasError)
+            await axios.post('api/register', {
+                formData: this.formData
+            })
+            .then(register => {
+                console.log(register)
+                if(register.data.exception == null){
+                    if (register.data.hasError.length == 0) {
+                        this.$router.push({name: 'Login'})
+                    }else{
+                        this.showErrors(register.data.hasError)
+                    }                    
                 }else{
-                    authHelper.setExpirationToLocalSt(response.accessToken)
-                    window.location.href = "http://meatballproject.hu/"
-                    // window.location.href = "https://nagytamas93.hu/"
+                    this.showException(register.data.exception)
                 }
             })
+
         },
         showErrors(errors){
             this.hasError = true;
@@ -94,6 +104,10 @@ export default {
             this.errors.email = errors.email;
             this.errors.password = errors.password;
         },
+        showException(ex){
+            this.hasException = true
+            this.exceptionMsg = ex
+        }
     }
 }
 </script>

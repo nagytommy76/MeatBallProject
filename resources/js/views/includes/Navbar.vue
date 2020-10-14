@@ -1,7 +1,7 @@
 <template>
     <nav role="navigation" class="navbar">
         <div class="navbar-brand">
-            <router-link to="/"><span class="primary-color">Húsgolyó</span>Étterem
+            <router-link to="/"><span class="primary-color">Húsgolyó </span>Étterem
             <span id="navOpen"><i class="fas fa-bars"></i></span></router-link>
         </div>
         <ul class="navbar-nav">

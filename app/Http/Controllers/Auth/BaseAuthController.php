@@ -23,7 +23,7 @@ class BaseAuthController extends Controller
     * @param User $user
     * @return String $accessToken
     */
-    protected function loginUserGetAccessToken(User $user, $remember){
+    protected function loginUserGetAccessToken(User $user, $remember = true){
         Auth::guard('web')->login($user, $remember);
         return $user->createToken('accessToken')->plainTextToken;
     }

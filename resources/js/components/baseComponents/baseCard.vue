@@ -46,6 +46,11 @@ export default {
             finalPrice: this.foodPrice,
         }
     },
+    computed:{
+        ...mapGetters({
+            userLoggedIn: 'getUserLoggedIn',
+        }),
+    },
     props: {
         foodType: String,
         foodId: Number,
@@ -62,12 +67,9 @@ export default {
         }
     },
     methods: {
-        ...mapGetters({
-            userLoggedIn: 'getUserLoggedIn',
-        }),
-        async addToCart(){
+        addToCart(){
             if(this.userLoggedIn){
-                await addToCart.addFoodToCart(this.foodType, this.foodId)
+                addToCart.addFoodToCart(this.foodType, this.foodId)
                 .then(result => {
                     this.$store.commit('setCartItems', result.data);
                     this.finalPrice = this.foodPrice;

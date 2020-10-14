@@ -24,11 +24,16 @@ class UserInfoController extends Controller
     }
 
     public function apiStrore(Request $request){
-        $valid = $this->validator($request->all());
+        $formData = $request->all()['formData'];
+        $valid = $this->validator($formData);
         if ($valid->fails()) {
             return response()->json(['exception' => false,'hasError' => true, 'errors' => $valid->errors()]);
         }
-        $this->saveInfoData($request);
+        try {
+            $this->saveInfoData($formData);
+        } catch (Exception $ex) {
+            return response()->json(['exception' => $ex->getMessage()]);
+        }
         return response()->json(['exception' => false,'hasError' => false]);
     }
 
@@ -73,23 +78,19 @@ class UserInfoController extends Controller
     }
 
     private function saveInfoData($request){
-        try {
-            $this->user->userinfo_filled = 1;
-            $this->user->userinfo()->create([
-                'user_email' => Auth::user()->email,
-                'firstName' => $request->firstName,
-                'lastName' => $request->lastName,
-                'city' => $request->city,
-                'zipCode' => $request->zipCode,
-                'street' => $request->street,
-                'houseNumber' => $request->houseNumber,
-                'floorDoor' => $request->floorDoor,
-                'phone' => $request->phone,                    
-            ]);
-            $this->user->save();
-        } catch (Exception $ex) {
-            return response()->json(['exception' => $ex->getMessage()]);
-        }
         
+        $this->user->userinfo_filled = 1;
+        $this->user->userinfo()->create([
+            'user_email' => Auth::user()->email,
+            'firstName' => $request['firstName'],
+            'lastName' => $request['lastName'],
+            'city' => $request['city'],
+            'zipCode' => $request['zipCode'],
+            'street' => $request['street'],
+            'houseNumber' => $request['houseNumber'],
+            'floorDoor' => $request['floorDoor'],
+            'phone' => $request['phone'],                    
+        ]);
+        $this->user->save();        
     }
 }

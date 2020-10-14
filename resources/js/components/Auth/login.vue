@@ -83,7 +83,6 @@ export default {
                 axios.post('/api/login', {
                     formData: this.formData
                 }).then(login => {
-                    // console.log(login)
                     if(login.status == 200){
                         if (login.data.hasError.length !== 0) {
                             this.showErrors(login.data.hasError);

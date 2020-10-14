@@ -62,8 +62,8 @@ export default {
         getUserInfo(){ 
             axios.get('api/userInfoFilled').then(user => {
                 if (user.status == 200) {
-                     this.user = user.data.user;
-                    this.isUserinfoFilled = user.data.userinfo_filled;
+                    this.user = user.data.user;
+                    this.isUserinfoFilled = user.data.user.userinfo_filled;
                 }
             }).catch(error => console.log(error))
         },
@@ -71,7 +71,6 @@ export default {
             this.isLoading = true;
             axios.post('api/saveOrder').then(saveOrder => {
                 if (!saveOrder.data.exception) {
-                    console.log(saveOrder)
                     this.$store.dispatch('setCartDefault')
                     this.step = 3
                     this.setDefaultPage()

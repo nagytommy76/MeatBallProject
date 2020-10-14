@@ -44,7 +44,7 @@ export default {
     template: "summarycart",
     computed: {
         user: function(){
-            return this.$parent.user.user;
+            return this.$parent.user;
         },
         cartItems: function(){
             return this.$store.getters.getCartItems;

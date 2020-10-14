@@ -32,10 +32,9 @@ class RegisterController extends BaseAuthController
         }
         try {
             $user = $this->create($formData);
-            $accessToken = $this->loginUserGetAccessToken($user);
-            return $this->jsonResponse($valid->errors(), $accessToken);
+            return $this->jsonResponse($valid->errors(), $user->username);
         } catch (Exception $ex) {
-            return $this->jsonResponse($valid->errors(),null, $ex->getMessage());
+            return $this->jsonResponse($valid->errors(),"", $ex->getMessage());
         }
     }
 

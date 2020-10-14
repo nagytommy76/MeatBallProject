@@ -101,6 +101,9 @@
                         <input v-show="this.$parent.isUserinfoFilled" type="submit" value="Módosítás" @click.prevent="modifyUserInfo" class="btn btn-delete-dark" />
                     </div>                                       
                 </div>
+                <div class="alert alert-danger" v-if="showException">
+                    <p>{{ exceptionMsg }}</p>
+                </div>
             </form>            
         </div>
     </div>
@@ -112,6 +115,8 @@ export default {
     data:() => {
         return{
             hasError: false,
+            showException: false,
+            exceptionMsg: '',
             formData: {
                 firstName: '',
                 lastName: '',
@@ -149,53 +154,72 @@ export default {
             this.errors.floorDoor = error.floorDoor;
             this.errors.phone = error.phone;
         },
-        async addUserInfo(){
-            await fetch('api/addUserInfo',{
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'Authorization': 'Bearer ' + this.$parent.accessToken
-                },
-                body: JSON.stringify(this.formData)
-            }).then(response => response.json())
-            .then(result => {
-                if (result.hasError) {
-                    this.showErrors(result.errors)
-                }else{
-                    if(!result.hasError && !result.exception){
-                        this.$parent.userinfoFilled()
-                        .then(user => {
-                            this.$parent.user = user;
-                            this.$parent.isUserinfoFilled = user.user.userinfo_filled;
-                            this.$parent.step++;
-                        })                        
-                    }                    
-                }              
-            }).catch(error => console.log(error))
+        showExceptionMsg(msg){
+            this.showException = true
+            this.exceptionMsg = msg
         },
-        async modifyUserInfo(){
-            await fetch('api/updateUserInfo', {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'Authorization': 'Bearer ' + this.$parent.accessToken
-                },
-                body: JSON.stringify(this.formData)
-            }).then(response => response.json())
-            .then(result =>{
-                if(result.hasError){
-                    this.showErrors(result.errors)
+        async addUserInfo(){
+            // await fetch('api/addUserInfo',{
+            //     method: "POST",
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //         'Accept': 'application/json',
+            //         'Authorization': 'Bearer ' + this.$parent.accessToken
+            //     },
+            //     body: JSON.stringify(this.formData)
+            // }).then(response => response.json())
+            // .then(result => {
+            //     if (result.hasError) {
+            //         this.showErrors(result.errors)
+            //     }else{
+            //         if(!result.hasError && !result.exception){
+            //             this.$parent.userinfoFilled()
+            //             .then(user => {
+            //                 $parent.user = user;
+            //                 $parent.isUserinfoFilled = user.user.userinfo_filled;
+            //                 $parent.step++;
+            //             })                        
+            //         }                    
+            //     }              
+            // }).catch(error => console.log(error))
+            await axios.post('api/addUserInfo', {
+                formData: this.formData
+            }).then(userInfo => {
+                console.log(userInfo)
+                if (userInfo.data.hasError) {
+                    this.showErrors(userInfo.data.errors)
                 }else{
-                    console.log(result)
+                    if (!userInfo.data.exception) {
+                        this.$parent.getUserInfo()
+                        this.$parent.step++;
+                    }else{
+                        this.showExceptionMsg(userInfo.data.exception)
+                    }
                 }
             })
-            .catch(error => console.log(error))
+        },
+        async modifyUserInfo(){
+            // await fetch('api/updateUserInfo', {
+            //     method: "POST",
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //         'Accept': 'application/json',
+            //         'Authorization': 'Bearer ' + this.$parent.accessToken
+            //     },
+            //     body: JSON.stringify(this.formData)
+            // }).then(response => response.json())
+            // .then(result =>{
+            //     if(result.hasError){
+            //         this.showErrors(result.errors)
+            //     }else{
+            //         console.log(result)
+            //     }
+            // })
+            // .catch(error => console.log(error))
         },
         fetchUserinfoData(){
             if(this.$parent.isUserinfoFilled){
-                this.formData = this.$parent.user.userInfo
+                this.formData = this.$parent.user.userinfo
             }
         }
     },

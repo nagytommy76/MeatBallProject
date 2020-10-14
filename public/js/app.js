@@ -2019,7 +2019,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   axios.post('/api/login', {
                     formData: _this.formData
                   }).then(function (login) {
-                    // console.log(login)
                     if (login.status == 200) {
                       if (login.data.hasError.length !== 0) {
                         _this.showErrors(login.data.hasError);
@@ -2099,10 +2098,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      orders: null
+      orders: null,
+      showEmpty: false
     };
   },
   created: function created() {
@@ -2114,6 +2115,10 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('api/myOrders').then(function (result) {
         _this.orders = result.data.data;
+
+        if (_this.orders.length == 0) {
+          _this.showEmpty = true;
+        }
       });
     }
   }
@@ -2196,6 +2201,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'register',
@@ -2208,6 +2215,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         password_confirmation: ''
       },
       hasError: false,
+      hasException: false,
+      exceptionMsg: '',
       errors: {
         username: '',
         email: '',
@@ -2225,12 +2234,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _helpers_authHelper__WEBPACK_IMPORTED_MODULE_1__["default"].sendAuthData('register', _this.formData).then(function (response) {
-                  if (response.accessToken == null) {
-                    _this.showErrors(response.hasError);
+                return axios.post('api/register', {
+                  formData: _this.formData
+                }).then(function (register) {
+                  console.log(register);
+
+                  if (register.data.exception == null) {
+                    if (register.data.hasError.length == 0) {
+                      _this.$router.push({
+                        name: 'Login'
+                      });
+                    } else {
+                      _this.showErrors(register.data.hasError);
+                    }
                   } else {
-                    _helpers_authHelper__WEBPACK_IMPORTED_MODULE_1__["default"].setExpirationToLocalSt(response.accessToken);
-                    window.location.href = "http://meatballproject.hu/"; // window.location.href = "https://nagytamas93.hu/"
+                    _this.showException(register.data.exception);
                   }
                 });
 
@@ -2247,6 +2265,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.errors.username = errors.username;
       this.errors.email = errors.email;
       this.errors.password = errors.password;
+    },
+    showException: function showException(ex) {
+      this.hasException = true;
+      this.exceptionMsg = ex;
     }
   }
 });
@@ -2262,16 +2284,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _helpers_addToCart__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../helpers/addToCart */ "./resources/js/helpers/addToCart.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
+/* harmony import */ var _helpers_addToCart__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../helpers/addToCart */ "./resources/js/helpers/addToCart.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2324,6 +2338,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       finalPrice: this.foodPrice
     };
   },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
+    userLoggedIn: 'getUserLoggedIn'
+  })),
   props: {
     foodType: String,
     foodId: Number,
@@ -2339,47 +2356,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       requried: false
     }
   },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])({
-    userLoggedIn: 'getUserLoggedIn'
-  }), {
+  methods: {
     addToCart: function addToCart() {
       var _this = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                if (!_this.userLoggedIn) {
-                  _context.next = 5;
-                  break;
-                }
+      if (this.userLoggedIn) {
+        _helpers_addToCart__WEBPACK_IMPORTED_MODULE_0__["default"].addFoodToCart(this.foodType, this.foodId).then(function (result) {
+          _this.$store.commit('setCartItems', result.data);
 
-                _context.next = 3;
-                return _helpers_addToCart__WEBPACK_IMPORTED_MODULE_1__["default"].addFoodToCart(_this.foodType, _this.foodId).then(function (result) {
-                  _this.$store.commit('setCartItems', result.data);
+          _this.finalPrice = _this.foodPrice;
 
-                  _this.finalPrice = _this.foodPrice;
-
-                  _this.hideSuccessMsg();
-                })["catch"](function (error) {
-                  return console.log(error);
-                });
-
-              case 3:
-                _context.next = 6;
-                break;
-
-              case 5:
-                _this.hideSuccessMsg();
-
-              case 6:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
+          _this.hideSuccessMsg();
+        })["catch"](function (error) {
+          return console.log(error);
+        });
+      } else {
+        this.hideSuccessMsg();
+      }
     },
     hideSuccessMsg: function hideSuccessMsg() {
       var _this2 = this;
@@ -2389,7 +2382,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this2.addedToCart = !_this2.addedToCart;
       }, 3000);
     }
-  })
+  }
 });
 
 /***/ }),
@@ -2842,7 +2835,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       axios.get('api/userInfoFilled').then(function (user) {
         if (user.status == 200) {
           _this.user = user.data.user;
-          _this.isUserinfoFilled = user.data.userinfo_filled;
+          _this.isUserinfoFilled = user.data.user.userinfo_filled;
         }
       })["catch"](function (error) {
         return console.log(error);
@@ -2859,8 +2852,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _this2.isLoading = true;
                 axios.post('api/saveOrder').then(function (saveOrder) {
                   if (!saveOrder.data.exception) {
-                    console.log(saveOrder);
-
                     _this2.$store.dispatch('setCartDefault');
 
                     _this2.step = 3;
@@ -2952,7 +2943,7 @@ __webpack_require__.r(__webpack_exports__);
   template: "summarycart",
   computed: {
     user: function user() {
-      return this.$parent.user.user;
+      return this.$parent.user;
     },
     cartItems: function cartItems() {
       return this.$store.getters.getCartItems;
@@ -3086,12 +3077,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "userinfo",
   template: "userinfo",
   data: function data() {
     return {
       hasError: false,
+      showException: false,
+      exceptionMsg: '',
       formData: {
         firstName: '',
         lastName: '',
@@ -3129,6 +3125,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.errors.floorDoor = error.floorDoor;
       this.errors.phone = error.phone;
     },
+    showExceptionMsg: function showExceptionMsg(msg) {
+      this.showException = true;
+      this.exceptionMsg = msg;
+    },
     addUserInfo: function addUserInfo() {
       var _this = this;
 
@@ -3138,30 +3138,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return fetch('api/addUserInfo', {
-                  method: "POST",
-                  headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'Authorization': 'Bearer ' + _this.$parent.accessToken
-                  },
-                  body: JSON.stringify(_this.formData)
-                }).then(function (response) {
-                  return response.json();
-                }).then(function (result) {
-                  if (result.hasError) {
-                    _this.showErrors(result.errors);
+                return axios.post('api/addUserInfo', {
+                  formData: _this.formData
+                }).then(function (userInfo) {
+                  console.log(userInfo);
+
+                  if (userInfo.data.hasError) {
+                    _this.showErrors(userInfo.data.errors);
                   } else {
-                    if (!result.hasError && !result.exception) {
-                      _this.$parent.userinfoFilled().then(function (user) {
-                        _this.$parent.user = user;
-                        _this.$parent.isUserinfoFilled = user.user.userinfo_filled;
-                        _this.$parent.step++;
-                      });
+                    if (!userInfo.data.exception) {
+                      _this.$parent.getUserInfo();
+
+                      _this.$parent.step++;
+                    } else {
+                      _this.showExceptionMsg(userInfo.data.exception);
                     }
                   }
-                })["catch"](function (error) {
-                  return console.log(error);
                 });
 
               case 2:
@@ -3172,36 +3164,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
-    modifyUserInfo: function modifyUserInfo() {
-      var _this2 = this;
+    modifyUserInfo: function modifyUserInfo() {// await fetch('api/updateUserInfo', {
+      //     method: "POST",
+      //     headers: {
+      //         'Content-Type': 'application/json',
+      //         'Accept': 'application/json',
+      //         'Authorization': 'Bearer ' + this.$parent.accessToken
+      //     },
+      //     body: JSON.stringify(this.formData)
+      // }).then(response => response.json())
+      // .then(result =>{
+      //     if(result.hasError){
+      //         this.showErrors(result.errors)
+      //     }else{
+      //         console.log(result)
+      //     }
+      // })
+      // .catch(error => console.log(error))
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _context2.next = 2;
-                return fetch('api/updateUserInfo', {
-                  method: "POST",
-                  headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'Authorization': 'Bearer ' + _this2.$parent.accessToken
-                  },
-                  body: JSON.stringify(_this2.formData)
-                }).then(function (response) {
-                  return response.json();
-                }).then(function (result) {
-                  if (result.hasError) {
-                    _this2.showErrors(result.errors);
-                  } else {
-                    console.log(result);
-                  }
-                })["catch"](function (error) {
-                  return console.log(error);
-                });
-
-              case 2:
               case "end":
                 return _context2.stop();
             }
@@ -3211,7 +3196,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     fetchUserinfoData: function fetchUserinfoData() {
       if (this.$parent.isUserinfoFilled) {
-        this.formData = this.$parent.user.userInfo;
+        this.formData = this.$parent.user.userinfo;
       }
     }
   }
@@ -3854,14 +3839,8 @@ __webpack_require__.r(__webpack_exports__);
       showOrdersModal: false
     };
   },
-  created: function created() {
-    this.test();
-  },
-  methods: {
-    test: function test() {
-      axios.get('/sanctum/csrf-cookie').then(function (cookie) {});
-    }
-  }
+  created: function created() {},
+  methods: {}
 });
 
 /***/ }),
@@ -41395,6 +41374,21 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c(
+        "h1",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.showEmpty,
+              expression: "showEmpty"
+            }
+          ]
+        },
+        [_vm._v("Még nem rendelt tölünk!")]
+      ),
+      _vm._v(" "),
+      _c(
         "div",
         { staticClass: "modal-body" },
         _vm._l(_vm.orders, function(order) {
@@ -41670,7 +41664,13 @@ var render = function() {
                     }
                   })
                 ])
-              ])
+              ]),
+              _vm._v(" "),
+              _vm.hasException
+                ? _c("div", { staticClass: "alert alert-danger" }, [
+                    _c("p", [_vm._v(_vm._s(_vm.exceptionMsg))])
+                  ])
+                : _vm._e()
             ])
           ])
         ])
@@ -42756,7 +42756,13 @@ var render = function() {
               }
             })
           ])
-        ])
+        ]),
+        _vm._v(" "),
+        _vm.showException
+          ? _c("div", { staticClass: "alert alert-danger" }, [
+              _c("p", [_vm._v(_vm._s(_vm.exceptionMsg))])
+            ])
+          : _vm._e()
       ])
     ])
   ])
@@ -43625,7 +43631,7 @@ var render = function() {
       { staticClass: "navbar-brand" },
       [
         _c("router-link", { attrs: { to: "/" } }, [
-          _c("span", { staticClass: "primary-color" }, [_vm._v("Húsgolyó")]),
+          _c("span", { staticClass: "primary-color" }, [_vm._v("Húsgolyó ")]),
           _vm._v("Étterem\n        "),
           _c("span", { attrs: { id: "navOpen" } }, [
             _c("i", { staticClass: "fas fa-bars" })
