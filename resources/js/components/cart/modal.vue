@@ -3,7 +3,6 @@
         <div class="modal">
             <span @click="$emit('close')" class="modal-close"><i class="far fa-times-circle"></i></span>
             <component :is="currentPage"></component>
-
             <div v-show="totalQty > 0" class="">
                 <button v-show="step>0 && step != 3" @click="previousPage" class="btn btn-delete-dark">Vissza</button>
                 <span v-show="step<pages.length-1 && step != 2">

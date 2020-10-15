@@ -31,32 +31,33 @@ class UserInfoController extends Controller
         }
         try {
             $this->saveInfoData($formData);
+            return response()->json(['exception' => false,'hasError' => false]);
         } catch (Exception $ex) {
             return response()->json(['exception' => $ex->getMessage()]);
         }
-        return response()->json(['exception' => false,'hasError' => false]);
     }
 
     public function apiUpdate(Request $request){
-        $valid = $this->validator($request->all());
+        $formData = $request->all()['formData'];
+        $valid = $this->validator($formData);
         if ($valid->fails()) {
             return response()->json(['exception' => false, 'hasError' => true, 'errors' => $valid->errors()]);
         }
         try {
             $this->user->userinfo()->update([
-                'firstName' => $request->firstName,
-                'lastName' => $request->lastName,
-                'city' => $request->city,
-                'zipCode' => $request->zipCode,
-                'street' => $request->street,
-                'houseNumber' => $request->houseNumber,
-                'floorDoor' => $request->floorDoor,
-                'phone' => $request->phone,                    
+                'firstName' => $formData['firstName'],
+                'lastName' => $formData['lastName'],
+                'city' => $formData['city'],
+                'zipCode' => $formData['zipCode'],
+                'street' => $formData['street'],
+                'houseNumber' => $formData['houseNumber'],
+                'floorDoor' => $formData['floorDoor'],
+                'phone' => $formData['phone'],                    
             ]);
             $this->user->save();
-            return response()->json(['message' => 'A módosítás sikeres volt','exception' => false, 'hasError' => false, 'errors' => $valid->errors()]);
+            return response()->json(['exception' => false, 'hasError' => false, 'errors' => $valid->errors()]);
         } catch (Exception $ex) {
-            
+            return response()->json(['exception' => $ex->getMessage()]);
         }
         
     }

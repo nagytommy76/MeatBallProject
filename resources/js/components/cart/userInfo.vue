@@ -104,6 +104,9 @@
                 <div class="alert alert-danger" v-if="showException">
                     <p>{{ exceptionMsg }}</p>
                 </div>
+                <div class="alert alert-success" v-if="showMsg">
+                    <p>{{ msg }}</p>
+                </div>
             </form>            
         </div>
     </div>
@@ -117,6 +120,8 @@ export default {
             hasError: false,
             showException: false,
             exceptionMsg: '',
+            showMsg: false,
+            msg: '',
             formData: {
                 firstName: '',
                 lastName: '',
@@ -157,35 +162,17 @@ export default {
         showExceptionMsg(msg){
             this.showException = true
             this.exceptionMsg = msg
+            setTimeout(() => {this.showException = false}, 5000);
+        },
+        showOtherMsg(msg){
+            this.showMsg = true
+            this.msg = msg
+            setTimeout(() => {this.showMsg = false}, 5000);
         },
         async addUserInfo(){
-            // await fetch('api/addUserInfo',{
-            //     method: "POST",
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //         'Accept': 'application/json',
-            //         'Authorization': 'Bearer ' + this.$parent.accessToken
-            //     },
-            //     body: JSON.stringify(this.formData)
-            // }).then(response => response.json())
-            // .then(result => {
-            //     if (result.hasError) {
-            //         this.showErrors(result.errors)
-            //     }else{
-            //         if(!result.hasError && !result.exception){
-            //             this.$parent.userinfoFilled()
-            //             .then(user => {
-            //                 $parent.user = user;
-            //                 $parent.isUserinfoFilled = user.user.userinfo_filled;
-            //                 $parent.step++;
-            //             })                        
-            //         }                    
-            //     }              
-            // }).catch(error => console.log(error))
             await axios.post('api/addUserInfo', {
                 formData: this.formData
             }).then(userInfo => {
-                console.log(userInfo)
                 if (userInfo.data.hasError) {
                     this.showErrors(userInfo.data.errors)
                 }else{
@@ -199,23 +186,19 @@ export default {
             })
         },
         async modifyUserInfo(){
-            // await fetch('api/updateUserInfo', {
-            //     method: "POST",
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //         'Accept': 'application/json',
-            //         'Authorization': 'Bearer ' + this.$parent.accessToken
-            //     },
-            //     body: JSON.stringify(this.formData)
-            // }).then(response => response.json())
-            // .then(result =>{
-            //     if(result.hasError){
-            //         this.showErrors(result.errors)
-            //     }else{
-            //         console.log(result)
-            //     }
-            // })
-            // .catch(error => console.log(error))
+            await axios.post('api/updateUserInfo',{
+                formData: this.formData
+            }).then(userInfo => {
+                if (userInfo.data.hasError) {
+                    this.showErrors(userInfo.data.errors)
+                }else{
+                    if (userInfo.data.exception) {
+                        this.showExceptionMsg(userInfo.data.exception)
+                    }else{
+                        this.showOtherMsg('A Módosítás sikeres volt!')
+                    }
+                }
+            })
         },
         fetchUserinfoData(){
             if(this.$parent.isUserinfoFilled){

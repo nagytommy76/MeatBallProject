@@ -2790,7 +2790,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -2938,15 +2937,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "summaryCart",
   template: "summarycart",
+  data: function data() {
+    return {
+      loaded: false,
+      showPaypal: false
+    };
+  },
+  mounted: function mounted() {
+    this.createPayPalScript();
+  },
   computed: {
     user: function user() {
       return this.$parent.user;
     },
     cartItems: function cartItems() {
       return this.$store.getters.getCartItems;
+    }
+  },
+  methods: {
+    createPayPalScript: function createPayPalScript() {
+      var script = document.createElement('script');
+      script.src = "\n                https://www.paypal.com/sdk/js?client-id=Ab5PkxGXmT-up_8VMgPOajxLZSe9PzyOh4eHxeCkJ6GiVd-4vfcTtG-cayvv8dHJL6Uv6CW6vNxOaFa4&currency=HUF\n            ";
+      script.addEventListener('load', this.setLoaded);
+      document.body.appendChild(script);
+    },
+    setLoaded: function setLoaded() {
+      var _this = this;
+
+      // this.loaded = true
+      window.paypal.Buttons({
+        createOrder: function createOrder(data, actions) {
+          return actions.orders.create({
+            purchase_units: [{
+              amount: {
+                currency_code: 'HUF',
+                value: _this.cartItems.totalPrice
+              }
+            }]
+          });
+        }
+      }).render(this.$refs.paypal);
     }
   }
 });
@@ -3080,6 +3118,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "userinfo",
   template: "userinfo",
@@ -3088,6 +3129,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       hasError: false,
       showException: false,
       exceptionMsg: '',
+      showMsg: false,
+      msg: '',
       formData: {
         firstName: '',
         lastName: '',
@@ -3126,11 +3169,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.errors.phone = error.phone;
     },
     showExceptionMsg: function showExceptionMsg(msg) {
+      var _this = this;
+
       this.showException = true;
       this.exceptionMsg = msg;
+      setTimeout(function () {
+        _this.showException = false;
+      }, 5000);
+    },
+    showOtherMsg: function showOtherMsg(msg) {
+      var _this2 = this;
+
+      this.showMsg = true;
+      this.msg = msg;
+      setTimeout(function () {
+        _this2.showMsg = false;
+      }, 5000);
     },
     addUserInfo: function addUserInfo() {
-      var _this = this;
+      var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
@@ -3139,19 +3196,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context.next = 2;
                 return axios.post('api/addUserInfo', {
-                  formData: _this.formData
+                  formData: _this3.formData
                 }).then(function (userInfo) {
-                  console.log(userInfo);
-
                   if (userInfo.data.hasError) {
-                    _this.showErrors(userInfo.data.errors);
+                    _this3.showErrors(userInfo.data.errors);
                   } else {
                     if (!userInfo.data.exception) {
-                      _this.$parent.getUserInfo();
+                      _this3.$parent.getUserInfo();
 
-                      _this.$parent.step++;
+                      _this3.$parent.step++;
                     } else {
-                      _this.showExceptionMsg(userInfo.data.exception);
+                      _this3.showExceptionMsg(userInfo.data.exception);
                     }
                   }
                 });
@@ -3164,29 +3219,30 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
-    modifyUserInfo: function modifyUserInfo() {// await fetch('api/updateUserInfo', {
-      //     method: "POST",
-      //     headers: {
-      //         'Content-Type': 'application/json',
-      //         'Accept': 'application/json',
-      //         'Authorization': 'Bearer ' + this.$parent.accessToken
-      //     },
-      //     body: JSON.stringify(this.formData)
-      // }).then(response => response.json())
-      // .then(result =>{
-      //     if(result.hasError){
-      //         this.showErrors(result.errors)
-      //     }else{
-      //         console.log(result)
-      //     }
-      // })
-      // .catch(error => console.log(error))
+    modifyUserInfo: function modifyUserInfo() {
+      var _this4 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
+                _context2.next = 2;
+                return axios.post('api/updateUserInfo', {
+                  formData: _this4.formData
+                }).then(function (userInfo) {
+                  if (userInfo.data.hasError) {
+                    _this4.showErrors(userInfo.data.errors);
+                  } else {
+                    if (userInfo.data.exception) {
+                      _this4.showExceptionMsg(userInfo.data.exception);
+                    } else {
+                      _this4.showOtherMsg('A Módosítás sikeres volt!');
+                    }
+                  }
+                });
+
+              case 2:
               case "end":
                 return _context2.stop();
             }
@@ -3593,12 +3649,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _moreIngredients__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moreIngredients */ "./resources/js/components/pizza/moreIngredients.vue");
 /* harmony import */ var _helpers_addToCart__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../helpers/addToCart */ "./resources/js/helpers/addToCart.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -3644,7 +3707,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3664,10 +3727,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       selectedIngreds: [],
       finalPrice: this.pizzaPrice,
       foodType: 'pizza',
-      addedToCart: false,
-      loggedIn: false
+      addedToCart: false
     };
   },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapGetters"])({
+    userLoggedIn: 'getUserLoggedIn'
+  })),
   methods: {
     loadPlusIngreds: function loadPlusIngreds() {
       this.moreButton = !this.moreButton;
@@ -3680,18 +3745,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (!(_this.$parent.$parent.$parent.accessToken != null)) {
+                if (!_this.userLoggedIn) {
                   _context.next = 5;
                   break;
                 }
 
                 _context.next = 3;
-                return _helpers_addToCart__WEBPACK_IMPORTED_MODULE_2__["default"].addFoodToCart(_this.foodType, _this.pizzaId, _this.$parent.$parent.$parent.accessToken, _this.selectedIngreds).then(function (result) {
-                  _this.$parent.$parent.$store.commit('setCartItems', result);
+                return _helpers_addToCart__WEBPACK_IMPORTED_MODULE_2__["default"].addFoodToCart(_this.foodType, _this.pizzaId, _this.selectedIngreds).then(function (result) {
+                  _this.$store.commit('setCartItems', result.data);
 
                   _this.selectedIngreds = [];
                   _this.finalPrice = _this.pizzaPrice;
-                  _this.loggedIn = !_this.loggedIn;
 
                   _this.hideSuccessMsg();
 
@@ -3705,7 +3769,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 break;
 
               case 5:
-                // this.loggedIn = !this.loggedIn
                 _this.hideSuccessMsg();
 
               case 6:
@@ -42350,7 +42413,61 @@ var render = function() {
           })
         ],
         2
-      )
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "payment" }, [
+        _c("label", { attrs: { for: "pay" } }, [_vm._v("Fizetés PayPal")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.showPaypal,
+              expression: "showPaypal"
+            }
+          ],
+          attrs: { type: "checkbox", name: "pay", id: "pay" },
+          domProps: {
+            checked: Array.isArray(_vm.showPaypal)
+              ? _vm._i(_vm.showPaypal, null) > -1
+              : _vm.showPaypal
+          },
+          on: {
+            change: function($event) {
+              var $$a = _vm.showPaypal,
+                $$el = $event.target,
+                $$c = $$el.checked ? true : false
+              if (Array.isArray($$a)) {
+                var $$v = null,
+                  $$i = _vm._i($$a, $$v)
+                if ($$el.checked) {
+                  $$i < 0 && (_vm.showPaypal = $$a.concat([$$v]))
+                } else {
+                  $$i > -1 &&
+                    (_vm.showPaypal = $$a
+                      .slice(0, $$i)
+                      .concat($$a.slice($$i + 1)))
+                }
+              } else {
+                _vm.showPaypal = $$c
+              }
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.showPaypal,
+            expression: "showPaypal"
+          }
+        ],
+        ref: "paypal"
+      })
     ])
   ])
 }
@@ -42761,6 +42878,12 @@ var render = function() {
         _vm.showException
           ? _c("div", { staticClass: "alert alert-danger" }, [
               _c("p", [_vm._v(_vm._s(_vm.exceptionMsg))])
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.showMsg
+          ? _c("div", { staticClass: "alert alert-success" }, [
+              _c("p", [_vm._v(_vm._s(_vm.msg))])
             ])
           : _vm._e()
       ])
@@ -43287,7 +43410,7 @@ var render = function() {
       _vm.moreButton ? _c("div", [_c("moreIngredients")], 1) : _vm._e(),
       _vm._v(" "),
       _c("div", [
-        !_vm.loggedIn
+        !_vm.userLoggedIn
           ? _c("div", [
               _vm.addedToCart
                 ? _c("div", { staticClass: "alert alert-danger" }, [
@@ -60731,9 +60854,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-Vue.use(__webpack_require__(/*! vue-cookies */ "./node_modules/vue-cookies/vue-cookies.js"));
-
-var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+Vue.use(__webpack_require__(/*! vue-cookies */ "./node_modules/vue-cookies/vue-cookies.js")); // const axios = require('axios');
 
 
 

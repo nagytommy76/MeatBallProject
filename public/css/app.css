@@ -758,7 +758,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .modal-bg .modal .modal-body .cart-card .image {
-  height: 100%;
+  height: 150px;
+  width: 220px;
 }
 
 .modal-bg .modal .modal-body .cart-card .image img {
@@ -784,6 +785,14 @@ body::-webkit-scrollbar-thumb {
 .modal-bg .modal .modal-body .order h3 {
   font-size: 1.5rem;
   margin-bottom: 0.4rem;
+}
+
+.modal-bg .modal .modal-body .payment {
+  padding: 1rem;
+}
+
+.modal-bg .modal .modal-body .payment input {
+  font-size: 1.6rem;
 }
 
 .modal-bg .modal .modal-body .orderCard {

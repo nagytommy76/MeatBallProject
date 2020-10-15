@@ -21,7 +21,7 @@
       </div>
 
       <div >
-        <div v-if="!loggedIn">
+        <div v-if="!userLoggedIn">
           <div class="alert alert-danger" v-if="addedToCart">
             <p>Kérem jelentkezzen be!</p>
           </div>
@@ -34,7 +34,6 @@
       </div>
     </div>
     <div class="food_card_footer">
-      <!-- <form> -->
       <button @click="addCart" v-bind:id="pizzaId" class="btn btn-primary">Kosárba!</button>
       <strong class="price">
         Ár:
@@ -47,6 +46,8 @@
 <script>
 import moreIngredients from "./moreIngredients";
 import addToCart from '../../helpers/addToCart';
+
+import { mapGetters } from "vuex";
 
 export default {
   components: {
@@ -66,28 +67,30 @@ export default {
       finalPrice: this.pizzaPrice,
       foodType: 'pizza',
       addedToCart: false,
-      loggedIn: false,
     };
+  },
+  computed:{
+      ...mapGetters({
+          userLoggedIn: 'getUserLoggedIn',
+      }),
   },
   methods: {
     loadPlusIngreds(){
       this.moreButton = !this.moreButton;
     },
     async addCart(){
-      if(this.$parent.$parent.$parent.accessToken != null){
-        await addToCart.addFoodToCart(this.foodType, this.pizzaId, this.$parent.$parent.$parent.accessToken, this.selectedIngreds)
+      if(this.userLoggedIn){
+        await addToCart.addFoodToCart(this.foodType, this.pizzaId, this.selectedIngreds)
         .then(result => {
-            this.$parent.$parent.$store.commit('setCartItems', result);
+            this.$store.commit('setCartItems', result.data);
             this.selectedIngreds = [];
             this.finalPrice = this.pizzaPrice;
-            this.loggedIn = !this.loggedIn
             this.hideSuccessMsg();
             if(this.moreButton){
               this.moreButton = !this.moreButton;
             }
         });  
       }else{
-        // this.loggedIn = !this.loggedIn
         this.hideSuccessMsg();
       }
     },

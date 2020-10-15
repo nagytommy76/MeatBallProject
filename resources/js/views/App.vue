@@ -17,6 +17,7 @@
 import Footer from '../views/includes/Footer'
 import Navbar from '../views/includes/Navbar'
 import Welcome from '../views/includes/Welcome'
+
 import Modal from '../components/cart/modal'
 import OrdersModal from '../components/Auth/orderModal'
 

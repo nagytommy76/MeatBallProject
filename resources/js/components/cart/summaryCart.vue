@@ -33,6 +33,11 @@
                     </p>
                 </div>
             </div>
+            <div class="payment">
+                <label for="pay">Fizetés PayPal</label>
+                <input type="checkbox" name="pay" id="pay" v-model="showPaypal">
+            </div>
+            <div v-show="showPaypal" class="" ref="paypal"></div>
         </div>
     </div>
 </template>
@@ -42,6 +47,15 @@
 export default {
     name: "summaryCart",
     template: "summarycart",
+    data() {
+        return {
+            loaded: false,
+            showPaypal: false,
+        }
+    },
+    mounted(){
+        this.createPayPalScript()
+    },
     computed: {
         user: function(){
             return this.$parent.user;
@@ -49,6 +63,33 @@ export default {
         cartItems: function(){
             return this.$store.getters.getCartItems;
         }
+    },
+    methods:{
+        createPayPalScript(){
+            const script = document.createElement('script');
+            script.src = `
+                https://www.paypal.com/sdk/js?client-id=Ab5PkxGXmT-up_8VMgPOajxLZSe9PzyOh4eHxeCkJ6GiVd-4vfcTtG-cayvv8dHJL6Uv6CW6vNxOaFa4&currency=HUF
+            `
+            script.addEventListener('load', this.setLoaded)
+            document.body.appendChild(script)
+        },
+        setLoaded(){
+            // this.loaded = true
+            window.paypal
+            .Buttons({
+                createOrder: (data, actions) => {
+                    return actions.orders.create({
+                        purchase_units: [{
+                            amount: {
+                                currency_code: 'HUF',
+                                value: this.cartItems.totalPrice
+                            }
+                        }]
+                    })
+                }
+            })
+            .render(this.$refs.paypal)
+        },
     },
 }
 </script>
