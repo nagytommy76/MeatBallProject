@@ -34,8 +34,12 @@
                 </div>
             </div>
             <div class="payment">
-                <label for="pay">Fizetés PayPal</label>
-                <input type="checkbox" name="pay" id="pay" v-model="showPaypal">
+                <label>Fiztés Készpénzzel
+                    <input type="checkbox" name="cash" id="cash" checked>
+                </label>
+                <label>Fizetés PayPal-el
+                    <input type="checkbox" name="pay" id="pay" v-model="showPaypal">
+                </label>
             </div>
             <div v-show="showPaypal" class="" ref="paypal"></div>
         </div>
@@ -49,11 +53,10 @@ export default {
     template: "summarycart",
     data() {
         return {
-            loaded: false,
             showPaypal: false,
         }
     },
-    mounted(){
+    mounted() {
         this.createPayPalScript()
     },
     computed: {
@@ -71,14 +74,15 @@ export default {
                 https://www.paypal.com/sdk/js?client-id=Ab5PkxGXmT-up_8VMgPOajxLZSe9PzyOh4eHxeCkJ6GiVd-4vfcTtG-cayvv8dHJL6Uv6CW6vNxOaFa4&currency=HUF
             `
             script.addEventListener('load', this.setLoaded)
+            script.addEventListener('load', this.paymentMethod)
             document.body.appendChild(script)
         },
         setLoaded(){
-            // this.loaded = true
+
             window.paypal
             .Buttons({
                 createOrder: (data, actions) => {
-                    return actions.orders.create({
+                    return actions.order.create({
                         purchase_units: [{
                             amount: {
                                 currency_code: 'HUF',
@@ -86,10 +90,21 @@ export default {
                             }
                         }]
                     })
+                },
+                onApprove: function(data, actions) {
+                    // This function captures the funds from the transaction.
+                    return actions.order.capture().then((details) => {
+                        // This function shows a transaction success message to your buyer.
+                        // alert('Transaction completed by ' + details.payer.name.given_name);
+                        console.log(details)
+                    });
                 }
             })
             .render(this.$refs.paypal)
         },
+        paymentMethod(){
+
+        }
     },
 }
 </script>

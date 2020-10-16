@@ -23,13 +23,4 @@ export default class authHelper{
         })
         return await response.json()
     }
-    // static setExpirationToLocalSt(accessToken){
-    //     let hour = new Date();
-    //     hour.setHours(hour.getHours() + 2)
-    //     let data = {
-    //         accessToken,
-    //         'expiration': hour
-    //     }
-    //     localStorage.setItem('accessToken', JSON.stringify(data));
-    // }
 }

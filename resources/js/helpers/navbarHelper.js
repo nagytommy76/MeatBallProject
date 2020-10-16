@@ -17,7 +17,8 @@ export default class navbarHelper{
                 .then(response => {
                     store.dispatch('setUserName', '')
                     store.dispatch('setLoggedIn', false)
-                    localStorage.removeItem('accessToken');
+                    store.dispatch('setCartDefault')
+                    localStorage.removeItem('accessToken')
                 })                
             }); 
         }       

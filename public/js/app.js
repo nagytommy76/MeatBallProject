@@ -2942,12 +2942,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "summaryCart",
   template: "summarycart",
   data: function data() {
     return {
-      loaded: false,
       showPaypal: false
     };
   },
@@ -2967,15 +2970,15 @@ __webpack_require__.r(__webpack_exports__);
       var script = document.createElement('script');
       script.src = "\n                https://www.paypal.com/sdk/js?client-id=Ab5PkxGXmT-up_8VMgPOajxLZSe9PzyOh4eHxeCkJ6GiVd-4vfcTtG-cayvv8dHJL6Uv6CW6vNxOaFa4&currency=HUF\n            ";
       script.addEventListener('load', this.setLoaded);
+      script.addEventListener('load', this.paymentMethod);
       document.body.appendChild(script);
     },
     setLoaded: function setLoaded() {
       var _this = this;
 
-      // this.loaded = true
       window.paypal.Buttons({
         createOrder: function createOrder(data, actions) {
-          return actions.orders.create({
+          return actions.order.create({
             purchase_units: [{
               amount: {
                 currency_code: 'HUF',
@@ -2983,9 +2986,18 @@ __webpack_require__.r(__webpack_exports__);
               }
             }]
           });
+        },
+        onApprove: function onApprove(data, actions) {
+          // This function captures the funds from the transaction.
+          return actions.order.capture().then(function (details) {
+            // This function shows a transaction success message to your buyer.
+            // alert('Transaction completed by ' + details.payer.name.given_name);
+            console.log(details);
+          });
         }
       }).render(this.$refs.paypal);
-    }
+    },
+    paymentMethod: function paymentMethod() {}
   }
 });
 
@@ -42416,45 +42428,48 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("div", { staticClass: "payment" }, [
-        _c("label", { attrs: { for: "pay" } }, [_vm._v("Fizetés PayPal")]),
+        _vm._m(1),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.showPaypal,
-              expression: "showPaypal"
-            }
-          ],
-          attrs: { type: "checkbox", name: "pay", id: "pay" },
-          domProps: {
-            checked: Array.isArray(_vm.showPaypal)
-              ? _vm._i(_vm.showPaypal, null) > -1
-              : _vm.showPaypal
-          },
-          on: {
-            change: function($event) {
-              var $$a = _vm.showPaypal,
-                $$el = $event.target,
-                $$c = $$el.checked ? true : false
-              if (Array.isArray($$a)) {
-                var $$v = null,
-                  $$i = _vm._i($$a, $$v)
-                if ($$el.checked) {
-                  $$i < 0 && (_vm.showPaypal = $$a.concat([$$v]))
+        _c("label", [
+          _vm._v("Fizetés PayPal-el\n                "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.showPaypal,
+                expression: "showPaypal"
+              }
+            ],
+            attrs: { type: "checkbox", name: "pay", id: "pay" },
+            domProps: {
+              checked: Array.isArray(_vm.showPaypal)
+                ? _vm._i(_vm.showPaypal, null) > -1
+                : _vm.showPaypal
+            },
+            on: {
+              change: function($event) {
+                var $$a = _vm.showPaypal,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = null,
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 && (_vm.showPaypal = $$a.concat([$$v]))
+                  } else {
+                    $$i > -1 &&
+                      (_vm.showPaypal = $$a
+                        .slice(0, $$i)
+                        .concat($$a.slice($$i + 1)))
+                  }
                 } else {
-                  $$i > -1 &&
-                    (_vm.showPaypal = $$a
-                      .slice(0, $$i)
-                      .concat($$a.slice($$i + 1)))
+                  _vm.showPaypal = $$c
                 }
-              } else {
-                _vm.showPaypal = $$c
               }
             }
-          }
-        })
+          })
+        ])
       ]),
       _vm._v(" "),
       _c("div", {
@@ -42480,6 +42495,17 @@ var staticRenderFns = [
       _c("h1", { staticClass: "text-center py-1" }, [
         _vm._v("Rendelés véglegesítése")
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _vm._v("Fiztés Készpénzzel\n                "),
+      _c("input", {
+        attrs: { type: "checkbox", name: "cash", id: "cash", checked: "" }
+      })
     ])
   }
 ]
@@ -62410,16 +62436,7 @@ var authHelper = /*#__PURE__*/function () {
       }
 
       return logOut;
-    }() // static setExpirationToLocalSt(accessToken){
-    //     let hour = new Date();
-    //     hour.setHours(hour.getHours() + 2)
-    //     let data = {
-    //         accessToken,
-    //         'expiration': hour
-    //     }
-    //     localStorage.setItem('accessToken', JSON.stringify(data));
-    // }
-
+    }()
   }]);
 
   return authHelper;
@@ -62705,6 +62722,7 @@ var navbarHelper = /*#__PURE__*/function () {
           _authHelper__WEBPACK_IMPORTED_MODULE_0__["default"].logOut().then(function (response) {
             store.dispatch('setUserName', '');
             store.dispatch('setLoggedIn', false);
+            store.dispatch('setCartDefault');
             localStorage.removeItem('accessToken');
           });
         });
