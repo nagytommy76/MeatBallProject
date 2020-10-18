@@ -33,57 +33,99 @@
                     </p>
                 </div>
             </div>
-            <div class="payment">
-                <label>Fiztés Készpénzzel
-                    <input type="checkbox" name="cash" id="cash" checked>
-                </label>
+            <!-- <div class="payment">
                 <label>Fizetés PayPal-el
-                    <input type="checkbox" name="pay" id="pay" v-model="showPaypal">
+                    <input type="checkbox" name="payment-option" value="paypal" id="pay" v-model="showPaypal">
                 </label>
+                <small><sup>*</sup>Ha nem választ fizetési módot, automatikusan kp-val fizet!</small>
             </div>
-            <div v-show="showPaypal" class="" ref="paypal"></div>
+            <div v-show="showPaypal" ref="paypal"></div> -->
+            <div class="payment">
+                <h3>Fizetési opció kiválasztása</h3>
+                <label>
+                    Fizetés PayPal-el vagy kártyával
+                    <input @change="showPaymentContainer" type="radio" name="payment-option" value="paypal" v-model="payment">
+                    <span id="paypal-marks-container"></span>
+                </label>
+
+                <label>
+                    Fizetés Készpénzzel
+                    <input @change="showPaymentContainer" type="radio" name="payment-option" value="alternate" v-model="payment">
+                    <i class="fas fa-money-bill-wave fa-2x"></i>
+                </label>
+
+                <div v-show="showPaypal" ref="paypal"></div>
+                <div v-show="showAlternatePay" id="alternate-button-container">
+                    <h3>A fizetés készpénzzel a futárnál történik</h3>
+                </div>
+                <div class="alert alert-success" v-if="showAlert">
+                    <p></p>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
     name: "summaryCart",
     template: "summarycart",
     data() {
         return {
-            showPaypal: false,
+            payment: 'alternate',
+            showAlert: false,
         }
     },
     mounted() {
         this.createPayPalScript()
     },
     computed: {
+        ...mapGetters({
+            cartItems: 'getCartItems',
+        }),
+        showPaypal:{
+            get(){
+                return this.$parent.showPayPal
+            },
+            set(value){
+                this.$parent.showPayPal = value
+            }
+        },
+        showAlternatePay:{
+            get(){
+                return this.$parent.showAlternatePayment
+            },
+            set(value){
+                this.$parent.showAlternatePayment = value
+            }
+        },
         user: function(){
             return this.$parent.user;
         },
-        cartItems: function(){
-            return this.$store.getters.getCartItems;
-        }
     },
     methods:{
+        ...mapActions({
+            setPayPalDetails: 'setPayPalDetails',
+            setPaidWithPP: 'setPaidWithPP',
+        }),
         createPayPalScript(){
             const script = document.createElement('script');
             script.src = `
-                https://www.paypal.com/sdk/js?client-id=Ab5PkxGXmT-up_8VMgPOajxLZSe9PzyOh4eHxeCkJ6GiVd-4vfcTtG-cayvv8dHJL6Uv6CW6vNxOaFa4&currency=HUF
+                https://www.paypal.com/sdk/js?client-id=Ab5PkxGXmT-up_8VMgPOajxLZSe9PzyOh4eHxeCkJ6GiVd-4vfcTtG-cayvv8dHJL6Uv6CW6vNxOaFa4&currency=HUF&components=buttons,marks
             `
             script.addEventListener('load', this.setLoaded)
-            script.addEventListener('load', this.paymentMethod)
+            script.addEventListener('load', this.setPayment)
             document.body.appendChild(script)
         },
-        setLoaded(){
-
-            window.paypal
+        setLoaded: function() {
+            paypal
             .Buttons({
+                locale: 'hu_HU',
                 createOrder: (data, actions) => {
                     return actions.order.create({
-                        purchase_units: [{
+                        purchase_units: [{                            
                             amount: {
                                 currency_code: 'HUF',
                                 value: this.cartItems.totalPrice
@@ -91,18 +133,38 @@ export default {
                         }]
                     })
                 },
-                onApprove: function(data, actions) {
-                    // This function captures the funds from the transaction.
-                    return actions.order.capture().then((details) => {
-                        // This function shows a transaction success message to your buyer.
-                        // alert('Transaction completed by ' + details.payer.name.given_name);
-                        console.log(details)
-                    });
+                onApprove: async (data, actions) => {
+                    const order = await actions.order.capture()
+                    console.log(order)
+                    const finalDetails = {
+                        create_time: order.create_time,
+                        id: order.id,
+                        payer: order.payer,
+                        purchase_units: order.purchase_units,
+                        status: order.status,
+                    }
+                    this.setPaidWithPP(true)
+                    this.setPayPalDetails(finalDetails);
+                    this.$parent.showMakeOrderBTN()
+                    // Ide jön majd egy köszi, h fizettél (alert?! Xmp-ig), és mehet tovább a rendelés leadása gomb
                 }
             })
             .render(this.$refs.paypal)
         },
-        paymentMethod(){
+        setPayment(){
+            paypal.Marks().render('#paypal-marks-container');
+        },
+        showPaymentContainer(event){
+            if(event.target.value == 'paypal'){
+                this.showPaypal = true
+                this.showAlternatePay = false
+            }else{
+                this.showAlternatePay = true
+                this.showPaypal = false
+            }
+            this.$parent.showMakeOrderBTN()
+        },
+        showSuccessAlertMessage(){
 
         }
     },

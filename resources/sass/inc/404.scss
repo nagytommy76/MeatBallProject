@@ -1,0 +1,43 @@
+.error-page-container{
+    margin: auto;
+    min-height: 75vh;
+    background-color: rgb(254, 254, 254);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .error-image{
+        img{
+            height: 700px;
+            width: 700px;
+            object-fit: cover;
+        }       
+    }
+    .error-disc{
+        color: $dark;
+        h1{
+            font-size: 2.9rem;
+        }
+    }
+}
+
+@media(max-width: $mobile-width){
+    .error-page-container{
+        flex-direction: column;
+
+        .error-image{
+            img{
+                height: 280px;
+                width: 280px;
+                object-fit: cover;
+            }       
+        }
+        .error-disc{
+            h1{
+                width: 80%;
+                font-size: 1.9rem;
+                margin: auto;
+            }
+        }
+    }
+}

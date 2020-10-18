@@ -1,7 +1,6 @@
 export default{
     state: {
         cartItems: {
-            message: 'Unauthenticated',
             totalPrice: 0,
             totalQty: 0
         },

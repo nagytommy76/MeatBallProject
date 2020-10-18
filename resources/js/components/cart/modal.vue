@@ -7,9 +7,9 @@
                 <button v-show="step>0 && step != 3" @click="previousPage" class="btn btn-delete-dark">Vissza</button>
                 <span v-show="step<pages.length-1 && step != 2">
                     <button v-show="this.isUserinfoFilled || step != 1" @click="nextPage" class="btn btn-confirm-dark" >Tovább</button>
-                </span>
-                        
-                <button @click="makeOrder" v-show="step == pages.length-2" class="btn btn-confirm-dark">Rendelés Leadása!</button>
+                </span>   
+                <!-- <button @click="makeOrder" v-show="step == pages.length-2 && (showPayPal && paidWithPP)" class="btn btn-confirm-dark">Rendelés Leadása!</button> -->
+                <button @click="makeOrder" v-show="showMakeOrder" class="btn btn-confirm-dark">Rendelés Leadása!</button>
                     
             </div>
             <Loading :isLoading="isLoading" />
@@ -24,7 +24,8 @@ import summaryCart from './summaryCart';
 import afterOrder from './afterOrder';
 
 import Loading from '../baseComponents/loading';
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
+
 export default {
     name: 'Modal',
     components: {
@@ -41,6 +42,10 @@ export default {
             isUserinfoFilled: false,
             user: {},
             isLoading: false,
+
+            showMakeOrder: false,
+            showPayPal: false,
+            showAlternatePayment: true,
         }
     },
     computed: {
@@ -50,12 +55,14 @@ export default {
         ...mapGetters({
             totalQty: 'getTotalQty',
             userLoggedIn: 'getUserLoggedIn',
-        })
+            paidWithPP: 'getPaid',
+        }),
     },
     created(){
         if(this.userLoggedIn){
+            // ÁTTENNI VUEX-BE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             this.getUserInfo();
-        }        
+        }  
     },
     methods: {
         getUserInfo(){ 
@@ -79,15 +86,30 @@ export default {
             })
         },
         nextPage(){    
-            this.step++;                                   
+            this.step++;  
+            this.showMakeOrderBTN()                            
         },
         previousPage(){
             this.step--  
+            this.showMakeOrderBTN() 
         },
         setDefaultPage(){
             setTimeout(() => {
                 this.step = 0
             }, 5000)
+        },
+        showMakeOrderBTN(){
+            if (this.step == this.pages.length-2) {
+                if (this.showAlternatePayment) {
+                    this.showMakeOrder = true
+                }else{
+                    this.showMakeOrder = false
+                    if (this.paidWithPP) {
+                        this.showMakeOrder = true
+                    }
+                    
+                }               
+            }
         }
     }
 }

@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
+Route::get('/{any}', function () {
+    return view('layouts.app');
+})->where('any', '.*');
+
 // ADMINS
 Route::prefix('admin')->group(function() {
     Route::middleware(['guest'])->get('/login', 'AdminsControllers\AdminLoginController@showLoginForm')->name('admin.login');

@@ -1,3 +1,3 @@
 module.exports = {
-    publicPath: '/foods/',
+    publicPath: '/MeatBallProject/public',
 }

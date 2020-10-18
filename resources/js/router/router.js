@@ -14,6 +14,8 @@ import drinkFilter from '../components/drink/drinkFilter'
 import mealFilter from '../components/meal/mealFilter'
 import pastaFilter from '../components/pasta/pastaFilter'
 
+import pageNotFound404 from '../views/errors/404';
+
 
 const routes = [
     {
@@ -61,6 +63,10 @@ const routes = [
         path: '/pasta',
         name: 'Pasta',
         component: pastaFilter
+    },
+    {
+        path: '*',
+        component: pageNotFound404,
     },
 ];
 

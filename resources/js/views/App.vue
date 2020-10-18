@@ -21,7 +21,6 @@ import Welcome from '../views/includes/Welcome'
 import Modal from '../components/cart/modal'
 import OrdersModal from '../components/Auth/orderModal'
 
-import { mapState, mapActions } from "vuex";
 
 export default {
     name: 'App',

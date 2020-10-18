@@ -1122,6 +1122,49 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+.error-page-container {
+  margin: auto;
+  min-height: 75vh;
+  background-color: #fefefe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-page-container .error-image img {
+  height: 700px;
+  width: 700px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.error-page-container .error-disc {
+  color: #333;
+}
+
+.error-page-container .error-disc h1 {
+  font-size: 2.9rem;
+}
+
+@media (max-width: 720px) {
+  .error-page-container {
+    flex-direction: column;
+  }
+
+  .error-page-container .error-image img {
+    height: 280px;
+    width: 280px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+
+  .error-page-container .error-disc h1 {
+    width: 80%;
+    font-size: 1.9rem;
+    margin: auto;
+  }
+}
+
 .card-container {
   min-height: 100vh;
   display: flex;
