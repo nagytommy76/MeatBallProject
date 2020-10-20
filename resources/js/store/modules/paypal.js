@@ -44,6 +44,14 @@ export default{
             state.commit('setPayer', details.payer);
             state.commit('setPurhase', details.purchase_units);
             state.commit('setCreate', details.create_time);
-        }
+        },
+        setPayPalDefault(state){
+            state.commit('setPaid', false)
+            state.commit('setStatus', '');
+            state.commit('setTransactionID', '');
+            state.commit('setPayer', {});
+            state.commit('setPurhase', []);
+            state.commit('setCreate', '');
+        },
     },
 }

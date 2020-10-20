@@ -80,7 +80,7 @@ export default {
         async logTheUserIn(){
             axios.get('/sanctum/csrf-cookie')
             .then(cookie =>{
-                axios.post('/api/login', {
+                axios.post('api/login', {
                     formData: this.formData
                 }).then(login => {
                     if(login.status == 200){

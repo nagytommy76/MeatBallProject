@@ -11,9 +11,7 @@
                     <form method="POST" action="{{ route('admin.login.submit') }}">
                         @csrf
                         <div class="form-group">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Cím') }}</label>
-
-                            {{-- <div class="col-md-6"> --}}
+                            <label for="email">E-Mail Cím</label>
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
@@ -21,11 +19,10 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            {{-- </div> --}}
                         </div>
 
                         <div class="form-group">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Jelszó') }}</label>
+                            <label for="password">Jelszó</label>
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
@@ -37,9 +34,7 @@
                 <div class="card-footer">
                     <div class="form-group">
                         <div>
-                            <button type="submit" class="btn btn-primary">
-                                {{ __('ADMIN Belépés') }}
-                            </button>
+                            <input type="submit" class="btn btn-primary" value="ADMIN Belépés">
                         </div>
                     </div>
                 </div>

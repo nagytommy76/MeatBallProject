@@ -7,7 +7,6 @@
     position: fixed;
     width: 100%;
     height: 100vh;
-    // background: rgba($color: #333, $alpha: .4);
     top: 0;
     left: 0;
     z-index: 999;
@@ -20,7 +19,7 @@
         color: black;
         background-color: white;
         overflow-x: hidden;
-        height: 70%;
+        max-height: 85%;
         width: 670px;
         padding: 1rem;
         box-shadow: black 6px 6px 20px;

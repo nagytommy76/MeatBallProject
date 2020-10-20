@@ -5,13 +5,14 @@ namespace App\Http\Controllers\AdminsControllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+// use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Auth;
 
 class AdminLoginController extends Controller
 {
+    // use AuthenticatesUsers;
     public function __construct(){
-        // Csak azok akik nem adminként vannak belépve...
         $this->middleware('guest:admin');
     }
 
@@ -31,14 +32,20 @@ class AdminLoginController extends Controller
             return redirect('admin/login')->withErrors($valid)->withInput($request->all());
         }
 
-        // attemt to log the user in
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
-            // if success, redirect to their intented location
             return redirect('admin/pizza');
         }        
-
-        // if unsuccessfull, then redirect back to the login with the form data
         return redirect()->back()->withErrors($valid)->withInput();
+    }
 
+    public function adminLogout(Request $request)
+    {
+        Auth::guard('admin')->logout();
+
+        $request->session()->invalidate(); 
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }

@@ -6,7 +6,6 @@
             <p>Foglaljon aztalt, vagy rendeljen házhoz.</p>
             <p>Térképezze fel ételkínálatunkat</p>
             <div class="btn-group">
-                <a href="#foodOrder"><button class="btn btn-primary">Étel Rendelés</button></a>
                 <a href="#aboutMe"><button class="btn btn-primary">Magamról</button></a>
             </div>  
         </div>

@@ -2,26 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-Auth::routes();
-
-Route::get('/{any}', function () {
-    return view('layouts.app');
-})->where('any', '.*');
-
 // ADMINS
 Route::prefix('admin')->group(function() {
-    Route::middleware(['guest'])->get('/login', 'AdminsControllers\AdminLoginController@showLoginForm')->name('admin.login');
-    Route::post('/login', 'AdminsControllers\AdminLoginController@login')->name('admin.login.submit');
+    Route::middleware(['guest'])->get('/login', 'AdminsControllers\AdminLoginController@showLoginForm' )->name('admin.login');
+    Route::post('/login/submit', 'AdminsControllers\AdminLoginController@login')->name('admin.login.submit');
+    Route::get('/logout' , 'AdminsControllers\AdminLoginController@adminLogout')->name('admin.logout');
+
     // Show Pizza Manager....
     Route::get('/pizza', 'AdminsControllers\AdminPizzaController@index')->name('admin.pizza');
 
@@ -87,17 +73,6 @@ Route::prefix('admin')->group(function() {
 
 });
 
-Route::get('/', function () {
-    return view('inc.welcome');
-})->name('home');
-
-// Users Controller
-// Route::resource('/userinfo', 'UserControllers\UserInfoController');
-
-Route::get('/foods', function () {
-    return view('foods.foods');
-})->name('foods');
-
-Route::get('/login' , 'Auth\LoginController@showLoginForm')->name('login');
-
-Route::get('/logout' , 'Auth\LoginController@logout')->name('user.logout');
+Route::get('/{any}', function () {
+    return view('layouts.app');
+})->where('any', '.*');

@@ -2016,7 +2016,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 axios.get('/sanctum/csrf-cookie').then(function (cookie) {
-                  axios.post('/api/login', {
+                  axios.post('api/login', {
                     formData: _this.formData
                   }).then(function (login) {
                     if (login.status == 200) {
@@ -2832,7 +2832,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.getUserInfo();
     }
   },
-  methods: {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_6__["mapActions"])({
+    setCartDefault: 'setCartDefault',
+    setPayPalDefault: 'setPayPalDefault'
+  }), {
     getUserInfo: function getUserInfo() {
       var _this = this;
 
@@ -2856,7 +2859,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _this2.isLoading = true;
                 axios.post('api/saveOrder').then(function (saveOrder) {
                   if (!saveOrder.data.exception) {
-                    _this2.$store.dispatch('setCartDefault');
+                    _this2.setCartDefault();
+
+                    _this2.setPayPalDefault();
 
                     _this2.step = 3;
 
@@ -2904,7 +2909,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       }
     }
-  }
+  })
 });
 
 /***/ }),
@@ -3008,14 +3013,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       payment: 'alternate',
-      showAlert: false
+      showSuccessPayPal: false,
+      showPayment: true
     };
   },
   mounted: function mounted() {
     this.createPayPalScript();
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
-    cartItems: 'getCartItems'
+    cartItems: 'getCartItems',
+    transactionID: 'getTransactionID'
   }), {
     showPaypal: {
       get: function get() {
@@ -3075,23 +3082,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
                   case 2:
                     order = _context.sent;
-                    console.log(order);
-                    finalDetails = {
-                      create_time: order.create_time,
-                      id: order.id,
-                      payer: order.payer,
-                      purchase_units: order.purchase_units,
-                      status: order.status
-                    };
 
-                    _this.setPaidWithPP(true);
+                    if (order.status === 'COMPLETED') {
+                      finalDetails = {
+                        create_time: order.create_time,
+                        id: order.id,
+                        payer: order.payer,
+                        purchase_units: order.purchase_units,
+                        status: order.status
+                      };
 
-                    _this.setPayPalDetails(finalDetails);
+                      _this.setPaidWithPP(true);
 
-                    _this.$parent.showMakeOrderBTN(); // Ide jön majd egy köszi, h fizettél (alert?! Xmp-ig), és mehet tovább a rendelés leadása gomb
+                      _this.setPayPalDetails(finalDetails);
+
+                      _this.showSuccessAlertMessage();
+
+                      _this.hidePaymentOptionsAfterPay();
+
+                      _this.$parent.showMakeOrderBTN();
+                    } // Ide jön majd egy köszi, h fizettél (alert?! Xmp-ig), és mehet tovább a rendelés leadása gomb
 
 
-                  case 8:
+                  case 4:
                   case "end":
                     return _context.stop();
                 }
@@ -3121,7 +3134,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       this.$parent.showMakeOrderBTN();
     },
-    showSuccessAlertMessage: function showSuccessAlertMessage() {}
+    showSuccessAlertMessage: function showSuccessAlertMessage() {
+      this.showSuccessPayPal = true;
+    },
+    hidePaymentOptionsAfterPay: function hidePaymentOptionsAfterPay() {
+      this.showPayment = false;
+    }
   })
 });
 
@@ -42549,99 +42567,112 @@ var render = function() {
         2
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "payment" }, [
-        _c("h3", [_vm._v("Fizetési opció kiválasztása")]),
-        _vm._v(" "),
-        _c("label", [
-          _vm._v(
-            "\n                Fizetés PayPal-el vagy kártyával\n                "
-          ),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.payment,
-                expression: "payment"
-              }
-            ],
-            attrs: { type: "radio", name: "payment-option", value: "paypal" },
-            domProps: { checked: _vm._q(_vm.payment, "paypal") },
-            on: {
-              change: [
-                function($event) {
-                  _vm.payment = "paypal"
+      _vm.showPayment
+        ? _c("div", { staticClass: "payment" }, [
+            _c("h3", [_vm._v("Fizetési opció kiválasztása")]),
+            _vm._v(" "),
+            _c("label", [
+              _vm._v(
+                "\n                Fizetés PayPal-el vagy kártyával\n                "
+              ),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.payment,
+                    expression: "payment"
+                  }
+                ],
+                attrs: {
+                  type: "radio",
+                  name: "payment-option",
+                  value: "paypal"
                 },
-                _vm.showPaymentContainer
-              ]
-            }
-          }),
-          _vm._v(" "),
-          _c("span", { attrs: { id: "paypal-marks-container" } })
-        ]),
-        _vm._v(" "),
-        _c("label", [
-          _vm._v("\n                Fizetés Készpénzzel\n                "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.payment,
-                expression: "payment"
-              }
-            ],
-            attrs: {
-              type: "radio",
-              name: "payment-option",
-              value: "alternate"
-            },
-            domProps: { checked: _vm._q(_vm.payment, "alternate") },
-            on: {
-              change: [
-                function($event) {
-                  _vm.payment = "alternate"
+                domProps: { checked: _vm._q(_vm.payment, "paypal") },
+                on: {
+                  change: [
+                    function($event) {
+                      _vm.payment = "paypal"
+                    },
+                    _vm.showPaymentContainer
+                  ]
+                }
+              }),
+              _vm._v(" "),
+              _c("span", { attrs: { id: "paypal-marks-container" } })
+            ]),
+            _vm._v(" "),
+            _c("label", [
+              _vm._v("\n                Fizetés Készpénzzel\n                "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.payment,
+                    expression: "payment"
+                  }
+                ],
+                attrs: {
+                  type: "radio",
+                  name: "payment-option",
+                  value: "alternate"
                 },
-                _vm.showPaymentContainer
-              ]
-            }
-          }),
-          _vm._v(" "),
-          _c("i", { staticClass: "fas fa-money-bill-wave fa-2x" })
-        ]),
-        _vm._v(" "),
-        _c("div", {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.showPaypal,
-              expression: "showPaypal"
-            }
-          ],
-          ref: "paypal"
-        }),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            directives: [
+                domProps: { checked: _vm._q(_vm.payment, "alternate") },
+                on: {
+                  change: [
+                    function($event) {
+                      _vm.payment = "alternate"
+                    },
+                    _vm.showPaymentContainer
+                  ]
+                }
+              }),
+              _vm._v(" "),
+              _c("i", { staticClass: "fas fa-money-bill-wave fa-2x" })
+            ]),
+            _vm._v(" "),
+            _c("div", {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.showPaypal,
+                  expression: "showPaypal"
+                }
+              ],
+              ref: "paypal"
+            }),
+            _vm._v(" "),
+            _c(
+              "div",
               {
-                name: "show",
-                rawName: "v-show",
-                value: _vm.showAlternatePay,
-                expression: "showAlternatePay"
-              }
-            ],
-            attrs: { id: "alternate-button-container" }
-          },
-          [_c("h3", [_vm._v("A fizetés készpénzzel a futárnál történik")])]
-        ),
-        _vm._v(" "),
-        _vm.showAlert
-          ? _c("div", { staticClass: "alert alert-success" }, [_c("p")])
-          : _vm._e()
-      ])
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.showAlternatePay,
+                    expression: "showAlternatePay"
+                  }
+                ],
+                attrs: { id: "alternate-button-container" }
+              },
+              [_c("h3", [_vm._v("A fizetés készpénzzel a futárnál történik")])]
+            )
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.showSuccessPayPal
+        ? _c("div", { staticClass: "alert alert-success" }, [
+            _c("p", [
+              _vm._v(
+                "PayPal fizetés sikeres volt! Tranzakció szám: " +
+                  _vm._s(_vm.transactionID)
+              )
+            ])
+          ])
+        : _vm._e()
     ])
   ])
 }
@@ -43983,10 +44014,7 @@ var render = function() {
       _c("li", { staticClass: "nav-item dropdown" }, [
         _c(
           "a",
-          {
-            staticClass: "nav-link dropdown-toggle",
-            attrs: { href: "#", id: "foodOrder" }
-          },
+          { staticClass: "nav-link dropdown", attrs: { id: "foodOrder" } },
           [_vm._v("Étel Rendelés")]
         ),
         _vm._v(" "),
@@ -43996,7 +44024,7 @@ var render = function() {
           [
             _c(
               "router-link",
-              { staticClass: "dropdown-item", attrs: { to: "/pizza" } },
+              { staticClass: "dropdown-menu-item", attrs: { to: "/pizza" } },
               [
                 _c("i", { staticClass: "fas fa-pizza-slice" }),
                 _vm._v("\n                    Pizza\n                ")
@@ -44005,7 +44033,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "router-link",
-              { staticClass: "dropdown-item", attrs: { to: "/soup" } },
+              { staticClass: "dropdown-menu-item", attrs: { to: "/soup" } },
               [
                 _c("i", { staticClass: "fas fa-soap" }),
                 _vm._v("\n                    Levesek\n                ")
@@ -44014,7 +44042,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "router-link",
-              { staticClass: "dropdown-item", attrs: { to: "/dessert" } },
+              { staticClass: "dropdown-menu-item", attrs: { to: "/dessert" } },
               [
                 _c("i", { staticClass: "fas fa-birthday-cake" }),
                 _vm._v("\n                    Desszertek\n                ")
@@ -44023,7 +44051,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "router-link",
-              { staticClass: "dropdown-item", attrs: { to: "/drink" } },
+              { staticClass: "dropdown-menu-item", attrs: { to: "/drink" } },
               [
                 _c("i", { staticClass: "fas fa-wine-glass-alt" }),
                 _vm._v("\n                    Italok\n                ")
@@ -44032,7 +44060,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "router-link",
-              { staticClass: "dropdown-item", attrs: { to: "/meal" } },
+              { staticClass: "dropdown-menu-item", attrs: { to: "/meal" } },
               [
                 _c("i", { staticClass: "fas fa-weight" }),
                 _vm._v("\n                    Főételek\n                ")
@@ -44041,7 +44069,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "router-link",
-              { staticClass: "dropdown-item", attrs: { to: "/pasta" } },
+              { staticClass: "dropdown-menu-item", attrs: { to: "/pasta" } },
               [
                 _c("i", { staticClass: "fas fa-weight" }),
                 _vm._v("\n                    Tészta Ételek\n                ")
@@ -44116,7 +44144,7 @@ var render = function() {
             "a",
             {
               staticClass: "nav-link dropdown-toggle",
-              attrs: { id: "navbarDropdown", href: "#" }
+              attrs: { id: "navbarDropdown" }
             },
             [_vm._v(_vm._s(_vm.userName)), _c("span", { staticClass: "caret" })]
           ),
@@ -44127,7 +44155,7 @@ var render = function() {
             _c(
               "a",
               {
-                staticClass: "dropdown-item modal-button",
+                staticClass: "dropdown-menu-item",
                 on: {
                   click: function($event) {
                     _vm.$parent.showOrdersModal = true
@@ -44143,7 +44171,7 @@ var render = function() {
             _c(
               "a",
               {
-                staticClass: "dropdown-item modal-button",
+                staticClass: "dropdown-menu-item",
                 on: {
                   click: function($event) {
                     _vm.$parent.showCartModal = true
@@ -44171,7 +44199,10 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "a",
-      { staticClass: "dropdown-item", attrs: { id: "logOutBtn", href: "#" } },
+      {
+        staticClass: "dropdown-menu-item",
+        attrs: { id: "logOutBtn", href: "#" }
+      },
       [
         _c("i", { staticClass: "fas fa-sign-out-alt" }),
         _vm._v(" \n                    Kilépés\n                ")
@@ -44221,12 +44252,6 @@ var staticRenderFns = [
           _c("p", [_vm._v("Térképezze fel ételkínálatunkat")]),
           _vm._v(" "),
           _c("div", { staticClass: "btn-group" }, [
-            _c("a", { attrs: { href: "#foodOrder" } }, [
-              _c("button", { staticClass: "btn btn-primary" }, [
-                _vm._v("Étel Rendelés")
-              ])
-            ]),
-            _vm._v(" "),
             _c("a", { attrs: { href: "#aboutMe" } }, [
               _c("button", { staticClass: "btn btn-primary" }, [
                 _vm._v("Magamról")
@@ -61976,6 +62001,14 @@ __webpack_require__.r(__webpack_exports__);
       state.commit('setPayer', details.payer);
       state.commit('setPurhase', details.purchase_units);
       state.commit('setCreate', details.create_time);
+    },
+    setPayPalDefault: function setPayPalDefault(state) {
+      state.commit('setPaid', false);
+      state.commit('setStatus', '');
+      state.commit('setTransactionID', '');
+      state.commit('setPayer', {});
+      state.commit('setPurhase', []);
+      state.commit('setCreate', '');
     }
   }
 });

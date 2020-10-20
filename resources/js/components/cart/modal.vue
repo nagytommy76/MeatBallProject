@@ -24,7 +24,7 @@ import summaryCart from './summaryCart';
 import afterOrder from './afterOrder';
 
 import Loading from '../baseComponents/loading';
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
     name: 'Modal',
@@ -65,6 +65,10 @@ export default {
         }  
     },
     methods: {
+        ...mapActions({
+            setCartDefault: 'setCartDefault',
+            setPayPalDefault: 'setPayPalDefault'
+        }),
         getUserInfo(){ 
             axios.get('api/userInfoFilled').then(user => {
                 if (user.status == 200) {
@@ -77,7 +81,8 @@ export default {
             this.isLoading = true;
             axios.post('api/saveOrder').then(saveOrder => {
                 if (!saveOrder.data.exception) {
-                    this.$store.dispatch('setCartDefault')
+                    this.setCartDefault()
+                    this.setPayPalDefault()
                     this.step = 3
                     this.setDefaultPage()
                     this.isLoading = false;

@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Illuminate\Http\Request;
 use Auth;
@@ -14,17 +13,10 @@ use Illuminate\Support\Facades\Hash;
 
 class LoginController extends BaseAuthController
 {   
-    use AuthenticatesUsers;
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-    }
-
-    public function showLoginForm()
-    {
-        return view('auth.login');   
-    }
-    
+    }    
 
     public function login(Request $request){
         $formData = $request->all()['formData'];

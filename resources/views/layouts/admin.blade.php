@@ -19,10 +19,9 @@
 
 </head>
 <body id="admin">
-    {{-- Ide jön csak az admin navbar! --}}
     <main id="admin">
         @include('inc.admin-navbar')
         @yield('admin')
+        @include('inc.admin-footer')
     </main>
-    {{-- Talán valamiéyen admin footer --}}
 </body>

@@ -17,7 +17,6 @@ class UserInfoController extends Controller
     private $user;
     
     public function __construct(){
-        $this->middleware('auth');
         if (Auth::user()) {
             $this->user = Auth::user();
         }

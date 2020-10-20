@@ -40,7 +40,7 @@
                 <small><sup>*</sup>Ha nem választ fizetési módot, automatikusan kp-val fizet!</small>
             </div>
             <div v-show="showPaypal" ref="paypal"></div> -->
-            <div class="payment">
+            <div v-if="showPayment" class="payment">
                 <h3>Fizetési opció kiválasztása</h3>
                 <label>
                     Fizetés PayPal-el vagy kártyával
@@ -58,9 +58,9 @@
                 <div v-show="showAlternatePay" id="alternate-button-container">
                     <h3>A fizetés készpénzzel a futárnál történik</h3>
                 </div>
-                <div class="alert alert-success" v-if="showAlert">
-                    <p></p>
-                </div>
+            </div>
+            <div class="alert alert-success" v-if="showSuccessPayPal">
+                <p>PayPal fizetés sikeres volt! Tranzakció szám: {{ transactionID }}</p>
             </div>
         </div>
     </div>
@@ -75,7 +75,8 @@ export default {
     data() {
         return {
             payment: 'alternate',
-            showAlert: false,
+            showSuccessPayPal: false,
+            showPayment: true,
         }
     },
     mounted() {
@@ -84,6 +85,7 @@ export default {
     computed: {
         ...mapGetters({
             cartItems: 'getCartItems',
+            transactionID: 'getTransactionID'
         }),
         showPaypal:{
             get(){
@@ -135,17 +137,20 @@ export default {
                 },
                 onApprove: async (data, actions) => {
                     const order = await actions.order.capture()
-                    console.log(order)
-                    const finalDetails = {
+                    if (order.status === 'COMPLETED') {
+                        const finalDetails = {
                         create_time: order.create_time,
                         id: order.id,
                         payer: order.payer,
                         purchase_units: order.purchase_units,
                         status: order.status,
-                    }
-                    this.setPaidWithPP(true)
-                    this.setPayPalDetails(finalDetails);
-                    this.$parent.showMakeOrderBTN()
+                        }
+                        this.setPaidWithPP(true)
+                        this.setPayPalDetails(finalDetails);
+                        this.showSuccessAlertMessage()
+                        this.hidePaymentOptionsAfterPay()
+                        this.$parent.showMakeOrderBTN()
+                    }                    
                     // Ide jön majd egy köszi, h fizettél (alert?! Xmp-ig), és mehet tovább a rendelés leadása gomb
                 }
             })
@@ -165,7 +170,10 @@ export default {
             this.$parent.showMakeOrderBTN()
         },
         showSuccessAlertMessage(){
-
+            this.showSuccessPayPal = true;            
+        },
+        hidePaymentOptionsAfterPay(){
+            this.showPayment = false
         }
     },
 }
