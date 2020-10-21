@@ -36,7 +36,7 @@
             background: $primary;
         }
 
-        .modal-body{
+        &-body{
             .cart-body{
                 padding: 0 1rem 0 1rem;
             }
@@ -107,10 +107,15 @@
                 .orders{
                     display: grid;
                     grid-template-columns: repeat(2, 1fr);
+                    .orderItem{
+                        ul{
+                            list-style: none;
+                        }
+                    }
                 }                
             }
         }
-        .modal-footer{
+        &-footer{
             margin: 1rem;
             display: flex;
         }
@@ -165,7 +170,8 @@
     .modal-bg{
         .modal{
             height: 85%;
-            .modal-body{
+            width: 650px;
+            &-body{
                 .cart-card{
                     display: flex;
                     flex-direction: column;
@@ -180,7 +186,7 @@
                         }                    
                     }
                     .image{
-                        height: 80%;
+                        width: 100%;
                         img{
                             object-fit: cover;                    
                         }
@@ -194,6 +200,11 @@
                     .orders{
                         grid-template-columns: repeat(1, 1fr);
                     }   
+                }
+            }
+            &-footer{
+                .modal-price{
+                    font-size: 1.3rem;
                 }
             }
         }

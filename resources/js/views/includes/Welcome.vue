@@ -1,19 +1,23 @@
 <template>
     <div>
         <header class="main-header">
-        <div class="main-title">
-            <h1>Üdvözöljük a <span class="primary-color">Húsgolyó</span> Étterem Honlapján!</h1>
-            <p>Foglaljon aztalt, vagy rendeljen házhoz.</p>
-            <p>Térképezze fel ételkínálatunkat</p>
-            <div class="btn-group">
-                <a href="#aboutMe"><button class="btn btn-primary">Magamról</button></a>
-            </div>  
-        </div>
-    </header>
+            <div class="main-title">
+                <h1>Üdvözöljük a <span class="primary-color">Húsgolyó</span> Étterem Honlapján!</h1>
+                <p>Köszöntöm a bemutatkozó, portfólió oldalamon!</p>
+                <p>Az oldal célja a jelenlegi tudásom bemutatása</p>
+                <div class="btn-group">
+                    <a href="#aboutMe"><button class="btn btn-primary">Magamról</button></a>
+                </div>  
+            </div>
+        </header>
     <section id="aboutMe" class="main-content">
         <aside class="main-left-content">
             <img class="image" src="../../../img/final.jpg" alt="IAM">
-            <h1 class="left-title"><span class="primary-color">Nagy Tamás</span><div>Autodidakta back-end fejlesztő</div></h1>
+            <div class="left-title">
+                <span class="primary-color">Nagy Tamás</span>
+                <div>Pályakezdő</div>
+                <div>Fullstack Webfejlesztő</div>
+            </div>
             <div class="stack-icon">
                 <h4 class="icon-title">Back-end technológiák</h4>
                 <div class="grid-tooltip">
@@ -68,6 +72,13 @@
                     <span><i class="fab fa-windows"></i></span>
                 </div> 
             </div>
+            <section class="summary">
+                <h1 class="summary-header my-0">Rövid bemutatkozás</h1>
+                <div class="summary-body">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab voluptas natus commodi nesciunt alias consequuntur error consectetur quidem iure hic.</p>
+                    <p></p>
+                </div>
+            </section>
             <footer class="footer-contact">
                 <h4 class="icon-title">Elérhetőségeim</h4>
                 <div class="contact-icon">
@@ -96,7 +107,7 @@
         </aside>
         <section class="main-right-content">
             <h1 class="main-title">Nagy Tamás</h1>
-            <h3 class="main-sub-title">Pályakezdő webfejlesztő</h3>
+            <h3 class="main-sub-title">Pályakezdő Fullstack Webfejlesztő</h3>
 
             <div class="grid-container">
                 <div class="projects">
@@ -112,7 +123,7 @@
                         <h4 class="my-0">Használt technológiák</h4>
                         <ul class="tech-list">
                             <li>Bootstrap 4</li>
-                            <li>(vanilla) JavaScript</li>
+                            <li>JavaScript</li>
                             <li>CSS3</li>
                             <li>PHP</li>
                             <li>MySQL</li>
@@ -121,11 +132,10 @@
                     <section class="meatball">
                         <h4 class="project-title"><a href="#top">Húsgolyó Étterem honlapja</a></h4>
                         <p class="my-0">2020 -</p>
-                        <p>2020 tavaszán kezdtem fejleszteni ezt a weboldalt, ebben az esetben szerettem volna megismerkedni modern keretrendszerekkel, front-end és back-end részről is, ezért választottam a Vue.js-t, illetve a Laravelt.</p>
+                        <p>2020 tavaszán kezdtem fejleszteni ezt a weboldalt, ebben az esetben szerettem volna megismerkedni a modern keretrendszerekkel, front-end és back-end részről is. Ezért választottam a Vue.js-t, illetve a Laravelt.</p>
                         <p>A programban lehetőség van CRUD (Create-Read-Update-Delete) vagyis admin feladatok ellátására.</p>
-                        <p>Ezen műveletek megjelenítéséhez Blade Template-et használtam, ahol szükséges volt ott Blade komponenseket is (bevitel, módosítás, törlés).</p>
+                        <p>Ezen műveletek megjelenítéséhez Blade Template-et használtam, ahol lehetőség volt rá, Blade komponenseket is (bevitel, módosítás, törlés).</p>
                         <p>Célom, hogy ezekkel a technológiákkal találjak állást.</p>
-
                         <h4 class="my-0">Használt technológiák</h4>
                         <ul class="tech-list">
                             <li>SASS</li>

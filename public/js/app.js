@@ -2907,6 +2907,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             this.showMakeOrder = true;
           }
         }
+      } else {
+        this.showMakeOrder = false;
       }
     }
   })
@@ -42318,7 +42320,7 @@ var render = function() {
     ),
     _vm._v(" "),
     _c("div", { staticClass: "modal-footer" }, [
-      _c("h1", { staticClass: "py-1" }, [
+      _c("h1", { staticClass: "modal-price" }, [
         _vm._v("Végösszeg: " + _vm._s(_vm.cartItems.totalPrice) + " Ft")
       ])
     ])
@@ -43203,9 +43205,9 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "food_card_container py-2" }, [
+      _c("div", { staticClass: "food_card_container" }, [
         _c("h1", { staticClass: "py-1 text-black text-center" }, [
-          _vm._v("Levesek")
+          _vm._v("Desszertek")
         ]),
         _vm._v(" "),
         _c(
@@ -43271,7 +43273,7 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "food_card_container py-2" }, [
+      _c("div", { staticClass: "food_card_container" }, [
         _c("h1", { staticClass: "py-1 text-black text-center" }, [
           _vm._v("Üdítők")
         ]),
@@ -43339,7 +43341,7 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "food_card_container py-2" }, [
+      _c("div", { staticClass: "food_card_container" }, [
         _c("h1", { staticClass: "py-1 text-black text-center" }, [
           _vm._v("Főételek")
         ]),
@@ -43407,7 +43409,7 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "food_card_container py-2" }, [
+      _c("div", { staticClass: "food_card_container" }, [
         _c("h1", { staticClass: "py-1 text-black text-center" }, [
           _vm._v("Tészták és Roizottók")
         ]),
@@ -43528,7 +43530,7 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "food_card_container py-2" }, [
+      _c("div", { staticClass: "food_card_container" }, [
         _c("h1", { staticClass: "py-1 text-black text-center" }, [
           _vm._v("Pizzák")
         ]),
@@ -43688,7 +43690,7 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "food_card_container py-2" }, [
+      _c("div", { staticClass: "food_card_container" }, [
         _c("h1", { staticClass: "py-1 text-black text-center" }, [
           _vm._v("Levesek")
         ]),
@@ -43746,6 +43748,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "main",
+    { attrs: { id: "top" } },
     [
       _c("Navbar"),
       _vm._v(" "),
@@ -44001,11 +44004,10 @@ var render = function() {
       [
         _c("router-link", { attrs: { to: "/" } }, [
           _c("span", { staticClass: "primary-color" }, [_vm._v("Húsgolyó ")]),
-          _vm._v("Étterem\n        "),
-          _c("span", { attrs: { id: "navOpen" } }, [
-            _c("i", { staticClass: "fas fa-bars" })
-          ])
-        ])
+          _vm._v("Étterem")
+        ]),
+        _vm._v(" "),
+        _vm._m(0)
       ],
       1
     ),
@@ -44150,7 +44152,7 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("div", { staticClass: "dropdown-menu" }, [
-            _vm._m(0),
+            _vm._m(1),
             _vm._v(" "),
             _c(
               "a",
@@ -44193,6 +44195,14 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { attrs: { id: "navOpen" } }, [
+      _c("i", { staticClass: "fas fa-bars" })
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -44247,9 +44257,9 @@ var staticRenderFns = [
             _vm._v(" Étterem Honlapján!")
           ]),
           _vm._v(" "),
-          _c("p", [_vm._v("Foglaljon aztalt, vagy rendeljen házhoz.")]),
+          _c("p", [_vm._v("Köszöntöm a bemutatkozó, portfólió oldalamon!")]),
           _vm._v(" "),
-          _c("p", [_vm._v("Térképezze fel ételkínálatunkat")]),
+          _c("p", [_vm._v("Az oldal célja a jelenlegi tudásom bemutatása")]),
           _vm._v(" "),
           _c("div", { staticClass: "btn-group" }, [
             _c("a", { attrs: { href: "#aboutMe" } }, [
@@ -44268,11 +44278,14 @@ var staticRenderFns = [
             attrs: { src: __webpack_require__(/*! ../../../img/final.jpg */ "./resources/img/final.jpg"), alt: "IAM" }
           }),
           _vm._v(" "),
-          _c("h1", { staticClass: "left-title" }, [
+          _c("div", { staticClass: "left-title" }, [
             _c("span", { staticClass: "primary-color" }, [
               _vm._v("Nagy Tamás")
             ]),
-            _c("div", [_vm._v("Autodidakta back-end fejlesztő")])
+            _vm._v(" "),
+            _c("div", [_vm._v("Pályakezdő")]),
+            _vm._v(" "),
+            _c("div", [_vm._v("Fullstack Webfejlesztő")])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "stack-icon" }, [
@@ -44376,6 +44389,22 @@ var staticRenderFns = [
             ])
           ]),
           _vm._v(" "),
+          _c("section", { staticClass: "summary" }, [
+            _c("h1", { staticClass: "summary-header my-0" }, [
+              _vm._v("Rövid bemutatkozás")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "summary-body" }, [
+              _c("p", [
+                _vm._v(
+                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab voluptas natus commodi nesciunt alias consequuntur error consectetur quidem iure hic."
+                )
+              ]),
+              _vm._v(" "),
+              _c("p")
+            ])
+          ]),
+          _vm._v(" "),
           _c("footer", { staticClass: "footer-contact" }, [
             _c("h4", { staticClass: "icon-title" }, [_vm._v("Elérhetőségeim")]),
             _vm._v(" "),
@@ -44467,7 +44496,7 @@ var staticRenderFns = [
           _c("h1", { staticClass: "main-title" }, [_vm._v("Nagy Tamás")]),
           _vm._v(" "),
           _c("h3", { staticClass: "main-sub-title" }, [
-            _vm._v("Pályakezdő webfejlesztő")
+            _vm._v("Pályakezdő Fullstack Webfejlesztő")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "grid-container" }, [
@@ -44532,7 +44561,7 @@ var staticRenderFns = [
                 _c("ul", { staticClass: "tech-list" }, [
                   _c("li", [_vm._v("Bootstrap 4")]),
                   _vm._v(" "),
-                  _c("li", [_vm._v("(vanilla) JavaScript")]),
+                  _c("li", [_vm._v("JavaScript")]),
                   _vm._v(" "),
                   _c("li", [_vm._v("CSS3")]),
                   _vm._v(" "),
@@ -44553,7 +44582,7 @@ var staticRenderFns = [
                 _vm._v(" "),
                 _c("p", [
                   _vm._v(
-                    "2020 tavaszán kezdtem fejleszteni ezt a weboldalt, ebben az esetben szerettem volna megismerkedni modern keretrendszerekkel, front-end és back-end részről is, ezért választottam a Vue.js-t, illetve a Laravelt."
+                    "2020 tavaszán kezdtem fejleszteni ezt a weboldalt, ebben az esetben szerettem volna megismerkedni a modern keretrendszerekkel, front-end és back-end részről is. Ezért választottam a Vue.js-t, illetve a Laravelt."
                   )
                 ]),
                 _vm._v(" "),
@@ -44565,7 +44594,7 @@ var staticRenderFns = [
                 _vm._v(" "),
                 _c("p", [
                   _vm._v(
-                    "Ezen műveletek megjelenítéséhez Blade Template-et használtam, ahol szükséges volt ott Blade komponenseket is (bevitel, módosítás, törlés)."
+                    "Ezen műveletek megjelenítéséhez Blade Template-et használtam, ahol lehetőség volt rá, Blade komponenseket is (bevitel, módosítás, törlés)."
                   )
                 ]),
                 _vm._v(" "),

@@ -6,7 +6,7 @@
             v-bind:minMaxPrice="minMaxPrice" 
         />
         
-        <div class="food_card_container py-2">
+        <div class="food_card_container">
             <h1 class="py-1 text-black text-center">Pizzák</h1>
             <section class="food_card_content">                
             <div v-for="pizza in foods" :key="pizza.id">

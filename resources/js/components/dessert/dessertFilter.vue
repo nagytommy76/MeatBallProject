@@ -5,8 +5,8 @@
             v-bind:byName="byName"
             v-bind:minMaxPrice="minMaxPrice"
         />
-        <div class="food_card_container py-2">
-            <h1 class="py-1 text-black text-center">Levesek</h1>
+        <div class="food_card_container">
+            <h1 class="py-1 text-black text-center">Desszertek</h1>
             <section class="food_card_content">
                 <div v-for="food in foods" :key="food.id">
                     <baseCard

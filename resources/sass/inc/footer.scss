@@ -21,6 +21,9 @@
         &-address{
             text-align: left;
             line-height: 1.75rem;
+            ul{
+                list-style: none;
+            }
         }
 
         &-form{

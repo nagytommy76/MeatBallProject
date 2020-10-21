@@ -114,6 +114,8 @@ export default {
                     }
                     
                 }               
+            }else{
+                this.showMakeOrder = false
             }
         }
     }

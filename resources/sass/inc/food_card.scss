@@ -1,5 +1,6 @@
 .food_card_container{
     height: 100%;
+    padding: 2rem 0 2rem 0;
     .food_card_content{
         height: 100%;
         display: grid;
@@ -69,13 +70,27 @@
 
 @media(max-width: $mobile-width){
     .food_card_container{
+        padding: 0;
         .food_card_content{
             grid-template-columns: 1fr;
             .food_card{
-                width: 20rem;
-                min-height: 30rem;
+                width: 18rem;
+                min-height: 23rem;
                 .food_card_header{
-                    height: 235px;
+                    height: 180px;
+                }
+                .food_card_inner{
+                    .food_card_heading{
+                        font-size: 1.2rem;
+                        padding-bottom: .3rem;
+                        margin-bottom: 1rem;
+                    }
+                    .ingredients{
+                        h3{
+                            font-size: 1rem;
+                        }
+                        margin: .1rem 0;
+                    }
                 }
                 .food_card_footer{
                     display: flex;

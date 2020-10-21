@@ -28,6 +28,19 @@
     }
 }
 
+// Mobile
+@media(max-width: $mobile-width){
+    .card-and-filter{
+        flex-direction: column;
+
+        .filter-container{
+            position: relative;
+            top: 1rem;
+            margin: 0rem 1rem 0rem 1rem;
+        }
+    }
+}
+
 // Tablet
 @media(max-width: $tablet-width){
     .card-and-filter{
@@ -35,7 +48,7 @@
 
         .filter-container{
             position: relative;
-
+            top: 1rem;
             margin: 2rem 1rem 5rem 1rem;
         }
     }

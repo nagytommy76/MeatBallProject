@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <main id="top">
         <Navbar />
             <transition name="slide" appear>
                 <div class="fade-in" v-if="showCartModal" @click="showCartModal = false"></div>

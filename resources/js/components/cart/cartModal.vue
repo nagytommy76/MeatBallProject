@@ -44,7 +44,7 @@
                         </div>                       
             </div>
             <div class="modal-footer">
-                <h1 class="py-1">Végösszeg: {{ cartItems.totalPrice }} Ft</h1>
+                <h1 class="modal-price">Végösszeg: {{ cartItems.totalPrice }} Ft</h1>
             </div>
     </div>
 </template>
