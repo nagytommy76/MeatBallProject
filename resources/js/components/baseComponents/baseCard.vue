@@ -15,14 +15,18 @@
                 <p>{{capacity}} (ml)</p>
             </div>
             <div v-if="!userLoggedIn">
-                <div class="alert alert-danger" v-if="addedToCart">
-                    <p>Kérem jelentkezzen be!</p>
-                </div>
+                <Alert 
+                    v-if="addedToCart"
+                    :Msg="'Kérem jelentkezzen be!'"
+                    :className="'danger'"
+                />
             </div>
             <div v-else>
-                <div class="alert alert-success" v-if="addedToCart">
-                    <p>A termék a kosárban</p>
-                </div>
+                <Alert 
+                    v-if="addedToCart"
+                    :Msg="'A termék bekerült a kosárba'"
+                    :className="'success'"
+                />
             </div>
         </div>
         <div class="food_card_footer">
@@ -36,6 +40,7 @@
 </template>
 <script>
 import addToCart from '../../helpers/addToCart'
+import Alert from './Alert'
 import { mapGetters } from "vuex";
 
 export default {
@@ -45,6 +50,9 @@ export default {
             addedToCart: false,
             finalPrice: this.foodPrice,
         }
+    },
+    components:{
+        Alert
     },
     computed:{
         ...mapGetters({

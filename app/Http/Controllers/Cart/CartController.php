@@ -49,11 +49,12 @@ class CartController extends BaseCartController
         return \response()->json($cart);
     }
 
-    public function saveOrder(){        
+    public function saveOrder(Request $request){        
         try {  
-            $userOrder = $this->createOrder();
-            if ($userOrder && $userOrder->wasRecentlyCreated) { 
-                if ($this->sendOrderEmail()) {
+            $paypalInfo = $request->all();
+            $userOrder = $this->createOrder((int)$paypalInfo['paidWithPayPal'], $paypalInfo['transactionId']);
+            if ($userOrder->exists && $userOrder->wasRecentlyCreated) { 
+                if ($this->sendOrderEmail((int)$paypalInfo['paidWithPayPal'], $paypalInfo['transactionId'])) {
                     Session::forget($this->sessionName);
                 }              
             }

@@ -9,6 +9,8 @@ class Orders extends Model
     protected $fillable = [
         'user_email',
         'cartItems',
-        'orderNumber'
+        'orderNumber',
+        'with_paypal',
+        'transaction_id',
     ];
 }

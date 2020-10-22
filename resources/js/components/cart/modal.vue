@@ -8,9 +8,12 @@
                 <span v-show="step<pages.length-1 && step != 2">
                     <button v-show="this.isUserinfoFilled || step != 1" @click="nextPage" class="btn btn-confirm-dark" >Tovább</button>
                 </span>   
-                <!-- <button @click="makeOrder" v-show="step == pages.length-2 && (showPayPal && paidWithPP)" class="btn btn-confirm-dark">Rendelés Leadása!</button> -->
                 <button @click="makeOrder" v-show="showMakeOrder" class="btn btn-confirm-dark">Rendelés Leadása!</button>
-                    
+                <Alert 
+                    v-if="showException"
+                    :Msg="exceptionMsg"
+                    :className="'danger'"
+                />
             </div>
             <Loading :isLoading="isLoading" />
         </div>
@@ -22,6 +25,7 @@ import cartModal from './cartModal';
 import userInfo from './userInfo';
 import summaryCart from './summaryCart';
 import afterOrder from './afterOrder';
+import Alert from '../baseComponents/Alert'
 
 import Loading from '../baseComponents/loading';
 import { mapGetters, mapActions } from 'vuex'
@@ -33,16 +37,19 @@ export default {
         summaryCart,
         userInfo,
         afterOrder,
-        Loading
+        Loading,
+        Alert,
     },
     data:() => {
         return {
-            pages: ['cartModal','userInfo','summaryCart','afterOrder'],
+            pages: ['cartModal','userInfo','summaryCart'],
             step: 0,
             isUserinfoFilled: false,
             user: {},
             isLoading: false,
+            exceptionMsg: '',
 
+            showException: false,
             showMakeOrder: false,
             showPayPal: false,
             showAlternatePayment: true,
@@ -56,6 +63,7 @@ export default {
             totalQty: 'getTotalQty',
             userLoggedIn: 'getUserLoggedIn',
             paidWithPP: 'getPaid',
+            transactionID: 'getTransactionID',
         }),
     },
     created(){
@@ -79,15 +87,23 @@ export default {
         },
         async makeOrder(){
             this.isLoading = true;
-            axios.post('api/saveOrder').then(saveOrder => {
+            axios.post('api/saveOrder',{
+                paidWithPayPal: this.paidWithPP,
+                transactionId: this.transactionID,
+            }).then(saveOrder => {
+                console.log(saveOrder)
                 if (!saveOrder.data.exception) {
-                    this.setCartDefault()
-                    this.setPayPalDefault()
-                    this.step = 3
-                    this.setDefaultPage()
+                    setTimeout(() => {
+                        this.setCartDefault()
+                        this.setPayPalDefault()
+                        this.setDefaultPage()
+                    },10000)
+                    this.isLoading = false;
+                }else{
+                    this.showException = true
+                    this.exceptionMsg = saveOrder.data.message
                     this.isLoading = false;
                 }
-                this.isLoading = false;
             })
         },
         nextPage(){    
@@ -99,20 +115,17 @@ export default {
             this.showMakeOrderBTN() 
         },
         setDefaultPage(){
-            setTimeout(() => {
-                this.step = 0
-            }, 5000)
+            this.step = 0
         },
         showMakeOrderBTN(){
-            if (this.step == this.pages.length-2) {
+            if (this.step == this.pages.length-1) {
                 if (this.showAlternatePayment) {
                     this.showMakeOrder = true
                 }else{
                     this.showMakeOrder = false
                     if (this.paidWithPP) {
                         this.showMakeOrder = true
-                    }
-                    
+                    }                    
                 }               
             }else{
                 this.showMakeOrder = false

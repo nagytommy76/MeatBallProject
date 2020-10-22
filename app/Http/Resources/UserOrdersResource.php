@@ -21,7 +21,9 @@ class UserOrdersResource extends JsonResource
             'cartItems' => json_decode($this->cartItems),
             'created_at' => $finalDate,
             'orderNumber' => $this->orderNumber,
-            'userEmail' => $this->user_email
+            'userEmail' => $this->user_email,
+            'with_paypal' => $this->with_paypal,
+            'transaction_id' => $this->transaction_id
         ];
     }
 }

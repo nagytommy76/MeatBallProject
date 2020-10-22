@@ -31,17 +31,26 @@
                         <h4>Mennyiség: {{item.qty}} db</h4>
                         </div>
                             <div class="left">
-                                <form @click="deleteItem" class="deleteIcon">
-                                    <input type="hidden" class="foodId" v-bind:value="item.item.id">
-                                    <input type="hidden" class="foodType" v-bind:value="item.foodType">
-                                    <i v-bind:id="index" v-bind:class="iconName"></i>                                      
+                                <form @click="deleteItem" >
+                                <div class="tooltip">
+                                    <span class="tooltiptext">
+                                        Termék törlése
+                                    </span>
+                                    <span class="deleteIcon">
+                                        <input type="hidden" class="foodId" v-bind:value="item.item.id">
+                                        <input type="hidden" class="foodType" v-bind:value="item.foodType">
+                                        <i v-bind:id="index" v-bind:class="iconName"></i>                                      
+                                    </span>
+                                </div>
                                 </form>                             
                             </div>
                         </div>
-                        </div> 
-                        <div v-if="deleted" class="alert alert-danger">
-                            <p>A termék sikeresen törlve a kosárból</p>
-                        </div>                       
+                        </div>  
+                        <Alert 
+                            v-if="deleted"
+                            :Msg="'A termék sikeresen törlve a kosárból'"
+                            :className="'danger'"
+                        />
             </div>
             <div class="modal-footer">
                 <h1 class="modal-price">Végösszeg: {{ cartItems.totalPrice }} Ft</h1>
@@ -50,6 +59,7 @@
 </template>
 <script>
 import {mapGetters} from 'vuex';
+import Alert from '../baseComponents/Alert'
 export default {
     name: "cartmodal",
     template: 'cartmodal',
@@ -58,6 +68,9 @@ export default {
             iconName: "far fa-trash-alt fa-2x",
             deleted: false,
         }
+    },
+    components:{
+        Alert
     },
     computed: {
         ...mapGetters({

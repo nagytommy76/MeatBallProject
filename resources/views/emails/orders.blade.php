@@ -16,7 +16,13 @@ _A rendelés kiszállítása rajtunk kívülálló okokból 60-90 perc is lehet.
 
 @endcomponent
 
-# Fizetendő végösszeg: {{$cart->totalPrice}} Ft
+@if ($paidPayPal)
+_A fizetés PayPal-en keresztül megtörtént. Köszönjük a rendelést!_
+# Fizetendő végösszeg 0 Ft
+# Tranzakció ID: {{ $transactionId }}
+@else
+# A futárnál fizetendő végösszeg: {{$cart->totalPrice}} Ft
+@endif
 
 @component('mail::panel')
     <h2>Kedves Felhasználó!</h2>

@@ -19,7 +19,8 @@
                 </h4>
             </div>
             <div class="order">
-                <h3>Rendelt ételeid:</h3>
+                <h3>Rendelt étel(ek):</h3>
+                <h3>{{cartItems.totalPrice}} Ft összértékben</h3>
                 <div v-for="(food, index) in cartItems.items" :key="index">
                     <h4>
                         {{food.qty}} DB
@@ -33,17 +34,11 @@
                     </p>
                 </div>
             </div>
-            <!-- <div class="payment">
-                <label>Fizetés PayPal-el
-                    <input type="checkbox" name="payment-option" value="paypal" id="pay" v-model="showPaypal">
-                </label>
-                <small><sup>*</sup>Ha nem választ fizetési módot, automatikusan kp-val fizet!</small>
-            </div>
-            <div v-show="showPaypal" ref="paypal"></div> -->
             <div v-if="showPayment" class="payment">
                 <h3>Fizetési opció kiválasztása</h3>
-                <label>
-                    Fizetés PayPal-el vagy kártyával
+                <label>                    
+                    <p>Fizetés PayPal-el vagy kártyával</p>
+                    <small><sup>*</sup>(A fizetés után automatikusan megtörténik a rendelés!)</small>
                     <input @change="showPaymentContainer" type="radio" name="payment-option" value="paypal" v-model="payment">
                     <span id="paypal-marks-container"></span>
                 </label>
@@ -59,19 +54,25 @@
                     <h3>A fizetés készpénzzel a futárnál történik</h3>
                 </div>
             </div>
-            <div class="alert alert-success" v-if="showSuccessPayPal">
-                <p>PayPal fizetés sikeres volt! Tranzakció szám: {{ transactionID }}</p>
-            </div>
+            <Alert 
+                v-if="showSuccessPayPal"
+                :Msg="`Köszönjük rendelését! A PayPal fizetés sikeres volt! Tranzakció szám: ${transactionID}`"
+                :className="'success'"
+            />
         </div>
     </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import Alert from '../baseComponents/Alert'
 
 export default {
     name: "summaryCart",
     template: "summarycart",
+    components:{
+        Alert
+    },
     data() {
         return {
             payment: 'alternate',
@@ -138,6 +139,7 @@ export default {
                 onApprove: async (data, actions) => {
                     const order = await actions.order.capture()
                     if (order.status === 'COMPLETED') {
+                        console.log(order)
                         const finalDetails = {
                         create_time: order.create_time,
                         id: order.id,
@@ -149,7 +151,8 @@ export default {
                         this.setPayPalDetails(finalDetails);
                         this.showSuccessAlertMessage()
                         this.hidePaymentOptionsAfterPay()
-                        this.$parent.showMakeOrderBTN()
+                        this.$parent.makeOrder()
+                        // this.$parent.showMakeOrderBTN()
                     }                    
                     // Ide jön majd egy köszi, h fizettél (alert?! Xmp-ig), és mehet tovább a rendelés leadása gomb
                 }

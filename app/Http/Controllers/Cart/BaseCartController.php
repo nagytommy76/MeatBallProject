@@ -133,9 +133,9 @@ class BaseCartController extends Controller
     }
 
     // Send email
-    protected function sendOrderEmail(){
+    protected function sendOrderEmail(int $paypal, $transactionId = ''){
         try {
-            Mail::to(Auth::user()->email)->send(new OrderConfirm($this->cartItems, Auth::user()->userinfo));
+            Mail::to(Auth::user()->email)->send(new OrderConfirm($this->cartItems, Auth::user()->userinfo, $paypal, $transactionId));
             return true;
         } catch (Exception $ex) {
             return false;
@@ -143,12 +143,14 @@ class BaseCartController extends Controller
     }
 
     // create order
-    protected function createOrder(){        
+    protected function createOrder(int $paypal, $transactionId = ''){        
         try {
             $userOrder = Auth::user()->orders()->create([
                 'user_email' => Auth::user()->email,
                 'cartItems' => json_encode($this->cartItems),
-                'orderNumber' => $this->checkNumberInOrders()
+                'orderNumber' => $this->checkNumberInOrders(),
+                'with_paypal' => $paypal,
+                'transaction_id' => $transactionId,
             ]); 
             Auth::user()->save();
             return $userOrder;

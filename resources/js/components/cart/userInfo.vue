@@ -101,17 +101,22 @@
                         <input v-show="this.$parent.isUserinfoFilled" type="submit" value="Módosítás" @click.prevent="modifyUserInfo" class="btn btn-delete-dark" />
                     </div>                                       
                 </div>
-                <div class="alert alert-danger" v-if="showException">
-                    <p>{{ exceptionMsg }}</p>
-                </div>
-                <div class="alert alert-success" v-if="showMsg">
-                    <p>{{ msg }}</p>
-                </div>
+                <Alert
+                    v-if="showException"
+                    :className="'danger'"
+                    :Msg="exceptionMsg"
+                 />
+                <Alert
+                    v-if="showMsg"
+                    :className="'success'"
+                    :Msg="msg"
+                 />
             </form>            
         </div>
     </div>
 </template>
 <script>
+import Alert from '../baseComponents/Alert'
 export default {
     name: "userinfo",
     template: "userinfo",
@@ -143,6 +148,9 @@ export default {
                 phone: ''
             }
         }
+    },
+    components:{
+        Alert
     },
     created(){
         this.fetchUserinfoData()
