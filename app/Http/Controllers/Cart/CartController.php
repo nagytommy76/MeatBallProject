@@ -54,7 +54,7 @@ class CartController extends BaseCartController
             $paypalInfo = $request->all();
             $userOrder = $this->createOrder((int)$paypalInfo['paidWithPayPal'], $paypalInfo['transactionId']);
             if ($userOrder->exists && $userOrder->wasRecentlyCreated) { 
-                if ($this->sendOrderEmail((int)$paypalInfo['paidWithPayPal'], $paypalInfo['transactionId'])) {
+                if ($this->sendOrderEmail($paypalInfo)) {
                     Session::forget($this->sessionName);
                 }              
             }

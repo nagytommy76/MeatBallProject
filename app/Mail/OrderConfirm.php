@@ -13,21 +13,19 @@ class OrderConfirm extends Mailable
 
     public $cart;
     public $user;
-    public $paidPayPal;
-    public $transactionId;
+    public $paypalInfo;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($cart, $user, $paidPayPal = false, $transactionId = '')
+    public function __construct($cart, $user, $paypalInfo)
     {
         // Session
         $this->cart = $cart;
         $this->user = $user;
-        $this->paidPayPal = $paidPayPal;
-        $this->transactionId = $transactionId;
+        $this->paypalInfo = $paypalInfo;
     }
 
     /**

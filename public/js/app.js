@@ -2099,6 +2099,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2866,6 +2870,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       user: {},
       isLoading: false,
       exceptionMsg: '',
+      showPayment: true,
+      showSuccessPayPal: false,
       showException: false,
       showMakeOrder: false,
       showPayPal: false,
@@ -2880,7 +2886,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     totalQty: 'getTotalQty',
     userLoggedIn: 'getUserLoggedIn',
     paidWithPP: 'getPaid',
-    transactionID: 'getTransactionID'
+    transactionID: 'getTransactionID',
+    getCreatedAt: 'getCreatedAt'
   })),
   created: function created() {
     if (this.userLoggedIn) {
@@ -2915,10 +2922,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _this2.isLoading = true;
                 axios.post('api/saveOrder', {
                   paidWithPayPal: _this2.paidWithPP,
-                  transactionId: _this2.transactionID
+                  transactionId: _this2.transactionID,
+                  getCreatedAt: _this2.getCreatedAt
                 }).then(function (saveOrder) {
-                  console.log(saveOrder);
-
                   if (!saveOrder.data.exception) {
                     setTimeout(function () {
                       _this2.setCartDefault();
@@ -2962,6 +2968,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           this.showMakeOrder = false;
 
           if (this.paidWithPP) {
+            this.showPayment = false;
+            this.showSuccessPayPal = true;
             this.showMakeOrder = true;
           }
         }
@@ -3064,6 +3072,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3074,9 +3087,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
-      payment: 'alternate',
-      showSuccessPayPal: false,
-      showPayment: true
+      payment: 'alternate'
     };
   },
   mounted: function mounted() {
@@ -3086,6 +3097,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     cartItems: 'getCartItems',
     transactionID: 'getTransactionID'
   }), {
+    showPayment: {
+      get: function get() {
+        return this.$parent.showPayment;
+      },
+      set: function set(value) {
+        this.$parent.showPayment = value;
+      }
+    },
+    showSuccessPayPal: {
+      get: function get() {
+        return this.$parent.showSuccessPayPal;
+      },
+      set: function set(value) {
+        this.$parent.showSuccessPayPal = value;
+      }
+    },
     showPaypal: {
       get: function get() {
         return this.$parent.showPayPal;
@@ -3125,6 +3152,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         createOrder: function createOrder(data, actions) {
           return actions.order.create({
             purchase_units: [{
+              description: "Húsgolyó étterem ételrendelés",
               amount: {
                 currency_code: 'HUF',
                 value: _this.cartItems.totalPrice
@@ -3146,7 +3174,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     order = _context.sent;
 
                     if (order.status === 'COMPLETED') {
-                      console.log(order);
                       finalDetails = {
                         create_time: order.create_time,
                         id: order.id,
@@ -41732,7 +41759,17 @@ var render = function() {
               _vm._v("Összesen: " + _vm._s(order.cartItems.totalPrice) + " Ft")
             ]),
             _vm._v(" "),
-            _c("h3", [_vm._v("Rendelés szám: " + _vm._s(order.orderNumber))])
+            _c("h3", [_vm._v("Rendelés szám: " + _vm._s(order.orderNumber))]),
+            _vm._v(" "),
+            order.with_paypal == 1
+              ? _c("div", [
+                  _c("h3", [_vm._v("PayPal-el fizetve")]),
+                  _vm._v(" "),
+                  _c("h3", [
+                    _vm._v("Tranzakciós ID: " + _vm._s(order.transaction_id))
+                  ])
+                ])
+              : _vm._e()
           ])
         }),
         0
@@ -42812,6 +42849,15 @@ var render = function() {
                 Msg:
                   "Köszönjük rendelését! A PayPal fizetés sikeres volt! Tranzakció szám: " +
                   _vm.transactionID,
+                className: "success"
+              }
+            })
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.showSuccessPayPal
+          ? _c("Alert", {
+              attrs: {
+                Msg: "A visszaigazoló e-mailt elküldtük!",
                 className: "success"
               }
             })
@@ -62241,6 +62287,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     getCreatedAt: function getCreatedAt(state) {
       return state.create_time;
+    },
+    getPurhase: function getPurhase(state) {
+      return state.purchase_units;
     },
     getPayer: function getPayer(state) {
       return state.payer;

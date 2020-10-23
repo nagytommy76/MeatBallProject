@@ -16,10 +16,15 @@ _A rendelés kiszállítása rajtunk kívülálló okokból 60-90 perc is lehet.
 
 @endcomponent
 
-@if ($paidPayPal)
+@if ($paypalInfo['paidWithPayPal'])
+@component('mail::panel')
 _A fizetés PayPal-en keresztül megtörtént. Köszönjük a rendelést!_
+<p>Tranzakció ID: {{ $paypalInfo['transactionId'] }}</p>
+<p>Fizetve: {{ $paypalInfo['getCreatedAt'] }}, {{ $cart->totalPrice }} Ft</p>
+
 # Fizetendő végösszeg 0 Ft
-# Tranzakció ID: {{ $transactionId }}
+@endcomponent
+
 @else
 # A futárnál fizetendő végösszeg: {{$cart->totalPrice}} Ft
 @endif

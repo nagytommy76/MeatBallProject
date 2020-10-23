@@ -1,4 +1,5 @@
 $menu-width: 170px;
+$navbar-height: 100px;
 .navbar{
     background: $dark;
     color: white;
@@ -9,7 +10,8 @@ $menu-width: 170px;
     top: 0;
     position: sticky;
     z-index: 3;
-    padding: 1.8rem 0;
+    height: $navbar-height;
+    // padding: 1.8rem 0;
     opacity: .9;
     transition: opacity .2s, box-shadow .2s;
 

@@ -12,6 +12,7 @@ export default{
         getStatus: state => state.status,
         getTransactionID: state => state.id,
         getCreatedAt: state => state.create_time,
+        getPurhase: state => state.purchase_units,
         getPayer: state => state.payer
     },
     mutations:{

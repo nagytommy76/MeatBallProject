@@ -35,6 +35,10 @@
                 </div> 
                     <h3>Összesen: {{order.cartItems.totalPrice}} Ft</h3>
                     <h3>Rendelés szám: {{order.orderNumber}}</h3>
+                    <div v-if="order.with_paypal == 1">
+                        <h3>PayPal-el fizetve</h3>
+                        <h3>Tranzakciós ID: {{ order.transaction_id }}</h3>
+                    </div>
                 </div>
             </div>
         </div>

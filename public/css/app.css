@@ -150,6 +150,7 @@ body::-webkit-scrollbar-thumb {
 .btn-primary:hover {
   background-position: 0;
   color: black;
+  border-color: #F7BF00;
 }
 
 .btn-confirm {
@@ -303,7 +304,7 @@ body::-webkit-scrollbar-thumb {
   position: -webkit-sticky;
   position: sticky;
   z-index: 3;
-  padding: 1.8rem 0;
+  height: 100px;
   opacity: 0.9;
   transition: opacity 0.2s, box-shadow 0.2s;
 }
@@ -953,43 +954,10 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
-.navigation {
-  width: 80%;
-  margin: 0.7rem auto 0.7rem auto;
-  padding: 1rem;
-  text-align: center;
-  background: #2C302E;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  justify-content: space-evenly;
-  gap: 1rem;
-}
-
-.navigation h4 {
-  text-decoration: none;
-  color: white;
-  font-size: 1.4rem;
-}
-
-.navigation h4:hover {
-  cursor: pointer;
-}
-
-.navigation .router-link-exact-active h4 {
-  color: #E2BC00;
-}
-
-@media (max-width: 720px) {
-  .navigation {
-    grid-template-columns: repeat(2, 1fr);
-    margin: 3rem auto 0rem auto;
-  }
-}
-
 .main-header {
   height: 100vh;
   background: #333 url(/images/header-img.jpg?b3661915bb2808614bbce65c84edd490) no-repeat center center/cover;
-  margin-top: -5.4rem;
+  margin-top: calc(-100px);
 }
 
 .main-header .main-title {

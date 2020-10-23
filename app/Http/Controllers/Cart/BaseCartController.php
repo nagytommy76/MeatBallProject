@@ -133,9 +133,9 @@ class BaseCartController extends Controller
     }
 
     // Send email
-    protected function sendOrderEmail(int $paypal, $transactionId = ''){
+    protected function sendOrderEmail($paypalInfo){
         try {
-            Mail::to(Auth::user()->email)->send(new OrderConfirm($this->cartItems, Auth::user()->userinfo, $paypal, $transactionId));
+            Mail::to(Auth::user()->email)->send(new OrderConfirm($this->cartItems, Auth::user()->userinfo, $paypalInfo));
             return true;
         } catch (Exception $ex) {
             return false;

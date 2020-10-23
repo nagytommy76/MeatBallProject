@@ -49,6 +49,8 @@ export default {
             isLoading: false,
             exceptionMsg: '',
 
+            showPayment: true,
+            showSuccessPayPal: false,
             showException: false,
             showMakeOrder: false,
             showPayPal: false,
@@ -64,6 +66,7 @@ export default {
             userLoggedIn: 'getUserLoggedIn',
             paidWithPP: 'getPaid',
             transactionID: 'getTransactionID',
+            getCreatedAt: 'getCreatedAt',
         }),
     },
     created(){
@@ -90,8 +93,8 @@ export default {
             axios.post('api/saveOrder',{
                 paidWithPayPal: this.paidWithPP,
                 transactionId: this.transactionID,
+                getCreatedAt: this.getCreatedAt,
             }).then(saveOrder => {
-                console.log(saveOrder)
                 if (!saveOrder.data.exception) {
                     setTimeout(() => {
                         this.setCartDefault()
@@ -124,6 +127,8 @@ export default {
                 }else{
                     this.showMakeOrder = false
                     if (this.paidWithPP) {
+                        this.showPayment = false
+                        this.showSuccessPayPal = true
                         this.showMakeOrder = true
                     }                    
                 }               

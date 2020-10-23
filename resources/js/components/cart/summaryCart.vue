@@ -59,6 +59,11 @@
                 :Msg="`Köszönjük rendelését! A PayPal fizetés sikeres volt! Tranzakció szám: ${transactionID}`"
                 :className="'success'"
             />
+            <Alert 
+                v-if="showSuccessPayPal"
+                :Msg="`A visszaigazoló e-mailt elküldtük!`"
+                :className="'success'"
+            />
         </div>
     </div>
 </template>
@@ -76,8 +81,6 @@ export default {
     data() {
         return {
             payment: 'alternate',
-            showSuccessPayPal: false,
-            showPayment: true,
         }
     },
     mounted() {
@@ -88,6 +91,22 @@ export default {
             cartItems: 'getCartItems',
             transactionID: 'getTransactionID'
         }),
+        showPayment: {
+            get(){
+                return this.$parent.showPayment
+            },
+            set(value){
+                this.$parent.showPayment = value
+            }
+        },
+        showSuccessPayPal: {
+            get(){
+                return this.$parent.showSuccessPayPal
+            },
+            set(value){
+                this.$parent.showSuccessPayPal = value
+            }
+        },
         showPaypal:{
             get(){
                 return this.$parent.showPayPal
@@ -128,18 +147,18 @@ export default {
                 locale: 'hu_HU',
                 createOrder: (data, actions) => {
                     return actions.order.create({
-                        purchase_units: [{                            
+                        purchase_units: [{ 
+                            description: "Húsgolyó étterem ételrendelés",                           
                             amount: {
                                 currency_code: 'HUF',
                                 value: this.cartItems.totalPrice
-                            }
+                            },                            
                         }]
                     })
                 },
                 onApprove: async (data, actions) => {
                     const order = await actions.order.capture()
                     if (order.status === 'COMPLETED') {
-                        console.log(order)
                         const finalDetails = {
                         create_time: order.create_time,
                         id: order.id,
