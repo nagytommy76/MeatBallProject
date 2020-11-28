@@ -54,7 +54,6 @@
 </div>
 </template>
 <script>
-import authHelper from '../../helpers/authHelper'
 export default {
     name: 'login',
     data(){
@@ -80,7 +79,7 @@ export default {
         async logTheUserIn(){
             axios.get('/sanctum/csrf-cookie')
             .then(cookie =>{
-                axios.post('api/login', {
+                axios.post('login', {
                     formData: this.formData
                 }).then(login => {
                     if(login.status == 200){
@@ -89,7 +88,7 @@ export default {
                         }else{
                             this.$store.dispatch('setUserName', login.data.username)
                             this.$store.dispatch('setLoggedIn', true)
-                            this.$router.push({name: 'Welcome'})
+                            this.$router.push({name: 'Meatball'})
                         }                        
                     }
                 })

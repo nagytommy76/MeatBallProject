@@ -81,11 +81,10 @@ export default {
     },
     methods: {
         async userRegister(){
-            await axios.post('api/register', {
+            await axios.post('register', {
                 formData: this.formData
             })
             .then(register => {
-                console.log(register)
                 if(register.data.exception == null){
                     if (register.data.hasError.length == 0) {
                         this.$router.push({name: 'Login'})
@@ -96,7 +95,6 @@ export default {
                     this.showException(register.data.exception)
                 }
             })
-
         },
         showErrors(errors){
             this.hasError = true;

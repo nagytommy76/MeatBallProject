@@ -1,7 +1,7 @@
 <template>
   <div class="food_card">
     <div class="food_card_header">
-      <img v-bind:src="'storage/'+image" alt="Pizza Kép" />
+      <img v-bind:src="'/storage/'+image" alt="Pizza Kép" />
     </div>
     <div class="food_card_inner">
       <h1 class="food_card_heading text-center">{{ pizzaName }}</h1>

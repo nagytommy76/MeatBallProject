@@ -2,7 +2,7 @@
     <aside class="filter-container">
         <h2 class="py-1 text-center">Szűrő</h2>
         <label for="orderBy">Rendezés:</label>
-        <select class="form-control" name="orderBy" v-model="orderBy" v-on:change="getFoodByOrder">
+        <select class="form-control" name="orderBy" v-model="orderBy" @change="getFoodByOrder">
             <option value="asc">Ár Növekvő</option>
             <option value="desc">Ár Csökkenő</option>
         </select>
@@ -47,7 +47,7 @@ export default {
             this.isLoading = true;
             await loadData.fetchData(this.$parent.foodType)
             .then(result => {
-                this.$parent.foods = result.data;
+                this.$parent.foods = result.data.data;
                 this.isLoading = false;
             });
         },
@@ -55,7 +55,7 @@ export default {
             this.isLoading = true;
             await loadData.getFoodByOrder(this.orderByRoute, this.orderBy, this.priceValue, this.maxPrice)
             .then(result => {
-                this.$parent.foods = result.data;
+                this.$parent.foods = result.data.data;
                 this.isLoading = false;
             });
         },
@@ -63,16 +63,16 @@ export default {
             this.isLoading = true;
             await loadData.searchFoodByName(this.byName, event.target.value, this.orderBy, this.priceValue, this.maxPrice)
             .then(result => {
-                this.$parent.foods = result.data
+                this.$parent.foods = result.data.data
                 this.isLoading = false;
             });
         },
         async getMinMaxPrice(){
             await loadData.getMinMaxPrice(this.minMaxPrice)
             .then(result => {
-                this.priceValue = result.minPrice;
-                this.minPrice = result.minPrice;
-                this.maxPrice = result.maxPrice;
+                this.priceValue = result.data.minPrice;
+                this.minPrice = result.data.minPrice;
+                this.maxPrice = result.data.maxPrice;
             });
         }
     },

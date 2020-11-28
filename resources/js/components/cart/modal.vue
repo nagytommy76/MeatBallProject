@@ -81,7 +81,7 @@ export default {
             setPayPalDefault: 'setPayPalDefault'
         }),
         getUserInfo(){ 
-            axios.get('api/userInfoFilled').then(user => {
+            axios.get('userInfoFilled').then(user => {
                 if (user.status == 200) {
                     this.user = user.data.user;
                     this.isUserinfoFilled = user.data.user.userinfo_filled;
@@ -90,7 +90,7 @@ export default {
         },
         async makeOrder(){
             this.isLoading = true;
-            axios.post('api/saveOrder',{
+            axios.post('saveOrder',{
                 paidWithPayPal: this.paidWithPP,
                 transactionId: this.transactionID,
                 getCreatedAt: this.getCreatedAt,

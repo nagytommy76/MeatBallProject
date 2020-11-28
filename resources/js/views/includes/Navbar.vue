@@ -1,44 +1,44 @@
 <template>
     <nav role="navigation" class="navbar">
         <div class="navbar-brand">
-            <router-link to="/"><span class="primary-color">Húsgolyó </span>Étterem</router-link>
+            <router-link :to="{name: 'Welcome'}"><span class="primary-color">Húsgolyó </span>Étterem</router-link>
             <span id="navOpen"><i class="fas fa-bars"></i></span>
         </div>
         <ul class="navbar-nav">
             <li class="nav-item dropdown">
                 <a id="foodOrder" class="nav-link dropdown">Étel Rendelés</a>
                 <div class="dropdown-menu">
-                    <router-link to="/pizza" class="dropdown-menu-item">
+                    <router-link :to="{name: 'Pizza'}" class="dropdown-menu-item">
                         <i class="fas fa-pizza-slice"></i>
                         Pizza
                     </router-link>
-                    <router-link to="/soup" class="dropdown-menu-item">
+                    <router-link :to="{name: 'Soup'}" class="dropdown-menu-item">
                         <i class="fas fa-soap"></i>
                         Levesek
                     </router-link>
-                    <router-link to="/dessert" class="dropdown-menu-item">
+                    <router-link :to="{name: 'Dessert'}" class="dropdown-menu-item">
                         <i class="fas fa-birthday-cake"></i>
                         Desszertek
                     </router-link>
-                    <router-link to="/drink" class="dropdown-menu-item">
+                    <router-link :to="{name: 'Drink'}" class="dropdown-menu-item">
                         <i class="fas fa-wine-glass-alt"></i>
                         Italok
                     </router-link>
-                    <router-link to="/meal" class="dropdown-menu-item">
+                    <router-link :to="{name: 'Meal'}" class="dropdown-menu-item">
                         <i class="fas fa-weight"></i>
                         Főételek
                     </router-link>
-                    <router-link to="/pasta" class="dropdown-menu-item">
+                    <router-link :to="{name: 'Pasta'}" class="dropdown-menu-item">
                         <i class="fas fa-weight"></i>
                         Tészta Ételek
                     </router-link> 
                 </div>
             </li>
             <li v-show="!loggedIn" class="nav-item">
-                <router-link class="nav-link" to="/login">Belépés</router-link>
+                <router-link class="nav-link" :to="{name: 'Login'}">Belépés</router-link>
             </li>
             <li v-show="!loggedIn" class="nav-item">
-                <router-link class="nav-link" to="/register">Regisztráció</router-link>
+                <router-link class="nav-link" :to="{name: 'Register'}">Regisztráció</router-link>
             </li>
 
             <li v-show="loggedIn" class="nav-item dropdown">

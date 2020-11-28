@@ -1193,6 +1193,15 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+.portfolio-footer {
+  background: #333;
+  text-align: center;
+  height: 5.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .card-container {
   min-height: 100vh;
   display: flex;

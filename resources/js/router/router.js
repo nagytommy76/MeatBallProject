@@ -3,9 +3,12 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
+import MainWelcome from '../views/includes/MainPage/MainWelcome'
 import Welcome from '../views/includes/Welcome'
 import Login from '../components/Auth/login'
 import Register from '../components/Auth/register'
+
+import Meatball from '../views/MeatBall'
 
 import pizzaFilter from '../components/pizza/pizzaFilter'
 import soupFilter from '../components/soup/soupFilter'
@@ -19,50 +22,65 @@ import pageNotFound404 from '../views/errors/404';
 
 const routes = [
     {
-        path: '/login',
-        name: 'Login',
-        component: Login 
-    },
-    {
-        path: '/register',
-        name: 'Register',
-        component: Register
-
+        path: '/meatball',
+        name: 'Meatball',
+        component: Meatball,
+        children:[
+            {
+                path: '/',
+                name: 'Welcome',
+                component: Welcome
+            },
+            {
+                path: 'login',
+                name: 'Login',
+                component: Login 
+            },
+            {
+                path: 'register',
+                name: 'Register',
+                component: Register
+            },
+            {
+                path: 'pizza',
+                name: 'Pizza',
+                component: pizzaFilter,
+            },
+            {
+                path: 'soup',
+                name: 'Soup',
+                component: soupFilter
+            },
+            {
+                path: 'dessert',
+                name: 'Dessert',
+                component: dessertFilter
+            },
+            {
+                path: 'drink',
+                name: 'Drink',
+                component: drinkFilter
+            },
+            {
+                path: 'meal',
+                name: 'Meal',
+                component: mealFilter
+            },
+            {
+                path: 'pasta',
+                name: 'Pasta',
+                component: pastaFilter
+            },
+            {
+                path: '*',
+                component: pageNotFound404,
+            },
+        ],
     },
     {
         path: '/',
-        name: 'Welcome',
-        component: Welcome
-    },
-    {
-        path: '/pizza',
-        name: 'Pizza',
-        component: pizzaFilter
-    },
-    {
-        path: '/soup',
-        name: 'Soup',
-        component: soupFilter
-    },
-    {
-        path: '/dessert',
-        name: 'Dessert',
-        component: dessertFilter
-    },
-    {
-        path: '/drink',
-        name: 'Drink',
-        component: drinkFilter
-    },
-    {
-        path: '/meal',
-        name: 'Meal',
-        component: mealFilter
-    },
-    {
-        path: '/pasta',
-        name: 'Pasta',
-        component: pastaFilter
+        name: 'MainWelcome',
+        component: MainWelcome
     },
     {
         path: '*',

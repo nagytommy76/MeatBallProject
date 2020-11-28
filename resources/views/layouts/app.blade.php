@@ -19,6 +19,6 @@
 
 </head>
 <body>
-    <main id="app"></main>  
+    <main id="app"></main>
 </body>
 </html>

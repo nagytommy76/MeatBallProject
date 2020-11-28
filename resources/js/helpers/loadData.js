@@ -1,64 +1,29 @@
+// import Axios from "axios"
+
 export default class loadData{
-    static async fetchAuthData(apiRouteName, method, accessToken){
-        let response = await fetch(`api/${apiRouteName}`, {
-            method: method,
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + accessToken
-            }
-        })
-        return response.json()
-    }
     static async fetchData(apiRouteName){
-        let response = await fetch(`api/${apiRouteName}`, {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            }
-        })
-        return response.json()
+        return axios.get(apiRouteName)
     }
     static async getFoodByOrder(apiRouteName, orderBy, priceValue, maxPrice){
-        let response = await fetch(`api/${apiRouteName}`, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
+        return axios.post(apiRouteName,{
+            body: {
                 orderBy: orderBy,
                 minPrice: priceValue,
                 maxPrice: maxPrice
-            })
+            }
         })
-        return response.json();
     }
     static async searchFoodByName(apiRouteName, eventValue, orderBy, priceValue, maxPrice){
-        let response = await fetch(`api/${apiRouteName}`, {
-            method: "POST",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
+        return axios.post(apiRouteName,{
+            body: {
                 name: eventValue,
                 orderBy: orderBy,
                 minPrice: priceValue,
                 maxPrice: maxPrice
-            })
-        })
-        return response.json();
-    }
-    static async getMinMaxPrice(apiRouteName){
-        let response = await fetch(`api/${apiRouteName}`, {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
             }
         })
-        return response.json();
+    }
+    static async getMinMaxPrice(apiRouteName){
+        return axios.get(apiRouteName)
     }
 }

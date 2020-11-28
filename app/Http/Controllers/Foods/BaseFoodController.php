@@ -23,6 +23,7 @@ class BaseFoodController extends Controller
     }
 
     protected static function getFoodByOrder($request, $foodResource, $foodModel){
+        $request = json_decode($request->getContent())->body;
         $food = self::getFoodByPrice($foodModel, $request->minPrice, $request->maxPrice);
 
         if ($request->orderBy == 'asc') {
@@ -48,6 +49,7 @@ class BaseFoodController extends Controller
     }
 
     protected static function searchFoodByName($request, $foodResource, $foodModel){
+        $request = json_decode($request->getContent())->body;
         return $foodResource::collection($foodModel::where('name', 'LIKE', "%$request->name%")->get()->sortBy(
             function($q){
                 return $q->prices->price;

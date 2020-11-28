@@ -119,7 +119,6 @@
 import Alert from '../baseComponents/Alert'
 export default {
     name: "userinfo",
-    template: "userinfo",
     data:() => {
         return{
             hasError: false,
@@ -178,7 +177,7 @@ export default {
             setTimeout(() => {this.showMsg = false}, 5000);
         },
         async addUserInfo(){
-            await axios.post('api/addUserInfo', {
+            await axios.post('addUserInfo', {
                 formData: this.formData
             }).then(userInfo => {
                 if (userInfo.data.hasError) {
@@ -194,7 +193,7 @@ export default {
             })
         },
         async modifyUserInfo(){
-            await axios.post('api/updateUserInfo',{
+            await axios.post('updateUserInfo',{
                 formData: this.formData
             }).then(userInfo => {
                 if (userInfo.data.hasError) {

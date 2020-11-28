@@ -7,41 +7,37 @@
                 <div class="card-body" v-for="(item, index) in cartItems.items" :key="item.id">
                     <div class="cart-card">
                         <div class="image">
-                            <img v-bind:src="'storage/'+item.item.imagePath" alt="Kép helye">
+                            <img v-bind:src="'/storage/'+item.item.imagePath" alt="Kép helye">
                         </div>
                     <div class="body">
                     <h3 class="">{{item.item.foodName}}</h3>
                         <h5>További feltétek:</h5>
                         <div class="ingreds">
-                            <div class="tooltip" v-for="ingred of item.item.plusIngreds" :key="ingred.ingredId">
-                            <span class="tooltiptext" >
-                                {{ingred.ingredPrice}} Ft
-                            </span>
+                            <Tooltip 
+                                v-for="ingred in item.item.plusIngreds" :key="ingred.ingredId"
+                                :text="`${ingred.ingredPrice} Ft`"
+                            >
                                 <span>{{ingred.ingredName}}</span>
-                            </div>
+                            </Tooltip>
                         </div>
-                        <div class="tooltip">
-                            <span class="tooltiptext">
-                                Eredeti ár: {{item.item.price}} Ft
-                            </span>
+                        <Tooltip 
+                            :text="`Eredeti ár: ${item.item.price} Ft`"
+                        >
                             <span>
                                 <h4>Egységár: {{item.oneItemTotalPrice}} Ft</h4>
                             </span>
-                        </div>
+                        </Tooltip>
                         <h4>Mennyiség: {{item.qty}} db</h4>
                         </div>
                             <div class="left">
                                 <form @click="deleteItem" >
-                                <div class="tooltip">
-                                    <span class="tooltiptext">
-                                        Termék törlése
-                                    </span>
+                                <Tooltip :text="`Termék törlése`">
                                     <span class="deleteIcon">
                                         <input type="hidden" class="foodId" v-bind:value="item.item.id">
                                         <input type="hidden" class="foodType" v-bind:value="item.foodType">
                                         <i v-bind:id="index" v-bind:class="iconName"></i>                                      
                                     </span>
-                                </div>
+                                </Tooltip>
                                 </form>                             
                             </div>
                         </div>
@@ -59,6 +55,7 @@
 </template>
 <script>
 import {mapGetters} from 'vuex';
+import Tooltip from '../Utility/Tooltip'
 import Alert from '../baseComponents/Alert'
 export default {
     name: "cartmodal",
@@ -70,7 +67,8 @@ export default {
         }
     },
     components:{
-        Alert
+        Alert,
+        Tooltip,
     },
     computed: {
         ...mapGetters({
@@ -88,7 +86,7 @@ export default {
                 const foodType = event.target.parentElement.querySelector('.foodType').value;
                 const selectedItemIndex = event.target.parentElement.querySelector('I').id;
 
-                await axios.delete('api/removeItemFromCart',{
+                await axios.delete('removeItemFromCart',{
                     data:{
                         foodId: foodId,
                         foodType: foodType,
