@@ -1,5 +1,6 @@
 $menu-width: 170px;
 $navbar-height: 100px;
+
 .navbar{
     background: $dark;
     color: white;
@@ -99,6 +100,29 @@ $navbar-height: 100px;
     }
 } // NAVBAR END 
 
+
+
+.navbar-enter-active,
+.navbar-leave-active {
+    transition: transform .3s;
+}
+
+.navbar-enter{
+    transform: translateY(100%)
+}
+.navbar-leave-to {
+    transform: translateY(100%);
+}
+
+.slide-enter-active,
+.slide-leave-active {
+    transition: opacity .3s;
+}
+
+.slide-enter,
+.slide-leave-to {
+    opacity: 0;
+}
 
 
 // The number of elements in cart

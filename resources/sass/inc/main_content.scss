@@ -1,4 +1,4 @@
-$height:70vh;
+$height: 100vh;
 .main-content{
     color: $dark;
     min-height: $height;
@@ -9,7 +9,7 @@ $height:70vh;
         flex: 1;
         display: flex;
         flex-direction: column;
-        background-color: $test1;
+        background-color: #222;
         color: #FFF;
         .image{
             align-self: flex-end;
@@ -40,6 +40,9 @@ $height:70vh;
             margin-bottom: auto;
             max-width: 20rem;
             align-self: flex-end;
+            border: 1px solid $favColor;
+            border-radius: 7px;
+            padding: 1rem;
             &-header{
                 font-size: 1.5rem;
                 text-align: right;
@@ -80,7 +83,7 @@ $height:70vh;
             margin-bottom: 2rem;
         }
         .grid-container{
-            min-height: $height;
+            // height: $height;
             width: 100%;
             display: grid;
             gap: 30px;
@@ -130,10 +133,17 @@ $height:70vh;
     }
     .main-content{
         flex-direction: column;
+        height: auto;
+    
+    .main-left-content{
+        .footer-contact{
+            margin-top: 1rem;
+        }
     }
     .main-right-content{
         .grid-container{
             grid-template-columns: 100% !important;
         }
     }
+}
 }

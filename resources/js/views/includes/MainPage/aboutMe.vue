@@ -45,42 +45,30 @@
                 <Tooltip :text="'GitHub'">
                     <span><a target="_blank" href="https://github.com/nagytommy76"><i class="fab fa-github fa-2x"></i></a></span>
                 </Tooltip> 
+                <Tooltip :text="'Git'">
+                    <span><i class="fab fa-git-alt"></i></span>
+                </Tooltip> 
                 <Tooltip :text="'Windows 10'">
                     <span><i class="fab fa-windows"></i></span>
+                </Tooltip>  
+                <Tooltip :text="'Node Package Manager'">
+                    <span><i class="fab fa-npm"></i></span>
                 </Tooltip>  
             </div>
             <section class="summary">
                 <h1 class="summary-header my-0">Rövid bemutatkozás</h1>
                 <div class="summary-body">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab voluptas natus commodi nesciunt alias consequuntur error consectetur quidem iure hic.</p>
-                    <p></p>
+                    <p>Nagy Tamás vagyok, pályakezdő webfejlesztő. Jelenlegi tudásom nagy részét autodidakta módon szereztem, különböző kurzusok (Udemy) és weboldalak (freeCodeCamp, w3school) segítségével, valamint saját projectek elkészítésével.</p>
+                    <p>Tudásomat folyamatosan bővítem. Jelenleg Laravelt és Vue.js-t tanulom, ezekkel a technológiákkal szeretnék állást találni</p>
+                    <p>A jövőt tekintve szeretnék megismerkedni a Node.js-el, React-el, és a MongoDB-vel</p>
+                    <p>BackEnd és FrontEnd munkák egyaránt érdekelnek</p>
                 </div>
             </section>
-            <footer class="footer-contact">
-                <h4 class="icon-title">Elérhetőségeim</h4>
-                <div class="contact-icon">
-                    <Tooltip :text="'nagytommy76@gmail.com'">
-                        <span><a class="" href="mailto:nagytommy76@gmail.com"><i class="fas fa-envelope"></i></a></span>
-                    </Tooltip>  
-                    <Tooltip :text="'Tel.: 06307862963'">
-                        <span><a class="" href="tel:06307862963"><i class="fas fa-phone"></i></a></span>
-                    </Tooltip>  
-                    <Tooltip :text="'LinkedIn'">
-                        <span><a target="_blank" href="https://www.linkedin.com/in/nagy-tam%C3%A1s-27355116b/"><i class="fab fa-linkedin"></i></a></span>
-                    </Tooltip>  
-                    <Tooltip :text="'GitHub'">
-                        <span><a target="_blank" href="https://github.com/nagytommy76"><i class="fab fa-github fa-2x"></i></a></span>
-                    </Tooltip>  
-                    <Tooltip :text="'Facebook: Nagy Tamás'">
-                        <span><a target="_blank" href="https://www.facebook.com/tamas.nagy.1029"><i class="fab fa-facebook-square fa-2x"></i></a></span>
-                    </Tooltip>  
-                </div>                                                      
-            </footer>
+            <FooterContact />
         </aside>
         <section class="main-right-content">
             <h1 class="main-title">Nagy Tamás</h1>
             <h3 class="main-sub-title">Pályakezdő Fullstack Webfejlesztő</h3>
-
             <div class="grid-container">
                 <div class="projects">
                     <h3 class="sub-title">Projectek</h3>
@@ -102,12 +90,13 @@
                         </ul>
                     </section>
                     <section class="meatball">
-                        <h4 class="project-title"><a href="#top">Húsgolyó Étterem honlapja</a></h4>
+                        <h4 class="project-title">
+                            <router-link :to="{name: 'Welcome'}">Húsgolyó Étterem honlapja</router-link>
+                        </h4>
                         <p class="my-0">2020 -</p>
                         <p>2020 tavaszán kezdtem fejleszteni ezt a weboldalt, ebben az esetben szerettem volna megismerkedni a modern keretrendszerekkel, front-end és back-end részről is. Ezért választottam a Vue.js-t, illetve a Laravelt.</p>
                         <p>A programban lehetőség van CRUD (Create-Read-Update-Delete) vagyis admin feladatok ellátására.</p>
                         <p>Ezen műveletek megjelenítéséhez Blade Template-et használtam, ahol lehetőség volt rá, Blade komponenseket is (bevitel, módosítás, törlés).</p>
-                        <p>Célom, hogy ezekkel a technológiákkal találjak állást.</p>
                         <h4 class="my-0">Használt technológiák</h4>
                         <ul class="tech-list">
                             <li>SASS</li>
@@ -156,10 +145,12 @@
 </template>
 <script>
 import Tooltip from '../../../components/Utility/Tooltip'
+import FooterContact from '../../../components/AboutMe/FooterContact'
 export default {
     name: 'AboutMe',
     components:{
         Tooltip,
+        FooterContact,
     }
 }
 </script>

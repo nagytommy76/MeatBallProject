@@ -1,6 +1,13 @@
 <template>
 <main>
-    <Navbar />
+    <!-- <div class="sidebar-open" @click="openNavbar()"><i class="fas fa-bars fa-2x"></i></div> -->
+        <!-- <transition name="slide" appear> -->
+            <!-- <div class="" v-if="showNavbar" @click="showNavbar = false"></div> -->
+        <!-- </transition> -->
+        <!-- <transition name="navbar" appear > -->
+            <Navbar />
+        <!-- </transition> -->
+
         <transition name="slide" appear>
             <div class="fade-in" v-if="showCartModal" @click="showCartModal = false"></div>
             <div class="fade-in" v-if="showOrdersModal" @click="showOrdersModal = false"></div>
@@ -33,7 +40,13 @@ export default {
         return {
             showCartModal: false,
             showOrdersModal: false,
+            // showNavbar: true,
         }
+    },
+    methods: {
+        // openNavbar(){
+        //     this.showNavbar = true
+        // }
     },
 }
 </script>

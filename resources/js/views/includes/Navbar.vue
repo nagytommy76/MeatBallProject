@@ -2,9 +2,13 @@
     <nav role="navigation" class="navbar">
         <div class="navbar-brand">
             <router-link :to="{name: 'Welcome'}"><span class="primary-color">Húsgolyó </span>Étterem</router-link>
-            <span id="navOpen"><i class="fas fa-bars"></i></span>
+            <!-- <span id="navOpen"><i class="fas fa-bars"></i></span> -->
+            <div id="navOpen" @click="openNavbar()"><i class="fas fa-bars"></i></div>
         </div>
         <ul class="navbar-nav">
+            <li class="nav-item">
+                <router-link class="nav-link" :to="{name: 'MainWelcome'}">Portfólióm</router-link>
+            </li>
             <li class="nav-item dropdown">
                 <a id="foodOrder" class="nav-link dropdown">Étel Rendelés</a>
                 <div class="dropdown-menu">
@@ -80,7 +84,15 @@ export default {
         navbarHelper.logOutBTN(this.$store)
         navbarHelper.openBtn()
     },
+    data() {
+        return {
+            showDropdowns: false
+        }
+    },
     methods:{
+        openNavbar(){
+
+        }
     }
 }
 </script>
