@@ -2,7 +2,6 @@
 .main-header{
     height: 100vh;
     background: $dark url('../img/header-img.jpg') no-repeat center center/cover;
-    // margin-top: -5.4rem;
     margin-top: calc(-#{$navbar-height});
 
     .main-title{
@@ -31,6 +30,7 @@
 
 @media(max-width: $mobile-width){
     .main-header{
+        margin-top: 0;
         .main-title{
             h1{
                 font-size: 2rem;

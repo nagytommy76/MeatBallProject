@@ -2068,7 +2068,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                         _this.$store.dispatch('setLoggedIn', true);
 
                         _this.$router.push({
-                          name: 'Meatball'
+                          name: 'MainWelcome'
                         });
                       }
                     }
@@ -4235,16 +4235,28 @@ __webpack_require__.r(__webpack_exports__);
     Modal: _components_cart_modal__WEBPACK_IMPORTED_MODULE_3__["default"],
     OrdersModal: _components_Auth_orderModal__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
+  mounted: function mounted() {
+    window.addEventListener('resize', this.checkWindowWidth());
+    this.checkWindowWidth();
+  },
   data: function data() {
     return {
       showCartModal: false,
-      showOrdersModal: false // showNavbar: true,
-
+      showOrdersModal: false,
+      showNavOpen: false,
+      showNavbar: true
     };
   },
-  methods: {// openNavbar(){
-    //     this.showNavbar = true
-    // }
+  methods: {
+    openNavbar: function openNavbar() {
+      this.showNavbar = true;
+    },
+    checkWindowWidth: function checkWindowWidth() {
+      if (window.innerWidth <= 700) {
+        this.showNavbar = false;
+        this.showNavOpen = true;
+      }
+    }
   }
 });
 
@@ -4697,6 +4709,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    mobileSize: Boolean
+  },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
     loggedIn: 'getUserLoggedIn',
     userName: 'getUserName',
@@ -4704,15 +4719,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   })),
   mounted: function mounted() {
     _helpers_navbarHelper__WEBPACK_IMPORTED_MODULE_1__["default"].logOutBTN(this.$store);
-    _helpers_navbarHelper__WEBPACK_IMPORTED_MODULE_1__["default"].openBtn();
   },
   data: function data() {
-    return {
-      showDropdowns: false
+    return {// showMobileView: false
     };
   },
   methods: {
-    openNavbar: function openNavbar() {}
+    closeNav: function closeNav() {
+      console.log('test');
+      this.$parent.showNavbar = false;
+    }
   }
 });
 
@@ -44568,7 +44584,53 @@ var render = function() {
   return _c(
     "main",
     [
-      _c("Navbar"),
+      _vm.showNavOpen
+        ? _c(
+            "div",
+            {
+              attrs: { id: "navOpen" },
+              on: {
+                click: function($event) {
+                  return _vm.openNavbar()
+                }
+              }
+            },
+            [_c("i", { staticClass: "fas fa-bars" })]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.showNavOpen
+        ? _c("transition", { attrs: { name: "navbar-fade-in", appear: "" } }, [
+            _vm.showNavbar
+              ? _c("div", {
+                  staticClass: "fade-in",
+                  on: {
+                    click: function($event) {
+                      _vm.showNavbar = false
+                    }
+                  }
+                })
+              : _vm._e()
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "transition",
+        { attrs: { name: "navbar", appear: "" } },
+        [
+          _vm.showNavbar
+            ? _c("Navbar", {
+                attrs: { mobileSize: _vm.showNavOpen },
+                on: {
+                  close: function($event) {
+                    _vm.showNavbar = false
+                  }
+                }
+              })
+            : _vm._e()
+        ],
+        1
+      ),
       _vm._v(" "),
       _c("transition", { attrs: { name: "slide", appear: "" } }, [
         _vm.showCartModal
@@ -45483,6 +45545,21 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("nav", { staticClass: "navbar", attrs: { role: "navigation" } }, [
+    _vm.mobileSize
+      ? _c(
+          "span",
+          {
+            staticClass: "sidenav-close",
+            on: {
+              click: function($event) {
+                return _vm.$emit("close")
+              }
+            }
+          },
+          [_c("i", { staticClass: "far fa-times-circle fa-2x" })]
+        )
+      : _vm._e(),
+    _vm._v(" "),
     _c(
       "div",
       { staticClass: "navbar-brand" },
@@ -45490,20 +45567,7 @@ var render = function() {
         _c("router-link", { attrs: { to: { name: "Welcome" } } }, [
           _c("span", { staticClass: "primary-color" }, [_vm._v("Húsgolyó ")]),
           _vm._v("Étterem")
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            attrs: { id: "navOpen" },
-            on: {
-              click: function($event) {
-                return _vm.openNavbar()
-              }
-            }
-          },
-          [_c("i", { staticClass: "fas fa-bars" })]
-        )
+        ])
       ],
       1
     ),
@@ -45537,7 +45601,12 @@ var render = function() {
               "router-link",
               {
                 staticClass: "dropdown-menu-item",
-                attrs: { to: { name: "Pizza" } }
+                attrs: { to: { name: "Pizza" } },
+                on: {
+                  click: function($event) {
+                    return _vm.closeNav()
+                  }
+                }
               },
               [
                 _c("i", { staticClass: "fas fa-pizza-slice" }),
@@ -61054,7 +61123,8 @@ try {
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-window.axios.defaults.baseURL = 'http://meatballproject.hu/api/';
+window.axios.defaults.baseURL = 'http://meatballproject.hu/api/'; // window.axios.defaults.baseURL = 'https://nagytamas93.hu/api/'
+
 window.axios.defaults.withCredentials = true;
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

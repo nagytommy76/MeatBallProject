@@ -1,12 +1,12 @@
 <template>
 <main>
-    <!-- <div class="sidebar-open" @click="openNavbar()"><i class="fas fa-bars fa-2x"></i></div> -->
-        <!-- <transition name="slide" appear> -->
-            <!-- <div class="" v-if="showNavbar" @click="showNavbar = false"></div> -->
-        <!-- </transition> -->
-        <!-- <transition name="navbar" appear > -->
-            <Navbar />
-        <!-- </transition> -->
+        <div id="navOpen" @click="openNavbar()" v-if="showNavOpen"><i class="fas fa-bars"></i></div>
+        <transition v-if="showNavOpen" name="navbar-fade-in" appear>
+            <div class="fade-in" v-if="showNavbar" @click="showNavbar = false"></div>
+        </transition>
+        <transition name="navbar" appear >
+            <Navbar :mobileSize="showNavOpen" v-if="showNavbar" @close="showNavbar = false" />
+        </transition>
 
         <transition name="slide" appear>
             <div class="fade-in" v-if="showCartModal" @click="showCartModal = false"></div>
@@ -36,17 +36,29 @@ export default {
         Modal,
         OrdersModal,
     },
+    mounted(){
+        window.addEventListener('resize', this.checkWindowWidth())
+        this.checkWindowWidth()
+    },
     data() {
         return {
             showCartModal: false,
             showOrdersModal: false,
-            // showNavbar: true,
+
+            showNavOpen: false,
+            showNavbar: true,
         }
     },
     methods: {
-        // openNavbar(){
-        //     this.showNavbar = true
-        // }
+        openNavbar(){
+            this.showNavbar = true
+        },
+        checkWindowWidth(){
+            if (window.innerWidth <= 700) {
+                this.showNavbar = false
+                this.showNavOpen = true
+            }
+        }
     },
 }
 </script>

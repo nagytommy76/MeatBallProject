@@ -65,9 +65,9 @@ $sideWidth: 35%;
                 letter-spacing: .2rem;
                 text-transform: uppercase;
                 text-align: left;
-                transition: transform .2s;
+                transition: transform .2s, color .2s;
                 &:hover{
-                    transform: translateY(-2px);
+                    transform: translateY(-3px);
                     color: $favColor;
                 }
             }

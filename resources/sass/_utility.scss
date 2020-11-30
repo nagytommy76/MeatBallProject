@@ -177,7 +177,7 @@ body{
     bottom: 0;
     transform: rotate(180deg);
     transition: all .3s;
-    z-index: 99;
+    z-index: 9999;
     &:hover{
         transform: rotate(0deg);
     }

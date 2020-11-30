@@ -1,9 +1,10 @@
 <template>
     <nav role="navigation" class="navbar">
+        <span v-if="mobileSize" @click="$emit('close')" class="sidenav-close"><i class="far fa-times-circle fa-2x"></i></span>
         <div class="navbar-brand">
             <router-link :to="{name: 'Welcome'}"><span class="primary-color">Húsgolyó </span>Étterem</router-link>
             <!-- <span id="navOpen"><i class="fas fa-bars"></i></span> -->
-            <div id="navOpen" @click="openNavbar()"><i class="fas fa-bars"></i></div>
+            <!-- <div id="navOpen" @click="showMobileView = !showMobileView"><i class="fas fa-bars"></i></div> -->
         </div>
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -12,7 +13,7 @@
             <li class="nav-item dropdown">
                 <a id="foodOrder" class="nav-link dropdown">Étel Rendelés</a>
                 <div class="dropdown-menu">
-                    <router-link :to="{name: 'Pizza'}" class="dropdown-menu-item">
+                    <router-link @click="closeNav()" :to="{name: 'Pizza'}" class="dropdown-menu-item">
                         <i class="fas fa-pizza-slice"></i>
                         Pizza
                     </router-link>
@@ -44,7 +45,6 @@
             <li v-show="!loggedIn" class="nav-item">
                 <router-link class="nav-link" :to="{name: 'Register'}">Regisztráció</router-link>
             </li>
-
             <li v-show="loggedIn" class="nav-item dropdown">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" >{{ userName }}<span class="caret"></span>
                 </a>
@@ -73,6 +73,9 @@ import { mapGetters } from "vuex";
 import navbarHelper from '../../helpers/navbarHelper'
 
 export default {
+    props:{
+        mobileSize: Boolean,
+    },
     computed: {
         ...mapGetters({
             loggedIn: 'getUserLoggedIn',
@@ -82,16 +85,16 @@ export default {
     },
     mounted(){
         navbarHelper.logOutBTN(this.$store)
-        navbarHelper.openBtn()
     },
     data() {
         return {
-            showDropdowns: false
+            // showMobileView: false
         }
     },
     methods:{
-        openNavbar(){
-
+        closeNav(){
+            console.log('test')
+            this.$parent.showNavbar = false
         }
     }
 }

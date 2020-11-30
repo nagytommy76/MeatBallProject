@@ -217,7 +217,7 @@ body::-webkit-scrollbar-thumb {
   bottom: 0;
   transform: rotate(180deg);
   transition: all 0.3s;
-  z-index: 99;
+  z-index: 9999;
 }
 
 .btn-up:hover {
@@ -293,6 +293,24 @@ body::-webkit-scrollbar-thumb {
   cursor: cell;
 }
 
+#navOpen {
+  font-size: 1.1rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  margin: 1.3rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+  transition: color 0.2s;
+}
+
+#navOpen:hover {
+  color: #E2BC00;
+}
+
 .navbar {
   background: #333;
   color: white;
@@ -318,11 +336,6 @@ body::-webkit-scrollbar-thumb {
   color: white;
   font-size: 1.5rem;
   align-items: center;
-}
-
-.navbar .navbar-brand #navOpen {
-  cursor: pointer;
-  display: none;
 }
 
 .navbar .navbar-nav {
@@ -401,20 +414,20 @@ body::-webkit-scrollbar-thumb {
 }
 
 .navbar-enter {
-  transform: translateY(100%);
+  transform: translateY(-100%);
 }
 
 .navbar-leave-to {
-  transform: translateY(100%);
+  transform: translateY(-100%);
 }
 
-.slide-enter-active,
-.slide-leave-active {
+.navbar-fade-in-enter-active,
+.navbar-fade-in-leave-active {
   transition: opacity 0.3s;
 }
 
-.slide-enter,
-.slide-leave-to {
+.navbar-fade-in-enter,
+.navbar-fade-in-leave-to {
   opacity: 0;
 }
 
@@ -431,20 +444,17 @@ body::-webkit-scrollbar-thumb {
 }
 
 @media (max-width: 720px) {
-  .open {
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
   .navbar {
+    position: fixed;
+    width: 100%;
     flex-direction: column;
     opacity: 1;
     box-shadow: 1px 1px 10px #333;
+    height: 250px;
   }
 
   .navbar .navbar-nav {
-    display: none;
-    margin-top: 1rem;
+    flex-direction: column;
   }
 
   .navbar .navbar-nav .nav-item {
@@ -453,12 +463,6 @@ body::-webkit-scrollbar-thumb {
 
   .navbar .navbar-brand {
     font-size: 1.5rem;
-  }
-
-  .navbar .navbar-brand #navOpen {
-    display: inline-flex;
-    margin-left: 1rem;
-    font-size: 1.8rem;
   }
 }
 
@@ -1009,6 +1013,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 @media (max-width: 720px) {
+  .main-header {
+    margin-top: 0;
+  }
+
   .main-header .main-title h1 {
     font-size: 2rem;
   }
@@ -1309,11 +1317,11 @@ body::-webkit-scrollbar-thumb {
   letter-spacing: 0.2rem;
   text-transform: uppercase;
   text-align: left;
-  transition: transform 0.2s;
+  transition: transform 0.2s, color 0.2s;
 }
 
 .sidenav-nav .sidenav-navigation-item:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   color: #E2BC00;
 }
 

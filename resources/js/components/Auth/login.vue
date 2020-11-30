@@ -88,7 +88,7 @@ export default {
                         }else{
                             this.$store.dispatch('setUserName', login.data.username)
                             this.$store.dispatch('setLoggedIn', true)
-                            this.$router.push({name: 'Meatball'})
+                            this.$router.push({name: 'MainWelcome'})
                         }                        
                     }
                 })
