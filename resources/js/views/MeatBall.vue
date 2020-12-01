@@ -2,7 +2,7 @@
 <main>
         <div id="navOpen" @click="openNavbar()" v-if="showNavOpen"><i class="fas fa-bars"></i></div>
         <transition v-if="showNavOpen" name="navbar-fade-in" appear>
-            <div class="fade-in" v-if="showNavbar" @click="showNavbar = false"></div>
+            <div class="nav-fade-in" v-if="showNavbar" @click="showNavbar = false"></div>
         </transition>
         <transition name="navbar" appear >
             <Navbar :mobileSize="showNavOpen" v-if="showNavbar" @close="showNavbar = false" />

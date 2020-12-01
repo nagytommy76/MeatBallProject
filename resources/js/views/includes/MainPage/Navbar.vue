@@ -7,8 +7,8 @@
                 <router-link class="sidenav-navigation-item" :to="{name: 'Welcome'}">Húsgolyó Étterem</router-link>
                 <a class="sidenav-navigation-item" href="#">Computer Store</a>
                 <div class="nav-underline"></div>
-                <a class="sidenav-navigation-item" href="#portfolio-footer">Footer</a>
-                <a class="sidenav-navigation-item" href="#">Egyéb</a>
+                <a class="sidenav-navigation-item" href="#">Projectek</a>
+                <a class="sidenav-navigation-item" href="#schools">Tanulmányok</a>
                 <div class="nav-underline"></div>
                     <div class="sidenav-contact">
                         <Tooltip :text="'nagytommy76@gmail.com'">

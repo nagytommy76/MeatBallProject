@@ -2,7 +2,7 @@ $menu-width: 170px;
 $navbar-height: 100px;
 
 #navOpen{
-    font-size: 1.1rem;
+    font-size: 1.7rem;
     position: fixed;
     top: 0;
     right: 0;
@@ -17,6 +17,15 @@ $navbar-height: 100px;
     &:hover{
         color: $favColor;
     }
+}
+
+.nav-fade-in{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2; 
 }
 
 .navbar{
@@ -41,9 +50,6 @@ $navbar-height: 100px;
         color: white;
         font-size: 1.5rem;
         align-items: center;
-        // #navOpen{
-        //     display: none;
-        // }
     }
     // Right side of the NAV
     .navbar-nav{
@@ -155,10 +161,6 @@ $navbar-height: 100px;
 }
 
 @media(max-width: $mobile-width){
-    // .open{
-    //     display: flex !important;
-    //     flex-direction: column !important;
-    // }  
     .navbar{
         position: fixed;
         width: 100%;
@@ -166,28 +168,14 @@ $navbar-height: 100px;
         opacity: 1;
         box-shadow: 1px 1px 10px $dark;
         height: 250px;
-        .navbar-nav{
-            // display: none;  
-            flex-direction: column;
-            // margin-top: 1rem;              
+        .navbar-nav{ 
+            flex-direction: column;              
             .nav-item{
                 margin: .7rem 0;
             }
         }
         .navbar-brand{
             font-size: 1.5rem;
-            // #navOpen{    
-            //     display: inline;           
-            //     margin-left: 1rem;
-            //     font-size: 1.8rem;
-            // }
         }
     }
 }
-
-
-
-
-
-
-

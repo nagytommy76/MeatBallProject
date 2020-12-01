@@ -4361,7 +4361,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Navbar */ "./resources/js/views/includes/MainPage/Navbar.vue");
 /* harmony import */ var _aboutMe__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./aboutMe */ "./resources/js/views/includes/MainPage/aboutMe.vue");
-/* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Footer */ "./resources/js/views/includes/MainPage/Footer.vue");
+/* harmony import */ var _Schools__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Schools */ "./resources/js/views/includes/MainPage/Schools.vue");
+/* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Footer */ "./resources/js/views/includes/MainPage/Footer.vue");
 //
 //
 //
@@ -4375,6 +4376,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+
 
 
 
@@ -4383,7 +4388,8 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Navbar: _Navbar__WEBPACK_IMPORTED_MODULE_0__["default"],
     AboutMe: _aboutMe__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Footer: _Footer__WEBPACK_IMPORTED_MODULE_2__["default"]
+    Schools: _Schools__WEBPACK_IMPORTED_MODULE_2__["default"],
+    Footer: _Footer__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
@@ -4452,6 +4458,57 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/Schools.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/includes/MainPage/Schools.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Schools'
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/aboutMe.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/includes/MainPage/aboutMe.vue?vue&type=script&lang=js& ***!
@@ -4463,37 +4520,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Utility_Tooltip__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components/Utility/Tooltip */ "./resources/js/components/Utility/Tooltip.vue");
 /* harmony import */ var _components_AboutMe_FooterContact__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/AboutMe/FooterContact */ "./resources/js/components/AboutMe/FooterContact.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -4704,8 +4730,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -4720,14 +4744,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     _helpers_navbarHelper__WEBPACK_IMPORTED_MODULE_1__["default"].logOutBTN(this.$store);
   },
-  data: function data() {
-    return {// showMobileView: false
-    };
-  },
   methods: {
     closeNav: function closeNav() {
-      console.log('test');
-      this.$parent.showNavbar = false;
+      if (this.mobileSize) {
+        this.$emit('close');
+      }
     }
   }
 });
@@ -44603,7 +44624,7 @@ var render = function() {
         ? _c("transition", { attrs: { name: "navbar-fade-in", appear: "" } }, [
             _vm.showNavbar
               ? _c("div", {
-                  staticClass: "fade-in",
+                  staticClass: "nav-fade-in",
                   on: {
                     click: function($event) {
                       _vm.showNavbar = false
@@ -44962,6 +44983,10 @@ var render = function() {
       _vm._v(" "),
       _c("AboutMe"),
       _vm._v(" "),
+      _c("div", { staticClass: "top-underline" }),
+      _vm._v(" "),
+      _c("Schools"),
+      _vm._v(" "),
       _c("Footer")
     ],
     1
@@ -45027,17 +45052,17 @@ var render = function() {
           _vm._v(" "),
           _c(
             "a",
-            {
-              staticClass: "sidenav-navigation-item",
-              attrs: { href: "#portfolio-footer" }
-            },
-            [_vm._v("Footer")]
+            { staticClass: "sidenav-navigation-item", attrs: { href: "#" } },
+            [_vm._v("Projectek")]
           ),
           _vm._v(" "),
           _c(
             "a",
-            { staticClass: "sidenav-navigation-item", attrs: { href: "#" } },
-            [_vm._v("Egyéb")]
+            {
+              staticClass: "sidenav-navigation-item",
+              attrs: { href: "#schools" }
+            },
+            [_vm._v("Tanulmányok")]
           ),
           _vm._v(" "),
           _c("div", { staticClass: "nav-underline" }),
@@ -45120,6 +45145,109 @@ var render = function() {
   ])
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/Schools.vue?vue&type=template&id=064e4f2d&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/includes/MainPage/Schools.vue?vue&type=template&id=064e4f2d& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "section",
+      { staticClass: "schools-bg", attrs: { id: "schools" } },
+      [
+        _c("h3", { staticClass: "sub-title" }, [_vm._v("Tanulmányok")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "schools" }, [
+          _c("section", { staticClass: "okj" }, [
+            _c("h4", { staticClass: "project-title" }, [
+              _vm._v("Szoftverfejlesztő OKJ")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "my-0" }, [
+              _vm._v("2018 Január - 2019 Június")
+            ]),
+            _vm._v(" "),
+            _c("h4", { staticClass: "my-0" }, [
+              _vm._v("Soter-Line Oktatási Központ")
+            ]),
+            _vm._v(" "),
+            _c("h4", { staticClass: "my-0" }, [_vm._v("Tanult technológiák")]),
+            _vm._v(" "),
+            _c("ul", { staticClass: "tech-list" }, [
+              _c("li", [
+                _vm._v("C# (A programozás alapjait tanultuk meg vele)")
+              ]),
+              _vm._v(" "),
+              _c("li", [_vm._v("HTML")]),
+              _vm._v(" "),
+              _c("li", [_vm._v("JavaScript")]),
+              _vm._v(" "),
+              _c("li", [_vm._v("CSS3")]),
+              _vm._v(" "),
+              _c("li", [_vm._v("PHP")]),
+              _vm._v(" "),
+              _c("li", [_vm._v("MySQL")])
+            ]),
+            _vm._v(" "),
+            _c("h4", { staticClass: "my-0" }, [_vm._v("Egyéb")]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "hálózati ismeretek, adatbázisok, programozási alapismeretek, Apache (XAMPP) szerver, weblap készítés\n            "
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("section", { staticClass: "mid-school" }, [
+            _c("h4", { staticClass: "project-title" }, [
+              _vm._v("Érettségi, Informatika szak")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "my-0" }, [_vm._v("2008 - 2013")]),
+            _vm._v(" "),
+            _c("h4", { staticClass: "my-0" }, [
+              _vm._v("Verebély László Szakgimnáziuma és Szakközépiskolája")
+            ]),
+            _vm._v(" "),
+            _c("h4", { staticClass: "my-0" }, [_vm._v("Tanult technológiák")]),
+            _vm._v(" "),
+            _c("ul", { staticClass: "tech-list" }, [
+              _c("li", [_vm._v("C#")]),
+              _vm._v(" "),
+              _c("li", [_vm._v("Pascal")]),
+              _vm._v(" "),
+              _c("li", [_vm._v("Hálózati ismeretek")]),
+              _vm._v(" "),
+              _c("li", [_vm._v("MS Office (Access, World, Excel, SharePoint)")])
+            ])
+          ])
+        ])
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -45270,17 +45398,13 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("section", { staticClass: "main-right-content" }, [
-        _c("h1", { staticClass: "main-title" }, [_vm._v("Nagy Tamás")]),
-        _vm._v(" "),
-        _c("h3", { staticClass: "main-sub-title" }, [
-          _vm._v("Pályakezdő Fullstack Webfejlesztő")
-        ]),
+        _vm._m(2),
         _vm._v(" "),
         _c("div", { staticClass: "grid-container" }, [
+          _c("h3", { staticClass: "sub-title" }, [_vm._v("Projectek")]),
+          _vm._v(" "),
           _c("div", { staticClass: "projects" }, [
-            _c("h3", { staticClass: "sub-title" }, [_vm._v("Projectek")]),
-            _vm._v(" "),
-            _vm._m(2),
+            _vm._m(3),
             _vm._v(" "),
             _c("section", { staticClass: "meatball" }, [
               _c(
@@ -45318,11 +45442,9 @@ var render = function() {
                 _vm._v("Használt technológiák")
               ]),
               _vm._v(" "),
-              _vm._m(3)
+              _vm._m(4)
             ])
-          ]),
-          _vm._v(" "),
-          _vm._m(4)
+          ])
         ])
       ])
     ]
@@ -45370,6 +45492,18 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("p", [_vm._v("BackEnd és FrontEnd munkák egyaránt érdekelnek")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "main-title" }, [
+      _c("h1", { staticClass: "main-title-main" }, [_vm._v("Nagy Tamás")]),
+      _vm._v(" "),
+      _c("h3", { staticClass: "main-title-sub" }, [
+        _vm._v("Pályakezdő Fullstack Webfejlesztő")
       ])
     ])
   },
@@ -45453,74 +45587,6 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("li", [_vm._v("MySQL")])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "schools" }, [
-      _c("h3", { staticClass: "sub-title" }, [_vm._v("Tanulmányok")]),
-      _vm._v(" "),
-      _c("section", { staticClass: "okj" }, [
-        _c("h4", { staticClass: "project-title" }, [
-          _vm._v("Szoftverfejlesztő OKJ")
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "my-0" }, [_vm._v("2018 Január - 2019 Június")]),
-        _vm._v(" "),
-        _c("h4", { staticClass: "my-0" }, [
-          _vm._v("Soter-Line Oktatási Központ")
-        ]),
-        _vm._v(" "),
-        _c("h4", { staticClass: "my-0" }, [_vm._v("Tanult technológiák")]),
-        _vm._v(" "),
-        _c("ul", { staticClass: "tech-list" }, [
-          _c("li", [_vm._v("C# (A programozás alapjait tanultuk meg vele)")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("HTML")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("JavaScript")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("CSS3")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("PHP")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("MySQL")])
-        ]),
-        _vm._v(" "),
-        _c("h4", { staticClass: "my-0" }, [_vm._v("Egyéb")]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "hálózati ismeretek, adatbázisok, programozási alapismeretek, Apache (XAMPP) szerver, weblap készítés\n                    "
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "mid-school" }, [
-        _c("h4", { staticClass: "project-title" }, [
-          _vm._v("Érettségi, Informatika szak")
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "my-0" }, [_vm._v("2008 - 2013")]),
-        _vm._v(" "),
-        _c("h4", { staticClass: "my-0" }, [
-          _vm._v("Verebély László Szakgimnáziuma és Szakközépiskolája")
-        ]),
-        _vm._v(" "),
-        _c("h4", { staticClass: "my-0" }, [_vm._v("Tanult technológiák")]),
-        _vm._v(" "),
-        _c("ul", { staticClass: "tech-list" }, [
-          _c("li", [_vm._v("C#")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("Pascal")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("Hálózati ismeretek")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("MS Office (Access, World, Excel, SharePoint)")])
-        ])
-      ])
-    ])
   }
 ]
 render._withStripped = true
@@ -45602,7 +45668,7 @@ var render = function() {
               {
                 staticClass: "dropdown-menu-item",
                 attrs: { to: { name: "Pizza" } },
-                on: {
+                nativeOn: {
                   click: function($event) {
                     return _vm.closeNav()
                   }
@@ -45618,7 +45684,12 @@ var render = function() {
               "router-link",
               {
                 staticClass: "dropdown-menu-item",
-                attrs: { to: { name: "Soup" } }
+                attrs: { to: { name: "Soup" } },
+                nativeOn: {
+                  click: function($event) {
+                    return _vm.closeNav()
+                  }
+                }
               },
               [
                 _c("i", { staticClass: "fas fa-soap" }),
@@ -45630,7 +45701,12 @@ var render = function() {
               "router-link",
               {
                 staticClass: "dropdown-menu-item",
-                attrs: { to: { name: "Dessert" } }
+                attrs: { to: { name: "Dessert" } },
+                nativeOn: {
+                  click: function($event) {
+                    return _vm.closeNav()
+                  }
+                }
               },
               [
                 _c("i", { staticClass: "fas fa-birthday-cake" }),
@@ -45642,7 +45718,12 @@ var render = function() {
               "router-link",
               {
                 staticClass: "dropdown-menu-item",
-                attrs: { to: { name: "Drink" } }
+                attrs: { to: { name: "Drink" } },
+                nativeOn: {
+                  click: function($event) {
+                    return _vm.closeNav()
+                  }
+                }
               },
               [
                 _c("i", { staticClass: "fas fa-wine-glass-alt" }),
@@ -45654,7 +45735,12 @@ var render = function() {
               "router-link",
               {
                 staticClass: "dropdown-menu-item",
-                attrs: { to: { name: "Meal" } }
+                attrs: { to: { name: "Meal" } },
+                nativeOn: {
+                  click: function($event) {
+                    return _vm.closeNav()
+                  }
+                }
               },
               [
                 _c("i", { staticClass: "fas fa-weight" }),
@@ -45666,7 +45752,12 @@ var render = function() {
               "router-link",
               {
                 staticClass: "dropdown-menu-item",
-                attrs: { to: { name: "Pasta" } }
+                attrs: { to: { name: "Pasta" } },
+                nativeOn: {
+                  click: function($event) {
+                    return _vm.closeNav()
+                  }
+                }
               },
               [
                 _c("i", { staticClass: "fas fa-weight" }),
@@ -45694,7 +45785,15 @@ var render = function() {
         [
           _c(
             "router-link",
-            { staticClass: "nav-link", attrs: { to: { name: "Login" } } },
+            {
+              staticClass: "nav-link",
+              attrs: { to: { name: "Login" } },
+              nativeOn: {
+                click: function($event) {
+                  return _vm.closeNav()
+                }
+              }
+            },
             [_vm._v("Belépés")]
           )
         ],
@@ -45717,7 +45816,15 @@ var render = function() {
         [
           _c(
             "router-link",
-            { staticClass: "nav-link", attrs: { to: { name: "Register" } } },
+            {
+              staticClass: "nav-link",
+              attrs: { to: { name: "Register" } },
+              nativeOn: {
+                click: function($event) {
+                  return _vm.closeNav()
+                }
+              }
+            },
             [_vm._v("Regisztráció")]
           )
         ],
@@ -63774,6 +63881,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Navbar_vue_vue_type_template_id_4bc27b52___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Navbar_vue_vue_type_template_id_4bc27b52___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/includes/MainPage/Schools.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/views/includes/MainPage/Schools.vue ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Schools_vue_vue_type_template_id_064e4f2d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Schools.vue?vue&type=template&id=064e4f2d& */ "./resources/js/views/includes/MainPage/Schools.vue?vue&type=template&id=064e4f2d&");
+/* harmony import */ var _Schools_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Schools.vue?vue&type=script&lang=js& */ "./resources/js/views/includes/MainPage/Schools.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Schools_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Schools_vue_vue_type_template_id_064e4f2d___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Schools_vue_vue_type_template_id_064e4f2d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/includes/MainPage/Schools.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/includes/MainPage/Schools.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/views/includes/MainPage/Schools.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Schools_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Schools.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/Schools.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Schools_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/includes/MainPage/Schools.vue?vue&type=template&id=064e4f2d&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/views/includes/MainPage/Schools.vue?vue&type=template&id=064e4f2d& ***!
+  \*****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Schools_vue_vue_type_template_id_064e4f2d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Schools.vue?vue&type=template&id=064e4f2d& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/Schools.vue?vue&type=template&id=064e4f2d&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Schools_vue_vue_type_template_id_064e4f2d___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Schools_vue_vue_type_template_id_064e4f2d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

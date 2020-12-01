@@ -3,8 +3,6 @@
         <span v-if="mobileSize" @click="$emit('close')" class="sidenav-close"><i class="far fa-times-circle fa-2x"></i></span>
         <div class="navbar-brand">
             <router-link :to="{name: 'Welcome'}"><span class="primary-color">Húsgolyó </span>Étterem</router-link>
-            <!-- <span id="navOpen"><i class="fas fa-bars"></i></span> -->
-            <!-- <div id="navOpen" @click="showMobileView = !showMobileView"><i class="fas fa-bars"></i></div> -->
         </div>
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -13,37 +11,37 @@
             <li class="nav-item dropdown">
                 <a id="foodOrder" class="nav-link dropdown">Étel Rendelés</a>
                 <div class="dropdown-menu">
-                    <router-link @click="closeNav()" :to="{name: 'Pizza'}" class="dropdown-menu-item">
+                    <router-link @click.native="closeNav()" :to="{name: 'Pizza'}" class="dropdown-menu-item">
                         <i class="fas fa-pizza-slice"></i>
                         Pizza
                     </router-link>
-                    <router-link :to="{name: 'Soup'}" class="dropdown-menu-item">
+                    <router-link @click.native="closeNav()" :to="{name: 'Soup'}" class="dropdown-menu-item">
                         <i class="fas fa-soap"></i>
                         Levesek
                     </router-link>
-                    <router-link :to="{name: 'Dessert'}" class="dropdown-menu-item">
+                    <router-link @click.native="closeNav()" :to="{name: 'Dessert'}" class="dropdown-menu-item">
                         <i class="fas fa-birthday-cake"></i>
                         Desszertek
                     </router-link>
-                    <router-link :to="{name: 'Drink'}" class="dropdown-menu-item">
+                    <router-link @click.native="closeNav()" :to="{name: 'Drink'}" class="dropdown-menu-item">
                         <i class="fas fa-wine-glass-alt"></i>
                         Italok
                     </router-link>
-                    <router-link :to="{name: 'Meal'}" class="dropdown-menu-item">
+                    <router-link @click.native="closeNav()" :to="{name: 'Meal'}" class="dropdown-menu-item">
                         <i class="fas fa-weight"></i>
                         Főételek
                     </router-link>
-                    <router-link :to="{name: 'Pasta'}" class="dropdown-menu-item">
+                    <router-link @click.native="closeNav()" :to="{name: 'Pasta'}" class="dropdown-menu-item">
                         <i class="fas fa-weight"></i>
                         Tészta Ételek
                     </router-link> 
                 </div>
             </li>
             <li v-show="!loggedIn" class="nav-item">
-                <router-link class="nav-link" :to="{name: 'Login'}">Belépés</router-link>
+                <router-link @click.native="closeNav()" class="nav-link" :to="{name: 'Login'}">Belépés</router-link>
             </li>
             <li v-show="!loggedIn" class="nav-item">
-                <router-link class="nav-link" :to="{name: 'Register'}">Regisztráció</router-link>
+                <router-link @click.native="closeNav()" class="nav-link" :to="{name: 'Register'}">Regisztráció</router-link>
             </li>
             <li v-show="loggedIn" class="nav-item dropdown">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" >{{ userName }}<span class="caret"></span>
@@ -86,16 +84,12 @@ export default {
     mounted(){
         navbarHelper.logOutBTN(this.$store)
     },
-    data() {
-        return {
-            // showMobileView: false
+    methods: {
+        closeNav(){
+            if (this.mobileSize) {
+                this.$emit('close')
+            }
         }
     },
-    methods:{
-        closeNav(){
-            console.log('test')
-            this.$parent.showNavbar = false
-        }
-    }
 }
 </script>

@@ -67,11 +67,13 @@
             <FooterContact />
         </aside>
         <section class="main-right-content">
-            <h1 class="main-title">Nagy Tamás</h1>
-            <h3 class="main-sub-title">Pályakezdő Fullstack Webfejlesztő</h3>
+            <div class="main-title">
+                <h1 class="main-title-main">Nagy Tamás</h1>
+                <h3 class="main-title-sub">Pályakezdő Fullstack Webfejlesztő</h3>
+            </div>
             <div class="grid-container">
+                <h3 class="sub-title">Projectek</h3>
                 <div class="projects">
-                    <h3 class="sub-title">Projectek</h3>
                     <section class="comp-store">
                         <h4 class="project-title"><a target="_blank" href="https://nagytamasweboldal.000webhostapp.com/">Computer Store Webáruház</a></h4>
                         <p class="my-0">2019 - 2020</p>
@@ -104,39 +106,6 @@
                             <li>Laravel</li>
                             <li>MySQL</li>
                         </ul>
-                    </section>
-                </div>
-                <div class="schools">
-                    <h3 class="sub-title">Tanulmányok</h3>
-                    <section class="okj">
-                        <h4 class="project-title">Szoftverfejlesztő OKJ</h4>
-                        <p class="my-0">2018 Január - 2019 Június</p>
-                        <h4 class="my-0">Soter-Line Oktatási Központ</h4>
-                        <h4 class="my-0">Tanult technológiák</h4>
-                            <ul class="tech-list">
-                                <li>C# (A programozás alapjait tanultuk meg vele)</li>
-                                <li>HTML</li>
-                                <li>JavaScript</li>
-                                <li>CSS3</li>
-                                <li>PHP</li>
-                                <li>MySQL</li>
-                            </ul>
-                        <h4 class="my-0">Egyéb</h4>
-                        <p>hálózati ismeretek, adatbázisok, programozási alapismeretek, Apache (XAMPP) szerver, weblap készítés
-                        </p>
-                    </section>                    
-                    <section class="mid-school">
-                        <h4 class="project-title">Érettségi, Informatika szak</h4>
-                        <p class="my-0">2008 - 2013</p>
-                        <h4 class="my-0">Verebély László Szakgimnáziuma és Szakközépiskolája</h4>
-
-                        <h4 class="my-0">Tanult technológiák</h4>
-                            <ul class="tech-list">
-                                <li>C#</li>
-                                <li>Pascal</li>
-                                <li>Hálózati ismeretek</li>
-                                <li>MS Office (Access, World, Excel, SharePoint)</li>
-                            </ul>
                     </section>
                 </div>
             </div>            

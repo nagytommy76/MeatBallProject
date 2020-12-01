@@ -95,16 +95,6 @@ $sideWidth: 35%;
     }
 }
 
-.fade-in{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 2;  
-    background-color: rgba($color: #000, $alpha: .7);
-}
-
 .sidebar-enter-active,
 .sidebar-leave-active {
     transition: transform .3s;

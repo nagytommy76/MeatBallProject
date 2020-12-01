@@ -7,19 +7,24 @@
         <transition name="sidebar" appear >
             <Navbar v-if="showSidebar" @close="showSidebar = false" />
         </transition>
+
         <AboutMe />
+        <div class="top-underline"></div>
+        <Schools />
         <Footer />
     </div>
 </template>
 <script>
 import Navbar from './Navbar'
 import AboutMe from './aboutMe'
+import Schools from './Schools'
 import Footer from './Footer'
 export default {
     name: 'MainWelcomePage',
     components:{
         Navbar,
         AboutMe,
+        Schools,
         Footer,
     },
     data() {
