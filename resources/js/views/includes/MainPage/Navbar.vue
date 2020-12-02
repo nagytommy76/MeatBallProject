@@ -3,7 +3,6 @@
         <span @click="$emit('close')" class="sidenav-close"><i class="far fa-times-circle fa-2x"></i></span>
         <div class="sidenav-nav">
             <div class="sidenav-navigation">
-                <!-- <a class="sidenav-navigation-item" href="#">Húsgolyó Étterem</a> -->
                 <router-link class="sidenav-navigation-item" :to="{name: 'Welcome'}">Húsgolyó Étterem</router-link>
                 <a class="sidenav-navigation-item" href="#">Computer Store</a>
                 <div class="nav-underline"></div>

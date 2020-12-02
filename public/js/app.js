@@ -2068,7 +2068,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                         _this.$store.dispatch('setLoggedIn', true);
 
                         _this.$router.push({
-                          name: 'MainWelcome'
+                          name: 'Welcome'
                         });
                       }
                     }
@@ -4415,7 +4415,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Utility_Tooltip__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components/Utility/Tooltip */ "./resources/js/components/Utility/Tooltip.vue");
-//
 //
 //
 //
@@ -63365,7 +63364,8 @@ __webpack_require__.r(__webpack_exports__);
       return state.id;
     },
     getCreatedAt: function getCreatedAt(state) {
-      return state.create_time;
+      var time = new Date(state.create_time);
+      return "".concat(time.getFullYear(), "-").concat(time.getMonth() + 1, "-").concat(time.getDay(), " ").concat(time.getHours(), ":").concat(time.getMinutes(), ":").concat(time.getSeconds());
     },
     getPurhase: function getPurhase(state) {
       return state.purchase_units;

@@ -120,6 +120,6 @@ export default {
     components:{
         Tooltip,
         FooterContact,
-    }
+    },
 }
 </script>

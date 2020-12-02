@@ -71,7 +71,6 @@ $height: 100vh;
         text-align: justify;
 
         .main-title{
-            // background-color: #222;
             &-main{
                 color: $favColor;
                 font-size: 4rem;
@@ -164,6 +163,25 @@ $height: 100vh;
     .main-right-content{
         .grid-container{
             grid-template-columns: 100% !important;
+        }
+        .main-title{
+            &-main{
+                font-size: 2.5rem;
+            }
+            &-sub{
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+.schools-bg{
+    .schools{
+        grid-template-columns: auto;
+        .okj{
+            margin-bottom: 1.5rem;
+        }
+        .mid-school{
+            margin-bottom: 1.5rem;
         }
     }
 }

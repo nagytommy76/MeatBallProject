@@ -11,7 +11,10 @@ export default{
         getPaid: state => state.paidWithPayPal,
         getStatus: state => state.status,
         getTransactionID: state => state.id,
-        getCreatedAt: state => state.create_time,
+        getCreatedAt: state => {
+            let time = new Date(state.create_time)
+            return `${time.getFullYear()}-${time.getMonth()+1}-${time.getDay()} ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`
+        },
         getPurhase: state => state.purchase_units,
         getPayer: state => state.payer
     },
