@@ -1,6 +1,6 @@
 <nav role="navigation" class="navbar">
     <div class="navbar-brand">
-        <a href="#"><span class="primary-color">Húsgolyó</span> Étterem</a>
+        <a href="{{ url('meatball') }}"><span class="primary-color">Húsgolyó</span> Étterem</a>
         <span id="navOpen"><i class="fas fa-bars"></i></span>
     </div>
     <ul class="navbar-nav">
@@ -8,9 +8,7 @@
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     Admin Funkciók <span class="caret"></span>
                 </a>
-
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">                
                     {{-- ONLY ADMIN --}}
                     @auth('admin')
                         <a class="dropdown-menu-item" href="{{ route('admin.logout') }}">

@@ -98,7 +98,9 @@ export default {
                 if (!saveOrder.data.exception) {
                     setTimeout(() => {
                         this.setCartDefault()
-                        this.setPayPalDefault()
+                        if(this.paidWithPP){
+                            this.setPayPalDefault()
+                        }
                         this.setDefaultPage()
                     },10000)
                     this.isLoading = false;

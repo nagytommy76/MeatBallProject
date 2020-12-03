@@ -66,7 +66,7 @@
             </section>
             <FooterContact />
         </aside>
-        <section class="main-right-content">
+        <section class="main-right-content" id="projects">
             <div class="main-title">
                 <h1 class="main-title-main">Nagy Tamás</h1>
                 <h3 class="main-title-sub">Pályakezdő Fullstack Webfejlesztő</h3>

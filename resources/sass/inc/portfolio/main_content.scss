@@ -106,11 +106,13 @@ $height: 100vh;
 .schools-bg{
     background-color: #222;
     .schools{
+        height: 40vh;
         width: 70%;
         padding: 1rem;
         margin: auto;
         display: grid;
         grid-template-columns: auto auto;
+        align-items: center;
     }
 }
 
@@ -166,7 +168,7 @@ $height: 100vh;
         }
         .main-title{
             &-main{
-                font-size: 2.5rem;
+                font-size: 2.7rem;
             }
             &-sub{
                 font-size: 1.5rem;
@@ -177,6 +179,7 @@ $height: 100vh;
 .schools-bg{
     .schools{
         grid-template-columns: auto;
+        min-height: 105vh;
         .okj{
             margin-bottom: 1.5rem;
         }

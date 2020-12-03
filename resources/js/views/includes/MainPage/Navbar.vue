@@ -6,8 +6,9 @@
                 <router-link class="sidenav-navigation-item" :to="{name: 'Welcome'}">Húsgolyó Étterem</router-link>
                 <a class="sidenav-navigation-item" href="#">Computer Store</a>
                 <div class="nav-underline"></div>
-                <a class="sidenav-navigation-item" href="#">Projectek</a>
-                <a class="sidenav-navigation-item" href="#schools">Tanulmányok</a>
+                <a @click="closeNav()" class="sidenav-navigation-item" href="#aboutMe">Rólam</a>
+                <a @click="closeNav()" class="sidenav-navigation-item" href="#projects">Projectek</a>
+                <a @click="closeNav()" class="sidenav-navigation-item" href="#schools">Tanulmányok</a>
                 <div class="nav-underline"></div>
                     <div class="sidenav-contact">
                         <Tooltip :text="'nagytommy76@gmail.com'">
@@ -36,6 +37,11 @@ export default {
     name: 'SideNavbar',
     components:{
         Tooltip
-    }
+    },
+    methods: {
+        closeNav(){
+            this.$emit('close')
+        }
+    },
 }
 </script>

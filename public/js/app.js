@@ -2993,7 +2993,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     setTimeout(function () {
                       _this2.setCartDefault();
 
-                      _this2.setPayPalDefault();
+                      if (_this2.paidWithPP) {
+                        _this2.setPayPalDefault();
+                      }
 
                       _this2.setDefaultPage();
                     }, 10000);
@@ -4447,11 +4449,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'SideNavbar',
   components: {
     Tooltip: _components_Utility_Tooltip__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  methods: {
+    closeNav: function closeNav() {
+      this.$emit('close');
+    }
   }
 });
 
@@ -45051,7 +45059,29 @@ var render = function() {
           _vm._v(" "),
           _c(
             "a",
-            { staticClass: "sidenav-navigation-item", attrs: { href: "#" } },
+            {
+              staticClass: "sidenav-navigation-item",
+              attrs: { href: "#aboutMe" },
+              on: {
+                click: function($event) {
+                  return _vm.closeNav()
+                }
+              }
+            },
+            [_vm._v("Rólam")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "sidenav-navigation-item",
+              attrs: { href: "#projects" },
+              on: {
+                click: function($event) {
+                  return _vm.closeNav()
+                }
+              }
+            },
             [_vm._v("Projectek")]
           ),
           _vm._v(" "),
@@ -45059,7 +45089,12 @@ var render = function() {
             "a",
             {
               staticClass: "sidenav-navigation-item",
-              attrs: { href: "#schools" }
+              attrs: { href: "#schools" },
+              on: {
+                click: function($event) {
+                  return _vm.closeNav()
+                }
+              }
             },
             [_vm._v("Tanulmányok")]
           ),
@@ -45396,56 +45431,60 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("section", { staticClass: "main-right-content" }, [
-        _vm._m(2),
-        _vm._v(" "),
-        _c("div", { staticClass: "grid-container" }, [
-          _c("h3", { staticClass: "sub-title" }, [_vm._v("Projectek")]),
+      _c(
+        "section",
+        { staticClass: "main-right-content", attrs: { id: "projects" } },
+        [
+          _vm._m(2),
           _vm._v(" "),
-          _c("div", { staticClass: "projects" }, [
-            _vm._m(3),
+          _c("div", { staticClass: "grid-container" }, [
+            _c("h3", { staticClass: "sub-title" }, [_vm._v("Projectek")]),
             _vm._v(" "),
-            _c("section", { staticClass: "meatball" }, [
-              _c(
-                "h4",
-                { staticClass: "project-title" },
-                [
-                  _c("router-link", { attrs: { to: { name: "Welcome" } } }, [
-                    _vm._v("Húsgolyó Étterem honlapja")
-                  ])
-                ],
-                1
-              ),
+            _c("div", { staticClass: "projects" }, [
+              _vm._m(3),
               _vm._v(" "),
-              _c("p", { staticClass: "my-0" }, [_vm._v("2020 -")]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "2020 tavaszán kezdtem fejleszteni ezt a weboldalt, ebben az esetben szerettem volna megismerkedni a modern keretrendszerekkel, front-end és back-end részről is. Ezért választottam a Vue.js-t, illetve a Laravelt."
-                )
-              ]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "A programban lehetőség van CRUD (Create-Read-Update-Delete) vagyis admin feladatok ellátására."
-                )
-              ]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "Ezen műveletek megjelenítéséhez Blade Template-et használtam, ahol lehetőség volt rá, Blade komponenseket is (bevitel, módosítás, törlés)."
-                )
-              ]),
-              _vm._v(" "),
-              _c("h4", { staticClass: "my-0" }, [
-                _vm._v("Használt technológiák")
-              ]),
-              _vm._v(" "),
-              _vm._m(4)
+              _c("section", { staticClass: "meatball" }, [
+                _c(
+                  "h4",
+                  { staticClass: "project-title" },
+                  [
+                    _c("router-link", { attrs: { to: { name: "Welcome" } } }, [
+                      _vm._v("Húsgolyó Étterem honlapja")
+                    ])
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("p", { staticClass: "my-0" }, [_vm._v("2020 -")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "2020 tavaszán kezdtem fejleszteni ezt a weboldalt, ebben az esetben szerettem volna megismerkedni a modern keretrendszerekkel, front-end és back-end részről is. Ezért választottam a Vue.js-t, illetve a Laravelt."
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "A programban lehetőség van CRUD (Create-Read-Update-Delete) vagyis admin feladatok ellátására."
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "Ezen műveletek megjelenítéséhez Blade Template-et használtam, ahol lehetőség volt rá, Blade komponenseket is (bevitel, módosítás, törlés)."
+                  )
+                ]),
+                _vm._v(" "),
+                _c("h4", { staticClass: "my-0" }, [
+                  _vm._v("Használt technológiák")
+                ]),
+                _vm._v(" "),
+                _vm._m(4)
+              ])
             ])
           ])
-        ])
-      ])
+        ]
+      )
     ]
   )
 }
@@ -61208,11 +61247,6 @@ new Vue({
 /***/ (function(module, exports, __webpack_require__) {
 
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/**
- * We'll load jQuery and the Bootstrap jQuery plugin which provides support
- * for JavaScript based Bootstrap features such as modals and tabs. This
- * code may be modified to fit the specific needs of your application.
- */
 
 try {
   window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")["default"];
@@ -61220,31 +61254,12 @@ try {
 
   __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
 } catch (e) {}
-/**
- * We'll load the axios HTTP library which allows us to easily issue requests
- * to our Laravel back-end. This library automatically handles sending the
- * CSRF token as a header based on the value of the "XSRF" token cookie.
- */
-
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.axios.defaults.baseURL = 'http://meatballproject.hu/api/'; // window.axios.defaults.baseURL = 'https://nagytamas93.hu/api/'
 
 window.axios.defaults.withCredentials = true;
-/**
- * Echo exposes an expressive API for subscribing to channels and listening
- * for events that are broadcast by Laravel. Echo and event broadcasting
- * allows your team to easily build robust real-time web applications.
- */
-// import Echo from 'laravel-echo';
-// window.Pusher = require('pusher-js');
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: process.env.MIX_PUSHER_APP_KEY,
-//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-//     encrypted: true
-// });
 
 /***/ }),
 
@@ -63364,8 +63379,10 @@ __webpack_require__.r(__webpack_exports__);
       return state.id;
     },
     getCreatedAt: function getCreatedAt(state) {
-      var time = new Date(state.create_time);
-      return "".concat(time.getFullYear(), "-").concat(time.getMonth() + 1, "-").concat(time.getDay(), " ").concat(time.getHours(), ":").concat(time.getMinutes(), ":").concat(time.getSeconds());
+      if (state.create_time == null) {
+        var time = new Date(state.create_time);
+        return "".concat(time.getFullYear(), "-").concat(time.getMonth() + 1, "-").concat(time.getDay(), " ").concat(time.getHours(), ":").concat(time.getMinutes(), ":").concat(time.getSeconds());
+      }
     },
     getPurhase: function getPurhase(state) {
       return state.purchase_units;
