@@ -16,6 +16,16 @@
                 />
             </div>
             <Loading :isLoading="isLoading" />
+            <Alert 
+                v-if="showSuccessCashPay"
+                :Msg="`A visszaigazoló e-mailt elküldtük!`"
+                :className="'success'"
+            />
+            <Alert 
+                v-if="showSuccessCashPay"
+                :Msg="`Köszönjük rendelését! A fizetés a futárnál történik.`"
+                :className="'success'"
+            />
         </div>
     </div>
 </template>
@@ -51,6 +61,7 @@ export default {
 
             showPayment: true,
             showSuccessPayPal: false,
+            showSuccessCashPay: false,
             showException: false,
             showMakeOrder: false,
             showPayPal: false,
@@ -71,7 +82,6 @@ export default {
     },
     created(){
         if(this.userLoggedIn){
-            // ÁTTENNI VUEX-BE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             this.getUserInfo();
         }  
     },
@@ -96,13 +106,17 @@ export default {
                 getCreatedAt: this.getCreatedAt,
             }).then(saveOrder => {
                 if (!saveOrder.data.exception) {
-                    setTimeout(() => {
+                    if(this.paidWithPP){
                         this.setCartDefault()
-                        if(this.paidWithPP){
-                            this.setPayPalDefault()
-                        }
+                        this.setPayPalDefault()
+                        setTimeout(() => {
+                            this.setDefaultPage()
+                        },15000)
+                    }else{
+                        this.setCartDefault()
                         this.setDefaultPage()
-                    },10000)
+                        this.showSuccessCashPay = true 
+                    }                    
                     this.isLoading = false;
                 }else{
                     this.showException = true

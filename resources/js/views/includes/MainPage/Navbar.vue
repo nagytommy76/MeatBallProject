@@ -9,6 +9,7 @@
                 <a @click="closeNav()" class="sidenav-navigation-item" href="#aboutMe">Rólam</a>
                 <a @click="closeNav()" class="sidenav-navigation-item" href="#projects">Projectek</a>
                 <a @click="closeNav()" class="sidenav-navigation-item" href="#schools">Tanulmányok</a>
+                <a class="sidenav-navigation-item" href="#">Önéletrajzom</a>
                 <div class="nav-underline"></div>
                     <div class="sidenav-contact">
                         <Tooltip :text="'nagytommy76@gmail.com'">

@@ -67,45 +67,93 @@
             <FooterContact />
         </aside>
         <section class="main-right-content" id="projects">
-            <div class="main-title">
+            <!-- <div class="main-title">
                 <h1 class="main-title-main">Nagy Tamás</h1>
                 <h3 class="main-title-sub">Pályakezdő Fullstack Webfejlesztő</h3>
-            </div>
+            </div> -->
             <div class="grid-container">
-                <h3 class="sub-title">Projectek</h3>
+                <h3 class="sub-title primary-color">Projectek</h3>
                 <div class="projects">
-                    <section class="comp-store">
-                        <h4 class="project-title"><a target="_blank" href="https://nagytamasweboldal.000webhostapp.com/">Computer Store Webáruház</a></h4>
-                        <p class="my-0">2019 - 2020</p>
-                        <p>2019 őszén kezdtem el fejleszteni egy kitalált számítástechnikai alkatrészeket árusító webáruház honlapját. Az alkalmazás megvalósításához MVC (Model-View-Controller) fejlesztési mintát használtam, amihez 
-                        <span class="underline"><a class="text-black" target="_blank" href="https://www.udemy.com/course/object-oriented-php-mvc/">Brad Traversy</a></span>
-                        egyik Udemy kurzusa adta az alapot.</p>
-                        <p>A program megvalósításával a fő célom az MVC (Model-View-Controller) működésének megismerése és megértése volt, valamint az, hogy keretrendszer nélkül hogyan lehet megvalósítani egy webáruház alapvető funkcióit.</p>
-                        <p>Például: regisztráció, bejelentkezés, session kezelés, kosár és oldalon belüli keresés.</p>
-                        <h4 class="my-0">Használt technológiák</h4>
-                        <ul class="tech-list">
-                            <li>Bootstrap 4</li>
-                            <li>JavaScript</li>
-                            <li>CSS3</li>
-                            <li>PHP</li>
-                            <li>MySQL</li>
-                        </ul>
-                    </section>
                     <section class="meatball">
                         <h4 class="project-title">
                             <router-link :to="{name: 'Welcome'}">Húsgolyó Étterem honlapja</router-link>
                         </h4>
                         <p class="my-0">2020 -</p>
-                        <p>2020 tavaszán kezdtem fejleszteni ezt a weboldalt, ebben az esetben szerettem volna megismerkedni a modern keretrendszerekkel, front-end és back-end részről is. Ezért választottam a Vue.js-t, illetve a Laravelt.</p>
-                        <p>A programban lehetőség van CRUD (Create-Read-Update-Delete) vagyis admin feladatok ellátására.</p>
-                        <p>Ezen műveletek megjelenítéséhez Blade Template-et használtam, ahol lehetőség volt rá, Blade komponenseket is (bevitel, módosítás, törlés).</p>
+                        <p>2020 tavaszán kezdtem el fejleszteni ezt a weboldalt, ebben az esetben szerettem volna megismerkedni a modern keretrendszerekkel, front-end és back-end részről is. Ezért választottam a Vue.js-t, illetve a Laravelt.</p>
+                        <p>A programban lehetőség van CRUD (Create-Read-Update-Delete), vagyis admin funkciók ellátására. 
+                        A weboldal ezen része hagyományos, úgynevezett Multi-Page-Application, vagyis minden esemény (Pl.: gombnyomás) hatására az egész oldal újratölt.
+                        A műveletek megjelenítéséhez Blade Template-et használtam, ahol lehetőség volt rá, Blade komponenseket is (bevitel, módosítás, törlés).</p>
+                        <p>A weboldal "vásárlóknak" szóló része Single-Page-Application.</p>
+                        <div class="list">
+                            <div class="list-block">
+                                <h4 class="my-0">Oldal funkiók</h4>
+                                <ul class="list-block-functions">
+                                    <li>Felhasználó regisztrálása</li>
+                                    <li>Bejelentkezés</li>
+                                    <li>Tételek kosárba helyezése</li>
+                                    <li>Termékek szürése:
+                                        <ul> 
+                                            <li>Ár szerint növekvő</li>
+                                            <li>Ár szerint csökkenő sorrendben</li>
+                                            <li>Név szerint</li>
+                                        </ul>
+                                    </li>
+                                    <li>Vásárláskor e-mail küldése</li>
+                                </ul>
+                            </div>
+                            <div class="list-block">
+                                <h4 class="my-0">Használt technológiák</h4>
+                                <ul class="list-block-technologies">
+                                    <li>SASS</li>
+                                    <li>Vue.js (Vuex, Vue-router)</li>
+                                    <li>Laravel</li>
+                                    <li>MySQL</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="wargaming-api">
+                        <h4 class="project-title"><a href="#">World of Tanks weboldal</a></h4>
+                        <p class="my-0">2020</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur blanditiis beatae facilis, quis rem sed, architecto corporis expedita perferendis vero necessitatibus, harum exercitationem earum. Velit atque esse doloribus aliquam minus!</p>
                         <h4 class="my-0">Használt technológiák</h4>
                         <ul class="tech-list">
                             <li>SASS</li>
-                            <li>Vue.js (Vuex, Vue-router)</li>
-                            <li>Laravel</li>
-                            <li>MySQL</li>
+                            <li>Vue.js (Vuex, Vue-router, Vuex-persistedstate)</li>
+                            <li><a class="primary-color" href="https://developers.wargaming.net/reference/all/wot/?r_realm=eu" target="_blank">Wargaming API</a></li>
                         </ul>
+                    </section>
+                    <section class="comp-store">
+                        <h4 class="project-title"><a target="_blank" href="https://nagytamasweboldal.000webhostapp.com/">Computer Store Webáruház</a></h4>
+                        <p class="my-0">2019 - 2020</p>
+                        <p>2019 őszén kezdtem el fejleszteni egy általam kitalált, számítástechnikai alkatrészeket árusító webáruház honlapját. Ez a project volt életem első, nagyobb és önálló munkája. Az alkalmazás megvalósításához MVC (Model-View-Controller) fejlesztési mintát használtam, amihez 
+                        <span class="underline"><a class="text-black" target="_blank" href="https://www.udemy.com/course/object-oriented-php-mvc/">Brad Traversy</a></span>
+                        egyik Udemy kurzusa adta az alapot.</p>
+                        <p>A program megvalósításával a fő célom az MVC működésének megismerése és megértése volt, valamint az, hogy keretrendszer nélkül hogyan lehet megvalósítani egy webáruház alapvető funkcióit.</p>
+                        <div class="list">
+                            <div class="list-block">
+                                <h4 class="my-0">Oldal funkiók</h4>
+                                <ul class="list-block-functions">
+                                    <li>Felhasználó regisztrálása</li>
+                                    <li>Bejelentkezés</li>
+                                    <li>Session kezelés</li>
+                                    <li>Tételek kosárba helyezése</li>
+                                    <li>Termékek közti kersés</li>
+                                    <li>Vásárláskor e-mail küldése</li>
+                                    <li>PDF számla készítése (FPDF)</li>
+                                </ul>
+                            </div>
+                            <div class="list-block">
+                                <h4 class="my-0">Használt technológiák</h4>
+                                <ul class="list-block-technologies">
+                                    <li>Bootstrap 4</li>
+                                    <li>JavaScript</li>
+                                    <li>CSS3</li>
+                                    <li>PHP</li>
+                                    <li>MySQL</li>
+                                </ul>
+                            </div>
+                        </div>
                     </section>
                 </div>
             </div>            

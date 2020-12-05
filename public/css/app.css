@@ -694,8 +694,8 @@ body::-webkit-scrollbar-thumb {
   position: -webkit-sticky;
   position: sticky;
   left: 0;
-  top: 6rem;
-  margin: 6.5rem 1rem;
+  top: 7rem;
+  margin: 6.3rem 1rem;
   padding: 1.5rem;
   background: #2C302E;
   border-radius: 5px;
@@ -1163,7 +1163,7 @@ body::-webkit-scrollbar-thumb {
 
 .main-content .main-right-content .main-title-main {
   color: #E2BC00;
-  font-size: 4rem;
+  font-size: 3.4rem;
   text-align: center;
   padding: 1rem 0 1rem 0;
 }
@@ -1182,8 +1182,30 @@ body::-webkit-scrollbar-thumb {
   grid-template-rows: auto auto;
 }
 
+.main-content .main-right-content .grid-container .projects p {
+  margin: 0.3rem 0;
+}
+
 .main-content .main-right-content .grid-container .projects section {
   margin: 1rem 0 1rem 0;
+}
+
+.main-content .main-right-content .grid-container .projects .list {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.main-content .main-right-content .grid-container .projects .list-block {
+  min-width: 30%;
+  margin: 0.5rem;
+}
+
+.main-content .main-right-content .grid-container .projects .list-block ul li {
+  list-style-position: inside;
+}
+
+.main-content .main-right-content .grid-container .projects .list-block ul li ul li {
+  margin-left: 1.4rem;
 }
 
 .top-underline {
@@ -1195,7 +1217,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .schools-bg .schools {
-  height: 40vh;
+  height: 30vh;
   width: 70%;
   padding: 1rem;
   margin: auto;
@@ -1253,12 +1275,25 @@ body::-webkit-scrollbar-thumb {
     text-align: center;
   }
 
+  .main-content .main-left-content .summary-header {
+    text-align: center;
+  }
+
   .main-content .main-left-content .footer-contact {
     margin-top: 1rem;
   }
 
+  .main-content .main-left-content .footer-contact .icon-title {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
   .main-content .main-right-content .grid-container {
     grid-template-columns: 100% !important;
+  }
+
+  .main-content .main-right-content .grid-container .projects .list {
+    flex-direction: column;
   }
 
   .main-content .main-right-content .main-title-main {

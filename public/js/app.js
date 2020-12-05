@@ -2909,6 +2909,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2936,6 +2946,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       exceptionMsg: '',
       showPayment: true,
       showSuccessPayPal: false,
+      showSuccessCashPay: false,
       showException: false,
       showMakeOrder: false,
       showPayPal: false,
@@ -2955,7 +2966,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   })),
   created: function created() {
     if (this.userLoggedIn) {
-      // ÁTTENNI VUEX-BE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       this.getUserInfo();
     }
   },
@@ -2990,15 +3000,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   getCreatedAt: _this2.getCreatedAt
                 }).then(function (saveOrder) {
                   if (!saveOrder.data.exception) {
-                    setTimeout(function () {
+                    if (_this2.paidWithPP) {
                       _this2.setCartDefault();
 
-                      if (_this2.paidWithPP) {
-                        _this2.setPayPalDefault();
-                      }
+                      _this2.setPayPalDefault();
+
+                      setTimeout(function () {
+                        _this2.setDefaultPage();
+                      }, 15000);
+                    } else {
+                      _this2.setCartDefault();
 
                       _this2.setDefaultPage();
-                    }, 10000);
+
+                      _this2.showSuccessCashPay = true;
+                    }
+
                     _this2.isLoading = false;
                   } else {
                     _this2.showException = true;
@@ -3256,10 +3273,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
                       _this.hidePaymentOptionsAfterPay();
 
-                      _this.$parent.makeOrder(); // this.$parent.showMakeOrderBTN()
-
-                    } // Ide jön majd egy köszi, h fizettél (alert?! Xmp-ig), és mehet tovább a rendelés leadása gomb
-
+                      _this.$parent.makeOrder();
+                    }
 
                   case 4:
                   case "end":
@@ -4450,6 +4465,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'SideNavbar',
@@ -4527,6 +4543,54 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Utility_Tooltip__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components/Utility/Tooltip */ "./resources/js/components/Utility/Tooltip.vue");
 /* harmony import */ var _components_AboutMe_FooterContact__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/AboutMe/FooterContact */ "./resources/js/components/AboutMe/FooterContact.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -43239,7 +43303,25 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _c("Loading", { attrs: { isLoading: _vm.isLoading } })
+        _c("Loading", { attrs: { isLoading: _vm.isLoading } }),
+        _vm._v(" "),
+        _vm.showSuccessCashPay
+          ? _c("Alert", {
+              attrs: {
+                Msg: "A visszaigazoló e-mailt elküldtük!",
+                className: "success"
+              }
+            })
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.showSuccessCashPay
+          ? _c("Alert", {
+              attrs: {
+                Msg: "Köszönjük rendelését! A fizetés a futárnál történik.",
+                className: "success"
+              }
+            })
+          : _vm._e()
       ],
       1
     )
@@ -45099,6 +45181,12 @@ var render = function() {
             [_vm._v("Tanulmányok")]
           ),
           _vm._v(" "),
+          _c(
+            "a",
+            { staticClass: "sidenav-navigation-item", attrs: { href: "#" } },
+            [_vm._v("Önéletrajzom")]
+          ),
+          _vm._v(" "),
           _c("div", { staticClass: "nav-underline" }),
           _vm._v(" "),
           _c(
@@ -45435,14 +45523,12 @@ var render = function() {
         "section",
         { staticClass: "main-right-content", attrs: { id: "projects" } },
         [
-          _vm._m(2),
-          _vm._v(" "),
           _c("div", { staticClass: "grid-container" }, [
-            _c("h3", { staticClass: "sub-title" }, [_vm._v("Projectek")]),
+            _c("h3", { staticClass: "sub-title primary-color" }, [
+              _vm._v("Projectek")
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "projects" }, [
-              _vm._m(3),
-              _vm._v(" "),
               _c("section", { staticClass: "meatball" }, [
                 _c(
                   "h4",
@@ -45459,28 +45545,28 @@ var render = function() {
                 _vm._v(" "),
                 _c("p", [
                   _vm._v(
-                    "2020 tavaszán kezdtem fejleszteni ezt a weboldalt, ebben az esetben szerettem volna megismerkedni a modern keretrendszerekkel, front-end és back-end részről is. Ezért választottam a Vue.js-t, illetve a Laravelt."
+                    "2020 tavaszán kezdtem el fejleszteni ezt a weboldalt, ebben az esetben szerettem volna megismerkedni a modern keretrendszerekkel, front-end és back-end részről is. Ezért választottam a Vue.js-t, illetve a Laravelt."
                   )
                 ]),
                 _vm._v(" "),
                 _c("p", [
                   _vm._v(
-                    "A programban lehetőség van CRUD (Create-Read-Update-Delete) vagyis admin feladatok ellátására."
+                    "A programban lehetőség van CRUD (Create-Read-Update-Delete), vagyis admin funkciók ellátására. \n                    A weboldal ezen része hagyományos, úgynevezett Multi-Page-Application, vagyis minden esemény (Pl.: gombnyomás) hatására az egész oldal újratölt.\n                    A műveletek megjelenítéséhez Blade Template-et használtam, ahol lehetőség volt rá, Blade komponenseket is (bevitel, módosítás, törlés)."
                   )
                 ]),
                 _vm._v(" "),
                 _c("p", [
                   _vm._v(
-                    "Ezen műveletek megjelenítéséhez Blade Template-et használtam, ahol lehetőség volt rá, Blade komponenseket is (bevitel, módosítás, törlés)."
+                    'A weboldal "vásárlóknak" szóló része Single-Page-Application.'
                   )
                 ]),
                 _vm._v(" "),
-                _c("h4", { staticClass: "my-0" }, [
-                  _vm._v("Használt technológiák")
-                ]),
-                _vm._v(" "),
-                _vm._m(4)
-              ])
+                _vm._m(2)
+              ]),
+              _vm._v(" "),
+              _vm._m(3),
+              _vm._v(" "),
+              _vm._m(4)
             ])
           ])
         ]
@@ -45537,11 +45623,85 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "main-title" }, [
-      _c("h1", { staticClass: "main-title-main" }, [_vm._v("Nagy Tamás")]),
+    return _c("div", { staticClass: "list" }, [
+      _c("div", { staticClass: "list-block" }, [
+        _c("h4", { staticClass: "my-0" }, [_vm._v("Oldal funkiók")]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "list-block-functions" }, [
+          _c("li", [_vm._v("Felhasználó regisztrálása")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Bejelentkezés")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Tételek kosárba helyezése")]),
+          _vm._v(" "),
+          _c("li", [
+            _vm._v("Termékek szürése:\n                                    "),
+            _c("ul", [
+              _c("li", [_vm._v("Ár szerint növekvő")]),
+              _vm._v(" "),
+              _c("li", [_vm._v("Ár szerint csökkenő sorrendben")]),
+              _vm._v(" "),
+              _c("li", [_vm._v("Név szerint")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Vásárláskor e-mail küldése")])
+        ])
+      ]),
       _vm._v(" "),
-      _c("h3", { staticClass: "main-title-sub" }, [
-        _vm._v("Pályakezdő Fullstack Webfejlesztő")
+      _c("div", { staticClass: "list-block" }, [
+        _c("h4", { staticClass: "my-0" }, [_vm._v("Használt technológiák")]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "list-block-technologies" }, [
+          _c("li", [_vm._v("SASS")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Vue.js (Vuex, Vue-router)")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Laravel")]),
+          _vm._v(" "),
+          _c("li", [_vm._v("MySQL")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "wargaming-api" }, [
+      _c("h4", { staticClass: "project-title" }, [
+        _c("a", { attrs: { href: "#" } }, [_vm._v("World of Tanks weboldal")])
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "my-0" }, [_vm._v("2020")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur blanditiis beatae facilis, quis rem sed, architecto corporis expedita perferendis vero necessitatibus, harum exercitationem earum. Velit atque esse doloribus aliquam minus!"
+        )
+      ]),
+      _vm._v(" "),
+      _c("h4", { staticClass: "my-0" }, [_vm._v("Használt technológiák")]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "tech-list" }, [
+        _c("li", [_vm._v("SASS")]),
+        _vm._v(" "),
+        _c("li", [_vm._v("Vue.js (Vuex, Vue-router, Vuex-persistedstate)")]),
+        _vm._v(" "),
+        _c("li", [
+          _c(
+            "a",
+            {
+              staticClass: "primary-color",
+              attrs: {
+                href:
+                  "https://developers.wargaming.net/reference/all/wot/?r_realm=eu",
+                target: "_blank"
+              }
+            },
+            [_vm._v("Wargaming API")]
+          )
+        ])
       ])
     ])
   },
@@ -45567,7 +45727,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("p", [
         _vm._v(
-          "2019 őszén kezdtem el fejleszteni egy kitalált számítástechnikai alkatrészeket árusító webáruház honlapját. Az alkalmazás megvalósításához MVC (Model-View-Controller) fejlesztési mintát használtam, amihez \n                    "
+          "2019 őszén kezdtem el fejleszteni egy általam kitalált, számítástechnikai alkatrészeket árusító webáruház honlapját. Ez a project volt életem első, nagyobb és önálló munkája. Az alkalmazás megvalósításához MVC (Model-View-Controller) fejlesztési mintát használtam, amihez \n                    "
         ),
         _c("span", { staticClass: "underline" }, [
           _c(
@@ -45587,43 +45747,47 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("p", [
         _vm._v(
-          "A program megvalósításával a fő célom az MVC (Model-View-Controller) működésének megismerése és megértése volt, valamint az, hogy keretrendszer nélkül hogyan lehet megvalósítani egy webáruház alapvető funkcióit."
+          "A program megvalósításával a fő célom az MVC működésének megismerése és megértése volt, valamint az, hogy keretrendszer nélkül hogyan lehet megvalósítani egy webáruház alapvető funkcióit."
         )
       ]),
       _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "Például: regisztráció, bejelentkezés, session kezelés, kosár és oldalon belüli keresés."
-        )
-      ]),
-      _vm._v(" "),
-      _c("h4", { staticClass: "my-0" }, [_vm._v("Használt technológiák")]),
-      _vm._v(" "),
-      _c("ul", { staticClass: "tech-list" }, [
-        _c("li", [_vm._v("Bootstrap 4")]),
+      _c("div", { staticClass: "list" }, [
+        _c("div", { staticClass: "list-block" }, [
+          _c("h4", { staticClass: "my-0" }, [_vm._v("Oldal funkiók")]),
+          _vm._v(" "),
+          _c("ul", { staticClass: "list-block-functions" }, [
+            _c("li", [_vm._v("Felhasználó regisztrálása")]),
+            _vm._v(" "),
+            _c("li", [_vm._v("Bejelentkezés")]),
+            _vm._v(" "),
+            _c("li", [_vm._v("Session kezelés")]),
+            _vm._v(" "),
+            _c("li", [_vm._v("Tételek kosárba helyezése")]),
+            _vm._v(" "),
+            _c("li", [_vm._v("Termékek közti kersés")]),
+            _vm._v(" "),
+            _c("li", [_vm._v("Vásárláskor e-mail küldése")]),
+            _vm._v(" "),
+            _c("li", [_vm._v("PDF számla készítése (FPDF)")])
+          ])
+        ]),
         _vm._v(" "),
-        _c("li", [_vm._v("JavaScript")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("CSS3")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("PHP")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("MySQL")])
+        _c("div", { staticClass: "list-block" }, [
+          _c("h4", { staticClass: "my-0" }, [_vm._v("Használt technológiák")]),
+          _vm._v(" "),
+          _c("ul", { staticClass: "list-block-technologies" }, [
+            _c("li", [_vm._v("Bootstrap 4")]),
+            _vm._v(" "),
+            _c("li", [_vm._v("JavaScript")]),
+            _vm._v(" "),
+            _c("li", [_vm._v("CSS3")]),
+            _vm._v(" "),
+            _c("li", [_vm._v("PHP")]),
+            _vm._v(" "),
+            _c("li", [_vm._v("MySQL")])
+          ])
+        ])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "tech-list" }, [
-      _c("li", [_vm._v("SASS")]),
-      _vm._v(" "),
-      _c("li", [_vm._v("Vue.js (Vuex, Vue-router)")]),
-      _vm._v(" "),
-      _c("li", [_vm._v("Laravel")]),
-      _vm._v(" "),
-      _c("li", [_vm._v("MySQL")])
     ])
   }
 ]
@@ -63379,10 +63543,12 @@ __webpack_require__.r(__webpack_exports__);
       return state.id;
     },
     getCreatedAt: function getCreatedAt(state) {
-      if (state.create_time == null) {
+      if (state.create_time !== "") {
         var time = new Date(state.create_time);
         return "".concat(time.getFullYear(), "-").concat(time.getMonth() + 1, "-").concat(time.getDay(), " ").concat(time.getHours(), ":").concat(time.getMinutes(), ":").concat(time.getSeconds());
       }
+
+      return '';
     },
     getPurhase: function getPurhase(state) {
       return state.purchase_units;

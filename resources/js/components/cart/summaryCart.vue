@@ -171,9 +171,7 @@ export default {
                         this.showSuccessAlertMessage()
                         this.hidePaymentOptionsAfterPay()
                         this.$parent.makeOrder()
-                        // this.$parent.showMakeOrderBTN()
                     }                    
-                    // Ide jön majd egy köszi, h fizettél (alert?! Xmp-ig), és mehet tovább a rendelés leadása gomb
                 }
             })
             .render(this.$refs.paypal)
