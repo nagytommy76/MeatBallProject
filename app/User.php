@@ -3,8 +3,9 @@
 namespace App;
 
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-class User extends Admin
+class User extends Admin implements MustVerifyEmail
 {
     use HasApiTokens;
 

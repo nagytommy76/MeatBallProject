@@ -87,7 +87,7 @@ export default {
             .then(register => {
                 if(register.data.exception == null){
                     if (register.data.hasError.length == 0) {
-                        this.$router.push({name: 'Login'})
+                        this.$router.push({name: 'Login', params: {registerAlert: true}})
                     }else{
                         this.showErrors(register.data.hasError)
                     }                    

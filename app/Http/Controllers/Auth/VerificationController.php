@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Auth\Events\Verified;
+
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
+use Illuminate\Http\Request;
+use App\User;
+// use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
-class VerificationController extends Controller
+class VerificationController extends BaseAuthController
 {
     /*
     |--------------------------------------------------------------------------
@@ -20,14 +26,6 @@ class VerificationController extends Controller
     */
 
     use VerifiesEmails;
-
-    /**
-     * Where to redirect users after verification.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
     /**
      * Create a new controller instance.
      *
@@ -35,8 +33,50 @@ class VerificationController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth:sanctum');
         $this->middleware('signed')->only('verify');
         $this->middleware('throttle:6,1')->only('verify', 'resend');
     }
+
+    /**
+     * Mark the authenticated user's email address as verified.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
+     *
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+     public function verify(Request $request)
+     {
+         $user = User::findOrFail($request->id);
+         if (! hash_equals((string) $request->route('hash'), sha1($user->getEmailForVerification()))) {
+             throw new AuthorizationException;
+         }
+ 
+         if ($user->hasVerifiedEmail()) {
+            return response()->json(['message' => 'Az E-mail cím már regisztrálva van']);
+         }
+ 
+         if ($user->markEmailAsVerified()) {
+             event(new Verified($user));
+         }
+         return response()->json(['verified' => true]);
+     }
+
+    /**
+     * Resend the email verification notification.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
+     */
+     public function resend(Request $request)
+     {
+         if ($request->user()->hasVerifiedEmail()) {
+            return response()->json(['message' => 'E-mail már el lett küldve']);
+         }
+ 
+         $request->user()->sendEmailVerificationNotification();
+ 
+        return response()->json(['message' => 'E-mail elküldve ']);
+     }
 }

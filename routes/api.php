@@ -2,8 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::post('login', 'Auth\LoginController@login');
 Route::post('register', 'Auth\RegisterController@register');
+
+Route::get('/email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+Route::get('/email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('verification.verify');
+
+Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout');
 
 Route::get('pastas', 'Foods\PastaRizottoController@getAllPasta');
@@ -44,7 +48,7 @@ Route::post('getDrinkByName', 'Foods\DrinkController@getDrinkByName');
 Route::get('getDrinkMinMaxPrice', 'Foods\DrinkController@getDrinkMinMaxPrice');
 
 // CART CONTROLLER
-Route::group(['middleware' => ['auth:sanctum']], function(){
+Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
     Route::post('addUserInfo', 'UserControllers\UserInfoController@apiStrore');
     Route::get('userInfoFilled', function(){
         return response()->json(['user' => Auth::user(), 'userInfo' => Auth::user()->userinfo]);
@@ -59,4 +63,3 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     // Sending order E-mail
     Route::post('/saveOrder', 'Cart\CartController@saveOrder');
 });
-

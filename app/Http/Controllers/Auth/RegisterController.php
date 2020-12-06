@@ -32,6 +32,7 @@ class RegisterController extends BaseAuthController
         }
         try {
             $user = $this->create($formData);
+            $user->sendEmailVerificationNotification();
             return $this->jsonResponse($valid->errors(), $user->username);
         } catch (Exception $ex) {
             return $this->jsonResponse($valid->errors(),"", $ex->getMessage());

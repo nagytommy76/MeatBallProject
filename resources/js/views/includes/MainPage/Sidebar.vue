@@ -6,7 +6,7 @@
                 <router-link class="sidenav-navigation-item" :to="{name: 'Welcome'}">Húsgolyó Étterem</router-link>
                 <a class="sidenav-navigation-item" href="#">Computer Store</a>
                 <div class="nav-underline"></div>
-                <a @click="closeNav()" class="sidenav-navigation-item" href="#aboutMe">Rólam</a>
+                <a v-if="mobileView" @click="closeNav()" class="sidenav-navigation-item" href="#aboutMe">Rólam</a>
                 <a @click="closeNav()" class="sidenav-navigation-item" href="#projects">Projectek</a>
                 <a @click="closeNav()" class="sidenav-navigation-item" href="#schools">Tanulmányok</a>
                 <a class="sidenav-navigation-item" href="#">Önéletrajzom</a>
@@ -38,6 +38,11 @@ export default {
     name: 'SideNavbar',
     components:{
         Tooltip
+    },
+    computed:{
+        mobileView(){
+            return window.innerWidth <= 600 ? true : false
+        }
     },
     methods: {
         closeNav(){

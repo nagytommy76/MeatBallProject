@@ -27,6 +27,11 @@
                     :Msg="'A termék bekerült a kosárba'"
                     :className="'success'"
                 />
+                <Alert 
+                    v-if="showVerifyEmail"
+                    :Msg="'E-mail címet vissza kell igazolni!'"
+                    :className="'danger'"
+                />
             </div>
         </div>
         <div class="food_card_footer">
@@ -48,6 +53,7 @@ export default {
     data () {
         return{
             addedToCart: false,
+            showVerifyEmail: false,
             finalPrice: this.foodPrice,
         }
     },
@@ -79,14 +85,22 @@ export default {
             if(this.userLoggedIn){
                 addToCart.addFoodToCart(this.foodType, this.foodId)
                 .then(result => {
-                    this.$store.commit('setCartItems', result.data);
-                    this.finalPrice = this.foodPrice;
-                    this.hideSuccessMsg();
+                    if (result.data.error) {
+                        this.showVerify();
+                    }else{
+                        this.$store.commit('setCartItems', result.data);
+                        this.finalPrice = this.foodPrice;
+                        this.hideSuccessMsg();
+                    }
                 })
                 .catch(error => console.log(error)) 
             }else{
                 this.hideSuccessMsg();
             }            
+        },
+        showVerify(){
+            this.showVerifyEmail = true
+            setTimeout(() => {this.showVerifyEmail = false}, 4000)
         },
         hideSuccessMsg(){
             this.addedToCart = !this.addedToCart;

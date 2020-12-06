@@ -1261,6 +1261,11 @@ body::-webkit-scrollbar-thumb {
     margin: auto;
   }
 
+  .icon-title {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
   .main-content {
     flex-direction: column;
     height: auto;

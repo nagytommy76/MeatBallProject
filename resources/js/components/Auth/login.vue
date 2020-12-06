@@ -45,6 +45,11 @@
                         </div>
                     </div>
                 </div>
+                <Alert
+                    v-if="showRegisterSuccess"
+                    :className="'success'"
+                    :Msg="'A regisztráció sikeres volt! Kérem jelentkezzen be.'"
+                />
             </form>
             </div>
             </div>
@@ -54,8 +59,12 @@
 </div>
 </template>
 <script>
+import Alert from '../baseComponents/Alert'
 export default {
     name: 'login',
+    components:{
+        Alert
+    },
     data(){
         return{
             formData: {
@@ -68,6 +77,11 @@ export default {
                 email: '',
                 password: ''
             },
+        }
+    },
+    computed:{
+        showRegisterSuccess(){
+            return this.$route.params.registerAlert ? true : false
         }
     },
     methods:{

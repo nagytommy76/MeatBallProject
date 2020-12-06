@@ -135,6 +135,7 @@
                                 <h4 class="my-0">Oldal funkiók</h4>
                                 <ul class="list-block-functions">
                                     <li>Felhasználó regisztrálása</li>
+                                    <li>Regisztrációs kód küldése</li>
                                     <li>Bejelentkezés</li>
                                     <li>Session kezelés</li>
                                     <li>Tételek kosárba helyezése</li>
