@@ -48,19 +48,22 @@ class VerificationController extends BaseAuthController
      */
      public function verify(Request $request)
      {
-         $user = User::findOrFail($request->id);
-         if (! hash_equals((string) $request->route('hash'), sha1($user->getEmailForVerification()))) {
-             throw new AuthorizationException;
-         }
+        $user = User::findOrFail($request->id);
+        if (! hash_equals((string) $request->route('hash'), sha1($user->getEmailForVerification()))) {
+            throw new AuthorizationException;
+        }
  
-         if ($user->hasVerifiedEmail()) {
-            return response()->json(['message' => 'Az E-mail cím már regisztrálva van']);
-         }
+        if ($user->hasVerifiedEmail()) {
+        //    return response()->json(['verified' => false, 'message' => 'Az E-mail cím már regisztrálva van']);
+        return redirect(url('meatball/login',['validationSuccess' => true, 'message' => 'Már regisztrálta e-mail címét! Be tud lépni.']));
+        }
  
-         if ($user->markEmailAsVerified()) {
-             event(new Verified($user));
-         }
-         return response()->json(['verified' => true]);
+        if ($user->markEmailAsVerified()) {
+            event(new Verified($user));
+        }
+        // return response()->json(['verified' => true]);
+        // return \url('')
+        return redirect(url('meatball/login',['validationSuccess' => true, 'message' => 'A validáció sikeres volt! Mostantól be tud jelentkezni']));
      }
 
     /**

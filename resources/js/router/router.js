@@ -35,7 +35,11 @@ const routes = [
                 path: 'login',
                 name: 'Login',
                 component: Login,
-                props: {registerAlert: false}
+                props: {
+                    registerAlert: false,
+                    validationSuccess: '',
+                    message: '',
+                }
             },
             {
                 path: 'register',

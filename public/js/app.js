@@ -2031,6 +2031,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'login',
@@ -2053,7 +2058,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   computed: {
     showRegisterSuccess: function showRegisterSuccess() {
-      return this.$route.params.registerAlert ? true : false;
+      return this.$route.params.registerAlert;
+    },
+    showValidationSuccess: function showValidationSuccess() {
+      return this.$route.params.validationSuccess;
+    },
+    getValidationSuccessMsg: function getValidationSuccessMsg() {
+      return this.$route.params.message;
     }
   },
   methods: {
@@ -42151,173 +42162,170 @@ var render = function() {
           _c("div", { staticClass: "card-header" }, [_vm._v("Belépés")]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
-            _c(
-              "form",
-              [
-                _c("div", { staticClass: "form-group" }, [
-                  _c("div", { staticClass: "col" }, [
-                    _c("label", { attrs: { for: "email" } }, [
-                      _vm._v("E-Mail Cím")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.formData.email,
-                          expression: "formData.email"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        id: "email",
-                        type: "email",
-                        name: "email",
-                        autofocus: ""
-                      },
-                      domProps: { value: _vm.formData.email },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.formData, "email", $event.target.value)
-                        }
+            _c("form", [
+              _c("div", { staticClass: "form-group" }, [
+                _c("div", { staticClass: "col" }, [
+                  _c("label", { attrs: { for: "email" } }, [
+                    _vm._v("E-Mail Cím")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.formData.email,
+                        expression: "formData.email"
                       }
-                    }),
-                    _vm._v(" "),
-                    _vm.hasError
-                      ? _c(
-                          "span",
-                          {
-                            staticClass: "invalid-feedback",
-                            attrs: { role: "alert" }
-                          },
-                          _vm._l(_vm.errors.email, function(emailErr, index) {
-                            return _c("div", { key: index }, [
-                              _c("strong", [_vm._v(_vm._s(emailErr))])
-                            ])
-                          }),
-                          0
-                        )
-                      : _vm._e()
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group" }, [
-                  _c("div", { staticClass: "col" }, [
-                    _c("label", { attrs: { for: "password" } }, [
-                      _vm._v("Jelszó")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.formData.password,
-                          expression: "formData.password"
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      id: "email",
+                      type: "email",
+                      name: "email",
+                      autofocus: ""
+                    },
+                    domProps: { value: _vm.formData.email },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
                         }
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        id: "password",
-                        type: "password",
-                        name: "password",
-                        required: ""
-                      },
-                      domProps: { value: _vm.formData.password },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(
-                            _vm.formData,
-                            "password",
-                            $event.target.value
-                          )
-                        }
+                        _vm.$set(_vm.formData, "email", $event.target.value)
                       }
-                    }),
-                    _vm._v(" "),
-                    _vm.hasError
-                      ? _c(
-                          "span",
-                          {
-                            staticClass: "invalid-feedback",
-                            attrs: { role: "alert" }
-                          },
-                          _vm._l(_vm.errors.password, function(passErr, index) {
-                            return _c("div", { key: index }, [
-                              _c("strong", [_vm._v(_vm._s(passErr))])
-                            ])
-                          }),
-                          0
-                        )
-                      : _vm._e()
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group row" }, [
-                  _c("div", { staticClass: "col" }, [
-                    _c("label", { attrs: { for: "remember" } }, [
-                      _vm._v("Emlékezz Rám!")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.hasError
+                    ? _c(
+                        "span",
                         {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.formData.remember,
-                          expression: "formData.remember"
+                          staticClass: "invalid-feedback",
+                          attrs: { role: "alert" }
+                        },
+                        _vm._l(_vm.errors.email, function(emailErr, index) {
+                          return _c("div", { key: index }, [
+                            _c("strong", [_vm._v(_vm._s(emailErr))])
+                          ])
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("div", { staticClass: "col" }, [
+                  _c("label", { attrs: { for: "password" } }, [
+                    _vm._v("Jelszó")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.formData.password,
+                        expression: "formData.password"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      id: "password",
+                      type: "password",
+                      name: "password",
+                      required: ""
+                    },
+                    domProps: { value: _vm.formData.password },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
                         }
-                      ],
-                      attrs: {
-                        type: "checkbox",
-                        name: "remember",
-                        id: "remember"
-                      },
-                      domProps: {
-                        checked: Array.isArray(_vm.formData.remember)
-                          ? _vm._i(_vm.formData.remember, null) > -1
-                          : _vm.formData.remember
-                      },
-                      on: {
-                        change: function($event) {
-                          var $$a = _vm.formData.remember,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = null,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 &&
-                                _vm.$set(
-                                  _vm.formData,
-                                  "remember",
-                                  $$a.concat([$$v])
-                                )
-                            } else {
-                              $$i > -1 &&
-                                _vm.$set(
-                                  _vm.formData,
-                                  "remember",
-                                  $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                                )
-                            }
+                        _vm.$set(_vm.formData, "password", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.hasError
+                    ? _c(
+                        "span",
+                        {
+                          staticClass: "invalid-feedback",
+                          attrs: { role: "alert" }
+                        },
+                        _vm._l(_vm.errors.password, function(passErr, index) {
+                          return _c("div", { key: index }, [
+                            _c("strong", [_vm._v(_vm._s(passErr))])
+                          ])
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group row" }, [
+                _c("div", { staticClass: "col" }, [
+                  _c("label", { attrs: { for: "remember" } }, [
+                    _vm._v("Emlékezz Rám!")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.formData.remember,
+                        expression: "formData.remember"
+                      }
+                    ],
+                    attrs: {
+                      type: "checkbox",
+                      name: "remember",
+                      id: "remember"
+                    },
+                    domProps: {
+                      checked: Array.isArray(_vm.formData.remember)
+                        ? _vm._i(_vm.formData.remember, null) > -1
+                        : _vm.formData.remember
+                    },
+                    on: {
+                      change: function($event) {
+                        var $$a = _vm.formData.remember,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = null,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 &&
+                              _vm.$set(
+                                _vm.formData,
+                                "remember",
+                                $$a.concat([$$v])
+                              )
                           } else {
-                            _vm.$set(_vm.formData, "remember", $$c)
+                            $$i > -1 &&
+                              _vm.$set(
+                                _vm.formData,
+                                "remember",
+                                $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                              )
                           }
+                        } else {
+                          _vm.$set(_vm.formData, "remember", $$c)
                         }
                       }
-                    })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-footer" }, [
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "card-footer" },
+                [
                   _c("div", { staticClass: "form-group" }, [
                     _c("div", { staticClass: "col" }, [
                       _c("input", {
@@ -42335,21 +42343,30 @@ var render = function() {
                         }
                       })
                     ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _vm.showRegisterSuccess
-                  ? _c("Alert", {
-                      attrs: {
-                        className: "success",
-                        Msg:
-                          "A regisztráció sikeres volt! Kérem jelentkezzen be."
-                      }
-                    })
-                  : _vm._e()
-              ],
-              1
-            )
+                  ]),
+                  _vm._v(" "),
+                  _vm.showRegisterSuccess
+                    ? _c("Alert", {
+                        attrs: {
+                          className: "success",
+                          Msg:
+                            "A regisztráció sikeres volt! Kérem aktiválja az e-mail címét."
+                        }
+                      })
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.showValidationSuccess
+                    ? _c("Alert", {
+                        attrs: {
+                          className: "success",
+                          Msg: _vm.getValidationSuccessMsg
+                        }
+                      })
+                    : _vm._e()
+                ],
+                1
+              )
+            ])
           ])
         ])
       ])
@@ -63419,7 +63436,9 @@ var routes = [{
     name: 'Login',
     component: _components_Auth_login__WEBPACK_IMPORTED_MODULE_4__["default"],
     props: {
-      registerAlert: false
+      registerAlert: false,
+      validationSuccess: '',
+      message: ''
     }
   }, {
     path: 'register',

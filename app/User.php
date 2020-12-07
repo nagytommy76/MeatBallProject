@@ -3,11 +3,17 @@
 namespace App;
 
 use Laravel\Sanctum\HasApiTokens;
+use App\Notifications\VerifyEmail;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 class User extends Admin implements MustVerifyEmail
 {
     use HasApiTokens;
+
+    public function sendEmailVerificationNotification()
+    {
+       $this->notify(new VerifyEmail());
+    }
 
     protected $guard = 'user';
 

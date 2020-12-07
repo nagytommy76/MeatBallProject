@@ -19,10 +19,10 @@ class RegisterController extends BaseAuthController
         $this->middleware('guest');
     }
 
-    public function showRegistrationForm()
-    {
-        return view('auth.register');
-    }
+    // public function showRegistrationForm()
+    // {
+    //     return view('auth.register');
+    // }
 
     public function register(Request $request){        
         $formData = $request->all()['formData'];

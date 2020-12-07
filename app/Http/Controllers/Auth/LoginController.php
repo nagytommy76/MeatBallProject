@@ -28,12 +28,17 @@ class LoginController extends BaseAuthController
         try {
             $this->revokeUserToken($formData['email']);
         
-            $user = $this->getUserByEmail($formData['email']);
-            if (Hash::check($formData['password'], $user->password)) {
-                $this->loginUserGetAccessToken($user, $formData['remember']);
-                return $this->jsonResponse($valid->errors(), $user->username);
+            // $user = $this->getUserByEmail($formData['email']);
+            $user = User::where('email','like', $formData['email'])->where('email_verified_at', '<>', 'NULL')->first();
+            if (!$user) {
+                return $this->jsonResponse(['email' => ['Kérem aktiválja az e-mail címét!']]);
             }else{
-                return $this->jsonResponse(['password' => ['A jelszó nem megfelelő']]);
+                if (Hash::check($formData['password'], $user->password)) {
+                    $this->loginUserGetAccessToken($user, $formData['remember']);
+                    return $this->jsonResponse($valid->errors(), $user->username);
+                }else{
+                    return $this->jsonResponse(['password' => ['A jelszó nem megfelelő']]);
+                }
             }
         } catch (Exception $ex) {
             return $this->jsonResponse($valid->errors(),null,$ex->getMessage());

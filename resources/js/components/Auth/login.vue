@@ -44,12 +44,17 @@
                             <input id="fetchUserToken" type="submit" value="Belépés" @click.prevent="logTheUserIn" class="btn btn-primary" />
                         </div>
                     </div>
+                    <Alert
+                        v-if="showRegisterSuccess"
+                        :className="'success'"
+                        :Msg="'A regisztráció sikeres volt! Kérem aktiválja az e-mail címét.'"
+                    />
+                    <Alert
+                        v-if="showValidationSuccess"
+                        :className="'success'"
+                        :Msg="getValidationSuccessMsg"
+                    />
                 </div>
-                <Alert
-                    v-if="showRegisterSuccess"
-                    :className="'success'"
-                    :Msg="'A regisztráció sikeres volt! Kérem jelentkezzen be.'"
-                />
             </form>
             </div>
             </div>
@@ -81,7 +86,13 @@ export default {
     },
     computed:{
         showRegisterSuccess(){
-            return this.$route.params.registerAlert ? true : false
+            return this.$route.params.registerAlert
+        },
+        showValidationSuccess(){
+            return this.$route.params.validationSuccess
+        },
+        getValidationSuccessMsg(){
+            return this.$route.params.message
         }
     },
     methods:{
