@@ -24,7 +24,7 @@ p {
 
 .container {
   max-width: 1280px;
-  min-height: 100vh;
+  min-height: 80vh;
   margin: auto;
 }
 
@@ -1460,7 +1460,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .card-container {
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;

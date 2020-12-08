@@ -86,13 +86,13 @@ export default {
     },
     computed:{
         showRegisterSuccess(){
-            return this.$route.params.registerAlert
+            return this.$route.params.registerAlert ? this.$route.params.registerAlert : false
         },
         showValidationSuccess(){
-            return this.$route.params.validationSuccess
+            return Boolean(this.$route.params.validation) 
         },
         getValidationSuccessMsg(){
-            return this.$route.params.message
+            return this.$route.params.msg
         }
     },
     methods:{

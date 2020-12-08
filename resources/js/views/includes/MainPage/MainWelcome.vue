@@ -16,7 +16,7 @@
 </template>
 <script>
 import Sidebar from './Sidebar'
-import AboutMe from './aboutMe'
+import AboutMe from './AboutMe'
 import Schools from './Schools'
 import Footer from './Footer'
 export default {

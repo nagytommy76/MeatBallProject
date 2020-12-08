@@ -61,8 +61,6 @@ class VerificationController extends BaseAuthController
         if ($user->markEmailAsVerified()) {
             event(new Verified($user));
         }
-        // return response()->json(['verified' => true]);
-        // return \url('')
         return redirect(url('meatball/login',['validationSuccess' => true, 'message' => 'A validáció sikeres volt! Mostantól be tud jelentkezni']));
      }
 

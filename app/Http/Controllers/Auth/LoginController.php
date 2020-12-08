@@ -28,7 +28,6 @@ class LoginController extends BaseAuthController
         try {
             $this->revokeUserToken($formData['email']);
         
-            // $user = $this->getUserByEmail($formData['email']);
             $user = User::where('email','like', $formData['email'])->where('email_verified_at', '<>', 'NULL')->first();
             if (!$user) {
                 return $this->jsonResponse(['email' => ['Kérem aktiválja az e-mail címét!']]);
@@ -89,8 +88,7 @@ class LoginController extends BaseAuthController
     */
     private function revokeUserToken(string $userEmail){
         $user = $this->getUserByEmail($userEmail);
-        return $user->tokens()->where('tokenable_id', $userEmail)->delete();
-        
+        return $user->tokens()->where('tokenable_id', $userEmail)->delete();  
     }
 
     /**
@@ -98,7 +96,7 @@ class LoginController extends BaseAuthController
     *   @param userEmail
     *   @return User Model
     */
-    protected function getUserByEmail(string $email)
+    private function getUserByEmail(string $email)
     {
         return User::where('email','like',$email)->first();
     }
