@@ -54,7 +54,6 @@ class VerificationController extends BaseAuthController
         }
  
         if ($user->hasVerifiedEmail()) {
-        //    return response()->json(['verified' => false, 'message' => 'Az E-mail cím már regisztrálva van']);
         return redirect(url('meatball/login',['validationSuccess' => true, 'message' => 'Már regisztrálta e-mail címét! Be tud lépni.']));
         }
  
@@ -73,7 +72,7 @@ class VerificationController extends BaseAuthController
      public function resend(Request $request)
      {
          if ($request->user()->hasVerifiedEmail()) {
-            return response()->json(['message' => 'E-mail már el lett küldve']);
+            return response()->json(['message' => 'Már regisztrálta e-mail címét! Be tud lépni']);
          }
  
          $request->user()->sendEmailVerificationNotification();
