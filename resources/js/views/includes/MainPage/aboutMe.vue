@@ -1,7 +1,7 @@
 <template>
     <section id="aboutMe" class="main-content">
         <aside class="main-left-content">
-            <img class="image" src="../../../../img/final.jpg" alt="IAM">
+            <img class="image" src="../../../../img/modified.jpg" alt="IAM">
             <div class="left-title">
                 <span class="primary-color">Nagy Tamás</span>
                 <div>Pályakezdő</div>
@@ -67,10 +67,6 @@
             <FooterContact />
         </aside>
         <section class="main-right-content" id="projects">
-            <!-- <div class="main-title">
-                <h1 class="main-title-main">Nagy Tamás</h1>
-                <h3 class="main-title-sub">Pályakezdő Fullstack Webfejlesztő</h3>
-            </div> -->
             <div class="grid-container">
                 <h3 class="sub-title primary-color">Projectek</h3>
                 <div class="projects">
@@ -78,11 +74,11 @@
                         <h4 class="project-title">
                             <router-link :to="{name: 'Welcome'}">Húsgolyó Étterem honlapja</router-link>
                         </h4>
-                        <p class="my-0">2020 -</p>
+                        <p class="my-0">2020</p>
                         <p>2020 tavaszán kezdtem el fejleszteni ezt a weboldalt, ebben az esetben szerettem volna megismerkedni a modern keretrendszerekkel, front-end és back-end részről is. Ezért választottam a Vue.js-t, illetve a Laravelt.</p>
                         <p>A programban lehetőség van CRUD (Create-Read-Update-Delete), vagyis admin funkciók ellátására. 
                         A weboldal ezen része hagyományos, úgynevezett Multi-Page-Application, vagyis minden esemény (Pl.: gombnyomás) hatására az egész oldal újratölt.
-                        A műveletek megjelenítéséhez Blade Template-et használtam, ahol lehetőség volt rá, Blade komponenseket is (bevitel, módosítás, törlés).</p>
+                        Az admin műveletek megjelenítéséhez Blade Template-et használtam, ahol lehetőség volt rá, Blade komponenseket is (bevitel, módosítás, törlés), az újrahasználhatósága miatt.</p>
                         <p>A weboldal "vásárlóknak" szóló része Single-Page-Application.</p>
                         <div class="list">
                             <div class="list-block">
@@ -113,18 +109,44 @@
                         </div>
                     </section>
                     <section class="wargaming-api">
-                        <h4 class="project-title"><a href="#">World of Tanks weboldal</a></h4>
+                        <h4 class="project-title"><a target="_blank" href="https://nagytommy76.github.io/Wargaming/">World of Tanks weboldal</a></h4>
                         <p class="my-0">2020</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur blanditiis beatae facilis, quis rem sed, architecto corporis expedita perferendis vero necessitatibus, harum exercitationem earum. Velit atque esse doloribus aliquam minus!</p>
-                        <h4 class="my-0">Használt technológiák</h4>
-                        <ul class="tech-list">
-                            <li>SASS</li>
-                            <li>Vue.js (Vuex, Vue-router, Vuex-persistedstate)</li>
-                            <li><a class="primary-color" href="https://developers.wargaming.net/reference/all/wot/?r_realm=eu" target="_blank">Wargaming API</a></li>
-                        </ul>
+                        <p>A weboldal elkészítésével a célom az volt, hogy jobban megismerkedjek a Vue keretrendszerrel, illetve egy 3. féltől származó API-t tudjak értelmezni és használni.</p>
+                        <p>Lehetőség van a játékosok nyilvános adatainak megtekintésére.</p>
+                        <p>Az oldal mobilbarát, de pár funkció offos........</p>
+                        <div class="list">
+                            <div class="list-block">
+                                <h4 class="my-0">Oldal funkiók</h4>
+                                <ul class="list-block-functions">
+                                    <li>
+                                        Bejelentkezés Wargaming account-tal:
+                                        <ul>
+                                            <li>Adott tankkal elért eredmények</li>
+                                            <li>Játékos privát statisztikája</li>
+                                        </ul>
+                                    </li>
+                                    <li>Tank részletei egy modal-ban: 
+                                        <ul>
+                                            <li>Tankok részletes specifikációja</li>
+                                            <li>Modulok váltása (torony, lánctalp, löveg)</li>
+                                            <li>Legénység megjelenítése</li>
+                                            <li>Előző és következő tank az ágon, ha van</li>
+                                        </ul>
+                                    </li>                                    
+                                </ul>
+                            </div>
+                            <div class="list-block">
+                                <h4 class="my-0">Használt technológiák</h4>
+                                <ul class="list-block-technologies">
+                                    <li>SASS</li>
+                                    <li>Vue.js (Vuex, Vue-router, Vuex-persistedstate)</li>
+                                    <li><a class="primary-color" href="https://developers.wargaming.net/reference/all/wot/?r_realm=eu" target="_blank">Wargaming API</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </section>
                     <section class="comp-store">
-                        <h4 class="project-title"><a target="_blank" href="https://nagytamasweboldal.000webhostapp.com/">Computer Store Webáruház</a></h4>
+                        <h4 class="project-title"><a target="_blank" href="https://pcboltmvc.000webhostapp.com/">Computer Store Webáruház</a></h4>
                         <p class="my-0">2019 - 2020</p>
                         <p>2019 őszén kezdtem el fejleszteni egy általam kitalált, számítástechnikai alkatrészeket árusító webáruház honlapját. Ez a project volt életem első, nagyobb és önálló munkája. Az alkalmazás megvalósításához MVC (Model-View-Controller) fejlesztési mintát használtam, amihez 
                         <span class="underline"><a class="text-black" target="_blank" href="https://www.udemy.com/course/object-oriented-php-mvc/">Brad Traversy</a></span>

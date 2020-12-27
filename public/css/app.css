@@ -1217,7 +1217,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .schools-bg .schools {
-  height: 30vh;
+  min-height: 30vh;
   width: 70%;
   padding: 1rem;
   margin: auto;
@@ -1342,7 +1342,6 @@ body::-webkit-scrollbar-thumb {
   cursor: pointer;
   padding: 0.5rem;
   background-color: rgba(0, 0, 0, 0.8);
-  border-radius: 5px;
   transition: color 0.2s;
 }
 
@@ -1353,7 +1352,7 @@ body::-webkit-scrollbar-thumb {
 .sidenav {
   z-index: 3;
   height: 100%;
-  width: 35%;
+  width: 36%;
   position: fixed;
   top: 0;
   right: 0;

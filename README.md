@@ -15,4 +15,6 @@ In this simple web application you can:
 
 ## About Me
 
-- [LinkedIn](https://www.linkedin.com/in/nagy-tam%C3%A1s-27355116b/).
+- [Project](https://nagytamas93.hu/)
+- [LinkedIn](https://www.linkedin.com/in/nagy-tam%C3%A1s-27355116b/)
+- [Facebook](https://www.facebook.com/tamas.nagy.1029)

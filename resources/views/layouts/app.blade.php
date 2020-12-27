@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Nagy Tamás portfólió oldala">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -10,13 +11,12 @@
     <title>{{ config('app.name', 'Húsgolyó') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script defer src="{{ asset('js/app.js') }}"></script>
     <script defer src="https://kit.fontawesome.com/75af6afcaa.js" crossorigin="anonymous"></script>
     <noscript><strong>Please enable JavaScript!</strong></noscript>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
 </head>
 <body>
     <main id="app"></main>

@@ -4561,6 +4561,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -45083,7 +45105,7 @@ var render = function() {
         [
           _c("img", {
             staticClass: "image",
-            attrs: { src: __webpack_require__(/*! ../../../../img/final.jpg */ "./resources/img/final.jpg"), alt: "IAM" }
+            attrs: { src: __webpack_require__(/*! ../../../../img/modified.jpg */ "./resources/img/modified.jpg"), alt: "IAM" }
           }),
           _vm._v(" "),
           _vm._m(0),
@@ -45223,7 +45245,7 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _c("p", { staticClass: "my-0" }, [_vm._v("2020 -")]),
+                _c("p", { staticClass: "my-0" }, [_vm._v("2020")]),
                 _vm._v(" "),
                 _c("p", [
                   _vm._v(
@@ -45233,7 +45255,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("p", [
                   _vm._v(
-                    "A programban lehetőség van CRUD (Create-Read-Update-Delete), vagyis admin funkciók ellátására. \n                    A weboldal ezen része hagyományos, úgynevezett Multi-Page-Application, vagyis minden esemény (Pl.: gombnyomás) hatására az egész oldal újratölt.\n                    A műveletek megjelenítéséhez Blade Template-et használtam, ahol lehetőség volt rá, Blade komponenseket is (bevitel, módosítás, törlés)."
+                    "A programban lehetőség van CRUD (Create-Read-Update-Delete), vagyis admin funkciók ellátására. \n                    A weboldal ezen része hagyományos, úgynevezett Multi-Page-Application, vagyis minden esemény (Pl.: gombnyomás) hatására az egész oldal újratölt.\n                    Az admin műveletek megjelenítéséhez Blade Template-et használtam, ahol lehetőség volt rá, Blade komponenseket is (bevitel, módosítás, törlés), az újrahasználhatósága miatt."
                   )
                 ]),
                 _vm._v(" "),
@@ -45352,37 +45374,90 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("section", { staticClass: "wargaming-api" }, [
       _c("h4", { staticClass: "project-title" }, [
-        _c("a", { attrs: { href: "#" } }, [_vm._v("World of Tanks weboldal")])
+        _c(
+          "a",
+          {
+            attrs: {
+              target: "_blank",
+              href: "https://nagytommy76.github.io/Wargaming/"
+            }
+          },
+          [_vm._v("World of Tanks weboldal")]
+        )
       ]),
       _vm._v(" "),
       _c("p", { staticClass: "my-0" }, [_vm._v("2020")]),
       _vm._v(" "),
       _c("p", [
         _vm._v(
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur blanditiis beatae facilis, quis rem sed, architecto corporis expedita perferendis vero necessitatibus, harum exercitationem earum. Velit atque esse doloribus aliquam minus!"
+          "A weboldal elkészítésével a célom az volt, hogy jobban megismerkedjek a Vue keretrendszerrel, illetve egy 3. féltől származó API-t tudjak értelmezni és használni."
         )
       ]),
       _vm._v(" "),
-      _c("h4", { staticClass: "my-0" }, [_vm._v("Használt technológiák")]),
+      _c("p", [
+        _vm._v("Lehetőség van a játékosok nyilvános adatainak megtekintésére.")
+      ]),
       _vm._v(" "),
-      _c("ul", { staticClass: "tech-list" }, [
-        _c("li", [_vm._v("SASS")]),
+      _c("p", [_vm._v("Az oldal mobilbarát, de pár funkció offos........")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "list" }, [
+        _c("div", { staticClass: "list-block" }, [
+          _c("h4", { staticClass: "my-0" }, [_vm._v("Oldal funkiók")]),
+          _vm._v(" "),
+          _c("ul", { staticClass: "list-block-functions" }, [
+            _c("li", [
+              _vm._v(
+                "\n                                    Bejelentkezés Wargaming account-tal:\n                                    "
+              ),
+              _c("ul", [
+                _c("li", [_vm._v("Adott tankkal elért eredmények")]),
+                _vm._v(" "),
+                _c("li", [_vm._v("Játékos privát statisztikája")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _vm._v(
+                "Tank részletei egy modal-ban: \n                                    "
+              ),
+              _c("ul", [
+                _c("li", [_vm._v("Tankok részletes specifikációja")]),
+                _vm._v(" "),
+                _c("li", [_vm._v("Modulok váltása (torony, lánctalp, löveg)")]),
+                _vm._v(" "),
+                _c("li", [_vm._v("Legénység megjelenítése")]),
+                _vm._v(" "),
+                _c("li", [_vm._v("Előző és következő tank az ágon, ha van")])
+              ])
+            ])
+          ])
+        ]),
         _vm._v(" "),
-        _c("li", [_vm._v("Vue.js (Vuex, Vue-router, Vuex-persistedstate)")]),
-        _vm._v(" "),
-        _c("li", [
-          _c(
-            "a",
-            {
-              staticClass: "primary-color",
-              attrs: {
-                href:
-                  "https://developers.wargaming.net/reference/all/wot/?r_realm=eu",
-                target: "_blank"
-              }
-            },
-            [_vm._v("Wargaming API")]
-          )
+        _c("div", { staticClass: "list-block" }, [
+          _c("h4", { staticClass: "my-0" }, [_vm._v("Használt technológiák")]),
+          _vm._v(" "),
+          _c("ul", { staticClass: "list-block-technologies" }, [
+            _c("li", [_vm._v("SASS")]),
+            _vm._v(" "),
+            _c("li", [
+              _vm._v("Vue.js (Vuex, Vue-router, Vuex-persistedstate)")
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c(
+                "a",
+                {
+                  staticClass: "primary-color",
+                  attrs: {
+                    href:
+                      "https://developers.wargaming.net/reference/all/wot/?r_realm=eu",
+                    target: "_blank"
+                  }
+                },
+                [_vm._v("Wargaming API")]
+              )
+            ])
+          ])
         ])
       ])
     ])
@@ -45398,7 +45473,7 @@ var staticRenderFns = [
           {
             attrs: {
               target: "_blank",
-              href: "https://nagytamasweboldal.000webhostapp.com/"
+              href: "https://pcboltmvc.000webhostapp.com/"
             }
           },
           [_vm._v("Computer Store Webáruház")]
@@ -61452,14 +61527,14 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./resources/img/final.jpg":
-/*!*********************************!*\
-  !*** ./resources/img/final.jpg ***!
-  \*********************************/
+/***/ "./resources/img/modified.jpg":
+/*!************************************!*\
+  !*** ./resources/img/modified.jpg ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/final.jpg?957253c48fe5b80d475fd57985849aa9";
+module.exports = "/images/modified.jpg?c54c2976cb44944c5ec0060f1a1bbcfe";
 
 /***/ }),
 

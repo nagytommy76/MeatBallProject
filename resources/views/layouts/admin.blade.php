@@ -10,8 +10,6 @@
     <title>{{ config('app.name', 'Húsgolyó') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script defer src="https://kit.fontawesome.com/75af6afcaa.js" crossorigin="anonymous"></script>
     <noscript><strong>Please enable JavaScript!</strong></noscript>
 
     <!-- Styles -->
@@ -24,4 +22,7 @@
         @yield('admin')
         @include('inc.admin-footer')
     </main>
+
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+    <script defer src="https://kit.fontawesome.com/75af6afcaa.js" crossorigin="anonymous"></script>
 </body>
