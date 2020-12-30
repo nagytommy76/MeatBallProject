@@ -1,21 +1,21 @@
 <template>
     <div class="card-and-filter">
-        <baseFilter
-            v-bind:orderByRoute="orderRoute"
-            v-bind:byName="byName"
-            v-bind:minMaxPrice="minMaxPrice"            
+        <BaseFilter
+            :orderByRoute="orderRoute"
+            :byName="byName"
+            :minMaxPrice="minMaxPrice"            
         />
         <div class="food_card_container">
             <h1 class="py-1 text-black text-center">Levesek</h1>
             <section class="food_card_content">
                 <div v-for="soup in foods" :key="soup.id">
-                    <baseCard
-                        v-bind:foodType="foodType"
-                        v-bind:foodId="soup.id"
-                        v-bind:image="soup.image.image_path"
-                        v-bind:foodName="soup.name"
-                        v-bind:foodPrice="soup.price"
-                        v-bind:ingredients="soup.ingredients"
+                    <BaseCard
+                        :foodType="foodType"
+                        :foodId="soup.id"
+                        :image="soup.image.image_path"
+                        :foodName="soup.name"
+                        :foodPrice="soup.price"
+                        :ingredients="soup.ingredients"
                     />
                 </div>
             </section>
@@ -23,16 +23,8 @@
     </div>
 </template>
 <script>
-import baseCard from '../baseComponents/baseCard'
-import baseFilter from '../baseComponents/baseFilter'
-
-import loadData from '../../helpers/loadData'
 export default {
-    name: "soup-filtering",
-    components: {
-        baseCard,
-        baseFilter,
-    },
+    name: "SoupFilter",
     data: () => {
         return{
             foods: {},

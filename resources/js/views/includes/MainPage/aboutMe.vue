@@ -184,12 +184,10 @@
     </section>
 </template>
 <script>
-import Tooltip from '../../../components/Utility/Tooltip'
 import FooterContact from '../../../components/AboutMe/FooterContact'
 export default {
     name: 'AboutMe',
     components:{
-        Tooltip,
         FooterContact,
     },
 }

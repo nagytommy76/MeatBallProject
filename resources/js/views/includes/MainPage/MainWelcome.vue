@@ -20,7 +20,7 @@ import AboutMe from './AboutMe'
 import Schools from './Schools'
 import Footer from './Footer'
 export default {
-    name: 'MainWelcomePage',
+    name: 'MainWelcome',
     components:{
         Sidebar,
         AboutMe,

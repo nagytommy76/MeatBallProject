@@ -17,7 +17,7 @@
       >További Feltétek</button>
 
       <div v-if="moreButton">
-        <moreIngredients></moreIngredients>
+        <MoreIngredients />
       </div>
 
       <div >
@@ -44,14 +44,15 @@
 </template>
 
 <script>
-import moreIngredients from "./moreIngredients";
+import MoreIngredients from "./MoreIngredients";
 import addToCart from '../../helpers/addToCart';
 
 import { mapGetters } from "vuex";
 
 export default {
+  name: 'PizzaCard',
   components: {
-    moreIngredients,
+    MoreIngredients,
   },
   props: {
     pizzaId: Number,

@@ -60,7 +60,7 @@
 <script>
 import authHelper from '../../helpers/authHelper'
 export default {
-    name: 'register',
+    name: 'Register',
     data(){
         return{
             formData: {

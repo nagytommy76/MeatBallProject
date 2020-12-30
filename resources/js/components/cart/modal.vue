@@ -2,7 +2,7 @@
     <div class="modal-bg">
         <div class="modal">
             <span @click="$emit('close')" class="modal-close"><i class="far fa-times-circle"></i></span>
-            <component :is="currentPage"></component>
+            <component :is="currentPage"></component>            
             <div v-show="totalQty > 0" class="">
                 <button v-show="step>0 && step != 3" @click="previousPage" class="btn btn-delete-dark">Vissza</button>
                 <span v-show="step<pages.length-1 && step != 2">
@@ -31,28 +31,24 @@
 </template>
 
 <script>
-import cartModal from './cartModal';
-import userInfo from './userInfo';
-import summaryCart from './summaryCart';
-import afterOrder from './afterOrder';
-import Alert from '../baseComponents/Alert'
+import CartModal from './CartModal';
+import UserInfo from './UserInfo';
+import SummaryCart from './SummaryCart';
+import AfterOrder from './AfterOrder';
 
-import Loading from '../baseComponents/loading';
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
     name: 'Modal',
     components: {
-        cartModal,
-        summaryCart,
-        userInfo,
-        afterOrder,
-        Loading,
-        Alert,
+        CartModal,
+        SummaryCart,
+        UserInfo,
+        AfterOrder,
     },
     data:() => {
         return {
-            pages: ['cartModal','userInfo','summaryCart'],
+            pages: ['CartModal','UserInfo','SummaryCart'],
             step: 0,
             isUserinfoFilled: false,
             user: {},

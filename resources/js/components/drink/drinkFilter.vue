@@ -1,15 +1,15 @@
 <template>
     <div class="card-and-filter">
-        <baseFilter
-            v-bind:orderByRoute="orderRoute"
-            v-bind:byName="byName"
-            v-bind:minMaxPrice="minMaxPrice"
+        <BaseFilter
+            :orderByRoute="orderRoute"
+            :byName="byName"
+            :minMaxPrice="minMaxPrice"
         />
         <div class="food_card_container">
             <h1 class="py-1 text-black text-center">Üdítők</h1>
             <section class="food_card_content">
                 <div v-for="food in foods" :key="food.id">
-                    <baseCard
+                    <BaseCard
                         :foodType="foodType"
                         :foodId="food.id"
                         :image="food.image.image_path"
@@ -23,8 +23,6 @@
     </div>
 </template>
 <script>
-import baseFilter from '../baseComponents/baseFilter'
-import baseCard from '../baseComponents/baseCard'
 export default {
     data: () => {
         return{
@@ -35,9 +33,5 @@ export default {
             foodType: "drink",
         }
     },
-    components: {
-        baseFilter,
-        baseCard
-    }
 }
 </script>

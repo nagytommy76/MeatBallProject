@@ -67,7 +67,6 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-
 import navbarHelper from '../../helpers/navbarHelper'
 
 export default {

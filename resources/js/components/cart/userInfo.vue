@@ -116,9 +116,8 @@
     </div>
 </template>
 <script>
-import Alert from '../baseComponents/Alert'
 export default {
-    name: "userinfo",
+    name: "UserInfo",
     data:() => {
         return{
             hasError: false,
@@ -147,9 +146,6 @@ export default {
                 phone: ''
             }
         }
-    },
-    components:{
-        Alert
     },
     created(){
         this.fetchUserinfoData()

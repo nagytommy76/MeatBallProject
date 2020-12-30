@@ -45,20 +45,16 @@
 </template>
 <script>
 import addToCart from '../../helpers/addToCart'
-import Alert from './Alert'
 import { mapGetters } from "vuex";
 
 export default {
-    name: 'baseCard',
+    name: 'BaseCard',
     data () {
         return{
             addedToCart: false,
             showVerifyEmail: false,
             finalPrice: this.foodPrice,
         }
-    },
-    components:{
-        Alert
     },
     computed:{
         ...mapGetters({

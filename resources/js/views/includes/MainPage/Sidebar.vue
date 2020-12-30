@@ -33,12 +33,8 @@
     </nav>
 </template>
 <script>
-import Tooltip from '../../../components/Utility/Tooltip'
 export default {
     name: 'SideNavbar',
-    components:{
-        Tooltip
-    },
     computed:{
         mobileView(){
             return window.innerWidth <= 600 ? true : false

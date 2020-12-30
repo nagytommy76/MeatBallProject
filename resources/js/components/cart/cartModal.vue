@@ -55,29 +55,19 @@
 </template>
 <script>
 import {mapGetters} from 'vuex';
-import Tooltip from '../Utility/Tooltip'
-import Alert from '../baseComponents/Alert'
 export default {
-    name: "cartmodal",
-    template: 'cartmodal',
+    name: "CartModal",
     data(){
         return{
             iconName: "far fa-trash-alt fa-2x",
             deleted: false,
         }
     },
-    components:{
-        Alert,
-        Tooltip,
-    },
     computed: {
         ...mapGetters({
             cartItems: 'getCartItems',
             accessToken: 'getToken'
         })
-    },
-    created(){
-        
     },
     methods:{
         async deleteItem(event){

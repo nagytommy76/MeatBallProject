@@ -1,20 +1,20 @@
 <template>
     <div class="card-and-filter">
-        <baseFilter
-            v-bind:orderByRoute="orderRoute"
-            v-bind:byName="byName"
-            v-bind:minMaxPrice="minMaxPrice" 
+        <BaseFilter
+            :orderByRoute="orderRoute"
+            :byName="byName"
+            :minMaxPrice="minMaxPrice" 
         />
         <div class="food_card_container">
             <h1 class="py-1 text-black text-center">Pizzák</h1>
             <section class="food_card_content">                
             <div v-for="pizza in foods" :key="pizza.id">
-                <pizzaCard  
-                    v-bind:pizzaId="pizza.id"
-                    v-bind:image="pizza.image.image_path"
-                    v-bind:pizzaName="pizza.name"
-                    v-bind:ingredients="pizza.ingredients"
-                    v-bind:pizzaPrice="pizza.price"
+                <PizzaCard  
+                    :pizzaId="pizza.id"
+                    :image="pizza.image.image_path"
+                    :pizzaName="pizza.name"
+                    :ingredients="pizza.ingredients"
+                    :pizzaPrice="pizza.price"
                 />
             </div>            
             </section>            
@@ -23,13 +23,11 @@
 </template>
 
 <script>
-import baseFilter from '../baseComponents/baseFilter'
-import pizzaCard from './pizza_card';
+import PizzaCard from './PizzaCard';
 export default {
-    name: "Pizza",
+    name: "PizzaFilter",
     components: {
-        pizzaCard,
-        baseFilter
+        PizzaCard,
     },
     data: () => {
         return {

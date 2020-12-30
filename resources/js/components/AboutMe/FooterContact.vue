@@ -21,11 +21,7 @@
     </footer>
 </template>
 <script>
-import Tooltip from '../Utility/Tooltip'
 export default {
     name: 'FooterContact',
-    components:{
-        Tooltip,
-    }
 }
 </script>

@@ -70,14 +70,8 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import Alert from '../baseComponents/Alert'
-
 export default {
-    name: "summaryCart",
-    template: "summarycart",
-    components:{
-        Alert
-    },
+    name: "SummaryCart",
     data() {
         return {
             payment: 'alternate',

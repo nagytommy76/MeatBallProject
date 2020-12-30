@@ -19,7 +19,6 @@
                             </span>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <div class="col">
                                 <label for="password">Jelszó</label>
@@ -58,18 +57,13 @@
             </form>
             </div>
             </div>
-        
         </section>
     </div>
 </div>
 </template>
 <script>
-import Alert from '../baseComponents/Alert'
 export default {
-    name: 'login',
-    components:{
-        Alert
-    },
+    name: 'Login',
     data(){
         return{
             formData: {

@@ -5,19 +5,19 @@ Vue.use(VueRouter);
 
 import MainWelcome from '../views/includes/MainPage/MainWelcome'
 import Welcome from '../views/includes/Welcome'
-import Login from '../components/Auth/login'
-import Register from '../components/Auth/register'
+import Login from '../components/Auth/Login'
+import Register from '../components/Auth/Register'
 
 import Meatball from '../views/MeatBall'
 
-import pizzaFilter from '../components/pizza/pizzaFilter'
-import soupFilter from '../components/soup/soupFilter'
-import dessertFilter from '../components/dessert/dessertFilter'
-import drinkFilter from '../components/drink/drinkFilter'
-import mealFilter from '../components/meal/mealFilter'
-import pastaFilter from '../components/pasta/pastaFilter'
+import PizzaFilter from '../components/pizza/PizzaFilter'
+import SoupFilter from '../components/soup/SoupFilter'
+import DessertFilter from '../components/dessert/DessertFilter'
+import DrinkFilter from '../components/drink/DrinkFilter'
+import MealFilter from '../components/meal/MealFilter'
+import PastaFilter from '../components/pasta/PastaFilter'
 
-import pageNotFound404 from '../views/errors/404';
+import PageNotFound404 from '../views/errors/404';
 
 
 const routes = [
@@ -56,36 +56,36 @@ const routes = [
             {
                 path: 'pizza',
                 name: 'Pizza',
-                component: pizzaFilter,
+                component: PizzaFilter,
             },
             {
                 path: 'soup',
                 name: 'Soup',
-                component: soupFilter
+                component: SoupFilter
             },
             {
                 path: 'dessert',
                 name: 'Dessert',
-                component: dessertFilter
+                component: DessertFilter
             },
             {
                 path: 'drink',
                 name: 'Drink',
-                component: drinkFilter
+                component: DrinkFilter
             },
             {
                 path: 'meal',
                 name: 'Meal',
-                component: mealFilter
+                component: MealFilter
             },
             {
                 path: 'pasta',
                 name: 'Pasta',
-                component: pastaFilter
+                component: PastaFilter
             },
             {
                 path: '*',
-                component: pageNotFound404,
+                component: PageNotFound404,
             },
         ],
     },
@@ -96,11 +96,17 @@ const routes = [
     },
     {
         path: '*',
-        component: pageNotFound404,
+        redirect: '/'
     },
 ];
 
 export default new VueRouter({
     mode: 'history',
     routes,
+    scrollBehavior(_, _2, savedPosition){
+        if(savedPosition){
+            return savedPosition
+        }
+        return {x: 0, y: 0}
+    },
 })

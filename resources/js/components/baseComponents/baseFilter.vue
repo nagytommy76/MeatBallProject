@@ -11,14 +11,14 @@
 
         <label for="">Étel Neve: </label>
         <input class="form-control" type="text" v-on:keyup="searchByName">
-        <loading :isLoading="isLoading"/>
+        <Loading :isLoading="isLoading"/>
         <a class="btn-up" href="#top"><i class="fas fa-arrow-circle-up fa-3x"></i></a>
     </aside>
 </template>
 <script>
-import loading from './loading'
 import loadData from '../../helpers/loadData'
 export default {
+    name: 'BaseFilter',
     data: () =>{
         return{
             priceValue: 0,
@@ -27,11 +27,6 @@ export default {
             orderBy: 'asc',
             isLoading: false,
         }
-    },
-    components:{
-        loading
-    },
-    computed:{
     },
     created() {
         this.getMinMaxPrice();
