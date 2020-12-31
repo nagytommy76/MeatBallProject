@@ -21,11 +21,9 @@
         </div>
     </div>
 </template>
-
 <script>
 import PizzaCard from './PizzaCard';
 export default {
-    name: "PizzaFilter",
     components: {
         PizzaCard,
     },

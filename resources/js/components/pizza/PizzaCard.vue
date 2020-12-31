@@ -15,11 +15,7 @@
         @click="loadPlusIngreds"
         class="btn btn-primary"
       >További Feltétek</button>
-
-      <div v-if="moreButton">
-        <MoreIngredients />
-      </div>
-
+        <MoreIngredients v-if="moreButton" />
       <div >
         <div v-if="!userLoggedIn">
           <div class="alert alert-danger" v-if="addedToCart">
@@ -50,7 +46,6 @@ import addToCart from '../../helpers/addToCart';
 import { mapGetters } from "vuex";
 
 export default {
-  name: 'PizzaCard',
   components: {
     MoreIngredients,
   },

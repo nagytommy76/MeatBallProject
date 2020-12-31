@@ -34,7 +34,6 @@
 import CartModal from './CartModal';
 import UserInfo from './UserInfo';
 import SummaryCart from './SummaryCart';
-import AfterOrder from './AfterOrder';
 
 import { mapGetters, mapActions } from 'vuex'
 
@@ -44,7 +43,6 @@ export default {
         CartModal,
         SummaryCart,
         UserInfo,
-        AfterOrder,
     },
     data:() => {
         return {

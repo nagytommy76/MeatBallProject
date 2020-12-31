@@ -117,7 +117,7 @@ export default {
                 this.$parent.showAlternatePayment = value
             }
         },
-        user: function(){
+        user: function() {
             return this.$parent.user;
         },
     },

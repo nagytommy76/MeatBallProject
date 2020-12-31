@@ -9,17 +9,16 @@ use Exception;
 use Illuminate\Database\Eloquent\Builder;
 
 class BaseFoodController extends Controller
-{
-    
+{   
     /**
     * @param FoodResource
     * @param FoodModel
     * @return Resource collection
     */
     protected static function getAllFood($resource, $foodModel){
-        return $resource::collection($foodModel::get()->sortBy( function($q){
+        return $resource::collection($foodModel::all()->sortBy(function($q){
             return $q->prices->price;
-        })->all());
+        }));
     }
 
     protected static function getFoodByOrder($request, $foodResource, $foodModel){
