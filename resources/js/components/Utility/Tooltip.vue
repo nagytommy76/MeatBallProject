@@ -1,7 +1,9 @@
 <template>
     <div class="tooltip">
         <slot name="default"></slot>
-        <span class="tooltiptext">{{ text }}</span>
+        <div class="tooltiptext">
+            <span>{{ text }}</span>
+        </div>
     </div>
 </template>
 <script>

@@ -1,5 +1,6 @@
 $menu-width: 170px;
 $navbar-height: 100px;
+$navbar-color: #212121;
 
 #navOpen{
     font-size: 1.7rem;
@@ -10,7 +11,7 @@ $navbar-height: 100px;
     margin: 1.3rem;
     cursor: pointer;
     padding: .5rem;
-    background-color: rgba($color: #000000, $alpha: .8);
+    background-color: rgba($color: #000000, $alpha: .85);
     border-radius: 5px;
 
     transition: color .2s;
@@ -29,7 +30,7 @@ $navbar-height: 100px;
 }
 
 .navbar{
-    background: $dark;
+    background-color: rgba($color: $navbar-color, $alpha: .85);
     color: white;
     display: flex;
     flex-direction: row;
@@ -39,12 +40,11 @@ $navbar-height: 100px;
     position: sticky;
     z-index: 3;
     height: $navbar-height;
-    opacity: .9;
-    transition: opacity .2s, box-shadow .2s;
+    transition: background-color .2s, box-shadow .2s;
 
     &:hover{
-        opacity: 1;
-        box-shadow: 2px 2px 10px $dark;
+        background-color: rgba($color: $navbar-color, $alpha: 1);
+        box-shadow: 2px 2px 15px $navbar-color;
     }
     .navbar-brand{
         color: white;
@@ -85,7 +85,8 @@ $navbar-height: 100px;
                 padding: 0 0;
                 margin: .7rem 0;
                 border-radius: 5px;
-                background: $dark;
+                background: $navbar-color;
+                box-shadow: 2px 3px 20px $navbar-color;
                 
                 &-item{
                     color: white;

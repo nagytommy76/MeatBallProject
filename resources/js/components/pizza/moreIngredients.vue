@@ -1,6 +1,6 @@
 <template>
 <div class="moreIngredients">
-    <div v-for="ing in ingredients" :key="ing.ingred_id">
+    <div v-for="ing in moreIngreds" :key="ing.ingred_id">
         <label>
         <input 
             @click="select" 
@@ -11,17 +11,14 @@
             :checked="inSelectedIngreds(ing.ingred_id)"
         >            
         {{ing.ingredient_name}} <span class="primary-color">({{ ing.price }}) </span> Ft
-        </label>
-        
+        </label> 
     </div>
 </div>
 </template>
 <script>
 export default {
-    computed:{
-        ingredients: function(){
-            return this.$parent.$parent.ingreds
-        }
+    props:{
+        moreIngreds: Array
     },
     methods:{
         select(e){

@@ -10,12 +10,15 @@
         <span v-for="ingred in ingredients" v-bind:key="ingred.id">
           <span>{{ ingred.ingredient }}, </span>
         </span>
-      </div>
-      <button
-        @click="loadPlusIngreds"
-        class="btn btn-primary"
-      >További Feltétek</button>
-        <MoreIngredients v-if="moreButton" />
+      </div>        
+          <button
+            @click="loadPlusIngreds"
+            class="btn btn-primary"
+          >További Feltétek</button>
+          <MoreIngredients 
+            v-if="moreButton"
+            :moreIngreds="moreIngreds"
+          />
       <div >
         <div v-if="!userLoggedIn">
           <div class="alert alert-danger" v-if="addedToCart">
@@ -47,7 +50,7 @@ import { mapGetters } from "vuex";
 
 export default {
   components: {
-    MoreIngredients,
+    MoreIngredients
   },
   props: {
     pizzaId: Number,
@@ -55,6 +58,7 @@ export default {
     pizzaName: String,
     ingredients: Array,
     pizzaPrice: Number,
+    moreIngreds: Array
   },
   data() {
     return {

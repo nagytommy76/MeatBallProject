@@ -15,6 +15,7 @@
                     :pizzaName="pizza.name"
                     :ingredients="pizza.ingredients"
                     :pizzaPrice="pizza.price"
+                    :moreIngreds="ingreds"
                 />
             </div>            
             </section>            
