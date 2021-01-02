@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Http\Resources\UserInfoResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class UserResource extends JsonResource
@@ -17,8 +18,8 @@ class UserResource extends JsonResource
         return [
             'email' => $this->email,
             'username' => $this->username,
-            'email_verified_at' => $this->email_verified_at,
-            'password' => $this->password,
+            'userinfo_filled' => $this->userinfo_filled,
+            'userInfo' => $this->userinfo
         ];
     }
 }

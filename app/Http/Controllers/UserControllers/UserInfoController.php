@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Resources\UserOrdersResource;
 
+use App\Http\Resources\UserResource;
 use App\User;
 use Auth;
 
@@ -20,6 +21,10 @@ class UserInfoController extends Controller
         if (Auth::user()) {
             $this->user = Auth::user();
         }
+    }
+
+    public function getUserData(){
+        return new UserResource(Auth::user());
     }
 
     public function apiStrore(Request $request){

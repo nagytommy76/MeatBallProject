@@ -2952,22 +2952,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "UserInfo",
   data: function data() {
@@ -3098,7 +3082,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     fetchUserinfoData: function fetchUserinfoData() {
       if (this.$parent.isUserinfoFilled) {
-        this.formData = this.$parent.user.userinfo;
+        this.formData = this.$parent.user.userInfo;
       }
     }
   }
@@ -3218,8 +3202,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       axios.get('userInfoFilled').then(function (user) {
         if (user.status == 200) {
-          _this.user = user.data.user;
-          _this.isUserinfoFilled = user.data.user.userinfo_filled;
+          _this.user = user.data.data;
+          _this.isUserinfoFilled = user.data.data.userinfo_filled;
         }
       })["catch"](function (error) {
         return console.log(error);
@@ -26800,349 +26784,295 @@ var render = function() {
         "form",
         [
           _c("div", { staticClass: "form-group row" }, [
-            _c("div", { staticClass: "col" }, [
-              _vm._m(1),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.formData.firstName,
-                    expression: "formData.firstName"
-                  }
-                ],
-                staticClass: "form-control shadowed",
-                attrs: { type: "text", id: "firstname" },
-                domProps: { value: _vm.formData.firstName },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.formData, "firstName", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _vm.hasError
-                ? _c(
-                    "span",
+            _c(
+              "div",
+              { staticClass: "col" },
+              [
+                _vm._m(1),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
                     {
-                      staticClass: "invalid-feedback",
-                      attrs: { role: "alert" }
-                    },
-                    _vm._l(_vm.errors.firstName, function(fNameErr, index) {
-                      return _c("div", { key: index }, [
-                        _c("strong", [_vm._v(_vm._s(fNameErr))])
-                      ])
-                    }),
-                    0
-                  )
-                : _vm._e()
-            ]),
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.formData.firstName,
+                      expression: "formData.firstName"
+                    }
+                  ],
+                  staticClass: "form-control shadowed",
+                  attrs: { type: "text", id: "firstname" },
+                  domProps: { value: _vm.formData.firstName },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.formData, "firstName", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.hasError
+                  ? _c("ErrorMsg", { attrs: { errors: _vm.errors.firstName } })
+                  : _vm._e()
+              ],
+              1
+            ),
             _vm._v(" "),
-            _c("div", { staticClass: "col" }, [
-              _vm._m(2),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.formData.lastName,
-                    expression: "formData.lastName"
-                  }
-                ],
-                staticClass: "form-control shadowed",
-                attrs: { type: "text", id: "lastname" },
-                domProps: { value: _vm.formData.lastName },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.formData, "lastName", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _vm.hasError
-                ? _c(
-                    "span",
+            _c(
+              "div",
+              { staticClass: "col" },
+              [
+                _vm._m(2),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
                     {
-                      staticClass: "invalid-feedback",
-                      attrs: { role: "alert" }
-                    },
-                    _vm._l(_vm.errors.lastName, function(fNameErr, index) {
-                      return _c("div", { key: index }, [
-                        _c("strong", [_vm._v(_vm._s(fNameErr))])
-                      ])
-                    }),
-                    0
-                  )
-                : _vm._e()
-            ])
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.formData.lastName,
+                      expression: "formData.lastName"
+                    }
+                  ],
+                  staticClass: "form-control shadowed",
+                  attrs: { type: "text", id: "lastname" },
+                  domProps: { value: _vm.formData.lastName },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.formData, "lastName", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.hasError
+                  ? _c("ErrorMsg", { attrs: { errors: _vm.errors.lastName } })
+                  : _vm._e()
+              ],
+              1
+            )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group row" }, [
-            _c("div", { staticClass: "col" }, [
-              _vm._m(3),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.formData.city,
-                    expression: "formData.city"
-                  }
-                ],
-                staticClass: "form-control shadowed",
-                attrs: { type: "text", name: "city", id: "city" },
-                domProps: { value: _vm.formData.city },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.formData, "city", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _vm.hasError
-                ? _c(
-                    "span",
+            _c(
+              "div",
+              { staticClass: "col" },
+              [
+                _vm._m(3),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
                     {
-                      staticClass: "invalid-feedback",
-                      attrs: { role: "alert" }
-                    },
-                    _vm._l(_vm.errors.city, function(fNameErr, index) {
-                      return _c("div", { key: index }, [
-                        _c("strong", [_vm._v(_vm._s(fNameErr))])
-                      ])
-                    }),
-                    0
-                  )
-                : _vm._e()
-            ]),
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.formData.city,
+                      expression: "formData.city"
+                    }
+                  ],
+                  staticClass: "form-control shadowed",
+                  attrs: { type: "text", name: "city", id: "city" },
+                  domProps: { value: _vm.formData.city },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.formData, "city", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.hasError
+                  ? _c("ErrorMsg", { attrs: { errors: _vm.errors.city } })
+                  : _vm._e()
+              ],
+              1
+            ),
             _vm._v(" "),
-            _c("div", { staticClass: "col" }, [
-              _vm._m(4),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.formData.zipCode,
-                    expression: "formData.zipCode"
-                  }
-                ],
-                staticClass: "form-control shadowed",
-                attrs: { type: "number", name: "zipCode", id: "zipCode" },
-                domProps: { value: _vm.formData.zipCode },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.formData, "zipCode", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _vm.hasError
-                ? _c(
-                    "span",
+            _c(
+              "div",
+              { staticClass: "col" },
+              [
+                _vm._m(4),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
                     {
-                      staticClass: "invalid-feedback",
-                      attrs: { role: "alert" }
-                    },
-                    _vm._l(_vm.errors.zipCode, function(fNameErr, index) {
-                      return _c("div", { key: index }, [
-                        _c("strong", [_vm._v(_vm._s(fNameErr))])
-                      ])
-                    }),
-                    0
-                  )
-                : _vm._e()
-            ])
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.formData.zipCode,
+                      expression: "formData.zipCode"
+                    }
+                  ],
+                  staticClass: "form-control shadowed",
+                  attrs: { type: "number", name: "zipCode", id: "zipCode" },
+                  domProps: { value: _vm.formData.zipCode },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.formData, "zipCode", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.hasError
+                  ? _c("ErrorMsg", { attrs: { errors: _vm.errors.zipCode } })
+                  : _vm._e()
+              ],
+              1
+            )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group row" }, [
-            _c("div", { staticClass: "col" }, [
-              _vm._m(5),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.formData.street,
-                    expression: "formData.street"
-                  }
-                ],
-                staticClass: "form-control shadowed",
-                attrs: { type: "text", id: "street" },
-                domProps: { value: _vm.formData.street },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.formData, "street", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _vm.hasError
-                ? _c(
-                    "span",
+            _c(
+              "div",
+              { staticClass: "col" },
+              [
+                _vm._m(5),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
                     {
-                      staticClass: "invalid-feedback",
-                      attrs: { role: "alert" }
-                    },
-                    _vm._l(_vm.errors.street, function(fNameErr, index) {
-                      return _c("div", { key: index }, [
-                        _c("strong", [_vm._v(_vm._s(fNameErr))])
-                      ])
-                    }),
-                    0
-                  )
-                : _vm._e()
-            ]),
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.formData.street,
+                      expression: "formData.street"
+                    }
+                  ],
+                  staticClass: "form-control shadowed",
+                  attrs: { type: "text", id: "street" },
+                  domProps: { value: _vm.formData.street },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.formData, "street", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.hasError
+                  ? _c("ErrorMsg", { attrs: { errors: _vm.errors.street } })
+                  : _vm._e()
+              ],
+              1
+            ),
             _vm._v(" "),
-            _c("div", { staticClass: "col" }, [
-              _vm._m(6),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.formData.houseNumber,
-                    expression: "formData.houseNumber"
-                  }
-                ],
-                staticClass: "form-control shadowed",
-                attrs: { type: "number", id: "houseNumber" },
-                domProps: { value: _vm.formData.houseNumber },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.formData, "houseNumber", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _vm.hasError
-                ? _c(
-                    "span",
+            _c(
+              "div",
+              { staticClass: "col" },
+              [
+                _vm._m(6),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
                     {
-                      staticClass: "invalid-feedback",
-                      attrs: { role: "alert" }
-                    },
-                    _vm._l(_vm.errors.houseNumber, function(fNameErr, index) {
-                      return _c("div", { key: index }, [
-                        _c("strong", [_vm._v(_vm._s(fNameErr))])
-                      ])
-                    }),
-                    0
-                  )
-                : _vm._e()
-            ])
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.formData.houseNumber,
+                      expression: "formData.houseNumber"
+                    }
+                  ],
+                  staticClass: "form-control shadowed",
+                  attrs: { type: "number", id: "houseNumber" },
+                  domProps: { value: _vm.formData.houseNumber },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.formData, "houseNumber", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.hasError
+                  ? _c("ErrorMsg", {
+                      attrs: { errors: _vm.errors.houseNumber }
+                    })
+                  : _vm._e()
+              ],
+              1
+            )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group row" }, [
-            _c("div", { staticClass: "col" }, [
-              _c("label", { attrs: { for: "floorDoor" } }, [
-                _vm._v("Emelet/Ajtó:")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.formData.floorDoor,
-                    expression: "formData.floorDoor"
-                  }
-                ],
-                staticClass: "form-control shadowed",
-                attrs: { type: "text", id: "floorDoor" },
-                domProps: { value: _vm.formData.floorDoor },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.formData, "floorDoor", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _vm.hasError
-                ? _c(
-                    "span",
+            _c(
+              "div",
+              { staticClass: "col" },
+              [
+                _c("label", { attrs: { for: "floorDoor" } }, [
+                  _vm._v("Emelet/Ajtó:")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
                     {
-                      staticClass: "invalid-feedback",
-                      attrs: { role: "alert" }
-                    },
-                    _vm._l(_vm.errors.floorDoor, function(fNameErr, index) {
-                      return _c("div", { key: index }, [
-                        _c("strong", [_vm._v(_vm._s(fNameErr))])
-                      ])
-                    }),
-                    0
-                  )
-                : _vm._e()
-            ]),
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.formData.floorDoor,
+                      expression: "formData.floorDoor"
+                    }
+                  ],
+                  staticClass: "form-control shadowed",
+                  attrs: { type: "text", id: "floorDoor" },
+                  domProps: { value: _vm.formData.floorDoor },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.formData, "floorDoor", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.hasError
+                  ? _c("ErrorMsg", { attrs: { errors: _vm.errors.floorDoor } })
+                  : _vm._e()
+              ],
+              1
+            ),
             _vm._v(" "),
-            _c("div", { staticClass: "col" }, [
-              _vm._m(7),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.formData.phone,
-                    expression: "formData.phone"
-                  }
-                ],
-                staticClass: "form-control shadowed",
-                attrs: { type: "text", id: "phone" },
-                domProps: { value: _vm.formData.phone },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.formData, "phone", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _vm.hasError
-                ? _c(
-                    "span",
+            _c(
+              "div",
+              { staticClass: "col" },
+              [
+                _vm._m(7),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
                     {
-                      staticClass: "invalid-feedback",
-                      attrs: { role: "alert" }
-                    },
-                    _vm._l(_vm.errors.phone, function(fNameErr, index) {
-                      return _c("div", { key: index }, [
-                        _c("strong", [_vm._v(_vm._s(fNameErr))])
-                      ])
-                    }),
-                    0
-                  )
-                : _vm._e()
-            ])
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.formData.phone,
+                      expression: "formData.phone"
+                    }
+                  ],
+                  staticClass: "form-control shadowed",
+                  attrs: { type: "text", id: "phone" },
+                  domProps: { value: _vm.formData.phone },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.formData, "phone", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.hasError
+                  ? _c("ErrorMsg", { attrs: { errors: _vm.errors.phone } })
+                  : _vm._e()
+              ],
+              1
+            )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group row" }, [
@@ -44767,6 +44697,9 @@ Vue.component('Alert', function () {
 });
 Vue.component('Loading', function () {
   return Promise.all(/*! import() */[__webpack_require__.e(5), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ../js/components/Utility/Loading */ "./resources/js/components/Utility/Loading.vue"));
+});
+Vue.component('ErrorMsg', function () {
+  return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ../js/components/Utility/FormErrorMsg */ "./resources/js/components/Utility/FormErrorMsg.vue"));
 });
 Vue.component('BaseFilter', function () {
   return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ../js/components/baseComponents/BaseFilter */ "./resources/js/components/baseComponents/BaseFilter.vue"));

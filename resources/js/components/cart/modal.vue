@@ -87,8 +87,8 @@ export default {
         getUserInfo(){ 
             axios.get('userInfoFilled').then(user => {
                 if (user.status == 200) {
-                    this.user = user.data.user;
-                    this.isUserinfoFilled = user.data.user.userinfo_filled;
+                    this.user = user.data.data;
+                    this.isUserinfoFilled = user.data.data.userinfo_filled;
                 }
             }).catch(error => console.log(error))
         },

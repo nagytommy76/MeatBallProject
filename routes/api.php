@@ -50,9 +50,7 @@ Route::get('getDrinkMinMaxPrice', 'Foods\DrinkController@getDrinkMinMaxPrice');
 // CART CONTROLLER
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
     Route::post('addUserInfo', 'UserControllers\UserInfoController@apiStrore');
-    Route::get('userInfoFilled', function(){
-        return response()->json(['user' => Auth::user(), 'userInfo' => Auth::user()->userinfo]);
-    });
+    Route::get('userInfoFilled', 'UserControllers\UserInfoController@getUserData');
     Route::post('updateUserInfo', 'UserControllers\UserInfoController@apiUpdate');
     Route::get('myOrders', 'UserControllers\UserInfoController@getUserOrders');
 

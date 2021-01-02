@@ -59,6 +59,10 @@
             &:hover{
                 box-shadow: 3px 3px 15px black;
                 transform: translateY(-.4rem);
+                .food_card_heading{
+                    white-space: normal;
+                    text-overflow: unset;
+                }
             }
         }
     }
@@ -85,10 +89,14 @@
                     height: 180px;
                 }
                 .food_card_inner{
+                    min-height: 150px;
                     .food_card_heading{
                         font-size: 1.2rem;
                         padding-bottom: .3rem;
                         margin-bottom: 1rem;
+                        white-space: normal;
+                        text-overflow: unset;
+
                     }
                     .ingredients{
                         h3{

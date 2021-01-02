@@ -163,6 +163,7 @@ $navbar-color: #212121;
 
 @media(max-width: $mobile-width){
     .navbar{
+        background-color: rgba($color: $navbar-color, $alpha: 1);
         position: fixed;
         width: 100%;
         flex-direction: column;
