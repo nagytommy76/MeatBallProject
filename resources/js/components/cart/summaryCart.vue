@@ -6,16 +6,16 @@
         <div class="modal-body">
             <div class="userData">
                 <h3>Személyes adatok: </h3>
-                <h4>Név: {{user.userinfo.firstName}} {{user.userinfo.lastName}}</h4>
+                <h4>Név: {{userInfo.firstName}} {{userInfo.lastName}}</h4>
                 <h4>E-mail: {{user.email}}</h4>
-                <h4>Telefon: {{user.userinfo.phone}}</h4>
+                <h4>Telefon: {{userInfo.phone}}</h4>
                 <h4>
                     Cím: 
-                    {{user.userinfo.zipCode}}
-                    {{user.userinfo.city}}
-                    {{user.userinfo.street}}
-                    {{user.userinfo.houseNumber}}
-                    {{user.userinfo.floorDoor}}
+                    {{userInfo.zipCode}}
+                    {{userInfo.city}}
+                    {{userInfo.street}}
+                    {{userInfo.houseNumber}}
+                    {{userInfo.floorDoor}}
                 </h4>
             </div>
             <div class="order">
@@ -83,7 +83,9 @@ export default {
     computed: {
         ...mapGetters({
             cartItems: 'getCartItems',
-            transactionID: 'getTransactionID'
+            transactionID: 'getTransactionID',
+            userInfo: 'getUserInfo',
+            user: 'getUser'
         }),
         showPayment: {
             get(){
@@ -116,9 +118,6 @@ export default {
             set(value){
                 this.$parent.showAlternatePayment = value
             }
-        },
-        user: function() {
-            return this.$parent.user;
         },
     },
     methods:{

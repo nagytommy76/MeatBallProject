@@ -48,8 +48,6 @@ export default {
         return {
             pages: ['CartModal','UserInfo','SummaryCart'],
             step: 0,
-            isUserinfoFilled: false,
-            user: {},
             isLoading: false,
             exceptionMsg: '',
 
@@ -68,30 +66,24 @@ export default {
         },
         ...mapGetters({
             totalQty: 'getTotalQty',
-            userLoggedIn: 'getUserLoggedIn',
             paidWithPP: 'getPaid',
             transactionID: 'getTransactionID',
             getCreatedAt: 'getCreatedAt',
+            isUserDataReceived: 'getIsUserDataReceived',
+            isUserinfoFilled: 'getUserInfoFilled',
         }),
     },
     created(){
-        if(this.userLoggedIn){
-            this.getUserInfo();
-        }  
+        // if(!this.isUserDataReceived){
+            this.getUserInfo()
+        // }
     },
     methods: {
         ...mapActions({
             setCartDefault: 'setCartDefault',
-            setPayPalDefault: 'setPayPalDefault'
+            setPayPalDefault: 'setPayPalDefault',
+            getUserInfo: 'getUserInfo',
         }),
-        getUserInfo(){ 
-            axios.get('userInfoFilled').then(user => {
-                if (user.status == 200) {
-                    this.user = user.data.data;
-                    this.isUserinfoFilled = user.data.data.userinfo_filled;
-                }
-            }).catch(error => console.log(error))
-        },
         async makeOrder(){
             this.isLoading = true;
             axios.post('saveOrder',{

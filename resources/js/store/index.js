@@ -5,6 +5,7 @@ import createPersistedState from "vuex-persistedstate";
 import accessToken from './modules/accessToken';
 import getCartItems from './modules/getCartItems';
 import payPal from './modules/paypal';
+import userDetails from './modules/userDetails';
  
 Vue.use(Vuex);
 
@@ -13,6 +14,7 @@ export default new Vuex.Store({
         accessToken,
         getCartItems,
         payPal,
+        userDetails,
     },
     plugins: [createPersistedState({
         key: 'accessToken'

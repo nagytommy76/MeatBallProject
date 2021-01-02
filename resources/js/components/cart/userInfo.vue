@@ -8,7 +8,7 @@
                 <div class="form-group row">
                     <div class="col">
                         <label for="firstname">Vezetéknév: <sup>*</sup></label>
-                        <input v-model="formData.firstName" type="text" id="firstname" class="form-control shadowed">
+                        <input v-model="user.firstName" type="text" id="firstname" class="form-control shadowed">
                         <ErrorMsg 
                             v-if="hasError"
                             :errors="errors.firstName"
@@ -16,7 +16,7 @@
                     </div>
                     <div class="col">
                         <label for="lastname">Keresztnév: <sup>*</sup></label>
-                        <input v-model="formData.lastName" type="text" id="lastname" class="form-control shadowed">
+                        <input v-model="user.lastName" type="text" id="lastname" class="form-control shadowed">
                         <ErrorMsg 
                             v-if="hasError"
                             :errors="errors.lastName"
@@ -26,7 +26,7 @@
                 <div class="form-group row">
                     <div class="col">
                         <label for="city">Város: <sup>*</sup></label>
-                        <input v-model="formData.city" type="text" name="city" id="city" class="form-control shadowed">
+                        <input v-model="user.city" type="text" name="city" id="city" class="form-control shadowed">
                         <ErrorMsg 
                             v-if="hasError"
                             :errors="errors.city"
@@ -34,7 +34,7 @@
                     </div>
                     <div class="col">
                         <label for="zipCode">Ir. Szám: <sup>*</sup></label>
-                        <input v-model="formData.zipCode" type="number" name="zipCode" id="zipCode" class="form-control shadowed">
+                        <input v-model="user.zipCode" type="number" name="zipCode" id="zipCode" class="form-control shadowed">
                         <ErrorMsg 
                             v-if="hasError"
                             :errors="errors.zipCode"
@@ -44,7 +44,7 @@
                 <div class="form-group row">
                     <div class="col">
                         <label for="street">Utca <sup>*</sup></label>
-                        <input v-model="formData.street" type="text" id="street" class="form-control shadowed">
+                        <input v-model="user.street" type="text" id="street" class="form-control shadowed">
                         <ErrorMsg 
                             v-if="hasError"
                             :errors="errors.street"
@@ -52,7 +52,7 @@
                     </div>
                     <div class="col">
                         <label for="houseNumber">Házszám: <sup>*</sup></label>
-                        <input v-model="formData.houseNumber" type="number" id="houseNumber" class="form-control shadowed">
+                        <input v-model="user.houseNumber" type="number" id="houseNumber" class="form-control shadowed">
                         <ErrorMsg 
                             v-if="hasError"
                             :errors="errors.houseNumber"
@@ -62,7 +62,7 @@
                 <div class="form-group row">
                     <div class="col">
                         <label for="floorDoor">Emelet/Ajtó:</label>
-                        <input v-model="formData.floorDoor" type="text" id="floorDoor" class="form-control shadowed">
+                        <input v-model="user.floorDoor" type="text" id="floorDoor" class="form-control shadowed">
                         <ErrorMsg 
                             v-if="hasError"
                             :errors="errors.floorDoor"
@@ -70,7 +70,7 @@
                     </div>
                     <div class="col">
                         <label for="phone">Telefon: <sup>*</sup></label>
-                        <input v-model="formData.phone" type="text" id="phone" class="form-control shadowed">
+                        <input v-model="user.phone" type="text" id="phone" class="form-control shadowed">
                         <ErrorMsg 
                             v-if="hasError"
                             :errors="errors.phone"
@@ -79,10 +79,10 @@
                 </div>
                 <div class="form-group row">
                     <div class="col">
-                        <input v-show="!this.$parent.isUserinfoFilled" type="submit" value="Adatok megadása" @click.prevent="addUserInfo" class="btn btn-confirm-dark" />
+                        <input v-show="!isUserinfoFilled" type="submit" value="Adatok megadása" @click.prevent="addUserInfo" class="btn btn-confirm-dark" />
                     </div>  
                     <div class="col">
-                        <input v-show="this.$parent.isUserinfoFilled" type="submit" value="Módosítás" @click.prevent="modifyUserInfo" class="btn btn-delete-dark" />
+                        <input v-show="isUserinfoFilled" type="submit" value="Módosítás" @click.prevent="modifyUserInfo" class="btn btn-delete-dark" />
                     </div>                                       
                 </div>
                 <Alert
@@ -100,6 +100,7 @@
     </div>
 </template>
 <script>
+import { mapGetters } from 'vuex';
 export default {
     name: "UserInfo",
     data:() => {
@@ -109,16 +110,6 @@ export default {
             exceptionMsg: '',
             showMsg: false,
             msg: '',
-            formData: {
-                firstName: '',
-                lastName: '',
-                city: '',
-                zipCode: 0,
-                street: '',
-                houseNumber: '',
-                floorDoor: '',
-                phone: ''
-            },
             errors: {
                 firstName: '',
                 lastName: '',
@@ -131,8 +122,11 @@ export default {
             }
         }
     },
-    created(){
-        this.fetchUserinfoData()
+    computed:{
+        ...mapGetters({
+            user: 'getUserInfo',
+            isUserinfoFilled: 'getUserInfoFilled',
+        })
     },
     methods:{
         showErrors(error){
@@ -158,7 +152,7 @@ export default {
         },
         async addUserInfo(){
             await axios.post('addUserInfo', {
-                formData: this.formData
+                formData: this.user
             }).then(userInfo => {
                 if (userInfo.data.hasError) {
                     this.showErrors(userInfo.data.errors)
@@ -174,7 +168,7 @@ export default {
         },
         async modifyUserInfo(){
             await axios.post('updateUserInfo',{
-                formData: this.formData
+                formData: this.user
             }).then(userInfo => {
                 if (userInfo.data.hasError) {
                     this.showErrors(userInfo.data.errors)
@@ -187,11 +181,6 @@ export default {
                 }
             })
         },
-        fetchUserinfoData(){
-            if(this.$parent.isUserinfoFilled){
-                this.formData = this.$parent.user.userInfo
-            }
-        }
     },
 }
 </script>
