@@ -100,7 +100,7 @@
     </div>
 </template>
 <script>
-import { mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 export default {
     name: "UserInfo",
     data:() => {
@@ -129,6 +129,10 @@ export default {
         })
     },
     methods:{
+        ...mapActions({
+            getUserInfo: 'getUserInfo',
+            increasePage: 'increasePage',
+        }),
         showErrors(error){
             this.hasError = !this.hasError;
             this.errors.firstName = error.firstName;
@@ -158,8 +162,8 @@ export default {
                     this.showErrors(userInfo.data.errors)
                 }else{
                     if (!userInfo.data.exception) {
-                        this.$parent.getUserInfo()
-                        this.$parent.step++;
+                        this.getUserInfo()
+                        this.increasePage();
                     }else{
                         this.showExceptionMsg(userInfo.data.exception)
                     }
@@ -176,6 +180,7 @@ export default {
                     if (userInfo.data.exception) {
                         this.showExceptionMsg(userInfo.data.exception)
                     }else{
+                        this.getUserInfo()
                         this.showOtherMsg('A Módosítás sikeres volt!')
                     }
                 }

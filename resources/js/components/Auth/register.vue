@@ -58,7 +58,6 @@
     </div>
 </template>
 <script>
-import authHelper from '../../helpers/authHelper'
 export default {
     name: 'Register',
     data(){

@@ -2,11 +2,15 @@
     <div class="modal-bg">
         <div class="modal">
             <span @click="$emit('close')" class="modal-close"><i class="far fa-times-circle"></i></span>
-            <component :is="currentPage"></component>            
+            <component
+                :is="currentPage"
+                :showMakeOrderBTN="showMakeOrderBTN"
+                :makeOrder="makeOrder"
+            ></component>            
             <div v-show="totalQty > 0" class="">
-                <button v-show="step>0 && step != 3" @click="previousPage" class="btn btn-delete-dark">Vissza</button>
-                <span v-show="step<pages.length-1 && step != 2">
-                    <button v-show="this.isUserinfoFilled || step != 1" @click="nextPage" class="btn btn-confirm-dark" >Tovább</button>
+                <button v-show="getCurrentPage>0 && getCurrentPage != 3" @click="previousPage" class="btn btn-delete-dark">Vissza</button>
+                <span v-show="getCurrentPage<pages.length-1 && getCurrentPage != 2">
+                    <button v-show="this.isUserinfoFilled || getCurrentPage != 1" @click="nextPage" class="btn btn-confirm-dark" >Tovább</button>
                 </span>   
                 <button @click="makeOrder" v-show="showMakeOrder" class="btn btn-confirm-dark">Rendelés Leadása!</button>
                 <Alert 
@@ -47,7 +51,6 @@ export default {
     data:() => {
         return {
             pages: ['CartModal','UserInfo','SummaryCart'],
-            step: 0,
             isLoading: false,
             exceptionMsg: '',
 
@@ -62,7 +65,7 @@ export default {
     },
     computed: {
         currentPage: function() {
-            return this.pages[this.step];
+            return this.pages[this.getCurrentPage];
         },
         ...mapGetters({
             totalQty: 'getTotalQty',
@@ -71,18 +74,22 @@ export default {
             getCreatedAt: 'getCreatedAt',
             isUserDataReceived: 'getIsUserDataReceived',
             isUserinfoFilled: 'getUserInfoFilled',
+            getCurrentPage: 'getCurrentPage',
         }),
     },
     created(){
-        // if(!this.isUserDataReceived){
+        if(this.isUserinfoFilled){
             this.getUserInfo()
-        // }
+        }
     },
     methods: {
         ...mapActions({
             setCartDefault: 'setCartDefault',
             setPayPalDefault: 'setPayPalDefault',
             getUserInfo: 'getUserInfo',
+            increasePage: 'increasePage',
+            decreasePage: 'decreasePage',
+            setDefaultPage: 'setDefaultPage',
         }),
         async makeOrder(){
             this.isLoading = true;
@@ -112,18 +119,15 @@ export default {
             })
         },
         nextPage(){    
-            this.step++;  
+            this.increasePage()
             this.showMakeOrderBTN()                            
         },
-        previousPage(){
-            this.step--  
+        previousPage(){  
+            this.decreasePage()
             this.showMakeOrderBTN() 
         },
-        setDefaultPage(){
-            this.step = 0
-        },
         showMakeOrderBTN(){
-            if (this.step == this.pages.length-1) {
+            if (this.getCurrentPage == this.pages.length-1) {
                 if (this.showAlternatePayment) {
                     this.showMakeOrder = true
                 }else{

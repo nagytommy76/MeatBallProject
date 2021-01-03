@@ -13,7 +13,7 @@ export default{
        },
        setUserLoggedIn(state, value){
             state.userLoggedIn = value
-       },
+       },       
     },
     actions: {
         setLoggedIn(state, loggedIn){
@@ -22,5 +22,8 @@ export default{
         setUserName(state, userName){
             state.commit('setUserName', userName)
         },
+        revokeUserName(context){
+            context.dispatch('setUserName', '')
+        }
     }
 }

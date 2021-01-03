@@ -66,7 +66,6 @@ export default {
     computed: {
         ...mapGetters({
             cartItems: 'getCartItems',
-            accessToken: 'getToken'
         })
     },
     methods:{

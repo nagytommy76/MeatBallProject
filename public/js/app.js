@@ -2228,7 +2228,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _helpers_authHelper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../helpers/authHelper */ "./resources/js/helpers/authHelper.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2294,7 +2293,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Register',
   data: function data() {
@@ -2826,8 +2824,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
-    cartItems: 'getCartItems',
-    accessToken: 'getToken'
+    cartItems: 'getCartItems'
   })),
   methods: {
     deleteItem: function deleteItem(event) {
@@ -2981,11 +2978,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     this.createPayPalScript();
   },
+  props: {
+    showMakeOrderBTN: Function,
+    makeOrder: Function
+  },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
     cartItems: 'getCartItems',
     transactionID: 'getTransactionID',
-    userInfo: 'getUserInfo',
-    user: 'getUser'
+    userInfo: 'getUserInfo'
   }), {
     showPayment: {
       get: function get() {
@@ -3077,7 +3077,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
                       _this.hidePaymentOptionsAfterPay();
 
-                      _this.$parent.makeOrder();
+                      _this.makeOrder();
                     }
 
                   case 4:
@@ -3108,7 +3108,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.showPaypal = false;
       }
 
-      this.$parent.showMakeOrderBTN();
+      this.showMakeOrderBTN();
     },
     showSuccessAlertMessage: function showSuccessAlertMessage() {
       this.showSuccessPayPal = true;
@@ -3272,7 +3272,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     user: 'getUserInfo',
     isUserinfoFilled: 'getUserInfoFilled'
   })),
-  methods: {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])({
+    getUserInfo: 'getUserInfo',
+    increasePage: 'increasePage'
+  }), {
     showErrors: function showErrors(error) {
       this.hasError = !this.hasError;
       this.errors.firstName = error.firstName;
@@ -3318,9 +3321,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     _this3.showErrors(userInfo.data.errors);
                   } else {
                     if (!userInfo.data.exception) {
-                      _this3.$parent.getUserInfo();
+                      _this3.getUserInfo();
 
-                      _this3.$parent.step++;
+                      _this3.increasePage();
                     } else {
                       _this3.showExceptionMsg(userInfo.data.exception);
                     }
@@ -3353,6 +3356,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     if (userInfo.data.exception) {
                       _this4.showExceptionMsg(userInfo.data.exception);
                     } else {
+                      _this4.getUserInfo();
+
                       _this4.showOtherMsg('A Módosítás sikeres volt!');
                     }
                   }
@@ -3366,7 +3371,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, _callee2);
       }))();
     }
-  }
+  })
 });
 
 /***/ }),
@@ -3430,6 +3435,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -3444,7 +3453,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       pages: ['CartModal', 'UserInfo', 'SummaryCart'],
-      step: 0,
       isLoading: false,
       exceptionMsg: '',
       showPayment: true,
@@ -3458,7 +3466,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({
     currentPage: function currentPage() {
-      return this.pages[this.step];
+      return this.pages[this.getCurrentPage];
     }
   }, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapGetters"])({
     totalQty: 'getTotalQty',
@@ -3466,16 +3474,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     transactionID: 'getTransactionID',
     getCreatedAt: 'getCreatedAt',
     isUserDataReceived: 'getIsUserDataReceived',
-    isUserinfoFilled: 'getUserInfoFilled'
+    isUserinfoFilled: 'getUserInfoFilled',
+    getCurrentPage: 'getCurrentPage'
   })),
   created: function created() {
-    // if(!this.isUserDataReceived){
-    this.getUserInfo(); // }
+    if (this.isUserinfoFilled) {
+      this.getUserInfo();
+    }
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapActions"])({
     setCartDefault: 'setCartDefault',
     setPayPalDefault: 'setPayPalDefault',
-    getUserInfo: 'getUserInfo'
+    getUserInfo: 'getUserInfo',
+    increasePage: 'increasePage',
+    decreasePage: 'decreasePage',
+    setDefaultPage: 'setDefaultPage'
   }), {
     makeOrder: function makeOrder() {
       var _this = this;
@@ -3525,18 +3538,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }))();
     },
     nextPage: function nextPage() {
-      this.step++;
+      this.increasePage();
       this.showMakeOrderBTN();
     },
     previousPage: function previousPage() {
-      this.step--;
+      this.decreasePage();
       this.showMakeOrderBTN();
     },
-    setDefaultPage: function setDefaultPage() {
-      this.step = 0;
-    },
     showMakeOrderBTN: function showMakeOrderBTN() {
-      if (this.step == this.pages.length - 1) {
+      if (this.getCurrentPage == this.pages.length - 1) {
         if (this.showAlternatePayment) {
           this.showMakeOrder = true;
         } else {
@@ -4639,8 +4649,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _helpers_navbarHelper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../helpers/navbarHelper */ "./resources/js/helpers/navbarHelper.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -4715,26 +4732,56 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     mobileSize: Boolean
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])({
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
     loggedIn: 'getUserLoggedIn',
     userName: 'getUserName',
     totalQty: 'getTotalQty'
   })),
-  mounted: function mounted() {
-    _helpers_navbarHelper__WEBPACK_IMPORTED_MODULE_1__["default"].logOutBTN(this.$store);
-  },
-  methods: {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])({
+    revokeUserName: 'revokeUserName',
+    setLoggedIn: 'setLoggedIn',
+    setCartDefault: 'setCartDefault',
+    setToDefaultUserInfo: 'setToDefaultUserInfo'
+  }), {
     closeNav: function closeNav() {
       if (this.mobileSize) {
         this.$emit('close');
       }
+    },
+    logOut: function logOut() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.post('logout').then(function (logout) {
+                  _this.revokeUserName();
+
+                  _this.setLoggedIn(false);
+
+                  _this.setCartDefault();
+
+                  _this.setToDefaultUserInfo();
+
+                  localStorage.removeItem('accessToken');
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
     }
-  }
+  })
 });
 
 /***/ }),
@@ -27041,7 +27088,7 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("h4", [_vm._v("E-mail: " + _vm._s(_vm.user.email))]),
+          _c("h4", [_vm._v("E-mail: " + _vm._s(_vm.userInfo.user_email))]),
           _vm._v(" "),
           _c("h4", [_vm._v("Telefon: " + _vm._s(_vm.userInfo.phone))]),
           _vm._v(" "),
@@ -27751,7 +27798,13 @@ var render = function() {
           [_c("i", { staticClass: "far fa-times-circle" })]
         ),
         _vm._v(" "),
-        _c(_vm.currentPage, { tag: "component" }),
+        _c(_vm.currentPage, {
+          tag: "component",
+          attrs: {
+            showMakeOrderBTN: _vm.showMakeOrderBTN,
+            makeOrder: _vm.makeOrder
+          }
+        }),
         _vm._v(" "),
         _c(
           "div",
@@ -27773,8 +27826,8 @@ var render = function() {
                   {
                     name: "show",
                     rawName: "v-show",
-                    value: _vm.step > 0 && _vm.step != 3,
-                    expression: "step>0 && step != 3"
+                    value: _vm.getCurrentPage > 0 && _vm.getCurrentPage != 3,
+                    expression: "getCurrentPage>0 && getCurrentPage != 3"
                   }
                 ],
                 staticClass: "btn btn-delete-dark",
@@ -27790,8 +27843,11 @@ var render = function() {
                   {
                     name: "show",
                     rawName: "v-show",
-                    value: _vm.step < _vm.pages.length - 1 && _vm.step != 2,
-                    expression: "step<pages.length-1 && step != 2"
+                    value:
+                      _vm.getCurrentPage < _vm.pages.length - 1 &&
+                      _vm.getCurrentPage != 2,
+                    expression:
+                      "getCurrentPage<pages.length-1 && getCurrentPage != 2"
                   }
                 ]
               },
@@ -27803,8 +27859,9 @@ var render = function() {
                       {
                         name: "show",
                         rawName: "v-show",
-                        value: this.isUserinfoFilled || _vm.step != 1,
-                        expression: "this.isUserinfoFilled || step != 1"
+                        value: this.isUserinfoFilled || _vm.getCurrentPage != 1,
+                        expression:
+                          "this.isUserinfoFilled || getCurrentPage != 1"
                       }
                     ],
                     staticClass: "btn btn-confirm-dark",
@@ -29898,7 +29955,23 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("div", { staticClass: "dropdown-menu" }, [
-            _vm._m(0),
+            _c(
+              "a",
+              {
+                staticClass: "dropdown-menu-item",
+                attrs: { id: "logOutBtn", href: "#" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.logOut()
+                  }
+                }
+              },
+              [
+                _c("i", { staticClass: "fas fa-sign-out-alt" }),
+                _vm._v(" \n                    Kilépés\n                ")
+              ]
+            ),
             _vm._v(" "),
             _c(
               "a",
@@ -29940,24 +30013,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "dropdown-menu-item",
-        attrs: { id: "logOutBtn", href: "#" }
-      },
-      [
-        _c("i", { staticClass: "fas fa-sign-out-alt" }),
-        _vm._v(" \n                    Kilépés\n                ")
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -46557,72 +46613,6 @@ var addToCart = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ "./resources/js/helpers/authHelper.js":
-/*!********************************************!*\
-  !*** ./resources/js/helpers/authHelper.js ***!
-  \********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return authHelper; });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var authHelper = /*#__PURE__*/function () {
-  function authHelper() {
-    _classCallCheck(this, authHelper);
-  }
-
-  _createClass(authHelper, null, [{
-    key: "logOut",
-    value: function () {
-      var _logOut = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return axios.post('logout');
-
-              case 2:
-                return _context.abrupt("return", _context.sent);
-
-              case 3:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }));
-
-      function logOut() {
-        return _logOut.apply(this, arguments);
-      }
-
-      return logOut;
-    }()
-  }]);
-
-  return authHelper;
-}();
-
-
-
-/***/ }),
-
 /***/ "./resources/js/helpers/loadData.js":
 /*!******************************************!*\
   !*** ./resources/js/helpers/loadData.js ***!
@@ -46771,67 +46761,6 @@ var loadData = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ "./resources/js/helpers/navbarHelper.js":
-/*!**********************************************!*\
-  !*** ./resources/js/helpers/navbarHelper.js ***!
-  \**********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return navbarHelper; });
-/* harmony import */ var _authHelper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./authHelper */ "./resources/js/helpers/authHelper.js");
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-
-
-var navbarHelper = /*#__PURE__*/function () {
-  function navbarHelper() {
-    _classCallCheck(this, navbarHelper);
-  }
-
-  _createClass(navbarHelper, null, [{
-    key: "openBtn",
-    value: function openBtn() {
-      var navOpen = document.getElementById('navOpen');
-      var navbarNav = document.querySelector('.navbar-nav');
-
-      if (navOpen != null) {
-        navOpen.addEventListener('click', function () {
-          navbarNav.classList.toggle("open");
-        });
-      }
-    }
-  }, {
-    key: "logOutBTN",
-    value: function logOutBTN(store) {
-      var logOutBtn = document.getElementById('logOutBtn');
-
-      if (logOutBtn != null) {
-        logOutBtn.addEventListener('click', function () {
-          _authHelper__WEBPACK_IMPORTED_MODULE_0__["default"].logOut().then(function (response) {
-            store.dispatch('setUserName', '');
-            store.dispatch('setLoggedIn', false);
-            store.dispatch('setCartDefault');
-            localStorage.removeItem('accessToken');
-          });
-        });
-      }
-    }
-  }]);
-
-  return navbarHelper;
-}();
-
-
-
-/***/ }),
-
 /***/ "./resources/js/router/router.js":
 /*!***************************************!*\
   !*** ./resources/js/router/router.js ***!
@@ -46968,7 +46897,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_accessToken__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/accessToken */ "./resources/js/store/modules/accessToken.js");
 /* harmony import */ var _modules_getCartItems__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/getCartItems */ "./resources/js/store/modules/getCartItems.js");
 /* harmony import */ var _modules_paypal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/paypal */ "./resources/js/store/modules/paypal.js");
-/* harmony import */ var _modules_userDetails__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/userDetails */ "./resources/js/store/modules/userDetails.js");
+/* harmony import */ var _modules_paypalState__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/paypalState */ "./resources/js/store/modules/paypalState.js");
+/* harmony import */ var _modules_userDetails__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/userDetails */ "./resources/js/store/modules/userDetails.js");
+/* harmony import */ var _modules_modalPages__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/modalPages */ "./resources/js/store/modules/modalPages.js");
+
+
 
 
 
@@ -46982,7 +46915,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     accessToken: _modules_accessToken__WEBPACK_IMPORTED_MODULE_3__["default"],
     getCartItems: _modules_getCartItems__WEBPACK_IMPORTED_MODULE_4__["default"],
     payPal: _modules_paypal__WEBPACK_IMPORTED_MODULE_5__["default"],
-    userDetails: _modules_userDetails__WEBPACK_IMPORTED_MODULE_6__["default"]
+    paypalState: _modules_paypalState__WEBPACK_IMPORTED_MODULE_6__["default"],
+    userDetails: _modules_userDetails__WEBPACK_IMPORTED_MODULE_7__["default"],
+    modalPages: _modules_modalPages__WEBPACK_IMPORTED_MODULE_8__["default"]
   },
   plugins: [Object(vuex_persistedstate__WEBPACK_IMPORTED_MODULE_2__["default"])({
     key: 'accessToken'
@@ -47027,6 +46962,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     setUserName: function setUserName(state, userName) {
       state.commit('setUserName', userName);
+    },
+    revokeUserName: function revokeUserName(context) {
+      context.dispatch('setUserName', '');
     }
   }
 });
@@ -47071,6 +47009,52 @@ __webpack_require__.r(__webpack_exports__);
   actions: {
     setCartDefault: function setCartDefault(state) {
       state.commit('setCartToDefault');
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/modalPages.js":
+/*!**************************************************!*\
+  !*** ./resources/js/store/modules/modalPages.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  state: function state() {
+    return {
+      step: 0
+    };
+  },
+  getters: {
+    getCurrentPage: function getCurrentPage(state) {
+      return state.step;
+    }
+  },
+  mutations: {
+    increasePage: function increasePage(state) {
+      state.step = ++state.step;
+    },
+    decreasePage: function decreasePage(state) {
+      state.step = --state.step;
+    },
+    setDefaultPage: function setDefaultPage(state) {
+      state.step = 0;
+    }
+  },
+  actions: {
+    increasePage: function increasePage(context) {
+      context.commit('increasePage');
+    },
+    decreasePage: function decreasePage(context) {
+      context.commit('decreasePage');
+    },
+    setDefaultPage: function setDefaultPage(context) {
+      context.commit('setDefaultPage');
     }
   }
 });
@@ -47165,6 +47149,52 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/store/modules/paypalState.js":
+/*!***************************************************!*\
+  !*** ./resources/js/store/modules/paypalState.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  state: function state() {
+    return {
+      showPayment: true,
+      showSuccessPayPal: false,
+      showPayPal: false,
+      showAlternatePayment: true
+    };
+  },
+  getters: {
+    getShowPayment: function getShowPayment(state) {
+      return state.showPayment;
+    },
+    showSuccessPayPal: function showSuccessPayPal(state) {
+      return state.showSuccessPayPal;
+    },
+    showPayPal: function showPayPal(state) {
+      return state.showPayPal;
+    },
+    showAlternatePayment: function showAlternatePayment(state) {
+      return state.showAlternatePayment;
+    }
+  },
+  mutations: {
+    disableShowPayment: function disableShowPayment(state) {
+      state.showPayment = false;
+    }
+  },
+  actions: {
+    disableShowPayment: function disableShowPayment(context) {
+      context.commit('disableShowPayment');
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/store/modules/userDetails.js":
 /*!***************************************************!*\
   !*** ./resources/js/store/modules/userDetails.js ***!
@@ -47177,16 +47207,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: function state() {
     return {
-      user: {
-        username: '',
-        email: ''
-      },
       userInfo: {
         city: '',
         firstName: '',
         lastName: '',
-        houseNumber: '',
-        floorDoor: '',
+        houseNumber: null,
+        floorDoor: null,
         phone: '',
         street: '',
         user_email: '',
@@ -47197,9 +47223,6 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   getters: {
-    getUser: function getUser(state) {
-      return state.user;
-    },
     getUserInfo: function getUserInfo(state) {
       return state.userInfo;
     },
@@ -47211,9 +47234,6 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mutations: {
-    setUser: function setUser(state, payload) {
-      state.user = payload;
-    },
     setUserInfo: function setUserInfo(state, payload) {
       state.userInfo = payload;
     },
@@ -47222,16 +47242,15 @@ __webpack_require__.r(__webpack_exports__);
     },
     setUserInfoFilled: function setUserInfoFilled(state, payload) {
       state.isUserInfoFilled = payload;
+    },
+    setToDefaultUserInfo: function setToDefaultUserInfo(state, payload) {
+      state.userInfo = payload;
     }
   },
   actions: {
     getUserInfo: function getUserInfo(context) {
       axios.get('userInfoFilled').then(function (user) {
         if (user.status == 200) {
-          context.commit('setUser', {
-            email: user.data.data.email,
-            username: user.data.data.username
-          });
           context.commit('setUserInfo', user.data.data.userInfo);
           context.commit('dataReceived', true);
           context.commit('setUserInfoFilled', user.data.data.userinfo_filled);
@@ -47239,6 +47258,20 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         return console.log(error);
       });
+    },
+    setToDefaultUserInfo: function setToDefaultUserInfo(context) {
+      var userInfo = {
+        city: '',
+        firstName: '',
+        lastName: '',
+        houseNumber: null,
+        floorDoor: null,
+        phone: '',
+        street: '',
+        user_email: '',
+        zip_code: null
+      };
+      context.commit('setToDefaultUserInfo', userInfo);
     }
   }
 });

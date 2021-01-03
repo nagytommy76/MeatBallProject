@@ -47,7 +47,7 @@
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" >{{ userName }}<span class="caret"></span>
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-menu-item" id="logOutBtn" href="#">
+                    <a @click.prevent="logOut()" class="dropdown-menu-item" id="logOutBtn" href="#">
                         <i class="fas fa-sign-out-alt"></i> 
                         Kilépés
                     </a>
@@ -66,9 +66,7 @@
     </nav>    
 </template>
 <script>
-import { mapGetters } from "vuex";
-import navbarHelper from '../../helpers/navbarHelper'
-
+import { mapActions, mapGetters } from "vuex";
 export default {
     props:{
         mobileSize: Boolean,
@@ -80,14 +78,26 @@ export default {
             totalQty: 'getTotalQty'
         }),
     },
-    mounted(){
-        navbarHelper.logOutBTN(this.$store)
-    },
     methods: {
+        ...mapActions({
+            revokeUserName: 'revokeUserName',
+            setLoggedIn: 'setLoggedIn',
+            setCartDefault: 'setCartDefault',
+            setToDefaultUserInfo: 'setToDefaultUserInfo',
+        }),
         closeNav(){
             if (this.mobileSize) {
                 this.$emit('close')
             }
+        },
+        async logOut(){
+            await axios.post('logout').then(logout =>{
+                this.revokeUserName()
+                this.setLoggedIn(false)
+                this.setCartDefault()
+                this.setToDefaultUserInfo()
+                localStorage.removeItem('accessToken')
+            })
         }
     },
 }

@@ -7,7 +7,7 @@
             <div class="userData">
                 <h3>Személyes adatok: </h3>
                 <h4>Név: {{userInfo.firstName}} {{userInfo.lastName}}</h4>
-                <h4>E-mail: {{user.email}}</h4>
+                <h4>E-mail: {{userInfo.user_email}}</h4>
                 <h4>Telefon: {{userInfo.phone}}</h4>
                 <h4>
                     Cím: 
@@ -80,12 +80,15 @@ export default {
     mounted() {
         this.createPayPalScript()
     },
+    props:{
+        showMakeOrderBTN: Function,
+        makeOrder: Function,
+    },
     computed: {
         ...mapGetters({
             cartItems: 'getCartItems',
             transactionID: 'getTransactionID',
             userInfo: 'getUserInfo',
-            user: 'getUser'
         }),
         showPayment: {
             get(){
@@ -163,7 +166,7 @@ export default {
                         this.setPayPalDetails(finalDetails);
                         this.showSuccessAlertMessage()
                         this.hidePaymentOptionsAfterPay()
-                        this.$parent.makeOrder()
+                        this.makeOrder()
                     }                    
                 }
             })
@@ -180,7 +183,7 @@ export default {
                 this.showAlternatePay = true
                 this.showPaypal = false
             }
-            this.$parent.showMakeOrderBTN()
+            this.showMakeOrderBTN()
         },
         showSuccessAlertMessage(){
             this.showSuccessPayPal = true;            
