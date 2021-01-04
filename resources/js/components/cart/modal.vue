@@ -38,6 +38,7 @@
 import CartModal from './CartModal';
 import UserInfo from './UserInfo';
 import SummaryCart from './SummaryCart';
+import Loading from '../Utility/Loading'
 
 import { mapGetters, mapActions } from 'vuex'
 
@@ -47,6 +48,7 @@ export default {
         CartModal,
         SummaryCart,
         UserInfo,
+        Loading,
     },
     data:() => {
         return {
@@ -54,13 +56,13 @@ export default {
             isLoading: false,
             exceptionMsg: '',
 
-            showPayment: true,
-            showSuccessPayPal: false,
+            // showPayment: true,
+            // showSuccessPayPal: false,
             showSuccessCashPay: false,
             showException: false,
             showMakeOrder: false,
-            showPayPal: false,
-            showAlternatePayment: true,
+            // showPayPal: false,
+            // showAlternatePayment: true,
         }
     },
     computed: {
@@ -75,12 +77,15 @@ export default {
             isUserDataReceived: 'getIsUserDataReceived',
             isUserinfoFilled: 'getUserInfoFilled',
             getCurrentPage: 'getCurrentPage',
+
+            showPayment: 'getShowPayment',
+            showSuccessPayPal: 'showSuccessPayPal',
+            showAlternatePayment: 'showAlternatePayment',
+
         }),
     },
     created(){
-        if(this.isUserinfoFilled){
-            this.getUserInfo()
-        }
+        this.getUserInfo()
     },
     methods: {
         ...mapActions({
@@ -90,6 +95,11 @@ export default {
             increasePage: 'increasePage',
             decreasePage: 'decreasePage',
             setDefaultPage: 'setDefaultPage',
+
+            disableShowPayment: 'disableShowPayment',
+            enableShowPaypalMessage: 'enableShowPaypalMessage',
+
+
         }),
         async makeOrder(){
             this.isLoading = true;
@@ -104,6 +114,8 @@ export default {
                         this.setPayPalDefault()
                         setTimeout(() => {
                             this.setDefaultPage()
+                            this.enableShowPaypalMessage(false)
+                            this.disableShowPayment(true)
                         },15000)
                     }else{
                         this.setCartDefault()
@@ -133,8 +145,10 @@ export default {
                 }else{
                     this.showMakeOrder = false
                     if (this.paidWithPP) {
-                        this.showPayment = false
-                        this.showSuccessPayPal = true
+                        // this.showPayment = false
+                        this.disableShowPayment(false)
+                        this.enableShowPaypalMessage()
+                        // this.showSuccessPayPal = true
                         this.showMakeOrder = true
                     }                    
                 }               

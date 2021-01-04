@@ -12,7 +12,6 @@ import BaseFilter from '../js/components/baseComponents/BaseFilter'
 Vue.component('Tooltip', () => import('../js/components/Utility/Tooltip'))
 Vue.component('Alert', () => import('../js/components/Utility/Alert'))
 Vue.component('ErrorMsg', () => import('../js/components/Utility/FormErrorMsg'))
-Vue.component('Loading', () => import('../js/components/Utility/Loading'))
 
 Vue.component('BaseFilter', BaseFilter)
 Vue.component('BaseCard', BaseCard)

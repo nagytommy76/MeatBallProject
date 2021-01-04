@@ -1,6 +1,9 @@
 <template>
     <Loading
         :active="isLoading"
+        color="#111"
+        :height=130
+        :width=130
     ></Loading>
 </template>
 <script>

@@ -39,6 +39,10 @@
                 <label>                    
                     <p>Fizetés PayPal-el vagy kártyával</p>
                     <small><sup>*</sup>(A fizetés után automatikusan megtörténik a rendelés!)</small>
+                    <span v-if="showPaypal">
+                        <p>Email: sb-qkdaa3413370@business.example.com</p>
+                        <p>Jelszó: 7}&&K[yb</p>
+                    </span>
                     <input @change="showPaymentContainer" type="radio" name="payment-option" value="paypal" v-model="payment">
                     <span id="paypal-marks-container"></span>
                 </label>
@@ -75,6 +79,7 @@ export default {
     data() {
         return {
             payment: 'alternate',
+            showPaypal: false,
         }
     },
     mounted() {
@@ -89,44 +94,21 @@ export default {
             cartItems: 'getCartItems',
             transactionID: 'getTransactionID',
             userInfo: 'getUserInfo',
+
+            showPayment: 'getShowPayment',
+            showSuccessPayPal: 'showSuccessPayPal',
+            showAlternatePay: 'showAlternatePayment',
         }),
-        showPayment: {
-            get(){
-                return this.$parent.showPayment
-            },
-            set(value){
-                this.$parent.showPayment = value
-            }
-        },
-        showSuccessPayPal: {
-            get(){
-                return this.$parent.showSuccessPayPal
-            },
-            set(value){
-                this.$parent.showSuccessPayPal = value
-            }
-        },
-        showPaypal:{
-            get(){
-                return this.$parent.showPayPal
-            },
-            set(value){
-                this.$parent.showPayPal = value
-            }
-        },
-        showAlternatePay:{
-            get(){
-                return this.$parent.showAlternatePayment
-            },
-            set(value){
-                this.$parent.showAlternatePayment = value
-            }
-        },
     },
     methods:{
         ...mapActions({
             setPayPalDetails: 'setPayPalDetails',
             setPaidWithPP: 'setPaidWithPP',
+
+            disableShowPayment: 'disableShowPayment',
+            enableShowPaypalMessage: 'enableShowPaypalMessage',
+            setAlternatePayment: 'setAlternatePayment',
+
         }),
         createPayPalScript(){
             const script = document.createElement('script');
@@ -164,8 +146,8 @@ export default {
                         }
                         this.setPaidWithPP(true)
                         this.setPayPalDetails(finalDetails);
-                        this.showSuccessAlertMessage()
-                        this.hidePaymentOptionsAfterPay()
+                        this.enableShowPaypalMessage(true)
+                        this.disableShowPayment(false)
                         this.makeOrder()
                     }                    
                 }
@@ -178,19 +160,13 @@ export default {
         showPaymentContainer(event){
             if(event.target.value == 'paypal'){
                 this.showPaypal = true
-                this.showAlternatePay = false
+                this.setAlternatePayment(false)
             }else{
-                this.showAlternatePay = true
+                this.setAlternatePayment(true)
                 this.showPaypal = false
             }
             this.showMakeOrderBTN()
         },
-        showSuccessAlertMessage(){
-            this.showSuccessPayPal = true;            
-        },
-        hidePaymentOptionsAfterPay(){
-            this.showPayment = false
-        }
     },
 }
 </script>

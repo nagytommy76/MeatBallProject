@@ -3,7 +3,6 @@ export default{
         return{
             showPayment: true,
             showSuccessPayPal: false,
-            showPayPal: false,
             showAlternatePayment: true,
         }
     },
@@ -14,13 +13,25 @@ export default{
         showAlternatePayment: state => state.showAlternatePayment,
     },
     mutations:{
-        disableShowPayment(state){
-            state.showPayment = false
+        disableShowPayment(state, payload){
+            state.showPayment = payload
+        },
+        setShowPaypalMessage(state, payload){
+            state.showSuccessPayPal = payload
+        },
+        setAlternatePayment(state, payload){
+            state.showAlternatePayment = payload
         },
     },
     actions:{
-        disableShowPayment(context){
-            context.commit('disableShowPayment')
+        disableShowPayment(context, payload){
+            context.commit('disableShowPayment', payload)
+        },
+        enableShowPaypalMessage(context, payload){
+            context.commit('setShowPaypalMessage', payload)
+        },
+        setAlternatePayment(context, payload){
+            context.commit('setAlternatePayment', payload)
         },
     }
 }

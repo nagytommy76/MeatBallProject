@@ -9,10 +9,10 @@ export default{
     },
     mutations: {
         increasePage(state){
-            state.step = ++state.step
+            ++state.step
         },
         decreasePage(state){
-            state.step = --state.step
+            --state.step
         },
         setDefaultPage(state){
             state.step = 0

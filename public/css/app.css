@@ -1195,7 +1195,7 @@ body::-webkit-scrollbar-thumb {
   width: 85%;
   margin: auto;
   display: grid;
-  gap: 30px;
+  gap: 1rem;
   grid-template-rows: auto auto;
 }
 
@@ -1203,8 +1203,17 @@ body::-webkit-scrollbar-thumb {
   margin: 0.3rem 0;
 }
 
-.main-content .main-right-content .grid-container .projects section {
+.main-content .main-right-content .grid-container .projects .project {
   margin: 1rem 0 1rem 0;
+}
+
+.main-content .main-right-content .grid-container .projects .project-description {
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+
+.main-content .main-right-content .grid-container .projects .project-description .list {
+  margin-left: 1rem;
 }
 
 .main-content .main-right-content .grid-container .projects .list {
