@@ -77,12 +77,12 @@ export default {
             isUserDataReceived: 'getIsUserDataReceived',
             isUserinfoFilled: 'getUserInfoFilled',
             getCurrentPage: 'getCurrentPage',
-
+        }),
+        ...mapGetters('paypalState', {
             showPayment: 'getShowPayment',
             showSuccessPayPal: 'showSuccessPayPal',
             showAlternatePayment: 'showAlternatePayment',
-
-        }),
+        })
     },
     created(){
         this.getUserInfo()
@@ -95,11 +95,10 @@ export default {
             increasePage: 'increasePage',
             decreasePage: 'decreasePage',
             setDefaultPage: 'setDefaultPage',
-
+        }),
+        ...mapActions('paypalState',{
             disableShowPayment: 'disableShowPayment',
             enableShowPaypalMessage: 'enableShowPaypalMessage',
-
-
         }),
         async makeOrder(){
             this.isLoading = true;

@@ -94,21 +94,22 @@ export default {
             cartItems: 'getCartItems',
             transactionID: 'getTransactionID',
             userInfo: 'getUserInfo',
-
+        }),
+        ...mapGetters('paypalState',{
             showPayment: 'getShowPayment',
             showSuccessPayPal: 'showSuccessPayPal',
             showAlternatePay: 'showAlternatePayment',
-        }),
+        })
     },
     methods:{
         ...mapActions({
             setPayPalDetails: 'setPayPalDetails',
             setPaidWithPP: 'setPaidWithPP',
-
+        }),
+        ...mapActions('paypalState',{
             disableShowPayment: 'disableShowPayment',
             enableShowPaypalMessage: 'enableShowPaypalMessage',
             setAlternatePayment: 'setAlternatePayment',
-
         }),
         createPayPalScript(){
             const script = document.createElement('script');

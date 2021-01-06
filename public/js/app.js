@@ -3031,14 +3031,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
     cartItems: 'getCartItems',
     transactionID: 'getTransactionID',
-    userInfo: 'getUserInfo',
+    userInfo: 'getUserInfo'
+  }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('paypalState', {
     showPayment: 'getShowPayment',
     showSuccessPayPal: 'showSuccessPayPal',
     showAlternatePay: 'showAlternatePayment'
   })),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])({
     setPayPalDetails: 'setPayPalDetails',
-    setPaidWithPP: 'setPaidWithPP',
+    setPaidWithPP: 'setPaidWithPP'
+  }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('paypalState', {
     disableShowPayment: 'disableShowPayment',
     enableShowPaypalMessage: 'enableShowPaypalMessage',
     setAlternatePayment: 'setAlternatePayment'
@@ -3491,7 +3493,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     getCreatedAt: 'getCreatedAt',
     isUserDataReceived: 'getIsUserDataReceived',
     isUserinfoFilled: 'getUserInfoFilled',
-    getCurrentPage: 'getCurrentPage',
+    getCurrentPage: 'getCurrentPage'
+  }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_5__["mapGetters"])('paypalState', {
     showPayment: 'getShowPayment',
     showSuccessPayPal: 'showSuccessPayPal',
     showAlternatePayment: 'showAlternatePayment'
@@ -3505,7 +3508,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     getUserInfo: 'getUserInfo',
     increasePage: 'increasePage',
     decreasePage: 'decreasePage',
-    setDefaultPage: 'setDefaultPage',
+    setDefaultPage: 'setDefaultPage'
+  }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_5__["mapActions"])('paypalState', {
     disableShowPayment: 'disableShowPayment',
     enableShowPaypalMessage: 'enableShowPaypalMessage'
   }), {
@@ -47979,6 +47983,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
   state: function state() {
     return {
       showPayment: true,
