@@ -10,32 +10,26 @@
                         <div class="form-group">
                             <label for="username">Felhasználónév</label>
                             <input id="username" type="text" class="form-control" name="username" v-model="formData.username" autofocus>
-
-                            <span v-if="hasError" class="invalid-feedback" role="alert">
-                                <div v-for="(userErr, index) in errors.username" :key="index">
-                                    <strong>{{ userErr }}</strong>
-                                </div> 
-                            </span>
+                            <ErrorMsg 
+                                v-if="hasError"
+                                :errors="errors.username"
+                            />
                         </div>
                         <div class="form-group">
                             <label for="email">E-mail cím</label>
                             <input type="email" name="email" id="email" class="form-control" v-model="formData.email">
-
-                            <span v-if="hasError" class="invalid-feedback" role="alert">
-                                <div v-for="(emailErr, index) in errors.email" :key="index">
-                                    <strong>{{ emailErr }}</strong>
-                                </div> 
-                            </span>
+                            <ErrorMsg 
+                                v-if="hasError"
+                                :errors="errors.email"
+                            />
                         </div>
                         <div class="form-group">
                             <label for="password">Jelszó</label>
                             <input type="password" name="password" id="password" class="form-control" v-model="formData.password">
-
-                            <span v-if="hasError" class="invalid-feedback" role="alert">
-                                <div v-for="(passErr, index) in errors.password" :key="index">
-                                    <strong>{{ passErr }}</strong>
-                                </div> 
-                            </span>
+                            <ErrorMsg 
+                                v-if="hasError"
+                                :errors="errors.password"
+                            />
                         </div>  
                         <div class="form-group">
                             <label for="confrim-password">Jelszó újra</label>

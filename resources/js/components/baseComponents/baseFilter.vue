@@ -19,12 +19,8 @@
 </template>
 <script>
 import loadData from '../../helpers/loadData'
-import Loading from '../Utility/Loading'
 export default {
-    name: 'BaseFilter',
-    components:{
-        Loading,
-    },
+    // name: 'BaseFilter',
     data: () =>{
         return{
             priceValue: 0,
@@ -48,7 +44,7 @@ export default {
             this.isLoading = true;
             await loadData.fetchData(this.$parent.foodType)
             .then(result => {
-                this.$parent.foods = result.data.data;
+                this.$emit('set-food', result.data.data)
                 this.isLoading = false;
             });
         },
@@ -56,7 +52,7 @@ export default {
             this.isLoading = true;
             await loadData.getFoodByOrder(this.orderByRoute, this.orderBy, this.priceValue, this.maxPrice)
             .then(result => {
-                this.$parent.foods = result.data.data;
+                this.$emit('set-food', result.data.data)
                 this.isLoading = false;
             });
         },
@@ -64,7 +60,7 @@ export default {
             this.isLoading = true;
             await loadData.searchFoodByName(this.byName, event.target.value, this.orderBy, this.priceValue, this.maxPrice)
             .then(result => {
-                this.$parent.foods = result.data.data
+                this.$emit('set-food', result.data.data)
                 this.isLoading = false;
             });
         },

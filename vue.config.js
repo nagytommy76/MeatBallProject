@@ -1,3 +1,6 @@
 module.exports = {
-    publicPath: '/MeatBallProject/public',
+    publicPath: '/',
+    rules: {
+        "vue/comment-directive": 0
+    }
 }

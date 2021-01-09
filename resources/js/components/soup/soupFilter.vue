@@ -3,7 +3,8 @@
         <BaseFilter
             :orderByRoute="orderRoute"
             :byName="byName"
-            :minMaxPrice="minMaxPrice"            
+            :minMaxPrice="minMaxPrice" 
+            @set-food="setFood"           
         />
         <div class="food_card_container">
             <h1 class="py-1 text-black text-center">Levesek</h1>
@@ -23,7 +24,9 @@
     </div>
 </template>
 <script>
+import setFood from '../../mixins/setFood'
 export default {
+    mixins: [setFood],
     name: "SoupFilter",
     data: () => {
         return{

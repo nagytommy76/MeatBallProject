@@ -25,16 +25,12 @@ import MainHeader from '../views/includes/WelcomeIncludes/MainHeader'
 import Footer from '../views/includes/Footer'
 import Navbar from '../views/includes/Navbar'
 
-import Modal from '../components/cart/modal'
-import OrdersModal from '../components/Auth/orderModal'
 export default {
     name: 'Meatball',
     components:{
         Footer,
         Navbar,
         MainHeader,
-        Modal,
-        OrdersModal,
     },
     mounted(){
         window.addEventListener('resize', this.checkWindowWidth())

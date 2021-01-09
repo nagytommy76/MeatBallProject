@@ -1,5 +1,3 @@
-// import Axios from "axios"
-
 export default class loadData{
     static async fetchData(apiRouteName){
         return axios.get(apiRouteName)

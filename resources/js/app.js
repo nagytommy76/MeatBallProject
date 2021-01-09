@@ -6,15 +6,18 @@ import store from './store';
 import router from './router/router';
 import App from './views/App'
 
-import BaseCard from '../js/components/baseComponents/BaseCard'
 import BaseFilter from '../js/components/baseComponents/BaseFilter'
 
-Vue.component('Tooltip', () => import('../js/components/Utility/Tooltip'))
-Vue.component('Alert', () => import('../js/components/Utility/Alert'))
-Vue.component('ErrorMsg', () => import('../js/components/Utility/FormErrorMsg'))
+Vue.component('Tooltip', () => import('./components/Utility/Tooltip'))
+Vue.component('Alert', () => import('./components/Utility/Alert'))
+Vue.component('ErrorMsg', () => import('./components/Utility/FormErrorMsg'))
+Vue.component('Loading', () => import('./components/Utility/Loading'))
 
 Vue.component('BaseFilter', BaseFilter)
-Vue.component('BaseCard', BaseCard)
+Vue.component('BaseCard', () => import('./components/baseComponents/BaseCard'))
+
+Vue.component('Modal', () => import('./components/cart/Modal'))
+Vue.component('OrdersModal', () => import('./components/Auth/OrderModal'))
 
 new Vue({
   el: '#app',

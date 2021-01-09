@@ -38,7 +38,6 @@
 import CartModal from './CartModal';
 import UserInfo from './UserInfo';
 import SummaryCart from './SummaryCart';
-import Loading from '../Utility/Loading'
 
 import { mapGetters, mapActions } from 'vuex'
 
@@ -48,7 +47,6 @@ export default {
         CartModal,
         SummaryCart,
         UserInfo,
-        Loading,
     },
     data:() => {
         return {
@@ -56,13 +54,9 @@ export default {
             isLoading: false,
             exceptionMsg: '',
 
-            // showPayment: true,
-            // showSuccessPayPal: false,
             showSuccessCashPay: false,
             showException: false,
             showMakeOrder: false,
-            // showPayPal: false,
-            // showAlternatePayment: true,
         }
     },
     computed: {

@@ -92,20 +92,17 @@ $height: 100vh;
                 margin: auto;
                 display: grid;
                 gap: 1rem;
-                grid-template-rows: auto auto;
+                grid-template-rows: auto;
                 .project{
                     margin: 1rem 0 1rem 0;
                     &-description{
-                        display: grid;
-                        grid-template-columns: 40% 60%;
+                        // display: grid;
+                        // grid-template-columns: 40% 60%;
                         .list{
                             margin-left: 1rem;
                         }
                     }
                 }
-                // section{
-                    
-                // }
                 .list{
                     display: flex;
                     justify-content: flex-start;

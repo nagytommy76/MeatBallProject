@@ -39,7 +39,9 @@ export default {
         getUserInfo(context){ 
             axios.get('userInfoFilled').then(user => {
                 if (user.status == 200) {
-                    context.commit('setUserInfo', user.data.data.userInfo)
+                    if (user.data.data.userInfo) {
+                        context.commit('setUserInfo', user.data.data.userInfo)
+                    }
                     context.commit('dataReceived', true)
                     context.commit('setUserInfoFilled', user.data.data.userinfo_filled)
                 }

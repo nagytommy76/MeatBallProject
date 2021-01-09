@@ -4,6 +4,7 @@
             :orderByRoute="orderRoute"
             :byName="byName"
             :minMaxPrice="minMaxPrice" 
+            @set-food="setFood"
         />
         <div class="food_card_container">
             <h1 class="py-1 text-black text-center">Pizzák</h1>
@@ -24,10 +25,12 @@
 </template>
 <script>
 import PizzaCard from './PizzaCard';
+import setFood from '../../mixins/setFood'
 export default {
     components: {
         PizzaCard,
     },
+    mixins: [setFood],
     data: () => {
         return {
             foods: [],

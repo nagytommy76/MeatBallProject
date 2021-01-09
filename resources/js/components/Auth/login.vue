@@ -11,24 +11,20 @@
                             <label for="email">E-Mail Cím</label>
 
                             <input id="email" type="email" class="form-control" v-model="formData.email" name="email" autofocus>
-
-                            <span v-if="hasError" class="invalid-feedback" role="alert">
-                                <div v-for="(emailErr, index) in errors.email" :key="index">
-                                        <strong>{{ emailErr }}</strong>
-                                    </div> 
-                            </span>
+                            <ErrorMsg 
+                                v-if="hasError"
+                                :errors="errors.email"
+                            />
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col">
                                 <label for="password">Jelszó</label>
                                 <input id="password" type="password" class="form-control" v-model="formData.password" name="password" required>
-                                
-                                <span v-if="hasError" class="invalid-feedback" role="alert">
-                                    <div v-for="(passErr, index) in errors.password" :key="index">
-                                        <strong>{{ passErr }}</strong>
-                                    </div>                                    
-                                </span>
+                                <ErrorMsg 
+                                    v-if="hasError"
+                                    :errors="errors.password"
+                                />
                             </div>                           
                         </div> 
                         <div class="form-group row">
