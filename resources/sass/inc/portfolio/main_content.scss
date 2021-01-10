@@ -67,7 +67,6 @@ $height: 100vh;
         background-color: #FFF;
         color: $dark;
         flex: 2;
-        // padding: 0 2rem 0 2rem;
         text-align: justify;
 
         .main-title{
@@ -88,39 +87,110 @@ $height: 100vh;
                 p{
                     margin: .3rem 0;
                 }
-                width: 85%;
+                width: 80%;
                 margin: auto;
                 display: grid;
-                gap: 1rem;
-                grid-template-rows: auto;
+                gap: 2rem;
+                grid-template-columns: 50% 50%;
                 .project{
-                    margin: 1rem 0 1rem 0;
-                    &-description{
-                        // display: grid;
-                        // grid-template-columns: 40% 60%;
-                        .list{
-                            margin-left: 1rem;
-                        }
+                    width: 100%;
+                    min-height: 350px;
+                    &-title{
+                        font-size: 2rem;
+                        font-weight: 800;
+                        margin-bottom: 1.7rem;
                     }
-                }
-                .list{
-                    display: flex;
-                    justify-content: flex-start;
-                    &-block{
-                        min-width: 30%;
-                        margin: .5rem;
-                        ul{
-                            li{
-                                ul{
-                                    li{
-                                        margin-left: 1.4rem;
-                                    }
+                    .thumbnail{ 
+                        position: relative;  
+                        margin-bottom: 1.5rem;
+                        img{
+                            height: 100%;
+                            width: 100%;
+                            box-shadow: 2px 1px 10px #222; 
+                            object-fit: cover;
+                            border-radius: 15px;
+                        }                     
+                        .icons{
+                            width: 100%;
+                            position: absolute;
+                            bottom: -1px;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: space-between;
+                            a{
+                                padding: .3rem;
+                                background-color: #999;
+                                opacity: .9;
+                                color: #222;
+                                transition: all .2s ease-in;
+                                &:hover{
+                                    opacity: 1;
+                                    color: $favColor;
                                 }
-                                list-style-position: inside; 
                             }
+                            .live-demo{
+                                min-width: 30%;
+                                text-align: center;
+                                font-size: 2.3em;
+                                font-weight: 600;
+                                border-radius: 0 15px 15px;
+                            }
+                            .github{
+                                min-width: 10%;
+                                text-align: left;
+                                font-size: 1.4em;
+                                border-radius: 15px 0 15px 15px;
+                            }
+                        }                     
+                    }
+                    .tech-list{
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        display: flex;
+                        flex-wrap: wrap;
+                        li{
+                            padding: .5rem;
+                            margin: .5rem 1rem 1rem 0;
+                            min-width: 100px;
+                            text-align: right;
+                            background-color: $primary;
+                            border-left: 10px solid #bd7100;
+                            border-radius:0  15px 15px 0;
+                            box-shadow: 5px 2px 10px #444;
+                            
+                            p{
+                                font-weight: 600;
+                            }
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: space-between;
                         }
                     }
+                    &-description{
+                        text-align: justify;
+                    }
                 }
+                // .list{
+                //     display: flex;
+                //     justify-content: flex-start;
+                //     &-block{
+                //         min-width: 30%;
+                //         margin: .5rem;
+                //         ul{
+                //             li{
+                //                 ul{
+                //                     li{
+                //                         margin-left: 1.4rem;
+                //                     }
+                //                 }
+                //                 list-style-position: inside; 
+                //             }
+                //         }
+                //     }
+                // }
             }
         }
     }
@@ -156,17 +226,17 @@ $height: 100vh;
     padding: 1rem 0 1rem 0;
 }
 
-.project-title{
-    font-size: 1.6rem;
-    margin-bottom: .7rem; 
-    a{
-        transition: ease .3s;
-        color: $dark;
-    }   
-    a:hover{
-        color: $primary;
-    }
-}
+// .project-title{
+//     font-size: 1.6rem;
+//     margin-bottom: .7rem; 
+//     a{
+//         transition: ease .3s;
+//         color: $dark;
+//     }   
+//     a:hover{
+//         color: $primary;
+//     }
+// }
 
 @media(max-width: $mobile-width){
     .grid-tooltip{

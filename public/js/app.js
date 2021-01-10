@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"cbdf977299c1192e973d","1":"fa9a9051b12fc566c7ca","2":"0ba032220a5a6a614499","3":"089976e0bd9edbfa7b50","4":"0332afe64f7a57d95ba8","5":"abbadf55326c3534246f","6":"0131f81824380bd4336f"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"a34ba468a344e3e51837","1":"fa9a9051b12fc566c7ca","2":"0ba032220a5a6a614499","3":"089976e0bd9edbfa7b50","4":"0332afe64f7a57d95ba8","5":"abbadf55326c3534246f","6":"0131f81824380bd4336f"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -3181,6 +3181,54 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _includes_LeftContent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./includes/LeftContent */ "./resources/js/views/includes/MainPage/includes/LeftContent.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -26466,24 +26514,94 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "projects" }, [
-              _c("section", { staticClass: "meatball project" }, [
-                _c(
-                  "h4",
-                  { staticClass: "project-title" },
-                  [
-                    _c("router-link", { attrs: { to: { name: "Welcome" } } }, [
-                      _vm._v("Húsgolyó Étterem honlapja")
-                    ])
-                  ],
-                  1
-                ),
+              _c("article", { staticClass: "meatball project" }, [
+                _c("figure", { staticClass: "thumbnail" }, [
+                  _c("img", {
+                    attrs: {
+                      src: __webpack_require__(/*! ../../../../img/meatball/meatball-main-page.jpg */ "./resources/img/meatball/meatball-main-page.jpg"),
+                      alt: "Meatball Project"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "icons" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "live-demo",
+                          attrs: { to: { name: "Welcome" } }
+                        },
+                        [_vm._v("Élő verzió")]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(0)
+                    ],
+                    1
+                  )
+                ]),
                 _vm._v(" "),
-                _vm._m(0)
-              ]),
-              _vm._v(" "),
-              _vm._m(1),
-              _vm._v(" "),
-              _vm._m(2)
+                _c("h2", { staticClass: "project-title" }, [
+                  _vm._v("Húsgolyó étterem honlapja")
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "tech-list" }, [
+                  _c(
+                    "li",
+                    [
+                      _c("p", [_vm._v("Laravel")]),
+                      _vm._v(" "),
+                      _c("Tooltip", { attrs: { text: "Laravel" } }, [
+                        _c("i", { staticClass: "fab fa-laravel fa-2x laravel" })
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    [
+                      _c("p", [_vm._v("MySQL")]),
+                      _vm._v(" "),
+                      _c("Tooltip", { attrs: { text: "MySQL" } }, [
+                        _c("i", { staticClass: "fas fa-database fa-2x mysql" })
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    [
+                      _c("p", [_vm._v("Vue.js")]),
+                      _vm._v(" "),
+                      _c("Tooltip", { attrs: { text: "Vue.js" } }, [
+                        _c("i", { staticClass: "fab fa-vuejs fa-2x vue" })
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    [
+                      _c("p", [_vm._v("SASS")]),
+                      _vm._v(" "),
+                      _c("Tooltip", { attrs: { text: "SASS" } }, [
+                        _c("i", { staticClass: "fab fa-sass fa-2x sass" })
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _vm._m(2)
+                ]),
+                _vm._v(" "),
+                _vm._m(3)
+              ])
             ])
           ])
         ]
@@ -26497,270 +26615,57 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "github",
+        attrs: {
+          target: "_blank",
+          href: "https://github.com/nagytommy76/MeatBallProject"
+        }
+      },
+      [_c("i", { staticClass: "fab fa-github fa-2x" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [_c("p", [_vm._v("Saját API")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [_c("p", [_vm._v("Single-Page-Application")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("section", { staticClass: "project-description" }, [
-      _c("article", [
-        _c("p", { staticClass: "my-0" }, [_vm._v("2020")]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "2020 tavaszán kezdtem el fejleszteni ezt a weboldalt, ebben az esetben szerettem volna megismerkedni a modern keretrendszerekkel, front-end és back-end részről is. Ezért választottam a Vue.js-t, illetve a Laravelt."
-          )
-        ]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "A programban lehetőség van CRUD (Create-Read-Update-Delete), vagyis admin funkciók ellátására. \n                            A weboldal ezen része hagyományos, úgynevezett Multi-Page-Application, vagyis minden esemény (Pl.: gombnyomás) hatására az egész oldal újratölt.\n                            Az admin műveletek megjelenítéséhez Blade Template-et használtam, ahol lehetőség volt rá, Blade komponenseket is (bevitel, módosítás, törlés), az újrahasználhatósága miatt."
-          )
-        ]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            'A weboldal "vásárlóknak" szóló része Single-Page-Application.'
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "list" }, [
-        _c("div", { staticClass: "list-block" }, [
-          _c("h4", { staticClass: "my-0" }, [_vm._v("Oldal funkiók")]),
-          _vm._v(" "),
-          _c("ul", { staticClass: "list-block-functions" }, [
-            _c("li", [_vm._v("Felhasználó regisztrálása")]),
-            _vm._v(" "),
-            _c("li", [_vm._v("Bejelentkezés")]),
-            _vm._v(" "),
-            _c("li", [_vm._v("Tételek kosárba helyezése")]),
-            _vm._v(" "),
-            _c("li", [
-              _vm._v(
-                "Termékek szürése:\n                                        "
-              ),
-              _c("ul", [
-                _c("li", [_vm._v("Ár szerint növekvő")]),
-                _vm._v(" "),
-                _c("li", [_vm._v("Ár szerint csökkenő sorrendben")]),
-                _vm._v(" "),
-                _c("li", [_vm._v("Név szerint")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [_vm._v("Vásárláskor e-mail küldése")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "list-block" }, [
-          _c("h4", { staticClass: "my-0" }, [_vm._v("Használt technológiák")]),
-          _vm._v(" "),
-          _c("ul", { staticClass: "list-block-technologies" }, [
-            _c("li", [_vm._v("SASS")]),
-            _vm._v(" "),
-            _c("li", [_vm._v("Vue.js (Vuex, Vue-router)")]),
-            _vm._v(" "),
-            _c("li", [_vm._v("Laravel")]),
-            _vm._v(" "),
-            _c("li", [_vm._v("MySQL")])
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "wargaming-api project" }, [
-      _c("h4", { staticClass: "project-title" }, [
-        _c(
-          "a",
-          {
-            attrs: {
-              target: "_blank",
-              href: "https://nagytommy76.github.io/Wargaming/"
-            }
-          },
-          [_vm._v("World of Tanks weboldal")]
+      _c("p", [
+        _vm._v(
+          "A weboldal egy kitalált étterem honlapja, ahol lehetőség van ételeket rendelni."
         )
       ]),
       _vm._v(" "),
-      _c("section", { staticClass: "project-description" }, [
-        _c("article", [
-          _c("p", { staticClass: "my-0" }, [_vm._v("2020")]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "A weboldal elkészítésével a célom az volt, hogy jobban megismerkedjek a Vue keretrendszerrel, illetve egy 3. féltől származó API-t tudjak értelmezni és használni."
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "Lehetőség van a játékosok nyilvános adatainak megtekintésére."
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", [_vm._v("Az oldal mobilbarát, de pár funkció offos........")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "list" }, [
-          _c("div", { staticClass: "list-block" }, [
-            _c("h4", { staticClass: "my-0" }, [_vm._v("Oldal funkiók")]),
-            _vm._v(" "),
-            _c("ul", { staticClass: "list-block-functions" }, [
-              _c("li", [
-                _vm._v(
-                  "\n                                        Bejelentkezés Wargaming account-tal:\n                                        "
-                ),
-                _c("ul", [
-                  _c("li", [_vm._v("Adott tankkal elért eredmények")]),
-                  _vm._v(" "),
-                  _c("li", [_vm._v("Játékos privát statisztikája")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v(
-                  "Tank részletei egy modal-ban: \n                                        "
-                ),
-                _c("ul", [
-                  _c("li", [_vm._v("Tankok részletes specifikációja")]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _vm._v("Modulok váltása (torony, lánctalp, löveg)")
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [_vm._v("Legénység megjelenítése")]),
-                  _vm._v(" "),
-                  _c("li", [_vm._v("Előző és következő tank az ágon, ha van")])
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "list-block" }, [
-            _c("h4", { staticClass: "my-0" }, [
-              _vm._v("Használt technológiák")
-            ]),
-            _vm._v(" "),
-            _c("ul", { staticClass: "list-block-technologies" }, [
-              _c("li", [_vm._v("SASS")]),
-              _vm._v(" "),
-              _c("li", [
-                _vm._v("Vue.js (Vuex, Vue-router, Vuex-persistedstate)")
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "primary-color",
-                    attrs: {
-                      href:
-                        "https://developers.wargaming.net/reference/all/wot/?r_realm=eu",
-                      target: "_blank"
-                    }
-                  },
-                  [_vm._v("Wargaming API")]
-                )
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "comp-store project" }, [
-      _c("h4", { staticClass: "project-title" }, [
-        _c(
-          "a",
-          {
-            attrs: {
-              target: "_blank",
-              href: "https://pcboltmvc.000webhostapp.com/"
-            }
-          },
-          [_vm._v("Computer Store Webáruház")]
+      _c("p", [
+        _vm._v(
+          "A vásárláshoz szükséges a regisztráció, illetve e-mail cím validáció, a megadott e-mail címre a rendszer küld egy aktiváló linket, amelyre kattintva visszatérünk a bejelentkező oldalra."
         )
       ]),
       _vm._v(" "),
-      _c("section", { staticClass: "project-description" }, [
-        _c("article", [
-          _c("p", { staticClass: "my-0" }, [_vm._v("2019 - 2020")]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "2019 őszén kezdtem el fejleszteni egy általam kitalált, számítástechnikai alkatrészeket árusító webáruház honlapját. Ez a project volt életem első, nagyobb és önálló munkája. Az alkalmazás megvalósításához MVC (Model-View-Controller) fejlesztési mintát használtam, amihez \n                            "
-            ),
-            _c("span", { staticClass: "underline" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "text-black",
-                  attrs: {
-                    target: "_blank",
-                    href:
-                      "https://www.udemy.com/course/object-oriented-php-mvc/"
-                  }
-                },
-                [_vm._v("Brad Traversy")]
-              )
-            ]),
-            _vm._v(
-              "\n                            egyik Udemy kurzusa adta az alapot."
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "A program megvalósításával a fő célom az MVC működésének megismerése és megértése volt, valamint az, hogy keretrendszer nélkül hogyan lehet megvalósítani egy webáruház alapvető funkcióit."
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "list" }, [
-          _c("div", { staticClass: "list-block" }, [
-            _c("h4", { staticClass: "my-0" }, [_vm._v("Oldal funkiók")]),
-            _vm._v(" "),
-            _c("ul", { staticClass: "list-block-functions" }, [
-              _c("li", [_vm._v("Felhasználó regisztrálása")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Regisztrációs kód küldése")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Bejelentkezés")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Session kezelés")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Tételek kosárba helyezése")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Termékek közti kersés")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("Vásárláskor e-mail küldése")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("PDF számla készítése (FPDF)")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "list-block" }, [
-            _c("h4", { staticClass: "my-0" }, [
-              _vm._v("Használt technológiák")
-            ]),
-            _vm._v(" "),
-            _c("ul", { staticClass: "list-block-technologies" }, [
-              _c("li", [_vm._v("Bootstrap 4")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("JavaScript")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("CSS3")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("PHP")]),
-              _vm._v(" "),
-              _c("li", [_vm._v("MySQL")])
-            ])
-          ])
-        ])
+      _c("p", [
+        _vm._v(
+          'A rendelés leadásakor lehetőség van készpénzzel a "futárnál", illetve PayPal-en keresztül fizetni egy sandbox számlával.'
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "Létrehoztam egy admin felületet is, amin keresztül termékeket lehet bevinni, törölni és módosítani"
+        )
       ])
     ])
   }
@@ -26839,7 +26744,7 @@ var render = function() {
         [_c("i", { staticClass: "fas fa-bars fa-2x" })]
       ),
       _vm._v(" "),
-      _c("transition", { attrs: { name: "slide", appear: "" } }, [
+      _c("transition", { attrs: { name: "background" } }, [
         _vm.showSidebar
           ? _c("div", {
               staticClass: "fade-in",
@@ -26854,7 +26759,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "transition",
-        { attrs: { name: "sidebar", appear: "" } },
+        { attrs: { name: "sidebar" } },
         [
           _vm.showSidebar
             ? _c("Sidebar", {
@@ -42973,6 +42878,17 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/img/meatball/meatball-main-page.jpg":
+/*!*******************************************************!*\
+  !*** ./resources/img/meatball/meatball-main-page.jpg ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/meatball-main-page.jpg?a7fa36c945d0da415efa36ea8acc5c58";
+
+/***/ }),
+
 /***/ "./resources/img/modified.jpg":
 /*!************************************!*\
   !*** ./resources/img/modified.jpg ***!
@@ -43052,9 +42968,9 @@ try {
 } catch (e) {}
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'; // window.axios.defaults.baseURL = 'http://meatballproject.hu/api/'
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.baseURL = 'http://meatballproject.hu/api/'; // window.axios.defaults.baseURL = 'https://nagytamas93.hu/api/'
 
-window.axios.defaults.baseURL = 'https://nagytamas93.hu/api/';
 window.axios.defaults.withCredentials = true;
 
 /***/ }),

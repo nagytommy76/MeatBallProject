@@ -1,10 +1,10 @@
 <template>
     <div>
         <div class="sidebar-open" @click="openSidebar()"><i class="fas fa-bars fa-2x"></i></div>
-        <transition name="slide" appear>
+        <transition name="background">
             <div class="fade-in" v-if="showSidebar" @click="showSidebar = false"></div>
         </transition>
-        <transition name="sidebar" appear >
+        <transition name="sidebar">
             <Sidebar v-if="showSidebar" @close="showSidebar = false" />
         </transition>
 

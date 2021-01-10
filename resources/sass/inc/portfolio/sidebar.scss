@@ -97,23 +97,21 @@ $sideWidth: 36%;
 
 .sidebar-enter-active,
 .sidebar-leave-active {
-    transition: transform .3s;
+    transition: transform .3s ease-out;
 }
 
-.sidebar-enter{
+.sidebar-enter,
+.sidebar-leave-to{
     transform: translateX(100%)
 }
-.sidebar-leave-to {
-    transform: translateX(100%);
+
+.background-enter-active,
+.background-leave-active {
+    transition: opacity .3s ease-out;
 }
 
-.slide-enter-active,
-.slide-leave-active {
-    transition: opacity .3s;
-}
-
-.slide-enter,
-.slide-leave-to {
+.background-enter,
+.background-leave-to {
     opacity: 0;
 }
 

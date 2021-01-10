@@ -1,6 +1,6 @@
 <template>
     <div class="modal-bg">
-        <div class="modal">
+        <dialog open class="modal">
             <span @click="$emit('close')" class="modal-close"><i class="far fa-times-circle"></i></span>
             <component
                 :is="currentPage"
@@ -30,7 +30,7 @@
                 :Msg="`Köszönjük rendelését! A fizetés a futárnál történik.`"
                 :className="'success'"
             />
-        </div>
+        </dialog>
     </div>
 </template>
 

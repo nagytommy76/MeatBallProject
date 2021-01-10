@@ -978,8 +978,8 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "modal-bg" }, [
     _c(
-      "div",
-      { staticClass: "modal" },
+      "dialog",
+      { staticClass: "modal", attrs: { open: "" } },
       [
         _c(
           "span",

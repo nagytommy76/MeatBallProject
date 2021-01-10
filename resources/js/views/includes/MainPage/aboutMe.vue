@@ -5,7 +5,55 @@
             <div class="grid-container">
                 <h3 class="sub-title primary-color">Projectek</h3>
                 <div class="projects">
-                    <section class="meatball project">
+                    <article class="meatball project">
+                        <figure class="thumbnail">
+                            <img src="../../../../img/meatball/meatball-main-page.jpg" alt="Meatball Project">
+                            <div class="icons">
+                                <router-link class="live-demo" :to="{name: 'Welcome'}">Élő verzió</router-link>
+                                <a target="_blank" href="https://github.com/nagytommy76/MeatBallProject" class="github"><i class="fab fa-github fa-2x"></i></a>
+                            </div>
+                        </figure>
+                        <h2 class="project-title">Húsgolyó étterem honlapja</h2>
+                        <ul class="tech-list">
+                            <li>
+                                <p>Laravel</p>
+                                <Tooltip :text="'Laravel'">
+                                    <i class="fab fa-laravel fa-2x laravel"></i>
+                                </Tooltip>
+                            </li>
+                            <li>
+                                <p>MySQL</p>
+                                <Tooltip :text="'MySQL'">
+                                    <i class="fas fa-database fa-2x mysql"></i>
+                                </Tooltip>
+                            </li>
+                            <li>
+                                <p>Vue.js</p>
+                                <Tooltip :text="'Vue.js'">
+                                    <i class="fab fa-vuejs fa-2x vue"></i>
+                                </Tooltip>
+                            </li>
+                            <li>
+                                <p>SASS</p>
+                                <Tooltip :text="'SASS'">
+                                    <i class="fab fa-sass fa-2x sass"></i>
+                                </Tooltip>
+                            </li>
+                            <li>
+                                <p>Saját API</p>
+                            </li>
+                            <li>
+                                <p>Single-Page-Application</p>
+                            </li>
+                        </ul>
+                        <section class="project-description">
+                            <p>A weboldal egy kitalált étterem honlapja, ahol lehetőség van ételeket rendelni.</p>
+                            <p>A vásárláshoz szükséges a regisztráció, illetve e-mail cím validáció, a megadott e-mail címre a rendszer küld egy aktiváló linket, amelyre kattintva visszatérünk a bejelentkező oldalra.</p>
+                            <p>A rendelés leadásakor lehetőség van készpénzzel a "futárnál", illetve PayPal-en keresztül fizetni egy sandbox számlával.</p>
+                            <p>Létrehoztam egy admin felületet is, amin keresztül termékeket lehet bevinni, törölni és módosítani</p>
+                        </section>
+                    </article>
+                    <!-- <section class="meatball project">
                         <h4 class="project-title">
                             <router-link :to="{name: 'Welcome'}">Húsgolyó Étterem honlapja</router-link>
                         </h4>
@@ -46,8 +94,8 @@
                                 </div>
                             </div>
                         </section>
-                    </section>
-                    <section class="wargaming-api project">
+                    </section> -->
+                    <!-- <section class="wargaming-api project">
                         <h4 class="project-title"><a target="_blank" href="https://nagytommy76.github.io/Wargaming/">World of Tanks weboldal</a></h4>
                         <section class="project-description">
                             <article>
@@ -124,7 +172,7 @@
                                 </div>
                             </div>
                         </section>
-                    </section>
+                    </section> -->
                 </div>
             </div>            
         </section>

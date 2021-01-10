@@ -292,6 +292,22 @@ body::-webkit-scrollbar-thumb {
   cursor: cell;
 }
 
+.vue {
+  color: #35495e;
+}
+
+.laravel {
+  color: #ff2d20;
+}
+
+.sass {
+  color: #c76494;
+}
+
+.mysql {
+  color: #00758f;
+}
+
 #navOpen {
   font-size: 1.7rem;
   position: fixed;
@@ -1233,11 +1249,11 @@ body::-webkit-scrollbar-thumb {
 }
 
 .main-content .main-right-content .grid-container .projects {
-  width: 85%;
+  width: 80%;
   margin: auto;
   display: grid;
-  gap: 1rem;
-  grid-template-rows: auto;
+  gap: 2rem;
+  grid-template-columns: 50% 50%;
 }
 
 .main-content .main-right-content .grid-container .projects p {
@@ -1245,29 +1261,97 @@ body::-webkit-scrollbar-thumb {
 }
 
 .main-content .main-right-content .grid-container .projects .project {
-  margin: 1rem 0 1rem 0;
+  width: 100%;
+  min-height: 350px;
 }
 
-.main-content .main-right-content .grid-container .projects .project-description .list {
-  margin-left: 1rem;
+.main-content .main-right-content .grid-container .projects .project-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1.7rem;
 }
 
-.main-content .main-right-content .grid-container .projects .list {
+.main-content .main-right-content .grid-container .projects .project .thumbnail {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.main-content .main-right-content .grid-container .projects .project .thumbnail img {
+  height: 100%;
+  width: 100%;
+  box-shadow: 2px 1px 10px #222;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 15px;
+}
+
+.main-content .main-right-content .grid-container .projects .project .thumbnail .icons {
+  width: 100%;
+  position: absolute;
+  bottom: -1px;
   display: flex;
-  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.main-content .main-right-content .grid-container .projects .list-block {
+.main-content .main-right-content .grid-container .projects .project .thumbnail .icons a {
+  padding: 0.3rem;
+  background-color: #999;
+  opacity: 0.9;
+  color: #222;
+  transition: all 0.2s ease-in;
+}
+
+.main-content .main-right-content .grid-container .projects .project .thumbnail .icons a:hover {
+  opacity: 1;
+  color: #ffae00;
+}
+
+.main-content .main-right-content .grid-container .projects .project .thumbnail .icons .live-demo {
   min-width: 30%;
-  margin: 0.5rem;
+  text-align: center;
+  font-size: 2.3em;
+  font-weight: 600;
+  border-radius: 0 15px 15px;
 }
 
-.main-content .main-right-content .grid-container .projects .list-block ul li {
-  list-style-position: inside;
+.main-content .main-right-content .grid-container .projects .project .thumbnail .icons .github {
+  min-width: 10%;
+  text-align: left;
+  font-size: 1.4em;
+  border-radius: 15px 0 15px 15px;
 }
 
-.main-content .main-right-content .grid-container .projects .list-block ul li ul li {
-  margin-left: 1.4rem;
+.main-content .main-right-content .grid-container .projects .project .tech-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.main-content .main-right-content .grid-container .projects .project .tech-list li {
+  padding: 0.5rem;
+  margin: 0.5rem 1rem 1rem 0;
+  min-width: 100px;
+  text-align: right;
+  background-color: #F7BF00;
+  border-left: 10px solid #bd7100;
+  border-radius: 0 15px 15px 0;
+  box-shadow: 5px 2px 10px #444;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-content .main-right-content .grid-container .projects .project .tech-list li p {
+  font-weight: 600;
+}
+
+.main-content .main-right-content .grid-container .projects .project-description {
+  text-align: justify;
 }
 
 .top-underline {
@@ -1297,20 +1381,6 @@ body::-webkit-scrollbar-thumb {
   font-size: 3rem;
   text-align: center;
   padding: 1rem 0 1rem 0;
-}
-
-.project-title {
-  font-size: 1.6rem;
-  margin-bottom: 0.7rem;
-}
-
-.project-title a {
-  transition: ease 0.3s;
-  color: #333;
-}
-
-.project-title a:hover {
-  color: #F7BF00;
 }
 
 @media (max-width: 720px) {
@@ -1494,24 +1564,21 @@ body::-webkit-scrollbar-thumb {
 
 .sidebar-enter-active,
 .sidebar-leave-active {
-  transition: transform 0.3s;
+  transition: transform 0.3s ease-out;
 }
 
-.sidebar-enter {
-  transform: translateX(100%);
-}
-
+.sidebar-enter,
 .sidebar-leave-to {
   transform: translateX(100%);
 }
 
-.slide-enter-active,
-.slide-leave-active {
-  transition: opacity 0.3s;
+.background-enter-active,
+.background-leave-active {
+  transition: opacity 0.3s ease-out;
 }
 
-.slide-enter,
-.slide-leave-to {
+.background-enter,
+.background-leave-to {
   opacity: 0;
 }
 
