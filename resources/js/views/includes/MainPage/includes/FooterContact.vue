@@ -17,7 +17,8 @@
             <Tooltip :text="'Facebook: Nagy Tamás'">
                 <span><a target="_blank" href="https://www.facebook.com/tamas.nagy.1029"><i class="fab fa-facebook-square fa-2x"></i></a></span>
             </Tooltip>  
-        </div>                                                      
+        </div>  
+        <h4 class="email"><a href="mailto:nagytommy76@gmail.com">nagytommy76@gmail.com</a></h4>                                                    
     </footer>
 </template>
 <script>

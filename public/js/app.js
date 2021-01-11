@@ -3181,52 +3181,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _includes_LeftContent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./includes/LeftContent */ "./resources/js/views/includes/MainPage/includes/LeftContent.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _includes_MeatballProject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./includes/MeatballProject */ "./resources/js/views/includes/MainPage/includes/MeatballProject.vue");
+/* harmony import */ var _includes_WgProject__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./includes/WgProject */ "./resources/js/views/includes/MainPage/includes/WgProject.vue");
 //
 //
 //
@@ -3362,10 +3318,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AboutMe',
   components: {
-    LeftContent: _includes_LeftContent__WEBPACK_IMPORTED_MODULE_0__["default"]
+    LeftContent: _includes_LeftContent__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Meatball: _includes_MeatballProject__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Wargaming: _includes_WgProject__WEBPACK_IMPORTED_MODULE_2__["default"]
   }
 });
 
@@ -3547,6 +3507,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'SideNavbar',
   computed: {
@@ -3572,6 +3533,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -26513,96 +26475,12 @@ var render = function() {
               _vm._v("Projectek")
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "projects" }, [
-              _c("article", { staticClass: "meatball project" }, [
-                _c("figure", { staticClass: "thumbnail" }, [
-                  _c("img", {
-                    attrs: {
-                      src: __webpack_require__(/*! ../../../../img/meatball/meatball-main-page.jpg */ "./resources/img/meatball/meatball-main-page.jpg"),
-                      alt: "Meatball Project"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "icons" },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "live-demo",
-                          attrs: { to: { name: "Welcome" } }
-                        },
-                        [_vm._v("Élő verzió")]
-                      ),
-                      _vm._v(" "),
-                      _vm._m(0)
-                    ],
-                    1
-                  )
-                ]),
-                _vm._v(" "),
-                _c("h2", { staticClass: "project-title" }, [
-                  _vm._v("Húsgolyó étterem honlapja")
-                ]),
-                _vm._v(" "),
-                _c("ul", { staticClass: "tech-list" }, [
-                  _c(
-                    "li",
-                    [
-                      _c("p", [_vm._v("Laravel")]),
-                      _vm._v(" "),
-                      _c("Tooltip", { attrs: { text: "Laravel" } }, [
-                        _c("i", { staticClass: "fab fa-laravel fa-2x laravel" })
-                      ])
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "li",
-                    [
-                      _c("p", [_vm._v("MySQL")]),
-                      _vm._v(" "),
-                      _c("Tooltip", { attrs: { text: "MySQL" } }, [
-                        _c("i", { staticClass: "fas fa-database fa-2x mysql" })
-                      ])
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "li",
-                    [
-                      _c("p", [_vm._v("Vue.js")]),
-                      _vm._v(" "),
-                      _c("Tooltip", { attrs: { text: "Vue.js" } }, [
-                        _c("i", { staticClass: "fab fa-vuejs fa-2x vue" })
-                      ])
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "li",
-                    [
-                      _c("p", [_vm._v("SASS")]),
-                      _vm._v(" "),
-                      _c("Tooltip", { attrs: { text: "SASS" } }, [
-                        _c("i", { staticClass: "fab fa-sass fa-2x sass" })
-                      ])
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _vm._m(1),
-                  _vm._v(" "),
-                  _vm._m(2)
-                ]),
-                _vm._v(" "),
-                _vm._m(3)
-              ])
-            ])
+            _c(
+              "div",
+              { staticClass: "projects" },
+              [_c("Meatball"), _vm._v(" "), _c("Wargaming")],
+              1
+            )
           ])
         ]
       )
@@ -26610,66 +26488,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "github",
-        attrs: {
-          target: "_blank",
-          href: "https://github.com/nagytommy76/MeatBallProject"
-        }
-      },
-      [_c("i", { staticClass: "fab fa-github fa-2x" })]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [_c("p", [_vm._v("Saját API")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [_c("p", [_vm._v("Single-Page-Application")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "project-description" }, [
-      _c("p", [
-        _vm._v(
-          "A weboldal egy kitalált étterem honlapja, ahol lehetőség van ételeket rendelni."
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "A vásárláshoz szükséges a regisztráció, illetve e-mail cím validáció, a megadott e-mail címre a rendszer küld egy aktiváló linket, amelyre kattintva visszatérünk a bejelentkező oldalra."
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          'A rendelés leadásakor lehetőség van készpénzzel a "futárnál", illetve PayPal-en keresztül fizetni egy sandbox számlával.'
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "Létrehoztam egy admin felületet is, amin keresztül termékeket lehet bevinni, törölni és módosítani"
-        )
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -27065,7 +26884,9 @@ var render = function() {
                   },
                   [_c("i", { staticClass: "fab fa-facebook-square fa-2x" })]
                 )
-              ])
+              ]),
+              _vm._v(" "),
+              _vm._m(0)
             ],
             1
           )
@@ -27075,7 +26896,23 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h4", [
+      _c(
+        "a",
+        {
+          staticClass: "email",
+          attrs: { href: "mailto:nagytommy76@gmail.com" }
+        },
+        [_vm._v("nagytommy76@gmail.com")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -27166,10 +27003,23 @@ var render = function() {
         ])
       ],
       1
-    )
+    ),
+    _vm._v(" "),
+    _vm._m(0)
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h4", { staticClass: "email" }, [
+      _c("a", { attrs: { href: "mailto:nagytommy76@gmail.com" } }, [
+        _vm._v("nagytommy76@gmail.com")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -27345,6 +27195,309 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("p", [_vm._v("BackEnd és FrontEnd munkák egyaránt érdekelnek")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/includes/MeatballProject.vue?vue&type=template&id=6120c5a6&":
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/includes/MainPage/includes/MeatballProject.vue?vue&type=template&id=6120c5a6& ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("article", { staticClass: "meatball project" }, [
+    _c("figure", { staticClass: "thumbnail" }, [
+      _c("img", {
+        attrs: {
+          src: __webpack_require__(/*! ../../../../../img/meatball/meatball-main-page.jpg */ "./resources/img/meatball/meatball-main-page.jpg"),
+          alt: "Meatball Project"
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "icons" },
+        [
+          _c(
+            "router-link",
+            { staticClass: "live-demo", attrs: { to: { name: "Welcome" } } },
+            [_vm._v("Élő verzió")]
+          ),
+          _vm._v(" "),
+          _vm._m(0)
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _c("h2", { staticClass: "project-title" }, [
+      _vm._v("Húsgolyó étterem honlapja")
+    ]),
+    _vm._v(" "),
+    _c("ul", { staticClass: "tech-list" }, [
+      _c(
+        "li",
+        [
+          _c("p", [_vm._v("Laravel")]),
+          _vm._v(" "),
+          _c("Tooltip", { attrs: { text: "Laravel" } }, [
+            _c("i", { staticClass: "fab fa-laravel fa-2x laravel" })
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "li",
+        [
+          _c("p", [_vm._v("MySQL")]),
+          _vm._v(" "),
+          _c("Tooltip", { attrs: { text: "MySQL" } }, [
+            _c("i", { staticClass: "fas fa-database fa-2x mysql" })
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "li",
+        [
+          _c("p", [_vm._v("Vue.js")]),
+          _vm._v(" "),
+          _c("Tooltip", { attrs: { text: "Vue.js" } }, [
+            _c("i", { staticClass: "fab fa-vuejs fa-2x vue" })
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "li",
+        [
+          _c("p", [_vm._v("SASS")]),
+          _vm._v(" "),
+          _c("Tooltip", { attrs: { text: "SASS" } }, [
+            _c("i", { staticClass: "fab fa-sass fa-2x sass" })
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _vm._m(2)
+    ]),
+    _vm._v(" "),
+    _vm._m(3)
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "github",
+        attrs: {
+          target: "_blank",
+          href: "https://github.com/nagytommy76/MeatBallProject"
+        }
+      },
+      [_c("i", { staticClass: "fab fa-github fa-2x" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [_c("p", [_vm._v("Saját fejlesztésű API")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [_c("p", [_vm._v("Single-Page-Application")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "project-description" }, [
+      _c("p", [
+        _vm._v(
+          "A weboldal egy kitalált étterem honlapja, ahol lehetőség van ételeket rendelni."
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "A vásárláshoz szükséges a regisztráció, illetve e-mail cím validáció, a megadott e-mail címre a rendszer küld egy aktiváló linket, amelyre kattintva visszatérünk a bejelentkező oldalra, ahol beléphetünk."
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          'A rendelés leadásakor lehetőség van készpénzzel a "futárnál", illetve PayPal-en keresztül fizetni egy sandbox számlával.'
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "Létrehoztam egy admin felületet is, amin keresztül termékeket lehet bevinni, törölni és módosítani"
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/includes/WgProject.vue?vue&type=template&id=e188e132&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/includes/MainPage/includes/WgProject.vue?vue&type=template&id=e188e132& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("article", { staticClass: "wargaming project" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("h2", { staticClass: "project-title" }, [_vm._v("Wargaming weboldal")]),
+    _vm._v(" "),
+    _c("ul", { staticClass: "tech-list" }, [
+      _c(
+        "li",
+        [
+          _c("p", [_vm._v("Vue.js")]),
+          _vm._v(" "),
+          _c("Tooltip", { attrs: { text: "Vue.js" } }, [
+            _c("i", { staticClass: "fab fa-vuejs fa-2x vue" })
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "li",
+        [
+          _c("p", [_vm._v("SASS")]),
+          _vm._v(" "),
+          _c("Tooltip", { attrs: { text: "SASS" } }, [
+            _c("i", { staticClass: "fab fa-sass fa-2x sass" })
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _vm._m(2)
+    ]),
+    _vm._v(" "),
+    _vm._m(3)
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("figure", { staticClass: "thumbnail" }, [
+      _c("img", {
+        attrs: {
+          src: __webpack_require__(/*! ../../../../../img/wargaming/modal.jpg */ "./resources/img/wargaming/modal.jpg"),
+          alt: "Meatball Project"
+        }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "icons" }, [
+        _c("a", { staticClass: "live-demo", attrs: { href: "#" } }, [
+          _vm._v("Élő verzió")
+        ]),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "github",
+            attrs: {
+              target: "_blank",
+              href: "https://github.com/nagytommy76/WgAPIVue"
+            }
+          },
+          [_c("i", { staticClass: "fab fa-github fa-2x" })]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("p", [
+        _c(
+          "a",
+          {
+            attrs: {
+              target: "_blank",
+              href:
+                "https://developers.wargaming.net/reference/all/wot/account/list/?r_realm=eu"
+            }
+          },
+          [_vm._v("Wargaming API")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [_c("p", [_vm._v("Single-Page-Application")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "project-description" }, [
+      _c("p", [
+        _vm._v(
+          "Lehetőségünk van nemzet és jármű osztály szerint szűrni, majd az adott tankra kattinta az előugró modal-ban konfigurálni azt. Lánctalpat, tornyot, löveget, rádiót tudunk választani, ahol lehetséges. A specifikáció részben pedig ennek megfelelően változik a tank karakterisztikája."
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "Játékosok név szerinti keresése is lehetséges. Regisztráció nélkül is használható az oldal, viszont ha rendelkezünk Wargaming fiókkal be tudunk jelentkezni és a saját eredményeinknél kibővített adatokat láthatunk (Prémium napok, kredit, bonds)."
+        )
       ])
     ])
   }
@@ -42900,6 +43053,17 @@ module.exports = "/images/modified.jpg?c54c2976cb44944c5ec0060f1a1bbcfe";
 
 /***/ }),
 
+/***/ "./resources/img/wargaming/modal.jpg":
+/*!*******************************************!*\
+  !*** ./resources/img/wargaming/modal.jpg ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/modal.jpg?fa2ea8e98cfc337bd9d0ba0971e3cce7";
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -45227,6 +45391,112 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LeftContent_vue_vue_type_template_id_3b0aedb0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LeftContent_vue_vue_type_template_id_3b0aedb0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/includes/MainPage/includes/MeatballProject.vue":
+/*!***************************************************************************!*\
+  !*** ./resources/js/views/includes/MainPage/includes/MeatballProject.vue ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _MeatballProject_vue_vue_type_template_id_6120c5a6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MeatballProject.vue?vue&type=template&id=6120c5a6& */ "./resources/js/views/includes/MainPage/includes/MeatballProject.vue?vue&type=template&id=6120c5a6&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _MeatballProject_vue_vue_type_template_id_6120c5a6___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _MeatballProject_vue_vue_type_template_id_6120c5a6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/includes/MainPage/includes/MeatballProject.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/includes/MainPage/includes/MeatballProject.vue?vue&type=template&id=6120c5a6&":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/js/views/includes/MainPage/includes/MeatballProject.vue?vue&type=template&id=6120c5a6& ***!
+  \**********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MeatballProject_vue_vue_type_template_id_6120c5a6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./MeatballProject.vue?vue&type=template&id=6120c5a6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/includes/MeatballProject.vue?vue&type=template&id=6120c5a6&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MeatballProject_vue_vue_type_template_id_6120c5a6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MeatballProject_vue_vue_type_template_id_6120c5a6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/includes/MainPage/includes/WgProject.vue":
+/*!*********************************************************************!*\
+  !*** ./resources/js/views/includes/MainPage/includes/WgProject.vue ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _WgProject_vue_vue_type_template_id_e188e132___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./WgProject.vue?vue&type=template&id=e188e132& */ "./resources/js/views/includes/MainPage/includes/WgProject.vue?vue&type=template&id=e188e132&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _WgProject_vue_vue_type_template_id_e188e132___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _WgProject_vue_vue_type_template_id_e188e132___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/includes/MainPage/includes/WgProject.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/includes/MainPage/includes/WgProject.vue?vue&type=template&id=e188e132&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/views/includes/MainPage/includes/WgProject.vue?vue&type=template&id=e188e132& ***!
+  \****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_WgProject_vue_vue_type_template_id_e188e132___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./WgProject.vue?vue&type=template&id=e188e132& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/includes/WgProject.vue?vue&type=template&id=e188e132&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_WgProject_vue_vue_type_template_id_e188e132___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_WgProject_vue_vue_type_template_id_e188e132___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
