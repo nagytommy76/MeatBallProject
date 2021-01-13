@@ -3195,128 +3195,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -26470,18 +26348,14 @@ var render = function() {
         "section",
         { staticClass: "main-right-content", attrs: { id: "projects" } },
         [
-          _c("div", { staticClass: "grid-container" }, [
-            _c("h3", { staticClass: "sub-title primary-color" }, [
-              _vm._v("Projectek")
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "projects" },
-              [_c("Meatball"), _vm._v(" "), _c("Wargaming")],
-              1
-            )
-          ])
+          _c("h3", { staticClass: "sub-title" }, [_vm._v("Projectek")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "projects" },
+            [_c("Meatball"), _vm._v(" "), _c("Wargaming")],
+            1
+          )
         ]
       )
     ],
