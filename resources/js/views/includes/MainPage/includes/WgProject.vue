@@ -1,7 +1,7 @@
 <template>
     <article class="wargaming project">
         <figure class="thumbnail">
-            <img src="../../../../../img/wargaming/modal.jpg" alt="Meatball Project">
+            <img src="../../../../../img/wargaming/modal.jpg" alt="Meatball Project" @click="$emit('show-image', 'wargaming')">
             <div class="icons">
                 <a href="#" class="live-demo">Élő verzió</a>
                 <a target="_blank" href="https://github.com/nagytommy76/WgAPIVue" class="github"><i class="fab fa-github fa-2x"></i></a>
@@ -34,3 +34,10 @@
         </section>
     </article>
 </template>
+<script>
+export default {
+    // props:{
+    //     openImageSlide: Function,
+    // },
+}
+</script>

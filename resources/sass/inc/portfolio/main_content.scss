@@ -5,7 +5,8 @@ $height: 100vh;
     display: flex;
     .main-left-content{
         padding: 3rem;
-        flex: 1;
+        // flex: 1;
+        width: 30%;
         display: flex;
         flex-direction: column;
         background-color: #222;
@@ -70,7 +71,8 @@ $height: 100vh;
     .main-right-content{
         background-color: #ffffffe5;
         color: $dark;
-        flex: 2;
+        // flex: 2;
+        width: 70%;
         text-align: justify;
         display: flex;
         flex-direction: column;
@@ -88,103 +90,101 @@ $height: 100vh;
                 padding-bottom: 2rem;
             }
         }
-        // .grid-container{
-            .projects{
-                display: grid;
-                width: 75%;
-                gap: 3rem;
-                grid-template-columns: 47% 47%;
-                p{
-                    margin: .3rem 0;
+        .projects{
+            display: grid;
+            width: 75%;
+            gap: 3rem;
+            grid-template-columns: 47% 47%;
+            p{
+                margin: .3rem 0;
+            }
+            .project{
+                max-width: 100%;
+                min-height: 350px;
+                &-title{
+                    font-size: 2rem;
+                    font-weight: 800;
+                    margin-bottom: 1.7rem;
                 }
-                .project{
-                    max-width: 100%;
-                    min-height: 350px;
-                    &-title{
-                        font-size: 2rem;
-                        font-weight: 800;
-                        margin-bottom: 1.7rem;
-                    }
-                    .thumbnail{ 
-                        position: relative;  
-                        margin-bottom: 1.5rem;
-                        height: 17rem;
-                        img{
-                            height: 100%;
-                            width: 100%;
-                            box-shadow: 2px 1px 10px #222; 
-                            object-fit: cover;
-                            border-radius: 15px;
-                        }                     
-                        .icons{
-                            width: 100%;
-                            position: absolute;
-                            bottom: -1px;
-                            display: flex;
-                            flex-direction: row;
-                            align-items: center;
-                            justify-content: space-between;
-                            a{
-                                padding: .3rem;
-                                background-color: rgba($color: #000, $alpha: .6);
-                                opacity: .9;
-                                color: #FFF;
-                                transition: all .2s ease-in;
-                                &:hover{
-                                    opacity: 1;
-                                    color: $favColor;
-                                }
-                            }
-                            .live-demo{
-                                min-width: 30%;
-                                text-align: center;
-                                font-size: 2.3em;
-                                font-weight: 600;
-                                border-radius: 0 15px 15px;
-                            }
-                            .github{
-                                min-width: 15%;
-                                text-align: left;
-                                font-size: 1.4em;
-                                border-radius: 15px 0 15px 15px;
-                            }
-                        }                     
-                    }
-                    .tech-list{
-                        list-style: none;
-                        margin: 0;
-                        padding: 0;
+                .thumbnail{ 
+                    position: relative;  
+                    margin-bottom: 1.5rem;
+                    height: 17rem;
+                    img{
+                        height: 100%;
+                        width: 100%;
+                        box-shadow: 2px 1px 10px #222; 
+                        object-fit: cover;
+                        border-radius: 15px;
+                    }                     
+                    .icons{
+                        width: 100%;
+                        position: absolute;
+                        bottom: -1px;
                         display: flex;
-                        flex-wrap: wrap;
-                        li{
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-between;
+                        a{
                             padding: .3rem;
-                            margin: 0 .7rem .7rem 0;
-                            min-width: 100px;
-                            text-align: right;
-                            background-color: $primary;
-                            border-left: 10px solid #bd7100;
-                            border-radius:0  15px 15px 0;
-                            box-shadow: 2px 2px 10px #777;
-                            p,a{
-                                font-weight: 600;
+                            background-color: rgba($color: #000, $alpha: .6);
+                            opacity: .9;
+                            color: #FFF;
+                            transition: all .2s ease-in;
+                            &:hover{
+                                opacity: 1;
+                                color: $favColor;
                             }
-                            a{
-                                cursor: pointer;
-                                color: $dark;
-                            }
-                            display: flex;
-                            flex-direction: row;
-                            align-items: center;
-                            justify-content: space-between;
                         }
+                        .live-demo{
+                            min-width: 30%;
+                            text-align: center;
+                            font-size: 2.3em;
+                            font-weight: 600;
+                            border-radius: 0 15px 15px;
+                        }
+                        .github{
+                            min-width: 15%;
+                            text-align: left;
+                            font-size: 1.4em;
+                            border-radius: 15px 0 15px 15px;
+                        }
+                    }                     
+                }
+                .tech-list{
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    flex-wrap: wrap;
+                    li{
+                        padding: .3rem;
+                        margin: 0 .7rem .7rem 0;
+                        min-width: 100px;
+                        text-align: right;
+                        background-color: $primary;
+                        border-left: 10px solid #bd7100;
+                        border-radius:0  15px 15px 0;
+                        box-shadow: 2px 2px 10px #777;
+                        p,a{
+                            font-weight: 600;
+                        }
+                        a{
+                            cursor: pointer;
+                            color: $dark;
+                        }
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-between;
                     }
-                    &-description{
-                        text-align: justify;
-                        line-height: 1rem;
-                    }
+                }
+                &-description{
+                    text-align: justify;
+                    line-height: 1rem;
                 }
             }
-        // }
+        }
     }
 }
 
@@ -231,10 +231,9 @@ $height: 100vh;
         margin-bottom: .5rem;
     }
     .main-content{
-        flex-direction: column;
-        height: auto;
-    
+        flex-direction: column;    
     .main-left-content{
+        width: auto;
         padding: 2rem;
         align-items: center;
         .left-title{
@@ -260,6 +259,7 @@ $height: 100vh;
         }
     }
     .main-right-content{
+        width: auto;
         .projects{
             width: 90%;
             grid-template-columns: 100%;
