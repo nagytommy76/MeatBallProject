@@ -3206,6 +3206,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -3220,14 +3224,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      showImageSlider: false
+      showImageSlider: false,
+      imgFolderName: ''
     };
   },
   methods: {
     openImageSlider: function openImageSlider(imageFolderName) {
-      console.log('csöcsi');
-      console.log(imageFolderName);
       this.showImageSlider = true;
+      this.imgFolderName = imageFolderName;
     }
   }
 });
@@ -3479,7 +3483,91 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    imgFolderName: String
+  },
+  mounted: function mounted() {
+    switch (this.imgFolderName) {
+      case 'wargaming':
+        this.getWGImagesFromFolderByName();
+        break;
+
+      case 'meatball':
+        this.getMeatBallImagesFromFolderByName();
+        break;
+    }
+  },
+  data: function data() {
+    return {
+      step: 0,
+      nextPage: 'Következő',
+      prevPage: 'Nincs előző kép',
+      images: []
+    };
+  },
+  methods: {
+    getWGImagesFromFolderByName: function getWGImagesFromFolderByName() {
+      var imagesNameFromFolder = __webpack_require__("./resources/img/wargaming sync recursive \\.jpg$");
+
+      this.fillImages(imagesNameFromFolder);
+    },
+    getMeatBallImagesFromFolderByName: function getMeatBallImagesFromFolderByName() {
+      var imagesNameFromFolder = __webpack_require__("./resources/img/meatball sync recursive \\.jpg$");
+
+      this.fillImages(imagesNameFromFolder);
+    },
+    fillImages: function fillImages(imagesNameFromFolder) {
+      var _this = this;
+
+      imagesNameFromFolder.keys().forEach(function (imgName) {
+        return _this.images.push(imgName.substring(1));
+      });
+    },
+    increase: function increase() {
+      if (this.images[this.step + 1] !== undefined) {
+        ++this.step;
+
+        if (this.images[this.step - 1] !== undefined) {
+          this.prevPage = 'Előző';
+        }
+      }
+
+      if (this.images[this.step + 1] === undefined) {
+        this.nextPage = 'Nincs több kép';
+      }
+    },
+    decrease: function decrease() {
+      if (this.images[this.step - 1] !== undefined) {
+        --this.step;
+
+        if (this.images[this.step + 1] !== undefined) {
+          this.nextPage = 'Következő';
+        }
+      }
+
+      if (this.images[this.step - 1] === undefined) {
+        this.prevPage = 'Nincs előző kép';
+      }
+    }
+  }
+});
 
 /***/ }),
 
@@ -26449,7 +26537,7 @@ var render = function() {
             "div",
             { staticClass: "projects" },
             [
-              _c("Meatball"),
+              _c("Meatball", { on: { "show-image": _vm.openImageSlider } }),
               _vm._v(" "),
               _c("Wargaming", { on: { "show-image": _vm.openImageSlider } })
             ],
@@ -26459,13 +26547,33 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("transition", { attrs: { name: "slide" } }, [
-        _vm.showImageSlider ? _c("div", { staticClass: "fade-in" }) : _vm._e()
+        _vm.showImageSlider
+          ? _c("div", {
+              staticClass: "fade-in",
+              on: {
+                click: function($event) {
+                  _vm.showImageSlider = false
+                }
+              }
+            })
+          : _vm._e()
       ]),
       _vm._v(" "),
       _c(
         "transition",
         { attrs: { name: "image" } },
-        [_vm.showImageSlider ? _c("ImageSlider") : _vm._e()],
+        [
+          _vm.showImageSlider
+            ? _c("ImageSlider", {
+                attrs: { imgFolderName: _vm.imgFolderName },
+                on: {
+                  close: function($event) {
+                    _vm.showImageSlider = false
+                  }
+                }
+              })
+            : _vm._e()
+        ],
         1
       )
     ],
@@ -27025,7 +27133,58 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c(
+    "div",
+    { staticClass: "image-slider" },
+    [
+      _c(
+        "span",
+        {
+          staticClass: "image-close",
+          on: {
+            click: function($event) {
+              return _vm.$emit("close")
+            }
+          }
+        },
+        [_c("i", { staticClass: "far fa-times-circle fa-2x" })]
+      ),
+      _vm._v(" "),
+      _c(
+        "transition",
+        { attrs: { name: "slide-image" } },
+        _vm._l([_vm.step], function(nth) {
+          return _c("div", { key: nth, staticClass: "img-container" }, [
+            _c("img", { attrs: { src: "/images" + _vm.images[nth] } })
+          ])
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "arrow-right", on: { click: _vm.increase } },
+        [
+          _c("Tooltip", { attrs: { text: _vm.nextPage } }, [
+            _c("i", { staticClass: "fas fa-arrow-right fa-3x" })
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "arrow-left", on: { click: _vm.decrease } },
+        [
+          _c("Tooltip", { attrs: { text: _vm.prevPage } }, [
+            _c("i", { staticClass: "fas fa-arrow-left fa-3x" })
+          ])
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -27234,6 +27393,11 @@ var render = function() {
         attrs: {
           src: __webpack_require__(/*! ../../../../../img/meatball/meatball-main-page.jpg */ "./resources/img/meatball/meatball-main-page.jpg"),
           alt: "Meatball Project"
+        },
+        on: {
+          click: function($event) {
+            return _vm.$emit("show-image", "meatball")
+          }
         }
       }),
       _vm._v(" "),
@@ -43044,6 +43208,64 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/img/meatball sync recursive \\.jpg$":
+/*!********************************************!*\
+  !*** ./resources/img/meatball sync \.jpg$ ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./cart.jpg": "./resources/img/meatball/cart.jpg",
+	"./meal.jpg": "./resources/img/meatball/meal.jpg",
+	"./meatball-main-page.jpg": "./resources/img/meatball/meatball-main-page.jpg",
+	"./paypal.jpg": "./resources/img/meatball/paypal.jpg"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./resources/img/meatball sync recursive \\.jpg$";
+
+/***/ }),
+
+/***/ "./resources/img/meatball/cart.jpg":
+/*!*****************************************!*\
+  !*** ./resources/img/meatball/cart.jpg ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/cart.jpg?388dd9f85a184cb331ccac8cd2bd0b4b";
+
+/***/ }),
+
+/***/ "./resources/img/meatball/meal.jpg":
+/*!*****************************************!*\
+  !*** ./resources/img/meatball/meal.jpg ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/meal.jpg?bd177ad1b72ef79a3b33c2aaf2ef0b05";
+
+/***/ }),
+
 /***/ "./resources/img/meatball/meatball-main-page.jpg":
 /*!*******************************************************!*\
   !*** ./resources/img/meatball/meatball-main-page.jpg ***!
@@ -43052,6 +43274,17 @@ module.exports = function(module) {
 /***/ (function(module, exports) {
 
 module.exports = "/images/meatball-main-page.jpg?a7fa36c945d0da415efa36ea8acc5c58";
+
+/***/ }),
+
+/***/ "./resources/img/meatball/paypal.jpg":
+/*!*******************************************!*\
+  !*** ./resources/img/meatball/paypal.jpg ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/paypal.jpg?27e8f7afb6d4ab1cf94bddaed2eabe4d";
 
 /***/ }),
 
@@ -43066,6 +43299,40 @@ module.exports = "/images/modified.jpg?c54c2976cb44944c5ec0060f1a1bbcfe";
 
 /***/ }),
 
+/***/ "./resources/img/wargaming sync recursive \\.jpg$":
+/*!*********************************************!*\
+  !*** ./resources/img/wargaming sync \.jpg$ ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./modal.jpg": "./resources/img/wargaming/modal.jpg",
+	"./search.jpg": "./resources/img/wargaming/search.jpg"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./resources/img/wargaming sync recursive \\.jpg$";
+
+/***/ }),
+
 /***/ "./resources/img/wargaming/modal.jpg":
 /*!*******************************************!*\
   !*** ./resources/img/wargaming/modal.jpg ***!
@@ -43074,6 +43341,17 @@ module.exports = "/images/modified.jpg?c54c2976cb44944c5ec0060f1a1bbcfe";
 /***/ (function(module, exports) {
 
 module.exports = "/images/modal.jpg?fa2ea8e98cfc337bd9d0ba0971e3cce7";
+
+/***/ }),
+
+/***/ "./resources/img/wargaming/search.jpg":
+/*!********************************************!*\
+  !*** ./resources/img/wargaming/search.jpg ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/search.jpg?40249ab111fcb05855de24279dd800dd";
 
 /***/ }),
 
@@ -43145,9 +43423,9 @@ try {
 } catch (e) {}
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-window.axios.defaults.baseURL = 'http://meatballproject.hu/api/'; // window.axios.defaults.baseURL = 'https://nagytamas93.hu/api/'
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'; // window.axios.defaults.baseURL = 'http://meatballproject.hu/api/'
 
+window.axios.defaults.baseURL = 'https://nagytamas93.hu/api/';
 window.axios.defaults.withCredentials = true;
 
 /***/ }),

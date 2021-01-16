@@ -1,0 +1,98 @@
+.image-enter-active,
+.image-leave-active {
+    transition: transform .4s ease;
+}
+
+.image-enter,
+.image-leave-to{
+    transform: scale(0, 0);
+}
+
+.slide-image-enter-active,
+.slide-image-leave-active {
+    transition: all .8s ease-out;
+    overflow: hidden;
+    visibility: visible;
+    opacity: 1;
+}
+
+.slide-image-enter,
+.slide-image-leave-to{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.image-slider{
+    box-shadow: 1px 1px 15px #222;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 4;
+    margin: auto;
+    width: 80%;
+    height: 80%;
+    background: rgb(204, 204, 204);
+    .img-container{
+        height: 100%;
+        position: absolute;
+        img{
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+    }
+    .image-close{
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        color: $favColor;
+        cursor: pointer;
+        font-size: 1.5rem;
+        transition: color .2s;
+        z-index: 5;
+        &:hover{
+            color: $deleteColor;
+        }
+    }
+    .arrow{
+        &-right{
+            position: absolute;
+            right: 0;
+            top: 50%;
+            color: black;
+            background-color: rgba($color: $dark, $alpha: .4);
+            border-radius: 7px 0 0 7px;
+            padding: .5rem;
+            transition: all .2s ease-in;
+            cursor: pointer;
+            i{
+                cursor: pointer;
+            }
+            &:hover{
+                background-color: rgba($color: $dark, $alpha: .9);
+                color: white;
+            }
+        }
+        &-left{
+            position: absolute;
+            left: 0;
+            top: 50%;
+            color: black;
+            background-color: rgba($color: $dark, $alpha: .4);
+            border-radius: 0 7px 7px 0;
+            padding: .5rem;
+            transition: all .2s ease-in;
+            cursor: pointer;
+            i{
+                cursor: pointer;
+            }
+            &:hover{
+                background-color: rgba($color:$dark, $alpha: .9);
+                color: white;
+            }
+        }
+    }
+}

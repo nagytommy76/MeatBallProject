@@ -1,7 +1,7 @@
 <template>
     <article class="meatball project">
         <figure class="thumbnail">
-            <img src="../../../../../img/meatball/meatball-main-page.jpg" alt="Meatball Project">
+            <img src="../../../../../img/meatball/meatball-main-page.jpg" alt="Meatball Project" @click="$emit('show-image', 'meatball')">
             <div class="icons">
                 <router-link class="live-demo" :to="{name: 'Welcome'}">Élő verzió</router-link>
                 <a target="_blank" href="https://github.com/nagytommy76/MeatBallProject" class="github"><i class="fab fa-github fa-2x"></i></a>

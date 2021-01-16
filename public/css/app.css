@@ -1295,7 +1295,8 @@ body::-webkit-scrollbar-thumb {
   box-shadow: 2px 1px 10px #222;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 15px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .main-content .main-right-content .projects .project .thumbnail .icons {
@@ -1326,14 +1327,14 @@ body::-webkit-scrollbar-thumb {
   text-align: center;
   font-size: 2.3em;
   font-weight: 600;
-  border-radius: 0 15px 15px;
+  border-radius: 0 5px 5px;
 }
 
 .main-content .main-right-content .projects .project .thumbnail .icons .github {
   min-width: 15%;
   text-align: left;
   font-size: 1.4em;
-  border-radius: 15px 0 15px 15px;
+  border-radius: 5px 0 5px 5px;
 }
 
 .main-content .main-right-content .projects .project .tech-list {
@@ -1662,6 +1663,113 @@ body::-webkit-scrollbar-thumb {
 .nav-underline {
   width: 80%;
   border-bottom: 1px solid #ffae00;
+}
+
+.image-enter-active,
+.image-leave-active {
+  transition: transform 0.4s ease;
+}
+
+.image-enter,
+.image-leave-to {
+  transform: scale(0, 0);
+}
+
+.slide-image-enter-active,
+.slide-image-leave-active {
+  transition: all 0.8s ease-out;
+  overflow: hidden;
+  visibility: visible;
+  opacity: 1;
+}
+
+.slide-image-enter,
+.slide-image-leave-to {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.image-slider {
+  box-shadow: 1px 1px 15px #222;
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 4;
+  margin: auto;
+  width: 80%;
+  height: 80%;
+  background: #cccccc;
+}
+
+.image-slider .img-container {
+  height: 100%;
+  position: absolute;
+}
+
+.image-slider .img-container img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.image-slider .image-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: #ffae00;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: color 0.2s;
+  z-index: 5;
+}
+
+.image-slider .image-close:hover {
+  color: #C80600;
+}
+
+.image-slider .arrow-right {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  color: black;
+  background-color: rgba(51, 51, 51, 0.4);
+  border-radius: 7px 0 0 7px;
+  padding: 0.5rem;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+}
+
+.image-slider .arrow-right i {
+  cursor: pointer;
+}
+
+.image-slider .arrow-right:hover {
+  background-color: rgba(51, 51, 51, 0.9);
+  color: white;
+}
+
+.image-slider .arrow-left {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  color: black;
+  background-color: rgba(51, 51, 51, 0.4);
+  border-radius: 0 7px 7px 0;
+  padding: 0.5rem;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+}
+
+.image-slider .arrow-left i {
+  cursor: pointer;
+}
+
+.image-slider .arrow-left:hover {
+  background-color: rgba(51, 51, 51, 0.9);
+  color: white;
 }
 
 .card-container {

@@ -4,18 +4,22 @@
         <section class="main-right-content" id="projects">
             <h3 class="sub-title">Projectek</h3>
             <div class="projects">
-                <Meatball />
+                <Meatball 
+                    @show-image="openImageSlider"
+                />
                 <Wargaming 
                     @show-image="openImageSlider"
                 />
             </div>
         </section>
         <transition name="slide">
-            <div class="fade-in" v-if="showImageSlider"></div>
+            <div class="fade-in" v-if="showImageSlider" @click="showImageSlider = false"></div>
         </transition>
         <transition name="image">
             <ImageSlider 
                 v-if="showImageSlider"
+                @close="showImageSlider = false"
+                :imgFolderName="imgFolderName"
             />
         </transition>
     </section>
@@ -36,13 +40,13 @@ export default {
     data() {
         return {
             showImageSlider: false,
+            imgFolderName: '',
         }
     },
     methods: {
         openImageSlider(imageFolderName){
-            console.log('csöcsi')
-            console.log(imageFolderName)
             this.showImageSlider = true
+            this.imgFolderName = imageFolderName
         }
     },
 }
