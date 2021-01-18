@@ -28,7 +28,7 @@ export default {
         switch (this.imgFolderName) {
             case 'wargaming':
                 this.getWGImagesFromFolderByName()
-            break;
+                break;
             case 'meatball':
                 this.getMeatBallImagesFromFolderByName()
                 break;
@@ -43,13 +43,12 @@ export default {
         }
     },
     methods: {
+        // A require.context() build-elésnél fut le, így nem lehet template literalt használni mert az futási időben "adódik át"
         getWGImagesFromFolderByName(){
-            const imagesNameFromFolder = require.context(`../../../../../img/wargaming`, true, /\.jpg$/)
-            this.fillImages(imagesNameFromFolder)
+            this.fillImages(require.context(`../../../../../img/wargaming`, true, /\.jpg$/))
         },
         getMeatBallImagesFromFolderByName(){
-            const imagesNameFromFolder = require.context(`../../../../../img/meatball`, true, /\.jpg$/)
-            this.fillImages(imagesNameFromFolder)
+            this.fillImages(require.context(`../../../../../img/meatball`, true, /\.jpg$/))
         },
         fillImages(imagesNameFromFolder){
             imagesNameFromFolder.keys().forEach(imgName => this.images.push(imgName.substring(1)))

@@ -34,10 +34,3 @@
         </section>
     </article>
 </template>
-<script>
-export default {
-    // props:{
-    //     openImageSlide: Function,
-    // },
-}
-</script>

@@ -3523,15 +3523,12 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    // A require.context() build-elésnél fut le, így nem lehet template literalt használni mert az futási időben "adódik át"
     getWGImagesFromFolderByName: function getWGImagesFromFolderByName() {
-      var imagesNameFromFolder = __webpack_require__("./resources/img/wargaming sync recursive \\.jpg$");
-
-      this.fillImages(imagesNameFromFolder);
+      this.fillImages(__webpack_require__("./resources/img/wargaming sync recursive \\.jpg$"));
     },
     getMeatBallImagesFromFolderByName: function getMeatBallImagesFromFolderByName() {
-      var imagesNameFromFolder = __webpack_require__("./resources/img/meatball sync recursive \\.jpg$");
-
-      this.fillImages(imagesNameFromFolder);
+      this.fillImages(__webpack_require__("./resources/img/meatball sync recursive \\.jpg$"));
     },
     fillImages: function fillImages(imagesNameFromFolder) {
       var _this = this;
@@ -3658,58 +3655,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/includes/WgProject.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/includes/MainPage/includes/WgProject.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({// props:{
-  //     openImageSlide: Function,
-  // },
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/Navbar.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/includes/Navbar.vue?vue&type=script&lang=js& ***!
@@ -3801,10 +3746,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     mobileSize: Boolean
+  },
+  data: function data() {
+    return {
+      showDrop: false
+    };
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
     loggedIn: 'getUserLoggedIn',
@@ -3850,6 +3802,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           }
         }, _callee);
       }))();
+    },
+    showDropdown: function showDropdown() {
+      this.showDrop = true;
+    },
+    hideDropdown: function hideDropdown() {
+      this.showDrop = false;
     }
   })
 });
@@ -27742,122 +27700,146 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("li", { staticClass: "nav-item dropdown" }, [
-        _c(
-          "a",
-          { staticClass: "nav-link dropdown", attrs: { id: "foodOrder" } },
-          [_vm._v("Étel Rendelés")]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "dropdown-menu" },
-          [
-            _c(
-              "router-link",
-              {
-                staticClass: "dropdown-menu-item",
-                attrs: { to: { name: "Pizza" } },
-                nativeOn: {
-                  click: function($event) {
-                    return _vm.closeNav()
-                  }
-                }
-              },
-              [
-                _c("i", { staticClass: "fas fa-pizza-slice" }),
-                _vm._v("\n                    Pizza\n                ")
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "router-link",
-              {
-                staticClass: "dropdown-menu-item",
-                attrs: { to: { name: "Soup" } },
-                nativeOn: {
-                  click: function($event) {
-                    return _vm.closeNav()
-                  }
-                }
-              },
-              [
-                _c("i", { staticClass: "fas fa-soap" }),
-                _vm._v("\n                    Levesek\n                ")
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "router-link",
-              {
-                staticClass: "dropdown-menu-item",
-                attrs: { to: { name: "Dessert" } },
-                nativeOn: {
-                  click: function($event) {
-                    return _vm.closeNav()
-                  }
-                }
-              },
-              [
-                _c("i", { staticClass: "fas fa-birthday-cake" }),
-                _vm._v("\n                    Desszertek\n                ")
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "router-link",
-              {
-                staticClass: "dropdown-menu-item",
-                attrs: { to: { name: "Drink" } },
-                nativeOn: {
-                  click: function($event) {
-                    return _vm.closeNav()
-                  }
-                }
-              },
-              [
-                _c("i", { staticClass: "fas fa-wine-glass-alt" }),
-                _vm._v("\n                    Italok\n                ")
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "router-link",
-              {
-                staticClass: "dropdown-menu-item",
-                attrs: { to: { name: "Meal" } },
-                nativeOn: {
-                  click: function($event) {
-                    return _vm.closeNav()
-                  }
-                }
-              },
-              [
-                _c("i", { staticClass: "fas fa-weight" }),
-                _vm._v("\n                    Főételek\n                ")
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "router-link",
-              {
-                staticClass: "dropdown-menu-item",
-                attrs: { to: { name: "Pasta" } },
-                nativeOn: {
-                  click: function($event) {
-                    return _vm.closeNav()
-                  }
-                }
-              },
-              [
-                _c("i", { staticClass: "fas fa-weight" }),
-                _vm._v("\n                    Tészta Ételek\n                ")
-              ]
-            )
-          ],
-          1
-        )
-      ]),
+      _c(
+        "li",
+        { staticClass: "nav-item dropdown" },
+        [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link dropdown",
+              attrs: { id: "foodOrder" },
+              on: { mouseenter: _vm.showDropdown }
+            },
+            [_vm._v("Étel Rendelés")]
+          ),
+          _vm._v(" "),
+          _c("transition", { attrs: { name: "dropdownNav" } }, [
+            _vm.showDrop
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "dropdown-menu",
+                    on: { mouseleave: _vm.hideDropdown }
+                  },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "dropdown-menu-item",
+                        attrs: { to: { name: "Pizza" } },
+                        nativeOn: {
+                          click: function($event) {
+                            return _vm.closeNav()
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-pizza-slice" }),
+                        _vm._v("\n                    Pizza\n                ")
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "dropdown-menu-item",
+                        attrs: { to: { name: "Soup" } },
+                        nativeOn: {
+                          click: function($event) {
+                            return _vm.closeNav()
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-soap" }),
+                        _vm._v(
+                          "\n                    Levesek\n                "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "dropdown-menu-item",
+                        attrs: { to: { name: "Dessert" } },
+                        nativeOn: {
+                          click: function($event) {
+                            return _vm.closeNav()
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-birthday-cake" }),
+                        _vm._v(
+                          "\n                    Desszertek\n                "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "dropdown-menu-item",
+                        attrs: { to: { name: "Drink" } },
+                        nativeOn: {
+                          click: function($event) {
+                            return _vm.closeNav()
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-wine-glass-alt" }),
+                        _vm._v("\n                    Italok\n                ")
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "dropdown-menu-item",
+                        attrs: { to: { name: "Meal" } },
+                        nativeOn: {
+                          click: function($event) {
+                            return _vm.closeNav()
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-weight" }),
+                        _vm._v(
+                          "\n                    Főételek\n                "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "dropdown-menu-item",
+                        attrs: { to: { name: "Pasta" } },
+                        nativeOn: {
+                          click: function($event) {
+                            return _vm.closeNav()
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "fas fa-weight" }),
+                        _vm._v(
+                          "\n                    Tészta Ételek\n                "
+                        )
+                      ]
+                    )
+                  ],
+                  1
+                )
+              : _vm._e()
+          ])
+        ],
+        1
+      ),
       _vm._v(" "),
       _c(
         "li",
@@ -43423,9 +43405,9 @@ try {
 } catch (e) {}
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'; // window.axios.defaults.baseURL = 'http://meatballproject.hu/api/'
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.baseURL = 'http://meatballproject.hu/api/'; // window.axios.defaults.baseURL = 'https://nagytamas93.hu/api/'
 
-window.axios.defaults.baseURL = 'https://nagytamas93.hu/api/';
 window.axios.defaults.withCredentials = true;
 
 /***/ }),
@@ -45819,17 +45801,15 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _WgProject_vue_vue_type_template_id_e188e132___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./WgProject.vue?vue&type=template&id=e188e132& */ "./resources/js/views/includes/MainPage/includes/WgProject.vue?vue&type=template&id=e188e132&");
-/* harmony import */ var _WgProject_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./WgProject.vue?vue&type=script&lang=js& */ "./resources/js/views/includes/MainPage/includes/WgProject.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-
-
+var script = {}
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _WgProject_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
   _WgProject_vue_vue_type_template_id_e188e132___WEBPACK_IMPORTED_MODULE_0__["render"],
   _WgProject_vue_vue_type_template_id_e188e132___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -45843,20 +45823,6 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/views/includes/MainPage/includes/WgProject.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/views/includes/MainPage/includes/WgProject.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************!*\
-  !*** ./resources/js/views/includes/MainPage/includes/WgProject.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_WgProject_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./WgProject.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/includes/WgProject.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_WgProject_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 

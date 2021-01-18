@@ -9,8 +9,9 @@
                 <router-link class="nav-link" :to="{name: 'MainWelcome'}">Portfólióm</router-link>
             </li>
             <li class="nav-item dropdown">
-                <a id="foodOrder" class="nav-link dropdown">Étel Rendelés</a>
-                <div class="dropdown-menu">
+                <a @mouseenter="showDropdown" id="foodOrder" class="nav-link dropdown">Étel Rendelés</a>
+                <transition name="dropdownNav">
+                <div class="dropdown-menu" v-if="showDrop" @mouseleave="hideDropdown">
                     <router-link @click.native="closeNav()" :to="{name: 'Pizza'}" class="dropdown-menu-item">
                         <i class="fas fa-pizza-slice"></i>
                         Pizza
@@ -36,6 +37,7 @@
                         Tészta Ételek
                     </router-link> 
                 </div>
+                </transition>
             </li>
             <li v-show="!loggedIn" class="nav-item">
                 <router-link @click.native="closeNav()" class="nav-link" :to="{name: 'Login'}">Belépés</router-link>
@@ -71,6 +73,11 @@ export default {
     props:{
         mobileSize: Boolean,
     },
+    data() {
+        return {
+            showDrop: false
+        }
+    },
     computed: {
         ...mapGetters({
             loggedIn: 'getUserLoggedIn',
@@ -98,6 +105,12 @@ export default {
                 this.setToDefaultUserInfo()
                 localStorage.removeItem('accessToken')
             })
+        },
+        showDropdown(){
+            this.showDrop = true
+        },
+        hideDropdown(){
+            this.showDrop = false
         }
     },
 }

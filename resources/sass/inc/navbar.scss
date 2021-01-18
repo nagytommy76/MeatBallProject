@@ -2,6 +2,26 @@ $menu-width: 170px;
 $navbar-height: 100px;
 $navbar-color: #212121;
 
+.dropdownNav-leave-active,
+.dropdownNav-enter-active{
+    transition: all .2s ease-in;
+}
+
+.dropdownNav-enter,
+.dropdownNav-leave-to{
+    transform: translateY(10px);
+    opacity: 0;
+}
+
+// .dropdownNav-enter{
+// }
+// .dropdownNav-enter-to{
+// }
+// .dropdownNav-leave{
+// }
+// .dropdownNav-leave-to{
+// }
+
 #navOpen{
     font-size: 1.7rem;
     position: fixed;
@@ -75,11 +95,12 @@ $navbar-color: #212121;
         }
           
         .dropdown{
-            &:hover .dropdown-menu{
-                display: block;
-            }
+            // &:hover .dropdown-menu{
+            //     display: block;
+            // }
+            height: auto;
             &-menu{
-                display: none;
+                // display: none;
                 min-width: $menu-width;
                 position: absolute;
                 padding: 0 0;
@@ -111,7 +132,6 @@ $navbar-color: #212121;
                             color: white;
                             transition: all .4s;
                         }
-
                     }
                 }
             }
