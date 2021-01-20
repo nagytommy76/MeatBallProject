@@ -8,8 +8,16 @@
             <li class="nav-item">
                 <router-link class="nav-link" :to="{name: 'MainWelcome'}">Portfólióm</router-link>
             </li>
-            <li class="nav-item dropdown">
-                <a @mouseenter="showDropdown" id="foodOrder" class="nav-link dropdown">Étel Rendelés</a>
+            <MobileNav 
+                v-if="mobileSize"
+                :closeNav="closeNav"
+            />
+            <DesktopNav
+                v-if="!mobileSize"
+                :closeNav="closeNav"
+            />
+            <!-- <li class="nav-item dropdown">
+                <a @mouseenter="showDrop = !showDrop" id="foodOrder" class="nav-link dropdown">Étel Rendelés</a>
                 <transition name="dropdownNav">
                 <div class="dropdown-menu" v-if="showDrop" @mouseleave="hideDropdown">
                     <router-link @click.native="closeNav()" :to="{name: 'Pizza'}" class="dropdown-menu-item">
@@ -38,7 +46,7 @@
                     </router-link> 
                 </div>
                 </transition>
-            </li>
+            </li> -->
             <li v-show="!loggedIn" class="nav-item">
                 <router-link @click.native="closeNav()" class="nav-link" :to="{name: 'Login'}">Belépés</router-link>
             </li>
@@ -69,15 +77,21 @@
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex";
+import MobileNav from './NavbarIncludes/MobileNav'
+import DesktopNav from './NavbarIncludes/DesktopNav'
 export default {
+    components:{
+        MobileNav,
+        DesktopNav,
+    },
     props:{
         mobileSize: Boolean,
     },
-    data() {
-        return {
-            showDrop: false
-        }
-    },
+    // data() {
+    //     return {
+    //         showDrop: false
+    //     }
+    // },
     computed: {
         ...mapGetters({
             loggedIn: 'getUserLoggedIn',
@@ -106,12 +120,9 @@ export default {
                 localStorage.removeItem('accessToken')
             })
         },
-        showDropdown(){
-            this.showDrop = true
-        },
-        hideDropdown(){
-            this.showDrop = false
-        }
+        // hideDropdown(){
+        //     this.showDrop = false
+        // }
     },
 }
 </script>

@@ -315,7 +315,7 @@ body::-webkit-scrollbar-thumb {
 
 .dropdownNav-enter,
 .dropdownNav-leave-to {
-  transform: translateY(10px);
+  transform: translateY(25px);
   opacity: 0;
 }
 
@@ -444,13 +444,10 @@ body::-webkit-scrollbar-thumb {
 
 .navbar-enter-active,
 .navbar-leave-active {
-  transition: transform 0.3s;
+  transition: transform 0.3s ease-in;
 }
 
-.navbar-enter {
-  transform: translateY(-100%);
-}
-
+.navbar-enter,
 .navbar-leave-to {
   transform: translateY(-100%);
 }
@@ -479,13 +476,13 @@ body::-webkit-scrollbar-thumb {
 
 @media (max-width: 720px) {
   .navbar {
+    z-index: 100;
     background-color: #212121;
     position: fixed;
     width: 100%;
+    height: 100vh;
     flex-direction: column;
-    opacity: 1;
-    box-shadow: 1px 1px 10px #333;
-    height: 250px;
+    justify-content: flex-start;
   }
 
   .navbar .navbar-nav {
@@ -496,8 +493,29 @@ body::-webkit-scrollbar-thumb {
     margin: 0.7rem 0;
   }
 
+  .navbar .navbar-nav .nav-item .nav-link {
+    padding: 0.7rem 1.4rem;
+    margin: 0.15rem 0.5rem;
+    font-size: 1.1rem;
+    color: white;
+    transition: all ease-in 0.3s;
+    border-radius: 10px;
+  }
+
+  .navbar .navbar-nav .nav-item .nav-link:hover {
+    background: #F7BF00;
+    color: #333;
+  }
+
+  .navbar .navbar-nav .nav-item .nav-link summary::-webkit-details-marker {
+    display: none;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
   .navbar .navbar-brand {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    margin: 3.8rem 0 2rem 0;
   }
 }
 
