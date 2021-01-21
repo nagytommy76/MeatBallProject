@@ -1,40 +1,51 @@
 <template>
     <li class="nav-item dropdown">
-        <a @mouseenter="showDrop = !showDrop" id="foodOrder" class="nav-link dropdown">Étel Rendelés</a>
+        <a v-on="event ? {click: toggleDrop} : {mouseenter: openDrop}" id="foodOrder" class="nav-link dropdown">Étel Rendelés</a>
         <transition name="dropdownNav">
-        <div class="dropdown-menu" v-if="showDrop" @mouseleave="hideDropdown">
-            <router-link @click.native="closeNav()" :to="{name: 'Pizza'}" class="dropdown-menu-item">
-                <i class="fas fa-pizza-slice"></i>
-                Pizza
-            </router-link>
-            <router-link @click.native="closeNav()" :to="{name: 'Soup'}" class="dropdown-menu-item">
-                <i class="fas fa-soap"></i>
-                Levesek
-            </router-link>
-            <router-link @click.native="closeNav()" :to="{name: 'Dessert'}" class="dropdown-menu-item">
-                <i class="fas fa-birthday-cake"></i>
-                Desszertek
-            </router-link>
-            <router-link @click.native="closeNav()" :to="{name: 'Drink'}" class="dropdown-menu-item">
-                <i class="fas fa-wine-glass-alt"></i>
-                Italok
-            </router-link>
-            <router-link @click.native="closeNav()" :to="{name: 'Meal'}" class="dropdown-menu-item">
-                <i class="fas fa-weight"></i>
-                Főételek
-            </router-link>
-            <router-link @click.native="closeNav()" :to="{name: 'Pasta'}" class="dropdown-menu-item">
-                <i class="fas fa-weight"></i>
-                Tészta Ételek
-            </router-link> 
+        <div class="dropdown-menu" v-if="showDrop" v-on="event ? {click: toggleDrop} : {mouseleave: hideDropdown}">
+            <LinkItem 
+                @click.native="closeNav()"
+                :menuName="'Pizza'"
+                :routeName="'Pizza'"
+            ><i class="fas fa-pizza-slice"></i></LinkItem>
+             <LinkItem 
+                @click.native="closeNav()"
+                :menuName="'Soup'"
+                :routeName="'Soup'"
+            ><i class="fas fa-soap"></i></LinkItem>
+            <LinkItem 
+                @click.native="closeNav()"
+                :menuName="'Dessert'"
+                :routeName="'Dessert'"
+            ><i class="fas fa-birthday-cake"></i></LinkItem>
+            <LinkItem 
+                @click.native="closeNav()"
+                :menuName="'Drink'"
+                :routeName="'Drink'"
+            ><i class="fas fa-wine-glass-alt"></i></LinkItem>
+            <LinkItem 
+                @click.native="closeNav()"
+                :menuName="'Meal'"
+                :routeName="'Meal'"
+            ><i class="fas fa-weight"></i></LinkItem>
+            <LinkItem 
+                @click.native="closeNav()"
+                :menuName="'Pasta'"
+                :routeName="'Pasta'"
+            ><i class="fas fa-weight"></i></LinkItem>
         </div>
         </transition>
     </li>
 </template>
 <script>
+import LinkItem from './LinkItem'
 export default {
+    components: {
+        LinkItem,
+    },
     props:{
         closeNav: Function,
+        event: Boolean,
     },
     data() {
         return {
@@ -42,8 +53,14 @@ export default {
         }
     },
     methods:{
-         hideDropdown(){
+        hideDropdown(){
             this.showDrop = false
+        },
+        toggleDrop(){
+             this.showDrop = !this.showDrop
+        },
+        openDrop(){
+            this.showDrop = true
         }
     },
 }

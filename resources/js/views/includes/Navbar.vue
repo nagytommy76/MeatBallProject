@@ -6,98 +6,82 @@
         </div>
         <ul class="navbar-nav">
             <li class="nav-item">
-                <router-link class="nav-link" :to="{name: 'MainWelcome'}">Portfólióm</router-link>
+                <!-- <router-link class="nav-link" :to="{name: 'MainWelcome'}">Portfólióm</router-link> -->
+                <LinkItem 
+                    @click.native="closeNav()"
+                    :menuName="'Portfólióm'"
+                    :className="'nav-link'"
+                    :routeName="'MainWelcome'"
+                ></LinkItem>
             </li>
-            <MobileNav 
-                v-if="mobileSize"
-                :closeNav="closeNav"
-            />
             <DesktopNav
-                v-if="!mobileSize"
                 :closeNav="closeNav"
+                :event="mobileSize"
             />
-            <!-- <li class="nav-item dropdown">
-                <a @mouseenter="showDrop = !showDrop" id="foodOrder" class="nav-link dropdown">Étel Rendelés</a>
-                <transition name="dropdownNav">
-                <div class="dropdown-menu" v-if="showDrop" @mouseleave="hideDropdown">
-                    <router-link @click.native="closeNav()" :to="{name: 'Pizza'}" class="dropdown-menu-item">
-                        <i class="fas fa-pizza-slice"></i>
-                        Pizza
-                    </router-link>
-                    <router-link @click.native="closeNav()" :to="{name: 'Soup'}" class="dropdown-menu-item">
-                        <i class="fas fa-soap"></i>
-                        Levesek
-                    </router-link>
-                    <router-link @click.native="closeNav()" :to="{name: 'Dessert'}" class="dropdown-menu-item">
-                        <i class="fas fa-birthday-cake"></i>
-                        Desszertek
-                    </router-link>
-                    <router-link @click.native="closeNav()" :to="{name: 'Drink'}" class="dropdown-menu-item">
-                        <i class="fas fa-wine-glass-alt"></i>
-                        Italok
-                    </router-link>
-                    <router-link @click.native="closeNav()" :to="{name: 'Meal'}" class="dropdown-menu-item">
-                        <i class="fas fa-weight"></i>
-                        Főételek
-                    </router-link>
-                    <router-link @click.native="closeNav()" :to="{name: 'Pasta'}" class="dropdown-menu-item">
-                        <i class="fas fa-weight"></i>
-                        Tészta Ételek
-                    </router-link> 
-                </div>
-                </transition>
-            </li> -->
             <li v-show="!loggedIn" class="nav-item">
-                <router-link @click.native="closeNav()" class="nav-link" :to="{name: 'Login'}">Belépés</router-link>
+                <LinkItem 
+                    @click.native="closeNav()"
+                    :menuName="'Belépés'"
+                    :className="'nav-link'"
+                    :routeName="'Login'"
+                ></LinkItem>
             </li>
             <li v-show="!loggedIn" class="nav-item">
-                <router-link @click.native="closeNav()" class="nav-link" :to="{name: 'Register'}">Regisztráció</router-link>
+                <LinkItem 
+                    @click.native="closeNav()"
+                    :menuName="'Regisztráció'"
+                    :className="'nav-link'"
+                    :routeName="'Register'"
+                ></LinkItem>
             </li>
             <li v-show="loggedIn" class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" >{{ userName }}<span class="caret"></span>
+                <a v-on="mobileSize ? {click: toggleProfileDrop} : {mouseenter: openProfileDrop}"
+                id="navbarDropdown" class="nav-link dropdown-toggle" >{{ userName }}<span class="caret"></span>
                 </a>
-                <div class="dropdown-menu">
-                    <a @click.prevent="logOut()" class="dropdown-menu-item" id="logOutBtn" href="#">
-                        <i class="fas fa-sign-out-alt"></i> 
-                        Kilépés
-                    </a>
-                    <a @click="$parent.showOrdersModal = true" class="dropdown-menu-item">
-                        <i class="fas fa-cart-arrow-down"></i>
-                    Korábbi rendelések
-                    </a>
-                    <a @click="$parent.showCartModal = true" class="dropdown-menu-item">
-                        <i class="fas fa-shopping-cart"></i> 
-                        Kosár
-                        <span class="noOfFoodsInCart">{{ totalQty }}</span>
-                    </a>
-                </div>
+                <transition name="dropdownNav">
+                    <div class="dropdown-menu" v-if="showProfileDrop" v-on="mobileSize ? {click: toggleProfileDrop} : {mouseleave: hideProfileDropdown}">
+                        <a @click.prevent="logOut()" class="dropdown-menu-item" id="logOutBtn" href="#">
+                            <i class="fas fa-sign-out-alt"></i> 
+                            Kilépés
+                        </a>
+                        <a @click="$parent.showOrdersModal = true" class="dropdown-menu-item">
+                            <i class="fas fa-cart-arrow-down"></i>
+                        Korábbi rendelések
+                        </a>
+                        <a @click="$parent.showCartModal = true" class="dropdown-menu-item">
+                            <i class="fas fa-shopping-cart"></i> 
+                            Kosár
+                            <span class="noOfFoodsInCart">{{ totalQty }}</span>
+                        </a>
+                    </div>
+                </transition>
             </li>
         </ul>
     </nav>    
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex";
-import MobileNav from './NavbarIncludes/MobileNav'
 import DesktopNav from './NavbarIncludes/DesktopNav'
+import LinkItem from './NavbarIncludes/LinkItem'
 export default {
     components:{
-        MobileNav,
         DesktopNav,
+        LinkItem,
     },
     props:{
         mobileSize: Boolean,
     },
-    // data() {
-    //     return {
-    //         showDrop: false
-    //     }
-    // },
     computed: {
         ...mapGetters({
             loggedIn: 'getUserLoggedIn',
             userName: 'getUserName',
             totalQty: 'getTotalQty'
         }),
+    },
+    data() {
+        return {
+            showProfileDrop: false,
+        }
     },
     methods: {
         ...mapActions({
@@ -120,9 +104,16 @@ export default {
                 localStorage.removeItem('accessToken')
             })
         },
-        // hideDropdown(){
-        //     this.showDrop = false
-        // }
+        hideProfileDropdown(){
+            this.showProfileDrop = false
+        },
+        toggleProfileDrop(){
+             this.showProfileDrop = !this.showProfileDrop
+        },
+        openProfileDrop(){
+            this.showProfileDrop = true
+        }
+        // Folytatni a desktopNav-val, emit, és itt létrehozni a functionöket
     },
 }
 </script>

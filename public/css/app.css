@@ -489,28 +489,30 @@ body::-webkit-scrollbar-thumb {
     flex-direction: column;
   }
 
-  .navbar .navbar-nav .nav-item {
-    margin: 0.7rem 0;
+  .navbar .navbar-nav summary::-webkit-details-marker {
+    display: none;
   }
 
-  .navbar .navbar-nav .nav-item .nav-link {
-    padding: 0.7rem 1.4rem;
-    margin: 0.15rem 0.5rem;
+  .navbar .navbar-nav details {
+    margin: 0;
+  }
+
+  .navbar .navbar-nav summary {
+    padding: 0 1.4rem;
+    margin: 0rem 0.5rem;
     font-size: 1.1rem;
     color: white;
     transition: all ease-in 0.3s;
     border-radius: 10px;
   }
 
-  .navbar .navbar-nav .nav-item .nav-link:hover {
+  .navbar .navbar-nav summary:hover {
     background: #F7BF00;
     color: #333;
   }
 
-  .navbar .navbar-nav .nav-item .nav-link summary::-webkit-details-marker {
-    display: none;
-    margin: 0 !important;
-    padding: 0 !important;
+  .navbar .navbar-nav .nav-item {
+    margin: 1.2rem 0;
   }
 
   .navbar .navbar-brand {

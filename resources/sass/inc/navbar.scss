@@ -189,27 +189,28 @@ $navbar-color: #212121;
         flex-direction: column;
         justify-content: flex-start;
         .navbar-nav{ 
-            flex-direction: column;              
-            .nav-item{
-                margin: .7rem 0;
-                .nav-link{
-                    padding: .7rem 1.4rem;
-                margin: .15rem .5rem;
+            flex-direction: column; 
+            summary::-webkit-details-marker{
+                display: none;
+            }
+            details{
+                margin: 0;
+            }
+            summary{
+                padding: 0 1.4rem;
+                margin: 0rem .5rem;
                 font-size: 1.1rem;
                 color: white;
                 transition: all ease-in 0.3s;
                 border-radius: 10px;
-    
                 &:hover{
                     background: #F7BF00;
                     color: $dark;
                 }
-                    summary::-webkit-details-marker{
-                        display: none;
-                        margin: 0 !important;
-                        padding: 0 !important;
-                    }
-                }
+
+            }             
+            .nav-item{
+                margin: 1.2rem 0;      
             }
         }
         .navbar-brand{
