@@ -5,32 +5,32 @@
         <div class="dropdown-menu" v-if="showDrop" v-on="event ? {click: toggleDrop} : {mouseleave: hideDropdown}">
             <LinkItem 
                 @click.native="closeNav()"
-                :menuName="'Pizza'"
+                :menuName="'Pizzák'"
                 :routeName="'Pizza'"
             ><i class="fas fa-pizza-slice"></i></LinkItem>
              <LinkItem 
                 @click.native="closeNav()"
-                :menuName="'Soup'"
+                :menuName="'Levesek'"
                 :routeName="'Soup'"
             ><i class="fas fa-soap"></i></LinkItem>
             <LinkItem 
                 @click.native="closeNav()"
-                :menuName="'Dessert'"
+                :menuName="'Desszertek'"
                 :routeName="'Dessert'"
             ><i class="fas fa-birthday-cake"></i></LinkItem>
             <LinkItem 
                 @click.native="closeNav()"
-                :menuName="'Drink'"
+                :menuName="'Italok'"
                 :routeName="'Drink'"
             ><i class="fas fa-wine-glass-alt"></i></LinkItem>
             <LinkItem 
                 @click.native="closeNav()"
-                :menuName="'Meal'"
+                :menuName="'Főételek'"
                 :routeName="'Meal'"
             ><i class="fas fa-weight"></i></LinkItem>
             <LinkItem 
                 @click.native="closeNav()"
-                :menuName="'Pasta'"
+                :menuName="'Tészták'"
                 :routeName="'Pasta'"
             ><i class="fas fa-weight"></i></LinkItem>
         </div>
@@ -57,11 +57,11 @@ export default {
             this.showDrop = false
         },
         toggleDrop(){
-             this.showDrop = !this.showDrop
+            this.showDrop = !this.showDrop
         },
         openDrop(){
             this.showDrop = true
-        }
+        },
     },
 }
 </script>

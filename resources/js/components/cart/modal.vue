@@ -39,7 +39,7 @@ import CartModal from './CartModal';
 import UserInfo from './UserInfo';
 import SummaryCart from './SummaryCart';
 
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions, mapMutations } from 'vuex'
 
 export default {
     name: 'Modal',
@@ -56,7 +56,6 @@ export default {
 
             showSuccessCashPay: false,
             showException: false,
-            showMakeOrder: false,
         }
     },
     computed: {
@@ -71,6 +70,7 @@ export default {
             isUserDataReceived: 'getIsUserDataReceived',
             isUserinfoFilled: 'getUserInfoFilled',
             getCurrentPage: 'getCurrentPage',
+            showMakeOrder: 'getShowMakeOrder',
         }),
         ...mapGetters('paypalState', {
             showPayment: 'getShowPayment',
@@ -79,7 +79,9 @@ export default {
         })
     },
     created(){
-        this.getUserInfo()
+        if (!this.isUserinfoFilled) {
+            this.getUserInfo()            
+        }
     },
     methods: {
         ...mapActions({
@@ -93,6 +95,9 @@ export default {
         ...mapActions('paypalState',{
             disableShowPayment: 'disableShowPayment',
             enableShowPaypalMessage: 'enableShowPaypalMessage',
+        }),
+        ...mapMutations({
+            setMakeOrder: 'setMakeOrder',
         }),
         async makeOrder(){
             this.isLoading = true;
@@ -134,19 +139,21 @@ export default {
         showMakeOrderBTN(){
             if (this.getCurrentPage == this.pages.length-1) {
                 if (this.showAlternatePayment) {
-                    this.showMakeOrder = true
+                    // this.showMakeOrder = true
+                    this.setMakeOrder(true)
                 }else{
-                    this.showMakeOrder = false
+                    // this.showMakeOrder = false
+                    this.setMakeOrder(false)
                     if (this.paidWithPP) {
-                        // this.showPayment = false
                         this.disableShowPayment(false)
                         this.enableShowPaypalMessage()
-                        // this.showSuccessPayPal = true
-                        this.showMakeOrder = true
+                        // this.showMakeOrder = true
+                        this.setMakeOrder(true)
                     }                    
                 }               
             }else{
-                this.showMakeOrder = false
+                // this.showMakeOrder = false
+                this.setMakeOrder(false)
             }
         }
     }

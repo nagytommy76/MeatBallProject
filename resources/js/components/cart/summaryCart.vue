@@ -40,8 +40,9 @@
                     <p>Fizetés PayPal-el vagy kártyával</p>
                     <small><sup>*</sup>(A fizetés után automatikusan megtörténik a rendelés!)</small>
                     <span v-if="showPaypal">
-                        <p>Email: sb-qkdaa3413370@business.example.com</p>
-                        <p>Jelszó: 7}&&K[yb</p>
+                        <p>A fizetéshez szükséges PayPal számla:</p>
+                        <p>Email: <strong>sb-qkdaa3413370@business.example.com</strong></p>
+                        <p>Jelszó: <strong>7}&&K[yb</strong></p>
                     </span>
                     <input @change="showPaymentContainer" type="radio" name="payment-option" value="paypal" v-model="payment">
                     <span id="paypal-marks-container"></span>
@@ -73,17 +74,18 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 export default {
     name: "SummaryCart",
     data() {
         return {
             payment: 'alternate',
-            showPaypal: false,
+            // showPaypal: false,
         }
     },
     mounted() {
         this.createPayPalScript()
+        this.setPaymentContainer()
     },
     props:{
         showMakeOrderBTN: Function,
@@ -99,6 +101,8 @@ export default {
             showPayment: 'getShowPayment',
             showSuccessPayPal: 'showSuccessPayPal',
             showAlternatePay: 'showAlternatePayment',
+            showPaypal: 'getPayPalContainer',
+            // payment: 'getPayment'
         })
     },
     methods:{
@@ -111,13 +115,17 @@ export default {
             enableShowPaypalMessage: 'enableShowPaypalMessage',
             setAlternatePayment: 'setAlternatePayment',
         }),
+        ...mapMutations('paypalState',[
+            'setPaypalContainer',
+            // 'setPayment',
+        ]),
         createPayPalScript(){
             const script = document.createElement('script');
             script.src = `
                 https://www.paypal.com/sdk/js?client-id=Ab5PkxGXmT-up_8VMgPOajxLZSe9PzyOh4eHxeCkJ6GiVd-4vfcTtG-cayvv8dHJL6Uv6CW6vNxOaFa4&currency=HUF&components=buttons,marks
             `
             script.addEventListener('load', this.setLoaded)
-            script.addEventListener('load', this.setPayment)
+            script.addEventListener('load', this.addPaypalPayment)
             document.body.appendChild(script)
         },
         setLoaded: function() {
@@ -155,19 +163,32 @@ export default {
             })
             .render(this.$refs.paypal)
         },
-        setPayment(){
+        addPaypalPayment(){
             paypal.Marks().render('#paypal-marks-container');
         },
+        // Folytatni: Ha becsukom a modal-t ha a paypal opció van és visszanyitom a kézpénz jelenik meg plusz a 
+        // paypal container is.... MEGOLDANI
         showPaymentContainer(event){
             if(event.target.value == 'paypal'){
-                this.showPaypal = true
+                // this.showPaypal = true
+                // this.setPayment('paypal')
+                this.setPaypalContainer(true)
                 this.setAlternatePayment(false)
             }else{
+                // this.showPaypal = false
+                // this.setPayment('alternate')
+                this.setPaypalContainer(false)
                 this.setAlternatePayment(true)
-                this.showPaypal = false
             }
             this.showMakeOrderBTN()
         },
+        setPaymentContainer(){
+            if (this.payment == 'alternate') {
+                this.setAlternatePayment(true)
+            }else{
+                this.setAlternatePayment(false)
+            }
+        }
     },
 }
 </script>

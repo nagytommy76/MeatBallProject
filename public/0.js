@@ -218,8 +218,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       isLoading: false,
       exceptionMsg: '',
       showSuccessCashPay: false,
-      showException: false,
-      showMakeOrder: false
+      showException: false
     };
   },
   computed: _objectSpread({
@@ -233,14 +232,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     getCreatedAt: 'getCreatedAt',
     isUserDataReceived: 'getIsUserDataReceived',
     isUserinfoFilled: 'getUserInfoFilled',
-    getCurrentPage: 'getCurrentPage'
+    getCurrentPage: 'getCurrentPage',
+    showMakeOrder: 'getShowMakeOrder'
   }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapGetters"])('paypalState', {
     showPayment: 'getShowPayment',
     showSuccessPayPal: 'showSuccessPayPal',
     showAlternatePayment: 'showAlternatePayment'
   })),
   created: function created() {
-    this.getUserInfo();
+    if (!this.isUserinfoFilled) {
+      this.getUserInfo();
+    }
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapActions"])({
     setCartDefault: 'setCartDefault',
@@ -252,6 +254,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapActions"])('paypalState', {
     disableShowPayment: 'disableShowPayment',
     enableShowPaypalMessage: 'enableShowPaypalMessage'
+  }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapMutations"])({
+    setMakeOrder: 'setMakeOrder'
   }), {
     makeOrder: function makeOrder() {
       var _this = this;
@@ -315,20 +319,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     showMakeOrderBTN: function showMakeOrderBTN() {
       if (this.getCurrentPage == this.pages.length - 1) {
         if (this.showAlternatePayment) {
-          this.showMakeOrder = true;
+          // this.showMakeOrder = true
+          this.setMakeOrder(true);
         } else {
-          this.showMakeOrder = false;
+          // this.showMakeOrder = false
+          this.setMakeOrder(false);
 
           if (this.paidWithPP) {
-            // this.showPayment = false
             this.disableShowPayment(false);
-            this.enableShowPaypalMessage(); // this.showSuccessPayPal = true
+            this.enableShowPaypalMessage(); // this.showMakeOrder = true
 
-            this.showMakeOrder = true;
+            this.setMakeOrder(true);
           }
         }
       } else {
-        this.showMakeOrder = false;
+        // this.showMakeOrder = false
+        this.setMakeOrder(false);
       }
     }
   })
@@ -434,17 +440,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SummaryCart",
   data: function data() {
     return {
-      payment: 'alternate',
-      showPaypal: false
+      payment: 'alternate' // showPaypal: false,
+
     };
   },
   mounted: function mounted() {
     this.createPayPalScript();
+    this.setPaymentContainer();
   },
   props: {
     showMakeOrderBTN: Function,
@@ -457,7 +465,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('paypalState', {
     showPayment: 'getShowPayment',
     showSuccessPayPal: 'showSuccessPayPal',
-    showAlternatePay: 'showAlternatePayment'
+    showAlternatePay: 'showAlternatePayment',
+    showPaypal: 'getPayPalContainer' // payment: 'getPayment'
+
   })),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])({
     setPayPalDetails: 'setPayPalDetails',
@@ -466,12 +476,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     disableShowPayment: 'disableShowPayment',
     enableShowPaypalMessage: 'enableShowPaypalMessage',
     setAlternatePayment: 'setAlternatePayment'
-  }), {
+  }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])('paypalState', ['setPaypalContainer' // 'setPayment',
+  ]), {
     createPayPalScript: function createPayPalScript() {
       var script = document.createElement('script');
       script.src = "\n                https://www.paypal.com/sdk/js?client-id=Ab5PkxGXmT-up_8VMgPOajxLZSe9PzyOh4eHxeCkJ6GiVd-4vfcTtG-cayvv8dHJL6Uv6CW6vNxOaFa4&currency=HUF&components=buttons,marks\n            ";
       script.addEventListener('load', this.setLoaded);
-      script.addEventListener('load', this.setPayment);
+      script.addEventListener('load', this.addPaypalPayment);
       document.body.appendChild(script);
     },
     setLoaded: function setLoaded() {
@@ -539,19 +550,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }()
       }).render(this.$refs.paypal);
     },
-    setPayment: function setPayment() {
+    addPaypalPayment: function addPaypalPayment() {
       paypal.Marks().render('#paypal-marks-container');
     },
+    // Folytatni: Ha becsukom a modal-t ha a paypal opció van és visszanyitom a kézpénz jelenik meg plusz a 
+    // paypal container is.... MEGOLDANI
     showPaymentContainer: function showPaymentContainer(event) {
       if (event.target.value == 'paypal') {
-        this.showPaypal = true;
+        // this.showPaypal = true
+        // this.setPayment('paypal')
+        this.setPaypalContainer(true);
         this.setAlternatePayment(false);
       } else {
+        // this.showPaypal = false
+        // this.setPayment('alternate')
+        this.setPaypalContainer(false);
         this.setAlternatePayment(true);
-        this.showPaypal = false;
       }
 
       this.showMakeOrderBTN();
+    },
+    setPaymentContainer: function setPaymentContainer() {
+      if (this.payment == 'alternate') {
+        this.setAlternatePayment(true);
+      } else {
+        this.setAlternatePayment(false);
+      }
     }
   })
 });
@@ -1240,10 +1264,12 @@ var render = function() {
                 _vm.showPaypal
                   ? _c("span", [
                       _c("p", [
-                        _vm._v("Email: sb-qkdaa3413370@business.example.com")
+                        _vm._v("A fizetéshez szükséges PayPal számla:")
                       ]),
                       _vm._v(" "),
-                      _c("p", [_vm._v("Jelszó: 7}&&K[yb")])
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _vm._m(3)
                     ])
                   : _vm._e(),
                 _vm._v(" "),
@@ -1384,6 +1410,21 @@ var staticRenderFns = [
       _c("sup", [_vm._v("*")]),
       _vm._v("(A fizetés után automatikusan megtörténik a rendelés!)")
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _vm._v("Email: "),
+      _c("strong", [_vm._v("sb-qkdaa3413370@business.example.com")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [_vm._v("Jelszó: "), _c("strong", [_vm._v("7}&&K[yb")])])
   }
 ]
 render._withStripped = true

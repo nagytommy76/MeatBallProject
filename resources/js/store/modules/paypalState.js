@@ -5,6 +5,9 @@ export default{
             showPayment: true,
             showSuccessPayPal: false,
             showAlternatePayment: true,
+
+            showPaypalContainer: false,
+            payment: 'alternate',
         }
     },
     getters:{
@@ -12,6 +15,9 @@ export default{
         showSuccessPayPal: state => state.showSuccessPayPal,
         showPayPal: state => state.showPayPal,
         showAlternatePayment: state => state.showAlternatePayment,
+
+        getPayPalContainer: state =>state.showPaypalContainer,
+        getPayment: state =>state.payment,
     },
     mutations:{
         disableShowPayment(state, payload){
@@ -22,6 +28,12 @@ export default{
         },
         setAlternatePayment(state, payload){
             state.showAlternatePayment = payload
+        },
+        setPaypalContainer(state, payload){
+            state.showPaypalContainer = payload
+        },
+        setPayment(state, payload){
+            state.payment = payload
         },
     },
     actions:{

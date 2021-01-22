@@ -1,12 +1,11 @@
 <template>
     <nav role="navigation" class="navbar">
-        <span v-if="mobileSize" @click="$emit('close')" class="sidenav-close"><i class="far fa-times-circle fa-2x"></i></span>
+        <span v-if="mobileSize" @click="closeNav()" class="sidenav-close"><i class="far fa-times-circle fa-2x"></i></span>
         <div class="navbar-brand">
             <router-link :to="{name: 'Welcome'}"><span class="primary-color">Húsgolyó </span>Étterem</router-link>
         </div>
         <ul class="navbar-nav">
             <li class="nav-item">
-                <!-- <router-link class="nav-link" :to="{name: 'MainWelcome'}">Portfólióm</router-link> -->
                 <LinkItem 
                     @click.native="closeNav()"
                     :menuName="'Portfólióm'"
@@ -112,8 +111,7 @@ export default {
         },
         openProfileDrop(){
             this.showProfileDrop = true
-        }
-        // Folytatni a desktopNav-val, emit, és itt létrehozni a functionöket
+        },
     },
 }
 </script>

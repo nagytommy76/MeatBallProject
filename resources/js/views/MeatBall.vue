@@ -1,19 +1,19 @@
 <template>
 <main>
-        <div id="navOpen" @click="openNavbar()" v-if="showNavOpen"><i class="fas fa-bars"></i></div>
-        <transition name="navbar" appear >
-            <Navbar :mobileSize="showNavOpen" v-if="showNavbar" @close="showNavbar = false" />
-        </transition>
+    <div id="navOpen" @click="openNavbar()" v-if="showNavOpen"><i class="fas fa-bars"></i></div>
+    <transition name="navbar" appear >
+        <Navbar :mobileSize="showNavOpen" v-if="showNavbar" @close="showNavbar = false" />
+    </transition>
 
-        <transition name="slide" appear>
-            <div class="fade-in" v-if="showCartModal" @click="showCartModal = false"></div>
-            <div class="fade-in" v-if="showOrdersModal" @click="showOrdersModal = false"></div>
-        </transition>
-        <transition name="modal" appear >
-            <Modal v-if="showCartModal" @close="showCartModal = false"/>
-            <OrdersModal v-if="showOrdersModal" @close="showOrdersModal = false" />
-        </transition>
-        <router-view></router-view>
+    <transition name="slide" appear>
+        <div class="fade-in" v-if="showCartModal" @click="showCartModal = false"></div>
+        <div class="fade-in" v-if="showOrdersModal" @click="showOrdersModal = false"></div>
+    </transition>
+    <transition name="modal" appear >
+        <Modal v-if="showCartModal" @close="showCartModal = false"/>
+        <OrdersModal v-if="showOrdersModal" @close="showOrdersModal = false" />
+    </transition>
+    <router-view></router-view>
     <Footer />
 </main>
 </template>

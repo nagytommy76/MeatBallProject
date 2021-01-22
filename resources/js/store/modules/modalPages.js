@@ -2,10 +2,12 @@ export default{
     state(){
         return{
             step: 0,
+            showMakeOrder: false,
         }
     },
     getters:{
         getCurrentPage: state =>state.step,
+        getShowMakeOrder: state =>state.showMakeOrder,
     },
     mutations: {
         increasePage(state){
@@ -16,6 +18,9 @@ export default{
         },
         setDefaultPage(state){
             state.step = 0
+        },
+        setMakeOrder(state, value){
+            state.showMakeOrder = value
         }
     },
     actions:{

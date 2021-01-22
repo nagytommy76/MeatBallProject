@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"a34ba468a344e3e51837","1":"fa9a9051b12fc566c7ca","2":"0ba032220a5a6a614499","3":"089976e0bd9edbfa7b50","4":"0332afe64f7a57d95ba8","5":"abbadf55326c3534246f","6":"0131f81824380bd4336f"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"e7277188208db7ee33b6","1":"fa9a9051b12fc566c7ca","2":"0ba032220a5a6a614499","3":"089976e0bd9edbfa7b50","4":"0332afe64f7a57d95ba8","5":"abbadf55326c3534246f","6":"0131f81824380bd4336f"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -3738,7 +3738,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -3808,8 +3807,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     openProfileDrop: function openProfileDrop() {
       this.showProfileDrop = true;
-    } // Folytatni a desktopNav-val, emit, és itt létrehozni a functionöket
-
+    }
   })
 });
 
@@ -27759,7 +27757,7 @@ var render = function() {
             staticClass: "sidenav-close",
             on: {
               click: function($event) {
-                return _vm.$emit("close")
+                return _vm.closeNav()
               }
             }
           },
@@ -28028,7 +28026,7 @@ var render = function() {
                 _c(
                   "LinkItem",
                   {
-                    attrs: { menuName: "Pizza", routeName: "Pizza" },
+                    attrs: { menuName: "Pizzák", routeName: "Pizza" },
                     nativeOn: {
                       click: function($event) {
                         return _vm.closeNav()
@@ -28041,7 +28039,7 @@ var render = function() {
                 _c(
                   "LinkItem",
                   {
-                    attrs: { menuName: "Soup", routeName: "Soup" },
+                    attrs: { menuName: "Levesek", routeName: "Soup" },
                     nativeOn: {
                       click: function($event) {
                         return _vm.closeNav()
@@ -28054,7 +28052,7 @@ var render = function() {
                 _c(
                   "LinkItem",
                   {
-                    attrs: { menuName: "Dessert", routeName: "Dessert" },
+                    attrs: { menuName: "Desszertek", routeName: "Dessert" },
                     nativeOn: {
                       click: function($event) {
                         return _vm.closeNav()
@@ -28067,7 +28065,7 @@ var render = function() {
                 _c(
                   "LinkItem",
                   {
-                    attrs: { menuName: "Drink", routeName: "Drink" },
+                    attrs: { menuName: "Italok", routeName: "Drink" },
                     nativeOn: {
                       click: function($event) {
                         return _vm.closeNav()
@@ -28080,7 +28078,7 @@ var render = function() {
                 _c(
                   "LinkItem",
                   {
-                    attrs: { menuName: "Meal", routeName: "Meal" },
+                    attrs: { menuName: "Főételek", routeName: "Meal" },
                     nativeOn: {
                       click: function($event) {
                         return _vm.closeNav()
@@ -28093,7 +28091,7 @@ var render = function() {
                 _c(
                   "LinkItem",
                   {
-                    attrs: { menuName: "Pasta", routeName: "Pasta" },
+                    attrs: { menuName: "Tészták", routeName: "Pasta" },
                     nativeOn: {
                       click: function($event) {
                         return _vm.closeNav()
@@ -44831,12 +44829,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: function state() {
     return {
-      step: 0
+      step: 0,
+      showMakeOrder: false
     };
   },
   getters: {
     getCurrentPage: function getCurrentPage(state) {
       return state.step;
+    },
+    getShowMakeOrder: function getShowMakeOrder(state) {
+      return state.showMakeOrder;
     }
   },
   mutations: {
@@ -44848,6 +44850,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     setDefaultPage: function setDefaultPage(state) {
       state.step = 0;
+    },
+    setMakeOrder: function setMakeOrder(state, value) {
+      state.showMakeOrder = value;
     }
   },
   actions: {
@@ -44968,7 +44973,9 @@ __webpack_require__.r(__webpack_exports__);
     return {
       showPayment: true,
       showSuccessPayPal: false,
-      showAlternatePayment: true
+      showAlternatePayment: true,
+      showPaypalContainer: false,
+      payment: 'alternate'
     };
   },
   getters: {
@@ -44983,6 +44990,12 @@ __webpack_require__.r(__webpack_exports__);
     },
     showAlternatePayment: function showAlternatePayment(state) {
       return state.showAlternatePayment;
+    },
+    getPayPalContainer: function getPayPalContainer(state) {
+      return state.showPaypalContainer;
+    },
+    getPayment: function getPayment(state) {
+      return state.payment;
     }
   },
   mutations: {
@@ -44994,6 +45007,12 @@ __webpack_require__.r(__webpack_exports__);
     },
     setAlternatePayment: function setAlternatePayment(state, payload) {
       state.showAlternatePayment = payload;
+    },
+    setPaypalContainer: function setPaypalContainer(state, payload) {
+      state.showPaypalContainer = payload;
+    },
+    setPayment: function setPayment(state, payload) {
+      state.payment = payload;
     }
   },
   actions: {
