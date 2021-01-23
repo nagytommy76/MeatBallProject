@@ -884,8 +884,9 @@ body::-webkit-scrollbar-thumb {
   max-height: 85%;
   width: 670px;
   padding: 1rem;
-  box-shadow: black 6px 6px 20px;
+  box-shadow: #353535 5px 5px 25px;
   border-radius: 10px;
+  border: none;
 }
 
 .modal-bg .modal::-webkit-scrollbar {

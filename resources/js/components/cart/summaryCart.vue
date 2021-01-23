@@ -44,13 +44,13 @@
                         <p>Email: <strong>sb-qkdaa3413370@business.example.com</strong></p>
                         <p>Jelszó: <strong>7}&&K[yb</strong></p>
                     </span>
-                    <input @change="showPaymentContainer" type="radio" name="payment-option" value="paypal" v-model="payment">
+                    <input @change="showPaymentContainer" type="radio" name="payment-option" value="paypal" v-model="computedPayment">
                     <span id="paypal-marks-container"></span>
                 </label>
 
                 <label>
                     Fizetés Készpénzzel
-                    <input @change="showPaymentContainer" type="radio" name="payment-option" value="alternate" v-model="payment">
+                    <input @change="showPaymentContainer" type="radio" name="payment-option" value="alternate" v-model="computedPayment">
                     <i class="fas fa-money-bill-wave fa-2x"></i>
                 </label>
 
@@ -77,15 +77,8 @@
 import { mapActions, mapGetters, mapMutations } from 'vuex'
 export default {
     name: "SummaryCart",
-    data() {
-        return {
-            payment: 'alternate',
-            // showPaypal: false,
-        }
-    },
     mounted() {
         this.createPayPalScript()
-        this.setPaymentContainer()
     },
     props:{
         showMakeOrderBTN: Function,
@@ -102,8 +95,16 @@ export default {
             showSuccessPayPal: 'showSuccessPayPal',
             showAlternatePay: 'showAlternatePayment',
             showPaypal: 'getPayPalContainer',
-            // payment: 'getPayment'
-        })
+            payment: 'getPayment'
+        }),
+        computedPayment: {
+            get(){
+                return this.payment
+            },
+            set(value){
+                this.setPayment(value)
+            }
+        },
     },
     methods:{
         ...mapActions({
@@ -117,7 +118,7 @@ export default {
         }),
         ...mapMutations('paypalState',[
             'setPaypalContainer',
-            // 'setPayment',
+            'setPayment',
         ]),
         createPayPalScript(){
             const script = document.createElement('script');
@@ -166,29 +167,16 @@ export default {
         addPaypalPayment(){
             paypal.Marks().render('#paypal-marks-container');
         },
-        // Folytatni: Ha becsukom a modal-t ha a paypal opció van és visszanyitom a kézpénz jelenik meg plusz a 
-        // paypal container is.... MEGOLDANI
         showPaymentContainer(event){
             if(event.target.value == 'paypal'){
-                // this.showPaypal = true
-                // this.setPayment('paypal')
                 this.setPaypalContainer(true)
                 this.setAlternatePayment(false)
             }else{
-                // this.showPaypal = false
-                // this.setPayment('alternate')
                 this.setPaypalContainer(false)
                 this.setAlternatePayment(true)
             }
             this.showMakeOrderBTN()
         },
-        setPaymentContainer(){
-            if (this.payment == 'alternate') {
-                this.setAlternatePayment(true)
-            }else{
-                this.setAlternatePayment(false)
-            }
-        }
     },
 }
 </script>

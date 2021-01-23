@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"e7277188208db7ee33b6","1":"fa9a9051b12fc566c7ca","2":"0ba032220a5a6a614499","3":"089976e0bd9edbfa7b50","4":"0332afe64f7a57d95ba8","5":"abbadf55326c3534246f","6":"0131f81824380bd4336f"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"2c102e1930f86609c3b3","1":"fa9a9051b12fc566c7ca","2":"0ba032220a5a6a614499","3":"089976e0bd9edbfa7b50","4":"0332afe64f7a57d95ba8","5":"abbadf55326c3534246f","6":"0131f81824380bd4336f"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -3738,6 +3738,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -3756,7 +3760,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   })),
   data: function data() {
     return {
-      showProfileDrop: false
+      showProfileDrop: false,
+      showFoodDrop: false
     };
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])({
@@ -3807,6 +3812,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     openProfileDrop: function openProfileDrop() {
       this.showProfileDrop = true;
+    },
+    hideFoodDropdown: function hideFoodDropdown() {
+      this.showFoodDrop = false;
+    },
+    toggleFoodDrop: function toggleFoodDrop() {
+      this.showFoodDrop = !this.showFoodDrop;
+    },
+    openFoodDrop: function openFoodDrop() {
+      this.showFoodDrop = true;
     }
   })
 });
@@ -3869,22 +3883,18 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     closeNav: Function,
-    event: Boolean
-  },
-  data: function data() {
-    return {
-      showDrop: false
-    };
+    event: Boolean,
+    showDrop: Boolean
   },
   methods: {
     hideDropdown: function hideDropdown() {
-      this.showDrop = false;
+      this.$emit('hide-dropdown');
     },
     toggleDrop: function toggleDrop() {
-      this.showDrop = !this.showDrop;
+      this.$emit('toggle-drop');
     },
     openDrop: function openDrop() {
-      this.showDrop = true;
+      this.$emit('open-drop');
     }
   }
 });
@@ -26877,7 +26887,7 @@ var render = function() {
         staticClass: "sidenav-close",
         on: {
           click: function($event) {
-            return _vm.$emit("close")
+            return _vm.closeNav()
           }
         }
       },
@@ -27749,233 +27759,255 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("nav", { staticClass: "navbar", attrs: { role: "navigation" } }, [
-    _vm.mobileSize
-      ? _c(
-          "span",
-          {
-            staticClass: "sidenav-close",
-            on: {
-              click: function($event) {
-                return _vm.closeNav()
-              }
-            }
-          },
-          [_c("i", { staticClass: "far fa-times-circle fa-2x" })]
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "navbar-brand" },
-      [
-        _c("router-link", { attrs: { to: { name: "Welcome" } } }, [
-          _c("span", { staticClass: "primary-color" }, [_vm._v("Húsgolyó ")]),
-          _vm._v("Étterem")
-        ])
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c(
-      "ul",
-      { staticClass: "navbar-nav" },
-      [
-        _c(
-          "li",
-          { staticClass: "nav-item" },
-          [
-            _c("LinkItem", {
-              attrs: {
-                menuName: "Portfólióm",
-                className: "nav-link",
-                routeName: "MainWelcome"
-              },
-              nativeOn: {
+  return _c(
+    "nav",
+    {
+      staticClass: "navbar",
+      attrs: { role: "navigation" },
+      on: {
+        mouseleave: function($event) {
+          _vm.hideProfileDropdown()
+          _vm.hideFoodDropdown()
+        }
+      }
+    },
+    [
+      _vm.mobileSize
+        ? _c(
+            "span",
+            {
+              staticClass: "sidenav-close",
+              on: {
                 click: function($event) {
                   return _vm.closeNav()
                 }
               }
-            })
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("DesktopNav", {
-          attrs: { closeNav: _vm.closeNav, event: _vm.mobileSize }
-        }),
-        _vm._v(" "),
-        _c(
-          "li",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: !_vm.loggedIn,
-                expression: "!loggedIn"
-              }
-            ],
-            staticClass: "nav-item"
-          },
-          [
-            _c("LinkItem", {
-              attrs: {
-                menuName: "Belépés",
-                className: "nav-link",
-                routeName: "Login"
-              },
-              nativeOn: {
-                click: function($event) {
-                  return _vm.closeNav()
-                }
-              }
-            })
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: !_vm.loggedIn,
-                expression: "!loggedIn"
-              }
-            ],
-            staticClass: "nav-item"
-          },
-          [
-            _c("LinkItem", {
-              attrs: {
-                menuName: "Regisztráció",
-                className: "nav-link",
-                routeName: "Register"
-              },
-              nativeOn: {
-                click: function($event) {
-                  return _vm.closeNav()
-                }
-              }
-            })
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: _vm.loggedIn,
-                expression: "loggedIn"
-              }
-            ],
-            staticClass: "nav-item dropdown"
-          },
-          [
-            _c(
-              "a",
-              _vm._g(
-                {
-                  staticClass: "nav-link dropdown-toggle",
-                  attrs: { id: "navbarDropdown" }
+            },
+            [_c("i", { staticClass: "far fa-times-circle fa-2x" })]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "navbar-brand" },
+        [
+          _c("router-link", { attrs: { to: { name: "Welcome" } } }, [
+            _c("span", { staticClass: "primary-color" }, [_vm._v("Húsgolyó ")]),
+            _vm._v("Étterem")
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        { staticClass: "navbar-nav" },
+        [
+          _c(
+            "li",
+            { staticClass: "nav-item" },
+            [
+              _c("LinkItem", {
+                attrs: {
+                  menuName: "Portfólióm",
+                  className: "nav-link",
+                  routeName: "MainWelcome"
                 },
-                _vm.mobileSize
-                  ? { click: _vm.toggleProfileDrop }
-                  : { mouseenter: _vm.openProfileDrop }
+                nativeOn: {
+                  click: function($event) {
+                    return _vm.closeNav()
+                  }
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("DesktopNav", {
+            attrs: {
+              closeNav: _vm.closeNav,
+              event: _vm.mobileSize,
+              showDrop: _vm.showFoodDrop
+            },
+            on: {
+              "hide-dropdown": _vm.hideFoodDropdown,
+              "open-drop": _vm.openFoodDrop,
+              "toggle-drop": _vm.toggleFoodDrop
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: !_vm.loggedIn,
+                  expression: "!loggedIn"
+                }
+              ],
+              staticClass: "nav-item"
+            },
+            [
+              _c("LinkItem", {
+                attrs: {
+                  menuName: "Belépés",
+                  className: "nav-link",
+                  routeName: "Login"
+                },
+                nativeOn: {
+                  click: function($event) {
+                    return _vm.closeNav()
+                  }
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: !_vm.loggedIn,
+                  expression: "!loggedIn"
+                }
+              ],
+              staticClass: "nav-item"
+            },
+            [
+              _c("LinkItem", {
+                attrs: {
+                  menuName: "Regisztráció",
+                  className: "nav-link",
+                  routeName: "Register"
+                },
+                nativeOn: {
+                  click: function($event) {
+                    return _vm.closeNav()
+                  }
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.loggedIn,
+                  expression: "loggedIn"
+                }
+              ],
+              staticClass: "nav-item dropdown"
+            },
+            [
+              _c(
+                "a",
+                _vm._g(
+                  {
+                    staticClass: "nav-link dropdown-toggle",
+                    attrs: { id: "navbarDropdown" }
+                  },
+                  _vm.mobileSize
+                    ? { click: _vm.toggleProfileDrop }
+                    : { mouseenter: _vm.openProfileDrop }
+                ),
+                [
+                  _vm._v(_vm._s(_vm.userName)),
+                  _c("span", { staticClass: "caret" })
+                ]
               ),
-              [
-                _vm._v(_vm._s(_vm.userName)),
-                _c("span", { staticClass: "caret" })
-              ]
-            ),
-            _vm._v(" "),
-            _c("transition", { attrs: { name: "dropdownNav" } }, [
-              _vm.showProfileDrop
-                ? _c(
-                    "div",
-                    _vm._g(
-                      { staticClass: "dropdown-menu" },
-                      _vm.mobileSize
-                        ? { click: _vm.toggleProfileDrop }
-                        : { mouseleave: _vm.hideProfileDropdown }
-                    ),
-                    [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-menu-item",
-                          attrs: { id: "logOutBtn", href: "#" },
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.logOut()
-                            }
-                          }
-                        },
-                        [
-                          _c("i", { staticClass: "fas fa-sign-out-alt" }),
-                          _vm._v(
-                            " \n                        Kilépés\n                    "
-                          )
-                        ]
+              _vm._v(" "),
+              _c("transition", { attrs: { name: "dropdownNav" } }, [
+                _vm.showProfileDrop
+                  ? _c(
+                      "div",
+                      _vm._g(
+                        { staticClass: "dropdown-menu" },
+                        _vm.mobileSize
+                          ? { click: _vm.toggleProfileDrop }
+                          : { mouseleave: _vm.hideProfileDropdown }
                       ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-menu-item",
-                          on: {
-                            click: function($event) {
-                              _vm.$parent.showOrdersModal = true
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "dropdown-menu-item",
+                            attrs: { id: "logOutBtn", href: "#" },
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                return _vm.logOut()
+                              }
                             }
-                          }
-                        },
-                        [
-                          _c("i", { staticClass: "fas fa-cart-arrow-down" }),
-                          _vm._v(
-                            "\n                    Korábbi rendelések\n                    "
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
-                          staticClass: "dropdown-menu-item",
-                          on: {
-                            click: function($event) {
-                              _vm.$parent.showCartModal = true
+                          },
+                          [
+                            _c("i", { staticClass: "fas fa-sign-out-alt" }),
+                            _vm._v(
+                              " \n                        Kilépés\n                    "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "dropdown-menu-item",
+                            on: {
+                              click: function($event) {
+                                _vm.$parent.showOrdersModal = true
+                              }
                             }
-                          }
-                        },
-                        [
-                          _c("i", { staticClass: "fas fa-shopping-cart" }),
-                          _vm._v(
-                            " \n                        Kosár\n                        "
-                          ),
-                          _c("span", { staticClass: "noOfFoodsInCart" }, [
-                            _vm._v(_vm._s(_vm.totalQty))
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                : _vm._e()
-            ])
-          ],
-          1
-        )
-      ],
-      1
-    )
-  ])
+                          },
+                          [
+                            _c("i", { staticClass: "fas fa-cart-arrow-down" }),
+                            _vm._v(
+                              "\n                    Korábbi rendelések\n                    "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "dropdown-menu-item",
+                            on: {
+                              click: function($event) {
+                                _vm.$parent.showCartModal = true
+                              }
+                            }
+                          },
+                          [
+                            _c("i", { staticClass: "fas fa-shopping-cart" }),
+                            _vm._v(
+                              " \n                        Kosár\n                        "
+                            ),
+                            _c("span", { staticClass: "noOfFoodsInCart" }, [
+                              _vm._v(_vm._s(_vm.totalQty))
+                            ])
+                          ]
+                        )
+                      ]
+                    )
+                  : _vm._e()
+              ])
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

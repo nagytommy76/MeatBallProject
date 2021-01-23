@@ -139,20 +139,16 @@ export default {
         showMakeOrderBTN(){
             if (this.getCurrentPage == this.pages.length-1) {
                 if (this.showAlternatePayment) {
-                    // this.showMakeOrder = true
                     this.setMakeOrder(true)
                 }else{
-                    // this.showMakeOrder = false
                     this.setMakeOrder(false)
                     if (this.paidWithPP) {
                         this.disableShowPayment(false)
                         this.enableShowPaypalMessage()
-                        // this.showMakeOrder = true
                         this.setMakeOrder(true)
                     }                    
                 }               
             }else{
-                // this.showMakeOrder = false
                 this.setMakeOrder(false)
             }
         }

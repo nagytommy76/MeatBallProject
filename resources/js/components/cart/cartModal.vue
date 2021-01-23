@@ -83,13 +83,13 @@ export default {
                     }
                 }).then(deleted => {
                     this.$store.commit('setCartItems', deleted.data);
-                    this.hideSuccessMsg(),
-                    setTimeout(this.hideSuccessMsg, 3000);
+                    this.toggleSuccessMsg()
                 })
             }
         },
-        hideSuccessMsg(){
-            this.deleted = !this.deleted;
+        toggleSuccessMsg(){
+            this.deleted = true;
+            setTimeout(() => {this.deleted = false}, 6000)
         },
     },
 }

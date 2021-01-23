@@ -46,21 +46,17 @@ export default {
     props:{
         closeNav: Function,
         event: Boolean,
-    },
-    data() {
-        return {
-            showDrop: false
-        }
+        showDrop: Boolean,
     },
     methods:{
         hideDropdown(){
-            this.showDrop = false
+            this.$emit('hide-dropdown')
         },
         toggleDrop(){
-            this.showDrop = !this.showDrop
+            this.$emit('toggle-drop')
         },
         openDrop(){
-            this.showDrop = true
+            this.$emit('open-drop')
         },
     },
 }

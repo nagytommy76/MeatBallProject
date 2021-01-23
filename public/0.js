@@ -119,7 +119,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 }).then(function (deleted) {
                   _this.$store.commit('setCartItems', deleted.data);
 
-                  _this.hideSuccessMsg(), setTimeout(_this.hideSuccessMsg, 3000);
+                  _this.toggleSuccessMsg();
                 });
 
               case 6:
@@ -130,8 +130,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, _callee);
       }))();
     },
-    hideSuccessMsg: function hideSuccessMsg() {
-      this.deleted = !this.deleted;
+    toggleSuccessMsg: function toggleSuccessMsg() {
+      var _this2 = this;
+
+      this.deleted = true;
+      setTimeout(function () {
+        _this2.deleted = false;
+      }, 6000);
     }
   }
 });
@@ -319,21 +324,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     showMakeOrderBTN: function showMakeOrderBTN() {
       if (this.getCurrentPage == this.pages.length - 1) {
         if (this.showAlternatePayment) {
-          // this.showMakeOrder = true
           this.setMakeOrder(true);
         } else {
-          // this.showMakeOrder = false
           this.setMakeOrder(false);
 
           if (this.paidWithPP) {
             this.disableShowPayment(false);
-            this.enableShowPaypalMessage(); // this.showMakeOrder = true
-
+            this.enableShowPaypalMessage();
             this.setMakeOrder(true);
           }
         }
       } else {
-        // this.showMakeOrder = false
         this.setMakeOrder(false);
       }
     }
@@ -444,15 +445,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SummaryCart",
-  data: function data() {
-    return {
-      payment: 'alternate' // showPaypal: false,
-
-    };
-  },
   mounted: function mounted() {
     this.createPayPalScript();
-    this.setPaymentContainer();
   },
   props: {
     showMakeOrderBTN: Function,
@@ -466,9 +460,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     showPayment: 'getShowPayment',
     showSuccessPayPal: 'showSuccessPayPal',
     showAlternatePay: 'showAlternatePayment',
-    showPaypal: 'getPayPalContainer' // payment: 'getPayment'
-
-  })),
+    showPaypal: 'getPayPalContainer',
+    payment: 'getPayment'
+  }), {
+    computedPayment: {
+      get: function get() {
+        return this.payment;
+      },
+      set: function set(value) {
+        this.setPayment(value);
+      }
+    }
+  }),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])({
     setPayPalDetails: 'setPayPalDetails',
     setPaidWithPP: 'setPaidWithPP'
@@ -476,8 +479,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     disableShowPayment: 'disableShowPayment',
     enableShowPaypalMessage: 'enableShowPaypalMessage',
     setAlternatePayment: 'setAlternatePayment'
-  }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])('paypalState', ['setPaypalContainer' // 'setPayment',
-  ]), {
+  }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])('paypalState', ['setPaypalContainer', 'setPayment']), {
     createPayPalScript: function createPayPalScript() {
       var script = document.createElement('script');
       script.src = "\n                https://www.paypal.com/sdk/js?client-id=Ab5PkxGXmT-up_8VMgPOajxLZSe9PzyOh4eHxeCkJ6GiVd-4vfcTtG-cayvv8dHJL6Uv6CW6vNxOaFa4&currency=HUF&components=buttons,marks\n            ";
@@ -553,29 +555,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     addPaypalPayment: function addPaypalPayment() {
       paypal.Marks().render('#paypal-marks-container');
     },
-    // Folytatni: Ha becsukom a modal-t ha a paypal opció van és visszanyitom a kézpénz jelenik meg plusz a 
-    // paypal container is.... MEGOLDANI
     showPaymentContainer: function showPaymentContainer(event) {
       if (event.target.value == 'paypal') {
-        // this.showPaypal = true
-        // this.setPayment('paypal')
         this.setPaypalContainer(true);
         this.setAlternatePayment(false);
       } else {
-        // this.showPaypal = false
-        // this.setPayment('alternate')
         this.setPaypalContainer(false);
         this.setAlternatePayment(true);
       }
 
       this.showMakeOrderBTN();
-    },
-    setPaymentContainer: function setPaymentContainer() {
-      if (this.payment == 'alternate') {
-        this.setAlternatePayment(true);
-      } else {
-        this.setAlternatePayment(false);
-      }
     }
   })
 });
@@ -1278,8 +1267,8 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.payment,
-                      expression: "payment"
+                      value: _vm.computedPayment,
+                      expression: "computedPayment"
                     }
                   ],
                   attrs: {
@@ -1287,11 +1276,11 @@ var render = function() {
                     name: "payment-option",
                     value: "paypal"
                   },
-                  domProps: { checked: _vm._q(_vm.payment, "paypal") },
+                  domProps: { checked: _vm._q(_vm.computedPayment, "paypal") },
                   on: {
                     change: [
                       function($event) {
-                        _vm.payment = "paypal"
+                        _vm.computedPayment = "paypal"
                       },
                       _vm.showPaymentContainer
                     ]
@@ -1310,8 +1299,8 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.payment,
-                      expression: "payment"
+                      value: _vm.computedPayment,
+                      expression: "computedPayment"
                     }
                   ],
                   attrs: {
@@ -1319,11 +1308,13 @@ var render = function() {
                     name: "payment-option",
                     value: "alternate"
                   },
-                  domProps: { checked: _vm._q(_vm.payment, "alternate") },
+                  domProps: {
+                    checked: _vm._q(_vm.computedPayment, "alternate")
+                  },
                   on: {
                     change: [
                       function($event) {
-                        _vm.payment = "alternate"
+                        _vm.computedPayment = "alternate"
                       },
                       _vm.showPaymentContainer
                     ]

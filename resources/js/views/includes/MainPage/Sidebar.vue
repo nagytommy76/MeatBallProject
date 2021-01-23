@@ -1,6 +1,6 @@
 <template>
     <nav class="sidenav">
-        <span @click="$emit('close')" class="sidenav-close"><i class="far fa-times-circle fa-2x"></i></span>
+        <span @click="closeNav()" class="sidenav-close"><i class="far fa-times-circle fa-2x"></i></span>
         <div class="sidenav-nav">
             <div class="sidenav-navigation">
                 <router-link class="sidenav-navigation-item" :to="{name: 'Welcome'}">Húsgolyó Étterem</router-link>

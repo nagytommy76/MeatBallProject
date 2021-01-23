@@ -1,5 +1,5 @@
 <template>
-    <nav role="navigation" class="navbar">
+    <nav role="navigation" class="navbar" @mouseleave="hideProfileDropdown(); hideFoodDropdown()">
         <span v-if="mobileSize" @click="closeNav()" class="sidenav-close"><i class="far fa-times-circle fa-2x"></i></span>
         <div class="navbar-brand">
             <router-link :to="{name: 'Welcome'}"><span class="primary-color">Húsgolyó </span>Étterem</router-link>
@@ -16,6 +16,10 @@
             <DesktopNav
                 :closeNav="closeNav"
                 :event="mobileSize"
+                :showDrop="showFoodDrop"
+                @hide-dropdown="hideFoodDropdown"
+                @open-drop="openFoodDrop"
+                @toggle-drop="toggleFoodDrop"
             />
             <li v-show="!loggedIn" class="nav-item">
                 <LinkItem 
@@ -80,6 +84,7 @@ export default {
     data() {
         return {
             showProfileDrop: false,
+            showFoodDrop: false,
         }
     },
     methods: {
@@ -111,6 +116,16 @@ export default {
         },
         openProfileDrop(){
             this.showProfileDrop = true
+        },
+
+        hideFoodDropdown(){
+            this.showFoodDrop = false
+        },
+        toggleFoodDrop(){
+            this.showFoodDrop = !this.showFoodDrop
+        },
+        openFoodDrop(){
+            this.showFoodDrop = true
         },
     },
 }
