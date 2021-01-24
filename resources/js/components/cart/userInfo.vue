@@ -70,6 +70,7 @@
                     </div>
                     <div class="col">
                         <label for="phone">Telefon: <sup>*</sup></label>
+                        <!-- <input @keyup="testPhoneRegex" v-model="user.phone" type="text" id="phone" class="form-control shadowed"> -->
                         <input v-model="user.phone" type="text" id="phone" class="form-control shadowed">
                         <ErrorMsg 
                             v-if="hasError"
@@ -122,6 +123,9 @@ export default {
             }
         }
     },
+    props:{
+        showMakeOrderBTN: Function,
+    },
     computed:{
         ...mapGetters({
             user: 'getUserInfo',
@@ -163,7 +167,8 @@ export default {
                 }else{
                     if (!userInfo.data.exception) {
                         this.getUserInfo()
-                        this.increasePage();
+                        this.increasePage()
+                        this.showMakeOrderBTN()
                     }else{
                         this.showExceptionMsg(userInfo.data.exception)
                     }
@@ -186,6 +191,11 @@ export default {
                 }
             })
         },
+        testPhoneRegex(event){
+            const test = /((?:\+?3|0)6)()/g; 
+            // console.log(test.match(event.target.value))
+            console.log(event.target.value.match(test))
+        }
     },
 }
 </script>

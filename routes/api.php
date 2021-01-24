@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('register', 'Auth\RegisterController@register');
 
-Route::get('/email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+Route::post('/email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 Route::get('/email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('verification.verify');
 
 Route::post('login', 'Auth\LoginController@login');

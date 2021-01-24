@@ -25,10 +25,9 @@ $navbar-color: #212121;
 #navOpen{
     font-size: 1.7rem;
     position: fixed;
-    top: 0;
-    right: 0;
+    top: 25px;
+    right: 25px;
     z-index: 1;
-    margin: 1.3rem;
     cursor: pointer;
     padding: .5rem;
     background-color: rgba($color: #000000, $alpha: .85);

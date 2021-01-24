@@ -46,37 +46,45 @@ class VerificationController extends BaseAuthController
      *
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-     public function verify(Request $request)
-     {
-        $user = User::findOrFail($request->id);
-        if (! hash_equals((string) $request->route('hash'), sha1($user->getEmailForVerification()))) {
-            throw new AuthorizationException;
-        }
- 
-        if ($user->hasVerifiedEmail()) {
-        return redirect(url('meatball/login',['validationSuccess' => true, 'message' => 'Már regisztrálta e-mail címét! Be tud lépni.']));
-        }
- 
-        if ($user->markEmailAsVerified()) {
-            event(new Verified($user));
-        }
-        return redirect(url('meatball/login',['validationSuccess' => true, 'message' => 'A validáció sikeres volt! Mostantól be tud jelentkezni']));
-     }
+    public function verify(Request $request)
+    {
+       $user = User::findOrFail($request->id);
+       if (! hash_equals((string) $request->route('hash'), sha1($user->getEmailForVerification()))) {
+           throw new AuthorizationException;
+       }
+
+       if ($user->hasVerifiedEmail()) {
+       return redirect(url('meatball/login',['validationSuccess' => true, 'message' => 'Már regisztrálta e-mail címét! Be tudlépni.']));
+       }
+
+       if ($user->markEmailAsVerified()) {
+           event(new Verified($user));
+       }
+       return redirect(url('meatball/login',['validationSuccess' => true, 'message' => 'A validáció sikeres volt! Mostantólbe tud jelentkezni']));
+    }
 
     /**
-     * Resend the email verification notification.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
-     */
-     public function resend(Request $request)
-     {
-         if ($request->user()->hasVerifiedEmail()) {
-            return response()->json(['message' => 'Már regisztrálta e-mail címét! Be tud lépni']);
-         }
- 
-         $request->user()->sendEmailVerificationNotification();
- 
-        return response()->json(['message' => 'E-mail elküldve ']);
-     }
+    * Resend the email verification notification.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
+    */
+    public function resend(Request $request)
+    {
+        $formData = $request->all()['formData'];
+        $user = User::where('email','like', $formData['email'])->first();
+        if ($user->hasVerifiedEmail()) {
+            return response()->json([
+                'message' => 'Már regisztrálta e-mail címét! Be tud lépni',
+                'send' => false
+            ]);
+        }
+
+        $user->sendEmailVerificationNotification();
+
+        return response()->json([
+            'message' => 'E-mail elküldve',
+            'send' => true
+        ]);
+    }
 }

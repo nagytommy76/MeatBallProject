@@ -20,7 +20,6 @@
 <script>
 import loadData from '../../helpers/loadData'
 export default {
-    // name: 'BaseFilter',
     data: () =>{
         return{
             priceValue: 0,

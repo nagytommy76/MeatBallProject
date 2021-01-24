@@ -5,7 +5,7 @@ export default{
     },
     getters: {
         getUserName: state => state.username,
-        getUserLoggedIn: state => state.userLoggedIn
+        getUserLoggedIn: state => state.userLoggedIn,
     },
     mutations: {
        setUserName(state, username){
@@ -16,14 +16,8 @@ export default{
        },       
     },
     actions: {
-        setLoggedIn(state, loggedIn){
-            state.commit('setUserLoggedIn', loggedIn)
-        },
-        setUserName(state, userName){
-            state.commit('setUserName', userName)
-        },
         revokeUserName(context){
-            context.dispatch('setUserName', '')
-        }
+            context.commit('setUserName', '')
+        },
     }
 }

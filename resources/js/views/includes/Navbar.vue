@@ -63,7 +63,7 @@
     </nav>    
 </template>
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 import DesktopNav from './NavbarIncludes/DesktopNav'
 import LinkItem from './NavbarIncludes/LinkItem'
 export default {
@@ -90,10 +90,12 @@ export default {
     methods: {
         ...mapActions({
             revokeUserName: 'revokeUserName',
-            setLoggedIn: 'setLoggedIn',
             setCartDefault: 'setCartDefault',
             setToDefaultUserInfo: 'setToDefaultUserInfo',
         }),
+        ...mapMutations([
+            'setUserLoggedIn'
+        ]),
         closeNav(){
             if (this.mobileSize) {
                 this.$emit('close')
@@ -102,7 +104,7 @@ export default {
         async logOut(){
             await axios.post('logout').then(logout =>{
                 this.revokeUserName()
-                this.setLoggedIn(false)
+                this.setUserLoggedIn(false)
                 this.setCartDefault()
                 this.setToDefaultUserInfo()
                 localStorage.removeItem('accessToken')

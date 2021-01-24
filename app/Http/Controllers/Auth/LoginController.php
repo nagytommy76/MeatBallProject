@@ -30,7 +30,10 @@ class LoginController extends BaseAuthController
         
             $user = User::where('email','like', $formData['email'])->where('email_verified_at', '<>', 'NULL')->first();
             if (!$user) {
-                return $this->jsonResponse(['email' => ['Kérem aktiválja az e-mail címét!']]);
+                return $this->jsonResponse([
+                        'verifiedEmail' => false,
+                        'email' => ['Kérem aktiválja az e-mail címét!']
+                    ]);
             }else{
                 if (Hash::check($formData['password'], $user->password)) {
                     $this->loginUserGetAccessToken($user, $formData['remember']);

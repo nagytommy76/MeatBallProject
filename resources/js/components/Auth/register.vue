@@ -46,6 +46,9 @@
                             </div>
                         </div>                     
                     </form>
+                    <Loading 
+                        :isLoading="isLoading"
+                    />
                 </div>
             </div>
         </section>
@@ -56,6 +59,7 @@ export default {
     name: 'Register',
     data(){
         return{
+            isLoading: false,
             formData: {
                 username: '',
                 email: '',
@@ -74,6 +78,7 @@ export default {
     },
     methods: {
         async userRegister(){
+            this.isLoading = true
             await axios.post('register', {
                 formData: this.formData
             })
@@ -83,9 +88,11 @@ export default {
                         this.$router.push({name: 'Login', params: {registerAlert: true}})
                     }else{
                         this.showErrors(register.data.hasError)
-                    }                    
+                    }  
+                    this.isLoading = false                  
                 }else{
                     this.showException(register.data.exception)
+                    this.isLoading = false
                 }
             })
         },

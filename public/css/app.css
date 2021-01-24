@@ -227,6 +227,10 @@ body::-webkit-scrollbar-thumb {
     right: 15px;
     bottom: 25px;
   }
+
+  .btn {
+    font-size: 0.8rem;
+  }
 }
 
 .tooltip {
@@ -322,10 +326,9 @@ body::-webkit-scrollbar-thumb {
 #navOpen {
   font-size: 1.7rem;
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 25px;
+  right: 25px;
   z-index: 1;
-  margin: 1.3rem;
   cursor: pointer;
   padding: 0.5rem;
   background-color: rgba(0, 0, 0, 0.85);
@@ -697,7 +700,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .food_card_container .food_card_content .food_card_inner {
-  padding: 0.5rem;
+  padding: 0 0.5rem;
   align-content: center;
   min-height: 250px;
 }
@@ -707,9 +710,9 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
-  min-height: 35px;
+  min-height: 20px;
   font-size: 1.75rem;
-  padding-bottom: 0.6rem;
+  padding: 0.6rem 0;
   margin-bottom: 1.6rem;
   border-bottom: 1px solid #F7BF00;
 }
@@ -760,17 +763,15 @@ body::-webkit-scrollbar-thumb {
   }
 
   .food_card_container .food_card_content .food_card .food_card_header {
-    height: 180px;
+    min-height: 170px;
   }
 
   .food_card_container .food_card_content .food_card .food_card_inner {
-    min-height: 150px;
+    min-height: 130px;
   }
 
   .food_card_container .food_card_content .food_card .food_card_inner .food_card_heading {
     font-size: 1.2rem;
-    padding-bottom: 0.3rem;
-    margin-bottom: 1rem;
     white-space: normal;
     text-overflow: unset;
   }
@@ -781,6 +782,7 @@ body::-webkit-scrollbar-thumb {
 
   .food_card_container .food_card_content .food_card .food_card_inner .ingredients h3 {
     font-size: 1rem;
+    margin-bottom: 0.3rem;
   }
 
   .food_card_container .food_card_content .food_card .food_card_footer {
@@ -803,12 +805,12 @@ body::-webkit-scrollbar-thumb {
   position: -webkit-sticky;
   position: sticky;
   left: 0;
-  top: 7rem;
-  margin: 6.3rem 1rem;
-  padding: 1.5rem;
+  top: 12.5rem;
+  margin-right: 1rem;
+  padding: 0 1.5rem;
   background: #3f3f3f;
   border-radius: 5px;
-  height: 20rem;
+  height: 19rem;
   display: flex;
   flex-direction: column;
 }
@@ -856,7 +858,7 @@ body::-webkit-scrollbar-thumb {
 
   .card-and-filter .filter-container {
     position: relative;
-    margin: 2rem 1rem 5rem 1rem;
+    margin: 2rem 1rem 2rem 1rem;
   }
 }
 
@@ -1275,7 +1277,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .main-content .main-right-content {
-  background-color: #eeeeeee5;
+  background-color: #ffffff;
   color: #333;
   width: 70%;
   text-align: justify;
@@ -1578,7 +1580,7 @@ body::-webkit-scrollbar-thumb {
   right: 15px;
   z-index: 1;
   cursor: pointer;
-  padding: 0.7rem;
+  padding: 0.5rem;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 5px;
   transition: color 0.2s;

@@ -25,9 +25,9 @@
                                     v-if="hasError"
                                     :errors="errors.password"
                                 />
-                            </div>                           
-                        </div> 
-                        <div class="form-group row">
+                            </div>  
+                        </div>  
+                        <div class="form-group">
                             <div class="col">
                                 <label for="remember">Emlékezz Rám!</label>
                                 <input type="checkbox" v-model="formData.remember" name="remember" id="remember">
@@ -38,17 +38,27 @@
                         <div class="col">
                             <input id="fetchUserToken" type="submit" value="Belépés" @click.prevent="logTheUserIn" class="btn btn-primary" />
                         </div>
+                        <div class="col">
+                            <button v-if="hasEmailError" @click.prevent="resendEmail" class="btn btn-delete">Aktiváló kód újraküldése</button>
+                        </div>
                     </div>
-                    <Alert
-                        v-if="showRegisterSuccess"
-                        :className="'success'"
-                        :Msg="'A regisztráció sikeres volt! Kérem aktiválja az e-mail címét.'"
-                    />
-                    <Alert
-                        v-if="showValidationSuccess"
-                        :className="'success'"
-                        :Msg="getValidationSuccessMsg"
-                    />
+                    <div class="form-group">
+                        <Alert
+                            v-if="showRegisterSuccess"
+                            :className="'success'"
+                            :Msg="'A regisztráció sikeres volt! Kérem aktiválja az e-mail címét.'"
+                        />
+                        <Alert
+                            v-if="showValidationSuccess"
+                            :className="'success'"
+                            :Msg="getValidationSuccessMsg"
+                        />
+                        <Alert
+                            v-if="hasEmailError"
+                            :Msg="verifiedMsg"
+                            :className="className"
+                        />
+                    </div>
                 </div>
             </form>
             </div>
@@ -58,6 +68,7 @@
 </div>
 </template>
 <script>
+import { mapMutations } from 'vuex'
 export default {
     name: 'Login',
     data(){
@@ -72,6 +83,9 @@ export default {
                 email: '',
                 password: ''
             },
+            hasEmailError: false,
+            verifiedMsg: '',
+            className: 'danger',
         }
     },
     computed:{
@@ -86,6 +100,10 @@ export default {
         }
     },
     methods:{
+        ...mapMutations([
+            'setUserName',
+            'setUserLoggedIn',
+        ]),
         showErrors(errors){
             this.hasError = true;
             this.errors.email = errors.email;
@@ -100,13 +118,31 @@ export default {
                     if(login.status == 200){
                         if (login.data.hasError.length !== 0) {
                             this.showErrors(login.data.hasError);
+                            this.hasEmailError = true
+                            this.verifiedMsg = login.data.hasError.email[0]
+                            if (!login.data.hasError.verifiedEmail) {
+                                
+                            }
                         }else{
-                            this.$store.dispatch('setUserName', login.data.username)
-                            this.$store.dispatch('setLoggedIn', true)
+                            this.setUserName(login.data.username)
+                            this.setUserLoggedIn(true)
                             this.$router.push({name: 'Welcome'})
                         }                        
                     }
                 })
+            })
+        },
+        async resendEmail(){
+            axios.post('email/resend',{
+                formData: this.formData
+            }).then(email => {
+                if (email.data.send) {
+                    this.verifiedMsg = email.data.message
+                    this.className = 'success'
+                }else{
+                    this.verifiedMsg = email.data.message
+                    this.className = 'danger'
+                }
             })
         },
     }

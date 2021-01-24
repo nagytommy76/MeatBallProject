@@ -13,13 +13,15 @@ export default {
                 zip_code: null
             },
             isUserDataReceived: false,
-            isUserInfoFilled: false
+            isUserInfoFilled: false,
+            userDataReceivedOnce: false,
         } 
     },
     getters: {
         getUserInfo: state => state.userInfo,
         getIsUserDataReceived: state => state.isUserDataReceived,
         getUserInfoFilled: state => state.isUserInfoFilled,
+        getUserDataReceivedOnce: state => state.userDataReceivedOnce
     },
     mutations: {
         setUserInfo(state, payload){
@@ -33,7 +35,11 @@ export default {
         },
         setToDefaultUserInfo(state, payload){
             state.userInfo = payload
-        }
+        },
+        // Csak 1szer, ellenőrzésképp kérem le a (getUserInfot-t)
+        setUserDataReceivedOnce(state, payload){
+            state.userDataReceivedOnce = payload
+        },
     },
     actions: {
         getUserInfo(context){ 
@@ -60,6 +66,7 @@ export default {
                 zip_code: null
             }
             context.commit('setToDefaultUserInfo', userInfo)
+            context.commit('setUserDataReceivedOnce', false)
         },
     }
 }

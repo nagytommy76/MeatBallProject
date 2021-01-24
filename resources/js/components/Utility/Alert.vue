@@ -7,7 +7,11 @@
 export default {
     name: 'Alert',
     props:{
-        className: String,
+        className:{
+            type: String,
+            default: 'danger',
+            required: false,
+        },
         Msg: String,
     },
 }

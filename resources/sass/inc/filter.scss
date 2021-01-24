@@ -6,12 +6,12 @@
     .filter-container{
         position: sticky;
         left: 0;
-        top: 7rem;
-        margin: 6.3rem 1rem;
-        padding: 1.5rem;
+        top: 12.5rem;
+        margin-right: 1rem;
+        padding: 0 1.5rem;
         background: $card-background;
         border-radius: 5px;
-        height: 20rem;
+        height: 19rem;
         display: flex;
         flex-direction: column;
         
@@ -57,16 +57,9 @@
 @media(max-width: $small-laptop-width){
     .card-and-filter{
         flex-direction: column;
-
         .filter-container{
             position: relative;
-
-            margin: 2rem 1rem 5rem 1rem;
+            margin: 2rem 1rem 2rem 1rem;
         }
     }
 }
-
-
-
-
-

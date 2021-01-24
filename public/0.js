@@ -237,6 +237,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     getCreatedAt: 'getCreatedAt',
     isUserDataReceived: 'getIsUserDataReceived',
     isUserinfoFilled: 'getUserInfoFilled',
+    getUserDataReceivedOnce: 'getUserDataReceivedOnce',
     getCurrentPage: 'getCurrentPage',
     showMakeOrder: 'getShowMakeOrder'
   }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapGetters"])('paypalState', {
@@ -245,8 +246,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     showAlternatePayment: 'showAlternatePayment'
   })),
   created: function created() {
-    if (!this.isUserinfoFilled) {
+    if (!this.getUserDataReceivedOnce) {
       this.getUserInfo();
+      this.setUserDataReceivedOnce(true);
     }
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapActions"])({
@@ -260,7 +262,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     disableShowPayment: 'disableShowPayment',
     enableShowPaypalMessage: 'enableShowPaypalMessage'
   }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapMutations"])({
-    setMakeOrder: 'setMakeOrder'
+    setMakeOrder: 'setMakeOrder',
+    setUserDataReceivedOnce: 'setUserDataReceivedOnce'
   }), {
     makeOrder: function makeOrder() {
       var _this = this;
@@ -696,6 +699,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "UserInfo",
@@ -717,6 +721,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         phone: ''
       }
     };
+  },
+  props: {
+    showMakeOrderBTN: Function
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
     user: 'getUserInfo',
@@ -774,6 +781,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                       _this3.getUserInfo();
 
                       _this3.increasePage();
+
+                      _this3.showMakeOrderBTN();
                     } else {
                       _this3.showExceptionMsg(userInfo.data.exception);
                     }
@@ -820,6 +829,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           }
         }, _callee2);
       }))();
+    },
+    testPhoneRegex: function testPhoneRegex(event) {
+      var test = /((?:\+?3|0)6)()/g; // console.log(test.match(event.target.value))
+
+      console.log(event.target.value.match(test));
     }
   })
 });

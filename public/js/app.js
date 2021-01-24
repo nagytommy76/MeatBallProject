@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"2c102e1930f86609c3b3","1":"fa9a9051b12fc566c7ca","2":"0ba032220a5a6a614499","3":"089976e0bd9edbfa7b50","4":"0332afe64f7a57d95ba8","5":"abbadf55326c3534246f","6":"0131f81824380bd4336f"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"933004460a9070495c7f","1":"fa9a9051b12fc566c7ca","2":"0ba032220a5a6a614499","3":"e28fe4e243ffd26c06e4","4":"0332afe64f7a57d95ba8","5":"abbadf55326c3534246f","6":"0131f81824380bd4336f"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -2037,12 +2037,19 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2102,6 +2109,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Login',
   data: function data() {
@@ -2115,7 +2133,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       errors: {
         email: '',
         password: ''
-      }
+      },
+      hasEmailError: false,
+      verifiedMsg: '',
+      className: 'danger'
     };
   },
   computed: {
@@ -2129,7 +2150,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return this.$route.params.msg;
     }
   },
-  methods: {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])(['setUserName', 'setUserLoggedIn']), {
     showErrors: function showErrors(errors) {
       this.hasError = true;
       this.errors.email = errors.email;
@@ -2150,10 +2171,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     if (login.status == 200) {
                       if (login.data.hasError.length !== 0) {
                         _this.showErrors(login.data.hasError);
-                      } else {
-                        _this.$store.dispatch('setUserName', login.data.username);
 
-                        _this.$store.dispatch('setLoggedIn', true);
+                        _this.hasEmailError = true;
+                        _this.verifiedMsg = login.data.hasError.email[0];
+
+                        if (!login.data.hasError.verifiedEmail) {}
+                      } else {
+                        _this.setUserName(login.data.username);
+
+                        _this.setUserLoggedIn(true);
 
                         _this.$router.push({
                           name: 'Welcome'
@@ -2170,8 +2196,36 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee);
       }))();
+    },
+    resendEmail: function resendEmail() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                axios.post('email/resend', {
+                  formData: _this2.formData
+                }).then(function (email) {
+                  if (email.data.send) {
+                    _this2.verifiedMsg = email.data.message;
+                    _this2.className = 'success';
+                  } else {
+                    _this2.verifiedMsg = email.data.message;
+                    _this2.className = 'danger';
+                  }
+                });
+
+              case 1:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
     }
-  }
+  })
 });
 
 /***/ }),
@@ -2246,10 +2300,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Register',
   data: function data() {
     return {
+      isLoading: false,
       formData: {
         username: '',
         email: '',
@@ -2275,7 +2333,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                _this.isLoading = true;
+                _context.next = 3;
                 return axios.post('register', {
                   formData: _this.formData
                 }).then(function (register) {
@@ -2290,12 +2349,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     } else {
                       _this.showErrors(register.data.hasError);
                     }
+
+                    _this.isLoading = false;
                   } else {
                     _this.showException(register.data.exception);
+
+                    _this.isLoading = false;
                   }
                 });
 
-              case 2:
+              case 3:
               case "end":
                 return _context.stop();
             }
@@ -2357,7 +2420,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  // name: 'BaseFilter',
   data: function data() {
     return {
       priceValue: 0,
@@ -3766,10 +3828,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])({
     revokeUserName: 'revokeUserName',
-    setLoggedIn: 'setLoggedIn',
     setCartDefault: 'setCartDefault',
     setToDefaultUserInfo: 'setToDefaultUserInfo'
-  }), {
+  }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])(['setUserLoggedIn']), {
     closeNav: function closeNav() {
       if (this.mobileSize) {
         this.$emit('close');
@@ -3787,7 +3848,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 return axios.post('logout').then(function (logout) {
                   _this.revokeUserName();
 
-                  _this.setLoggedIn(false);
+                  _this.setUserLoggedIn(false);
 
                   _this.setCartDefault();
 
@@ -25233,7 +25294,7 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "form-group" }, [
                 _c("div", { staticClass: "col" }, [
                   _c("label", { attrs: { for: "remember" } }, [
                     _vm._v("Emlékezz Rám!")
@@ -25290,50 +25351,79 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "card-footer" },
-                [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("div", { staticClass: "col" }, [
-                      _c("input", {
-                        staticClass: "btn btn-primary",
-                        attrs: {
-                          id: "fetchUserToken",
-                          type: "submit",
-                          value: "Belépés"
-                        },
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            return _vm.logTheUserIn($event)
-                          }
+              _c("div", { staticClass: "card-footer" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("div", { staticClass: "col" }, [
+                    _c("input", {
+                      staticClass: "btn btn-primary",
+                      attrs: {
+                        id: "fetchUserToken",
+                        type: "submit",
+                        value: "Belépés"
+                      },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.logTheUserIn($event)
                         }
-                      })
-                    ])
+                      }
+                    })
                   ]),
                   _vm._v(" "),
-                  _vm.showRegisterSuccess
-                    ? _c("Alert", {
-                        attrs: {
-                          className: "success",
-                          Msg:
-                            "A regisztráció sikeres volt! Kérem aktiválja az e-mail címét."
-                        }
-                      })
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.showValidationSuccess
-                    ? _c("Alert", {
-                        attrs: {
-                          className: "success",
-                          Msg: _vm.getValidationSuccessMsg
-                        }
-                      })
-                    : _vm._e()
-                ],
-                1
-              )
+                  _c("div", { staticClass: "col" }, [
+                    _vm.hasEmailError
+                      ? _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-delete",
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                return _vm.resendEmail($event)
+                              }
+                            }
+                          },
+                          [_vm._v("Aktiváló kód újraküldése")]
+                        )
+                      : _vm._e()
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _vm.showRegisterSuccess
+                      ? _c("Alert", {
+                          attrs: {
+                            className: "success",
+                            Msg:
+                              "A regisztráció sikeres volt! Kérem aktiválja az e-mail címét."
+                          }
+                        })
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.showValidationSuccess
+                      ? _c("Alert", {
+                          attrs: {
+                            className: "success",
+                            Msg: _vm.getValidationSuccessMsg
+                          }
+                        })
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.hasEmailError
+                      ? _c("Alert", {
+                          attrs: {
+                            Msg: _vm.verifiedMsg,
+                            className: _vm.className
+                          }
+                        })
+                      : _vm._e()
+                  ],
+                  1
+                )
+              ])
             ])
           ])
         ])
@@ -25368,14 +25458,134 @@ var render = function() {
       _c("div", { staticClass: "card" }, [
         _vm._m(0),
         _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
-          _c("form", [
-            _c(
-              "div",
-              { staticClass: "form-group" },
-              [
-                _c("label", { attrs: { for: "username" } }, [
-                  _vm._v("Felhasználónév")
+        _c(
+          "div",
+          { staticClass: "card-body" },
+          [
+            _c("form", [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "username" } }, [
+                    _vm._v("Felhasználónév")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.formData.username,
+                        expression: "formData.username"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      id: "username",
+                      type: "text",
+                      name: "username",
+                      autofocus: ""
+                    },
+                    domProps: { value: _vm.formData.username },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.formData, "username", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.hasError
+                    ? _c("ErrorMsg", { attrs: { errors: _vm.errors.username } })
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "email" } }, [
+                    _vm._v("E-mail cím")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.formData.email,
+                        expression: "formData.email"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "email", name: "email", id: "email" },
+                    domProps: { value: _vm.formData.email },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.formData, "email", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.hasError
+                    ? _c("ErrorMsg", { attrs: { errors: _vm.errors.email } })
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "password" } }, [
+                    _vm._v("Jelszó")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.formData.password,
+                        expression: "formData.password"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "password",
+                      name: "password",
+                      id: "password"
+                    },
+                    domProps: { value: _vm.formData.password },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.formData, "password", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.hasError
+                    ? _c("ErrorMsg", { attrs: { errors: _vm.errors.password } })
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "confrim-password" } }, [
+                  _vm._v("Jelszó újra")
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -25383,167 +25593,60 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.formData.username,
-                      expression: "formData.username"
+                      value: _vm.formData.password_confirmation,
+                      expression: "formData.password_confirmation"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: {
-                    id: "username",
-                    type: "text",
-                    name: "username",
-                    autofocus: ""
+                    type: "password",
+                    name: "password_confirmation",
+                    id: "confrim-password"
                   },
-                  domProps: { value: _vm.formData.username },
+                  domProps: { value: _vm.formData.password_confirmation },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(_vm.formData, "username", $event.target.value)
+                      _vm.$set(
+                        _vm.formData,
+                        "password_confirmation",
+                        $event.target.value
+                      )
                     }
                   }
-                }),
-                _vm._v(" "),
-                _vm.hasError
-                  ? _c("ErrorMsg", { attrs: { errors: _vm.errors.username } })
-                  : _vm._e()
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "form-group" },
-              [
-                _c("label", { attrs: { for: "email" } }, [
-                  _vm._v("E-mail cím")
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-footer" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("div", [
+                    _c("input", {
+                      staticClass: "btn btn-primary",
+                      attrs: { value: "Regisztráció", type: "submit" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.userRegister($event)
+                        }
+                      }
+                    })
+                  ])
                 ]),
                 _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.formData.email,
-                      expression: "formData.email"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "email", name: "email", id: "email" },
-                  domProps: { value: _vm.formData.email },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.formData, "email", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.hasError
-                  ? _c("ErrorMsg", { attrs: { errors: _vm.errors.email } })
+                _vm.hasException
+                  ? _c("div", { staticClass: "alert alert-danger" }, [
+                      _c("p", [_vm._v(_vm._s(_vm.exceptionMsg))])
+                    ])
                   : _vm._e()
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "form-group" },
-              [
-                _c("label", { attrs: { for: "password" } }, [_vm._v("Jelszó")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.formData.password,
-                      expression: "formData.password"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "password", name: "password", id: "password" },
-                  domProps: { value: _vm.formData.password },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.formData, "password", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.hasError
-                  ? _c("ErrorMsg", { attrs: { errors: _vm.errors.password } })
-                  : _vm._e()
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "confrim-password" } }, [
-                _vm._v("Jelszó újra")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.formData.password_confirmation,
-                    expression: "formData.password_confirmation"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "password",
-                  name: "password_confirmation",
-                  id: "confrim-password"
-                },
-                domProps: { value: _vm.formData.password_confirmation },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(
-                      _vm.formData,
-                      "password_confirmation",
-                      $event.target.value
-                    )
-                  }
-                }
-              })
+              ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "card-footer" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("div", [
-                  _c("input", {
-                    staticClass: "btn btn-primary",
-                    attrs: { value: "Regisztráció", type: "submit" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        return _vm.userRegister($event)
-                      }
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _vm.hasException
-                ? _c("div", { staticClass: "alert alert-danger" }, [
-                    _c("p", [_vm._v(_vm._s(_vm.exceptionMsg))])
-                  ])
-                : _vm._e()
-            ])
-          ])
-        ])
+            _c("Loading", { attrs: { isLoading: _vm.isLoading } })
+          ],
+          1
+        )
       ])
     ])
   ])
@@ -44791,14 +44894,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   actions: {
-    setLoggedIn: function setLoggedIn(state, loggedIn) {
-      state.commit('setUserLoggedIn', loggedIn);
-    },
-    setUserName: function setUserName(state, userName) {
-      state.commit('setUserName', userName);
-    },
     revokeUserName: function revokeUserName(context) {
-      context.dispatch('setUserName', '');
+      context.commit('setUserName', '');
     }
   }
 });
@@ -45086,7 +45183,8 @@ __webpack_require__.r(__webpack_exports__);
         zip_code: null
       },
       isUserDataReceived: false,
-      isUserInfoFilled: false
+      isUserInfoFilled: false,
+      userDataReceivedOnce: false
     };
   },
   getters: {
@@ -45098,6 +45196,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     getUserInfoFilled: function getUserInfoFilled(state) {
       return state.isUserInfoFilled;
+    },
+    getUserDataReceivedOnce: function getUserDataReceivedOnce(state) {
+      return state.userDataReceivedOnce;
     }
   },
   mutations: {
@@ -45112,6 +45213,10 @@ __webpack_require__.r(__webpack_exports__);
     },
     setToDefaultUserInfo: function setToDefaultUserInfo(state, payload) {
       state.userInfo = payload;
+    },
+    // Csak 1szer, ellenőrzésképp kérem le a (getUserInfot-t)
+    setUserDataReceivedOnce: function setUserDataReceivedOnce(state, payload) {
+      state.userDataReceivedOnce = payload;
     }
   },
   actions: {
@@ -45142,6 +45247,7 @@ __webpack_require__.r(__webpack_exports__);
         zip_code: null
       };
       context.commit('setToDefaultUserInfo', userInfo);
+      context.commit('setUserDataReceivedOnce', false);
     }
   }
 });

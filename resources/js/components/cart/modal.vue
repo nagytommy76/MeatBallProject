@@ -69,6 +69,8 @@ export default {
             getCreatedAt: 'getCreatedAt',
             isUserDataReceived: 'getIsUserDataReceived',
             isUserinfoFilled: 'getUserInfoFilled',
+            getUserDataReceivedOnce: 'getUserDataReceivedOnce',
+
             getCurrentPage: 'getCurrentPage',
             showMakeOrder: 'getShowMakeOrder',
         }),
@@ -79,8 +81,9 @@ export default {
         })
     },
     created(){
-        if (!this.isUserinfoFilled) {
-            this.getUserInfo()            
+        if (!this.getUserDataReceivedOnce) {
+            this.getUserInfo() 
+            this.setUserDataReceivedOnce(true)
         }
     },
     methods: {
@@ -98,6 +101,7 @@ export default {
         }),
         ...mapMutations({
             setMakeOrder: 'setMakeOrder',
+            setUserDataReceivedOnce: 'setUserDataReceivedOnce',
         }),
         async makeOrder(){
             this.isLoading = true;
