@@ -42,7 +42,7 @@
                 id="navbarDropdown" class="nav-link dropdown-toggle" >{{ userName }}<span class="caret"></span>
                 </a>
                 <transition name="dropdownNav">
-                    <div class="dropdown-menu" v-if="showProfileDrop" v-on="mobileSize ? {click: toggleProfileDrop} : {mouseleave: hideProfileDropdown}">
+                    <div class="dropdown-menu" v-if="showProfileDrop">
                         <a @click.prevent="logOut()" class="dropdown-menu-item" id="logOutBtn" href="#">
                             <i class="fas fa-sign-out-alt"></i> 
                             Kilépés
@@ -117,7 +117,9 @@ export default {
              this.showProfileDrop = !this.showProfileDrop
         },
         openProfileDrop(){
-            this.showProfileDrop = true
+            if (!this.showProfileDrop) {
+                this.showProfileDrop = true                
+            }
         },
 
         hideFoodDropdown(){
@@ -127,7 +129,9 @@ export default {
             this.showFoodDrop = !this.showFoodDrop
         },
         openFoodDrop(){
-            this.showFoodDrop = true
+            if (!this.showFoodDrop) {
+                this.showFoodDrop = true                
+            }
         },
     },
 }

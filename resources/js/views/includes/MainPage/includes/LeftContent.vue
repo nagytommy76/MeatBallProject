@@ -11,18 +11,22 @@
             <div class="grid-tooltip">
                 <Tooltip :text="'PHP'">
                     <span><i class="fab fa-php fa-2x"></i></span>
+                    <!-- <img src="https://s2.svgbox.net/files.svg?ic=php2&color=000" width="42" height="42"> -->
                 </Tooltip>
                 <Tooltip :text="'Laravel'">
                     <span><i class="fab fa-laravel fa-2x"></i></span>
+                    <!-- <img src="https://s2.svgbox.net/files.svg?ic=blade&color=000000" width="42" height="42"> -->
                 </Tooltip>
                 <Tooltip :text="'MySQL'">
                     <span><i class="fas fa-database fa-2x"></i></span>
+                    <!-- <img src="https://s2.svgbox.net/files.svg?ic=mysql&color=000" width="42" height="42"> -->
                 </Tooltip>
             </div>               
             <h4 class="icon-title">Front-end technológiák</h4>
             <div class="grid-tooltip">
                 <Tooltip :text="'JavaScript'">
                     <span><i class="fab fa-js-square fa-2x"></i></span>
+                    <!-- <img src="https://s2.svgbox.net/files.svg?ic=js-official&color=000000" width="42" height="42"> -->
                 </Tooltip>
                 <Tooltip :text="'Vue.js'">
                     <span><i class="fab fa-vuejs fa-2x"></i></span>

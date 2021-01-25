@@ -2,7 +2,7 @@
     <li class="nav-item dropdown">
         <a v-on="event ? {click: toggleDrop} : {mouseenter: openDrop}" id="foodOrder" class="nav-link dropdown">Étel Rendelés</a>
         <transition name="dropdownNav">
-        <div class="dropdown-menu" v-if="showDrop" v-on="event ? {click: toggleDrop} : {mouseleave: hideDropdown}">
+        <div class="dropdown-menu" v-if="showDrop">
             <LinkItem 
                 @click.native="closeNav()"
                 :menuName="'Pizzák'"
