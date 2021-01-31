@@ -81,6 +81,8 @@ class LoginController extends BaseAuthController
         return Validator::make($data, [
             'email' => ['required', 'string', 'email', 'exists:users'],
             'password' => ['required', 'string', 'min:6']
+        ], $messages = [
+            'exists' => 'A(z) :attribute még nincs regisztrálva!'
         ]);
     }
     

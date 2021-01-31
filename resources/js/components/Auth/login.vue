@@ -111,19 +111,19 @@ export default {
         },
         async logTheUserIn(){
             axios.get('/sanctum/csrf-cookie')
-            .then(cookie =>{
+            .then(() =>{
                 axios.post('login', {
                     formData: this.formData
                 }).then(login => {
                     if(login.status == 200){
+                        if (!login.data.hasError.verifiedEmail) {
+                            this.hasEmailError = true
+                        }
                         if (login.data.hasError.length !== 0) {
                             this.showErrors(login.data.hasError);
-                            this.hasEmailError = true
                             this.verifiedMsg = login.data.hasError.email[0]
-                            if (!login.data.hasError.verifiedEmail) {
-                                
-                            }
                         }else{
+                            // this.hasEmailError = true
                             this.setUserName(login.data.username)
                             this.setUserLoggedIn(true)
                             this.$router.push({name: 'Welcome'})

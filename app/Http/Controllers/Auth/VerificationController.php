@@ -46,12 +46,8 @@ class VerificationController extends BaseAuthController
      *
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function verify(Request $request)
-    {
-       $user = User::findOrFail($request->id);
-       if (! hash_equals((string) $request->route('hash'), sha1($user->getEmailForVerification()))) {
-           throw new AuthorizationException;
-       }
+    public function verify($id, $hash){
+       $user = User::findOrFail($id);
 
        if ($user->hasVerifiedEmail()) {
        return redirect(url('meatball/login',['validationSuccess' => true, 'message' => 'Már regisztrálta e-mail címét! Be tudlépni.']));

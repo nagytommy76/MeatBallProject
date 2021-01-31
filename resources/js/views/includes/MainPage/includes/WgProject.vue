@@ -3,7 +3,7 @@
         <figure class="thumbnail">
             <img src="../../../../../img/wargaming/modal.jpg" alt="Meatball Project" @click="$emit('show-image', 'wargaming')">
             <div class="icons">
-                <a href="#" class="live-demo">Élő verzió</a>
+                <a target="_blank" href="https://nagytommy76.github.io/Wargaming" class="live-demo">Élő verzió</a>
                 <a target="_blank" href="https://github.com/nagytommy76/WgAPIVue" class="github"><i class="fab fa-github fa-2x"></i></a>
             </div>
         </figure>
@@ -29,8 +29,8 @@
             </li>
         </ul>
         <section class="project-description">
-            <p>Lehetőségünk van nemzet és jármű osztály szerint szűrni, majd az adott tankra kattinta az előugró modal-ban konfigurálni azt. Lánctalpat, tornyot, löveget, rádiót tudunk választani, ahol lehetséges. A specifikáció részben pedig ennek megfelelően változik a tank karakterisztikája.</p>
-            <p>Játékosok név szerinti keresése is lehetséges. Regisztráció nélkül is használható az oldal, viszont ha rendelkezünk Wargaming fiókkal be tudunk jelentkezni és a saját eredményeinknél kibővített adatokat láthatunk (Prémium napok, kredit, bonds).</p>
+            <p>Lehetőségünk van nemzet és jármű osztály szerint szűrni, majd az adott tankra kattinta az előugró ablakban konfigurálni azt. Lánctalpat, tornyot, löveget, rádiót tudunk választani, ahol lehetséges. A specifikáció részben pedig ennek megfelelően változik a tank karakterisztikája.</p>
+            <p>Játékosok név szerinti keresése is lehetséges. Regisztráció nélkül is használható az oldal, viszont ha rendelkezünk Wargaming fiókkal be tudunk jelentkezni, és kibővített adatokat (Prémium napok, kredit, bonds) láthatunk ha a játékosnevünkre keresünk rá.</p>
         </section>
     </article>
 </template>
