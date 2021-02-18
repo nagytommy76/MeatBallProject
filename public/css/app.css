@@ -109,24 +109,6 @@ body::-webkit-scrollbar-thumb {
   text-align: left;
 }
 
-.alert {
-  width: 85%;
-  margin: 0.3rem auto 0.3rem auto;
-  text-align: center;
-  padding: 0.75rem;
-  border-radius: 10px;
-  color: black;
-}
-
-.alert-success {
-  background: #76C341;
-}
-
-.alert-danger {
-  color: white;
-  background: #B90000;
-}
-
 .btn {
   display: inline-block;
   padding: 0.6rem 3rem;
@@ -231,45 +213,6 @@ body::-webkit-scrollbar-thumb {
   .btn {
     font-size: 0.8rem;
   }
-}
-
-.tooltip {
-  position: relative;
-  display: inline-block;
-  cursor: default;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  min-width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px;
-  position: absolute;
-  z-index: 1;
-  bottom: 150%;
-  left: 50%;
-  margin-left: -60px;
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-
-.tooltip .tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: black transparent transparent transparent;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
 }
 
 .primary-color {

@@ -5,6 +5,7 @@
             <div class="sidenav-navigation">
                 <router-link class="sidenav-navigation-item" :to="{name: 'Welcome'}">Húsgolyó Étterem</router-link>
                 <a target="_blank" class="sidenav-navigation-item" href="https://nagytommy76.github.io/Wargaming/">Wargaming API</a>
+                <a target="_blank" class="sidenav-navigation-item" href="https://recipe-finder-app-c0b4e.firebaseapp.com/">Recipe Finder</a>
                 <div class="nav-underline"></div>
                 <a v-if="mobileView" @click="closeNav()" class="sidenav-navigation-item" href="#aboutMe">Rólam</a>
                 <a @click="closeNav()" class="sidenav-navigation-item" href="#projects">Projectek</a>

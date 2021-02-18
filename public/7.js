@@ -1,1 +1,318 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{xlSP:function(e,t,r){"use strict";r.r(t);var s=r("o0o1"),a=r.n(s),n=r("L2JU");function o(e,t,r,s,a,n,o){try{var i=e[n](o),c=i.value}catch(e){return void r(e)}i.done?t(c):Promise.resolve(c).then(s,a)}function i(e,t){var r=Object.keys(e);if(Object.getOwnPropertySymbols){var s=Object.getOwnPropertySymbols(e);t&&(s=s.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),r.push.apply(r,s)}return r}function c(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}var l={name:"CartModal",data:function(){return{iconName:"far fa-trash-alt fa-2x",deleted:!1}},computed:function(e){for(var t=1;t<arguments.length;t++){var r=null!=arguments[t]?arguments[t]:{};t%2?i(Object(r),!0).forEach((function(t){c(e,t,r[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(r)):i(Object(r)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(r,t))}))}return e}({},Object(n.c)({cartItems:"getCartItems"})),methods:{deleteItem:function(e){var t,r=this;return(t=a.a.mark((function t(){var s,n,o;return a.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:if(e.target.classList!=r.iconName&&"I"!=e.target.tagName){t.next=6;break}return s=e.target.parentElement.querySelector(".foodId").value,n=e.target.parentElement.querySelector(".foodType").value,o=e.target.parentElement.querySelector("I").id,t.next=6,axios.delete("removeItemFromCart",{data:{foodId:s,foodType:n,selectedItemIndex:o}}).then((function(e){r.$store.commit("setCartItems",e.data),r.toggleSuccessMsg()}));case 6:case"end":return t.stop()}}),t)})),function(){var e=this,r=arguments;return new Promise((function(s,a){var n=t.apply(e,r);function i(e){o(n,s,a,i,c,"next",e)}function c(e){o(n,s,a,i,c,"throw",e)}i(void 0)}))})()},toggleSuccessMsg:function(){var e=this;this.deleted=!0,setTimeout((function(){e.deleted=!1}),6e3)}}},u=r("KHd+"),d=Object(u.a)(l,(function(){var e=this,t=e.$createElement,r=e._self._c||t;return r("div",[e._m(0),e._v(" "),r("div",{staticClass:"modal-body"},[e._l(e.cartItems.items,(function(t,s){return r("div",{key:t.id,staticClass:"card-body"},[r("div",{staticClass:"cart-card"},[r("div",{staticClass:"image"},[r("img",{attrs:{src:"/storage/"+t.item.imagePath,alt:"Kép helye"}})]),e._v(" "),r("div",{staticClass:"body"},[r("h3",{},[e._v(e._s(t.item.foodName))]),e._v(" "),r("h5",[e._v("További feltétek:")]),e._v(" "),r("div",{staticClass:"ingreds"},e._l(t.item.plusIngreds,(function(t){return r("Tooltip",{key:t.ingredId,attrs:{text:t.ingredPrice+" Ft"}},[r("span",[e._v(e._s(t.ingredName))])])})),1),e._v(" "),r("Tooltip",{attrs:{text:"Eredeti ár: "+t.item.price+" Ft"}},[r("span",[r("h4",[e._v("Egységár: "+e._s(t.oneItemTotalPrice)+" Ft")])])]),e._v(" "),r("h4",[e._v("Mennyiség: "+e._s(t.qty)+" db")])],1),e._v(" "),r("div",{staticClass:"left"},[r("form",{on:{click:e.deleteItem}},[r("Tooltip",{attrs:{text:"Termék törlése"}},[r("span",{staticClass:"deleteIcon"},[r("input",{staticClass:"foodId",attrs:{type:"hidden"},domProps:{value:t.item.id}}),e._v(" "),r("input",{staticClass:"foodType",attrs:{type:"hidden"},domProps:{value:t.foodType}}),e._v(" "),r("i",{class:e.iconName,attrs:{id:s}})])])],1)])])])})),e._v(" "),e.deleted?r("Alert",{attrs:{Msg:"A termék sikeresen törlve a kosárból",className:"danger"}}):e._e()],2),e._v(" "),r("div",{staticClass:"modal-footer"},[r("h1",{staticClass:"modal-price"},[e._v("Végösszeg: "+e._s(e.cartItems.totalPrice)+" Ft")])])])}),[function(){var e=this.$createElement,t=this._self._c||e;return t("div",{staticClass:"modal-head"},[t("h2",{staticClass:"text-center py-1"},[this._v("A Kosár tartalma")])])}],!1,null,null,null).exports;function m(e,t,r,s,a,n,o){try{var i=e[n](o),c=i.value}catch(e){return void r(e)}i.done?t(c):Promise.resolve(c).then(s,a)}function p(e){return function(){var t=this,r=arguments;return new Promise((function(s,a){var n=e.apply(t,r);function o(e){m(n,s,a,o,i,"next",e)}function i(e){m(n,s,a,o,i,"throw",e)}o(void 0)}))}}function v(e,t){var r=Object.keys(e);if(Object.getOwnPropertySymbols){var s=Object.getOwnPropertySymbols(e);t&&(s=s.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),r.push.apply(r,s)}return r}function h(e){for(var t=1;t<arguments.length;t++){var r=null!=arguments[t]?arguments[t]:{};t%2?v(Object(r),!0).forEach((function(t){f(e,t,r[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(r)):v(Object(r)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(r,t))}))}return e}function f(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}var g={name:"UserInfo",data:function(){return{hasError:!1,showException:!1,exceptionMsg:"",showMsg:!1,msg:"",errors:{firstName:"",lastName:"",city:"",zipCode:"",street:"",houseNumber:"",floorDoor:"",phone:""}}},props:{showMakeOrderBTN:Function},computed:h({},Object(n.c)({user:"getUserInfo",isUserinfoFilled:"getUserInfoFilled"})),methods:h({},Object(n.b)({getUserInfo:"getUserInfo",increasePage:"increasePage"}),{showErrors:function(e){this.hasError=!this.hasError,this.errors.firstName=e.firstName,this.errors.lastName=e.lastName,this.errors.city=e.city,this.errors.zipCode=e.zipCode,this.errors.street=e.street,this.errors.houseNumber=e.houseNumber,this.errors.floorDoor=e.floorDoor,this.errors.phone=e.phone},showExceptionMsg:function(e){var t=this;this.showException=!0,this.exceptionMsg=e,setTimeout((function(){t.showException=!1}),5e3)},showOtherMsg:function(e){var t=this;this.showMsg=!0,this.msg=e,setTimeout((function(){t.showMsg=!1}),5e3)},addUserInfo:function(){var e=this;return p(a.a.mark((function t(){return a.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return t.next=2,axios.post("addUserInfo",{formData:e.user}).then((function(t){t.data.hasError?e.showErrors(t.data.errors):t.data.exception?e.showExceptionMsg(t.data.exception):(e.getUserInfo(),e.increasePage(),e.showMakeOrderBTN())}));case 2:case"end":return t.stop()}}),t)})))()},modifyUserInfo:function(){var e=this;return p(a.a.mark((function t(){return a.a.wrap((function(t){for(;;)switch(t.prev=t.next){case 0:return t.next=2,axios.post("updateUserInfo",{formData:e.user}).then((function(t){t.data.hasError?e.showErrors(t.data.errors):t.data.exception?e.showExceptionMsg(t.data.exception):(e.getUserInfo(),e.showOtherMsg("A Módosítás sikeres volt!"))}));case 2:case"end":return t.stop()}}),t)})))()},testPhoneRegex:function(e){console.log(e.target.value.match(/((?:\+?3|0)6)()/g))}})},y=Object(u.a)(g,(function(){var e=this,t=e.$createElement,r=e._self._c||t;return r("div",[e._m(0),e._v(" "),r("div",{staticClass:"modal-body"},[r("form",[r("div",{staticClass:"form-group row"},[r("div",{staticClass:"col"},[e._m(1),e._v(" "),r("input",{directives:[{name:"model",rawName:"v-model",value:e.user.firstName,expression:"user.firstName"}],staticClass:"form-control shadowed",attrs:{type:"text",id:"firstname"},domProps:{value:e.user.firstName},on:{input:function(t){t.target.composing||e.$set(e.user,"firstName",t.target.value)}}}),e._v(" "),e.hasError?r("ErrorMsg",{attrs:{errors:e.errors.firstName}}):e._e()],1),e._v(" "),r("div",{staticClass:"col"},[e._m(2),e._v(" "),r("input",{directives:[{name:"model",rawName:"v-model",value:e.user.lastName,expression:"user.lastName"}],staticClass:"form-control shadowed",attrs:{type:"text",id:"lastname"},domProps:{value:e.user.lastName},on:{input:function(t){t.target.composing||e.$set(e.user,"lastName",t.target.value)}}}),e._v(" "),e.hasError?r("ErrorMsg",{attrs:{errors:e.errors.lastName}}):e._e()],1)]),e._v(" "),r("div",{staticClass:"form-group row"},[r("div",{staticClass:"col"},[e._m(3),e._v(" "),r("input",{directives:[{name:"model",rawName:"v-model",value:e.user.city,expression:"user.city"}],staticClass:"form-control shadowed",attrs:{type:"text",name:"city",id:"city"},domProps:{value:e.user.city},on:{input:function(t){t.target.composing||e.$set(e.user,"city",t.target.value)}}}),e._v(" "),e.hasError?r("ErrorMsg",{attrs:{errors:e.errors.city}}):e._e()],1),e._v(" "),r("div",{staticClass:"col"},[e._m(4),e._v(" "),r("input",{directives:[{name:"model",rawName:"v-model",value:e.user.zipCode,expression:"user.zipCode"}],staticClass:"form-control shadowed",attrs:{type:"number",name:"zipCode",id:"zipCode"},domProps:{value:e.user.zipCode},on:{input:function(t){t.target.composing||e.$set(e.user,"zipCode",t.target.value)}}}),e._v(" "),e.hasError?r("ErrorMsg",{attrs:{errors:e.errors.zipCode}}):e._e()],1)]),e._v(" "),r("div",{staticClass:"form-group row"},[r("div",{staticClass:"col"},[e._m(5),e._v(" "),r("input",{directives:[{name:"model",rawName:"v-model",value:e.user.street,expression:"user.street"}],staticClass:"form-control shadowed",attrs:{type:"text",id:"street"},domProps:{value:e.user.street},on:{input:function(t){t.target.composing||e.$set(e.user,"street",t.target.value)}}}),e._v(" "),e.hasError?r("ErrorMsg",{attrs:{errors:e.errors.street}}):e._e()],1),e._v(" "),r("div",{staticClass:"col"},[e._m(6),e._v(" "),r("input",{directives:[{name:"model",rawName:"v-model",value:e.user.houseNumber,expression:"user.houseNumber"}],staticClass:"form-control shadowed",attrs:{type:"number",id:"houseNumber"},domProps:{value:e.user.houseNumber},on:{input:function(t){t.target.composing||e.$set(e.user,"houseNumber",t.target.value)}}}),e._v(" "),e.hasError?r("ErrorMsg",{attrs:{errors:e.errors.houseNumber}}):e._e()],1)]),e._v(" "),r("div",{staticClass:"form-group row"},[r("div",{staticClass:"col"},[r("label",{attrs:{for:"floorDoor"}},[e._v("Emelet/Ajtó:")]),e._v(" "),r("input",{directives:[{name:"model",rawName:"v-model",value:e.user.floorDoor,expression:"user.floorDoor"}],staticClass:"form-control shadowed",attrs:{type:"text",id:"floorDoor"},domProps:{value:e.user.floorDoor},on:{input:function(t){t.target.composing||e.$set(e.user,"floorDoor",t.target.value)}}}),e._v(" "),e.hasError?r("ErrorMsg",{attrs:{errors:e.errors.floorDoor}}):e._e()],1),e._v(" "),r("div",{staticClass:"col"},[e._m(7),e._v(" "),r("input",{directives:[{name:"model",rawName:"v-model",value:e.user.phone,expression:"user.phone"}],staticClass:"form-control shadowed",attrs:{type:"text",id:"phone"},domProps:{value:e.user.phone},on:{input:function(t){t.target.composing||e.$set(e.user,"phone",t.target.value)}}}),e._v(" "),e.hasError?r("ErrorMsg",{attrs:{errors:e.errors.phone}}):e._e()],1)]),e._v(" "),r("div",{staticClass:"form-group row"},[r("div",{staticClass:"col"},[r("input",{directives:[{name:"show",rawName:"v-show",value:!e.isUserinfoFilled,expression:"!isUserinfoFilled"}],staticClass:"btn btn-confirm-dark",attrs:{type:"submit",value:"Adatok megadása"},on:{click:function(t){return t.preventDefault(),e.addUserInfo(t)}}})]),e._v(" "),r("div",{staticClass:"col"},[r("input",{directives:[{name:"show",rawName:"v-show",value:e.isUserinfoFilled,expression:"isUserinfoFilled"}],staticClass:"btn btn-delete-dark",attrs:{type:"submit",value:"Módosítás"},on:{click:function(t){return t.preventDefault(),e.modifyUserInfo(t)}}})])]),e._v(" "),e.showException?r("Alert",{attrs:{className:"danger",Msg:e.exceptionMsg}}):e._e(),e._v(" "),e.showMsg?r("Alert",{attrs:{className:"success",Msg:e.msg}}):e._e()],1)])])}),[function(){var e=this.$createElement,t=this._self._c||e;return t("div",{staticClass:"modal-head"},[t("h2",{staticClass:"text-center py-1"},[this._v("Szállítási információk megadása (kötelező!)")])])},function(){var e=this.$createElement,t=this._self._c||e;return t("label",{attrs:{for:"firstname"}},[this._v("Vezetéknév: "),t("sup",[this._v("*")])])},function(){var e=this.$createElement,t=this._self._c||e;return t("label",{attrs:{for:"lastname"}},[this._v("Keresztnév: "),t("sup",[this._v("*")])])},function(){var e=this.$createElement,t=this._self._c||e;return t("label",{attrs:{for:"city"}},[this._v("Város: "),t("sup",[this._v("*")])])},function(){var e=this.$createElement,t=this._self._c||e;return t("label",{attrs:{for:"zipCode"}},[this._v("Ir. Szám: "),t("sup",[this._v("*")])])},function(){var e=this.$createElement,t=this._self._c||e;return t("label",{attrs:{for:"street"}},[this._v("Utca "),t("sup",[this._v("*")])])},function(){var e=this.$createElement,t=this._self._c||e;return t("label",{attrs:{for:"houseNumber"}},[this._v("Házszám: "),t("sup",[this._v("*")])])},function(){var e=this.$createElement,t=this._self._c||e;return t("label",{attrs:{for:"phone"}},[this._v("Telefon: "),t("sup",[this._v("*")])])}],!1,null,null,null).exports;function P(e,t,r,s,a,n,o){try{var i=e[n](o),c=i.value}catch(e){return void r(e)}i.done?t(c):Promise.resolve(c).then(s,a)}function _(e,t){var r=Object.keys(e);if(Object.getOwnPropertySymbols){var s=Object.getOwnPropertySymbols(e);t&&(s=s.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),r.push.apply(r,s)}return r}function w(e){for(var t=1;t<arguments.length;t++){var r=null!=arguments[t]?arguments[t]:{};t%2?_(Object(r),!0).forEach((function(t){b(e,t,r[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(r)):_(Object(r)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(r,t))}))}return e}function b(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}var O={name:"SummaryCart",mounted:function(){this.createPayPalScript()},props:{showMakeOrderBTN:Function,makeOrder:Function},computed:w({},Object(n.c)({cartItems:"getCartItems",transactionID:"getTransactionID",userInfo:"getUserInfo"}),{},Object(n.c)("paypalState",{showPayment:"getShowPayment",showSuccessPayPal:"showSuccessPayPal",showAlternatePay:"showAlternatePayment",showPaypal:"getPayPalContainer",payment:"getPayment"}),{computedPayment:{get:function(){return this.payment},set:function(e){this.setPayment(e)}}}),methods:w({},Object(n.b)({setPayPalDetails:"setPayPalDetails",setPaidWithPP:"setPaidWithPP"}),{},Object(n.b)("paypalState",{disableShowPayment:"disableShowPayment",enableShowPaypalMessage:"enableShowPaypalMessage",setAlternatePayment:"setAlternatePayment"}),{},Object(n.d)("paypalState",["setPaypalContainer","setPayment"]),{createPayPalScript:function(){var e=document.createElement("script");e.src="\n                https://www.paypal.com/sdk/js?client-id=Ab5PkxGXmT-up_8VMgPOajxLZSe9PzyOh4eHxeCkJ6GiVd-4vfcTtG-cayvv8dHJL6Uv6CW6vNxOaFa4&currency=HUF&components=buttons,marks\n            ",e.addEventListener("load",this.setLoaded),e.addEventListener("load",this.addPaypalPayment),document.body.appendChild(e)},setLoaded:function(){var e,t,r=this;paypal.Buttons({locale:"hu_HU",createOrder:function(e,t){return t.order.create({purchase_units:[{description:"Húsgolyó étterem ételrendelés",amount:{currency_code:"HUF",value:r.cartItems.totalPrice}}]})},onApprove:(e=a.a.mark((function e(t,s){var n,o;return a.a.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,s.order.capture();case 2:"COMPLETED"===(n=e.sent).status&&(o={create_time:n.create_time,id:n.id,payer:n.payer,purchase_units:n.purchase_units,status:n.status},r.setPaidWithPP(!0),r.setPayPalDetails(o),r.enableShowPaypalMessage(!0),r.disableShowPayment(!1),r.makeOrder());case 4:case"end":return e.stop()}}),e)})),t=function(){var t=this,r=arguments;return new Promise((function(s,a){var n=e.apply(t,r);function o(e){P(n,s,a,o,i,"next",e)}function i(e){P(n,s,a,o,i,"throw",e)}o(void 0)}))},function(e,r){return t.apply(this,arguments)})}).render(this.$refs.paypal)},addPaypalPayment:function(){paypal.Marks().render("#paypal-marks-container")},showPaymentContainer:function(e){"paypal"==e.target.value?(this.setPaypalContainer(!0),this.setAlternatePayment(!1)):(this.setPaypalContainer(!1),this.setAlternatePayment(!0)),this.showMakeOrderBTN()}})};function C(e,t,r,s,a,n,o){try{var i=e[n](o),c=i.value}catch(e){return void r(e)}i.done?t(c):Promise.resolve(c).then(s,a)}function k(e,t){var r=Object.keys(e);if(Object.getOwnPropertySymbols){var s=Object.getOwnPropertySymbols(e);t&&(s=s.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),r.push.apply(r,s)}return r}function x(e){for(var t=1;t<arguments.length;t++){var r=null!=arguments[t]?arguments[t]:{};t%2?k(Object(r),!0).forEach((function(t){N(e,t,r[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(r)):k(Object(r)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(r,t))}))}return e}function N(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}var E={name:"Modal",components:{CartModal:d,SummaryCart:Object(u.a)(O,(function(){var e=this,t=e.$createElement,r=e._self._c||t;return r("div",[e._m(0),e._v(" "),r("div",{staticClass:"modal-body"},[r("div",{staticClass:"userData"},[r("h3",[e._v("Személyes adatok: ")]),e._v(" "),r("h4",[e._v("Név: "+e._s(e.userInfo.firstName)+" "+e._s(e.userInfo.lastName))]),e._v(" "),r("h4",[e._v("E-mail: "+e._s(e.userInfo.user_email))]),e._v(" "),r("h4",[e._v("Telefon: "+e._s(e.userInfo.phone))]),e._v(" "),r("h4",[e._v("\n                Cím: \n                "+e._s(e.userInfo.zipCode)+"\n                "+e._s(e.userInfo.city)+"\n                "+e._s(e.userInfo.street)+"\n                "+e._s(e.userInfo.houseNumber)+"\n                "+e._s(e.userInfo.floorDoor)+"\n            ")])]),e._v(" "),r("div",{staticClass:"order"},[r("h3",[e._v("Rendelt étel(ek):")]),e._v(" "),r("h3",[e._v(e._s(e.cartItems.totalPrice)+" Ft összértékben")]),e._v(" "),e._l(e.cartItems.items,(function(t,s){return r("div",{key:s},[r("h4",[e._v("\n                    "+e._s(t.qty)+" DB\n                    "+e._s(t.item.foodName)+"\n                    ("+e._s(t.oneItemTotalPrice)+") Ft\n                ")]),e._v(" "),null!=t.item.plusIngreds?r("p",e._l(t.item.plusIngreds,(function(t){return r("span",{key:t.ingredId},[r("span",[e._v(e._s(t.ingredName)+" ("+e._s(t.ingredPrice)+") Ft")])])})),0):e._e()])}))],2),e._v(" "),e.showPayment?r("div",{staticClass:"payment"},[r("h3",[e._v("Fizetési opció kiválasztása")]),e._v(" "),r("label",[r("p",[e._v("Fizetés PayPal-el vagy kártyával")]),e._v(" "),e._m(1),e._v(" "),e.showPaypal?r("span",[r("p",[e._v("A fizetéshez szükséges PayPal számla:")]),e._v(" "),e._m(2),e._v(" "),e._m(3)]):e._e(),e._v(" "),r("input",{directives:[{name:"model",rawName:"v-model",value:e.computedPayment,expression:"computedPayment"}],attrs:{type:"radio",name:"payment-option",value:"paypal"},domProps:{checked:e._q(e.computedPayment,"paypal")},on:{change:[function(t){e.computedPayment="paypal"},e.showPaymentContainer]}}),e._v(" "),r("span",{attrs:{id:"paypal-marks-container"}})]),e._v(" "),r("label",[e._v("\n                Fizetés Készpénzzel\n                "),r("input",{directives:[{name:"model",rawName:"v-model",value:e.computedPayment,expression:"computedPayment"}],attrs:{type:"radio",name:"payment-option",value:"alternate"},domProps:{checked:e._q(e.computedPayment,"alternate")},on:{change:[function(t){e.computedPayment="alternate"},e.showPaymentContainer]}}),e._v(" "),r("i",{staticClass:"fas fa-money-bill-wave fa-2x"})]),e._v(" "),r("div",{directives:[{name:"show",rawName:"v-show",value:e.showPaypal,expression:"showPaypal"}],ref:"paypal"}),e._v(" "),r("div",{directives:[{name:"show",rawName:"v-show",value:e.showAlternatePay,expression:"showAlternatePay"}],attrs:{id:"alternate-button-container"}},[r("h3",[e._v("A fizetés készpénzzel a futárnál történik")])])]):e._e(),e._v(" "),e.showSuccessPayPal?r("Alert",{attrs:{Msg:"Köszönjük rendelését! A PayPal fizetés sikeres volt! Tranzakció szám: "+e.transactionID,className:"success"}}):e._e(),e._v(" "),e.showSuccessPayPal?r("Alert",{attrs:{Msg:"A visszaigazoló e-mailt elküldtük!",className:"success"}}):e._e()],1)])}),[function(){var e=this.$createElement,t=this._self._c||e;return t("div",{staticClass:"modal-head"},[t("h1",{staticClass:"text-center py-1"},[this._v("Rendelés véglegesítése")])])},function(){var e=this.$createElement,t=this._self._c||e;return t("small",[t("sup",[this._v("*")]),this._v("(A fizetés után automatikusan megtörténik a rendelés!)")])},function(){var e=this.$createElement,t=this._self._c||e;return t("p",[this._v("Email: "),t("strong",[this._v("sb-qkdaa3413370@business.example.com")])])},function(){var e=this.$createElement,t=this._self._c||e;return t("p",[this._v("Jelszó: "),t("strong",[this._v("7}&&K[yb")])])}],!1,null,null,null).exports,UserInfo:y},data:function(){return{pages:["CartModal","UserInfo","SummaryCart"],isLoading:!1,exceptionMsg:"",showSuccessCashPay:!1,showException:!1}},computed:x({currentPage:function(){return this.pages[this.getCurrentPage]}},Object(n.c)({totalQty:"getTotalQty",paidWithPP:"getPaid",transactionID:"getTransactionID",getCreatedAt:"getCreatedAt",isUserDataReceived:"getIsUserDataReceived",isUserinfoFilled:"getUserInfoFilled",getUserDataReceivedOnce:"getUserDataReceivedOnce",getCurrentPage:"getCurrentPage",showMakeOrder:"getShowMakeOrder"}),{},Object(n.c)("paypalState",{showPayment:"getShowPayment",showSuccessPayPal:"showSuccessPayPal",showAlternatePayment:"showAlternatePayment"})),created:function(){this.getUserDataReceivedOnce||(this.getUserInfo(),this.setUserDataReceivedOnce(!0))},methods:x({},Object(n.b)({setCartDefault:"setCartDefault",setPayPalDefault:"setPayPalDefault",getUserInfo:"getUserInfo",increasePage:"increasePage",decreasePage:"decreasePage",setDefaultPage:"setDefaultPage"}),{},Object(n.b)("paypalState",{disableShowPayment:"disableShowPayment",enableShowPaypalMessage:"enableShowPaypalMessage"}),{},Object(n.d)({setMakeOrder:"setMakeOrder",setUserDataReceivedOnce:"setUserDataReceivedOnce"}),{makeOrder:function(){var e,t=this;return(e=a.a.mark((function e(){return a.a.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:t.isLoading=!0,axios.post("saveOrder",{paidWithPayPal:t.paidWithPP,transactionId:t.transactionID,getCreatedAt:t.getCreatedAt}).then((function(e){e.data.exception?(t.showException=!0,t.exceptionMsg=e.data.message,t.isLoading=!1):(t.paidWithPP?(t.setCartDefault(),t.setPayPalDefault(),setTimeout((function(){t.setDefaultPage(),t.enableShowPaypalMessage(!1),t.disableShowPayment(!0)}),15e3)):(t.setCartDefault(),t.setDefaultPage(),t.showSuccessCashPay=!0),t.isLoading=!1)}));case 2:case"end":return e.stop()}}),e)})),function(){var t=this,r=arguments;return new Promise((function(s,a){var n=e.apply(t,r);function o(e){C(n,s,a,o,i,"next",e)}function i(e){C(n,s,a,o,i,"throw",e)}o(void 0)}))})()},nextPage:function(){this.increasePage(),this.showMakeOrderBTN()},previousPage:function(){this.decreasePage(),this.showMakeOrderBTN()},showMakeOrderBTN:function(){this.getCurrentPage==this.pages.length-1?this.showAlternatePayment?this.setMakeOrder(!0):(this.setMakeOrder(!1),this.paidWithPP&&(this.disableShowPayment(!1),this.enableShowPaypalMessage(),this.setMakeOrder(!0))):this.setMakeOrder(!1)}})},j=Object(u.a)(E,(function(){var e=this,t=e.$createElement,r=e._self._c||t;return r("div",{staticClass:"modal-bg"},[r("dialog",{staticClass:"modal",attrs:{open:""}},[r("span",{staticClass:"modal-close",on:{click:function(t){return e.$emit("close")}}},[r("i",{staticClass:"far fa-times-circle"})]),e._v(" "),r(e.currentPage,{tag:"component",attrs:{showMakeOrderBTN:e.showMakeOrderBTN,makeOrder:e.makeOrder}}),e._v(" "),r("div",{directives:[{name:"show",rawName:"v-show",value:e.totalQty>0,expression:"totalQty > 0"}]},[r("button",{directives:[{name:"show",rawName:"v-show",value:e.getCurrentPage>0&&3!=e.getCurrentPage,expression:"getCurrentPage>0 && getCurrentPage != 3"}],staticClass:"btn btn-delete-dark",on:{click:e.previousPage}},[e._v("Vissza")]),e._v(" "),r("span",{directives:[{name:"show",rawName:"v-show",value:e.getCurrentPage<e.pages.length-1&&2!=e.getCurrentPage,expression:"getCurrentPage<pages.length-1 && getCurrentPage != 2"}]},[r("button",{directives:[{name:"show",rawName:"v-show",value:this.isUserinfoFilled||1!=e.getCurrentPage,expression:"this.isUserinfoFilled || getCurrentPage != 1"}],staticClass:"btn btn-confirm-dark",on:{click:e.nextPage}},[e._v("Tovább")])]),e._v(" "),r("button",{directives:[{name:"show",rawName:"v-show",value:e.showMakeOrder,expression:"showMakeOrder"}],staticClass:"btn btn-confirm-dark",on:{click:e.makeOrder}},[e._v("Rendelés Leadása!")]),e._v(" "),e.showException?r("Alert",{attrs:{Msg:e.exceptionMsg,className:"danger"}}):e._e()],1),e._v(" "),r("Loading",{attrs:{isLoading:e.isLoading}}),e._v(" "),e.showSuccessCashPay?r("Alert",{attrs:{Msg:"A visszaigazoló e-mailt elküldtük!",className:"success"}}):e._e(),e._v(" "),e.showSuccessCashPay?r("Alert",{attrs:{Msg:"Köszönjük rendelését! A fizetés a futárnál történik.",className:"success"}}):e._e()],1)])}),[],!1,null,null,null);t.default=j.exports}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[7],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/baseComponents/BaseCard.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/baseComponents/BaseCard.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _helpers_addToCart__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../helpers/addToCart */ "./resources/js/helpers/addToCart.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'BaseCard',
+  data: function data() {
+    return {
+      addedToCart: false,
+      showVerifyEmail: false,
+      finalPrice: this.foodPrice
+    };
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
+    userLoggedIn: 'getUserLoggedIn'
+  })),
+  props: {
+    foodType: String,
+    foodId: Number,
+    image: String,
+    foodName: String,
+    foodPrice: Number,
+    ingredients: {
+      type: String,
+      requried: false
+    },
+    capacity: {
+      type: Number,
+      requried: false
+    }
+  },
+  methods: {
+    addToCart: function addToCart() {
+      var _this = this;
+
+      if (this.userLoggedIn) {
+        _helpers_addToCart__WEBPACK_IMPORTED_MODULE_0__["default"].addFoodToCart(this.foodType, this.foodId).then(function (result) {
+          if (result.data.error) {
+            _this.showVerify();
+          } else {
+            _this.$store.commit('setCartItems', result.data);
+
+            _this.finalPrice = _this.foodPrice;
+
+            _this.hideSuccessMsg();
+          }
+        })["catch"](function (error) {
+          return console.log(error);
+        });
+      } else {
+        this.hideSuccessMsg();
+      }
+    },
+    showVerify: function showVerify() {
+      var _this2 = this;
+
+      this.showVerifyEmail = true;
+      setTimeout(function () {
+        _this2.showVerifyEmail = false;
+      }, 4000);
+    },
+    hideSuccessMsg: function hideSuccessMsg() {
+      var _this3 = this;
+
+      this.addedToCart = !this.addedToCart;
+      setTimeout(function () {
+        _this3.addedToCart = !_this3.addedToCart;
+      }, 3000);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/baseComponents/BaseCard.vue?vue&type=template&id=1e871e24&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/baseComponents/BaseCard.vue?vue&type=template&id=1e871e24& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "food_card" }, [
+    _c("div", { staticClass: "food_card_header" }, [
+      _c("img", { attrs: { src: "/storage/" + _vm.image, alt: "Leves Kép" } })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "food_card_inner" }, [
+      _c("h1", { staticClass: "food_card_heading text-center" }, [
+        _vm._v(_vm._s(_vm.foodName))
+      ]),
+      _vm._v(" "),
+      _vm.ingredients != undefined
+        ? _c("div", { staticClass: "ingredients" }, [
+            _c("h3", [_vm._v("Összetevők:")]),
+            _vm._v(" "),
+            _c("span", [_vm._v("(" + _vm._s(_vm.ingredients) + ")")])
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.capacity != undefined
+        ? _c("div", {}, [
+            _c("h3", [_vm._v("Térfogat:")]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.capacity) + " (ml)")])
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      !_vm.userLoggedIn
+        ? _c(
+            "div",
+            [
+              _vm.addedToCart
+                ? _c("Alert", {
+                    attrs: {
+                      Msg: "Kérem jelentkezzen be!",
+                      className: "danger"
+                    }
+                  })
+                : _vm._e()
+            ],
+            1
+          )
+        : _c(
+            "div",
+            [
+              _vm.addedToCart
+                ? _c("Alert", {
+                    attrs: {
+                      Msg: "A termék bekerült a kosárba",
+                      className: "success"
+                    }
+                  })
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.showVerifyEmail
+                ? _c("Alert", {
+                    attrs: {
+                      Msg: "E-mail címet vissza kell igazolni!",
+                      className: "danger"
+                    }
+                  })
+                : _vm._e()
+            ],
+            1
+          )
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "food_card_footer" },
+      [
+        _c("BaseButton", {
+          attrs: { id: _vm.foodId, buttonText: "Kosárba!" },
+          on: { click: _vm.addToCart }
+        }),
+        _vm._v(" "),
+        _c("strong", { staticClass: "price" }, [
+          _vm._v("\n             Ár:\n             "),
+          _c("span", { staticClass: "primary-color" }, [
+            _vm._v(_vm._s(_vm.finalPrice))
+          ]),
+          _vm._v(" Ft\n         ")
+        ])
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/baseComponents/BaseCard.vue":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/baseComponents/BaseCard.vue ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _BaseCard_vue_vue_type_template_id_1e871e24___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BaseCard.vue?vue&type=template&id=1e871e24& */ "./resources/js/components/baseComponents/BaseCard.vue?vue&type=template&id=1e871e24&");
+/* harmony import */ var _BaseCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BaseCard.vue?vue&type=script&lang=js& */ "./resources/js/components/baseComponents/BaseCard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _BaseCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _BaseCard_vue_vue_type_template_id_1e871e24___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _BaseCard_vue_vue_type_template_id_1e871e24___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/baseComponents/BaseCard.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/baseComponents/BaseCard.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/baseComponents/BaseCard.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BaseCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./BaseCard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/baseComponents/BaseCard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BaseCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/baseComponents/BaseCard.vue?vue&type=template&id=1e871e24&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/baseComponents/BaseCard.vue?vue&type=template&id=1e871e24& ***!
+  \********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BaseCard_vue_vue_type_template_id_1e871e24___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./BaseCard.vue?vue&type=template&id=1e871e24& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/baseComponents/BaseCard.vue?vue&type=template&id=1e871e24&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BaseCard_vue_vue_type_template_id_1e871e24___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BaseCard_vue_vue_type_template_id_1e871e24___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);

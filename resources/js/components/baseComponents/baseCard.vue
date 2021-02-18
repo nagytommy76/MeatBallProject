@@ -35,7 +35,10 @@
             </div>
         </div>
         <div class="food_card_footer">
-            <button @click="addToCart" v-bind:id="foodId" class="btn btn-primary">Kosárba!</button>
+            <!-- <button @click="addToCart" v-bind:id="foodId" class="btn btn-primary">Kosárba!</button> -->
+            <BaseButton @click="addToCart" :id="foodId"
+                :buttonText="'Kosárba!'"
+            />
             <strong class="price">
                 Ár:
                 <span class="primary-color">{{finalPrice}}</span> Ft

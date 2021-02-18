@@ -1,3 +1,4 @@
+import test from '../sass/test.scss'
 require('./bootstrap');
 window.Vue = require('vue');
 Vue.use(require('vue-cookies'))
@@ -12,6 +13,7 @@ Vue.component('Tooltip', () => import('./components/Utility/Tooltip'))
 Vue.component('Alert', () => import('./components/Utility/Alert'))
 Vue.component('ErrorMsg', () => import('./components/Utility/FormErrorMsg'))
 Vue.component('Loading', () => import('./components/Utility/Loading'))
+Vue.component('BaseButton', () => import('./components/baseComponents/BaseButton'))
 
 Vue.component('BaseFilter', BaseFilter)
 Vue.component('BaseCard', () => import('./components/baseComponents/BaseCard'))
