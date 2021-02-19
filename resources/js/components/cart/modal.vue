@@ -8,11 +8,26 @@
                 :makeOrder="makeOrder"
             ></component>            
             <div v-show="totalQty > 0" class="">
-                <button v-show="getCurrentPage>0 && getCurrentPage != 3" @click="previousPage" class="btn btn-delete-dark">Vissza</button>
+                <BaseButton 
+                    v-show="getCurrentPage>0 && getCurrentPage != 3"
+                    @click.native="previousPage"
+                    :buttonClass="'delete-dark'"
+                    :buttonText="'Vissza'"
+                />
                 <span v-show="getCurrentPage<pages.length-1 && getCurrentPage != 2">
-                    <button v-show="this.isUserinfoFilled || getCurrentPage != 1" @click="nextPage" class="btn btn-confirm-dark" >Tovább</button>
+                    <BaseButton 
+                        v-show="isUserinfoFilled || getCurrentPage != 1"
+                        @click.native="nextPage"
+                        :buttonClass="'confirm-dark'"
+                        :buttonText="'Tovább'"
+                    />
                 </span>   
-                <button @click="makeOrder" v-show="showMakeOrder" class="btn btn-confirm-dark">Rendelés Leadása!</button>
+                <BaseButton 
+                    v-show="showMakeOrder"
+                    @click.native="makeOrder"
+                    :buttonClass="'confirm-dark'"
+                    :buttonText="'Rendelés Leadása!'"
+                />
                 <Alert 
                     v-if="showException"
                     :Msg="exceptionMsg"

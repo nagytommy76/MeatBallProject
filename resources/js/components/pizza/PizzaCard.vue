@@ -11,29 +11,22 @@
           <span>{{ ingred.ingredient }}, </span>
         </span>
       </div>        
-          <button
-            @click="loadPlusIngreds"
-            class="btn btn-primary"
-          >További Feltétek</button>
+          <BaseButton @click.native="loadPlusIngreds" :buttonText="'További Feltétek'"/>
           <MoreIngredients 
             v-if="moreButton"
             :moreIngreds="moreIngreds"
           />
       <div >
         <div v-if="!userLoggedIn">
-          <div class="alert alert-danger" v-if="addedToCart">
-            <p>Kérem jelentkezzen be!</p>
-          </div>
+          <Alert v-if="addedToCart" :Msg="'Kérem jelentkezzen be!'"/>
         </div>
         <div v-else>
-          <div class="alert alert-success" v-if="addedToCart">
-            <p>A termék a kosárban</p>
-          </div>
+          <Alert v-if="addedToCart" :className="'success'" :Msg="'A termék a kosárban'"/>
         </div>
       </div>
     </div>
     <div class="food_card_footer">
-      <button @click="addCart" v-bind:id="pizzaId" class="btn btn-primary">Kosárba!</button>
+      <BaseButton @click.native="addCart" :buttonText="'Kosárba!'"/>
       <strong class="price">
         Ár:
         <span class="primary-color">{{finalPrice}}</span> Ft
@@ -79,6 +72,7 @@ export default {
       this.moreButton = !this.moreButton;
     },
     async addCart(){
+      console.log('csocsi')
       if(this.userLoggedIn){
         await addToCart.addFoodToCart(this.foodType, this.pizzaId, this.selectedIngreds)
         .then(result => {

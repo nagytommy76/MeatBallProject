@@ -28,14 +28,13 @@
 import LeftContent from './includes/LeftContent'
 import Meatball from './includes/MeatballProject'
 import Wargaming from './includes/WgProject'
-import ImageSlider from './includes/ImageSlider'
+
 export default {
     name: 'AboutMe',
     components:{
         LeftContent,
         Meatball,
         Wargaming,
-        ImageSlider,
     },
     data() {
         return {

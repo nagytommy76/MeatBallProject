@@ -11,22 +11,18 @@
             <div class="grid-tooltip">
                 <Tooltip :text="'PHP'">
                     <span><i class="fab fa-php fa-2x"></i></span>
-                    <!-- <img src="https://s2.svgbox.net/files.svg?ic=php2&color=000" width="42" height="42"> -->
                 </Tooltip>
                 <Tooltip :text="'Laravel'">
                     <span><i class="fab fa-laravel fa-2x"></i></span>
-                    <!-- <img src="https://s2.svgbox.net/files.svg?ic=blade&color=000000" width="42" height="42"> -->
                 </Tooltip>
                 <Tooltip :text="'MySQL'">
                     <span><i class="fas fa-database fa-2x"></i></span>
-                    <!-- <img src="https://s2.svgbox.net/files.svg?ic=mysql&color=000" width="42" height="42"> -->
                 </Tooltip>
             </div>               
             <h4 class="icon-title">Front-end technológiák</h4>
             <div class="grid-tooltip">
                 <Tooltip :text="'JavaScript'">
                     <span><i class="fab fa-js-square fa-2x"></i></span>
-                    <!-- <img src="https://s2.svgbox.net/files.svg?ic=js-official&color=000000" width="42" height="42"> -->
                 </Tooltip>
                 <Tooltip :text="'Vue.js'">
                     <span><i class="fab fa-vuejs fa-2x"></i></span>
@@ -62,9 +58,9 @@
             <h1 class="summary-header my-0">Rövid bemutatkozás</h1>
             <div class="summary-body">
                 <p>Nagy Tamás vagyok, pályakezdő webfejlesztő. Jelenlegi tudásom nagy részét autodidakta módon szereztem, különböző kurzusok (Udemy) és weboldalak (freeCodeCamp, w3school) segítségével, valamint saját projectek elkészítésével.</p>
-                <p>Tudásomat folyamatosan bővítem. Jelenleg Laravelt és Vue.js-t tanulom, ezekkel a technológiákkal szeretnék állást találni</p>
-                <p>A jövőt tekintve szeretnék megismerkedni a Node.js-el, React-el, és a MongoDB-vel</p>
-                <p>BackEnd és FrontEnd munkák egyaránt érdekelnek</p>
+                <p>Jelenleg Laravelt és Vue.js-t tanulok.</p>
+                <p>Kezdőként forntend területen szeretnék elhelyezkedni, illetve bővíteni tudásomat. A későbbiekben pedig a fullstack irány a célom.</p>
+                <p>A jövőt tekintve szeretnék megismerkedni a Node.js-el (valamint Express.js), React-el, és a MongoDB-vel</p>
             </div>
         </section>
         <FooterContact />

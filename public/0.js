@@ -206,6 +206,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -700,6 +715,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "UserInfo",
@@ -829,11 +853,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           }
         }, _callee2);
       }))();
-    },
-    testPhoneRegex: function testPhoneRegex(event) {
-      var test = /((?:\+?3|0)6)()/g; // console.log(test.match(event.target.value))
-
-      console.log(event.target.value.match(test));
     }
   })
 });
@@ -1042,22 +1061,22 @@ var render = function() {
             ]
           },
           [
-            _c(
-              "button",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.getCurrentPage > 0 && _vm.getCurrentPage != 3,
-                    expression: "getCurrentPage>0 && getCurrentPage != 3"
-                  }
-                ],
-                staticClass: "btn btn-delete-dark",
-                on: { click: _vm.previousPage }
-              },
-              [_vm._v("Vissza")]
-            ),
+            _c("BaseButton", {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.getCurrentPage > 0 && _vm.getCurrentPage != 3,
+                  expression: "getCurrentPage>0 && getCurrentPage != 3"
+                }
+              ],
+              attrs: { buttonClass: "delete-dark", buttonText: "Vissza" },
+              nativeOn: {
+                click: function($event) {
+                  return _vm.previousPage($event)
+                }
+              }
+            }),
             _vm._v(" "),
             _c(
               "span",
@@ -1075,42 +1094,45 @@ var render = function() {
                 ]
               },
               [
-                _c(
-                  "button",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: this.isUserinfoFilled || _vm.getCurrentPage != 1,
-                        expression:
-                          "this.isUserinfoFilled || getCurrentPage != 1"
-                      }
-                    ],
-                    staticClass: "btn btn-confirm-dark",
-                    on: { click: _vm.nextPage }
-                  },
-                  [_vm._v("Tovább")]
-                )
-              ]
+                _c("BaseButton", {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.isUserinfoFilled || _vm.getCurrentPage != 1,
+                      expression: "isUserinfoFilled || getCurrentPage != 1"
+                    }
+                  ],
+                  attrs: { buttonClass: "confirm-dark", buttonText: "Tovább" },
+                  nativeOn: {
+                    click: function($event) {
+                      return _vm.nextPage($event)
+                    }
+                  }
+                })
+              ],
+              1
             ),
             _vm._v(" "),
-            _c(
-              "button",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.showMakeOrder,
-                    expression: "showMakeOrder"
-                  }
-                ],
-                staticClass: "btn btn-confirm-dark",
-                on: { click: _vm.makeOrder }
+            _c("BaseButton", {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.showMakeOrder,
+                  expression: "showMakeOrder"
+                }
+              ],
+              attrs: {
+                buttonClass: "confirm-dark",
+                buttonText: "Rendelés Leadása!"
               },
-              [_vm._v("Rendelés Leadása!")]
-            ),
+              nativeOn: {
+                click: function($event) {
+                  return _vm.makeOrder($event)
+                }
+              }
+            }),
             _vm._v(" "),
             _vm.showException
               ? _c("Alert", {
@@ -1752,30 +1774,40 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "form-group row" }, [
-            _c("div", { staticClass: "col" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: !_vm.isUserinfoFilled,
-                    expression: "!isUserinfoFilled"
-                  }
+          _c(
+            "div",
+            { staticClass: "form-group row" },
+            [
+              _c(
+                "div",
+                { staticClass: "col" },
+                [
+                  _c("BaseButton", {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: !_vm.isUserinfoFilled,
+                        expression: "!isUserinfoFilled"
+                      }
+                    ],
+                    attrs: {
+                      buttonClass: "confirm-dark",
+                      buttonText: "Adatok megadása"
+                    },
+                    nativeOn: {
+                      click: function($event) {
+                        return _vm.addUserInfo($event)
+                      }
+                    }
+                  })
                 ],
-                staticClass: "btn btn-confirm-dark",
-                attrs: { type: "submit", value: "Adatok megadása" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    return _vm.addUserInfo($event)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col" }, [
-              _c("input", {
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" }),
+              _vm._v(" "),
+              _c("BaseButton", {
                 directives: [
                   {
                     name: "show",
@@ -1784,17 +1816,16 @@ var render = function() {
                     expression: "isUserinfoFilled"
                   }
                 ],
-                staticClass: "btn btn-delete-dark",
-                attrs: { type: "submit", value: "Módosítás" },
-                on: {
+                attrs: { buttonClass: "elete-dark", buttonText: "Módosítás" },
+                nativeOn: {
                   click: function($event) {
-                    $event.preventDefault()
                     return _vm.modifyUserInfo($event)
                   }
                 }
               })
-            ])
-          ]),
+            ],
+            1
+          ),
           _vm._v(" "),
           _vm.showException
             ? _c("Alert", {

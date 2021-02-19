@@ -70,7 +70,6 @@
                     </div>
                     <div class="col">
                         <label for="phone">Telefon: <sup>*</sup></label>
-                        <!-- <input @keyup="testPhoneRegex" v-model="user.phone" type="text" id="phone" class="form-control shadowed"> -->
                         <input v-model="user.phone" type="text" id="phone" class="form-control shadowed">
                         <ErrorMsg 
                             v-if="hasError"
@@ -80,11 +79,21 @@
                 </div>
                 <div class="form-group row">
                     <div class="col">
-                        <input v-show="!isUserinfoFilled" type="submit" value="Adatok megadása" @click.prevent="addUserInfo" class="btn btn-confirm-dark" />
+                        <BaseButton 
+                            v-show="!isUserinfoFilled"
+                            :buttonClass="'confirm-dark'"
+                            :buttonText="'Adatok megadása'"
+                            @click.native="addUserInfo"
+                        />
                     </div>  
                     <div class="col">
-                        <input v-show="isUserinfoFilled" type="submit" value="Módosítás" @click.prevent="modifyUserInfo" class="btn btn-delete-dark" />
-                    </div>                                       
+                    </div>     
+                    <BaseButton 
+                        v-show="isUserinfoFilled"
+                        :buttonClass="'elete-dark'"
+                        :buttonText="'Módosítás'"
+                        @click.native="modifyUserInfo"
+                    />                                  
                 </div>
                 <Alert
                     v-if="showException"
@@ -191,11 +200,6 @@ export default {
                 }
             })
         },
-        testPhoneRegex(event){
-            const test = /((?:\+?3|0)6)()/g; 
-            // console.log(test.match(event.target.value))
-            console.log(event.target.value.match(test))
-        }
     },
 }
 </script>

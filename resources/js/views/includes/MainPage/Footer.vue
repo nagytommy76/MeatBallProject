@@ -1,7 +1,7 @@
 <template>
     <footer class="portfolio-footer" id="portfolio-footer">
     <div class="footer-made">
-        <p>Minden Jog Fenntartva &copy; Készítette: Nagy Tamás, Budapest. {{ dateTime }}</p>
+        <p>&copy; Készítette: Nagy Tamás, Budapest. {{ dateTime }}</p>
     </div>
     </footer>
 </template>

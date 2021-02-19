@@ -39,7 +39,7 @@
                             <input id="fetchUserToken" type="submit" value="Belépés" @click.prevent="logTheUserIn" class="btn btn-primary" />
                         </div>
                         <div class="col">
-                            <button v-if="hasEmailError" @click.prevent="resendEmail" class="btn btn-delete">Aktiváló kód újraküldése</button>
+                            <BaseButton v-if="hasEmailError" @click.native="resendEmail" :butonClass="'delete'" :buttonText="'Aktiváló kód újraküldése'"/>
                         </div>
                     </div>
                     <div class="form-group">

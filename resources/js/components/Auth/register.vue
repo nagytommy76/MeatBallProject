@@ -37,9 +37,7 @@
                         </div> 
                         <div class="card-footer">
                             <div class="form-group">
-                                <div>
-                                    <input value="Regisztráció" type="submit" @click.prevent="userRegister" class="btn btn-primary" />                                    
-                                </div>                                
+                                <BaseButton :buttonText="'Regisztráció'" @click.native.prevent="userRegister"/>                              
                             </div>
                             <div class="alert alert-danger" v-if="hasException">
                                 <p>{{exceptionMsg}}</p>

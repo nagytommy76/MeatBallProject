@@ -1,19 +1,20 @@
 <template>
-    <article class="meatball project">
-        <figure class="thumbnail">
+    <BaseProject
+        :articleClass="'meatball'"
+        :demoLink="'Welcome'"
+        :routerLink="true"
+        :githubLink="'https://github.com/nagytommy76/MeatBallProject'"
+        :projectTitle="'Húsgolyó étterem honlapja'"
+    >
+        <template v-slot:image>
             <img src="../../../../../img/meatball/meatball-main-page.jpg" alt="Meatball Project" @click="$emit('show-image', 'meatball')">
-            <div class="icons">
-                <router-link class="live-demo" :to="{name: 'Welcome'}">Élő verzió</router-link>
-                <a target="_blank" href="https://github.com/nagytommy76/MeatBallProject" class="github"><i class="fab fa-github fa-2x"></i></a>
-            </div>
-        </figure>
-        <h2 class="project-title">Húsgolyó étterem honlapja</h2>
-        <ul class="tech-list">
+        </template>
+        <template v-slot:tech-list>
             <li>
-                <p>Laravel</p>
-                <Tooltip :text="'Laravel'">
-                    <i class="fab fa-laravel fa-2x laravel"></i>
-                </Tooltip>
+            <p>Laravel</p>
+            <Tooltip :text="'Laravel'">
+                <i class="fab fa-laravel fa-2x laravel"></i>
+            </Tooltip>
             </li>
             <li>
                 <p>MySQL</p>
@@ -39,12 +40,12 @@
             <li>
                 <p>Single-Page-Application</p>
             </li>
-        </ul>
-        <section class="project-description">
+        </template>
+        <template v-slot:description>
             <p>A weboldal egy kitalált étterem honlapja, ahol lehetőség van ételeket rendelni.</p>
             <p>A vásárláshoz szükséges a regisztráció, illetve e-mail cím validáció, a megadott e-mail címre a rendszer küld egy aktiváló linket, amelyre kattintva visszatérünk a bejelentkező oldalra, ahol beléphetünk.</p>
             <p>A rendelés leadásakor lehetőség van készpénzzel a "futárnál", illetve PayPal-en keresztül fizetni egy sandbox számlával.</p>
             <p>Létrehoztam egy admin felületet is, amin keresztül termékeket lehet bevinni, törölni és módosítani</p>
-        </section>
-    </article>
+        </template>
+    </BaseProject>
 </template>

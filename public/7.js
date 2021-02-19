@@ -64,7 +64,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -224,7 +223,11 @@ var render = function() {
       [
         _c("BaseButton", {
           attrs: { id: _vm.foodId, buttonText: "Kosárba!" },
-          on: { click: _vm.addToCart }
+          nativeOn: {
+            click: function($event) {
+              return _vm.addToCart($event)
+            }
+          }
         }),
         _vm._v(" "),
         _c("strong", { staticClass: "price" }, [
