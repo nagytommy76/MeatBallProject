@@ -1,0 +1,98 @@
+@import '../../variables';
+$height: 100vh;
+.main-content{
+    // color: $dark;
+    min-height: $height;
+    display: flex;
+    .main-right-content{
+        background-color: #ffffff;
+        color: $dark;
+        width: 70%;
+        text-align: justify;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .main-title{
+            &-main{
+                color: $dark;
+                font-size: 3.4rem;
+                text-align: center;
+                padding: 1rem 0 1rem 0;
+            }
+            &-sub{
+                font-size: 2rem;
+                text-align: center;
+                padding-bottom: 2rem;
+            }
+        }
+        .projects{
+            display: grid;
+            width: 75%;
+            gap: 3rem;
+            grid-template-columns: 47% 47%;
+            p{
+                margin: .3rem 0;
+            }
+        }
+    }
+}
+
+@media(max-width: $mobile-width){
+    .main-content{
+        flex-direction: column; 
+        .main-right-content{
+            width: auto;
+            .projects{
+                width: 90%;
+                grid-template-columns: 100%;
+                gap: 0rem;
+                .project{
+                    width: 100%;
+                    margin-bottom: 2rem;
+                    &-title{
+                        font-size: 1.5rem;
+                        font-weight: 600;
+                    }
+                    .thumbnail{  
+                        .icons{
+                            bottom: -1px;
+                            .live-demo{
+                                min-width: 30%;
+                                font-size: 2em;
+                                font-weight: 600;
+                            }
+                            .github{
+                                min-width: 15%;
+                                font-size: 1.2em;
+                            }
+                        }  
+                    }
+                }
+            }
+            .main-title{
+                &-main{
+                    font-size: 2.7rem;
+                }
+                &-sub{
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+    .sub-title{
+        padding: 1rem 0 2rem 0;
+    }
+}
+
+@media(max-width: $tablet-width){
+    .main-right-content{
+        .projects{
+            width: 87% !important;
+            grid-template-columns: 100% !important;
+            gap: 0rem;
+            .project{
+                margin-bottom: 2rem !important;
+            }
+        }
+    }
+}

@@ -1,5 +1,5 @@
 // Elméletileg ha importálok egy üres scss file-t akkor lehet scoped style a componentekben, nem kapok errort...
-import test from '../sass/test.scss'
+import '../sass/test.scss'
 require('./bootstrap');
 window.Vue = require('vue');
 Vue.use(require('vue-cookies'))

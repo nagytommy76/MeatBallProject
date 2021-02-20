@@ -13,7 +13,7 @@
             <slot name="tech-list"></slot>
         </ul>
         <section class="project-description">
-            <slot name="description"></slot>-->
+            <slot name="description"></slot>
         </section>
     </article>
 </template>
@@ -38,5 +38,66 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-    
+@import '../../../../../../sass/variables.scss';
+.thumbnail{ 
+    position: relative;  
+    margin-bottom: 1.5rem;
+    height: 17rem;
+    img{
+        height: 100%;
+        width: 100%;
+        box-shadow: 2px 1px 10px #222; 
+        object-fit: cover;
+        border-radius: 5px;
+        cursor: pointer;
+    }                     
+    .icons{
+        width: 100%;
+        position: absolute;
+        bottom: 0px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        a{
+            padding: .3rem;
+            background-color: rgba($color: #000, $alpha: .5);
+            color: #FFF;
+            transition: all .2s ease-in;
+            &:hover{
+                background-color: rgba($color: #000, $alpha: .8);
+                color: $favColor;
+            }
+        }
+        .live-demo{
+            min-width: 30%;
+            text-align: center;
+            font-size: 1.8em;
+            font-weight: 300;
+            border-radius: 0 5px 5px;
+        }
+        .github{
+            min-width: 15%;
+            text-align: left;
+            font-size: 1em;
+            border-radius: 5px 0 5px 5px;
+        }
+    }                     
+}
+.project{
+    max-width: 100%;
+    min-height: 350px;
+    &-title{
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 1.7rem;
+    }
+}
+.tech-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
 </style>

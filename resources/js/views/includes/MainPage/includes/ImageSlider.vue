@@ -32,6 +32,9 @@ export default {
             case 'meatball':
                 this.getMeatBallImagesFromFolderByName()
                 break;
+            case 'recipe':
+                this.getRecipeImagesFromFolderByName()
+                break;
         }
     },
     data() {
@@ -44,11 +47,15 @@ export default {
     },
     methods: {
         // A require.context() build-elésnél fut le, így nem lehet template literalt használni mert az futási időben "adódik át"
+        // Ezért kell 3 vagy több függvény...
         getWGImagesFromFolderByName(){
             this.fillImages(require.context(`../../../../../img/wargaming`, true, /\.jpg$/))
         },
         getMeatBallImagesFromFolderByName(){
             this.fillImages(require.context(`../../../../../img/meatball`, true, /\.jpg$/))
+        },
+        getRecipeImagesFromFolderByName(){
+            this.fillImages(require.context(`../../../../../img/recipe`, true, /\.jpg$/))
         },
         fillImages(imagesNameFromFolder){
             imagesNameFromFolder.keys().forEach(imgName => this.images.push(imgName.substring(1)))
@@ -78,3 +85,6 @@ export default {
     },
 }
 </script>
+<style lang="scss">
+@import '../../../../../sass/inc/portfolio/image_slider.scss';
+</style>

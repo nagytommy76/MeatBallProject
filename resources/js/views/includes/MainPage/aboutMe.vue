@@ -10,6 +10,9 @@
                 <Wargaming 
                     @show-image="openImageSlider"
                 />
+                <RecipeFinder 
+                    @show-image="openImageSlider"
+                />
             </div>
         </section>
         <transition name="slide">
@@ -26,8 +29,9 @@
 </template>
 <script>
 import LeftContent from './includes/LeftContent'
-import Meatball from './includes/MeatballProject'
-import Wargaming from './includes/WgProject'
+import Meatball from './includes/projects/MeatballProject'
+import RecipeFinder from './includes/projects/RecipeFinder.vue'
+import Wargaming from './includes/projects/WgProject'
 
 export default {
     name: 'AboutMe',
@@ -35,6 +39,7 @@ export default {
         LeftContent,
         Meatball,
         Wargaming,
+        RecipeFinder,
     },
     data() {
         return {
@@ -50,3 +55,6 @@ export default {
     },
 }
 </script>
+<style lang="scss" scoped>
+    @import '../../../../sass/inc/portfolio/right-content';
+</style>

@@ -39,3 +39,32 @@ export default {
     name: 'Schools',
 }
 </script>
+<style lang="scss" scoped>
+@import '../../../../sass/variables.scss';
+.schools-bg{
+    background-color: #222;
+    .schools{
+        min-height: 30vh;
+        width: 70%;
+        padding: 1rem;
+        margin: auto;
+        display: grid;
+        grid-template-columns: auto auto;
+        align-items: center;
+    }
+}
+@media(max-width: $mobile-width){
+    .schools-bg{
+    .schools{
+        grid-template-columns: auto;
+        min-height: 105vh;
+        .okj{
+            margin-bottom: 1.5rem;
+        }
+        .mid-school{
+            margin-bottom: 1.5rem;
+        }
+    }
+}
+}
+</style>

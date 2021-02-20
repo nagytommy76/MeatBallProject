@@ -11,7 +11,6 @@ In this simple web application you can:
   * Drinks
   * in the near future i'm planning to expand this list
 * add these foods into cart
-* to be continued.... 
 
 ## About Me
 
