@@ -74,3 +74,6 @@ export default {
     },
 }
 </script>
+<style lang="scss">
+@import '../../../sass/inc/food_card';
+</style>

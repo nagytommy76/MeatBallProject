@@ -7,9 +7,7 @@
         <transition name="sidebar">
             <Sidebar v-if="showSidebar" @close="showSidebar = false" />
         </transition>
-
         <AboutMe />
-        <div class="top-underline"></div>
         <Schools />
         <Footer />
     </div>

@@ -27,10 +27,9 @@ $sideWidth: 36%;
     &-close{
         cursor: pointer;
         position: absolute;
-        top: 0;
-        right: 0;
+        top: 1.2em;
+        right: 1.2em;
         font-size: 1.4rem;
-        margin: 1.4rem;
         transition: color .2s;
         &:hover{
             color: $deleteColor;
@@ -92,7 +91,8 @@ $sideWidth: 36%;
             }
             .sidenav-navigation{
                 &-item{
-                    font-size: 1.7rem;
+                    margin: .7rem 0;
+                    font-size: 1.5rem;
                 }
             }
         }

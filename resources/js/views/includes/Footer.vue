@@ -49,3 +49,6 @@ export default {
    }
 }
 </script>
+<style lang="scss" scoped>
+@import '../../../sass/inc/footer.scss';
+</style>

@@ -26,3 +26,39 @@ export default {
     name: 'FooterContact',
 }
 </script>
+<style lang="scss" scoped>
+@import '../../../../../sass/variables.scss';
+.footer-contact{
+    margin: auto 0 1rem 0;
+    .icon-title{
+        text-align: right;
+    }
+    .contact-icon{
+        margin-bottom: .5rem;
+        i{
+            color: #FFF;
+            font-size: 2.4rem;
+            margin: .2rem 0.3rem;
+        }                
+    }
+    .email,a{
+        color: $favColor;
+        text-align: right;
+    }
+}
+@media(max-width: $mobile-width){
+    .footer-contact{
+        .icon-title{
+            text-align: center;
+            margin-bottom: .7rem;
+        }
+        .contact-icon{
+            margin-bottom: 1rem;
+        }
+        .email{
+            text-align: center;
+        }
+        margin-top: 1rem;
+    }
+}
+</style>

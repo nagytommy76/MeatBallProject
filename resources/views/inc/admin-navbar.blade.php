@@ -1,7 +1,7 @@
 <nav role="navigation" class="navbar">
     <div class="navbar-brand">
         <a href="{{ url('meatball') }}"><span class="primary-color">Húsgolyó</span> Étterem</a>
-        <span id="navOpen"><i class="fas fa-bars"></i></span>
+        <!-- <span id="navOpen"><i class="fas fa-bars"></i></span> -->
     </div>
     <ul class="navbar-nav">
             <li class="nav-item dropdown">

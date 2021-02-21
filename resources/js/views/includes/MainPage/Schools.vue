@@ -8,7 +8,7 @@
                 <h4 class="my-0">Soter-Line Oktatási Központ</h4>
                 <h4 class="my-0">Tanult technológiák</h4>
                     <ul class="tech-list">
-                        <li>C# (A programozás alapjait tanultuk meg vele)</li>
+                        <li>C#</li>
                         <li>HTML</li>
                         <li>JavaScript</li>
                         <li>CSS3</li>
@@ -50,7 +50,6 @@ export default {
         margin: auto;
         display: grid;
         grid-template-columns: auto auto;
-        align-items: center;
     }
 }
 @media(max-width: $mobile-width){

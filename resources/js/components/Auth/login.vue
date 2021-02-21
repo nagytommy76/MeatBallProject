@@ -27,41 +27,39 @@
                                 />
                             </div>  
                         </div>  
-                        <div class="form-group">
-                            <div class="col">
+                            <div class="checkbox">
                                 <label for="remember">Emlékezz Rám!</label>
                                 <input type="checkbox" v-model="formData.remember" name="remember" id="remember">
                             </div>                                   
-                        </div>               
-                <div class="card-footer">
-                    <div class="form-group">
-                        <div class="col">
-                            <input id="fetchUserToken" type="submit" value="Belépés" @click.prevent="logTheUserIn" class="btn btn-primary" />
+                        <div class="card-footer">
+                            <div class="form-group">
+                                <div class="col">
+                                    <input id="fetchUserToken" type="submit" value="Belépés" @click.prevent="logTheUserIn" class="btn btn-primary" />
+                                </div>
+                                <div class="col">
+                                    <BaseButton v-if="hasEmailError" @click.native="resendEmail" :butonClass="'delete'" :buttonText="'Aktiváló kód újraküldése'"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <Alert
+                                    v-if="showRegisterSuccess"
+                                    :className="'success'"
+                                    :Msg="'A regisztráció sikeres volt! Kérem aktiválja az e-mail címét.'"
+                                />
+                                <Alert
+                                    v-if="showValidationSuccess"
+                                    :className="'success'"
+                                    :Msg="getValidationSuccessMsg"
+                                />
+                                <Alert
+                                    v-if="hasEmailError"
+                                    :Msg="verifiedMsg"
+                                    :className="className"
+                                />
+                            </div>
                         </div>
-                        <div class="col">
-                            <BaseButton v-if="hasEmailError" @click.native="resendEmail" :butonClass="'delete'" :buttonText="'Aktiváló kód újraküldése'"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <Alert
-                            v-if="showRegisterSuccess"
-                            :className="'success'"
-                            :Msg="'A regisztráció sikeres volt! Kérem aktiválja az e-mail címét.'"
-                        />
-                        <Alert
-                            v-if="showValidationSuccess"
-                            :className="'success'"
-                            :Msg="getValidationSuccessMsg"
-                        />
-                        <Alert
-                            v-if="hasEmailError"
-                            :Msg="verifiedMsg"
-                            :className="className"
-                        />
-                    </div>
+                    </form>
                 </div>
-            </form>
-            </div>
             </div>
         </section>
     </div>

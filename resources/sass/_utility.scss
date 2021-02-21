@@ -68,6 +68,17 @@ body{
     text-align: left;
 }
 
+// MODAL, IMAGE SLIDER FADE IN
+.fade-in{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;  
+    background-color: rgba($color: #000, $alpha: .7);
+}
+
 
 // =============== BTN =======================
 
@@ -162,18 +173,6 @@ body{
     }
 }
 
-@media(max-width: $mobile-width){
-    .btn-up{
-        font-size: 1rem;
-        right: 15px;
-        bottom: 25px;
-    }
-
-    .btn{
-        font-size: .8rem;
-    }
-}
-
 .top-underline{
     border-top: solid 3px $favColor;
 }
@@ -182,6 +181,17 @@ body{
     font-size: 3rem;
     text-align: center;
     padding: 1rem 0 1rem 0;
+}
+
+.project-title{
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1.7rem;
+}
+
+.tech-list{
+    margin-left: 1rem;
+    list-style: circle;
 }
 // INPUTS ====================
 
@@ -212,7 +222,6 @@ body{
 }
 
 .vue{
-    // color: #46ba86;
     color: #35495e;
 }
 .laravel{
@@ -223,4 +232,21 @@ body{
 }
 .mysql{
     color: #00758f;
+}
+
+@media(max-width: $mobile-width){
+    .btn-up{
+        font-size: 1rem;
+        right: 15px;
+        bottom: 25px;
+    }
+
+    .btn{
+        font-size: .8rem;
+    }
+
+    .project-title{
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
 }

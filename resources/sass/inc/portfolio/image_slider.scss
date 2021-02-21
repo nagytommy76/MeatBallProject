@@ -1,13 +1,4 @@
 @import '../../variables';
-.image-enter-active,
-.image-leave-active {
-    transition: transform .4s ease;
-}
-
-.image-enter,
-.image-leave-to{
-    transform: scale(0, 0);
-}
 
 .slide-image-enter-active,
 .slide-image-leave-active {
@@ -32,8 +23,8 @@
     left: 0;
     z-index: 4;
     margin: auto;
-    width: 80%;
-    height: 80%;
+    width: 95%;
+    height: 95%;
     background: rgb(204, 204, 204);
     .img-container{
         height: 100%;
@@ -93,6 +84,30 @@
             &:hover{
                 background-color: rgba($color:$dark, $alpha: .9);
                 color: white;
+            }
+        }
+    }
+}
+@media (max-width: $mobile-width){
+    .image-slider{
+        .image-close{
+            top: 5px;
+            right: 5px;
+            font-size: 1.1rem;
+        }
+        width: 100%;
+        height: 100%;
+        .img-container{
+            img{
+                object-fit: cover;
+            }
+        }
+        .arrow{
+            &-right{
+                padding: .2rem;
+            }
+            &-left{
+                padding: .2rem;
             }
         }
     }

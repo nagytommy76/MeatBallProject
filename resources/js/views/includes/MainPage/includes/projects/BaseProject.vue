@@ -9,7 +9,7 @@
             </div>
         </figure>
         <h2 class="project-title">{{ projectTitle }}</h2>
-        <ul class="tech-list">
+        <ul class="tech-items">
             <slot name="tech-list"></slot>
         </ul>
         <section class="project-description">
@@ -87,13 +87,8 @@ export default {
 .project{
     max-width: 100%;
     min-height: 350px;
-    &-title{
-        font-size: 2rem;
-        font-weight: 800;
-        margin-bottom: 1.7rem;
-    }
 }
-.tech-list{
+.tech-items{
     list-style: none;
     margin: 0;
     padding: 0;

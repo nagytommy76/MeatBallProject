@@ -12,3 +12,6 @@ export default {
     name:'MainHeader',
 }
 </script>
+<style lang="scss" scoped>
+@import '../../../../sass/inc/main_header.scss';
+</style>

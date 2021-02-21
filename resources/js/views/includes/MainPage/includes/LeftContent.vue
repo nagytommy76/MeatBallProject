@@ -61,8 +61,8 @@
             <div class="summary-body">
                 <p>Nagy Tamás vagyok, pályakezdő webfejlesztő. Jelenlegi tudásom nagy részét autodidakta módon szereztem, különböző kurzusok (Udemy) és weboldalak (freeCodeCamp, w3school) segítségével, valamint saját projectek elkészítésével.</p>
                 <p>Jelenleg Laravelt és Vue.js-t tanulok.</p>
-                <p>Kezdőként forntend területen szeretnék elhelyezkedni, illetve bővíteni tudásomat. A későbbiekben pedig a fullstack irány a célom.</p>
-                <p>A jövőt tekintve szeretnék megismerkedni a Node.js-el (valamint Express.js), React-el, és a MongoDB-vel</p>
+                <p>Kezdőként forntend területen szeretnék elhelyezkedni, illetve bővíteni tudásomat. A későbbiekben a fullstack irány a célom.</p>
+                <p>A jövőt tekintve szeretnék megismerkedni a Node.js-el (valamint Express.js), React-el, és a MongoDB-vel.</p>
             </div>
         </section>
         <FooterContact />

@@ -72,7 +72,6 @@ export default {
       this.moreButton = !this.moreButton;
     },
     async addCart(){
-      console.log('csocsi')
       if(this.userLoggedIn){
         await addToCart.addFoodToCart(this.foodType, this.pizzaId, this.selectedIngreds)
         .then(result => {

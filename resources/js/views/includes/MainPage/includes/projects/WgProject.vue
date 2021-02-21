@@ -21,9 +21,6 @@
             >
                 <i class="fab fa-sass fa-2x sass"></i>
             </TechList>
-            <li>
-                <p><a target="_blank" href="https://developers.wargaming.net/reference/all/wot/account/list/?r_realm=eu">Wargaming API</a></p>
-            </li>
             <TechList 
                 :title="'Single-Page-Application'"
                 :isTooltip="false"

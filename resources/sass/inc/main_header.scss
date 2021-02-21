@@ -1,7 +1,8 @@
 // Intro Page (HEADER)
+@import '../variables';
 .main-header{
     height: 100vh;
-    background: $dark url('../../img/header-img.jpg') no-repeat center center/cover;
+    background: $dark url('../../../../img/header-img.jpg') no-repeat center center/cover;
     margin-top: calc(-#{$navbar-height});
 
     .main-title{

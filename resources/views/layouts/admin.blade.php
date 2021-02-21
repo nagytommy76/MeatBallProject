@@ -20,7 +20,6 @@
     <main id="admin">
         @include('inc.admin-navbar')
         @yield('admin')
-        @include('inc.admin-footer')
     </main>
 
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}

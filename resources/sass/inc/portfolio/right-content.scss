@@ -1,7 +1,6 @@
 @import '../../variables';
 $height: 100vh;
 .main-content{
-    // color: $dark;
     min-height: $height;
     display: flex;
     .main-right-content{
@@ -35,6 +34,26 @@ $height: 100vh;
             }
         }
     }
+}
+// Image slider transition
+.image-enter-active,
+.image-leave-active {
+    transition: transform .4s ease;
+}
+
+.image-enter,
+.image-leave-to{
+    transform: scale(0, 0);
+}
+
+.slide-enter-active,
+.slide-leave-active {
+    transition: all .4s ease-out;
+}
+
+.slide-enter,
+.slide-leave-to{
+    opacity: 0;
 }
 
 @media(max-width: $mobile-width){

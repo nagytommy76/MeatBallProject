@@ -45,7 +45,7 @@
         </template>
         <template v-slot:description>
             <p>A weboldal egy kitalált étterem honlapja, ahol lehetőség van ételeket rendelni.</p>
-            <p>A vásárláshoz szükséges a regisztráció, illetve e-mail cím validáció, a megadott e-mail címre a rendszer küld egy aktiváló linket, amelyre kattintva visszatérünk a bejelentkező oldalra, ahol beléphetünk.</p>
+            <p>A vásárláshoz szükséges a regisztráció, illetve e-mail cím validáció.</p>
             <p>A rendelés leadásakor lehetőség van készpénzzel a "futárnál", illetve PayPal-en keresztül fizetni egy sandbox számlával.</p>
             <p>Létrehoztam egy admin felületet is, amin keresztül termékeket lehet bevinni, törölni és módosítani</p>
         </template>

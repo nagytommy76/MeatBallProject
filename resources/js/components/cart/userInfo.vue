@@ -83,7 +83,7 @@
                             v-show="!isUserinfoFilled"
                             :buttonClass="'confirm-dark'"
                             :buttonText="'Adatok megadása'"
-                            @click.native="addUserInfo"
+                            @click.prevent.native="addUserInfo"
                         />
                     </div>  
                     <div class="col">
@@ -92,7 +92,7 @@
                         v-show="isUserinfoFilled"
                         :buttonClass="'elete-dark'"
                         :buttonText="'Módosítás'"
-                        @click.native="modifyUserInfo"
+                        @click.prevent.native="modifyUserInfo"
                     />                                  
                 </div>
                 <Alert

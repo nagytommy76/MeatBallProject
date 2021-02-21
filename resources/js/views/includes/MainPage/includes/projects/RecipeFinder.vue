@@ -21,17 +21,12 @@
             >
                 <i class="fab fa-sass fa-2x sass"></i>
             </TechList>
-            <TechList 
-                :title="'Saját fejlesztésű API'"
-                :isTooltip="false"
-            />
-            <TechList 
-                :title="'Single-Page-Application'"
-                :isTooltip="false"
-            />
         </template>
         <template v-slot:description>
-            <p>A weboldal egy kitalált étterem honlapja, ahol lehetőség van ételeket rendelni.</p>
+            <p>Az oldal a <a class="primary-color" target="_blank" href="https://spoonacular.com/food-api/docs">Spoonacular API</a>-t használja.</p>
+            <p>Recepteket tudunk keresni név, maximum elkészítési idő, valamint hozzávalók szerint.</p>
+            <p>Alapból 10 recept jelenik meg, de ezt a számot tudjuk növelni vagy csökkenteni.</p>
+            <p>A keresési előzmény mentésre kerül a localStorage-be.</p>
         </template>
     </BaseProject>
 </template>
