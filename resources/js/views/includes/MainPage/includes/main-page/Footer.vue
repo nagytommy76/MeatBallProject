@@ -16,5 +16,5 @@ export default {
 }
 </script>
 <style lang="scss">
-@import '../../../../sass/inc/portfolio/footer.scss';
+@import '../../../../../../sass/inc/portfolio/footer.scss';
 </style>

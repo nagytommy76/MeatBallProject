@@ -9,20 +9,23 @@
         </transition>
         <AboutMe />
         <Schools />
+        <Certifications />
         <Footer />
     </div>
 </template>
 <script>
-import Sidebar from './Sidebar'
+import Sidebar from './includes/main-page/Sidebar'
 import AboutMe from './AboutMe'
 import Schools from './Schools'
-import Footer from './Footer'
+import Certifications from './includes/main-page/Certifications'
+import Footer from './includes/main-page/Footer'
 export default {
     name: 'MainWelcome',
     components:{
         Sidebar,
         AboutMe,
         Schools,
+        Certifications,
         Footer,
     },
     data() {

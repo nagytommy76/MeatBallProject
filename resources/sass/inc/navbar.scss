@@ -164,7 +164,18 @@ $menu-width: 170px;
     text-align: center;
 }
 
+// Admin navbar ===================
+.navOpen{
+    display: none;
+}
+// Admin END ======================
+
 @media(max-width: $mobile-width){
+    // Admin navbar ===================
+    .navOpen{
+        display: block;
+    }
+    // Admin END ======================
     .navbar{
         z-index: 100;
         background-color: rgba($color: $navbar-color, $alpha: 1);

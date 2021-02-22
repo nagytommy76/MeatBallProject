@@ -1,18 +1,21 @@
 <template>
     <div class="image-slider">
         <span @click="$emit('close')" class="image-close"><i class="far fa-times-circle fa-2x"></i></span>
-        <transition name="slide-image">
+        <transition v-if="!singleImage" name="slide-image">
             <div class="img-container" v-for="nth in [step]" :key="nth">
                 <img :src="`/images${images[nth]}`" >        
             </div>
         </transition>
-        <div class="arrow-right" @click="increase">
+        <div class="img-container" v-if="singleImage">
+            <h1>Ide jön az a kép amire kattintok a Cert.vue-ban!!!!!</h1>
+        </div>
+        <div v-if="!singleImage" class="arrow-right" @click="increase">
             <Tooltip :text="nextPage">
                 <i class="fas fa-arrow-right fa-3x"></i>
             </Tooltip>
         </div>
 
-        <div class="arrow-left" @click="decrease">
+        <div v-if="!singleImage" class="arrow-left" @click="decrease">
             <Tooltip :text="prevPage">
                 <i class="fas fa-arrow-left fa-3x"></i>
             </Tooltip>
@@ -22,7 +25,15 @@
 <script>
 export default {
     props:{
-        imgFolderName: String,
+        imgFolderName: {
+            type: String,
+            required: false,
+        },
+        singleImage: {
+            type: Boolean,
+            required: false,
+            default: false
+        },
     },
     mounted(){
         switch (this.imgFolderName) {
@@ -34,6 +45,9 @@ export default {
                 break;
             case 'recipe':
                 this.getRecipeImagesFromFolderByName()
+                break;
+            default:
+                // console.log(this.imgFolderName)
                 break;
         }
     },

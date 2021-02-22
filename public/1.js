@@ -30,9 +30,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    imgFolderName: String
+    imgFolderName: {
+      type: String,
+      required: false
+    },
+    singleImage: {
+      type: Boolean,
+      required: false,
+      "default": false
+    }
   },
   mounted: function mounted() {
     switch (this.imgFolderName) {
@@ -46,6 +57,10 @@ __webpack_require__.r(__webpack_exports__);
 
       case 'recipe':
         this.getRecipeImagesFromFolderByName();
+        break;
+
+      default:
+        // console.log(this.imgFolderName)
         break;
     }
   },
@@ -188,38 +203,52 @@ var render = function() {
         [_c("i", { staticClass: "far fa-times-circle fa-2x" })]
       ),
       _vm._v(" "),
-      _c(
-        "transition",
-        { attrs: { name: "slide-image" } },
-        _vm._l([_vm.step], function(nth) {
-          return _c("div", { key: nth, staticClass: "img-container" }, [
-            _c("img", { attrs: { src: "/images" + _vm.images[nth] } })
-          ])
-        }),
-        0
-      ),
+      !_vm.singleImage
+        ? _c(
+            "transition",
+            { attrs: { name: "slide-image" } },
+            _vm._l([_vm.step], function(nth) {
+              return _c("div", { key: nth, staticClass: "img-container" }, [
+                _c("img", { attrs: { src: "/images" + _vm.images[nth] } })
+              ])
+            }),
+            0
+          )
+        : _vm._e(),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "arrow-right", on: { click: _vm.increase } },
-        [
-          _c("Tooltip", { attrs: { text: _vm.nextPage } }, [
-            _c("i", { staticClass: "fas fa-arrow-right fa-3x" })
+      _vm.singleImage
+        ? _c("div", { staticClass: "img-container" }, [
+            _c("h1", [
+              _vm._v("Ide jön az a kép amire kattintok a Cert.vue-ban!!!!!")
+            ])
           ])
-        ],
-        1
-      ),
+        : _vm._e(),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "arrow-left", on: { click: _vm.decrease } },
-        [
-          _c("Tooltip", { attrs: { text: _vm.prevPage } }, [
-            _c("i", { staticClass: "fas fa-arrow-left fa-3x" })
-          ])
-        ],
-        1
-      )
+      !_vm.singleImage
+        ? _c(
+            "div",
+            { staticClass: "arrow-right", on: { click: _vm.increase } },
+            [
+              _c("Tooltip", { attrs: { text: _vm.nextPage } }, [
+                _c("i", { staticClass: "fas fa-arrow-right fa-3x" })
+              ])
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      !_vm.singleImage
+        ? _c(
+            "div",
+            { staticClass: "arrow-left", on: { click: _vm.decrease } },
+            [
+              _c("Tooltip", { attrs: { text: _vm.prevPage } }, [
+                _c("i", { staticClass: "fas fa-arrow-left fa-3x" })
+              ])
+            ],
+            1
+          )
+        : _vm._e()
     ],
     1
   )
