@@ -7,7 +7,7 @@
             </div>
         </transition>
         <div class="img-container" v-if="singleImage">
-            <h1>Ide jön az a kép amire kattintok a Cert.vue-ban!!!!!</h1>
+            <img :src="`/images/${imgFolderName}.jpg`">
         </div>
         <div v-if="!singleImage" class="arrow-right" @click="increase">
             <Tooltip :text="nextPage">
@@ -45,9 +45,6 @@ export default {
                 break;
             case 'recipe':
                 this.getRecipeImagesFromFolderByName()
-                break;
-            default:
-                // console.log(this.imgFolderName)
                 break;
         }
     },

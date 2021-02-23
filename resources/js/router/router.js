@@ -9,6 +9,7 @@ import Login from '../components/Auth/Login'
 import Register from '../components/Auth/Register'
 
 import Meatball from '../views/MeatBall'
+// const Meatball = () =>  import('../views/MeatBall')
 
 import PizzaFilter from '../components/pizza/PizzaFilter'
 import SoupFilter from '../components/soup/SoupFilter'
@@ -17,7 +18,9 @@ import DrinkFilter from '../components/drink/DrinkFilter'
 import MealFilter from '../components/meal/MealFilter'
 import PastaFilter from '../components/pasta/PastaFilter'
 
-import PageNotFound404 from '../views/errors/404';
+import PageNotFound404 from '../views/errors/404'
+// Ehhez webpack kell?!
+// const PageNotFound404 = () =>  import('../views/errors/404');
 
 
 const routes = [

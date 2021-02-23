@@ -16,8 +16,8 @@
                         <li>MySQL</li>
                     </ul>
                 <h4 class="my-0">Egyéb</h4>
-                <p>hálózati ismeretek, adatbázisok, programozási alapismeretek, Apache (XAMPP) szerver, weblap készítés
-                </p>
+                <p>hálózati ismeretek, adatbázisok, programozási alapismeretek.</p>
+                <p>Apache (XAMPP) szerver, weblap készítés.</p>
             </section>                    
             <section class="mid-school">
                 <h4 class="project-title">Érettségi, Informatika szak</h4>

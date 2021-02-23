@@ -1,8 +1,8 @@
-window._ = require('lodash');
+// window._ = require('lodash');
 
-try {
-    window.Popper = require('popper.js').default;
-} catch (e) {}
+// try {
+//     window.Popper = require('popper.js').default;
+// } catch (e) {}
 
 window.axios = require('axios');
 

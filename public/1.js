@@ -58,10 +58,6 @@ __webpack_require__.r(__webpack_exports__);
       case 'recipe':
         this.getRecipeImagesFromFolderByName();
         break;
-
-      default:
-        // console.log(this.imgFolderName)
-        break;
     }
   },
   data: function data() {
@@ -134,7 +130,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".slide-image-enter-active,\n.slide-image-leave-active {\n  transition: all 0.8s ease-out;\n  overflow: hidden;\n  visibility: visible;\n  opacity: 1;\n}\n.slide-image-enter,\n.slide-image-leave-to {\n  opacity: 0;\n  visibility: hidden;\n}\n.image-slider {\n  box-shadow: 1px 1px 15px #222;\n  position: fixed;\n  bottom: 0;\n  top: 0;\n  right: 0;\n  left: 0;\n  z-index: 4;\n  margin: auto;\n  width: 95%;\n  height: 95%;\n  background: #cccccc;\n}\n.image-slider .img-container {\n  height: 100%;\n  position: absolute;\n}\n.image-slider .img-container img {\n  -o-object-fit: cover;\n     object-fit: cover;\n  width: 100%;\n  height: 100%;\n}\n.image-slider .image-close {\n  position: absolute;\n  top: 15px;\n  right: 15px;\n  color: #ffae00;\n  cursor: pointer;\n  font-size: 1.5rem;\n  transition: color 0.2s;\n  z-index: 5;\n}\n.image-slider .image-close:hover {\n  color: #C80600;\n}\n.image-slider .arrow-right {\n  position: absolute;\n  right: 0;\n  top: 50%;\n  color: black;\n  background-color: rgba(51, 51, 51, 0.4);\n  border-radius: 7px 0 0 7px;\n  padding: 0.5rem;\n  transition: all 0.2s ease-in;\n  cursor: pointer;\n}\n.image-slider .arrow-right i {\n  cursor: pointer;\n}\n.image-slider .arrow-right:hover {\n  background-color: rgba(51, 51, 51, 0.9);\n  color: white;\n}\n.image-slider .arrow-left {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  color: black;\n  background-color: rgba(51, 51, 51, 0.4);\n  border-radius: 0 7px 7px 0;\n  padding: 0.5rem;\n  transition: all 0.2s ease-in;\n  cursor: pointer;\n}\n.image-slider .arrow-left i {\n  cursor: pointer;\n}\n.image-slider .arrow-left:hover {\n  background-color: rgba(51, 51, 51, 0.9);\n  color: white;\n}\n@media (max-width: 720px) {\n.image-slider {\n    width: 100%;\n    height: 100%;\n}\n.image-slider .image-close {\n    top: 5px;\n    right: 5px;\n    font-size: 1.1rem;\n}\n.image-slider .img-container img {\n    -o-object-fit: cover;\n       object-fit: cover;\n}\n.image-slider .arrow-right {\n    padding: 0.2rem;\n}\n.image-slider .arrow-left {\n    padding: 0.2rem;\n}\n}", ""]);
+exports.push([module.i, ".slide-image-enter-active,\n.slide-image-leave-active {\n  transition: all 0.8s ease-out;\n  overflow: hidden;\n  visibility: visible;\n  opacity: 1;\n}\n.slide-image-enter,\n.slide-image-leave-to {\n  opacity: 0;\n  visibility: hidden;\n}\n.image-slider {\n  box-shadow: 1px 1px 15px #222;\n  position: fixed;\n  bottom: 0;\n  top: 0;\n  right: 0;\n  left: 0;\n  z-index: 4;\n  margin: auto;\n  width: 90%;\n  height: 90%;\n  background: #cccccc;\n}\n.image-slider .img-container {\n  height: 100%;\n  position: absolute;\n}\n.image-slider .img-container img {\n  -o-object-fit: cover;\n     object-fit: cover;\n  width: 100%;\n  height: 100%;\n}\n.image-slider .image-close {\n  position: absolute;\n  top: 15px;\n  right: 15px;\n  color: #ffae00;\n  cursor: pointer;\n  font-size: 1.5rem;\n  transition: color 0.2s;\n  z-index: 5;\n}\n.image-slider .image-close:hover {\n  color: #C80600;\n}\n.image-slider .arrow-right {\n  position: absolute;\n  right: 0;\n  top: 50%;\n  color: black;\n  background-color: rgba(51, 51, 51, 0.4);\n  border-radius: 7px 0 0 7px;\n  padding: 0.5rem;\n  transition: all 0.2s ease-in;\n  cursor: pointer;\n}\n.image-slider .arrow-right i {\n  cursor: pointer;\n}\n.image-slider .arrow-right:hover {\n  background-color: rgba(51, 51, 51, 0.9);\n  color: white;\n}\n.image-slider .arrow-left {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  color: black;\n  background-color: rgba(51, 51, 51, 0.4);\n  border-radius: 0 7px 7px 0;\n  padding: 0.5rem;\n  transition: all 0.2s ease-in;\n  cursor: pointer;\n}\n.image-slider .arrow-left i {\n  cursor: pointer;\n}\n.image-slider .arrow-left:hover {\n  background-color: rgba(51, 51, 51, 0.9);\n  color: white;\n}\n@media (max-width: 720px) {\n.image-slider {\n    width: 100%;\n    height: 100%;\n}\n.image-slider .image-close {\n    top: 5px;\n    right: 5px;\n    font-size: 1.1rem;\n}\n.image-slider .img-container img {\n    -o-object-fit: cover;\n       object-fit: cover;\n}\n.image-slider .arrow-right {\n    padding: 0.2rem;\n}\n.image-slider .arrow-left {\n    padding: 0.2rem;\n}\n}", ""]);
 
 // exports
 
@@ -218,9 +214,9 @@ var render = function() {
       _vm._v(" "),
       _vm.singleImage
         ? _c("div", { staticClass: "img-container" }, [
-            _c("h1", [
-              _vm._v("Ide jön az a kép amire kattintok a Cert.vue-ban!!!!!")
-            ])
+            _c("img", {
+              attrs: { src: "/images/" + _vm.imgFolderName + ".jpg" }
+            })
           ])
         : _vm._e(),
       _vm._v(" "),
