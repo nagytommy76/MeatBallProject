@@ -14,7 +14,6 @@
                 <i class="fas fa-arrow-right fa-3x"></i>
             </Tooltip>
         </div>
-
         <div v-if="!singleImage" class="arrow-left" @click="decrease">
             <Tooltip :text="prevPage">
                 <i class="fas fa-arrow-left fa-3x"></i>
