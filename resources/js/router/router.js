@@ -4,7 +4,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import MainWelcome from '../views/includes/MainPage/MainWelcome'
-import Welcome from '../views/includes/Welcome'
+const Welcome = () => import('../views/includes/Welcome')
 
 const Login = () => import('../components/Auth/Login')
 const Register = () => import('../components/Auth/Register')
