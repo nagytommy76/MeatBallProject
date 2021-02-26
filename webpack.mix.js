@@ -10,12 +10,17 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
+mix.webpackConfig({
+    watchOptions: { ignored: /node_modules/ }
+});
 
-mix.js('resources/js/app.js', 'public/js').webpackConfig({
-   output: { 
-       chunkFilename: '[name].js?id=[chunkhash]',
-       publicPath: '/',
-   }
-}).version();
+mix.override((config) => {
+    delete config.watchOptions;
+});
+
+mix.js('resources/js/app.js', 'public/js').vue({
+    extractStyles: true,
+    globalStyles: true
+});
    
 mix.sass('resources/sass/app.scss', 'public/css');

@@ -1,7 +1,8 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+// import Vue from 'vue';
+// import VueRouter from 'vue-router';
+import { createRouter, createWebHistory } from "vue-router";
 
-Vue.use(VueRouter);
+// Vue.use(VueRouter);
 
 import MainWelcome from '../views/includes/MainPage/MainWelcome'
 const Welcome = () => import('../views/includes/Welcome')
@@ -101,13 +102,28 @@ const routes = [
     },
 ];
 
-export default new VueRouter({
-    mode: 'history',
-    routes,
-    scrollBehavior(_, _2, savedPosition){
-        if(savedPosition){
-            return savedPosition
+export default createRouter({
+    history: createWebHistory(process.env.BASE_URL),
+    scrollBehavior(_, _2, savedPosition) {
+      if (savedPosition) {
+        return savedPosition
+      } else {
+        return { 
+          top: 0,
+          behavior: 'smooth'
         }
-        return {x: 0, y: 0}
+      }
     },
-})
+    routes
+  });
+
+// export default new VueRouter({
+//     mode: 'history',
+//     routes,
+//     scrollBehavior(_, _2, savedPosition){
+//         if(savedPosition){
+//             return savedPosition
+//         }
+//         return {x: 0, y: 0}
+//     },
+// })
