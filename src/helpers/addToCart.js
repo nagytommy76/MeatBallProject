@@ -1,0 +1,10 @@
+export default class addToCart{
+    static async addFoodToCart(foodType, foodId, selectedIngreds = []) {
+        return await this.axios.post('addFoodToCart',{
+            foodType: foodType,
+            foodId: foodId,
+            plusIngreds: selectedIngreds,
+        })
+        
+    }
+}
