@@ -4,23 +4,21 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import MainWelcome from '../views/includes/MainPage/MainWelcome'
-import Welcome from '../views/includes/Welcome'
-import Login from '../components/Auth/Login'
-import Register from '../components/Auth/Register'
+const Welcome = () => import('../views/includes/Welcome')
 
-import Meatball from '../views/MeatBall'
-// const Meatball = () =>  import('../views/MeatBall')
+const Login = () => import('../components/Auth/Login')
+const Register = () => import('../components/Auth/Register')
 
-import PizzaFilter from '../components/pizza/PizzaFilter'
-import SoupFilter from '../components/soup/SoupFilter'
-import DessertFilter from '../components/dessert/DessertFilter'
-import DrinkFilter from '../components/drink/DrinkFilter'
-import MealFilter from '../components/meal/MealFilter'
-import PastaFilter from '../components/pasta/PastaFilter'
+const Meatball = () =>  import('../views/MeatBall')
 
-import PageNotFound404 from '../views/errors/404'
-// Ehhez webpack kell?!
-// const PageNotFound404 = () =>  import('../views/errors/404');
+const PizzaFilter = () => import('../components/pizza/PizzaFilter')
+const SoupFilter = () => import('../components/soup/SoupFilter')
+const DessertFilter = () => import('../components/dessert/DessertFilter')
+const DrinkFilter = () => import('../components/drink/DrinkFilter')
+const MealFilter = () => import('../components/meal/MealFilter')
+const PastaFilter = () => import('../components/pasta/PastaFilter')
+
+const PageNotFound404 = () =>  import('../views/errors/404');
 
 
 const routes = [

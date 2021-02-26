@@ -1,2269 +1,753 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[0],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cart/CartModal.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cart/CartModal.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./node_modules/@babel/runtime/regenerator/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js");
 
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "CartModal",
-  data: function data() {
-    return {
-      iconName: "far fa-trash-alt fa-2x",
-      deleted: false
-    };
-  },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
-    cartItems: 'getCartItems'
-  })),
-  methods: {
-    deleteItem: function deleteItem(event) {
-      var _this = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var foodId, foodType, selectedItemIndex;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                if (!(event.target.classList == _this.iconName || event.target.tagName == "I")) {
-                  _context.next = 6;
-                  break;
-                }
-
-                foodId = event.target.parentElement.querySelector('.foodId').value;
-                foodType = event.target.parentElement.querySelector('.foodType').value;
-                selectedItemIndex = event.target.parentElement.querySelector('I').id;
-                _context.next = 6;
-                return axios["delete"]('removeItemFromCart', {
-                  data: {
-                    foodId: foodId,
-                    foodType: foodType,
-                    selectedItemIndex: selectedItemIndex
-                  }
-                }).then(function (deleted) {
-                  _this.$store.commit('setCartItems', deleted.data);
-
-                  _this.toggleSuccessMsg();
-                });
-
-              case 6:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
-    },
-    toggleSuccessMsg: function toggleSuccessMsg() {
-      var _this2 = this;
-
-      this.deleted = true;
-      setTimeout(function () {
-        _this2.deleted = false;
-      }, 6000);
-    }
-  }
-});
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cart/Modal.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cart/Modal.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./node_modules/regenerator-runtime/runtime.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/regenerator-runtime/runtime.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _CartModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CartModal */ "./resources/js/components/cart/CartModal.vue");
-/* harmony import */ var _UserInfo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserInfo */ "./resources/js/components/cart/UserInfo.vue");
-/* harmony import */ var _SummaryCart__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SummaryCart */ "./resources/js/components/cart/SummaryCart.vue");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
 
+var runtime = (function (exports) {
+  "use strict";
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+  var Op = Object.prototype;
+  var hasOwn = Op.hasOwnProperty;
+  var undefined; // More compressible than void 0.
+  var $Symbol = typeof Symbol === "function" ? Symbol : {};
+  var iteratorSymbol = $Symbol.iterator || "@@iterator";
+  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
+  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
 
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+  function wrap(innerFn, outerFn, self, tryLocsList) {
+    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
+    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
+    var generator = Object.create(protoGenerator.prototype);
+    var context = new Context(tryLocsList || []);
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+    // The ._invoke method unifies the implementations of the .next,
+    // .throw, and .return methods.
+    generator._invoke = makeInvokeMethod(innerFn, self, context);
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+    return generator;
+  }
+  exports.wrap = wrap;
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Modal',
-  components: {
-    CartModal: _CartModal__WEBPACK_IMPORTED_MODULE_1__["default"],
-    SummaryCart: _SummaryCart__WEBPACK_IMPORTED_MODULE_3__["default"],
-    UserInfo: _UserInfo__WEBPACK_IMPORTED_MODULE_2__["default"]
-  },
-  data: function data() {
-    return {
-      pages: ['CartModal', 'UserInfo', 'SummaryCart'],
-      isLoading: false,
-      exceptionMsg: '',
-      showSuccessCashPay: false,
-      showException: false
-    };
-  },
-  computed: _objectSpread({
-    currentPage: function currentPage() {
-      return this.pages[this.getCurrentPage];
+  // Try/catch helper to minimize deoptimizations. Returns a completion
+  // record like context.tryEntries[i].completion. This interface could
+  // have been (and was previously) designed to take a closure to be
+  // invoked without arguments, but in all the cases we care about we
+  // already have an existing method we want to call, so there's no need
+  // to create a new function object. We can even get away with assuming
+  // the method takes exactly one argument, since that happens to be true
+  // in every case, so we don't have to touch the arguments object. The
+  // only additional allocation required is the completion record, which
+  // has a stable shape and so hopefully should be cheap to allocate.
+  function tryCatch(fn, obj, arg) {
+    try {
+      return { type: "normal", arg: fn.call(obj, arg) };
+    } catch (err) {
+      return { type: "throw", arg: err };
     }
-  }, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapGetters"])({
-    totalQty: 'getTotalQty',
-    paidWithPP: 'getPaid',
-    transactionID: 'getTransactionID',
-    getCreatedAt: 'getCreatedAt',
-    isUserDataReceived: 'getIsUserDataReceived',
-    isUserinfoFilled: 'getUserInfoFilled',
-    getUserDataReceivedOnce: 'getUserDataReceivedOnce',
-    getCurrentPage: 'getCurrentPage',
-    showMakeOrder: 'getShowMakeOrder'
-  }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapGetters"])('paypalState', {
-    showPayment: 'getShowPayment',
-    showSuccessPayPal: 'showSuccessPayPal',
-    showAlternatePayment: 'showAlternatePayment'
-  })),
-  created: function created() {
-    if (!this.getUserDataReceivedOnce) {
-      this.getUserInfo();
-      this.setUserDataReceivedOnce(true);
+  }
+
+  var GenStateSuspendedStart = "suspendedStart";
+  var GenStateSuspendedYield = "suspendedYield";
+  var GenStateExecuting = "executing";
+  var GenStateCompleted = "completed";
+
+  // Returning this object from the innerFn has the same effect as
+  // breaking out of the dispatch switch statement.
+  var ContinueSentinel = {};
+
+  // Dummy constructor functions that we use as the .constructor and
+  // .constructor.prototype properties for functions that return Generator
+  // objects. For full spec compliance, you may wish to configure your
+  // minifier not to mangle the names of these two functions.
+  function Generator() {}
+  function GeneratorFunction() {}
+  function GeneratorFunctionPrototype() {}
+
+  // This is a polyfill for %IteratorPrototype% for environments that
+  // don't natively support it.
+  var IteratorPrototype = {};
+  IteratorPrototype[iteratorSymbol] = function () {
+    return this;
+  };
+
+  var getProto = Object.getPrototypeOf;
+  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
+  if (NativeIteratorPrototype &&
+      NativeIteratorPrototype !== Op &&
+      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
+    // This environment has a native %IteratorPrototype%; use it instead
+    // of the polyfill.
+    IteratorPrototype = NativeIteratorPrototype;
+  }
+
+  var Gp = GeneratorFunctionPrototype.prototype =
+    Generator.prototype = Object.create(IteratorPrototype);
+  GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
+  GeneratorFunctionPrototype.constructor = GeneratorFunction;
+  GeneratorFunctionPrototype[toStringTagSymbol] =
+    GeneratorFunction.displayName = "GeneratorFunction";
+
+  // Helper for defining the .next, .throw, and .return methods of the
+  // Iterator interface in terms of a single ._invoke method.
+  function defineIteratorMethods(prototype) {
+    ["next", "throw", "return"].forEach(function(method) {
+      prototype[method] = function(arg) {
+        return this._invoke(method, arg);
+      };
+    });
+  }
+
+  exports.isGeneratorFunction = function(genFun) {
+    var ctor = typeof genFun === "function" && genFun.constructor;
+    return ctor
+      ? ctor === GeneratorFunction ||
+        // For the native GeneratorFunction constructor, the best we can
+        // do is to check its .name property.
+        (ctor.displayName || ctor.name) === "GeneratorFunction"
+      : false;
+  };
+
+  exports.mark = function(genFun) {
+    if (Object.setPrototypeOf) {
+      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
+    } else {
+      genFun.__proto__ = GeneratorFunctionPrototype;
+      if (!(toStringTagSymbol in genFun)) {
+        genFun[toStringTagSymbol] = "GeneratorFunction";
+      }
     }
-  },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapActions"])({
-    setCartDefault: 'setCartDefault',
-    setPayPalDefault: 'setPayPalDefault',
-    getUserInfo: 'getUserInfo',
-    increasePage: 'increasePage',
-    decreasePage: 'decreasePage',
-    setDefaultPage: 'setDefaultPage'
-  }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapActions"])('paypalState', {
-    disableShowPayment: 'disableShowPayment',
-    enableShowPaypalMessage: 'enableShowPaypalMessage'
-  }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapMutations"])({
-    setMakeOrder: 'setMakeOrder',
-    setUserDataReceivedOnce: 'setUserDataReceivedOnce'
-  }), {
-    makeOrder: function makeOrder() {
-      var _this = this;
+    genFun.prototype = Object.create(Gp);
+    return genFun;
+  };
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _this.isLoading = true;
-                axios.post('saveOrder', {
-                  paidWithPayPal: _this.paidWithPP,
-                  transactionId: _this.transactionID,
-                  getCreatedAt: _this.getCreatedAt
-                }).then(function (saveOrder) {
-                  if (!saveOrder.data.exception) {
-                    if (_this.paidWithPP) {
-                      _this.setCartDefault();
+  // Within the body of any async function, `await x` is transformed to
+  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
+  // `hasOwn.call(value, "__await")` to determine if the yielded value is
+  // meant to be awaited.
+  exports.awrap = function(arg) {
+    return { __await: arg };
+  };
 
-                      _this.setPayPalDefault();
+  function AsyncIterator(generator, PromiseImpl) {
+    function invoke(method, arg, resolve, reject) {
+      var record = tryCatch(generator[method], generator, arg);
+      if (record.type === "throw") {
+        reject(record.arg);
+      } else {
+        var result = record.arg;
+        var value = result.value;
+        if (value &&
+            typeof value === "object" &&
+            hasOwn.call(value, "__await")) {
+          return PromiseImpl.resolve(value.__await).then(function(value) {
+            invoke("next", value, resolve, reject);
+          }, function(err) {
+            invoke("throw", err, resolve, reject);
+          });
+        }
 
-                      setTimeout(function () {
-                        _this.setDefaultPage();
+        return PromiseImpl.resolve(value).then(function(unwrapped) {
+          // When a yielded Promise is resolved, its final value becomes
+          // the .value of the Promise<{value,done}> result for the
+          // current iteration.
+          result.value = unwrapped;
+          resolve(result);
+        }, function(error) {
+          // If a rejected Promise was yielded, throw the rejection back
+          // into the async generator function so it can be handled there.
+          return invoke("throw", error, resolve, reject);
+        });
+      }
+    }
 
-                        _this.enableShowPaypalMessage(false);
+    var previousPromise;
 
-                        _this.disableShowPayment(true);
-                      }, 15000);
-                    } else {
-                      _this.setCartDefault();
+    function enqueue(method, arg) {
+      function callInvokeWithMethodAndArg() {
+        return new PromiseImpl(function(resolve, reject) {
+          invoke(method, arg, resolve, reject);
+        });
+      }
 
-                      _this.setDefaultPage();
+      return previousPromise =
+        // If enqueue has been called before, then we want to wait until
+        // all previous Promises have been resolved before calling invoke,
+        // so that results are always delivered in the correct order. If
+        // enqueue has not been called before, then it is important to
+        // call invoke immediately, without waiting on a callback to fire,
+        // so that the async generator function has the opportunity to do
+        // any necessary setup in a predictable way. This predictability
+        // is why the Promise constructor synchronously invokes its
+        // executor callback, and why async functions synchronously
+        // execute code before the first await. Since we implement simple
+        // async functions in terms of async generators, it is especially
+        // important to get this right, even though it requires care.
+        previousPromise ? previousPromise.then(
+          callInvokeWithMethodAndArg,
+          // Avoid propagating failures to Promises returned by later
+          // invocations of the iterator.
+          callInvokeWithMethodAndArg
+        ) : callInvokeWithMethodAndArg();
+    }
 
-                      _this.showSuccessCashPay = true;
-                    }
+    // Define the unified helper method that is used to implement .next,
+    // .throw, and .return (see defineIteratorMethods).
+    this._invoke = enqueue;
+  }
 
-                    _this.isLoading = false;
-                  } else {
-                    _this.showException = true;
-                    _this.exceptionMsg = saveOrder.data.message;
-                    _this.isLoading = false;
-                  }
-                });
+  defineIteratorMethods(AsyncIterator.prototype);
+  AsyncIterator.prototype[asyncIteratorSymbol] = function () {
+    return this;
+  };
+  exports.AsyncIterator = AsyncIterator;
 
-              case 2:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
-    },
-    nextPage: function nextPage() {
-      this.increasePage();
-      this.showMakeOrderBTN();
-    },
-    previousPage: function previousPage() {
-      this.decreasePage();
-      this.showMakeOrderBTN();
-    },
-    showMakeOrderBTN: function showMakeOrderBTN() {
-      if (this.getCurrentPage == this.pages.length - 1) {
-        if (this.showAlternatePayment) {
-          this.setMakeOrder(true);
-        } else {
-          this.setMakeOrder(false);
+  // Note that simple async functions are implemented on top of
+  // AsyncIterator objects; they just return a Promise for the value of
+  // the final result produced by the iterator.
+  exports.async = function(innerFn, outerFn, self, tryLocsList, PromiseImpl) {
+    if (PromiseImpl === void 0) PromiseImpl = Promise;
 
-          if (this.paidWithPP) {
-            this.disableShowPayment(false);
-            this.enableShowPaypalMessage();
-            this.setMakeOrder(true);
+    var iter = new AsyncIterator(
+      wrap(innerFn, outerFn, self, tryLocsList),
+      PromiseImpl
+    );
+
+    return exports.isGeneratorFunction(outerFn)
+      ? iter // If outerFn is a generator, return the full iterator.
+      : iter.next().then(function(result) {
+          return result.done ? result.value : iter.next();
+        });
+  };
+
+  function makeInvokeMethod(innerFn, self, context) {
+    var state = GenStateSuspendedStart;
+
+    return function invoke(method, arg) {
+      if (state === GenStateExecuting) {
+        throw new Error("Generator is already running");
+      }
+
+      if (state === GenStateCompleted) {
+        if (method === "throw") {
+          throw arg;
+        }
+
+        // Be forgiving, per 25.3.3.3.3 of the spec:
+        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
+        return doneResult();
+      }
+
+      context.method = method;
+      context.arg = arg;
+
+      while (true) {
+        var delegate = context.delegate;
+        if (delegate) {
+          var delegateResult = maybeInvokeDelegate(delegate, context);
+          if (delegateResult) {
+            if (delegateResult === ContinueSentinel) continue;
+            return delegateResult;
           }
         }
-      } else {
-        this.setMakeOrder(false);
-      }
-    }
-  })
-});
 
-/***/ }),
+        if (context.method === "next") {
+          // Setting context._sent for legacy support of Babel's
+          // function.sent implementation.
+          context.sent = context._sent = context.arg;
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cart/SummaryCart.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cart/SummaryCart.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "SummaryCart",
-  mounted: function mounted() {
-    this.createPayPalScript();
-  },
-  props: {
-    showMakeOrderBTN: Function,
-    makeOrder: Function
-  },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
-    cartItems: 'getCartItems',
-    transactionID: 'getTransactionID',
-    userInfo: 'getUserInfo'
-  }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('paypalState', {
-    showPayment: 'getShowPayment',
-    showSuccessPayPal: 'showSuccessPayPal',
-    showAlternatePay: 'showAlternatePayment',
-    showPaypal: 'getPayPalContainer',
-    payment: 'getPayment'
-  }), {
-    computedPayment: {
-      get: function get() {
-        return this.payment;
-      },
-      set: function set(value) {
-        this.setPayment(value);
-      }
-    }
-  }),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])({
-    setPayPalDetails: 'setPayPalDetails',
-    setPaidWithPP: 'setPaidWithPP'
-  }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('paypalState', {
-    disableShowPayment: 'disableShowPayment',
-    enableShowPaypalMessage: 'enableShowPaypalMessage',
-    setAlternatePayment: 'setAlternatePayment'
-  }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])('paypalState', ['setPaypalContainer', 'setPayment']), {
-    createPayPalScript: function createPayPalScript() {
-      var script = document.createElement('script');
-      script.src = "\n                https://www.paypal.com/sdk/js?client-id=Ab5PkxGXmT-up_8VMgPOajxLZSe9PzyOh4eHxeCkJ6GiVd-4vfcTtG-cayvv8dHJL6Uv6CW6vNxOaFa4&currency=HUF&components=buttons,marks\n            ";
-      script.addEventListener('load', this.setLoaded);
-      script.addEventListener('load', this.addPaypalPayment);
-      document.body.appendChild(script);
-    },
-    setLoaded: function setLoaded() {
-      var _this = this;
-
-      paypal.Buttons({
-        locale: 'hu_HU',
-        createOrder: function createOrder(data, actions) {
-          return actions.order.create({
-            purchase_units: [{
-              description: "Húsgolyó étterem ételrendelés",
-              amount: {
-                currency_code: 'HUF',
-                value: _this.cartItems.totalPrice
-              }
-            }]
-          });
-        },
-        onApprove: function () {
-          var _onApprove = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(data, actions) {
-            var order, finalDetails;
-            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-              while (1) {
-                switch (_context.prev = _context.next) {
-                  case 0:
-                    _context.next = 2;
-                    return actions.order.capture();
-
-                  case 2:
-                    order = _context.sent;
-
-                    if (order.status === 'COMPLETED') {
-                      finalDetails = {
-                        create_time: order.create_time,
-                        id: order.id,
-                        payer: order.payer,
-                        purchase_units: order.purchase_units,
-                        status: order.status
-                      };
-
-                      _this.setPaidWithPP(true);
-
-                      _this.setPayPalDetails(finalDetails);
-
-                      _this.enableShowPaypalMessage(true);
-
-                      _this.disableShowPayment(false);
-
-                      _this.makeOrder();
-                    }
-
-                  case 4:
-                  case "end":
-                    return _context.stop();
-                }
-              }
-            }, _callee);
-          }));
-
-          function onApprove(_x, _x2) {
-            return _onApprove.apply(this, arguments);
+        } else if (context.method === "throw") {
+          if (state === GenStateSuspendedStart) {
+            state = GenStateCompleted;
+            throw context.arg;
           }
 
-          return onApprove;
-        }()
-      }).render(this.$refs.paypal);
-    },
-    addPaypalPayment: function addPaypalPayment() {
-      paypal.Marks().render('#paypal-marks-container');
-    },
-    showPaymentContainer: function showPaymentContainer(event) {
-      if (event.target.value == 'paypal') {
-        this.setPaypalContainer(true);
-        this.setAlternatePayment(false);
-      } else {
-        this.setPaypalContainer(false);
-        this.setAlternatePayment(true);
-      }
+          context.dispatchException(context.arg);
 
-      this.showMakeOrderBTN();
-    }
-  })
-});
+        } else if (context.method === "return") {
+          context.abrupt("return", context.arg);
+        }
 
-/***/ }),
+        state = GenStateExecuting;
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cart/UserInfo.vue?vue&type=script&lang=js&":
-/*!************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cart/UserInfo.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+        var record = tryCatch(innerFn, self, context);
+        if (record.type === "normal") {
+          // If an exception is thrown from innerFn, we leave state ===
+          // GenStateExecuting and loop back for another invocation.
+          state = context.done
+            ? GenStateCompleted
+            : GenStateSuspendedYield;
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+          if (record.arg === ContinueSentinel) {
+            continue;
+          }
 
+          return {
+            value: record.arg,
+            done: context.done
+          };
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "UserInfo",
-  data: function data() {
-    return {
-      hasError: false,
-      showException: false,
-      exceptionMsg: '',
-      showMsg: false,
-      msg: '',
-      errors: {
-        firstName: '',
-        lastName: '',
-        city: '',
-        zipCode: '',
-        street: '',
-        houseNumber: '',
-        floorDoor: '',
-        phone: ''
+        } else if (record.type === "throw") {
+          state = GenStateCompleted;
+          // Dispatch the exception by looping back around to the
+          // context.dispatchException(context.arg) call above.
+          context.method = "throw";
+          context.arg = record.arg;
+        }
       }
     };
-  },
-  props: {
-    showMakeOrderBTN: Function
-  },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
-    user: 'getUserInfo',
-    isUserinfoFilled: 'getUserInfoFilled'
-  })),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])({
-    getUserInfo: 'getUserInfo',
-    increasePage: 'increasePage'
-  }), {
-    showErrors: function showErrors(error) {
-      this.hasError = !this.hasError;
-      this.errors.firstName = error.firstName;
-      this.errors.lastName = error.lastName;
-      this.errors.city = error.city;
-      this.errors.zipCode = error.zipCode;
-      this.errors.street = error.street;
-      this.errors.houseNumber = error.houseNumber;
-      this.errors.floorDoor = error.floorDoor;
-      this.errors.phone = error.phone;
-    },
-    showExceptionMsg: function showExceptionMsg(msg) {
-      var _this = this;
+  }
 
-      this.showException = true;
-      this.exceptionMsg = msg;
-      setTimeout(function () {
-        _this.showException = false;
-      }, 5000);
-    },
-    showOtherMsg: function showOtherMsg(msg) {
-      var _this2 = this;
+  // Call delegate.iterator[context.method](context.arg) and handle the
+  // result, either by returning a { value, done } result from the
+  // delegate iterator, or by modifying context.method and context.arg,
+  // setting context.delegate to null, and returning the ContinueSentinel.
+  function maybeInvokeDelegate(delegate, context) {
+    var method = delegate.iterator[context.method];
+    if (method === undefined) {
+      // A .throw or .return when the delegate iterator has no .throw
+      // method always terminates the yield* loop.
+      context.delegate = null;
 
-      this.showMsg = true;
-      this.msg = msg;
-      setTimeout(function () {
-        _this2.showMsg = false;
-      }, 5000);
-    },
-    addUserInfo: function addUserInfo() {
-      var _this3 = this;
+      if (context.method === "throw") {
+        // Note: ["return"] must be used for ES3 parsing compatibility.
+        if (delegate.iterator["return"]) {
+          // If the delegate iterator has a return method, give it a
+          // chance to clean up.
+          context.method = "return";
+          context.arg = undefined;
+          maybeInvokeDelegate(delegate, context);
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return axios.post('addUserInfo', {
-                  formData: _this3.user
-                }).then(function (userInfo) {
-                  if (userInfo.data.hasError) {
-                    _this3.showErrors(userInfo.data.errors);
-                  } else {
-                    if (!userInfo.data.exception) {
-                      _this3.getUserInfo();
-
-                      _this3.increasePage();
-
-                      _this3.showMakeOrderBTN();
-                    } else {
-                      _this3.showExceptionMsg(userInfo.data.exception);
-                    }
-                  }
-                });
-
-              case 2:
-              case "end":
-                return _context.stop();
-            }
+          if (context.method === "throw") {
+            // If maybeInvokeDelegate(context) changed context.method from
+            // "return" to "throw", let that override the TypeError below.
+            return ContinueSentinel;
           }
-        }, _callee);
-      }))();
-    },
-    modifyUserInfo: function modifyUserInfo() {
-      var _this4 = this;
+        }
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.next = 2;
-                return axios.post('updateUserInfo', {
-                  formData: _this4.user
-                }).then(function (userInfo) {
-                  if (userInfo.data.hasError) {
-                    _this4.showErrors(userInfo.data.errors);
-                  } else {
-                    if (userInfo.data.exception) {
-                      _this4.showExceptionMsg(userInfo.data.exception);
-                    } else {
-                      _this4.getUserInfo();
+        context.method = "throw";
+        context.arg = new TypeError(
+          "The iterator does not provide a 'throw' method");
+      }
 
-                      _this4.showOtherMsg('A Módosítás sikeres volt!');
-                    }
-                  }
-                });
-
-              case 2:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
-      }))();
+      return ContinueSentinel;
     }
-  })
-});
 
-/***/ }),
+    var record = tryCatch(method, delegate.iterator, context.arg);
 
-/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cart/Modal.vue?vue&type=style&index=0&lang=scss&":
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cart/Modal.vue?vue&type=style&index=0&lang=scss& ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+    if (record.type === "throw") {
+      context.method = "throw";
+      context.arg = record.arg;
+      context.delegate = null;
+      return ContinueSentinel;
+    }
 
-exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
+    var info = record.arg;
 
+    if (! info) {
+      context.method = "throw";
+      context.arg = new TypeError("iterator result is not an object");
+      context.delegate = null;
+      return ContinueSentinel;
+    }
 
-// module
-exports.push([module.i, ".modal-button {\n  cursor: pointer;\n}\n.modal-bg {\n  position: fixed;\n  width: 100%;\n  height: 100vh;\n  top: 0;\n  left: 0;\n  z-index: 999;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.modal-bg .modal {\n  position: relative;\n  color: black;\n  background-color: white;\n  overflow-x: hidden;\n  max-height: 85%;\n  width: 670px;\n  padding: 1rem;\n  box-shadow: #353535 5px 5px 25px;\n  border-radius: 10px;\n  border: none;\n}\n.modal-bg .modal::-webkit-scrollbar {\n  border-radius: 10px;\n  width: 0.35rem;\n}\n.modal-bg .modal::-webkit-scrollbar-track {\n  background: #333;\n}\n.modal-bg .modal::-webkit-scrollbar-thumb {\n  background: #F7BF00;\n}\n.modal-bg .modal-body .cart-body {\n  padding: 0 1rem 0 1rem;\n}\n.modal-bg .modal-body .cart-card {\n  box-shadow: black 1px 1px 7px;\n  display: grid;\n  grid-template-columns: 35% 50% 15%;\n  gap: 0.2rem;\n  margin: 1rem;\n}\n.modal-bg .modal-body .cart-card .body {\n  margin-top: 0.5rem;\n}\n.modal-bg .modal-body .cart-card .body h3 {\n  text-align: center;\n}\n.modal-bg .modal-body .cart-card .body .ingreds {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n}\n.modal-bg .modal-body .cart-card .left {\n  margin: 0.5rem auto 0 auto;\n}\n.modal-bg .modal-body .cart-card .left .deleteIcon {\n  cursor: pointer;\n}\n.modal-bg .modal-body .cart-card .left .deleteIcon:hover {\n  color: #B90000;\n}\n.modal-bg .modal-body .cart-card .image {\n  height: 170px;\n  width: 220px;\n}\n.modal-bg .modal-body .cart-card .image img {\n  -o-object-fit: cover;\n     object-fit: cover;\n  width: 100%;\n  height: 100%;\n}\n.modal-bg .modal-body .userData {\n  padding: 1rem;\n}\n.modal-bg .modal-body .userData h3 {\n  font-size: 1.5rem;\n  margin-bottom: 0.4rem;\n}\n.modal-bg .modal-body .order {\n  padding: 1rem;\n}\n.modal-bg .modal-body .order h3 {\n  font-size: 1.5rem;\n  margin-bottom: 0.4rem;\n}\n.modal-bg .modal-body .payment {\n  padding: 1rem;\n}\n.modal-bg .modal-body .payment input {\n  font-size: 1.6rem;\n}\n.modal-bg .modal-body .orderCard {\n  margin: 1rem;\n  padding: 0.7rem;\n  box-shadow: 1px 1px 7px black;\n}\n.modal-bg .modal-body .orderCard h3 {\n  margin: 0.6rem 0 0.6rem 0;\n  text-align: center;\n}\n.modal-bg .modal-body .orderCard .orders {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n}\n.modal-bg .modal-body .orderCard .orders .orderItem ul {\n  list-style: none;\n}\n.modal-bg .modal-footer {\n  margin: 1rem;\n  display: flex;\n}\n.modal-enter-active,\n.modal-leave-active {\n  transition: transform 0.4s;\n}\n.modal-enter {\n  transform: translateY(-100%);\n}\n.modal-leave-to {\n  transform: translateY(100%);\n}\n.slide-enter-active,\n.slide-leave-active {\n  transition: opacity 0.5s;\n}\n.slide-enter,\n.slide-leave-to {\n  opacity: 0;\n}\n.modal-close {\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  color: black;\n  font-size: 40px;\n  cursor: pointer;\n}\n.modal-close:hover {\n  color: #B90000;\n}\n@media (max-width: 720px) {\n.modal-bg .modal {\n    height: 85%;\n    width: 650px;\n}\n.modal-bg .modal-body .cart-card {\n    display: flex;\n    flex-direction: column;\n}\n.modal-bg .modal-body .cart-card .body {\n    padding: 0.6rem;\n    margin-top: 0rem;\n}\n.modal-bg .modal-body .cart-card .body h3 {\n    margin-bottom: 0.7rem;\n}\n.modal-bg .modal-body .cart-card .body .ingreds {\n    grid-template-columns: repeat(1, 1fr);\n}\n.modal-bg .modal-body .cart-card .image {\n    width: 100%;\n}\n.modal-bg .modal-body .cart-card .image img {\n    -o-object-fit: cover;\n       object-fit: cover;\n}\n.modal-bg .modal-body .cart-card .left {\n    margin-bottom: 0.6rem;\n}\n.modal-bg .modal-body .orderCard .orders {\n    grid-template-columns: repeat(1, 1fr);\n}\n.modal-bg .modal-footer .modal-price {\n    font-size: 1.3rem;\n}\n}\n@media (max-width: 1136px) {\n.modal-bg .modal {\n    width: 600px;\n}\n}", ""]);
+    if (info.done) {
+      // Assign the result of the finished delegate to the temporary
+      // variable specified by delegate.resultName (see delegateYield).
+      context[delegate.resultName] = info.value;
 
-// exports
+      // Resume execution at the desired location (see delegateYield).
+      context.next = delegate.nextLoc;
 
+      // If context.method was "throw" but the delegate handled the
+      // exception, let the outer generator proceed normally. If
+      // context.method was "next", forget context.arg since it has been
+      // "consumed" by the delegate iterator. If context.method was
+      // "return", allow the original .return call to continue in the
+      // outer generator.
+      if (context.method !== "return") {
+        context.method = "next";
+        context.arg = undefined;
+      }
 
-/***/ }),
+    } else {
+      // Re-yield the result returned by the delegate method.
+      return info;
+    }
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cart/Modal.vue?vue&type=style&index=0&lang=scss&":
-/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cart/Modal.vue?vue&type=style&index=0&lang=scss& ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./Modal.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cart/Modal.vue?vue&type=style&index=0&lang=scss&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cart/CartModal.vue?vue&type=template&id=3e3d6b29&":
-/*!*****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cart/CartModal.vue?vue&type=template&id=3e3d6b29& ***!
-  \*****************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "modal-body" },
-      [
-        _vm._l(_vm.cartItems.items, function(item, index) {
-          return _c("div", { key: item.id, staticClass: "card-body" }, [
-            _c("div", { staticClass: "cart-card" }, [
-              _c("div", { staticClass: "image" }, [
-                _c("img", {
-                  attrs: {
-                    src: "/storage/" + item.item.imagePath,
-                    alt: "Kép helye"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "body" },
-                [
-                  _c("h3", {}, [_vm._v(_vm._s(item.item.foodName))]),
-                  _vm._v(" "),
-                  _c("h5", [_vm._v("További feltétek:")]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "ingreds" },
-                    _vm._l(item.item.plusIngreds, function(ingred) {
-                      return _c(
-                        "Tooltip",
-                        {
-                          key: ingred.ingredId,
-                          attrs: { text: ingred.ingredPrice + " Ft" }
-                        },
-                        [_c("span", [_vm._v(_vm._s(ingred.ingredName))])]
-                      )
-                    }),
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "Tooltip",
-                    {
-                      attrs: { text: "Eredeti ár: " + item.item.price + " Ft" }
-                    },
-                    [
-                      _c("span", [
-                        _c("h4", [
-                          _vm._v(
-                            "Egységár: " +
-                              _vm._s(item.oneItemTotalPrice) +
-                              " Ft"
-                          )
-                        ])
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("h4", [_vm._v("Mennyiség: " + _vm._s(item.qty) + " db")])
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "left" }, [
-                _c(
-                  "form",
-                  { on: { click: _vm.deleteItem } },
-                  [
-                    _c("Tooltip", { attrs: { text: "Termék törlése" } }, [
-                      _c("span", { staticClass: "deleteIcon" }, [
-                        _c("input", {
-                          staticClass: "foodId",
-                          attrs: { type: "hidden" },
-                          domProps: { value: item.item.id }
-                        }),
-                        _vm._v(" "),
-                        _c("input", {
-                          staticClass: "foodType",
-                          attrs: { type: "hidden" },
-                          domProps: { value: item.foodType }
-                        }),
-                        _vm._v(" "),
-                        _c("i", { class: _vm.iconName, attrs: { id: index } })
-                      ])
-                    ])
-                  ],
-                  1
-                )
-              ])
-            ])
-          ])
-        }),
-        _vm._v(" "),
-        _vm.deleted
-          ? _c("Alert", {
-              attrs: {
-                Msg: "A termék sikeresen törlve a kosárból",
-                className: "danger"
-              }
-            })
-          : _vm._e()
-      ],
-      2
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "modal-footer" }, [
-      _c("h1", { staticClass: "modal-price" }, [
-        _vm._v("Végösszeg: " + _vm._s(_vm.cartItems.totalPrice) + " Ft")
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-head" }, [
-      _c("h2", { staticClass: "text-center py-1" }, [
-        _vm._v("A Kosár tartalma")
-      ])
-    ])
+    // The delegate iterator is finished, so forget it and continue with
+    // the outer generator.
+    context.delegate = null;
+    return ContinueSentinel;
   }
-]
-render._withStripped = true
 
+  // Define Generator.prototype.{next,throw,return} in terms of the
+  // unified ._invoke helper method.
+  defineIteratorMethods(Gp);
 
+  Gp[toStringTagSymbol] = "Generator";
 
-/***/ }),
+  // A Generator should always return itself as the iterator object when the
+  // @@iterator function is called on it. Some browsers' implementations of the
+  // iterator prototype chain incorrectly implement this, causing the Generator
+  // object to not be returned from this call. This ensures that doesn't happen.
+  // See https://github.com/facebook/regenerator/issues/274 for more details.
+  Gp[iteratorSymbol] = function() {
+    return this;
+  };
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cart/Modal.vue?vue&type=template&id=36c4b469&":
-/*!*************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cart/Modal.vue?vue&type=template&id=36c4b469& ***!
-  \*************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+  Gp.toString = function() {
+    return "[object Generator]";
+  };
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "modal-bg" }, [
-    _c(
-      "dialog",
-      { staticClass: "modal", attrs: { open: "" } },
-      [
-        _c(
-          "span",
-          {
-            staticClass: "modal-close",
-            on: {
-              click: function($event) {
-                return _vm.$emit("close")
-              }
+  function pushTryEntry(locs) {
+    var entry = { tryLoc: locs[0] };
+
+    if (1 in locs) {
+      entry.catchLoc = locs[1];
+    }
+
+    if (2 in locs) {
+      entry.finallyLoc = locs[2];
+      entry.afterLoc = locs[3];
+    }
+
+    this.tryEntries.push(entry);
+  }
+
+  function resetTryEntry(entry) {
+    var record = entry.completion || {};
+    record.type = "normal";
+    delete record.arg;
+    entry.completion = record;
+  }
+
+  function Context(tryLocsList) {
+    // The root entry object (effectively a try statement without a catch
+    // or a finally block) gives us a place to store values thrown from
+    // locations where there is no enclosing try statement.
+    this.tryEntries = [{ tryLoc: "root" }];
+    tryLocsList.forEach(pushTryEntry, this);
+    this.reset(true);
+  }
+
+  exports.keys = function(object) {
+    var keys = [];
+    for (var key in object) {
+      keys.push(key);
+    }
+    keys.reverse();
+
+    // Rather than returning an object with a next method, we keep
+    // things simple and return the next function itself.
+    return function next() {
+      while (keys.length) {
+        var key = keys.pop();
+        if (key in object) {
+          next.value = key;
+          next.done = false;
+          return next;
+        }
+      }
+
+      // To avoid creating an additional object, we just hang the .value
+      // and .done properties off the next function object itself. This
+      // also ensures that the minifier will not anonymize the function.
+      next.done = true;
+      return next;
+    };
+  };
+
+  function values(iterable) {
+    if (iterable) {
+      var iteratorMethod = iterable[iteratorSymbol];
+      if (iteratorMethod) {
+        return iteratorMethod.call(iterable);
+      }
+
+      if (typeof iterable.next === "function") {
+        return iterable;
+      }
+
+      if (!isNaN(iterable.length)) {
+        var i = -1, next = function next() {
+          while (++i < iterable.length) {
+            if (hasOwn.call(iterable, i)) {
+              next.value = iterable[i];
+              next.done = false;
+              return next;
             }
-          },
-          [_c("i", { staticClass: "far fa-times-circle" })]
-        ),
-        _vm._v(" "),
-        _c(_vm.currentPage, {
-          tag: "component",
-          attrs: {
-            showMakeOrderBTN: _vm.showMakeOrderBTN,
-            makeOrder: _vm.makeOrder
           }
-        }),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: _vm.totalQty > 0,
-                expression: "totalQty > 0"
-              }
-            ]
-          },
-          [
-            _c("BaseButton", {
-              directives: [
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.getCurrentPage > 0 && _vm.getCurrentPage != 3,
-                  expression: "getCurrentPage>0 && getCurrentPage != 3"
-                }
-              ],
-              attrs: { buttonClass: "delete-dark", buttonText: "Vissza" },
-              nativeOn: {
-                click: function($event) {
-                  return _vm.previousPage($event)
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "span",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value:
-                      _vm.getCurrentPage < _vm.pages.length - 1 &&
-                      _vm.getCurrentPage != 2,
-                    expression:
-                      "getCurrentPage<pages.length-1 && getCurrentPage != 2"
-                  }
-                ]
-              },
-              [
-                _c("BaseButton", {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.isUserinfoFilled || _vm.getCurrentPage != 1,
-                      expression: "isUserinfoFilled || getCurrentPage != 1"
-                    }
-                  ],
-                  attrs: { buttonClass: "confirm-dark", buttonText: "Tovább" },
-                  nativeOn: {
-                    click: function($event) {
-                      return _vm.nextPage($event)
-                    }
-                  }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("BaseButton", {
-              directives: [
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.showMakeOrder,
-                  expression: "showMakeOrder"
-                }
-              ],
-              attrs: {
-                buttonClass: "confirm-dark",
-                buttonText: "Rendelés Leadása!"
-              },
-              nativeOn: {
-                click: function($event) {
-                  return _vm.makeOrder($event)
-                }
-              }
-            }),
-            _vm._v(" "),
-            _vm.showException
-              ? _c("Alert", {
-                  attrs: { Msg: _vm.exceptionMsg, className: "danger" }
-                })
-              : _vm._e()
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("Loading", { attrs: { isLoading: _vm.isLoading } }),
-        _vm._v(" "),
-        _vm.showSuccessCashPay
-          ? _c("Alert", {
-              attrs: {
-                Msg: "A visszaigazoló e-mailt elküldtük!",
-                className: "success"
-              }
-            })
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.showSuccessCashPay
-          ? _c("Alert", {
-              attrs: {
-                Msg: "Köszönjük rendelését! A fizetés a futárnál történik.",
-                className: "success"
-              }
-            })
-          : _vm._e()
-      ],
-      1
-    )
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
 
+          next.value = undefined;
+          next.done = true;
 
+          return next;
+        };
 
-/***/ }),
+        return next.next = next;
+      }
+    }
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cart/SummaryCart.vue?vue&type=template&id=99e803bc&":
-/*!*******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cart/SummaryCart.vue?vue&type=template&id=99e803bc& ***!
-  \*******************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "modal-body" },
-      [
-        _c("div", { staticClass: "userData" }, [
-          _c("h3", [_vm._v("Személyes adatok: ")]),
-          _vm._v(" "),
-          _c("h4", [
-            _vm._v(
-              "Név: " +
-                _vm._s(_vm.userInfo.firstName) +
-                " " +
-                _vm._s(_vm.userInfo.lastName)
-            )
-          ]),
-          _vm._v(" "),
-          _c("h4", [_vm._v("E-mail: " + _vm._s(_vm.userInfo.user_email))]),
-          _vm._v(" "),
-          _c("h4", [_vm._v("Telefon: " + _vm._s(_vm.userInfo.phone))]),
-          _vm._v(" "),
-          _c("h4", [
-            _vm._v(
-              "\n                Cím: \n                " +
-                _vm._s(_vm.userInfo.zipCode) +
-                "\n                " +
-                _vm._s(_vm.userInfo.city) +
-                "\n                " +
-                _vm._s(_vm.userInfo.street) +
-                "\n                " +
-                _vm._s(_vm.userInfo.houseNumber) +
-                "\n                " +
-                _vm._s(_vm.userInfo.floorDoor) +
-                "\n            "
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "order" },
-          [
-            _c("h3", [_vm._v("Rendelt étel(ek):")]),
-            _vm._v(" "),
-            _c("h3", [
-              _vm._v(_vm._s(_vm.cartItems.totalPrice) + " Ft összértékben")
-            ]),
-            _vm._v(" "),
-            _vm._l(_vm.cartItems.items, function(food, index) {
-              return _c("div", { key: index }, [
-                _c("h4", [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(food.qty) +
-                      " DB\n                    " +
-                      _vm._s(food.item.foodName) +
-                      "\n                    (" +
-                      _vm._s(food.oneItemTotalPrice) +
-                      ") Ft\n                "
-                  )
-                ]),
-                _vm._v(" "),
-                food.item.plusIngreds != null
-                  ? _c(
-                      "p",
-                      _vm._l(food.item.plusIngreds, function(ingred) {
-                        return _c("span", { key: ingred.ingredId }, [
-                          _c("span", [
-                            _vm._v(
-                              _vm._s(ingred.ingredName) +
-                                " (" +
-                                _vm._s(ingred.ingredPrice) +
-                                ") Ft"
-                            )
-                          ])
-                        ])
-                      }),
-                      0
-                    )
-                  : _vm._e()
-              ])
-            })
-          ],
-          2
-        ),
-        _vm._v(" "),
-        _vm.showPayment
-          ? _c("div", { staticClass: "payment" }, [
-              _c("h3", [_vm._v("Fizetési opció kiválasztása")]),
-              _vm._v(" "),
-              _c("label", [
-                _c("p", [_vm._v("Fizetés PayPal-el vagy kártyával")]),
-                _vm._v(" "),
-                _vm._m(1),
-                _vm._v(" "),
-                _vm.showPaypal
-                  ? _c("span", [
-                      _c("p", [
-                        _vm._v("A fizetéshez szükséges PayPal számla:")
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(2),
-                      _vm._v(" "),
-                      _vm._m(3)
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.computedPayment,
-                      expression: "computedPayment"
-                    }
-                  ],
-                  attrs: {
-                    type: "radio",
-                    name: "payment-option",
-                    value: "paypal"
-                  },
-                  domProps: { checked: _vm._q(_vm.computedPayment, "paypal") },
-                  on: {
-                    change: [
-                      function($event) {
-                        _vm.computedPayment = "paypal"
-                      },
-                      _vm.showPaymentContainer
-                    ]
-                  }
-                }),
-                _vm._v(" "),
-                _c("span", { attrs: { id: "paypal-marks-container" } })
-              ]),
-              _vm._v(" "),
-              _c("label", [
-                _vm._v(
-                  "\n                Fizetés Készpénzzel\n                "
-                ),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.computedPayment,
-                      expression: "computedPayment"
-                    }
-                  ],
-                  attrs: {
-                    type: "radio",
-                    name: "payment-option",
-                    value: "alternate"
-                  },
-                  domProps: {
-                    checked: _vm._q(_vm.computedPayment, "alternate")
-                  },
-                  on: {
-                    change: [
-                      function($event) {
-                        _vm.computedPayment = "alternate"
-                      },
-                      _vm.showPaymentContainer
-                    ]
-                  }
-                }),
-                _vm._v(" "),
-                _c("i", { staticClass: "fas fa-money-bill-wave fa-2x" })
-              ]),
-              _vm._v(" "),
-              _c("div", {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.showPaypal,
-                    expression: "showPaypal"
-                  }
-                ],
-                ref: "paypal"
-              }),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.showAlternatePay,
-                      expression: "showAlternatePay"
-                    }
-                  ],
-                  attrs: { id: "alternate-button-container" }
-                },
-                [
-                  _c("h3", [
-                    _vm._v("A fizetés készpénzzel a futárnál történik")
-                  ])
-                ]
-              )
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.showSuccessPayPal
-          ? _c("Alert", {
-              attrs: {
-                Msg:
-                  "Köszönjük rendelését! A PayPal fizetés sikeres volt! Tranzakció szám: " +
-                  _vm.transactionID,
-                className: "success"
-              }
-            })
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.showSuccessPayPal
-          ? _c("Alert", {
-              attrs: {
-                Msg: "A visszaigazoló e-mailt elküldtük!",
-                className: "success"
-              }
-            })
-          : _vm._e()
-      ],
-      1
-    )
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-head" }, [
-      _c("h1", { staticClass: "text-center py-1" }, [
-        _vm._v("Rendelés véglegesítése")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("small", [
-      _c("sup", [_vm._v("*")]),
-      _vm._v("(A fizetés után automatikusan megtörténik a rendelés!)")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _vm._v("Email: "),
-      _c("strong", [_vm._v("sb-qkdaa3413370@business.example.com")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [_vm._v("Jelszó: "), _c("strong", [_vm._v("7}&&K[yb")])])
+    // Return an iterator with no values.
+    return { next: doneResult };
   }
-]
-render._withStripped = true
+  exports.values = values;
 
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cart/UserInfo.vue?vue&type=template&id=8680a5e6&":
-/*!****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cart/UserInfo.vue?vue&type=template&id=8680a5e6& ***!
-  \****************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "modal-body" }, [
-      _c(
-        "form",
-        [
-          _c("div", { staticClass: "form-group row" }, [
-            _c(
-              "div",
-              { staticClass: "col" },
-              [
-                _vm._m(1),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.user.firstName,
-                      expression: "user.firstName"
-                    }
-                  ],
-                  staticClass: "form-control shadowed",
-                  attrs: { type: "text", id: "firstname" },
-                  domProps: { value: _vm.user.firstName },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.user, "firstName", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.hasError
-                  ? _c("ErrorMsg", { attrs: { errors: _vm.errors.firstName } })
-                  : _vm._e()
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "col" },
-              [
-                _vm._m(2),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.user.lastName,
-                      expression: "user.lastName"
-                    }
-                  ],
-                  staticClass: "form-control shadowed",
-                  attrs: { type: "text", id: "lastname" },
-                  domProps: { value: _vm.user.lastName },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.user, "lastName", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.hasError
-                  ? _c("ErrorMsg", { attrs: { errors: _vm.errors.lastName } })
-                  : _vm._e()
-              ],
-              1
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group row" }, [
-            _c(
-              "div",
-              { staticClass: "col" },
-              [
-                _vm._m(3),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.user.city,
-                      expression: "user.city"
-                    }
-                  ],
-                  staticClass: "form-control shadowed",
-                  attrs: { type: "text", name: "city", id: "city" },
-                  domProps: { value: _vm.user.city },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.user, "city", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.hasError
-                  ? _c("ErrorMsg", { attrs: { errors: _vm.errors.city } })
-                  : _vm._e()
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "col" },
-              [
-                _vm._m(4),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.user.zipCode,
-                      expression: "user.zipCode"
-                    }
-                  ],
-                  staticClass: "form-control shadowed",
-                  attrs: { type: "number", name: "zipCode", id: "zipCode" },
-                  domProps: { value: _vm.user.zipCode },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.user, "zipCode", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.hasError
-                  ? _c("ErrorMsg", { attrs: { errors: _vm.errors.zipCode } })
-                  : _vm._e()
-              ],
-              1
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group row" }, [
-            _c(
-              "div",
-              { staticClass: "col" },
-              [
-                _vm._m(5),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.user.street,
-                      expression: "user.street"
-                    }
-                  ],
-                  staticClass: "form-control shadowed",
-                  attrs: { type: "text", id: "street" },
-                  domProps: { value: _vm.user.street },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.user, "street", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.hasError
-                  ? _c("ErrorMsg", { attrs: { errors: _vm.errors.street } })
-                  : _vm._e()
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "col" },
-              [
-                _vm._m(6),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.user.houseNumber,
-                      expression: "user.houseNumber"
-                    }
-                  ],
-                  staticClass: "form-control shadowed",
-                  attrs: { type: "number", id: "houseNumber" },
-                  domProps: { value: _vm.user.houseNumber },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.user, "houseNumber", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.hasError
-                  ? _c("ErrorMsg", {
-                      attrs: { errors: _vm.errors.houseNumber }
-                    })
-                  : _vm._e()
-              ],
-              1
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group row" }, [
-            _c(
-              "div",
-              { staticClass: "col" },
-              [
-                _c("label", { attrs: { for: "floorDoor" } }, [
-                  _vm._v("Emelet/Ajtó:")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.user.floorDoor,
-                      expression: "user.floorDoor"
-                    }
-                  ],
-                  staticClass: "form-control shadowed",
-                  attrs: { type: "text", id: "floorDoor" },
-                  domProps: { value: _vm.user.floorDoor },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.user, "floorDoor", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.hasError
-                  ? _c("ErrorMsg", { attrs: { errors: _vm.errors.floorDoor } })
-                  : _vm._e()
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "col" },
-              [
-                _vm._m(7),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.user.phone,
-                      expression: "user.phone"
-                    }
-                  ],
-                  staticClass: "form-control shadowed",
-                  attrs: { type: "text", id: "phone" },
-                  domProps: { value: _vm.user.phone },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.user, "phone", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.hasError
-                  ? _c("ErrorMsg", { attrs: { errors: _vm.errors.phone } })
-                  : _vm._e()
-              ],
-              1
-            )
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "form-group row" },
-            [
-              _c(
-                "div",
-                { staticClass: "col" },
-                [
-                  _c("BaseButton", {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: !_vm.isUserinfoFilled,
-                        expression: "!isUserinfoFilled"
-                      }
-                    ],
-                    attrs: {
-                      buttonClass: "confirm-dark",
-                      buttonText: "Adatok megadása"
-                    },
-                    nativeOn: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        return _vm.addUserInfo($event)
-                      }
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "col" }),
-              _vm._v(" "),
-              _c("BaseButton", {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.isUserinfoFilled,
-                    expression: "isUserinfoFilled"
-                  }
-                ],
-                attrs: { buttonClass: "elete-dark", buttonText: "Módosítás" },
-                nativeOn: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    return _vm.modifyUserInfo($event)
-                  }
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _vm.showException
-            ? _c("Alert", {
-                attrs: { className: "danger", Msg: _vm.exceptionMsg }
-              })
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.showMsg
-            ? _c("Alert", { attrs: { className: "success", Msg: _vm.msg } })
-            : _vm._e()
-        ],
-        1
-      )
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-head" }, [
-      _c("h2", { staticClass: "text-center py-1" }, [
-        _vm._v("Szállítási információk megadása (kötelező!)")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "firstname" } }, [
-      _vm._v("Vezetéknév: "),
-      _c("sup", [_vm._v("*")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "lastname" } }, [
-      _vm._v("Keresztnév: "),
-      _c("sup", [_vm._v("*")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "city" } }, [
-      _vm._v("Város: "),
-      _c("sup", [_vm._v("*")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "zipCode" } }, [
-      _vm._v("Ir. Szám: "),
-      _c("sup", [_vm._v("*")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "street" } }, [
-      _vm._v("Utca "),
-      _c("sup", [_vm._v("*")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "houseNumber" } }, [
-      _vm._v("Házszám: "),
-      _c("sup", [_vm._v("*")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "phone" } }, [
-      _vm._v("Telefon: "),
-      _c("sup", [_vm._v("*")])
-    ])
+  function doneResult() {
+    return { value: undefined, done: true };
   }
-]
-render._withStripped = true
 
-
-
-/***/ }),
-
-/***/ "./resources/js/components/cart/CartModal.vue":
-/*!****************************************************!*\
-  !*** ./resources/js/components/cart/CartModal.vue ***!
-  \****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _CartModal_vue_vue_type_template_id_3e3d6b29___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CartModal.vue?vue&type=template&id=3e3d6b29& */ "./resources/js/components/cart/CartModal.vue?vue&type=template&id=3e3d6b29&");
-/* harmony import */ var _CartModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CartModal.vue?vue&type=script&lang=js& */ "./resources/js/components/cart/CartModal.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _CartModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _CartModal_vue_vue_type_template_id_3e3d6b29___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _CartModal_vue_vue_type_template_id_3e3d6b29___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/cart/CartModal.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/cart/CartModal.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/components/cart/CartModal.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CartModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./CartModal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cart/CartModal.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CartModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/cart/CartModal.vue?vue&type=template&id=3e3d6b29&":
-/*!***********************************************************************************!*\
-  !*** ./resources/js/components/cart/CartModal.vue?vue&type=template&id=3e3d6b29& ***!
-  \***********************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CartModal_vue_vue_type_template_id_3e3d6b29___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./CartModal.vue?vue&type=template&id=3e3d6b29& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cart/CartModal.vue?vue&type=template&id=3e3d6b29&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CartModal_vue_vue_type_template_id_3e3d6b29___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CartModal_vue_vue_type_template_id_3e3d6b29___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/cart/Modal.vue":
-/*!************************************************!*\
-  !*** ./resources/js/components/cart/Modal.vue ***!
-  \************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Modal_vue_vue_type_template_id_36c4b469___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Modal.vue?vue&type=template&id=36c4b469& */ "./resources/js/components/cart/Modal.vue?vue&type=template&id=36c4b469&");
-/* harmony import */ var _Modal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Modal.vue?vue&type=script&lang=js& */ "./resources/js/components/cart/Modal.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _Modal_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Modal.vue?vue&type=style&index=0&lang=scss& */ "./resources/js/components/cart/Modal.vue?vue&type=style&index=0&lang=scss&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _Modal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Modal_vue_vue_type_template_id_36c4b469___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Modal_vue_vue_type_template_id_36c4b469___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/cart/Modal.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/cart/Modal.vue?vue&type=script&lang=js&":
-/*!*************************************************************************!*\
-  !*** ./resources/js/components/cart/Modal.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Modal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cart/Modal.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/cart/Modal.vue?vue&type=style&index=0&lang=scss&":
-/*!**********************************************************************************!*\
-  !*** ./resources/js/components/cart/Modal.vue?vue&type=style&index=0&lang=scss& ***!
-  \**********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./Modal.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cart/Modal.vue?vue&type=style&index=0&lang=scss&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "./resources/js/components/cart/Modal.vue?vue&type=template&id=36c4b469&":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/components/cart/Modal.vue?vue&type=template&id=36c4b469& ***!
-  \*******************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_template_id_36c4b469___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Modal.vue?vue&type=template&id=36c4b469& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cart/Modal.vue?vue&type=template&id=36c4b469&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_template_id_36c4b469___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Modal_vue_vue_type_template_id_36c4b469___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/cart/SummaryCart.vue":
-/*!******************************************************!*\
-  !*** ./resources/js/components/cart/SummaryCart.vue ***!
-  \******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _SummaryCart_vue_vue_type_template_id_99e803bc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SummaryCart.vue?vue&type=template&id=99e803bc& */ "./resources/js/components/cart/SummaryCart.vue?vue&type=template&id=99e803bc&");
-/* harmony import */ var _SummaryCart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SummaryCart.vue?vue&type=script&lang=js& */ "./resources/js/components/cart/SummaryCart.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _SummaryCart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _SummaryCart_vue_vue_type_template_id_99e803bc___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _SummaryCart_vue_vue_type_template_id_99e803bc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/cart/SummaryCart.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/cart/SummaryCart.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/components/cart/SummaryCart.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SummaryCart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./SummaryCart.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cart/SummaryCart.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SummaryCart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/cart/SummaryCart.vue?vue&type=template&id=99e803bc&":
-/*!*************************************************************************************!*\
-  !*** ./resources/js/components/cart/SummaryCart.vue?vue&type=template&id=99e803bc& ***!
-  \*************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SummaryCart_vue_vue_type_template_id_99e803bc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./SummaryCart.vue?vue&type=template&id=99e803bc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cart/SummaryCart.vue?vue&type=template&id=99e803bc&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SummaryCart_vue_vue_type_template_id_99e803bc___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SummaryCart_vue_vue_type_template_id_99e803bc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/cart/UserInfo.vue":
-/*!***************************************************!*\
-  !*** ./resources/js/components/cart/UserInfo.vue ***!
-  \***************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _UserInfo_vue_vue_type_template_id_8680a5e6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserInfo.vue?vue&type=template&id=8680a5e6& */ "./resources/js/components/cart/UserInfo.vue?vue&type=template&id=8680a5e6&");
-/* harmony import */ var _UserInfo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserInfo.vue?vue&type=script&lang=js& */ "./resources/js/components/cart/UserInfo.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _UserInfo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _UserInfo_vue_vue_type_template_id_8680a5e6___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _UserInfo_vue_vue_type_template_id_8680a5e6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/cart/UserInfo.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/cart/UserInfo.vue?vue&type=script&lang=js&":
-/*!****************************************************************************!*\
-  !*** ./resources/js/components/cart/UserInfo.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserInfo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./UserInfo.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cart/UserInfo.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserInfo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/cart/UserInfo.vue?vue&type=template&id=8680a5e6&":
-/*!**********************************************************************************!*\
-  !*** ./resources/js/components/cart/UserInfo.vue?vue&type=template&id=8680a5e6& ***!
-  \**********************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserInfo_vue_vue_type_template_id_8680a5e6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./UserInfo.vue?vue&type=template&id=8680a5e6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cart/UserInfo.vue?vue&type=template&id=8680a5e6&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserInfo_vue_vue_type_template_id_8680a5e6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserInfo_vue_vue_type_template_id_8680a5e6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
+  Context.prototype = {
+    constructor: Context,
+
+    reset: function(skipTempReset) {
+      this.prev = 0;
+      this.next = 0;
+      // Resetting context._sent for legacy support of Babel's
+      // function.sent implementation.
+      this.sent = this._sent = undefined;
+      this.done = false;
+      this.delegate = null;
+
+      this.method = "next";
+      this.arg = undefined;
+
+      this.tryEntries.forEach(resetTryEntry);
+
+      if (!skipTempReset) {
+        for (var name in this) {
+          // Not sure about the optimal order of these conditions:
+          if (name.charAt(0) === "t" &&
+              hasOwn.call(this, name) &&
+              !isNaN(+name.slice(1))) {
+            this[name] = undefined;
+          }
+        }
+      }
+    },
+
+    stop: function() {
+      this.done = true;
+
+      var rootEntry = this.tryEntries[0];
+      var rootRecord = rootEntry.completion;
+      if (rootRecord.type === "throw") {
+        throw rootRecord.arg;
+      }
+
+      return this.rval;
+    },
+
+    dispatchException: function(exception) {
+      if (this.done) {
+        throw exception;
+      }
+
+      var context = this;
+      function handle(loc, caught) {
+        record.type = "throw";
+        record.arg = exception;
+        context.next = loc;
+
+        if (caught) {
+          // If the dispatched exception was caught by a catch block,
+          // then let that catch block handle the exception normally.
+          context.method = "next";
+          context.arg = undefined;
+        }
+
+        return !! caught;
+      }
+
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        var record = entry.completion;
+
+        if (entry.tryLoc === "root") {
+          // Exception thrown outside of any try block that could handle
+          // it, so set the completion value of the entire function to
+          // throw the exception.
+          return handle("end");
+        }
+
+        if (entry.tryLoc <= this.prev) {
+          var hasCatch = hasOwn.call(entry, "catchLoc");
+          var hasFinally = hasOwn.call(entry, "finallyLoc");
+
+          if (hasCatch && hasFinally) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            } else if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else if (hasCatch) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            }
+
+          } else if (hasFinally) {
+            if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else {
+            throw new Error("try statement without catch or finally");
+          }
+        }
+      }
+    },
+
+    abrupt: function(type, arg) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc <= this.prev &&
+            hasOwn.call(entry, "finallyLoc") &&
+            this.prev < entry.finallyLoc) {
+          var finallyEntry = entry;
+          break;
+        }
+      }
+
+      if (finallyEntry &&
+          (type === "break" ||
+           type === "continue") &&
+          finallyEntry.tryLoc <= arg &&
+          arg <= finallyEntry.finallyLoc) {
+        // Ignore the finally entry if control is not jumping to a
+        // location outside the try/catch block.
+        finallyEntry = null;
+      }
+
+      var record = finallyEntry ? finallyEntry.completion : {};
+      record.type = type;
+      record.arg = arg;
+
+      if (finallyEntry) {
+        this.method = "next";
+        this.next = finallyEntry.finallyLoc;
+        return ContinueSentinel;
+      }
+
+      return this.complete(record);
+    },
+
+    complete: function(record, afterLoc) {
+      if (record.type === "throw") {
+        throw record.arg;
+      }
+
+      if (record.type === "break" ||
+          record.type === "continue") {
+        this.next = record.arg;
+      } else if (record.type === "return") {
+        this.rval = this.arg = record.arg;
+        this.method = "return";
+        this.next = "end";
+      } else if (record.type === "normal" && afterLoc) {
+        this.next = afterLoc;
+      }
+
+      return ContinueSentinel;
+    },
+
+    finish: function(finallyLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.finallyLoc === finallyLoc) {
+          this.complete(entry.completion, entry.afterLoc);
+          resetTryEntry(entry);
+          return ContinueSentinel;
+        }
+      }
+    },
+
+    "catch": function(tryLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc === tryLoc) {
+          var record = entry.completion;
+          if (record.type === "throw") {
+            var thrown = record.arg;
+            resetTryEntry(entry);
+          }
+          return thrown;
+        }
+      }
+
+      // The context.catch method must only be called with a location
+      // argument that corresponds to a known catch block.
+      throw new Error("illegal catch attempt");
+    },
+
+    delegateYield: function(iterable, resultName, nextLoc) {
+      this.delegate = {
+        iterator: values(iterable),
+        resultName: resultName,
+        nextLoc: nextLoc
+      };
+
+      if (this.method === "next") {
+        // Deliberately forget the last sent value so that we don't
+        // accidentally pass it on to the delegate.
+        this.arg = undefined;
+      }
+
+      return ContinueSentinel;
+    }
+  };
+
+  // Regardless of whether this script is executing as a CommonJS module
+  // or not, return the runtime object so that we can declare the variable
+  // regeneratorRuntime in the outer scope, which allows this module to be
+  // injected easily by `bin/regenerator --include-runtime script.js`.
+  return exports;
+
+}(
+  // If this script is executing as a CommonJS module, use module.exports
+  // as the regeneratorRuntime namespace. Otherwise create a new empty
+  // object. Either way, the resulting object will be used to initialize
+  // the regeneratorRuntime variable at the top of this file.
+   true ? module.exports : undefined
+));
+
+try {
+  regeneratorRuntime = runtime;
+} catch (accidentalStrictMode) {
+  // This module should not be running in strict mode, so the above
+  // assignment should always work unless something is misconfigured. Just
+  // in case runtime.js accidentally runs in strict mode, we can escape
+  // strict mode using a global Function call. This could conceivably fail
+  // if a Content Security Policy forbids using Function, but in that case
+  // the proper solution is to fix the accidental strict mode problem. If
+  // you've misconfigured your bundler to force strict mode and applied a
+  // CSP to forbid Function, and you're not willing to fix either of those
+  // problems, please detail your unique predicament in a GitHub issue.
+  Function("r", "regeneratorRuntime = r")(runtime);
+}
 
 
 /***/ })
