@@ -47,7 +47,7 @@
                             <i class="fas fa-sign-out-alt"></i> 
                             Kilépés
                         </a>
-                        <a @click="$parent.showOrdersModal = true" class="dropdown-menu-item">
+                        <a @click="openOrdersModal" class="dropdown-menu-item">
                             <i class="fas fa-cart-arrow-down"></i>
                         Korábbi rendelések
                         </a>
@@ -101,7 +101,8 @@ export default {
         }),
         ...mapMutations([
             'setUserLoggedIn',
-            'openCartModal'
+            'openCartModal',
+            'openOrdersModal'
         ]),
         closeNav(){
             if (this.mobileSize) {

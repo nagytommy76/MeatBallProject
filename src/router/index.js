@@ -1,6 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import MainWelcome from '../views/includes/MainPage/MainWelcome'
+
+const Welcome = () => import('../views/includes/Welcome')
+
+const Login = () => import('../components/Auth/Login')
+const Register = () => import('../components/Auth/Register')
+
+const Meatball = () =>  import('../views/MeatBall')
+
+const PizzaFilter = () => import('../components/pizza/PizzaFilter')
+const SoupFilter = () => import('../components/soup/SoupFilter')
+const DessertFilter = () => import('../components/dessert/DessertFilter')
+const DrinkFilter = () => import('../components/drink/DrinkFilter')
+const MealFilter = () => import('../components/meal/MealFilter')
+const PastaFilter = () => import('../components/pasta/PastaFilter')
+
+const PageNotFound404 = () =>  import('../views/errors/404');
+
 const routes = [
   {
     path: '/',
@@ -10,17 +27,17 @@ const routes = [
   {
     path: '/meatball',
     name: 'Meatball',
-    component: () => import(/* webpackChunkName: "meatball" */ '../views/MeatBall'),
+    component:  Meatball,
     children: [
       {
-        path: '/',
+        path: '/meatball',
         name: 'Welcome',
-        component: () => import(/* webpackChunkName: "welcome" */ '../views/includes/Welcome')
+        component: Welcome
       },
       {
         path: 'login',
         name: 'Login',
-        component: () => import(/* webpackChunkName: "meatball" */ '../components/Auth/Login'),
+        component: Login,
         props: {
             registerAlert: false,
         }
@@ -28,7 +45,7 @@ const routes = [
       {
         path: 'login/:validation/:msg',
         name: 'LoginLink',
-        component: () => import(/* webpackChunkName: "meatball" */ '../components/Auth/Login'),
+        component: Login,
         props: {
             validation: false,
             msg: ''
@@ -37,41 +54,41 @@ const routes = [
       {
         path: 'register',
         name: 'Register',
-        component: () => import(/* webpackChunkName: "meatball" */ '../components/Auth/Register')
+        component: Register
       },
       {
         path: 'pizza',
         name: 'Pizza',
-        component: import(/* webpackChunkName: "meatball" */ '../components/pizza/PizzaFilter'),
+        component: PizzaFilter,
       },
       {
           path: 'soup',
           name: 'Soup',
-          component: import(/* webpackChunkName: "meatball" */ '../components/soup/SoupFilter')
+          component: SoupFilter
       },
       {
           path: 'dessert',
           name: 'Dessert',
-          component: import(/* webpackChunkName: "meatball" */ '../components/dessert/DessertFilter')
+          component: DessertFilter
       },
       {
           path: 'drink',
           name: 'Drink',
-          component: import(/* webpackChunkName: "meatball" */ '../components/drink/DrinkFilter')
+          component: DrinkFilter
       },
       {
           path: 'meal',
           name: 'Meal',
-          component: import(/* webpackChunkName: "meatball" */ '../components/meal/MealFilter')
+          component: MealFilter
       },
       {
           path: 'pasta',
           name: 'Pasta',
-          component: import(/* webpackChunkName: "meatball" */ '../components/pasta/PastaFilter')
+          component: PastaFilter
       },
       {
           path: '*',
-          component: import(/* webpackChunkName: "meatball" */ '../views/errors/404'),
+          component: PageNotFound404,
       },
     ]
   },
@@ -82,7 +99,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(),
   scrollBehavior(_, _2, savedPosition) {
     if (savedPosition) {
       return savedPosition

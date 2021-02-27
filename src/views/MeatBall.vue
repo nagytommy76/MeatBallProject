@@ -7,11 +7,11 @@
 
     <transition-group name="slide">
         <div class="fade-in" v-if="showCartModal" @click="hideCartModal"></div>
-        <div class="fade-in" v-if="showOrdersModal" @click="showOrdersModal = false"></div>
+        <div class="fade-in" v-if="showOrdersModal" @click="hideOrdersModal"></div>
     </transition-group>
     <transition-group name="modal" >
         <Modal v-if="showCartModal" @close="hideCartModal" v-model="showCartModal"/>
-        <OrdersModal v-if="showOrdersModal" @close="showOrdersModal = false" />
+        <OrdersModal v-if="showOrdersModal" @close="hideOrdersModal" />
     </transition-group>
     <router-view></router-view>
     <Footer />
@@ -34,13 +34,14 @@ export default {
     },
     computed:{
         ...mapGetters({
-            showCartModal: 'getShowCartModal'
+            showCartModal: 'getShowCartModal',
+            showOrdersModal: 'getShowOrdersModal'
         }),
     },
     data() {
         return {
             // showCartModal: false,
-            showOrdersModal: false,
+            // showOrdersModal: false,
 
             showNavOpen: false,
             showNavbar: true,
@@ -48,7 +49,8 @@ export default {
     },
     methods: {
         ...mapMutations({
-            hideCartModal: 'hideCartModal'
+            hideCartModal: 'hideCartModal',
+            hideOrdersModal: 'hideOrdersModal'
         }),
         openNavbar(){
             this.showNavbar = true

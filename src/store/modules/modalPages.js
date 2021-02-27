@@ -4,12 +4,14 @@ export default{
             step: 0,
             showMakeOrder: false,
             showCartModal: false,
+            showOrdersModal: false,
         }
     },
     getters:{
         getCurrentPage: state =>state.step,
         getShowMakeOrder: state =>state.showMakeOrder,
         getShowCartModal: state => state.showCartModal,
+        getShowOrdersModal: state => state.showOrdersModal,
     },
     mutations: {
         increasePage(state){
@@ -29,7 +31,13 @@ export default{
         },
         openCartModal(state){
             state.showCartModal = true
-        }
+        },
+        hideOrdersModal(state){
+            state.showOrdersModal = false
+        },
+        openOrdersModal(state){
+            state.showOrdersModal = true
+        },
     },
     actions:{
         increasePage(context){
