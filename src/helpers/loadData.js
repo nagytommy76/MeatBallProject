@@ -1,9 +1,10 @@
+import axios from 'axios'
 export default class loadData{
     static async fetchData(apiRouteName){
-        return this.axios.get(apiRouteName)
+        return axios.get(apiRouteName)
     }
     static async getFoodByOrder(apiRouteName, orderBy, priceValue, maxPrice){
-        return this.axios.post(apiRouteName,{
+        return axios.post(apiRouteName,{
             body: {
                 orderBy: orderBy,
                 minPrice: priceValue,
@@ -12,7 +13,7 @@ export default class loadData{
         })
     }
     static async searchFoodByName(apiRouteName, eventValue, orderBy, priceValue, maxPrice){
-        return this.axios.post(apiRouteName,{
+        return axios.post(apiRouteName,{
             body: {
                 name: eventValue,
                 orderBy: orderBy,
@@ -22,6 +23,6 @@ export default class loadData{
         })
     }
     static async getMinMaxPrice(apiRouteName){
-        return this.axios.get(apiRouteName)
+        return axios.get(apiRouteName)
     }
 }

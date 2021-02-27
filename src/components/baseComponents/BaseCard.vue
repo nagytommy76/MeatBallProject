@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="food_card_footer">
-            <BaseButton @click.native="addToCart" :id="foodId"
+            <BaseButton @click="addToCart" :id="foodId"
                 :buttonText="'Kosárba!'"
             />
             <strong class="price">

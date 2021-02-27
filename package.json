@@ -3,7 +3,7 @@
   "private": true,
   "author": "Nagy Tamás",
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --port 6060",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
@@ -14,8 +14,9 @@
     "@fortawesome/vue-fontawesome": "^3.0.0-3",
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
+    "vue-axios": "^3.2.4",
     "vue-cookies": "^1.7.0",
-    "vue-loading-overlay": "^3.4.0",
+    "vue-loading-overlay": "^3.4.2",
     "vue-plugin-load-script": "^1.3.2",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0",

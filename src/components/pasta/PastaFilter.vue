@@ -4,6 +4,7 @@
                 :orderByRoute="orderRoute"
                 :byName="byName"
                 :minMaxPrice="minMaxPrice"
+                :foodType="'pastas'"
                 @set-food="setFood"
             />
             <div class="food_card_container">
@@ -33,7 +34,6 @@ export default {
             orderRoute: "getPastaByOrder",
             byName: "getPastaByName",
             minMaxPrice: "getPastaMinMaxPrice",
-            foodType: "pastas",
         }
     },
 }

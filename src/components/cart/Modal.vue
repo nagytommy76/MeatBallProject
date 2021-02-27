@@ -1,7 +1,7 @@
 <template>
     <div class="modal-bg">
         <dialog open class="modal">
-            <span @click="$emit('close')" class="modal-close"><i class="far fa-times-circle"></i></span>
+            <span @click="$emit('close')" class="modal-close"><font-awesome :icon="['far', 'times-circle']"/></span>
             <component
                 :is="currentPage"
                 :showMakeOrderBTN="showMakeOrderBTN"
@@ -34,7 +34,7 @@
                     :className="'danger'"
                 />
             </div>
-            <Loading :isLoading="isLoading" />
+            <!-- <Loading :isLoading="isLoading" /> -->
             <Alert 
                 v-if="showSuccessCashPay"
                 :Msg="`A visszaigazoló e-mailt elküldtük!`"
@@ -53,7 +53,7 @@
 import CartModal from './CartModal';
 import UserInfo from './UserInfo';
 import SummaryCart from './SummaryCart';
-
+import axios from 'axios'
 import { mapGetters, mapActions, mapMutations } from 'vuex'
 
 export default {

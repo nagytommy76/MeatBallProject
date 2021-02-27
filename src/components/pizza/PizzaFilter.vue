@@ -4,6 +4,7 @@
             :orderByRoute="orderRoute"
             :byName="byName"
             :minMaxPrice="minMaxPrice" 
+            :foodType="'pizzas'"
             @set-food="setFood"
         />
         <div class="food_card_container">
@@ -26,6 +27,7 @@
 <script>
 import PizzaCard from './PizzaCard';
 import setFood from '../../mixins/setFood'
+import axios from 'axios'
 export default {
     components: {
         PizzaCard,
@@ -38,7 +40,6 @@ export default {
             byName: "searchPizzaByName",
             minMaxPrice: "getMinMaxPrice",
             ingreds: [],
-            foodType: "pizzas",
         }
     },
     created(){
@@ -46,7 +47,8 @@ export default {
     },
     methods: {
         async fetchIngredients(){
-            await this.axios.get('getPlusIngreds')
+            // console.log(this.$http)
+            await axios.get('getPlusIngreds')
             .then(ingredients => {
                 this.ingreds = ingredients.data.data
             })

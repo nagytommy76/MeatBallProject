@@ -11,9 +11,9 @@
 
         <label for="">Étel Neve: </label>
         <input class="form-control" type="text" v-on:keyup="searchByName">
-        <Loading 
+        <!-- <Loading 
             :isLoading="isLoading"
-        />
+        /> -->
         <a class="btn-up" href="#top"><i class="fas fa-arrow-circle-up fa-3x"></i></a>
     </aside>
 </template>
@@ -37,12 +37,13 @@ export default {
     props:{
         orderByRoute: String,
         byName: String,
+        foodType: String,
         minMaxPrice: String,
     },
     methods: {
         async fetchFoods(){
             this.isLoading = true;
-            await loadData.fetchData(this.$parent.foodType)
+            await loadData.fetchData(this.foodType)
             .then(result => {
                 this.$emit('set-food', result.data.data)
                 this.isLoading = false;

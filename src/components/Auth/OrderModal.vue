@@ -57,7 +57,7 @@ export default {
     },
     methods: {
         getOrders(){
-            axios.get('myOrders')
+            this.axios.get('myOrders')
             .then(result => {
                 this.orders = result.data.data
                 if (this.orders.length == 0) {

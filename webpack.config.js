@@ -1,14 +1,14 @@
-const { assertSupportedNodeVersion } = require('../src/Engine');
+// const { assertSupportedNodeVersion } = require('../src/Engine');
 
-module.exports = async () => {
-    assertSupportedNodeVersion();
+// module.exports = async () => {
+//     assertSupportedNodeVersion();
 
-    const mix = require('../src/Mix').primary;
+//     const mix = require('../src/Mix').primary;
 
-    require(mix.paths.mix());
+//     require(mix.paths.mix());
 
-    await mix.installDependencies();
-    await mix.init();
+//     await mix.installDependencies();
+//     await mix.init();
 
-    return mix.build();
-};
+//     return mix.build();
+// };

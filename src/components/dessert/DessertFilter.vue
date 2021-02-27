@@ -4,6 +4,7 @@
             :orderByRoute="orderRoute"
             :byName="byName"
             :minMaxPrice="minMaxPrice"
+            :foodType="'dessert'"
             @set-food="setFood"
         />
         <div class="food_card_container">
@@ -11,7 +12,7 @@
             <section class="food_card_content">
                 <div v-for="food in foods" :key="food.id">
                     <BaseCard
-                        :foodType="foodType"
+                        :foodType="'dessert'"
                         :foodId="food.id"
                         :image="food.image.image_path"
                         :foodName="food.name"
@@ -33,7 +34,6 @@ export default {
             orderRoute: "getDessertByOrder",
             byName: "getDessertByName",
             minMaxPrice: "getDessertMinMaxPrice",
-            foodType: "dessert",
         }
     },
 }

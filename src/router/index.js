@@ -10,15 +10,12 @@ const routes = [
   {
     path: '/meatball',
     name: 'Meatball',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "meatball" */ '../views/MeatBall'),
     children: [
       {
         path: '/',
         name: 'Welcome',
-        component: () => import(/* webpackChunkName: "meatball" */ '../views/includes/Welcome')
+        component: () => import(/* webpackChunkName: "welcome" */ '../views/includes/Welcome')
       },
       {
         path: 'login',
@@ -86,6 +83,16 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
+  scrollBehavior(_, _2, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { 
+        top: 0,
+        behavior: 'smooth'
+      }
+    }
+  },
   routes
 })
 

@@ -1,4 +1,3 @@
-// @import '../variables';
 .modal-button{
     cursor: pointer;
 }
@@ -128,7 +127,7 @@
     transition: transform .4s;
 }
 
-.modal-enter{
+.modal-enter-from{
     transform: translateY(-100%)
 }
 .modal-leave-to {
@@ -140,7 +139,7 @@
     transition: opacity .5s;
 }
 
-.slide-enter,
+.slide-enter-from,
 .slide-leave-to {
     opacity: 0;
 }

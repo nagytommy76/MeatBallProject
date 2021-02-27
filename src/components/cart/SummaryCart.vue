@@ -78,7 +78,7 @@ import { mapActions, mapGetters, mapMutations } from 'vuex'
 export default {
     name: "SummaryCart",
     mounted() {
-        this.createPayPalScript()
+        // this.createPayPalScript()
     },
     props:{
         showMakeOrderBTN: Function,
@@ -120,53 +120,52 @@ export default {
             'setPaypalContainer',
             'setPayment',
         ]),
-        createPayPalScript(){
-            const script = document.createElement('script');
-            script.src = `
-                https://www.paypal.com/sdk/js?client-id=Ab5PkxGXmT-up_8VMgPOajxLZSe9PzyOh4eHxeCkJ6GiVd-4vfcTtG-cayvv8dHJL6Uv6CW6vNxOaFa4&currency=HUF&components=buttons,marks
-            `
-            script.addEventListener('load', this.setLoaded)
-            script.addEventListener('load', this.addPaypalPayment)
-            document.body.appendChild(script)
-        },
-        setLoaded: function() {
-            paypal
-            .Buttons({
-                locale: 'hu_HU',
-                createOrder: (data, actions) => {
-                    return actions.order.create({
-                        purchase_units: [{ 
-                            description: "Húsgolyó étterem ételrendelés",                           
-                            amount: {
-                                currency_code: 'HUF',
-                                value: this.cartItems.totalPrice
-                            },                            
-                        }]
-                    })
-                },
-                onApprove: async (data, actions) => {
-                    const order = await actions.order.capture()
-                    if (order.status === 'COMPLETED') {
-                        const finalDetails = {
-                        create_time: order.create_time,
-                        id: order.id,
-                        payer: order.payer,
-                        purchase_units: order.purchase_units,
-                        status: order.status,
-                        }
-                        this.setPaidWithPP(true)
-                        this.setPayPalDetails(finalDetails);
-                        this.enableShowPaypalMessage(true)
-                        this.disableShowPayment(false)
-                        this.makeOrder()
-                    }                    
-                }
-            })
-            .render(this.$refs.paypal)
-        },
-        addPaypalPayment(){
-            paypal.Marks().render('#paypal-marks-container');
-        },
+        // createPayPalScript(){
+        //     const script = document.createElement('script');
+        //     script.src = `
+        //         https://www.paypal.com/sdk/js?client-id=Ab5PkxGXmT-up_8VMgPOajxLZSe9PzyOh4eHxeCkJ6GiVd-4vfcTtG-cayvv8dHJL6Uv6CW6vNxOaFa4&currency=HUF&components=buttons,marks
+        //     `
+        //     script.addEventListener('load', this.setLoaded)
+        //     script.addEventListener('load', this.addPaypalPayment)
+        //     document.body.appendChild(script)
+        // },
+        // setLoaded: function() {
+        //     paypal.Buttons({
+        //         locale: 'hu_HU',
+        //         createOrder: (data, actions) => {
+        //             return actions.order.create({
+        //                 purchase_units: [{ 
+        //                     description: "Húsgolyó étterem ételrendelés",                           
+        //                     amount: {
+        //                         currency_code: 'HUF',
+        //                         value: this.cartItems.totalPrice
+        //                     },                            
+        //                 }]
+        //             })
+        //         },
+        //         onApprove: async (data, actions) => {
+        //             const order = await actions.order.capture()
+        //             if (order.status === 'COMPLETED') {
+        //                 const finalDetails = {
+        //                 create_time: order.create_time,
+        //                 id: order.id,
+        //                 payer: order.payer,
+        //                 purchase_units: order.purchase_units,
+        //                 status: order.status,
+        //                 }
+        //                 this.setPaidWithPP(true)
+        //                 this.setPayPalDetails(finalDetails);
+        //                 this.enableShowPaypalMessage(true)
+        //                 this.disableShowPayment(false)
+        //                 this.makeOrder()
+        //             }                    
+        //         }
+        //     })
+        //     .render(this.$refs.paypal)
+        // },
+        // addPaypalPayment(){
+        //     paypal.Marks().render('#paypal-marks-container');
+        // },
         showPaymentContainer(event){
             if(event.target.value == 'paypal'){
                 this.setPaypalContainer(true)
@@ -177,6 +176,6 @@ export default {
             }
             this.showMakeOrderBTN()
         },
-    },
+    }
 }
 </script>

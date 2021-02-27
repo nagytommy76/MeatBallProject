@@ -67,6 +67,7 @@
 </template>
 <script>
 import { mapMutations } from 'vuex'
+import axios from 'axios'
 export default {
     name: 'Login',
     data(){
@@ -108,9 +109,9 @@ export default {
             this.errors.password = errors.password;
         },
         async logTheUserIn(){
-            this.axios.get('/sanctum/csrf-cookie')
+            axios.get('/sanctum/csrf-cookie')
             .then(() =>{
-                this.axios.post('login', {
+                axios.post('login', {
                     formData: this.formData
                 }).then(login => {
                     if(login.status == 200){
@@ -131,7 +132,7 @@ export default {
             })
         },
         async resendEmail(){
-            this.axios.post('email/resend',{
+            axios.post('email/resend',{
                 formData: this.formData
             }).then(email => {
                 if (email.data.send) {

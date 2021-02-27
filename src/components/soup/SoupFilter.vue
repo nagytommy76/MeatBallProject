@@ -3,6 +3,7 @@
         <BaseFilter
             :orderByRoute="orderRoute"
             :byName="byName"
+            :foodType="'soup'"
             :minMaxPrice="minMaxPrice" 
             @set-food="setFood"           
         />
@@ -11,7 +12,7 @@
             <section class="food_card_content">
                 <div v-for="soup in foods" :key="soup.id">
                     <BaseCard
-                        :foodType="foodType"
+                        :foodType="'soup'"
                         :foodId="soup.id"
                         :image="soup.image.image_path"
                         :foodName="soup.name"
@@ -35,7 +36,6 @@ export default {
             byName: "getSoupByName",
             minMaxPrice: "getSoupMinMaxPrice",
             isLoading: false,
-            foodType: "soup",
         }
     },
 }

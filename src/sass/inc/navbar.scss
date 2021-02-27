@@ -1,12 +1,11 @@
-// @import '../variables';
 $menu-width: 170px;
 
 .dropdownNav-leave-active,
 .dropdownNav-enter-active{
-    transition: all .2s ease-in;
+    transition: all .15s ease-in;
 }
 
-.dropdownNav-enter,
+.dropdownNav-enter-from,
 .dropdownNav-leave-to{
     transform: translateY(25px);
     opacity: 0;
@@ -102,7 +101,7 @@ $menu-width: 170px;
                     display: flex;
                     align-items: center;
                     justify-items: center;
-                    i{
+                    .svg-icon{
                         margin-right: .7rem;
                         font-size: 1.2rem;                    
                     }

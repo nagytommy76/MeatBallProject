@@ -1,24 +1,24 @@
 <template>
 <main>
     <div id="navOpen" @click="openNavbar()" v-if="showNavOpen"><i class="fas fa-bars"></i></div>
-    <transition name="navbar" appear >
+    <transition name="navbar" >
         <Navbar :mobileSize="showNavOpen" v-if="showNavbar" @close="showNavbar = false" />
     </transition>
 
-    <transition name="slide" appear>
-        <div class="fade-in" v-if="showCartModal" @click="showCartModal = false"></div>
+    <transition-group name="slide">
+        <div class="fade-in" v-if="showCartModal" @click="hideCartModal"></div>
         <div class="fade-in" v-if="showOrdersModal" @click="showOrdersModal = false"></div>
-    </transition>
-    <transition name="modal" appear >
-        <Modal v-if="showCartModal" @close="showCartModal = false"/>
+    </transition-group>
+    <transition-group name="modal" >
+        <Modal v-if="showCartModal" @close="hideCartModal" v-model="showCartModal"/>
         <OrdersModal v-if="showOrdersModal" @close="showOrdersModal = false" />
-    </transition>
+    </transition-group>
     <router-view></router-view>
     <Footer />
 </main>
 </template>
 <script>
-// import MainHeader from './includes/WelcomeIncludes/MainHeader'
+import { mapGetters, mapMutations } from 'vuex'
 import Footer from './includes/Footer'
 import Navbar from './includes/Navbar'
 
@@ -27,15 +27,19 @@ export default {
     components:{
         Footer,
         Navbar,
-        // MainHeader,
     },
     mounted(){
         window.addEventListener('resize', this.checkWindowWidth())
         this.checkWindowWidth()
     },
+    computed:{
+        ...mapGetters({
+            showCartModal: 'getShowCartModal'
+        }),
+    },
     data() {
         return {
-            showCartModal: false,
+            // showCartModal: false,
             showOrdersModal: false,
 
             showNavOpen: false,
@@ -43,6 +47,9 @@ export default {
         }
     },
     methods: {
+        ...mapMutations({
+            hideCartModal: 'hideCartModal'
+        }),
         openNavbar(){
             this.showNavbar = true
         },

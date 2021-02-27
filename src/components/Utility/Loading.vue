@@ -7,7 +7,7 @@
     ></Loading>
 </template>
 <script>
-import Loading from 'vue-loading-overlay';
+import Loading from 'vue3-loading-overlay';
 export default {
     components:{
         Loading,

@@ -1,6 +1,6 @@
 <template>
     <nav role="navigation" class="navbar" @mouseleave="hideProfileDropdown(); hideFoodDropdown()">
-        <span v-if="mobileSize" @click="closeNav()" class="sidenav-close"><i class="far fa-times-circle fa-2x"></i></span>
+        <span v-if="mobileSize" @click="closeNav()" class="sidenav-close"><font-awesome :icon="['far', 'times-circle']" size="2x"/></span>
         <div class="navbar-brand">
             <router-link :to="{name: 'Welcome'}"><span class="primary-color">Húsgolyó </span>Étterem</router-link>
         </div>
@@ -51,7 +51,7 @@
                             <i class="fas fa-cart-arrow-down"></i>
                         Korábbi rendelések
                         </a>
-                        <a @click="$parent.showCartModal = true" class="dropdown-menu-item">
+                        <a @click="openCartModal" class="dropdown-menu-item">
                             <i class="fas fa-shopping-cart"></i> 
                             Kosár
                             <span class="noOfFoodsInCart">{{ totalQty }}</span>
@@ -64,6 +64,7 @@
 </template>
 <script>
 import { mapActions, mapGetters, mapMutations } from "vuex";
+import axios from 'axios'
 import DesktopNav from './NavbarIncludes/DesktopNav'
 import LinkItem from './NavbarIncludes/LinkItem'
 export default {
@@ -88,13 +89,19 @@ export default {
         }
     },
     methods: {
+        openModal(){
+            console.log('tesfsdfsdfd')
+            console.log(this.$parent.showCartModal)
+            this.$parent.showCartModal = true
+        },
         ...mapActions({
             revokeUserName: 'revokeUserName',
             setCartDefault: 'setCartDefault',
             setToDefaultUserInfo: 'setToDefaultUserInfo',
         }),
         ...mapMutations([
-            'setUserLoggedIn'
+            'setUserLoggedIn',
+            'openCartModal'
         ]),
         closeNav(){
             if (this.mobileSize) {
@@ -102,7 +109,7 @@ export default {
             }
         },
         async logOut(){
-            await axios.post('logout').then(logout =>{
+            await axios.post('logout').then(() =>{
                 this.revokeUserName()
                 this.setUserLoggedIn(false)
                 this.setCartDefault()

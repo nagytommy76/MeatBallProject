@@ -1,14 +1,38 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faTimesCircle, } from '@fortawesome/free-solid-svg-icons'
+import { faTimesCircle } from '@fortawesome/free-regular-svg-icons'
 import { 
     faClock, 
     faArrowLeft, 
     faArrowRight,
     faBars,
-    // faTimesCircle,
+    faEnvelope,
+    faPhone,
+    faDatabase,
+    faPizzaSlice,
+    faSoap,
+    faBirthdayCake,
+    faWineGlassAlt,
+    faBacon,
+    faBreadSlice,
+
 } from '@fortawesome/free-solid-svg-icons'
 
-import { faGithub, faLinkedin, faFacebook } from '@fortawesome/free-brands-svg-icons'
+import { 
+    faGithub,
+    faLinkedin,
+    faFacebookSquare,
+    faPhp,
+    faLaravel,
+    faJsSquare,
+    faVuejs,
+    faBootstrap,
+    faCss3Alt,
+    faSass,
+    faHtml5,
+    faGitAlt,
+    faWindows,
+    faNpm,
+} from '@fortawesome/free-brands-svg-icons'
 
 library.add(
     faGithub,
@@ -16,7 +40,27 @@ library.add(
     faClock,
     faArrowLeft,
     faArrowRight,
-    faFacebook,
+    faFacebookSquare,
     faBars,
     faTimesCircle,
+    faEnvelope,
+    faPhone,
+    faPhp,
+    faLaravel,
+    faDatabase,
+    faJsSquare,
+    faVuejs,
+    faBootstrap,
+    faCss3Alt,
+    faSass,
+    faHtml5,
+    faGitAlt,
+    faWindows,
+    faNpm,
+    faPizzaSlice,
+    faSoap,
+    faBirthdayCake,
+    faWineGlassAlt,
+    faBacon,
+    faBreadSlice,
 )

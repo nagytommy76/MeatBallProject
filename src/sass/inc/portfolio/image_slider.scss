@@ -1,21 +1,18 @@
-// @import '../../variables';
-
 .slide-image-enter-active,
 .slide-image-leave-active {
-    transition: all .8s ease-out;
+    transition: all .6s ease;
     overflow: hidden;
     visibility: visible;
     opacity: 1;
 }
 
-.slide-image-enter,
+.slide-image-enter-from,
 .slide-image-leave-to{
     opacity: 0;
     visibility: hidden;
 }
 
 .image-slider{
-    // box-shadow: 1px 1px 15px #222;
     position: fixed;
     bottom: 0;
     top: 0;
@@ -25,7 +22,6 @@
     margin: auto;
     width: 95%;
     height: auto;
-    // background: rgb(204, 204, 204);
     .img-container{
         height: 100%;
         width: 100%;
@@ -63,9 +59,6 @@
             padding: .5rem;
             transition: all .2s ease-in;
             cursor: pointer;
-            i{
-                cursor: pointer;
-            }
             &:hover{
                 background-color: rgba($color: $primary, $alpha: 1);
                 color: white;
@@ -81,15 +74,15 @@
             padding: .5rem;
             transition: all .2s ease-in;
             cursor: pointer;
-            i{
-                cursor: pointer;
-            }
             &:hover{
                 background-color: rgba($color: $primary, $alpha: 1);
                 color: white;
             }
         }
     }
+}
+.svg-icon{
+    cursor: pointer;
 }
 @media (max-width: $mobile-width){
     .image-slider{

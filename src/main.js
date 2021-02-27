@@ -22,10 +22,9 @@ app.component('Loading', defineAsyncComponent(() => import('./components/Utility
 app.component('BaseFilter', defineAsyncComponent(() => import('./components/baseComponents/BaseFilter')))
 app.component('BaseCard', defineAsyncComponent(() => import('./components/baseComponents/BaseCard')))
 
-// app.component('Modal', defineAsyncComponent(() => import('./components/cart/Modal')))
+app.component('Modal', defineAsyncComponent(() => import('./components/cart/Modal')))
 app.component('OrdersModal', defineAsyncComponent(() => import('./components/Auth/OrderModal')))
 
 app.use(store)
 app.use(router)
-
 app.mount('#app')

@@ -1,3 +1,4 @@
+import axios from 'axios'
 export default {
     state() {
         return{
@@ -43,7 +44,7 @@ export default {
     },
     actions: {
         getUserInfo(context){ 
-            this.axios.get('userInfoFilled').then(user => {
+            axios.get('userInfoFilled').then(user => {
                 if (user.status == 200) {
                     if (user.data.data.userInfo) {
                         context.commit('setUserInfo', user.data.data.userInfo)

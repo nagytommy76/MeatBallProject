@@ -53,6 +53,7 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
     name: 'Register',
     data(){
@@ -77,7 +78,7 @@ export default {
     methods: {
         async userRegister(){
             this.isLoading = true
-            await this.axios.post('register', {
+            await axios.post('register', {
                 formData: this.formData
             })
             .then(register => {
