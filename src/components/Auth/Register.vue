@@ -44,9 +44,9 @@
                             </div>
                         </div>                     
                     </form>
-                    <Loading 
+                    <!-- <Loading 
                         :isLoading="isLoading"
-                    />
+                    /> -->
                 </div>
             </div>
         </section>

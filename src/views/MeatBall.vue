@@ -9,11 +9,11 @@
         <div class="fade-in" v-if="showCartModal" @click="hideCartModal"></div>
         <div class="fade-in" v-if="showOrdersModal" @click="hideOrdersModal"></div>
     </transition-group>
+    <router-view></router-view>
     <transition-group name="modal" >
         <Modal v-if="showCartModal" @close="hideCartModal" v-model="showCartModal"/>
         <OrdersModal v-if="showOrdersModal" @close="hideOrdersModal" />
     </transition-group>
-    <router-view></router-view>
     <Footer />
 </main>
 </template>

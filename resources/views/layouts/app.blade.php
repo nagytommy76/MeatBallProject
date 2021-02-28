@@ -19,6 +19,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <main id="app"></main>
+<!-- <h1>HALLLLÓÓÓ</h1> -->
+    <!-- <main id="app"></main> -->
 </body>
 </html>

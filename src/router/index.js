@@ -3,11 +3,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 import MainWelcome from '../views/includes/MainPage/MainWelcome'
 
 const Welcome = () => import('../views/includes/Welcome')
-
 const Login = () => import('../components/Auth/Login')
 const Register = () => import('../components/Auth/Register')
 
-const Meatball = () =>  import('../views/MeatBall')
+const Meatball = () =>  import(/* webpackChunkName: "Meatball" */'../views/MeatBall')
 
 const PizzaFilter = () => import('../components/pizza/PizzaFilter')
 const SoupFilter = () => import('../components/soup/SoupFilter')
@@ -30,7 +29,7 @@ const routes = [
     component:  Meatball,
     children: [
       {
-        path: '/meatball',
+        path: '/',
         name: 'Welcome',
         component: Welcome
       },
@@ -100,6 +99,7 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(),
+  routes,
   scrollBehavior(_, _2, savedPosition) {
     if (savedPosition) {
       return savedPosition
@@ -110,7 +110,6 @@ const router = createRouter({
       }
     }
   },
-  routes
 })
 
 export default router

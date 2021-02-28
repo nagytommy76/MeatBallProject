@@ -17,7 +17,7 @@ app.component('ImageSlider', defineAsyncComponent(() => import('./views/includes
 app.component('Tooltip', defineAsyncComponent(() => import('./components/Utility/Tooltip')))
 app.component('Alert', defineAsyncComponent(() => import('./components/Utility/Alert')))
 app.component('ErrorMsg', defineAsyncComponent(() => import('./components/Utility/FormErrorMsg')))
-app.component('Loading', defineAsyncComponent(() => import('./components/Utility/Loading')))
+// app.component('Loading', defineAsyncComponent(() => import('./components/Utility/Loading')))
 
 app.component('BaseFilter', defineAsyncComponent(() => import('./components/baseComponents/BaseFilter')))
 app.component('BaseCard', defineAsyncComponent(() => import('./components/baseComponents/BaseCard')))
@@ -25,6 +25,6 @@ app.component('BaseCard', defineAsyncComponent(() => import('./components/baseCo
 app.component('Modal', defineAsyncComponent(() => import('./components/cart/Modal')))
 app.component('OrdersModal', defineAsyncComponent(() => import('./components/Auth/OrderModal')))
 
-app.use(store)
 app.use(router)
+app.use(store)
 app.mount('#app')
