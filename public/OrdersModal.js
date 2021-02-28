@@ -109,7 +109,8 @@ var render = function() {
             }
           }
         },
-        [_c("i", { staticClass: "far fa-times-circle" })]
+        [_c("font-awesome", { attrs: { icon: ["far", "times-circle"] } })],
+        1
       ),
       _vm._v(" "),
       _c("h1", { staticClass: "text-center py-1" }, [

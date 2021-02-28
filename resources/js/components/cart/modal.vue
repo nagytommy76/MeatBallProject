@@ -1,7 +1,7 @@
 <template>
     <div class="modal-bg">
         <dialog open class="modal">
-            <span @click="$emit('close')" class="modal-close"><i class="far fa-times-circle"></i></span>
+            <span @click="$emit('close')" class="modal-close"><font-awesome :icon="['far', 'times-circle']"/></span>
             <component
                 :is="currentPage"
                 :showMakeOrderBTN="showMakeOrderBTN"
@@ -174,6 +174,3 @@ export default {
     }
 }
 </script>
-<style lang="scss">
-@import '../../../sass/inc/modal';
-</style>

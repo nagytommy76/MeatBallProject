@@ -4,32 +4,32 @@
         <transition name="dropdownNav">
         <div class="dropdown-menu" v-if="showDrop">
             <LinkItem 
-                @click="closeNav()"
+                @click="$emit('close-nav')"
                 :menuName="'Pizzák'"
                 :routeName="'Pizza'"
             ><font-awesome class="svg-icon" :icon="['fas', 'pizza-slice']" size="2x"/></LinkItem>
              <LinkItem 
-                @click="closeNav()"
+                @click="$emit('close-nav')"
                 :menuName="'Levesek'"
                 :routeName="'Soup'"
             ><font-awesome class="svg-icon" :icon="['fas', 'soap']" size="2x"/></LinkItem>
             <LinkItem 
-                @click="closeNav()"
+                @click="$emit('close-nav')"
                 :menuName="'Desszertek'"
                 :routeName="'Dessert'"
             ><font-awesome class="svg-icon" :icon="['fas', 'birthday-cake']" size="2x"/></LinkItem>
             <LinkItem 
-                @click="closeNav()"
+                @click="$emit('close-nav')"
                 :menuName="'Italok'"
                 :routeName="'Drink'"
             ><font-awesome class="svg-icon" :icon="['fas', 'wine-glass-alt']" size="2x"/></LinkItem>
             <LinkItem 
-                @click="closeNav()"
+                @click="$emit('close-nav')"
                 :menuName="'Főételek'"
                 :routeName="'Meal'"
             ><font-awesome class="svg-icon" :icon="['fas', 'bacon']" size="2x"/></LinkItem>
             <LinkItem 
-                @click="closeNav()"
+                @click="$emit('close-nav')"
                 :menuName="'Tészták'"
                 :routeName="'Pasta'"
             ><font-awesome class="svg-icon" :icon="['fas', 'bread-slice']" size="2x"/></LinkItem>

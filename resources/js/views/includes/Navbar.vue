@@ -14,7 +14,7 @@
                 ></LinkItem>
             </li>
             <DesktopNav
-                :closeNav="closeNav"
+                @close-nav="closeNav"
                 :event="mobileSize"
                 :showDrop="showFoodDrop"
                 @hide-dropdown="hideFoodDropdown"
@@ -98,6 +98,7 @@ export default {
         ]),
         closeNav(){
             if (this.mobileSize) {
+                console.log('Mi folyik itten?')
                 this.$emit('close')
             }
         },
@@ -136,3 +137,6 @@ export default {
     },
 }
 </script>
+<style lang="scss">
+    @import '../../../sass/inc/modal';
+</style>

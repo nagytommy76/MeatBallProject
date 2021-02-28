@@ -1,7 +1,7 @@
 <template>
     <div class="modal-bg">
         <div class="modal">
-            <span @click="$emit('close')" class="modal-close"><i class="far fa-times-circle"></i></span>
+            <span @click="$emit('close')" class="modal-close"><font-awesome :icon="['far', 'times-circle']"/></span>
             <h1 class="text-center py-1">Korábbi rendeléseim</h1>
             <h1 v-show="showEmpty">Még nem rendelt tölünk!</h1>
             <div class="modal-body">
