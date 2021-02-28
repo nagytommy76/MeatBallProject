@@ -1,13 +1,13 @@
 <template>
     <nav role="navigation" class="navbar" @mouseleave="hideProfileDropdown(); hideFoodDropdown()">
-        <span v-if="mobileSize" @click="closeNav()" class="sidenav-close"><i class="far fa-times-circle fa-2x"></i></span>
+        <span v-if="mobileSize" @click="closeNav()" class="sidenav-close"><font-awesome :icon="['far', 'times-circle']" size="2x"/></span>
         <div class="navbar-brand">
             <router-link :to="{name: 'Welcome'}"><span class="primary-color">Húsgolyó </span>Étterem</router-link>
         </div>
         <ul class="navbar-nav">
             <li class="nav-item">
                 <LinkItem 
-                    @click.native="closeNav()"
+                    @click="closeNav()"
                     :menuName="'Portfólióm'"
                     :className="'nav-link'"
                     :routeName="'MainWelcome'"
@@ -23,7 +23,7 @@
             />
             <li v-show="!loggedIn" class="nav-item">
                 <LinkItem 
-                    @click.native="closeNav()"
+                    @click="closeNav()"
                     :menuName="'Belépés'"
                     :className="'nav-link'"
                     :routeName="'Login'"
@@ -31,7 +31,7 @@
             </li>
             <li v-show="!loggedIn" class="nav-item">
                 <LinkItem 
-                    @click.native="closeNav()"
+                    @click="closeNav()"
                     :menuName="'Regisztráció'"
                     :className="'nav-link'"
                     :routeName="'Register'"
@@ -44,15 +44,15 @@
                 <transition name="dropdownNav">
                     <div class="dropdown-menu" v-if="showProfileDrop">
                         <a @click.prevent="logOut()" class="dropdown-menu-item" id="logOutBtn" href="#">
-                            <i class="fas fa-sign-out-alt"></i> 
+                            <font-awesome class="svg-icon" :icon="['fas', 'sign-out-alt']" size="2x"/> 
                             Kilépés
                         </a>
                         <a @click="$parent.showOrdersModal = true" class="dropdown-menu-item">
-                            <i class="fas fa-cart-arrow-down"></i>
+                            <font-awesome class="svg-icon" :icon="['fas', 'cart-arrow-down']" size="2x"/> 
                         Korábbi rendelések
                         </a>
-                        <a @click="$parent.showCartModal = true" class="dropdown-menu-item">
-                            <i class="fas fa-shopping-cart"></i> 
+                        <a @click="$parent.showCartModal = true" class="dropdown-menu-item"> 
+                            <font-awesome class="svg-icon" :icon="['fas', 'shopping-cart']" size="2x"/>
                             Kosár
                             <span class="noOfFoodsInCart">{{ totalQty }}</span>
                         </a>

@@ -14,7 +14,9 @@ import {
     faWineGlassAlt,
     faBacon,
     faBreadSlice,
-
+    faSignOutAlt,
+    faCartArrowDown,
+    faShoppingCart,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { 
@@ -63,4 +65,7 @@ library.add(
     faWineGlassAlt,
     faBacon,
     faBreadSlice,
+    faSignOutAlt,
+    faCartArrowDown,
+    faShoppingCart,
 )

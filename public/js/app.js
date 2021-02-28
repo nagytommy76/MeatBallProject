@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"Alert":"Alert","BaseButton":"BaseButton","Dessert":"Dessert","Drink":"Drink","ErrorMsg":"ErrorMsg","ImageSlider":"ImageSlider","LoadingOverlay":"LoadingOverlay","Meal":"Meal","OrdersModal":"OrdersModal","PageNotFound":"PageNotFound","Pasta":"Pasta","Soup":"Soup","Tooltip":"Tooltip","WelcomePage":"WelcomePage","vendors~BaseCard~BaseFilter~CartModal~Login~Meatball~Pizza~Register":"vendors~BaseCard~BaseFilter~CartModal~Login~Meatball~Pizza~Register","BaseCard":"BaseCard","BaseFilter":"BaseFilter","CartModal":"CartModal","Login":"Login","Meatball":"Meatball","Pizza":"Pizza","Register":"Register"}[chunkId]||chunkId) + ".js?id=" + {"Alert":"69bf371839a433411791","BaseButton":"6354e816e4923fcd250b","Dessert":"d6210f588a7cc82e2514","Drink":"37582250de42dea40bf0","ErrorMsg":"cd6a9ec06ef348541f8e","ImageSlider":"01209ff894ef6479cefa","LoadingOverlay":"8550a2e5dcabf526a9e4","Meal":"f49dee2ae35f912887c8","OrdersModal":"9b255aa50c98c2260d5a","PageNotFound":"360ae16417fb3fb0103f","Pasta":"345de665f1bff0d14a61","Soup":"b393aa6fdcbaf1ba9adb","Tooltip":"fae05c2b10102772c33b","WelcomePage":"21ae2e86fac6f73f7fb0","vendors~BaseCard~BaseFilter~CartModal~Login~Meatball~Pizza~Register":"7ee8463b89c337483742","BaseCard":"7b85e182a487bb5384a2","BaseFilter":"90027f01cafd44c01088","CartModal":"2a8d50e661cad50f8ec4","Login":"157726247028fbe22d43","Meatball":"a7b84307c9e2f197afab","Pizza":"a2a3021098880bc92a84","Register":"be146a38e13e60af7e3d"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "" + ({"Alert":"Alert","BaseButton":"BaseButton","Dessert":"Dessert","Drink":"Drink","ErrorMsg":"ErrorMsg","ImageSlider":"ImageSlider","LoadingOverlay":"LoadingOverlay","Meal":"Meal","OrdersModal":"OrdersModal","PageNotFound":"PageNotFound","Pasta":"Pasta","Soup":"Soup","Tooltip":"Tooltip","WelcomePage":"WelcomePage","vendors~BaseCard~BaseFilter~CartModal~Login~Meatball~Pizza~Register":"vendors~BaseCard~BaseFilter~CartModal~Login~Meatball~Pizza~Register","BaseCard":"BaseCard","BaseFilter":"BaseFilter","CartModal":"CartModal","Login":"Login","Meatball":"Meatball","Pizza":"Pizza","Register":"Register"}[chunkId]||chunkId) + ".js?id=" + {"Alert":"69bf371839a433411791","BaseButton":"6354e816e4923fcd250b","Dessert":"d6210f588a7cc82e2514","Drink":"37582250de42dea40bf0","ErrorMsg":"cd6a9ec06ef348541f8e","ImageSlider":"01209ff894ef6479cefa","LoadingOverlay":"8550a2e5dcabf526a9e4","Meal":"f49dee2ae35f912887c8","OrdersModal":"9b255aa50c98c2260d5a","PageNotFound":"360ae16417fb3fb0103f","Pasta":"345de665f1bff0d14a61","Soup":"b393aa6fdcbaf1ba9adb","Tooltip":"fae05c2b10102772c33b","WelcomePage":"21ae2e86fac6f73f7fb0","vendors~BaseCard~BaseFilter~CartModal~Login~Meatball~Pizza~Register":"7ee8463b89c337483742","BaseCard":"7b85e182a487bb5384a2","BaseFilter":"90027f01cafd44c01088","CartModal":"2a8d50e661cad50f8ec4","Login":"157726247028fbe22d43","Meatball":"4c8b8b1acdff0974c244","Pizza":"a2a3021098880bc92a84","Register":"be146a38e13e60af7e3d"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -17200,7 +17200,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".footer-contact[data-v-7037737a] {\n  margin: auto 0 1rem 0;\n}\n.footer-contact .icon-title[data-v-7037737a] {\n  text-align: right;\n}\n.footer-contact .contact-icon[data-v-7037737a] {\n  margin-bottom: 0.5rem;\n}\n.footer-contact .contact-icon i[data-v-7037737a] {\n  color: #FFF;\n  font-size: 2.4rem;\n  margin: 0.2rem 0.3rem;\n}\n.footer-contact .email[data-v-7037737a], .footer-contact a[data-v-7037737a] {\n  color: #ffae00;\n  text-align: right;\n}\n@media (max-width: 720px) {\n.footer-contact[data-v-7037737a] {\n    margin-top: 1rem;\n}\n.footer-contact .icon-title[data-v-7037737a] {\n    text-align: center;\n    margin-bottom: 0.7rem;\n}\n.footer-contact .contact-icon[data-v-7037737a] {\n    margin-bottom: 1rem;\n}\n.footer-contact .email[data-v-7037737a] {\n    text-align: center;\n}\n}", ""]);
+exports.push([module.i, ".footer-contact[data-v-7037737a] {\n  margin: auto 0 1rem 0;\n}\n.footer-contact .icon-title[data-v-7037737a] {\n  text-align: right;\n}\n.footer-contact .contact-icon[data-v-7037737a] {\n  margin-bottom: 0.5rem;\n}\n.footer-contact .contact-icon .svg-icon[data-v-7037737a] {\n  color: #FFF;\n  font-size: 2.4rem;\n  margin: 0.2rem 0.3rem;\n}\n.footer-contact .email[data-v-7037737a], .footer-contact a[data-v-7037737a] {\n  color: #ffae00;\n  text-align: right;\n}\n@media (max-width: 720px) {\n.footer-contact[data-v-7037737a] {\n    margin-top: 1rem;\n}\n.footer-contact .icon-title[data-v-7037737a] {\n    text-align: center;\n    margin-bottom: 0.7rem;\n}\n.footer-contact .contact-icon[data-v-7037737a] {\n    margin-bottom: 1rem;\n}\n.footer-contact .email[data-v-7037737a] {\n    text-align: center;\n}\n}", ""]);
 
 // exports
 
@@ -18924,7 +18924,8 @@ var render = function() {
             }
           }
         },
-        [_c("i", { staticClass: "fas fa-bars fa-2x" })]
+        [_c("font-awesome", { attrs: { icon: ["fas", "bars"], size: "2x" } })],
+        1
       ),
       _vm._v(" "),
       _c("transition", { attrs: { name: "background" } }, [
@@ -19102,17 +19103,33 @@ var render = function() {
       [
         _c("Tooltip", { attrs: { text: "nagytommy76@gmail.com" } }, [
           _c("span", [
-            _c("a", { attrs: { href: "mailto:nagytommy76@gmail.com" } }, [
-              _c("i", { staticClass: "fas fa-envelope" })
-            ])
+            _c(
+              "a",
+              { attrs: { href: "mailto:nagytommy76@gmail.com" } },
+              [
+                _c("font-awesome", {
+                  staticClass: "svg-icon",
+                  attrs: { icon: ["fas", "envelope"], size: "2x" }
+                })
+              ],
+              1
+            )
           ])
         ]),
         _vm._v(" "),
         _c("Tooltip", { attrs: { text: "Tel.: 06307862963" } }, [
           _c("span", [
-            _c("a", { attrs: { href: "tel:06307862963" } }, [
-              _c("i", { staticClass: "fas fa-phone" })
-            ])
+            _c(
+              "a",
+              { attrs: { href: "tel:06307862963" } },
+              [
+                _c("font-awesome", {
+                  staticClass: "svg-icon",
+                  attrs: { icon: ["fas", "phone"], size: "2x" }
+                })
+              ],
+              1
+            )
           ])
         ]),
         _vm._v(" "),
@@ -19126,7 +19143,13 @@ var render = function() {
                   href: "https://www.linkedin.com/in/nagy-tam%C3%A1s-27355116b/"
                 }
               },
-              [_c("i", { staticClass: "fab fa-linkedin" })]
+              [
+                _c("font-awesome", {
+                  staticClass: "svg-icon",
+                  attrs: { icon: ["fab", "linkedin"], size: "2x" }
+                })
+              ],
+              1
             )
           ])
         ]),
@@ -19141,7 +19164,13 @@ var render = function() {
                   href: "https://github.com/nagytommy76"
                 }
               },
-              [_c("i", { staticClass: "fab fa-github fa-2x" })]
+              [
+                _c("font-awesome", {
+                  staticClass: "svg-icon",
+                  attrs: { icon: ["fab", "github"], size: "2x" }
+                })
+              ],
+              1
             )
           ])
         ]),
@@ -19156,7 +19185,13 @@ var render = function() {
                   href: "https://www.facebook.com/tamas.nagy.1029"
                 }
               },
-              [_c("i", { staticClass: "fab fa-facebook-square fa-2x" })]
+              [
+                _c("font-awesome", {
+                  staticClass: "svg-icon",
+                  attrs: { icon: ["fab", "facebook-square"], size: "2x" }
+                })
+              ],
+              1
             )
           ])
         ])
@@ -19247,7 +19282,16 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("Tooltip", { attrs: { text: "MySQL" } }, [
-              _c("span", [_c("i", { staticClass: "fas fa-database fa-2x" })])
+              _c(
+                "span",
+                [
+                  _c("font-awesome", {
+                    staticClass: "svg-icon",
+                    attrs: { icon: ["fas", "database"], size: "2x" }
+                  })
+                ],
+                1
+              )
             ])
           ],
           1
@@ -19262,27 +19306,81 @@ var render = function() {
           { staticClass: "grid-tooltip" },
           [
             _c("Tooltip", { attrs: { text: "JavaScript" } }, [
-              _c("span", [_c("i", { staticClass: "fab fa-js-square fa-2x" })])
+              _c(
+                "span",
+                [
+                  _c("font-awesome", {
+                    staticClass: "svg-icon",
+                    attrs: { icon: ["fab", "js-square"], size: "2x" }
+                  })
+                ],
+                1
+              )
             ]),
             _vm._v(" "),
             _c("Tooltip", { attrs: { text: "Vue.js" } }, [
-              _c("span", [_c("i", { staticClass: "fab fa-vuejs fa-2x" })])
+              _c(
+                "span",
+                [
+                  _c("font-awesome", {
+                    staticClass: "svg-icon",
+                    attrs: { icon: ["fab", "vuejs"], size: "2x" }
+                  })
+                ],
+                1
+              )
             ]),
             _vm._v(" "),
             _c("Tooltip", { attrs: { text: "Bootstrap 4" } }, [
-              _c("span", [_c("i", { staticClass: "fab fa-bootstrap fa-2x" })])
+              _c(
+                "span",
+                [
+                  _c("font-awesome", {
+                    staticClass: "svg-icon",
+                    attrs: { icon: ["fab", "bootstrap"], size: "2x" }
+                  })
+                ],
+                1
+              )
             ]),
             _vm._v(" "),
             _c("Tooltip", { attrs: { text: "CSS3" } }, [
-              _c("span", [_c("i", { staticClass: "fab fa-css3-alt fa-2x" })])
+              _c(
+                "span",
+                [
+                  _c("font-awesome", {
+                    staticClass: "svg-icon",
+                    attrs: { icon: ["fab", "css3-alt"], size: "2x" }
+                  })
+                ],
+                1
+              )
             ]),
             _vm._v(" "),
             _c("Tooltip", { attrs: { text: "SASS" } }, [
-              _c("span", [_c("i", { staticClass: "fab fa-sass fa-2x" })])
+              _c(
+                "span",
+                [
+                  _c("font-awesome", {
+                    staticClass: "svg-icon",
+                    attrs: { icon: ["fab", "sass"], size: "2x" }
+                  })
+                ],
+                1
+              )
             ]),
             _vm._v(" "),
             _c("Tooltip", { attrs: { text: "HTML5" } }, [
-              _c("span", [_c("i", { staticClass: "fab fa-html5 fa-2x" })])
+              _c(
+                "span",
+                [
+                  _c("font-awesome", {
+                    staticClass: "svg-icon",
+                    attrs: { icon: ["fab", "html5"], size: "2x" }
+                  })
+                ],
+                1
+              )
             ])
           ],
           1
@@ -19304,21 +19402,54 @@ var render = function() {
                       href: "https://github.com/nagytommy76"
                     }
                   },
-                  [_c("i", { staticClass: "fab fa-github fa-2x" })]
+                  [
+                    _c("font-awesome", {
+                      staticClass: "svg-icon",
+                      attrs: { icon: ["fab", "github"], size: "2x" }
+                    })
+                  ],
+                  1
                 )
               ])
             ]),
             _vm._v(" "),
             _c("Tooltip", { attrs: { text: "Git" } }, [
-              _c("span", [_c("i", { staticClass: "fab fa-git-alt" })])
+              _c(
+                "span",
+                [
+                  _c("font-awesome", {
+                    staticClass: "svg-icon",
+                    attrs: { icon: ["fab", "git-alt"], size: "2x" }
+                  })
+                ],
+                1
+              )
             ]),
             _vm._v(" "),
             _c("Tooltip", { attrs: { text: "Windows 10" } }, [
-              _c("span", [_c("i", { staticClass: "fab fa-windows" })])
+              _c(
+                "span",
+                [
+                  _c("font-awesome", {
+                    staticClass: "svg-icon",
+                    attrs: { icon: ["fab", "windows"], size: "2x" }
+                  })
+                ],
+                1
+              )
             ]),
             _vm._v(" "),
             _c("Tooltip", { attrs: { text: "Node Package Manager" } }, [
-              _c("span", [_c("i", { staticClass: "fab fa-npm" })])
+              _c(
+                "span",
+                [
+                  _c("font-awesome", {
+                    staticClass: "svg-icon",
+                    attrs: { icon: ["fab", "npm"], size: "2x" }
+                  })
+                ],
+                1
+              )
             ])
           ],
           1
@@ -19541,7 +19672,12 @@ var render = function() {
           }
         }
       },
-      [_c("i", { staticClass: "far fa-times-circle fa-2x" })]
+      [
+        _c("font-awesome", {
+          attrs: { icon: ["far", "times-circle"], size: "2x" }
+        })
+      ],
+      1
     ),
     _vm._v(" "),
     _c("div", { staticClass: "sidenav-nav" }, [
@@ -19645,7 +19781,12 @@ var render = function() {
                     staticClass: "sidenav-contact-item",
                     attrs: { href: "mailto:nagytommy76@gmail.com" }
                   },
-                  [_c("i", { staticClass: "fas fa-envelope fa-2x" })]
+                  [
+                    _c("font-awesome", {
+                      attrs: { icon: ["fas", "envelope"], size: "2x" }
+                    })
+                  ],
+                  1
                 )
               ]),
               _vm._v(" "),
@@ -19656,7 +19797,12 @@ var render = function() {
                     staticClass: "sidenav-contact-item",
                     attrs: { href: "tel:06307862963" }
                   },
-                  [_c("i", { staticClass: "fas fa-phone fa-2x" })]
+                  [
+                    _c("font-awesome", {
+                      attrs: { icon: ["fas", "phone"], size: "2x" }
+                    })
+                  ],
+                  1
                 )
               ]),
               _vm._v(" "),
@@ -19671,7 +19817,12 @@ var render = function() {
                         "https://www.linkedin.com/in/nagy-tam%C3%A1s-27355116b/"
                     }
                   },
-                  [_c("i", { staticClass: "fab fa-linkedin fa-2x" })]
+                  [
+                    _c("font-awesome", {
+                      attrs: { icon: ["fab", "linkedin"], size: "2x" }
+                    })
+                  ],
+                  1
                 )
               ]),
               _vm._v(" "),
@@ -19685,7 +19836,12 @@ var render = function() {
                       href: "https://github.com/nagytommy76"
                     }
                   },
-                  [_c("i", { staticClass: "fab fa-github fa-2x" })]
+                  [
+                    _c("font-awesome", {
+                      attrs: { icon: ["fab", "github"], size: "2x" }
+                    })
+                  ],
+                  1
                 )
               ]),
               _vm._v(" "),
@@ -19699,7 +19855,12 @@ var render = function() {
                       href: "https://www.facebook.com/tamas.nagy.1029"
                     }
                   },
-                  [_c("i", { staticClass: "fab fa-facebook-square fa-2x" })]
+                  [
+                    _c("font-awesome", {
+                      attrs: { icon: ["fab", "facebook-square"], size: "2x" }
+                    })
+                  ],
+                  1
                 )
               ]),
               _vm._v(" "),
@@ -19866,24 +20027,50 @@ var render = function() {
             _c(
               "TechList",
               { attrs: { title: "Laravel", tooltipTitle: "Laravel" } },
-              [_c("i", { staticClass: "fab fa-laravel fa-2x laravel" })]
+              [
+                _c("font-awesome", {
+                  staticClass: "laravel",
+                  attrs: { icon: ["fab", "laravel"], size: "2x" }
+                })
+              ],
+              1
             ),
             _vm._v(" "),
             _c(
               "TechList",
               { attrs: { title: "MySQL", tooltipTitle: "MySQL" } },
-              [_c("i", { staticClass: "fas fa-database fa-2x mysql" })]
+              [
+                _c("font-awesome", {
+                  staticClass: "mysql",
+                  attrs: { icon: ["fas", "database"], size: "2x" }
+                })
+              ],
+              1
             ),
             _vm._v(" "),
             _c(
               "TechList",
               { attrs: { title: "Vue.js", tooltipTitle: "Vue.js" } },
-              [_c("i", { staticClass: "fab fa-vuejs fa-2x vue" })]
+              [
+                _c("font-awesome", {
+                  staticClass: "vue",
+                  attrs: { icon: ["fab", "vuejs"], size: "2x" }
+                })
+              ],
+              1
             ),
             _vm._v(" "),
-            _c("TechList", { attrs: { title: "SASS", tooltipTitle: "SASS" } }, [
-              _c("i", { staticClass: "fab fa-sass fa-2x sass" })
-            ]),
+            _c(
+              "TechList",
+              { attrs: { title: "SASS", tooltipTitle: "SASS" } },
+              [
+                _c("font-awesome", {
+                  staticClass: "sass",
+                  attrs: { icon: ["fab", "sass"], size: "2x" }
+                })
+              ],
+              1
+            ),
             _vm._v(" "),
             _c("TechList", {
               attrs: { title: "Saját fejlesztésű API", isTooltip: false }
@@ -19986,12 +20173,26 @@ var render = function() {
             _c(
               "TechList",
               { attrs: { title: "Vue.js", tooltipTitle: "Vue.js" } },
-              [_c("i", { staticClass: "fab fa-vuejs fa-2x vue" })]
+              [
+                _c("font-awesome", {
+                  staticClass: "vue",
+                  attrs: { icon: ["fab", "vuejs"], size: "2x" }
+                })
+              ],
+              1
             ),
             _vm._v(" "),
-            _c("TechList", { attrs: { title: "SASS", tooltipTitle: "SASS" } }, [
-              _c("i", { staticClass: "fab fa-sass fa-2x sass" })
-            ])
+            _c(
+              "TechList",
+              { attrs: { title: "SASS", tooltipTitle: "SASS" } },
+              [
+                _c("font-awesome", {
+                  staticClass: "sass",
+                  attrs: { icon: ["fab", "sass"], size: "2x" }
+                })
+              ],
+              1
+            )
           ]
         },
         proxy: true
@@ -20133,12 +20334,26 @@ var render = function() {
             _c(
               "TechList",
               { attrs: { title: "Vue.js", tooltipTitle: "Vue.js" } },
-              [_c("i", { staticClass: "fab fa-vuejs fa-2x vue" })]
+              [
+                _c("font-awesome", {
+                  staticClass: "vue",
+                  attrs: { icon: ["fab", "vuejs"], size: "2x" }
+                })
+              ],
+              1
             ),
             _vm._v(" "),
-            _c("TechList", { attrs: { title: "SASS", tooltipTitle: "SASS" } }, [
-              _c("i", { staticClass: "fab fa-sass fa-2x sass" })
-            ]),
+            _c(
+              "TechList",
+              { attrs: { title: "SASS", tooltipTitle: "SASS" } },
+              [
+                _c("font-awesome", {
+                  staticClass: "sass",
+                  attrs: { icon: ["fab", "sass"], size: "2x" }
+                })
+              ],
+              1
+            ),
             _vm._v(" "),
             _c("TechList", {
               attrs: { title: "Single-Page-Application", isTooltip: false }
@@ -36880,7 +37095,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__["library"].add(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faGithub"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLinkedin"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faClock"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowLeft"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowRight"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faFacebookSquare"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBars"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faTimesCircle"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faEnvelope"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faPhone"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPhp"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLaravel"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faDatabase"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faJsSquare"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faVuejs"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faBootstrap"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faCss3Alt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faSass"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faHtml5"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faGitAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faWindows"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faNpm"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faPizzaSlice"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faSoap"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBirthdayCake"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faWineGlassAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBacon"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBreadSlice"]);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__["library"].add(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faGithub"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLinkedin"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faClock"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowLeft"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowRight"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faFacebookSquare"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBars"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faTimesCircle"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faEnvelope"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faPhone"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPhp"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLaravel"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faDatabase"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faJsSquare"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faVuejs"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faBootstrap"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faCss3Alt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faSass"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faHtml5"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faGitAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faWindows"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faNpm"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faPizzaSlice"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faSoap"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBirthdayCake"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faWineGlassAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBacon"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBreadSlice"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faSignOutAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faCartArrowDown"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faShoppingCart"]);
 
 /***/ }),
 

@@ -13,13 +13,13 @@
                 :title="'Vue.js'"
                 :tooltipTitle="'Vue.js'"
             >
-                <i class="fab fa-vuejs fa-2x vue"></i>
+                <font-awesome class="vue" :icon="['fab', 'vuejs']" size="2x"/>
             </TechList>
             <TechList 
                 :title="'SASS'"
                 :tooltipTitle="'SASS'"
             >
-                <i class="fab fa-sass fa-2x sass"></i>
+                <font-awesome class="sass" :icon="['fab', 'sass']" size="2x"/>
             </TechList>
             <TechList 
                 :title="'Single-Page-Application'"

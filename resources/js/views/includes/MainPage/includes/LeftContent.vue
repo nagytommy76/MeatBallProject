@@ -16,43 +16,43 @@
                     <span><font-awesome class="svg-icon" :icon="['fab', 'laravel']" size="2x"/></span>
                 </Tooltip>
                 <Tooltip :text="'MySQL'">
-                    <span><i class="fas fa-database fa-2x"></i></span>
+                    <span><font-awesome class="svg-icon" :icon="['fas', 'database']" size="2x"/></span>
                 </Tooltip>
             </div>               
             <h4 class="icon-title">Frontend technológiák</h4>
             <div class="grid-tooltip">
                 <Tooltip :text="'JavaScript'">
-                    <span><i class="fab fa-js-square fa-2x"></i></span>
+                    <span><font-awesome class="svg-icon" :icon="['fab', 'js-square']" size="2x"/></span>
                 </Tooltip>
                 <Tooltip :text="'Vue.js'">
-                    <span><i class="fab fa-vuejs fa-2x"></i></span>
+                    <span><font-awesome class="svg-icon" :icon="['fab', 'vuejs']" size="2x"/></span>
                 </Tooltip>
                 <Tooltip :text="'Bootstrap 4'">
-                    <span><i class="fab fa-bootstrap fa-2x"></i></span>
+                    <span><font-awesome class="svg-icon" :icon="['fab', 'bootstrap']" size="2x"/></span>
                 </Tooltip>
                 <Tooltip :text="'CSS3'">
-                    <span><i class="fab fa-css3-alt fa-2x"></i></span>
+                    <span><font-awesome class="svg-icon" :icon="['fab', 'css3-alt']" size="2x"/></span>
                 </Tooltip>
                 <Tooltip :text="'SASS'">
-                    <span><i class="fab fa-sass fa-2x"></i></span>
+                    <span><font-awesome class="svg-icon" :icon="['fab', 'sass']" size="2x"/></span>
                 </Tooltip>
                 <Tooltip :text="'HTML5'">
-                    <span><i class="fab fa-html5 fa-2x"></i></span>
+                    <span><font-awesome class="svg-icon" :icon="['fab', 'html5']" size="2x"/></span>
                 </Tooltip>  
             </div>                            
             <h4 class="icon-title">Egyéb ismeretek</h4>  
             <div class="grid-tooltip">               
                 <Tooltip :text="'GitHub'">
-                    <span><a target="_blank" href="https://github.com/nagytommy76"><i class="fab fa-github fa-2x"></i></a></span>
+                    <span><a target="_blank" href="https://github.com/nagytommy76"><font-awesome class="svg-icon" :icon="['fab', 'github']" size="2x"/></a></span>
                 </Tooltip> 
                 <Tooltip :text="'Git'">
-                    <span><i class="fab fa-git-alt"></i></span>
+                    <span><font-awesome class="svg-icon" :icon="['fab', 'git-alt']" size="2x"/></span>
                 </Tooltip> 
                 <Tooltip :text="'Windows 10'">
-                    <span><i class="fab fa-windows"></i></span>
+                    <span><font-awesome class="svg-icon" :icon="['fab', 'windows']" size="2x"/></span>
                 </Tooltip>  
                 <Tooltip :text="'Node Package Manager'">
-                    <span><i class="fab fa-npm"></i></span>
+                    <span><font-awesome class="svg-icon" :icon="['fab', 'npm']" size="2x"/></span>
                 </Tooltip>  
             </div> 
         </div>

@@ -4,35 +4,35 @@
         <transition name="dropdownNav">
         <div class="dropdown-menu" v-if="showDrop">
             <LinkItem 
-                @click.native="closeNav()"
+                @click="closeNav()"
                 :menuName="'Pizzák'"
                 :routeName="'Pizza'"
-            ><i class="fas fa-pizza-slice"></i></LinkItem>
+            ><font-awesome class="svg-icon" :icon="['fas', 'pizza-slice']" size="2x"/></LinkItem>
              <LinkItem 
-                @click.native="closeNav()"
+                @click="closeNav()"
                 :menuName="'Levesek'"
                 :routeName="'Soup'"
-            ><i class="fas fa-soap"></i></LinkItem>
+            ><font-awesome class="svg-icon" :icon="['fas', 'soap']" size="2x"/></LinkItem>
             <LinkItem 
-                @click.native="closeNav()"
+                @click="closeNav()"
                 :menuName="'Desszertek'"
                 :routeName="'Dessert'"
-            ><i class="fas fa-birthday-cake"></i></LinkItem>
+            ><font-awesome class="svg-icon" :icon="['fas', 'birthday-cake']" size="2x"/></LinkItem>
             <LinkItem 
-                @click.native="closeNav()"
+                @click="closeNav()"
                 :menuName="'Italok'"
                 :routeName="'Drink'"
-            ><i class="fas fa-wine-glass-alt"></i></LinkItem>
+            ><font-awesome class="svg-icon" :icon="['fas', 'wine-glass-alt']" size="2x"/></LinkItem>
             <LinkItem 
-                @click.native="closeNav()"
+                @click="closeNav()"
                 :menuName="'Főételek'"
                 :routeName="'Meal'"
-            ><i class="fas fa-weight"></i></LinkItem>
+            ><font-awesome class="svg-icon" :icon="['fas', 'bacon']" size="2x"/></LinkItem>
             <LinkItem 
-                @click.native="closeNav()"
+                @click="closeNav()"
                 :menuName="'Tészták'"
                 :routeName="'Pasta'"
-            ><i class="fas fa-weight"></i></LinkItem>
+            ><font-awesome class="svg-icon" :icon="['fas', 'bread-slice']" size="2x"/></LinkItem>
         </div>
         </transition>
     </li>

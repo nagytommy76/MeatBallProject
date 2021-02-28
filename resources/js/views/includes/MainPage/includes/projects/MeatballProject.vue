@@ -14,25 +14,25 @@
                 :title="'Laravel'"
                 :tooltipTitle="'Laravel'"
             >
-                <i class="fab fa-laravel fa-2x laravel"></i>
+                <font-awesome class="laravel" :icon="['fab', 'laravel']" size="2x"/>
             </TechList>
             <TechList 
                 :title="'MySQL'"
                 :tooltipTitle="'MySQL'"
             >
-                <i class="fas fa-database fa-2x mysql"></i>
+                <font-awesome class="mysql" :icon="['fas', 'database']" size="2x"/>
             </TechList>
             <TechList 
                 :title="'Vue.js'"
                 :tooltipTitle="'Vue.js'"
             >
-                <i class="fab fa-vuejs fa-2x vue"></i>
+                <font-awesome class="vue" :icon="['fab', 'vuejs']" size="2x"/>
             </TechList>
             <TechList 
                 :title="'SASS'"
                 :tooltipTitle="'SASS'"
             >
-                <i class="fab fa-sass fa-2x sass"></i>
+                 <font-awesome class="sass" :icon="['fab', 'sass']" size="2x"/>
             </TechList>
             <TechList 
                 :title="'Saját fejlesztésű API'"

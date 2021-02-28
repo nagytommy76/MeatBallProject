@@ -589,7 +589,8 @@ var render = function() {
                 }
               }
             },
-            [_c("i", { staticClass: "fas fa-bars" })]
+            [_c("font-awesome", { attrs: { icon: ["fas", "bars"] } })],
+            1
           )
         : _vm._e(),
       _vm._v(" "),
@@ -839,7 +840,12 @@ var render = function() {
                 }
               }
             },
-            [_c("i", { staticClass: "far fa-times-circle fa-2x" })]
+            [
+              _c("font-awesome", {
+                attrs: { icon: ["far", "times-circle"], size: "2x" }
+              })
+            ],
+            1
           )
         : _vm._e(),
       _vm._v(" "),
@@ -869,7 +875,7 @@ var render = function() {
                   className: "nav-link",
                   routeName: "MainWelcome"
                 },
-                nativeOn: {
+                on: {
                   click: function($event) {
                     return _vm.closeNav()
                   }
@@ -912,7 +918,7 @@ var render = function() {
                   className: "nav-link",
                   routeName: "Login"
                 },
-                nativeOn: {
+                on: {
                   click: function($event) {
                     return _vm.closeNav()
                   }
@@ -942,7 +948,7 @@ var render = function() {
                   className: "nav-link",
                   routeName: "Register"
                 },
-                nativeOn: {
+                on: {
                   click: function($event) {
                     return _vm.closeNav()
                   }
@@ -999,11 +1005,15 @@ var render = function() {
                           }
                         },
                         [
-                          _c("i", { staticClass: "fas fa-sign-out-alt" }),
+                          _c("font-awesome", {
+                            staticClass: "svg-icon",
+                            attrs: { icon: ["fas", "sign-out-alt"], size: "2x" }
+                          }),
                           _vm._v(
                             " \n                        Kilépés\n                    "
                           )
-                        ]
+                        ],
+                        1
                       ),
                       _vm._v(" "),
                       _c(
@@ -1017,11 +1027,18 @@ var render = function() {
                           }
                         },
                         [
-                          _c("i", { staticClass: "fas fa-cart-arrow-down" }),
+                          _c("font-awesome", {
+                            staticClass: "svg-icon",
+                            attrs: {
+                              icon: ["fas", "cart-arrow-down"],
+                              size: "2x"
+                            }
+                          }),
                           _vm._v(
-                            "\n                    Korábbi rendelések\n                    "
+                            " \n                    Korábbi rendelések\n                    "
                           )
-                        ]
+                        ],
+                        1
                       ),
                       _vm._v(" "),
                       _c(
@@ -1035,14 +1052,21 @@ var render = function() {
                           }
                         },
                         [
-                          _c("i", { staticClass: "fas fa-shopping-cart" }),
+                          _c("font-awesome", {
+                            staticClass: "svg-icon",
+                            attrs: {
+                              icon: ["fas", "shopping-cart"],
+                              size: "2x"
+                            }
+                          }),
                           _vm._v(
-                            " \n                        Kosár\n                        "
+                            "\n                        Kosár\n                        "
                           ),
                           _c("span", { staticClass: "noOfFoodsInCart" }, [
                             _vm._v(_vm._s(_vm.totalQty))
                           ])
-                        ]
+                        ],
+                        1
                       )
                     ])
                   : _vm._e()
@@ -1101,78 +1125,114 @@ var render = function() {
                   "LinkItem",
                   {
                     attrs: { menuName: "Pizzák", routeName: "Pizza" },
-                    nativeOn: {
+                    on: {
                       click: function($event) {
                         return _vm.closeNav()
                       }
                     }
                   },
-                  [_c("i", { staticClass: "fas fa-pizza-slice" })]
+                  [
+                    _c("font-awesome", {
+                      staticClass: "svg-icon",
+                      attrs: { icon: ["fas", "pizza-slice"], size: "2x" }
+                    })
+                  ],
+                  1
                 ),
                 _vm._v(" "),
                 _c(
                   "LinkItem",
                   {
                     attrs: { menuName: "Levesek", routeName: "Soup" },
-                    nativeOn: {
+                    on: {
                       click: function($event) {
                         return _vm.closeNav()
                       }
                     }
                   },
-                  [_c("i", { staticClass: "fas fa-soap" })]
+                  [
+                    _c("font-awesome", {
+                      staticClass: "svg-icon",
+                      attrs: { icon: ["fas", "soap"], size: "2x" }
+                    })
+                  ],
+                  1
                 ),
                 _vm._v(" "),
                 _c(
                   "LinkItem",
                   {
                     attrs: { menuName: "Desszertek", routeName: "Dessert" },
-                    nativeOn: {
+                    on: {
                       click: function($event) {
                         return _vm.closeNav()
                       }
                     }
                   },
-                  [_c("i", { staticClass: "fas fa-birthday-cake" })]
+                  [
+                    _c("font-awesome", {
+                      staticClass: "svg-icon",
+                      attrs: { icon: ["fas", "birthday-cake"], size: "2x" }
+                    })
+                  ],
+                  1
                 ),
                 _vm._v(" "),
                 _c(
                   "LinkItem",
                   {
                     attrs: { menuName: "Italok", routeName: "Drink" },
-                    nativeOn: {
+                    on: {
                       click: function($event) {
                         return _vm.closeNav()
                       }
                     }
                   },
-                  [_c("i", { staticClass: "fas fa-wine-glass-alt" })]
+                  [
+                    _c("font-awesome", {
+                      staticClass: "svg-icon",
+                      attrs: { icon: ["fas", "wine-glass-alt"], size: "2x" }
+                    })
+                  ],
+                  1
                 ),
                 _vm._v(" "),
                 _c(
                   "LinkItem",
                   {
                     attrs: { menuName: "Főételek", routeName: "Meal" },
-                    nativeOn: {
+                    on: {
                       click: function($event) {
                         return _vm.closeNav()
                       }
                     }
                   },
-                  [_c("i", { staticClass: "fas fa-weight" })]
+                  [
+                    _c("font-awesome", {
+                      staticClass: "svg-icon",
+                      attrs: { icon: ["fas", "bacon"], size: "2x" }
+                    })
+                  ],
+                  1
                 ),
                 _vm._v(" "),
                 _c(
                   "LinkItem",
                   {
                     attrs: { menuName: "Tészták", routeName: "Pasta" },
-                    nativeOn: {
+                    on: {
                       click: function($event) {
                         return _vm.closeNav()
                       }
                     }
                   },
-                  [_c("i", { staticClass: "fas fa-weight" })]
+                  [
+                    _c("font-awesome", {
+                      staticClass: "svg-icon",
+                      attrs: { icon: ["fas", "bread-slice"], size: "2x" }
+                    })
+                  ],
+                  1
                 )
               ],
               1

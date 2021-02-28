@@ -13,7 +13,6 @@
 
     <!-- Scripts -->
     <script defer src="{{ asset('js/app.js') }}"></script>
-    <script defer src="https://kit.fontawesome.com/75af6afcaa.js" crossorigin="anonymous"></script>
     <noscript><strong>Please enable JavaScript!</strong></noscript>
 
     <!-- Styles -->

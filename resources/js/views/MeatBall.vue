@@ -1,6 +1,6 @@
 <template>
 <main>
-    <div id="navOpen" @click="openNavbar()" v-if="showNavOpen"><i class="fas fa-bars"></i></div>
+    <div id="navOpen" @click="openNavbar()" v-if="showNavOpen"><font-awesome :icon="['fas', 'bars']" /></div>
     <transition name="navbar" appear >
         <Navbar :mobileSize="showNavOpen" v-if="showNavbar" @close="showNavbar = false" />
     </transition>

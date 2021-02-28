@@ -3,19 +3,19 @@
         <h4 class="icon-title">Elérhetőségeim</h4>
         <div class="contact-icon">
             <Tooltip :text="'nagytommy76@gmail.com'">
-                <span><a class="" href="mailto:nagytommy76@gmail.com"><i class="fas fa-envelope"></i></a></span>
+                <span><a class="" href="mailto:nagytommy76@gmail.com"><font-awesome class="svg-icon" :icon="['fas', 'envelope']" size="2x"/></a></span>
             </Tooltip>  
             <Tooltip :text="'Tel.: 06307862963'">
-                <span><a class="" href="tel:06307862963"><i class="fas fa-phone"></i></a></span>
+                <span><a class="" href="tel:06307862963"><font-awesome class="svg-icon" :icon="['fas', 'phone']" size="2x"/></a></span>
             </Tooltip>  
             <Tooltip :text="'LinkedIn'">
-                <span><a target="_blank" href="https://www.linkedin.com/in/nagy-tam%C3%A1s-27355116b/"><i class="fab fa-linkedin"></i></a></span>
+                <span><a target="_blank" href="https://www.linkedin.com/in/nagy-tam%C3%A1s-27355116b/"><font-awesome class="svg-icon" :icon="['fab', 'linkedin']" size="2x"/></a></span>
             </Tooltip>  
             <Tooltip :text="'GitHub'">
-                <span><a target="_blank" href="https://github.com/nagytommy76"><i class="fab fa-github fa-2x"></i></a></span>
+                <span><a target="_blank" href="https://github.com/nagytommy76"><font-awesome class="svg-icon" :icon="['fab', 'github']" size="2x"/></a></span>
             </Tooltip>  
             <Tooltip :text="'Facebook: Nagy Tamás'">
-                <span><a target="_blank" href="https://www.facebook.com/tamas.nagy.1029"><i class="fab fa-facebook-square fa-2x"></i></a></span>
+                <span><a target="_blank" href="https://www.facebook.com/tamas.nagy.1029"><font-awesome class="svg-icon" :icon="['fab', 'facebook-square']" size="2x"/></a></span>
             </Tooltip>  
         </div>  
         <h4 class="email"><a href="mailto:nagytommy76@gmail.com">nagytommy76@gmail.com</a></h4>                                                    
@@ -35,7 +35,7 @@ export default {
     }
     .contact-icon{
         margin-bottom: .5rem;
-        i{
+        .svg-icon{
             color: #FFF;
             font-size: 2.4rem;
             margin: .2rem 0.3rem;

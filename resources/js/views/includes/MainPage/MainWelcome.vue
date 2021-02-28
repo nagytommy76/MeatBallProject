@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="sidebar-open" @click="openSidebar()"><i class="fas fa-bars fa-2x"></i></div>
+        <div class="sidebar-open" @click="openSidebar()"><font-awesome :icon="['fas', 'bars']" size="2x"/></div>
         <transition name="background">
             <div class="fade-in" v-if="showSidebar" @click="showSidebar = false"></div>
         </transition>
