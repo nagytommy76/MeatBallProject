@@ -114,14 +114,13 @@ export default {
                     formData: this.formData
                 }).then(login => {
                     if(login.status == 200){
-                        if (!login.data.hasError.verifiedEmail) {
+                        if (Object.keys(login.data.hasError).includes("verifiedEmail")) {
                             this.hasEmailError = true
+                            this.verifiedMsg = login.data.hasError.verifiedEmail[0]
                         }
-                        if (login.data.hasError.length !== 0) {
+                        if (login.data.hasError.length !== 0) {                           
                             this.showErrors(login.data.hasError);
-                            this.verifiedMsg = login.data.hasError.email[0]
                         }else{
-                            // this.hasEmailError = true
                             this.setUserName(login.data.username)
                             this.setUserLoggedIn(true)
                             this.$router.push({name: 'Welcome'})

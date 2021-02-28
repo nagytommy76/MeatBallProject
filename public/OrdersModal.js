@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[18],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["OrdersModal"],{
 
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Auth/OrderModal.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************!*\

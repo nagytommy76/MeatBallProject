@@ -1,5 +1,6 @@
 // Elméletileg ha importálok egy üres scss file-t akkor lehet style a componentekben, nem kapok errort...
 import '../sass/test.scss'
+require('./fontAwesome')
 require('./bootstrap');
 window.Vue = require('vue');
 Vue.use(require('vue-cookies'))
@@ -8,7 +9,9 @@ import store from './store';
 import router from './router/router';
 import App from './views/App'
 
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import BaseProject from './views/includes/MainPage/includes/projects/BaseProject'
+Vue.component('font-awesome', FontAwesomeIcon)
 Vue.component('BaseProject', BaseProject)
 
 Vue.component('BaseButton', () => import( /* webpackChunkName: "BaseButton" */ './components/baseComponents/BaseButton'))

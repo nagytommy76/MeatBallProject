@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["vendors~BaseCard~BaseFilter~CartModal~Login~Meatball~Pizza~Register"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["vendors~BaseCard~BaseFilter~CartModal~Meatball~Pizza~Register"],{
 
 /***/ "./node_modules/@babel/runtime/regenerator/index.js":
 /*!**********************************************************!*\

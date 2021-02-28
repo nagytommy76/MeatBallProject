@@ -10,10 +10,10 @@
             <h4 class="icon-title">Backend technológiák</h4>
             <div class="grid-tooltip">
                 <Tooltip :text="'PHP'">
-                    <span><i class="fab fa-php fa-2x"></i></span>
+                    <span><font-awesome class="svg-icon" :icon="['fab', 'php']" size="2x"/></span>
                 </Tooltip>
                 <Tooltip :text="'Laravel'">
-                    <span><i class="fab fa-laravel fa-2x"></i></span>
+                    <span><font-awesome class="svg-icon" :icon="['fab', 'laravel']" size="2x"/></span>
                 </Tooltip>
                 <Tooltip :text="'MySQL'">
                     <span><i class="fas fa-database fa-2x"></i></span>

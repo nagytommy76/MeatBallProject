@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[17],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["Login"],{
 
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Auth/Login.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************!*\
@@ -141,16 +141,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     formData: _this.formData
                   }).then(function (login) {
                     if (login.status == 200) {
-                      if (!login.data.hasError.verifiedEmail) {
+                      if (Object.keys(login.data.hasError).includes("verifiedEmail")) {
                         _this.hasEmailError = true;
+                        _this.verifiedMsg = login.data.hasError.verifiedEmail[0];
                       }
 
                       if (login.data.hasError.length !== 0) {
                         _this.showErrors(login.data.hasError);
-
-                        _this.verifiedMsg = login.data.hasError.email[0];
                       } else {
-                        // this.hasEmailError = true
                         _this.setUserName(login.data.username);
 
                         _this.setUserLoggedIn(true);
