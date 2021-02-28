@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"c92a1842b0bc29ae1a17","1":"141f2b0c112b0a273c97","2":"6e108d9f341cfe5077f7","3":"f9f1264b4184d4734d31","4":"a93bb9a9bd9761a6fc96","5":"0f21fec7172135fd3efe","6":"d2f64a716b11c6693fef","7":"3c276cc30effb21ed333","8":"8667c9e8e7d25bc02374","9":"ad2ffd13ce790f4d53b2","10":"085fb2a717c50f642351","11":"18ef1cd9348230a83bf2","12":"228fe24ebfffe579112d","13":"b67e2b3485354bfed5f5","14":"70247b68f01fa2faef68","15":"020daec9c97ef3249f0c","16":"cb2b19a044b021eb1e75","17":"5c10b149458371d08a1f","18":"80cadc7565f387de167b","19":"309de908ff1b1a22ca56","20":"93b7dd83b1d183ecd8fd","21":"bc9505e1d90cbeed009f"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "" + ({"0":"vendors~BaseCard~BaseFilter~CartModal~Login~Meatball~Pizza~Register","1":"Meatball","2":"CartModal","3":"ImageSlider","4":"Pizza","5":"WelcomePage","6":"LoadingOverlay","7":"BaseFilter","8":"Alert","9":"Tooltip","10":"BaseCard","11":"Dessert","12":"Drink","13":"Meal","14":"Pasta","15":"Soup","16":"PageNotFound","17":"Login","18":"OrdersModal","19":"Register","20":"ErrorMsg","21":"BaseButton"}[chunkId]||chunkId) + ".js?id=" + {"0":"e8f051a004ffa727f8d1","1":"91011d067f337e5974fa","2":"eea1cbb7b5fda8c497c1","3":"f4d9278b433728baddbc","4":"16f25fd4241e6a38d80d","5":"478644dc534167edea73","6":"8d96e2315f8d3f1be0b4","7":"e2d54a26a82e0d753aaf","8":"f4b30e095c29fecf0d7f","9":"9c41cff852ccd76a1b0c","10":"b92da04dee0262639485","11":"10f3998d36116340b378","12":"786cc78b00d00c6a523a","13":"47ca303a54db3a118948","14":"bf7d850f35cf521725b4","15":"1d2e58ab727ea6eec8eb","16":"2db038f45e8bf5773071","17":"948fd0bd4e22f5159614","18":"f8e51ab09754312078f5","19":"6701f77c32683f48a1cb","20":"4db1871b7a7ada4d4f56","21":"2b525357e6d96fae40ad"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -22416,34 +22416,34 @@ Vue.use(__webpack_require__(/*! vue-cookies */ "./node_modules/vue-cookies/vue-c
 
 Vue.component('BaseProject', _views_includes_MainPage_includes_projects_BaseProject__WEBPACK_IMPORTED_MODULE_4__["default"]);
 Vue.component('BaseButton', function () {
-  return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./components/baseComponents/BaseButton */ "./resources/js/components/baseComponents/BaseButton.vue"));
+  return __webpack_require__.e(/*! import() | BaseButton */ 21).then(__webpack_require__.bind(null, /*! ./components/baseComponents/BaseButton */ "./resources/js/components/baseComponents/BaseButton.vue"));
 });
 Vue.component('ImageSlider', function () {
-  return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./views/includes/MainPage/includes/ImageSlider */ "./resources/js/views/includes/MainPage/includes/ImageSlider.vue"));
+  return __webpack_require__.e(/*! import() | ImageSlider */ 3).then(__webpack_require__.bind(null, /*! ./views/includes/MainPage/includes/ImageSlider */ "./resources/js/views/includes/MainPage/includes/ImageSlider.vue"));
 });
 Vue.component('Tooltip', function () {
-  return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./components/Utility/Tooltip */ "./resources/js/components/Utility/Tooltip.vue"));
+  return __webpack_require__.e(/*! import() | Tooltip */ 9).then(__webpack_require__.bind(null, /*! ./components/Utility/Tooltip */ "./resources/js/components/Utility/Tooltip.vue"));
 });
 Vue.component('Alert', function () {
-  return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./components/Utility/Alert */ "./resources/js/components/Utility/Alert.vue"));
+  return __webpack_require__.e(/*! import() | Alert */ 8).then(__webpack_require__.bind(null, /*! ./components/Utility/Alert */ "./resources/js/components/Utility/Alert.vue"));
 });
 Vue.component('ErrorMsg', function () {
-  return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./components/Utility/FormErrorMsg */ "./resources/js/components/Utility/FormErrorMsg.vue"));
+  return __webpack_require__.e(/*! import() | ErrorMsg */ 20).then(__webpack_require__.bind(null, /*! ./components/Utility/FormErrorMsg */ "./resources/js/components/Utility/FormErrorMsg.vue"));
 });
 Vue.component('Loading', function () {
-  return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./components/Utility/Loading */ "./resources/js/components/Utility/Loading.vue"));
+  return __webpack_require__.e(/*! import() | LoadingOverlay */ 6).then(__webpack_require__.bind(null, /*! ./components/Utility/Loading */ "./resources/js/components/Utility/Loading.vue"));
 });
 Vue.component('BaseFilter', function () {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ../js/components/baseComponents/BaseFilter */ "./resources/js/components/baseComponents/BaseFilter.vue"));
+  return Promise.all(/*! import() | BaseFilter */[__webpack_require__.e(0), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ../js/components/baseComponents/BaseFilter */ "./resources/js/components/baseComponents/BaseFilter.vue"));
 });
 Vue.component('BaseCard', function () {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(10)]).then(__webpack_require__.bind(null, /*! ./components/baseComponents/BaseCard */ "./resources/js/components/baseComponents/BaseCard.vue"));
+  return Promise.all(/*! import() | BaseCard */[__webpack_require__.e(0), __webpack_require__.e(10)]).then(__webpack_require__.bind(null, /*! ./components/baseComponents/BaseCard */ "./resources/js/components/baseComponents/BaseCard.vue"));
 });
 Vue.component('Modal', function () {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./components/cart/Modal */ "./resources/js/components/cart/Modal.vue"));
+  return Promise.all(/*! import() | CartModal */[__webpack_require__.e(0), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./components/cart/Modal */ "./resources/js/components/cart/Modal.vue"));
 });
 Vue.component('OrdersModal', function () {
-  return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./components/Auth/OrderModal */ "./resources/js/components/Auth/OrderModal.vue"));
+  return __webpack_require__.e(/*! import() | OrdersModal */ 18).then(__webpack_require__.bind(null, /*! ./components/Auth/OrderModal */ "./resources/js/components/Auth/OrderModal.vue"));
 });
 new Vue({
   el: '#app',
@@ -22490,47 +22490,47 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
 
 var Welcome = function Welcome() {
-  return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ../views/includes/Welcome */ "./resources/js/views/includes/Welcome.vue"));
+  return __webpack_require__.e(/*! import() | WelcomePage */ 5).then(__webpack_require__.bind(null, /*! ../views/includes/Welcome */ "./resources/js/views/includes/Welcome.vue"));
 };
 
 var Login = function Login() {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(17)]).then(__webpack_require__.bind(null, /*! ../components/Auth/Login */ "./resources/js/components/Auth/Login.vue"));
+  return Promise.all(/*! import() | Login */[__webpack_require__.e(0), __webpack_require__.e(17)]).then(__webpack_require__.bind(null, /*! ../components/Auth/Login */ "./resources/js/components/Auth/Login.vue"));
 };
 
 var Register = function Register() {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(19)]).then(__webpack_require__.bind(null, /*! ../components/Auth/Register */ "./resources/js/components/Auth/Register.vue"));
+  return Promise.all(/*! import() | Register */[__webpack_require__.e(0), __webpack_require__.e(19)]).then(__webpack_require__.bind(null, /*! ../components/Auth/Register */ "./resources/js/components/Auth/Register.vue"));
 };
 
 var Meatball = function Meatball() {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1)]).then(__webpack_require__.bind(null, /*! ../views/MeatBall */ "./resources/js/views/MeatBall.vue"));
+  return Promise.all(/*! import() | Meatball */[__webpack_require__.e(0), __webpack_require__.e(1)]).then(__webpack_require__.bind(null, /*! ../views/MeatBall */ "./resources/js/views/MeatBall.vue"));
 };
 
 var PizzaFilter = function PizzaFilter() {
-  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ../components/pizza/PizzaFilter */ "./resources/js/components/pizza/PizzaFilter.vue"));
+  return Promise.all(/*! import() | Pizza */[__webpack_require__.e(0), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ../components/pizza/PizzaFilter */ "./resources/js/components/pizza/PizzaFilter.vue"));
 };
 
 var SoupFilter = function SoupFilter() {
-  return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ../components/soup/SoupFilter */ "./resources/js/components/soup/SoupFilter.vue"));
+  return __webpack_require__.e(/*! import() | Soup */ 15).then(__webpack_require__.bind(null, /*! ../components/soup/SoupFilter */ "./resources/js/components/soup/SoupFilter.vue"));
 };
 
 var DessertFilter = function DessertFilter() {
-  return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ../components/dessert/DessertFilter */ "./resources/js/components/dessert/DessertFilter.vue"));
+  return __webpack_require__.e(/*! import() | Dessert */ 11).then(__webpack_require__.bind(null, /*! ../components/dessert/DessertFilter */ "./resources/js/components/dessert/DessertFilter.vue"));
 };
 
 var DrinkFilter = function DrinkFilter() {
-  return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ../components/drink/DrinkFilter */ "./resources/js/components/drink/DrinkFilter.vue"));
+  return __webpack_require__.e(/*! import() | Drink */ 12).then(__webpack_require__.bind(null, /*! ../components/drink/DrinkFilter */ "./resources/js/components/drink/DrinkFilter.vue"));
 };
 
 var MealFilter = function MealFilter() {
-  return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ../components/meal/MealFilter */ "./resources/js/components/meal/MealFilter.vue"));
+  return __webpack_require__.e(/*! import() | Meal */ 13).then(__webpack_require__.bind(null, /*! ../components/meal/MealFilter */ "./resources/js/components/meal/MealFilter.vue"));
 };
 
 var PastaFilter = function PastaFilter() {
-  return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ../components/pasta/PastaFilter */ "./resources/js/components/pasta/PastaFilter.vue"));
+  return __webpack_require__.e(/*! import() | Pasta */ 14).then(__webpack_require__.bind(null, /*! ../components/pasta/PastaFilter */ "./resources/js/components/pasta/PastaFilter.vue"));
 };
 
 var PageNotFound404 = function PageNotFound404() {
-  return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ../views/errors/404 */ "./resources/js/views/errors/404.vue"));
+  return __webpack_require__.e(/*! import() | PageNotFound */ 16).then(__webpack_require__.bind(null, /*! ../views/errors/404 */ "./resources/js/views/errors/404.vue"));
 };
 
 var routes = [{

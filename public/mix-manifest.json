@@ -1,4 +1,26 @@
 {
-    "/js/app.js": "/js/app.js?id=ca60c965796b0d51175b",
-    "/css/app.css": "/css/app.css?id=469cf92298e3edd62899"
+    "/js/app.js": "/js/app.js?id=eea332f2839f917bf0b3",
+    "/css/app.css": "/css/app.css?id=469cf92298e3edd62899",
+    "/Meatball.js": "/Meatball.js?id=533b0d92fb90dab53cca",
+    "/PageNotFound.js": "/PageNotFound.js?id=7aefff55cd41d2038c47",
+    "/Login.js": "/Login.js?id=8b2b528143ac3e25d2a1",
+    "/Register.js": "/Register.js?id=7ea58113cdea31c43276",
+    "/Pizza.js": "/Pizza.js?id=2b079a7bd804e11bd59a",
+    "/Dessert.js": "/Dessert.js?id=3278eea89cffb65300a6",
+    "/Drink.js": "/Drink.js?id=d6bdf89ebfbbc2175c9f",
+    "/Meal.js": "/Meal.js?id=97f2bb3e7345f5e0cf9a",
+    "/Pasta.js": "/Pasta.js?id=508aa4805a16a38b0ac5",
+    "/Soup.js": "/Soup.js?id=1866e754564b7aa216d4",
+    "/BaseButton.js": "/BaseButton.js?id=e6addc5c540dd94fce67",
+    "/vendors~BaseCard~BaseFilter~CartModal~Login~Meatball~Pizza~Register.js": "/vendors~BaseCard~BaseFilter~CartModal~Login~Meatball~Pizza~Register.js?id=ceceda91a85f93bebb92",
+    "/CartModal.js": "/CartModal.js?id=8b52aada1521bd55ccc2",
+    "/ImageSlider.js": "/ImageSlider.js?id=084e8f28518375e3b6a5",
+    "/LoadingOverlay.js": "/LoadingOverlay.js?id=a28384287966e79d8e89",
+    "/BaseFilter.js": "/BaseFilter.js?id=7dfe40d00ebddb4be409",
+    "/Alert.js": "/Alert.js?id=624af0c40484f6f4b880",
+    "/Tooltip.js": "/Tooltip.js?id=a3cc886aa5887e8d4429",
+    "/BaseCard.js": "/BaseCard.js?id=6e5cb2f920f3d768c107",
+    "/OrdersModal.js": "/OrdersModal.js?id=614fbe9c066dcfccc27a",
+    "/ErrorMsg.js": "/ErrorMsg.js?id=6569f8d26402da665d04",
+    "/WelcomePage.js": "/WelcomePage.js?id=8a380a6c4b6d19e96934"
 }

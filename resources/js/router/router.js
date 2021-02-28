@@ -4,21 +4,21 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import MainWelcome from '../views/includes/MainPage/MainWelcome'
-const Welcome = () => import('../views/includes/Welcome')
+const Welcome = () => import(/* webpackChunkName: "WelcomePage" */'../views/includes/Welcome')
 
-const Login = () => import('../components/Auth/Login')
-const Register = () => import('../components/Auth/Register')
+const Login = () => import(/* webpackChunkName: "Login" */'../components/Auth/Login')
+const Register = () => import(/* webpackChunkName: "Register" */'../components/Auth/Register')
 
-const Meatball = () =>  import('../views/MeatBall')
+const Meatball = () =>  import(/* webpackChunkName: "Meatball" */ '../views/MeatBall')
 
-const PizzaFilter = () => import('../components/pizza/PizzaFilter')
-const SoupFilter = () => import('../components/soup/SoupFilter')
-const DessertFilter = () => import('../components/dessert/DessertFilter')
-const DrinkFilter = () => import('../components/drink/DrinkFilter')
-const MealFilter = () => import('../components/meal/MealFilter')
-const PastaFilter = () => import('../components/pasta/PastaFilter')
+const PizzaFilter = () => import(/* webpackChunkName: "Pizza" */'../components/pizza/PizzaFilter')
+const SoupFilter = () => import(/* webpackChunkName: "Soup" */'../components/soup/SoupFilter')
+const DessertFilter = () => import(/* webpackChunkName: "Dessert" */'../components/dessert/DessertFilter')
+const DrinkFilter = () => import(/* webpackChunkName: "Drink" */'../components/drink/DrinkFilter')
+const MealFilter = () => import(/* webpackChunkName: "Meal" */'../components/meal/MealFilter')
+const PastaFilter = () => import(/* webpackChunkName: "Pasta" */'../components/pasta/PastaFilter')
 
-const PageNotFound404 = () =>  import('../views/errors/404');
+const PageNotFound404 = () =>  import(/* webpackChunkName: "PageNotFound" */'../views/errors/404');
 
 
 const routes = [

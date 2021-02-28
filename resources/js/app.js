@@ -11,18 +11,18 @@ import App from './views/App'
 import BaseProject from './views/includes/MainPage/includes/projects/BaseProject'
 Vue.component('BaseProject', BaseProject)
 
-Vue.component('BaseButton', () => import('./components/baseComponents/BaseButton'))
-Vue.component('ImageSlider', () => import('./views/includes/MainPage/includes/ImageSlider'))
-Vue.component('Tooltip', () => import('./components/Utility/Tooltip'))
-Vue.component('Alert', () => import('./components/Utility/Alert'))
-Vue.component('ErrorMsg', () => import('./components/Utility/FormErrorMsg'))
-Vue.component('Loading', () => import('./components/Utility/Loading'))
+Vue.component('BaseButton', () => import( /* webpackChunkName: "BaseButton" */ './components/baseComponents/BaseButton'))
+Vue.component('ImageSlider', () => import(/* webpackChunkName: "ImageSlider" */'./views/includes/MainPage/includes/ImageSlider'))
+Vue.component('Tooltip', () => import(/* webpackChunkName: "Tooltip" */'./components/Utility/Tooltip'))
+Vue.component('Alert', () => import(/* webpackChunkName: "Alert" */'./components/Utility/Alert'))
+Vue.component('ErrorMsg', () => import(/* webpackChunkName: "ErrorMsg" */'./components/Utility/FormErrorMsg'))
+Vue.component('Loading', () => import(/* webpackChunkName: "LoadingOverlay" */'./components/Utility/Loading'))
 
-Vue.component('BaseFilter', () => import('../js/components/baseComponents/BaseFilter'))
-Vue.component('BaseCard', () => import('./components/baseComponents/BaseCard'))
+Vue.component('BaseFilter', () => import(/* webpackChunkName: "BaseFilter" */'../js/components/baseComponents/BaseFilter'))
+Vue.component('BaseCard', () => import(/* webpackChunkName: "BaseCard" */'./components/baseComponents/BaseCard'))
 
-Vue.component('Modal', () => import('./components/cart/Modal'))
-Vue.component('OrdersModal', () => import('./components/Auth/OrderModal'))
+Vue.component('Modal', () => import(/* webpackChunkName: "CartModal" */'./components/cart/Modal'))
+Vue.component('OrdersModal', () => import(/* webpackChunkName: "OrdersModal" */'./components/Auth/OrderModal'))
 
 new Vue({
   el: '#app',
