@@ -30,12 +30,10 @@
                         <h4>Mennyiség: {{item.qty}} db</h4>
                         </div>
                             <div class="left">
-                                <form @click="deleteItem" >
+                                <form>
                                 <Tooltip :text="`Termék törlése`">
                                     <span class="deleteIcon">
-                                        <input type="hidden" class="foodId" v-bind:value="item.item.id">
-                                        <input type="hidden" class="foodType" v-bind:value="item.foodType">
-                                        <i v-bind:id="index" v-bind:class="iconName"></i>                                      
+                                        <font-awesome @click="deleteItem(item.item.id, item.foodType, index)" :icon="['fas', 'trash-alt']" size="2x"/>                                  
                                     </span>
                                 </Tooltip>
                                 </form>                             
@@ -54,7 +52,7 @@
     </div>
 </template>
 <script>
-import {mapGetters} from 'vuex';
+import {mapGetters, mapMutations} from 'vuex';
 export default {
     name: "CartModal",
     data(){
@@ -69,24 +67,19 @@ export default {
         })
     },
     methods:{
-        async deleteItem(event){
-            if(event.target.classList == this.iconName || event.target.tagName == "I"){
-                const foodId = event.target.parentElement.querySelector('.foodId').value;
-                const foodType = event.target.parentElement.querySelector('.foodType').value;
-                const selectedItemIndex = event.target.parentElement.querySelector('I').id;
-
-                await axios.delete('removeItemFromCart',{
-                    data:{
-                        foodId: foodId,
-                        foodType: foodType,
-                        selectedItemIndex: selectedItemIndex,
-                    }
-                }).then(deleted => {
-                    this.$store.commit('setCartItems', deleted.data);
-                    this.toggleSuccessMsg()
-                })
-            }
+        async deleteItem(foodId, foodType, selectedItemIndex){
+            await axios.delete('removeItemFromCart',{
+                data:{
+                    foodId,
+                    foodType,
+                    selectedItemIndex,
+                }
+            }).then(deleted => {
+                this.setCartItems(deleted.data);
+                this.toggleSuccessMsg()
+            })
         },
+        ...mapMutations([ 'setCartItems' ]),
         toggleSuccessMsg(){
             this.deleted = true;
             setTimeout(() => {this.deleted = false}, 6000)

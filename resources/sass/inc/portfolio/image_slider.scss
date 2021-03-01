@@ -14,6 +14,19 @@
     visibility: hidden;
 }
 
+.image-close{
+    position: absolute;
+    top: 15px;
+    right: 0;
+    color: $favColor;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: color .2s;
+    z-index: 5;
+    &:hover{
+        color: $deleteColor;
+    }
+}
 .image-slider{
     // box-shadow: 1px 1px 15px #222;
     position: fixed;
@@ -39,18 +52,8 @@
         }
 
     }
-    .image-close{
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        color: $favColor;
+    .svg-icon{
         cursor: pointer;
-        font-size: 1.5rem;
-        transition: color .2s;
-        z-index: 5;
-        &:hover{
-            color: $deleteColor;
-        }
     }
     .arrow{
         &-right{
@@ -63,9 +66,6 @@
             padding: .5rem;
             transition: all .2s ease-in;
             cursor: pointer;
-            i{
-                cursor: pointer;
-            }
             &:hover{
                 background-color: rgba($color: $primary, $alpha: 1);
                 color: white;
@@ -81,9 +81,6 @@
             padding: .5rem;
             transition: all .2s ease-in;
             cursor: pointer;
-            i{
-                cursor: pointer;
-            }
             &:hover{
                 background-color: rgba($color: $primary, $alpha: 1);
                 color: white;

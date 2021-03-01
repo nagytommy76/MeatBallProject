@@ -15,6 +15,9 @@
           <MoreIngredients 
             v-if="moreButton"
             :moreIngreds="moreIngreds"
+            :selectedIngreds="selectedIngreds"
+            @increase-price="increasePrice"
+            @decrease-price="decreasePrice"
           />
       <div >
         <div v-if="!userLoggedIn">
@@ -39,7 +42,7 @@
 import MoreIngredients from "./MoreIngredients";
 import addToCart from '../../helpers/addToCart';
 
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   components: {
@@ -68,14 +71,23 @@ export default {
       }),
   },
   methods: {
+    ...mapMutations([
+      'setCartItems'
+    ]),
     loadPlusIngreds(){
       this.moreButton = !this.moreButton;
+    },
+    increasePrice(ingredPrice){
+      this.finalPrice += ingredPrice
+    },
+    decreasePrice(ingredPrice){
+      this.finalPrice -= ingredPrice
     },
     async addCart(){
       if(this.userLoggedIn){
         await addToCart.addFoodToCart(this.foodType, this.pizzaId, this.selectedIngreds)
         .then(result => {
-            this.$store.commit('setCartItems', result.data);
+            this.setCartItems(result.data);
             this.selectedIngreds = [];
             this.finalPrice = this.pizzaPrice;
             this.hideSuccessMsg();

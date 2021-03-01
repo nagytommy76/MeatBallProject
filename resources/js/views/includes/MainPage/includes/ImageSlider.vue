@@ -1,8 +1,8 @@
 <template>
     <div class="image-slider">
-        <span @click="$emit('close')" class="image-close"><i class="far fa-times-circle fa-2x"></i></span>
+        <span @click="$emit('close')" class="image-close"><font-awesome :icon="['far', 'times-circle']" size="2x"/></span>
         <transition v-if="!singleImage" name="slide-image">
-            <div class="img-container" v-for="nth in [step]" :key="nth">
+            <div @click="$emit('close')" class="img-container" v-for="nth in [step]" :key="nth">
                 <img :src="`/images${images[nth]}`" >        
             </div>
         </transition>
@@ -11,12 +11,12 @@
         </div>
         <div v-if="!singleImage" class="arrow-right" @click="increase">
             <Tooltip :text="nextPage">
-                <i class="fas fa-arrow-right fa-3x"></i>
+                <font-awesome class="svg-icon" :icon="['fas' ,'arrow-right']" size="3x"/>
             </Tooltip>
         </div>
         <div v-if="!singleImage" class="arrow-left" @click="decrease">
             <Tooltip :text="prevPage">
-                <i class="fas fa-arrow-left fa-3x"></i>
+                <font-awesome class="svg-icon" :icon="['fas', 'arrow-left']" size="3x"/>
             </Tooltip>
         </div>
     </div>

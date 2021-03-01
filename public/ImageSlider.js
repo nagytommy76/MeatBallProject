@@ -129,7 +129,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".slide-image-enter-active,\n.slide-image-leave-active {\n  transition: all 0.8s ease-out;\n  overflow: hidden;\n  visibility: visible;\n  opacity: 1;\n}\n.slide-image-enter,\n.slide-image-leave-to {\n  opacity: 0;\n  visibility: hidden;\n}\n.image-slider {\n  position: fixed;\n  bottom: 0;\n  top: 0;\n  right: 0;\n  left: 0;\n  z-index: 4;\n  margin: auto;\n  width: 95%;\n  height: auto;\n}\n.image-slider .img-container {\n  height: 100%;\n  width: 100%;\n  position: absolute;\n  display: flex;\n  align-items: center;\n}\n.image-slider .img-container img {\n  -o-object-fit: scale-down;\n     object-fit: scale-down;\n  width: 100%;\n  height: 100%;\n}\n.image-slider .image-close {\n  position: absolute;\n  top: 15px;\n  right: 15px;\n  color: #ffae00;\n  cursor: pointer;\n  font-size: 1.5rem;\n  transition: color 0.2s;\n  z-index: 5;\n}\n.image-slider .image-close:hover {\n  color: #C80600;\n}\n.image-slider .arrow-right {\n  position: absolute;\n  right: 0;\n  top: 50%;\n  color: black;\n  background-color: rgba(247, 191, 0, 0.6);\n  border-radius: 7px 0 0 7px;\n  padding: 0.5rem;\n  transition: all 0.2s ease-in;\n  cursor: pointer;\n}\n.image-slider .arrow-right i {\n  cursor: pointer;\n}\n.image-slider .arrow-right:hover {\n  background-color: #f7bf00;\n  color: white;\n}\n.image-slider .arrow-left {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  color: black;\n  background-color: rgba(247, 191, 0, 0.6);\n  border-radius: 0 7px 7px 0;\n  padding: 0.5rem;\n  transition: all 0.2s ease-in;\n  cursor: pointer;\n}\n.image-slider .arrow-left i {\n  cursor: pointer;\n}\n.image-slider .arrow-left:hover {\n  background-color: #f7bf00;\n  color: white;\n}\n@media (max-width: 720px) {\n.image-slider {\n    width: 100%;\n    height: 100%;\n}\n.image-slider .image-close {\n    top: 5px;\n    right: 5px;\n    font-size: 1.1rem;\n}\n.image-slider .img-container img {\n    -o-object-fit: cover;\n       object-fit: cover;\n}\n.image-slider .arrow-right {\n    padding: 0.2rem;\n}\n.image-slider .arrow-left {\n    padding: 0.2rem;\n}\n}", ""]);
+exports.push([module.i, ".slide-image-enter-active,\n.slide-image-leave-active {\n  transition: all 0.8s ease-out;\n  overflow: hidden;\n  visibility: visible;\n  opacity: 1;\n}\n.slide-image-enter,\n.slide-image-leave-to {\n  opacity: 0;\n  visibility: hidden;\n}\n.image-close {\n  position: absolute;\n  top: 15px;\n  right: 0;\n  color: #ffae00;\n  cursor: pointer;\n  font-size: 1.5rem;\n  transition: color 0.2s;\n  z-index: 5;\n}\n.image-close:hover {\n  color: #C80600;\n}\n.image-slider {\n  position: fixed;\n  bottom: 0;\n  top: 0;\n  right: 0;\n  left: 0;\n  z-index: 4;\n  margin: auto;\n  width: 95%;\n  height: auto;\n}\n.image-slider .img-container {\n  height: 100%;\n  width: 100%;\n  position: absolute;\n  display: flex;\n  align-items: center;\n}\n.image-slider .img-container img {\n  -o-object-fit: scale-down;\n     object-fit: scale-down;\n  width: 100%;\n  height: 100%;\n}\n.image-slider .svg-icon {\n  cursor: pointer;\n}\n.image-slider .arrow-right {\n  position: absolute;\n  right: 0;\n  top: 50%;\n  color: black;\n  background-color: rgba(247, 191, 0, 0.6);\n  border-radius: 7px 0 0 7px;\n  padding: 0.5rem;\n  transition: all 0.2s ease-in;\n  cursor: pointer;\n}\n.image-slider .arrow-right:hover {\n  background-color: #f7bf00;\n  color: white;\n}\n.image-slider .arrow-left {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  color: black;\n  background-color: rgba(247, 191, 0, 0.6);\n  border-radius: 0 7px 7px 0;\n  padding: 0.5rem;\n  transition: all 0.2s ease-in;\n  cursor: pointer;\n}\n.image-slider .arrow-left:hover {\n  background-color: #f7bf00;\n  color: white;\n}\n@media (max-width: 720px) {\n.image-slider {\n    width: 100%;\n    height: 100%;\n}\n.image-slider .image-close {\n    top: 5px;\n    right: 5px;\n    font-size: 1.1rem;\n}\n.image-slider .img-container img {\n    -o-object-fit: cover;\n       object-fit: cover;\n}\n.image-slider .arrow-right {\n    padding: 0.2rem;\n}\n.image-slider .arrow-left {\n    padding: 0.2rem;\n}\n}", ""]);
 
 // exports
 
@@ -195,7 +195,12 @@ var render = function() {
             }
           }
         },
-        [_c("i", { staticClass: "far fa-times-circle fa-2x" })]
+        [
+          _c("font-awesome", {
+            attrs: { icon: ["far", "times-circle"], size: "2x" }
+          })
+        ],
+        1
       ),
       _vm._v(" "),
       !_vm.singleImage
@@ -203,9 +208,19 @@ var render = function() {
             "transition",
             { attrs: { name: "slide-image" } },
             _vm._l([_vm.step], function(nth) {
-              return _c("div", { key: nth, staticClass: "img-container" }, [
-                _c("img", { attrs: { src: "/images" + _vm.images[nth] } })
-              ])
+              return _c(
+                "div",
+                {
+                  key: nth,
+                  staticClass: "img-container",
+                  on: {
+                    click: function($event) {
+                      return _vm.$emit("close")
+                    }
+                  }
+                },
+                [_c("img", { attrs: { src: "/images" + _vm.images[nth] } })]
+              )
             }),
             0
           )
@@ -224,9 +239,17 @@ var render = function() {
             "div",
             { staticClass: "arrow-right", on: { click: _vm.increase } },
             [
-              _c("Tooltip", { attrs: { text: _vm.nextPage } }, [
-                _c("i", { staticClass: "fas fa-arrow-right fa-3x" })
-              ])
+              _c(
+                "Tooltip",
+                { attrs: { text: _vm.nextPage } },
+                [
+                  _c("font-awesome", {
+                    staticClass: "svg-icon",
+                    attrs: { icon: ["fas", "arrow-right"], size: "3x" }
+                  })
+                ],
+                1
+              )
             ],
             1
           )
@@ -237,9 +260,17 @@ var render = function() {
             "div",
             { staticClass: "arrow-left", on: { click: _vm.decrease } },
             [
-              _c("Tooltip", { attrs: { text: _vm.prevPage } }, [
-                _c("i", { staticClass: "fas fa-arrow-left fa-3x" })
-              ])
+              _c(
+                "Tooltip",
+                { attrs: { text: _vm.prevPage } },
+                [
+                  _c("font-awesome", {
+                    staticClass: "svg-icon",
+                    attrs: { icon: ["fas", "arrow-left"], size: "3x" }
+                  })
+                ],
+                1
+              )
             ],
             1
           )

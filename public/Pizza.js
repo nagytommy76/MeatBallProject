@@ -24,33 +24,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    moreIngreds: Array
+    moreIngreds: Array,
+    selectedIngreds: Array
   },
   methods: {
-    select: function select(e) {
-      var ingredId = parseInt(e.target.id);
-      var ingredPrice = parseInt(e.target.value);
-
+    select: function select(ingredId, ingredPrice, e) {
       if (e.target.checked) {
-        if (!this.$parent.selectedIngreds.includes(ingredId)) {
-          this.$parent.finalPrice += ingredPrice;
-          this.$parent.selectedIngreds.push(ingredId);
+        if (!this.selectedIngreds.includes(ingredId)) {
+          this.$emit('increase-price', ingredPrice);
+          this.selectedIngreds.push(ingredId);
         }
       } else {
-        this.$parent.finalPrice -= ingredPrice;
-        var found = this.$parent.selectedIngreds.findIndex(function (item) {
+        this.$emit('decrease-price', ingredPrice);
+        var found = this.selectedIngreds.findIndex(function (item) {
           return item == ingredId;
         });
-        this.$parent.selectedIngreds.splice(found, 1);
+        this.selectedIngreds.splice(found, 1);
       }
     },
     inSelectedIngreds: function inSelectedIngreds(ingredId) {
-      if (this.$parent.selectedIngreds.length > 0) {
-        return this.$parent.selectedIngreds.includes(ingredId);
+      if (this.selectedIngreds.length > 0) {
+        return this.selectedIngreds.includes(ingredId);
       }
     }
   }
@@ -121,6 +117,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 
@@ -148,9 +147,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapGetters"])({
     userLoggedIn: 'getUserLoggedIn'
   })),
-  methods: {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapMutations"])(['setCartItems']), {
     loadPlusIngreds: function loadPlusIngreds() {
       this.moreButton = !this.moreButton;
+    },
+    increasePrice: function increasePrice(ingredPrice) {
+      this.finalPrice += ingredPrice;
+    },
+    decreasePrice: function decreasePrice(ingredPrice) {
+      this.finalPrice -= ingredPrice;
     },
     addCart: function addCart() {
       var _this = this;
@@ -167,7 +172,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
                 _context.next = 3;
                 return _helpers_addToCart__WEBPACK_IMPORTED_MODULE_2__["default"].addFoodToCart(_this.foodType, _this.pizzaId, _this.selectedIngreds).then(function (result) {
-                  _this.$store.commit('setCartItems', result.data);
+                  _this.setCartItems(result.data);
 
                   _this.selectedIngreds = [];
                   _this.finalPrice = _this.pizzaPrice;
@@ -202,7 +207,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this2.addedToCart = !_this2.addedToCart;
       }, 3000);
     }
-  }
+  })
 });
 
 /***/ }),
@@ -320,16 +325,13 @@ var render = function() {
       return _c("div", { key: ing.ingred_id }, [
         _c("label", [
           _c("input", {
-            attrs: {
-              type: "checkbox",
-              name: "plusIngreds[]",
-              id: ing.ingred_id
-            },
-            domProps: {
-              value: ing.price,
-              checked: _vm.inSelectedIngreds(ing.ingred_id)
-            },
-            on: { click: _vm.select }
+            attrs: { type: "checkbox", name: "plusIngreds[]" },
+            domProps: { checked: _vm.inSelectedIngreds(ing.ingred_id) },
+            on: {
+              click: function($event) {
+                return _vm.select(ing.ingred_id, ing.price, $event)
+              }
+            }
           }),
           _vm._v(
             "            \r\n        " + _vm._s(ing.ingredient_name) + " "
@@ -402,7 +404,16 @@ var render = function() {
         }),
         _vm._v(" "),
         _vm.moreButton
-          ? _c("MoreIngredients", { attrs: { moreIngreds: _vm.moreIngreds } })
+          ? _c("MoreIngredients", {
+              attrs: {
+                moreIngreds: _vm.moreIngreds,
+                selectedIngreds: _vm.selectedIngreds
+              },
+              on: {
+                "increase-price": _vm.increasePrice,
+                "decrease-price": _vm.decreasePrice
+              }
+            })
           : _vm._e(),
         _vm._v(" "),
         _c("div", [

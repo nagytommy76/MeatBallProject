@@ -3,11 +3,9 @@
     <div v-for="ing in moreIngreds" :key="ing.ingred_id">
         <label>
         <input 
-            @click="select" 
+            @click="select(ing.ingred_id, ing.price, $event)" 
             type="checkbox"
             name="plusIngreds[]"
-            v-bind:id="ing.ingred_id"
-            v-bind:value="ing.price"
             :checked="inSelectedIngreds(ing.ingred_id)"
         >            
         {{ing.ingredient_name}} <span class="primary-color">({{ ing.price }}) </span> Ft
@@ -18,28 +16,25 @@
 <script>
 export default {
     props:{
-        moreIngreds: Array
+        moreIngreds: Array,
+        selectedIngreds: Array,
     },
     methods:{
-        select(e){
-            let ingredId = parseInt(e.target.id);
-            let ingredPrice = parseInt(e.target.value);
-
+        select(ingredId, ingredPrice, e){
             if(e.target.checked){                
-                if(!this.$parent.selectedIngreds.includes(ingredId)){
-                    this.$parent.finalPrice += ingredPrice;
-                    this.$parent.selectedIngreds.push(ingredId)
+                if(!this.selectedIngreds.includes(ingredId)){
+                    this.$emit('increase-price', ingredPrice)
+                    this.selectedIngreds.push(ingredId)
                 }                
             }else{
-                this.$parent.finalPrice -= ingredPrice;
-                const found = this.$parent.selectedIngreds.findIndex(item => item == ingredId)
-            
-                this.$parent.selectedIngreds.splice(found,1);
+                this.$emit('decrease-price', ingredPrice)
+                const found = this.selectedIngreds.findIndex(item => item == ingredId)
+                this.selectedIngreds.splice(found,1);
             }
         },
         inSelectedIngreds(ingredId){
-            if(this.$parent.selectedIngreds.length > 0){
-                return this.$parent.selectedIngreds.includes(ingredId)
+            if(this.selectedIngreds.length > 0){
+                return this.selectedIngreds.includes(ingredId)
             }         
         }
     }

@@ -17,6 +17,7 @@ import {
     faSignOutAlt,
     faCartArrowDown,
     faShoppingCart,
+    faTrashAlt,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { 
@@ -34,6 +35,10 @@ import {
     faGitAlt,
     faWindows,
     faNpm,
+    faTripadvisor,
+    faTwitter,
+    faYoutube,
+    faInstagram,
 } from '@fortawesome/free-brands-svg-icons'
 
 library.add(
@@ -68,4 +73,9 @@ library.add(
     faSignOutAlt,
     faCartArrowDown,
     faShoppingCart,
+    faTrashAlt,
+    faTripadvisor,
+    faTwitter,
+    faYoutube,
+    faInstagram,
 )
