@@ -43,6 +43,8 @@ export default {
 @import '../../../../sass/variables.scss';
 .schools-bg{
     background-color: #222;
+    border-top: 2px solid $favColor;
+    border-bottom: 1px solid $favColor;
     .schools{
         min-height: 30vh;
         width: 70%;

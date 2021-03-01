@@ -5,15 +5,15 @@
             <h3>Elérhetőségeink:</h3>
             <ul>
                 <li>
-                    <i class="fas fa-house-user"></i>
-                     Budapest, 1119 Semmilyen utca. 44/A.
+                    <font-awesome :icon="['fas', 'house-user']"/>
+                    Budapest, 1119 Semmilyen utca. 44/A.
                 </li>
                 <li>
-                    <i class="fas fa-phone-volume"></i>
+                    <font-awesome :icon="['fas', 'phone']"/>
                     <a class="text-white" href="tel:36 1 999 5874">+36 1 999 5874</a>
                 </li>
                 <li>
-                    <i class="fas fa-envelope-open-text"></i>
+                    <font-awesome :icon="['fas', 'envelope']" />
                     meatball@info.hu
                 </li>
             </ul>
@@ -26,11 +26,11 @@
             </form>
         </div>
         <div class="footer-social">
-            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square fa-3x"></i></a>
-            <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-3x"></i></a>
-            <a href="https://www.tripadvisor.co.hu/" target="_blank"><i class="fab fa-tripadvisor fa-3x"></i></a>
-            <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube fa-3x"></i></a>
-            <a href="https://www.instagram.com/?hl=hu" target="_blank"><i class="fab fa-instagram fa-3x"></i></a>
+            <a href="https://www.facebook.com/" target="_blank"><font-awesome :icon="['fab', 'facebook-square']" size="3x"/></a>
+            <a href="https://twitter.com/" target="_blank"><font-awesome :icon="['fab', 'twitter']" size="3x"/></a>
+            <a href="https://www.tripadvisor.co.hu/" target="_blank"><font-awesome :icon="['fab', 'tripadvisor']" size="3x"/></a>
+            <a href="https://www.youtube.com/" target="_blank"><font-awesome :icon="['fab', 'youtube']" size="3x"/></a>
+            <a href="https://www.instagram.com/?hl=hu" target="_blank"><font-awesome :icon="['fab', 'instagram']" size="3x"/></a>
             
         </div>
     </div>

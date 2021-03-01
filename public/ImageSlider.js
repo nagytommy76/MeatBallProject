@@ -227,11 +227,22 @@ var render = function() {
         : _vm._e(),
       _vm._v(" "),
       _vm.singleImage
-        ? _c("div", { staticClass: "img-container" }, [
-            _c("img", {
-              attrs: { src: "/images/" + _vm.imgFolderName + ".jpg" }
-            })
-          ])
+        ? _c(
+            "div",
+            {
+              staticClass: "img-container",
+              on: {
+                click: function($event) {
+                  return _vm.$emit("close")
+                }
+              }
+            },
+            [
+              _c("img", {
+                attrs: { src: "/images/" + _vm.imgFolderName + ".jpg" }
+              })
+            ]
+          )
         : _vm._e(),
       _vm._v(" "),
       !_vm.singleImage

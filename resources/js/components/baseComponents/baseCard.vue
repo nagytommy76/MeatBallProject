@@ -47,7 +47,7 @@
 </template>
 <script>
 import addToCart from '../../helpers/addToCart'
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
     name: 'BaseCard',
@@ -79,6 +79,7 @@ export default {
         }
     },
     methods: {
+        ...mapMutations([ 'setCartItems' ]),
         addToCart(){
             if(this.userLoggedIn){
                 addToCart.addFoodToCart(this.foodType, this.foodId)
@@ -86,7 +87,7 @@ export default {
                     if (result.data.error) {
                         this.showVerify();
                     }else{
-                        this.$store.commit('setCartItems', result.data);
+                        this.setCartItems(result.data);
                         this.finalPrice = this.foodPrice;
                         this.hideSuccessMsg();
                     }

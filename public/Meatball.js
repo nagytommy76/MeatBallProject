@@ -743,7 +743,116 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("footer", { staticClass: "main-footer" }, [
-    _vm._m(0),
+    _c("div", { staticClass: "footer footer-container" }, [
+      _c("div", { staticClass: "footer-address" }, [
+        _c("h3", [_vm._v("Elérhetőségeink:")]),
+        _vm._v(" "),
+        _c("ul", [
+          _c(
+            "li",
+            [
+              _c("font-awesome", { attrs: { icon: ["fas", "house-user"] } }),
+              _vm._v(
+                "\n                    Budapest, 1119 Semmilyen utca. 44/A.\n                "
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            [
+              _c("font-awesome", { attrs: { icon: ["fas", "phone"] } }),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "text-white",
+                  attrs: { href: "tel:36 1 999 5874" }
+                },
+                [_vm._v("+36 1 999 5874")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            [
+              _c("font-awesome", { attrs: { icon: ["fas", "envelope"] } }),
+              _vm._v("\n                    meatball@info.hu\n                ")
+            ],
+            1
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "footer-social" }, [
+        _c(
+          "a",
+          { attrs: { href: "https://www.facebook.com/", target: "_blank" } },
+          [
+            _c("font-awesome", {
+              attrs: { icon: ["fab", "facebook-square"], size: "3x" }
+            })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          { attrs: { href: "https://twitter.com/", target: "_blank" } },
+          [
+            _c("font-awesome", {
+              attrs: { icon: ["fab", "twitter"], size: "3x" }
+            })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            attrs: { href: "https://www.tripadvisor.co.hu/", target: "_blank" }
+          },
+          [
+            _c("font-awesome", {
+              attrs: { icon: ["fab", "tripadvisor"], size: "3x" }
+            })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          { attrs: { href: "https://www.youtube.com/", target: "_blank" } },
+          [
+            _c("font-awesome", {
+              attrs: { icon: ["fab", "youtube"], size: "3x" }
+            })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            attrs: {
+              href: "https://www.instagram.com/?hl=hu",
+              target: "_blank"
+            }
+          },
+          [
+            _c("font-awesome", {
+              attrs: { icon: ["fab", "instagram"], size: "3x" }
+            })
+          ],
+          1
+        )
+      ])
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "footer-made" }, [
       _c("p", [
@@ -759,88 +868,18 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "footer footer-container" }, [
-      _c("div", { staticClass: "footer-address" }, [
-        _c("h3", [_vm._v("Elérhetőségeink:")]),
-        _vm._v(" "),
-        _c("ul", [
-          _c("li", [
-            _c("i", { staticClass: "fas fa-house-user" }),
-            _vm._v(
-              "\n                     Budapest, 1119 Semmilyen utca. 44/A.\n                "
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("i", { staticClass: "fas fa-phone-volume" }),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "text-white",
-                attrs: { href: "tel:36 1 999 5874" }
-              },
-              [_vm._v("+36 1 999 5874")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("i", { staticClass: "fas fa-envelope-open-text" }),
-            _vm._v("\n                    meatball@info.hu\n                ")
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "footer-form" }, [
-        _c("form", [
-          _c("label", { attrs: { for: "" } }, [
-            _vm._v("Iratkozzon fel hírlevelünkre")
-          ]),
-          _vm._v(" "),
-          _c("input", { attrs: { type: "email", name: "", id: "" } }),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "btn btn-primary",
-            attrs: { type: "submit", value: "Feliratkozás!" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "footer-social" }, [
-        _c(
-          "a",
-          { attrs: { href: "https://www.facebook.com/", target: "_blank" } },
-          [_c("i", { staticClass: "fab fa-facebook-square fa-3x" })]
-        ),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "https://twitter.com/", target: "_blank" } }, [
-          _c("i", { staticClass: "fab fa-twitter fa-3x" })
+    return _c("div", { staticClass: "footer-form" }, [
+      _c("form", [
+        _c("label", { attrs: { for: "" } }, [
+          _vm._v("Iratkozzon fel hírlevelünkre")
         ]),
         _vm._v(" "),
-        _c(
-          "a",
-          {
-            attrs: { href: "https://www.tripadvisor.co.hu/", target: "_blank" }
-          },
-          [_c("i", { staticClass: "fab fa-tripadvisor fa-3x" })]
-        ),
+        _c("input", { attrs: { type: "email", name: "", id: "" } }),
         _vm._v(" "),
-        _c(
-          "a",
-          { attrs: { href: "https://www.youtube.com/", target: "_blank" } },
-          [_c("i", { staticClass: "fab fa-youtube fa-3x" })]
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            attrs: {
-              href: "https://www.instagram.com/?hl=hu",
-              target: "_blank"
-            }
-          },
-          [_c("i", { staticClass: "fab fa-instagram fa-3x" })]
-        )
+        _c("input", {
+          staticClass: "btn btn-primary",
+          attrs: { type: "submit", value: "Feliratkozás!" }
+        })
       ])
     ])
   }

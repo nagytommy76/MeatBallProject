@@ -40,6 +40,7 @@ export default {
 .certificates{
     min-height: 40vh;
     background-color: #222;
+    padding-bottom: 1rem;
     .image-grid{
         display: grid;
         gap: 3rem;

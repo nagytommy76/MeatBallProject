@@ -93,7 +93,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       requried: false
     }
   },
-  methods: {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])(['setCartItems']), {
     addToCart: function addToCart() {
       var _this = this;
 
@@ -102,7 +102,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           if (result.data.error) {
             _this.showVerify();
           } else {
-            _this.$store.commit('setCartItems', result.data);
+            _this.setCartItems(result.data);
 
             _this.finalPrice = _this.foodPrice;
 
@@ -131,7 +131,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this3.addedToCart = !_this3.addedToCart;
       }, 3000);
     }
-  }
+  })
 });
 
 /***/ }),

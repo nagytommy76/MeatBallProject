@@ -83,8 +83,11 @@ $sideWidth: 36%;
         width: 100%;
         &-nav{
             .sidenav-contact{
+                h4{
+                    margin-top: 1.3rem;
+                }
                 &-item{
-                    i{
+                    .svg-icon{
                         font-size: 2rem;
                     }
                 }

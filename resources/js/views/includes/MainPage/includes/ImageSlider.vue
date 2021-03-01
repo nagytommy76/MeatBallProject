@@ -6,7 +6,7 @@
                 <img :src="`/images${images[nth]}`" >        
             </div>
         </transition>
-        <div class="img-container" v-if="singleImage">
+        <div @click="$emit('close')" class="img-container" v-if="singleImage">
             <img :src="`/images/${imgFolderName}.jpg`">
         </div>
         <div v-if="!singleImage" class="arrow-right" @click="increase">

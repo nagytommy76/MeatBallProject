@@ -14,19 +14,19 @@
                 <div class="nav-underline"></div>
                 <div class="sidenav-contact">
                     <Tooltip :text="'nagytommy76@gmail.com'">
-                        <a href="mailto:nagytommy76@gmail.com" class="sidenav-contact-item"><font-awesome :icon="['fas', 'envelope']" size="2x"/></a>
+                        <a href="mailto:nagytommy76@gmail.com" class="sidenav-contact-item"><font-awesome class="svg-icon" :icon="['fas', 'envelope']" size="2x"/></a>
                     </Tooltip>
                     <Tooltip :text="'06307862963'">
-                        <a href="tel:06307862963" class="sidenav-contact-item"><font-awesome :icon="['fas', 'phone']" size="2x"/></a>
+                        <a href="tel:06307862963" class="sidenav-contact-item"><font-awesome class="svg-icon" :icon="['fas', 'phone']" size="2x"/></a>
                     </Tooltip>
                     <Tooltip :text="'LinkedIn'">
-                        <a target="_blank" href="https://www.linkedin.com/in/nagy-tam%C3%A1s-27355116b/" class="sidenav-contact-item"><font-awesome :icon="['fab', 'linkedin']" size="2x"/></a>
+                        <a target="_blank" href="https://www.linkedin.com/in/nagy-tam%C3%A1s-27355116b/" class="sidenav-contact-item"><font-awesome class="svg-icon" :icon="['fab', 'linkedin']" size="2x"/></a>
                     </Tooltip>
                     <Tooltip :text="'GitHub'">
-                        <a target="_blank" href="https://github.com/nagytommy76" class="sidenav-contact-item"><font-awesome :icon="['fab', 'github']" size="2x"/></a>
+                        <a target="_blank" href="https://github.com/nagytommy76" class="sidenav-contact-item"><font-awesome class="svg-icon" :icon="['fab', 'github']" size="2x"/></a>
                     </Tooltip>
                     <Tooltip :text="'Facebook'">
-                        <a target="_blank" href="https://www.facebook.com/tamas.nagy.1029" class="sidenav-contact-item"><font-awesome :icon="['fab', 'facebook-square']" size="2x"/></a>
+                        <a target="_blank" href="https://www.facebook.com/tamas.nagy.1029" class="sidenav-contact-item"><font-awesome class="svg-icon" :icon="['fab', 'facebook-square']" size="2x"/></a>
                     </Tooltip>
                     <h4><a class="email" href="mailto:nagytommy76@gmail.com">nagytommy76@gmail.com</a></h4> 
                 </div>
