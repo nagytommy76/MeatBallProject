@@ -5,7 +5,7 @@
             <div class="icons">
                 <router-link v-if="routerLink" class="live-demo" :to="{name: demoLink}">Élő verzió</router-link>
                 <a v-else target="_blank" :href="demoLink" class="live-demo">Élő verzió</a>
-                <a target="_blank" :href="githubLink" class="github"><i class="fab fa-github fa-2x"></i></a>
+                <a target="_blank" :href="githubLink" class="github"><font-awesome class="svg-icon" :icon="['fab', 'github']" size="2x"/></a>
             </div>
         </figure>
         <h2 class="project-title">{{ projectTitle }}</h2>

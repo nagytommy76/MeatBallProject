@@ -17181,7 +17181,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".schools-bg[data-v-064e4f2d] {\n  background-color: #222;\n  border-top: 2px solid #ffae00;\n  border-bottom: 1px solid #ffae00;\n}\n.schools-bg .schools[data-v-064e4f2d] {\n  min-height: 30vh;\n  width: 70%;\n  padding: 1rem;\n  margin: auto;\n  display: grid;\n  grid-template-columns: auto auto;\n}\n@media (max-width: 720px) {\n.schools-bg .schools[data-v-064e4f2d] {\n    grid-template-columns: auto;\n    min-height: 105vh;\n}\n.schools-bg .schools .okj[data-v-064e4f2d] {\n    margin-bottom: 1.5rem;\n}\n.schools-bg .schools .mid-school[data-v-064e4f2d] {\n    margin-bottom: 1.5rem;\n}\n}", ""]);
+exports.push([module.i, ".schools-bg[data-v-064e4f2d] {\n  background-color: #222;\n}\n.schools-bg .schools[data-v-064e4f2d] {\n  min-height: 30vh;\n  width: 70%;\n  padding: 1rem;\n  margin: auto;\n  display: grid;\n  grid-template-columns: auto auto;\n}\n@media (max-width: 720px) {\n.schools-bg[data-v-064e4f2d] {\n    border-top: 2px solid #ffae00;\n    border-bottom: 1px solid #ffae00;\n}\n.schools-bg .schools[data-v-064e4f2d] {\n    grid-template-columns: auto;\n    min-height: 105vh;\n}\n.schools-bg .schools .okj[data-v-064e4f2d] {\n    margin-bottom: 1.5rem;\n}\n.schools-bg .schools .mid-school[data-v-064e4f2d] {\n    margin-bottom: 1.5rem;\n}\n}", ""]);
 
 // exports
 
@@ -19952,7 +19952,13 @@ var render = function() {
                 staticClass: "github",
                 attrs: { target: "_blank", href: _vm.githubLink }
               },
-              [_c("i", { staticClass: "fab fa-github fa-2x" })]
+              [
+                _c("font-awesome", {
+                  staticClass: "svg-icon",
+                  attrs: { icon: ["fab", "github"], size: "2x" }
+                })
+              ],
+              1
             )
           ],
           1
