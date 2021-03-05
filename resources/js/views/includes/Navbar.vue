@@ -14,12 +14,11 @@
                 ></LinkItem>
             </li>
             <DesktopNav
-                @close-nav="closeNav"
                 :event="mobileSize"
                 :showDrop="showFoodDrop"
-                @hide-dropdown="hideFoodDropdown"
                 @open-drop="openFoodDrop"
                 @toggle-drop="toggleFoodDrop"
+                @close-nav="closeNav"
             />
             <li v-show="!loggedIn" class="nav-item">
                 <LinkItem 
@@ -98,8 +97,8 @@ export default {
         ]),
         closeNav(){
             if (this.mobileSize) {
-                console.log('Mi folyik itten?')
                 this.$emit('close')
+                console.log('Mi folyik itten?')
             }
         },
         async logOut(){

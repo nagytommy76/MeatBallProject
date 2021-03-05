@@ -49,9 +49,6 @@ export default {
         showDrop: Boolean,
     },
     methods:{
-        hideDropdown(){
-            this.$emit('hide-dropdown')
-        },
         toggleDrop(){
             this.$emit('toggle-drop')
         },

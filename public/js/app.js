@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"Alert":"Alert","BaseButton":"BaseButton","Dessert":"Dessert","Drink":"Drink","ErrorMsg":"ErrorMsg","ImageSlider":"ImageSlider","LoadingOverlay":"LoadingOverlay","Meal":"Meal","OrdersModal":"OrdersModal","PageNotFound":"PageNotFound","Pasta":"Pasta","Soup":"Soup","Tooltip":"Tooltip","WelcomePage":"WelcomePage","vendors~BaseCard~BaseFilter~CartModal~Login~Meatball~Pizza~Register":"vendors~BaseCard~BaseFilter~CartModal~Login~Meatball~Pizza~Register","BaseCard":"BaseCard","BaseFilter":"BaseFilter","CartModal":"CartModal","Login":"Login","Meatball":"Meatball","Pizza":"Pizza","Register":"Register"}[chunkId]||chunkId) + ".js?id=" + {"Alert":"69bf371839a433411791","BaseButton":"6354e816e4923fcd250b","Dessert":"d6210f588a7cc82e2514","Drink":"37582250de42dea40bf0","ErrorMsg":"cd6a9ec06ef348541f8e","ImageSlider":"69d79196d3fe46823eea","LoadingOverlay":"8550a2e5dcabf526a9e4","Meal":"f49dee2ae35f912887c8","OrdersModal":"e815805b0ac029cefd8b","PageNotFound":"360ae16417fb3fb0103f","Pasta":"345de665f1bff0d14a61","Soup":"b393aa6fdcbaf1ba9adb","Tooltip":"fae05c2b10102772c33b","WelcomePage":"21ae2e86fac6f73f7fb0","vendors~BaseCard~BaseFilter~CartModal~Login~Meatball~Pizza~Register":"7ee8463b89c337483742","BaseCard":"809620b1aec5c6507487","BaseFilter":"90027f01cafd44c01088","CartModal":"4d024259532d44a7e266","Login":"157726247028fbe22d43","Meatball":"2f227ebb5c9d90378dc8","Pizza":"0aac546d9729824249d4","Register":"be146a38e13e60af7e3d"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "" + ({"Alert":"Alert","BaseButton":"BaseButton","Dessert":"Dessert","Drink":"Drink","ErrorMsg":"ErrorMsg","ImageSlider":"ImageSlider","LoadingOverlay":"LoadingOverlay","Meal":"Meal","OrdersModal":"OrdersModal","PageNotFound":"PageNotFound","Pasta":"Pasta","Soup":"Soup","Tooltip":"Tooltip","WelcomePage":"WelcomePage","vendors~BaseCard~BaseFilter~CartModal~Login~Meatball~Pizza~Register":"vendors~BaseCard~BaseFilter~CartModal~Login~Meatball~Pizza~Register","BaseCard":"BaseCard","BaseFilter":"BaseFilter","CartModal":"CartModal","Login":"Login","Meatball":"Meatball","Pizza":"Pizza","Register":"Register"}[chunkId]||chunkId) + ".js?id=" + {"Alert":"69bf371839a433411791","BaseButton":"6354e816e4923fcd250b","Dessert":"d6210f588a7cc82e2514","Drink":"37582250de42dea40bf0","ErrorMsg":"cd6a9ec06ef348541f8e","ImageSlider":"69d79196d3fe46823eea","LoadingOverlay":"8550a2e5dcabf526a9e4","Meal":"f49dee2ae35f912887c8","OrdersModal":"e815805b0ac029cefd8b","PageNotFound":"360ae16417fb3fb0103f","Pasta":"345de665f1bff0d14a61","Soup":"b393aa6fdcbaf1ba9adb","Tooltip":"fae05c2b10102772c33b","WelcomePage":"21ae2e86fac6f73f7fb0","vendors~BaseCard~BaseFilter~CartModal~Login~Meatball~Pizza~Register":"7ee8463b89c337483742","BaseCard":"809620b1aec5c6507487","BaseFilter":"90027f01cafd44c01088","CartModal":"4d024259532d44a7e266","Login":"157726247028fbe22d43","Meatball":"cd92556fee4341107414","Pizza":"0aac546d9729824249d4","Register":"be146a38e13e60af7e3d"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -17128,25 +17128,6 @@ __webpack_require__.r(__webpack_exports__);
     TechList: _TechListItem__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/sass/test.scss":
-/*!*********************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./resources/sass/test.scss ***!
-  \*********************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
 
 /***/ }),
 
@@ -37010,16 +36991,13 @@ module.exports = "/images/modal.jpg?fa2ea8e98cfc337bd9d0ba0971e3cce7";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _sass_test_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../sass/test.scss */ "./resources/sass/test.scss");
-/* harmony import */ var _sass_test_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_sass_test_scss__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./store */ "./resources/js/store/index.js");
-/* harmony import */ var _router_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./router/router */ "./resources/js/router/router.js");
-/* harmony import */ var _views_App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/App */ "./resources/js/views/App.vue");
-/* harmony import */ var _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/vue-fontawesome */ "./node_modules/@fortawesome/vue-fontawesome/index.es.js");
-/* harmony import */ var _views_includes_MainPage_includes_projects_BaseProject__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/includes/MainPage/includes/projects/BaseProject */ "./resources/js/views/includes/MainPage/includes/projects/BaseProject.vue");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./store */ "./resources/js/store/index.js");
+/* harmony import */ var _router_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./router/router */ "./resources/js/router/router.js");
+/* harmony import */ var _views_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/App */ "./resources/js/views/App.vue");
+/* harmony import */ var _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/vue-fontawesome */ "./node_modules/@fortawesome/vue-fontawesome/index.es.js");
+/* harmony import */ var _views_includes_MainPage_includes_projects_BaseProject__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/includes/MainPage/includes/projects/BaseProject */ "./resources/js/views/includes/MainPage/includes/projects/BaseProject.vue");
 // Elméletileg ha importálok egy üres scss file-t akkor lehet style a componentekben, nem kapok errort...
-
-
+// import '../sass/test.scss'
 __webpack_require__(/*! ./fontAwesome */ "./resources/js/fontAwesome.js");
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
@@ -37031,8 +37009,8 @@ Vue.use(__webpack_require__(/*! vue-cookies */ "./node_modules/vue-cookies/vue-c
 
 
 
-Vue.component('font-awesome', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"]);
-Vue.component('BaseProject', _views_includes_MainPage_includes_projects_BaseProject__WEBPACK_IMPORTED_MODULE_5__["default"]);
+Vue.component('font-awesome', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"]);
+Vue.component('BaseProject', _views_includes_MainPage_includes_projects_BaseProject__WEBPACK_IMPORTED_MODULE_4__["default"]);
 Vue.component('BaseButton', function () {
   return __webpack_require__.e(/*! import() | BaseButton */ "BaseButton").then(__webpack_require__.bind(null, /*! ./components/baseComponents/BaseButton */ "./resources/js/components/baseComponents/BaseButton.vue"));
 });
@@ -37065,10 +37043,10 @@ Vue.component('OrdersModal', function () {
 });
 new Vue({
   el: '#app',
-  store: _store__WEBPACK_IMPORTED_MODULE_1__["default"],
-  router: _router_router__WEBPACK_IMPORTED_MODULE_2__["default"],
+  store: _store__WEBPACK_IMPORTED_MODULE_0__["default"],
+  router: _router_router__WEBPACK_IMPORTED_MODULE_1__["default"],
   render: function render(createApp) {
-    return createApp(_views_App__WEBPACK_IMPORTED_MODULE_3__["default"]);
+    return createApp(_views_App__WEBPACK_IMPORTED_MODULE_2__["default"]);
   }
 });
 
@@ -37271,6 +37249,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_paypalState__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/paypalState */ "./resources/js/store/modules/paypalState.js");
 /* harmony import */ var _modules_userDetails__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/userDetails */ "./resources/js/store/modules/userDetails.js");
 /* harmony import */ var _modules_modalPages__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/modalPages */ "./resources/js/store/modules/modalPages.js");
+/* harmony import */ var _modules_navbar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/navbar */ "./resources/js/store/modules/navbar.js");
+
 
 
 
@@ -37288,7 +37268,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     payPal: _modules_paypal__WEBPACK_IMPORTED_MODULE_5__["default"],
     paypalState: _modules_paypalState__WEBPACK_IMPORTED_MODULE_6__["default"],
     userDetails: _modules_userDetails__WEBPACK_IMPORTED_MODULE_7__["default"],
-    modalPages: _modules_modalPages__WEBPACK_IMPORTED_MODULE_8__["default"]
+    modalPages: _modules_modalPages__WEBPACK_IMPORTED_MODULE_8__["default"],
+    Navbar: _modules_navbar__WEBPACK_IMPORTED_MODULE_9__["default"]
   },
   plugins: [Object(vuex_persistedstate__WEBPACK_IMPORTED_MODULE_2__["default"])({
     key: 'accessToken'
@@ -37429,6 +37410,26 @@ __webpack_require__.r(__webpack_exports__);
       context.commit('setDefaultPage');
     }
   }
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/navbar.js":
+/*!**********************************************!*\
+  !*** ./resources/js/store/modules/navbar.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  state: {
+    navbarOpen: false
+  },
+  getters: {},
+  mutations: {},
+  actions: {}
 });
 
 /***/ }),
@@ -38808,36 +38809,6 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./resources/sass/test.scss":
-/*!**********************************!*\
-  !*** ./resources/sass/test.scss ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../node_modules/css-loader!../../node_modules/postcss-loader/src??ref--7-2!../../node_modules/sass-loader/dist/cjs.js??ref--7-3!./test.scss */ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/sass/test.scss");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
 
 /***/ }),
 

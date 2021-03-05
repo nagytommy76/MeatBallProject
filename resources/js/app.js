@@ -1,5 +1,5 @@
 // Elméletileg ha importálok egy üres scss file-t akkor lehet style a componentekben, nem kapok errort...
-import '../sass/test.scss'
+// import '../sass/test.scss'
 require('./fontAwesome')
 require('./bootstrap');
 window.Vue = require('vue');

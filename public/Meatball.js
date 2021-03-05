@@ -218,7 +218,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -248,8 +247,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])(['setUserLoggedIn']), {
     closeNav: function closeNav() {
       if (this.mobileSize) {
-        console.log('Mi folyik itten?');
         this.$emit('close');
+        console.log('Mi folyik itten?');
       }
     },
     logOut: function logOut() {
@@ -368,9 +367,6 @@ __webpack_require__.r(__webpack_exports__);
     showDrop: Boolean
   },
   methods: {
-    hideDropdown: function hideDropdown() {
-      this.$emit('hide-dropdown');
-    },
     toggleDrop: function toggleDrop() {
       this.$emit('toggle-drop');
     },
@@ -977,10 +973,9 @@ var render = function() {
           _c("DesktopNav", {
             attrs: { event: _vm.mobileSize, showDrop: _vm.showFoodDrop },
             on: {
-              "close-nav": _vm.closeNav,
-              "hide-dropdown": _vm.hideFoodDropdown,
               "open-drop": _vm.openFoodDrop,
-              "toggle-drop": _vm.toggleFoodDrop
+              "toggle-drop": _vm.toggleFoodDrop,
+              "close-nav": _vm.closeNav
             }
           }),
           _vm._v(" "),
