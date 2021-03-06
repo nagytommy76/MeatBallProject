@@ -57,6 +57,10 @@ __webpack_require__.r(__webpack_exports__);
       case 'recipe':
         this.getRecipeImagesFromFolderByName();
         break;
+
+      case 'comp-store':
+        this.getCompStoreImagesFromFolderByName();
+        break;
     }
   },
   data: function data() {
@@ -78,6 +82,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     getRecipeImagesFromFolderByName: function getRecipeImagesFromFolderByName() {
       this.fillImages(__webpack_require__("./resources/img/recipe sync recursive \\.jpg$"));
+    },
+    getCompStoreImagesFromFolderByName: function getCompStoreImagesFromFolderByName() {
+      this.fillImages(__webpack_require__("./resources/img/comp-store sync recursive \\.jpg$"));
     },
     fillImages: function fillImages(imagesNameFromFolder) {
       var _this = this;
@@ -294,6 +301,99 @@ var staticRenderFns = []
 render._withStripped = true
 
 
+
+/***/ }),
+
+/***/ "./resources/img/comp-store sync recursive \\.jpg$":
+/*!**********************************************!*\
+  !*** ./resources/img/comp-store sync \.jpg$ ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./intro.jpg": "./resources/img/comp-store/intro.jpg",
+	"./last-orders.jpg": "./resources/img/comp-store/last-orders.jpg",
+	"./order.jpg": "./resources/img/comp-store/order.jpg",
+	"./products.jpg": "./resources/img/comp-store/products.jpg",
+	"./search.jpg": "./resources/img/comp-store/search.jpg",
+	"./szamla.jpg": "./resources/img/comp-store/szamla.jpg"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./resources/img/comp-store sync recursive \\.jpg$";
+
+/***/ }),
+
+/***/ "./resources/img/comp-store/last-orders.jpg":
+/*!**************************************************!*\
+  !*** ./resources/img/comp-store/last-orders.jpg ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/last-orders.jpg?f5635416392f797f9678595250afab2e";
+
+/***/ }),
+
+/***/ "./resources/img/comp-store/order.jpg":
+/*!********************************************!*\
+  !*** ./resources/img/comp-store/order.jpg ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/order.jpg?8f980282fb3ae0fb9f121348fdfac712";
+
+/***/ }),
+
+/***/ "./resources/img/comp-store/products.jpg":
+/*!***********************************************!*\
+  !*** ./resources/img/comp-store/products.jpg ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/products.jpg?fdf5bbd97c54f76241a4a7ece364e891";
+
+/***/ }),
+
+/***/ "./resources/img/comp-store/search.jpg":
+/*!*********************************************!*\
+  !*** ./resources/img/comp-store/search.jpg ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/search.jpg?dc19ac5293dbca2732b305db34b351c6";
+
+/***/ }),
+
+/***/ "./resources/img/comp-store/szamla.jpg":
+/*!*********************************************!*\
+  !*** ./resources/img/comp-store/szamla.jpg ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/szamla.jpg?5f785e504377d0979f5f9fad7fbf3752";
 
 /***/ }),
 

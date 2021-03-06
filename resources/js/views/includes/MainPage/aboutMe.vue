@@ -13,6 +13,9 @@
                 <RecipeFinder 
                     @show-image="openImageSlider"
                 />
+                <CompStore 
+                    @show-image="openImageSlider"
+                />
             </div>
         </section>
         <transition name="slide">
@@ -32,6 +35,7 @@ import LeftContent from './includes/LeftContent'
 import Meatball from './includes/projects/MeatballProject'
 import RecipeFinder from './includes/projects/RecipeFinder.vue'
 import Wargaming from './includes/projects/WgProject'
+import CompStore from './includes/projects/CompStore'
 
 export default {
     name: 'AboutMe',
@@ -40,6 +44,7 @@ export default {
         Meatball,
         Wargaming,
         RecipeFinder,
+        CompStore,
     },
     data() {
         return {

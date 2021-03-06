@@ -274,6 +274,18 @@ body::-webkit-scrollbar-thumb {
   color: #00758f;
 }
 
+.php {
+  color: #67719b;
+}
+
+.bootstrap {
+  color: #7952b3;
+}
+
+.css {
+  color: #264de4;
+}
+
 @media (max-width: 720px) {
   .btn-up {
     font-size: 1rem;
@@ -805,4 +817,31 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = "./resources/img/recipe sync recursive \\.jpg$";
+webpackContext.id = "./resources/img/recipe sync recursive \\.jpg$";var map = {
+	"./intro.jpg": "./resources/img/comp-store/intro.jpg",
+	"./last-orders.jpg": "./resources/img/comp-store/last-orders.jpg",
+	"./order.jpg": "./resources/img/comp-store/order.jpg",
+	"./products.jpg": "./resources/img/comp-store/products.jpg",
+	"./search.jpg": "./resources/img/comp-store/search.jpg",
+	"./szamla.jpg": "./resources/img/comp-store/szamla.jpg"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./resources/img/comp-store sync recursive \\.jpg$";

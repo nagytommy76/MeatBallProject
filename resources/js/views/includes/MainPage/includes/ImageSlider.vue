@@ -45,6 +45,9 @@ export default {
             case 'recipe':
                 this.getRecipeImagesFromFolderByName()
                 break;
+            case 'comp-store':
+                this.getCompStoreImagesFromFolderByName()
+                break;
         }
     },
     data() {
@@ -66,6 +69,9 @@ export default {
         },
         getRecipeImagesFromFolderByName(){
             this.fillImages(require.context(`../../../../../img/recipe`, true, /\.jpg$/))
+        },
+        getCompStoreImagesFromFolderByName(){
+            this.fillImages(require.context(`../../../../../img/comp-store`, true, /\.jpg$/))
         },
         fillImages(imagesNameFromFolder){
             imagesNameFromFolder.keys().forEach(imgName => this.images.push(imgName.substring(1)))

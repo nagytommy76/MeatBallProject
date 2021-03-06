@@ -2,8 +2,9 @@
     <section class="certificates">
         <h1 class="sub-title">Tanúsítványok</h1>
         <section class="image-grid">
-            <img class="image" src="/images/php-mvc.jpg" @click="openImage('php-mvc')">
+            <img class="image" src="/images/vue.jpg" @click="openImage('vue')">
             <img class="image" src="/images/sass-css.jpg" @click="openImage('sass-css')">
+            <img class="image" src="/images/php-mvc.jpg" @click="openImage('php-mvc')">
             <img class="image" src="/images/complete-web.jpg" @click="openImage('complete-web')">
         </section>
         <transition name="slide">
@@ -43,10 +44,10 @@ export default {
     padding-bottom: 1rem;
     .image-grid{
         display: grid;
-        gap: 3rem;
+        gap: 3.6rem;
         margin-top: 2rem;
         justify-content: center;
-        grid-template-columns: repeat(3, 390px);
+        grid-template-columns: repeat(2, 500px);
         .image{
             width: 100%;
             cursor: pointer;
