@@ -63,7 +63,7 @@ class LoginController extends BaseAuthController
         $request->session()->invalidate(); 
 
         $request->session()->regenerateToken();
-        return \response()->json(['message' =>'Sikeres kilépés']);
+        return \response()->json(['success' => true]);
     }
 
 

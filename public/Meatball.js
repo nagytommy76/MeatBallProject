@@ -12,6 +12,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_includes_WelcomeIncludes_MainHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../views/includes/WelcomeIncludes/MainHeader */ "./resources/js/views/includes/WelcomeIncludes/MainHeader.vue");
 /* harmony import */ var _views_includes_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../views/includes/Footer */ "./resources/js/views/includes/Footer.vue");
 /* harmony import */ var _views_includes_Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../views/includes/Navbar */ "./resources/js/views/includes/Navbar.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -31,6 +38,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -42,28 +50,19 @@ __webpack_require__.r(__webpack_exports__);
     MainHeader: _views_includes_WelcomeIncludes_MainHeader__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   mounted: function mounted() {
-    window.addEventListener('resize', this.checkWindowWidth());
     this.checkWindowWidth();
   },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapGetters"])('Navbar', {
+    showOpenNavbarBtn: 'getOpenNavbarBtn',
+    isNavbarOpen: 'getIsNavbarOpen'
+  })),
   data: function data() {
     return {
       showCartModal: false,
-      showOrdersModal: false,
-      showNavOpen: false,
-      showNavbar: true
+      showOrdersModal: false
     };
   },
-  methods: {
-    openNavbar: function openNavbar() {
-      this.showNavbar = true;
-    },
-    checkWindowWidth: function checkWindowWidth() {
-      if (window.innerWidth <= 700) {
-        this.showNavbar = false;
-        this.showNavOpen = true;
-      }
-    }
-  }
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapMutations"])('Navbar', ['setIsNavbarOpen']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])('Navbar', ['checkWindowWidth']))
 });
 
 /***/ }),
@@ -212,12 +211,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -226,30 +219,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     DesktopNav: _NavbarIncludes_DesktopNav__WEBPACK_IMPORTED_MODULE_2__["default"],
     LinkItem: _NavbarIncludes_LinkItem__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
-  props: {
-    mobileSize: Boolean
-  },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
     loggedIn: 'getUserLoggedIn',
     userName: 'getUserName',
     totalQty: 'getTotalQty'
+  }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('Navbar', {
+    showOpenNavbarBtn: 'getOpenNavbarBtn'
+  }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('navbarDropdown', {
+    showProfileDrop: 'getProfileDropdown'
   })),
-  data: function data() {
-    return {
-      showProfileDrop: false,
-      showFoodDrop: false
-    };
-  },
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])({
     revokeUserName: 'revokeUserName',
     setCartDefault: 'setCartDefault',
     setToDefaultUserInfo: 'setToDefaultUserInfo'
-  }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])(['setUserLoggedIn']), {
+  }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])(['setUserLoggedIn']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])('Navbar', ['setIsNavbarOpen']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])('navbarDropdown', ['hideProfileDropdown', 'toggleProfileDrop', 'openProfileDrop', 'hideFoodDropdown']), {
     closeNav: function closeNav() {
-      if (this.mobileSize) {
-        this.$emit('close');
-        console.log('Mi folyik itten?');
-      }
+      this.setIsNavbarOpen(false);
     },
     logOut: function logOut() {
       var _this = this;
@@ -261,15 +246,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               case 0:
                 _context.next = 2;
                 return axios.post('logout').then(function (logout) {
-                  _this.revokeUserName();
+                  if (logout.data.success) {
+                    _this.revokeUserName();
 
-                  _this.setUserLoggedIn(false);
+                    _this.setUserLoggedIn(false);
 
-                  _this.setCartDefault();
+                    _this.setCartDefault();
 
-                  _this.setToDefaultUserInfo();
+                    _this.setToDefaultUserInfo();
 
-                  localStorage.removeItem('accessToken');
+                    localStorage.removeItem('accessToken');
+                  }
                 });
 
               case 2:
@@ -279,28 +266,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           }
         }, _callee);
       }))();
-    },
-    hideProfileDropdown: function hideProfileDropdown() {
-      this.showProfileDrop = false;
-    },
-    toggleProfileDrop: function toggleProfileDrop() {
-      this.showProfileDrop = !this.showProfileDrop;
-    },
-    openProfileDrop: function openProfileDrop() {
-      if (!this.showProfileDrop) {
-        this.showProfileDrop = true;
-      }
-    },
-    hideFoodDropdown: function hideFoodDropdown() {
-      this.showFoodDrop = false;
-    },
-    toggleFoodDrop: function toggleFoodDrop() {
-      this.showFoodDrop = !this.showFoodDrop;
-    },
-    openFoodDrop: function openFoodDrop() {
-      if (!this.showFoodDrop) {
-        this.showFoodDrop = true;
-      }
     }
   })
 });
@@ -316,7 +281,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _LinkItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LinkItem */ "./resources/js/views/includes/NavbarIncludes/LinkItem.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _LinkItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LinkItem */ "./resources/js/views/includes/NavbarIncludes/LinkItem.vue");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -357,23 +329,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    LinkItem: _LinkItem__WEBPACK_IMPORTED_MODULE_0__["default"]
+    LinkItem: _LinkItem__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  props: {
-    closeNav: Function,
-    event: Boolean,
-    showDrop: Boolean
-  },
-  methods: {
-    toggleDrop: function toggleDrop() {
-      this.$emit('toggle-drop');
-    },
-    openDrop: function openDrop() {
-      this.$emit('open-drop');
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('navbarDropdown', {
+    showFoodDrop: 'getFoodDropdown'
+  }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])('Navbar', {
+    showOpenNavbarBtn: 'getOpenNavbarBtn'
+  })),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])('Navbar', ['setIsNavbarOpen']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])('navbarDropdown', ['toggleFoodDrop', 'openFoodDrop']), {
+    closeNavbar: function closeNavbar() {
+      this.setIsNavbarOpen(false);
     }
-  }
+  })
 });
 
 /***/ }),
@@ -624,14 +594,14 @@ var render = function() {
   return _c(
     "main",
     [
-      _vm.showNavOpen
+      _vm.showOpenNavbarBtn
         ? _c(
             "div",
             {
               attrs: { id: "navOpen" },
               on: {
                 click: function($event) {
-                  return _vm.openNavbar()
+                  return _vm.setIsNavbarOpen(true)
                 }
               }
             },
@@ -642,23 +612,12 @@ var render = function() {
       _vm._v(" "),
       _c(
         "transition",
-        { attrs: { name: "navbar", appear: "" } },
-        [
-          _vm.showNavbar
-            ? _c("Navbar", {
-                attrs: { mobileSize: _vm.showNavOpen },
-                on: {
-                  close: function($event) {
-                    _vm.showNavbar = false
-                  }
-                }
-              })
-            : _vm._e()
-        ],
+        { attrs: { name: "navbar" } },
+        [_vm.isNavbarOpen ? _c("Navbar") : _vm._e()],
         1
       ),
       _vm._v(" "),
-      _c("transition", { attrs: { name: "slide", appear: "" } }, [
+      _c("transition", { attrs: { name: "slide" } }, [
         _vm.showCartModal
           ? _c("div", {
               staticClass: "fade-in",
@@ -684,7 +643,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "transition",
-        { attrs: { name: "modal", appear: "" } },
+        { attrs: { name: "modal" } },
         [
           _vm.showCartModal
             ? _c("Modal", {
@@ -914,7 +873,7 @@ var render = function() {
       }
     },
     [
-      _vm.mobileSize
+      _vm.showOpenNavbarBtn
         ? _c(
             "span",
             {
@@ -960,7 +919,7 @@ var render = function() {
                   className: "nav-link",
                   routeName: "MainWelcome"
                 },
-                on: {
+                nativeOn: {
                   click: function($event) {
                     return _vm.closeNav()
                   }
@@ -970,14 +929,7 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c("DesktopNav", {
-            attrs: { event: _vm.mobileSize, showDrop: _vm.showFoodDrop },
-            on: {
-              "open-drop": _vm.openFoodDrop,
-              "toggle-drop": _vm.toggleFoodDrop,
-              "close-nav": _vm.closeNav
-            }
-          }),
+          _c("DesktopNav"),
           _vm._v(" "),
           _c(
             "li",
@@ -999,7 +951,7 @@ var render = function() {
                   className: "nav-link",
                   routeName: "Login"
                 },
-                on: {
+                nativeOn: {
                   click: function($event) {
                     return _vm.closeNav()
                   }
@@ -1029,7 +981,7 @@ var render = function() {
                   className: "nav-link",
                   routeName: "Register"
                 },
-                on: {
+                nativeOn: {
                   click: function($event) {
                     return _vm.closeNav()
                   }
@@ -1060,7 +1012,7 @@ var render = function() {
                     staticClass: "nav-link dropdown-toggle",
                     attrs: { id: "navbarDropdown" }
                   },
-                  _vm.mobileSize
+                  _vm.showOpenNavbarBtn
                     ? { click: _vm.toggleProfileDrop }
                     : { mouseenter: _vm.openProfileDrop }
                 ),
@@ -1191,13 +1143,15 @@ var render = function() {
         "a",
         _vm._g(
           { staticClass: "nav-link dropdown", attrs: { id: "foodOrder" } },
-          _vm.event ? { click: _vm.toggleDrop } : { mouseenter: _vm.openDrop }
+          _vm.showOpenNavbarBtn
+            ? { click: _vm.toggleFoodDrop }
+            : { mouseenter: _vm.openFoodDrop }
         ),
         [_vm._v("Étel Rendelés")]
       ),
       _vm._v(" "),
       _c("transition", { attrs: { name: "dropdownNav" } }, [
-        _vm.showDrop
+        _vm.showFoodDrop
           ? _c(
               "div",
               { staticClass: "dropdown-menu" },
@@ -1206,9 +1160,9 @@ var render = function() {
                   "LinkItem",
                   {
                     attrs: { menuName: "Pizzák", routeName: "Pizza" },
-                    on: {
+                    nativeOn: {
                       click: function($event) {
-                        return _vm.$emit("close-nav")
+                        return _vm.closeNavbar($event)
                       }
                     }
                   },
@@ -1225,9 +1179,9 @@ var render = function() {
                   "LinkItem",
                   {
                     attrs: { menuName: "Levesek", routeName: "Soup" },
-                    on: {
+                    nativeOn: {
                       click: function($event) {
-                        return _vm.$emit("close-nav")
+                        return _vm.closeNavbar($event)
                       }
                     }
                   },
@@ -1244,9 +1198,9 @@ var render = function() {
                   "LinkItem",
                   {
                     attrs: { menuName: "Desszertek", routeName: "Dessert" },
-                    on: {
+                    nativeOn: {
                       click: function($event) {
-                        return _vm.$emit("close-nav")
+                        return _vm.closeNavbar($event)
                       }
                     }
                   },
@@ -1263,9 +1217,9 @@ var render = function() {
                   "LinkItem",
                   {
                     attrs: { menuName: "Italok", routeName: "Drink" },
-                    on: {
+                    nativeOn: {
                       click: function($event) {
-                        return _vm.$emit("close-nav")
+                        return _vm.closeNavbar($event)
                       }
                     }
                   },
@@ -1282,9 +1236,9 @@ var render = function() {
                   "LinkItem",
                   {
                     attrs: { menuName: "Főételek", routeName: "Meal" },
-                    on: {
+                    nativeOn: {
                       click: function($event) {
-                        return _vm.$emit("close-nav")
+                        return _vm.closeNavbar($event)
                       }
                     }
                   },
@@ -1301,9 +1255,9 @@ var render = function() {
                   "LinkItem",
                   {
                     attrs: { menuName: "Tészták", routeName: "Pasta" },
-                    on: {
+                    nativeOn: {
                       click: function($event) {
-                        return _vm.$emit("close-nav")
+                        return _vm.closeNavbar($event)
                       }
                     }
                   },

@@ -9,6 +9,7 @@ import paypalState from './modules/paypalState';
 import userDetails from './modules/userDetails';
 import modalPages from './modules/modalPages';
 import Navbar from './modules/navbar';
+import navbarDropdown from './modules/navbarDropdown';
  
 Vue.use(Vuex);
 
@@ -21,6 +22,7 @@ export default new Vuex.Store({
         userDetails,
         modalPages,
         Navbar,
+        navbarDropdown,
     },
     plugins: [createPersistedState({
         key: 'accessToken'

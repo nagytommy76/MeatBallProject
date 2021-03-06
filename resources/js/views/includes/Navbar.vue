@@ -1,28 +1,22 @@
 <template>
     <nav role="navigation" class="navbar" @mouseleave="hideProfileDropdown(); hideFoodDropdown()">
-        <span v-if="mobileSize" @click="closeNav()" class="sidenav-close"><font-awesome :icon="['far', 'times-circle']" size="2x"/></span>
+        <span v-if="showOpenNavbarBtn" @click="closeNav()" class="sidenav-close"><font-awesome :icon="['far', 'times-circle']" size="2x"/></span>
         <div class="navbar-brand">
             <router-link :to="{name: 'Welcome'}"><span class="primary-color">Húsgolyó </span>Étterem</router-link>
         </div>
         <ul class="navbar-nav">
             <li class="nav-item">
                 <LinkItem 
-                    @click="closeNav()"
+                    @click.native="closeNav()"
                     :menuName="'Portfólióm'"
                     :className="'nav-link'"
                     :routeName="'MainWelcome'"
                 ></LinkItem>
             </li>
-            <DesktopNav
-                :event="mobileSize"
-                :showDrop="showFoodDrop"
-                @open-drop="openFoodDrop"
-                @toggle-drop="toggleFoodDrop"
-                @close-nav="closeNav"
-            />
+            <DesktopNav/>
             <li v-show="!loggedIn" class="nav-item">
                 <LinkItem 
-                    @click="closeNav()"
+                    @click.native="closeNav()"
                     :menuName="'Belépés'"
                     :className="'nav-link'"
                     :routeName="'Login'"
@@ -30,14 +24,14 @@
             </li>
             <li v-show="!loggedIn" class="nav-item">
                 <LinkItem 
-                    @click="closeNav()"
+                    @click.native="closeNav()"
                     :menuName="'Regisztráció'"
                     :className="'nav-link'"
                     :routeName="'Register'"
                 ></LinkItem>
             </li>
             <li v-show="loggedIn" class="nav-item dropdown">
-                <a v-on="mobileSize ? {click: toggleProfileDrop} : {mouseenter: openProfileDrop}"
+                <a v-on="showOpenNavbarBtn ? {click: toggleProfileDrop} : {mouseenter: openProfileDrop}"
                 id="navbarDropdown" class="nav-link dropdown-toggle" >{{ userName }}<span class="caret"></span>
                 </a>
                 <transition name="dropdownNav">
@@ -70,21 +64,18 @@ export default {
         DesktopNav,
         LinkItem,
     },
-    props:{
-        mobileSize: Boolean,
-    },
     computed: {
         ...mapGetters({
             loggedIn: 'getUserLoggedIn',
             userName: 'getUserName',
-            totalQty: 'getTotalQty'
+            totalQty: 'getTotalQty',
         }),
-    },
-    data() {
-        return {
-            showProfileDrop: false,
-            showFoodDrop: false,
-        }
+        ...mapGetters('Navbar',{
+            showOpenNavbarBtn: 'getOpenNavbarBtn',
+        }),
+        ...mapGetters('navbarDropdown', {
+            showProfileDrop: 'getProfileDropdown',
+        }),
     },
     methods: {
         ...mapActions({
@@ -95,43 +86,28 @@ export default {
         ...mapMutations([
             'setUserLoggedIn'
         ]),
+        ...mapMutations('Navbar',[
+            'setIsNavbarOpen'
+        ]),
+        ...mapMutations('navbarDropdown', [
+            'hideProfileDropdown',
+            'toggleProfileDrop',
+            'openProfileDrop',
+            'hideFoodDropdown'
+        ]),
         closeNav(){
-            if (this.mobileSize) {
-                this.$emit('close')
-                console.log('Mi folyik itten?')
-            }
+            this.setIsNavbarOpen(false)
         },
         async logOut(){
             await axios.post('logout').then(logout =>{
-                this.revokeUserName()
-                this.setUserLoggedIn(false)
-                this.setCartDefault()
-                this.setToDefaultUserInfo()
-                localStorage.removeItem('accessToken')
+                if (logout.data.success) {
+                    this.revokeUserName()
+                    this.setUserLoggedIn(false)
+                    this.setCartDefault()
+                    this.setToDefaultUserInfo()
+                    localStorage.removeItem('accessToken')
+                }
             })
-        },
-        hideProfileDropdown(){
-            this.showProfileDrop = false
-        },
-        toggleProfileDrop(){
-             this.showProfileDrop = !this.showProfileDrop
-        },
-        openProfileDrop(){
-            if (!this.showProfileDrop) {
-                this.showProfileDrop = true                
-            }
-        },
-
-        hideFoodDropdown(){
-            this.showFoodDrop = false
-        },
-        toggleFoodDrop(){
-            this.showFoodDrop = !this.showFoodDrop
-        },
-        openFoodDrop(){
-            if (!this.showFoodDrop) {
-                this.showFoodDrop = true                
-            }
         },
     },
 }

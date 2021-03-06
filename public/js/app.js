@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"Alert":"Alert","BaseButton":"BaseButton","Dessert":"Dessert","Drink":"Drink","ErrorMsg":"ErrorMsg","ImageSlider":"ImageSlider","LoadingOverlay":"LoadingOverlay","Meal":"Meal","OrdersModal":"OrdersModal","PageNotFound":"PageNotFound","Pasta":"Pasta","Soup":"Soup","Tooltip":"Tooltip","WelcomePage":"WelcomePage","vendors~BaseCard~BaseFilter~CartModal~Login~Meatball~Pizza~Register":"vendors~BaseCard~BaseFilter~CartModal~Login~Meatball~Pizza~Register","BaseCard":"BaseCard","BaseFilter":"BaseFilter","CartModal":"CartModal","Login":"Login","Meatball":"Meatball","Pizza":"Pizza","Register":"Register"}[chunkId]||chunkId) + ".js?id=" + {"Alert":"69bf371839a433411791","BaseButton":"6354e816e4923fcd250b","Dessert":"d6210f588a7cc82e2514","Drink":"37582250de42dea40bf0","ErrorMsg":"cd6a9ec06ef348541f8e","ImageSlider":"69d79196d3fe46823eea","LoadingOverlay":"8550a2e5dcabf526a9e4","Meal":"f49dee2ae35f912887c8","OrdersModal":"e815805b0ac029cefd8b","PageNotFound":"360ae16417fb3fb0103f","Pasta":"345de665f1bff0d14a61","Soup":"b393aa6fdcbaf1ba9adb","Tooltip":"fae05c2b10102772c33b","WelcomePage":"21ae2e86fac6f73f7fb0","vendors~BaseCard~BaseFilter~CartModal~Login~Meatball~Pizza~Register":"7ee8463b89c337483742","BaseCard":"809620b1aec5c6507487","BaseFilter":"90027f01cafd44c01088","CartModal":"4d024259532d44a7e266","Login":"157726247028fbe22d43","Meatball":"cd92556fee4341107414","Pizza":"0aac546d9729824249d4","Register":"be146a38e13e60af7e3d"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "" + ({"Alert":"Alert","BaseButton":"BaseButton","Dessert":"Dessert","Drink":"Drink","ErrorMsg":"ErrorMsg","ImageSlider":"ImageSlider","LoadingOverlay":"LoadingOverlay","Meal":"Meal","OrdersModal":"OrdersModal","PageNotFound":"PageNotFound","Pasta":"Pasta","Soup":"Soup","Tooltip":"Tooltip","WelcomePage":"WelcomePage","vendors~BaseCard~BaseFilter~CartModal~Login~Meatball~Pizza~Register":"vendors~BaseCard~BaseFilter~CartModal~Login~Meatball~Pizza~Register","BaseCard":"BaseCard","BaseFilter":"BaseFilter","CartModal":"CartModal","Login":"Login","Meatball":"Meatball","Pizza":"Pizza","Register":"Register"}[chunkId]||chunkId) + ".js?id=" + {"Alert":"69bf371839a433411791","BaseButton":"6354e816e4923fcd250b","Dessert":"d6210f588a7cc82e2514","Drink":"37582250de42dea40bf0","ErrorMsg":"cd6a9ec06ef348541f8e","ImageSlider":"69d79196d3fe46823eea","LoadingOverlay":"8550a2e5dcabf526a9e4","Meal":"f49dee2ae35f912887c8","OrdersModal":"e815805b0ac029cefd8b","PageNotFound":"360ae16417fb3fb0103f","Pasta":"345de665f1bff0d14a61","Soup":"b393aa6fdcbaf1ba9adb","Tooltip":"fae05c2b10102772c33b","WelcomePage":"21ae2e86fac6f73f7fb0","vendors~BaseCard~BaseFilter~CartModal~Login~Meatball~Pizza~Register":"7ee8463b89c337483742","BaseCard":"809620b1aec5c6507487","BaseFilter":"90027f01cafd44c01088","CartModal":"4d024259532d44a7e266","Login":"157726247028fbe22d43","Meatball":"96ccaf4876300a0ad455","Pizza":"0aac546d9729824249d4","Register":"be146a38e13e60af7e3d"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -37250,6 +37250,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_userDetails__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/userDetails */ "./resources/js/store/modules/userDetails.js");
 /* harmony import */ var _modules_modalPages__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/modalPages */ "./resources/js/store/modules/modalPages.js");
 /* harmony import */ var _modules_navbar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/navbar */ "./resources/js/store/modules/navbar.js");
+/* harmony import */ var _modules_navbarDropdown__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/navbarDropdown */ "./resources/js/store/modules/navbarDropdown.js");
+
 
 
 
@@ -37269,7 +37271,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     paypalState: _modules_paypalState__WEBPACK_IMPORTED_MODULE_6__["default"],
     userDetails: _modules_userDetails__WEBPACK_IMPORTED_MODULE_7__["default"],
     modalPages: _modules_modalPages__WEBPACK_IMPORTED_MODULE_8__["default"],
-    Navbar: _modules_navbar__WEBPACK_IMPORTED_MODULE_9__["default"]
+    Navbar: _modules_navbar__WEBPACK_IMPORTED_MODULE_9__["default"],
+    navbarDropdown: _modules_navbarDropdown__WEBPACK_IMPORTED_MODULE_10__["default"]
   },
   plugins: [Object(vuex_persistedstate__WEBPACK_IMPORTED_MODULE_2__["default"])({
     key: 'accessToken'
@@ -37424,11 +37427,95 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  state: {
-    navbarOpen: false
+  namespaced: true,
+  state: function state() {
+    return {
+      showOpenNavbarBtn: false,
+      isNavbarOpen: false
+    };
   },
-  getters: {},
-  mutations: {},
+  getters: {
+    getOpenNavbarBtn: function getOpenNavbarBtn(state) {
+      return state.showOpenNavbarBtn;
+    },
+    getIsNavbarOpen: function getIsNavbarOpen(state) {
+      return state.isNavbarOpen;
+    }
+  },
+  mutations: {
+    setOpenNavbarBtn: function setOpenNavbarBtn(state, payload) {
+      state.showOpenNavbarBtn = payload;
+    },
+    setIsNavbarOpen: function setIsNavbarOpen(state, payload) {
+      if (window.innerWidth <= 700) {
+        state.isNavbarOpen = payload;
+      }
+    }
+  },
+  actions: {
+    checkWindowWidth: function checkWindowWidth(context) {
+      if (window.innerWidth <= 700) {
+        context.commit('setOpenNavbarBtn', true);
+        context.commit('setIsNavbarOpen', false);
+      } else {
+        context.commit('setOpenNavbarBtn', false);
+        context.commit('setIsNavbarOpen', true);
+      }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/navbarDropdown.js":
+/*!******************************************************!*\
+  !*** ./resources/js/store/modules/navbarDropdown.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: function state() {
+    return {
+      showProfileDropdown: false,
+      showFoodDropdown: false
+    };
+  },
+  getters: {
+    getProfileDropdown: function getProfileDropdown(state) {
+      return state.showProfileDropdown;
+    },
+    getFoodDropdown: function getFoodDropdown(state) {
+      return state.showFoodDropdown;
+    }
+  },
+  mutations: {
+    hideProfileDropdown: function hideProfileDropdown(state) {
+      state.showProfileDropdown = false;
+    },
+    toggleProfileDrop: function toggleProfileDrop(state) {
+      state.showProfileDropdown = !this.showProfileDropdown;
+    },
+    openProfileDrop: function openProfileDrop(state) {
+      if (!state.showProfileDropdown) {
+        state.showProfileDropdown = true;
+      }
+    },
+    hideFoodDropdown: function hideFoodDropdown(state) {
+      state.showFoodDropdown = false;
+    },
+    toggleFoodDrop: function toggleFoodDrop(state) {
+      state.showFoodDropdown = !state.showFoodDropdown;
+    },
+    openFoodDrop: function openFoodDrop(state) {
+      if (!state.showFoodDropdown) {
+        state.showFoodDropdown = true;
+      }
+    }
+  },
   actions: {}
 });
 
