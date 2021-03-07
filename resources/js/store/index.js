@@ -2,7 +2,8 @@ import Vue from "vue";
 import Vuex from "vuex";
 import createPersistedState from "vuex-persistedstate";
 
-import accessToken from './modules/accessToken';
+import loginUser from './modules/loginUser/loginUser';
+import registerUser from './modules/registerUser/index'
 import getCartItems from './modules/getCartItems';
 import payPal from './modules/paypal';
 import paypalState from './modules/paypalState';
@@ -15,7 +16,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     modules: {
-        accessToken,
+        loginUser,
+        registerUser,
         getCartItems,
         payPal,
         paypalState,

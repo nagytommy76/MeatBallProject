@@ -66,9 +66,11 @@ export default {
     },
     computed: {
         ...mapGetters({
+            totalQty: 'getTotalQty',
+        }),
+        ...mapGetters('loginUser', {
             loggedIn: 'getUserLoggedIn',
             userName: 'getUserName',
-            totalQty: 'getTotalQty',
         }),
         ...mapGetters('Navbar',{
             showOpenNavbarBtn: 'getOpenNavbarBtn',
@@ -79,12 +81,12 @@ export default {
     },
     methods: {
         ...mapActions({
-            revokeUserName: 'revokeUserName',
             setCartDefault: 'setCartDefault',
             setToDefaultUserInfo: 'setToDefaultUserInfo',
         }),
-        ...mapMutations([
-            'setUserLoggedIn'
+        ...mapMutations('loginUser', [
+            'setUserLoggedIn',
+            'setUserName'
         ]),
         ...mapMutations('Navbar',[
             'setIsNavbarOpen'
@@ -101,7 +103,7 @@ export default {
         async logOut(){
             await axios.post('logout').then(logout =>{
                 if (logout.data.success) {
-                    this.revokeUserName()
+                    this.setUserName('')
                     this.setUserLoggedIn(false)
                     this.setCartDefault()
                     this.setToDefaultUserInfo()

@@ -220,19 +220,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     LinkItem: _NavbarIncludes_LinkItem__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
-    loggedIn: 'getUserLoggedIn',
-    userName: 'getUserName',
     totalQty: 'getTotalQty'
+  }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('loginUser', {
+    loggedIn: 'getUserLoggedIn',
+    userName: 'getUserName'
   }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('Navbar', {
     showOpenNavbarBtn: 'getOpenNavbarBtn'
   }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('navbarDropdown', {
     showProfileDrop: 'getProfileDropdown'
   })),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])({
-    revokeUserName: 'revokeUserName',
     setCartDefault: 'setCartDefault',
     setToDefaultUserInfo: 'setToDefaultUserInfo'
-  }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])(['setUserLoggedIn']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])('Navbar', ['setIsNavbarOpen']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])('navbarDropdown', ['hideProfileDropdown', 'toggleProfileDrop', 'openProfileDrop', 'hideFoodDropdown']), {
+  }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])('loginUser', ['setUserLoggedIn', 'setUserName']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])('Navbar', ['setIsNavbarOpen']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])('navbarDropdown', ['hideProfileDropdown', 'toggleProfileDrop', 'openProfileDrop', 'hideFoodDropdown']), {
     closeNav: function closeNav() {
       this.setIsNavbarOpen(false);
     },
@@ -247,7 +247,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _context.next = 2;
                 return axios.post('logout').then(function (logout) {
                   if (logout.data.success) {
-                    _this.revokeUserName();
+                    _this.setUserName('');
 
                     _this.setUserLoggedIn(false);
 

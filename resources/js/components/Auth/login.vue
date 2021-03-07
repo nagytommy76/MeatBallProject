@@ -54,7 +54,7 @@
                                 <Alert
                                     v-if="hasEmailError"
                                     :Msg="verifiedMsg"
-                                    :className="className"
+                                    :className="'danger'"
                                 />
                             </div>
                         </div>
@@ -66,7 +66,7 @@
 </div>
 </template>
 <script>
-import { mapMutations } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 export default {
     name: 'Login',
     data(){
@@ -76,14 +76,6 @@ export default {
                 password: '',
                 remember: false
             },
-            hasError: false,
-            errors: {
-                email: '',
-                password: ''
-            },
-            hasEmailError: false,
-            verifiedMsg: '',
-            className: 'danger',
         }
     },
     computed:{
@@ -95,39 +87,20 @@ export default {
         },
         getValidationSuccessMsg(){
             return this.$route.params.msg
-        }
+        },
+        ...mapGetters('loginUser', {
+            hasError: 'getHasError',
+            errors: 'getErrorMsgs',
+            hasEmailError: 'getHasEmailError',
+            verifiedMsg: 'getVerifiedMsg'
+        }),
     },
     methods:{
-        ...mapMutations([
-            'setUserName',
-            'setUserLoggedIn',
-        ]),
-        showErrors(errors){
-            this.hasError = true;
-            this.errors.email = errors.email;
-            this.errors.password = errors.password;
-        },
+        ...mapActions('loginUser', {
+            login: 'login'
+        }),
         async logTheUserIn(){
-            axios.get('/sanctum/csrf-cookie')
-            .then(() =>{
-                axios.post('login', {
-                    formData: this.formData
-                }).then(login => {
-                    if(login.status == 200){
-                        if (Object.keys(login.data.hasError).includes("verifiedEmail")) {
-                            this.hasEmailError = true
-                            this.verifiedMsg = login.data.hasError.verifiedEmail[0]
-                        }
-                        if (login.data.hasError.length !== 0) {                           
-                            this.showErrors(login.data.hasError);
-                        }else{
-                            this.setUserName(login.data.username)
-                            this.setUserLoggedIn(true)
-                            this.$router.push({name: 'Welcome'})
-                        }                        
-                    }
-                })
-            })
+            await this.login(this.formData)
         },
         async resendEmail(){
             axios.post('email/resend',{

@@ -53,6 +53,7 @@
     </div>
 </template>
 <script>
+import { mapActions, mapGetters } from 'vuex';
 export default {
     name: 'Register',
     data(){
@@ -64,46 +65,58 @@ export default {
                 password: '',
                 password_confirmation: '',
             },
-            hasError: false,
-            hasException: false,
-            exceptionMsg: '',
-            errors: {
-                username: '',
-                email: '',
-                password: ''
-            },
+            // hasError: false,
+            // hasException: false,
+            // exceptionMsg: '',
+            // errors: {
+            //     username: '',
+            //     email: '',
+            //     password: ''
+            // },
         }
     },
+    computed:{
+        ...mapGetters('registerUser', {
+            hasError: 'getHasError',
+            hasException: 'getHasException',
+            exceptionMsg: 'getExceptionMsg',
+            errors: 'getErrors'
+        }),
+    },
     methods: {
+        ...mapActions('registerUser', {
+            register: 'register'
+        }),
         async userRegister(){
-            this.isLoading = true
-            await axios.post('register', {
-                formData: this.formData
-            })
-            .then(register => {
-                if(register.data.exception == null){
-                    if (register.data.hasError.length == 0) {
-                        this.$router.push({name: 'Login', params: {registerAlert: true}})
-                    }else{
-                        this.showErrors(register.data.hasError)
-                    }  
-                    this.isLoading = false                  
-                }else{
-                    this.showException(register.data.exception)
-                    this.isLoading = false
-                }
-            })
+            // this.isLoading = true
+            await this.register(this.formData)
+            // await axios.post('register', {
+            //     formData: this.formData
+            // })
+            // .then(register => {
+            //     if(register.data.exception == null){
+            //         if (register.data.hasError.length == 0) {
+            //             this.$router.push({name: 'Login', params: {registerAlert: true}})
+            //         }else{
+            //             this.showErrors(register.data.hasError)
+            //         }  
+                    // this.isLoading = false                  
+            //     }else{
+            //         this.showException(register.data.exception)
+            //         this.isLoading = false
+            //     }
+            // })
         },
-        showErrors(errors){
-            this.hasError = true;
-            this.errors.username = errors.username;
-            this.errors.email = errors.email;
-            this.errors.password = errors.password;
-        },
-        showException(ex){
-            this.hasException = true
-            this.exceptionMsg = ex
-        }
+        // showErrors(errors){
+        //     this.hasError = true;
+        //     this.errors.username = errors.username;
+        //     this.errors.email = errors.email;
+        //     this.errors.password = errors.password;
+        // },
+        // showException(ex){
+        //     this.hasException = true
+        //     this.exceptionMsg = ex
+        // }
     }
 }
 </script>

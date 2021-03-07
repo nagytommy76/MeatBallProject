@@ -3,7 +3,7 @@ export default{
     state() {
         return{
             showOpenNavbarBtn: false,
-            isNavbarOpen: false,
+            isNavbarOpen: true,
         }
     },
     getters: {

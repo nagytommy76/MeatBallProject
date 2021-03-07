@@ -11,12 +11,19 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -71,6 +78,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Register',
   data: function data() {
@@ -81,18 +89,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         email: '',
         password: '',
         password_confirmation: ''
-      },
-      hasError: false,
-      hasException: false,
-      exceptionMsg: '',
-      errors: {
-        username: '',
-        email: '',
-        password: ''
-      }
+      } // hasError: false,
+      // hasException: false,
+      // exceptionMsg: '',
+      // errors: {
+      //     username: '',
+      //     email: '',
+      //     password: ''
+      // },
+
     };
   },
-  methods: {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('registerUser', {
+    hasError: 'getHasError',
+    hasException: 'getHasException',
+    exceptionMsg: 'getExceptionMsg',
+    errors: 'getErrors'
+  })),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('registerUser', {
+    register: 'register'
+  }), {
     userRegister: function userRegister() {
       var _this = this;
 
@@ -101,50 +117,28 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _this.isLoading = true;
-                _context.next = 3;
-                return axios.post('register', {
-                  formData: _this.formData
-                }).then(function (register) {
-                  if (register.data.exception == null) {
-                    if (register.data.hasError.length == 0) {
-                      _this.$router.push({
-                        name: 'Login',
-                        params: {
-                          registerAlert: true
-                        }
-                      });
-                    } else {
-                      _this.showErrors(register.data.hasError);
-                    }
+                _context.next = 2;
+                return _this.register(_this.formData);
 
-                    _this.isLoading = false;
-                  } else {
-                    _this.showException(register.data.exception);
-
-                    _this.isLoading = false;
-                  }
-                });
-
-              case 3:
+              case 2:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
       }))();
-    },
-    showErrors: function showErrors(errors) {
-      this.hasError = true;
-      this.errors.username = errors.username;
-      this.errors.email = errors.email;
-      this.errors.password = errors.password;
-    },
-    showException: function showException(ex) {
-      this.hasException = true;
-      this.exceptionMsg = ex;
-    }
-  }
+    } // showErrors(errors){
+    //     this.hasError = true;
+    //     this.errors.username = errors.username;
+    //     this.errors.email = errors.email;
+    //     this.errors.password = errors.password;
+    // },
+    // showException(ex){
+    //     this.hasException = true
+    //     this.exceptionMsg = ex
+    // }
+
+  })
 });
 
 /***/ }),

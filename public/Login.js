@@ -100,18 +100,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         email: '',
         password: '',
         remember: false
-      },
-      hasError: false,
-      errors: {
-        email: '',
-        password: ''
-      },
-      hasEmailError: false,
-      verifiedMsg: '',
-      className: 'danger'
+      }
     };
   },
-  computed: {
+  computed: _objectSpread({
     showRegisterSuccess: function showRegisterSuccess() {
       return this.$route.params.registerAlert ? this.$route.params.registerAlert : false;
     },
@@ -121,13 +113,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     getValidationSuccessMsg: function getValidationSuccessMsg() {
       return this.$route.params.msg;
     }
-  },
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])(['setUserName', 'setUserLoggedIn']), {
-    showErrors: function showErrors(errors) {
-      this.hasError = true;
-      this.errors.email = errors.email;
-      this.errors.password = errors.password;
-    },
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('loginUser', {
+    hasError: 'getHasError',
+    errors: 'getErrorMsgs',
+    hasEmailError: 'getHasEmailError',
+    verifiedMsg: 'getVerifiedMsg'
+  })),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('loginUser', {
+    login: 'login'
+  }), {
     logTheUserIn: function logTheUserIn() {
       var _this = this;
 
@@ -136,32 +130,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                axios.get('/sanctum/csrf-cookie').then(function () {
-                  axios.post('login', {
-                    formData: _this.formData
-                  }).then(function (login) {
-                    if (login.status == 200) {
-                      if (Object.keys(login.data.hasError).includes("verifiedEmail")) {
-                        _this.hasEmailError = true;
-                        _this.verifiedMsg = login.data.hasError.verifiedEmail[0];
-                      }
+                _context.next = 2;
+                return _this.login(_this.formData);
 
-                      if (login.data.hasError.length !== 0) {
-                        _this.showErrors(login.data.hasError);
-                      } else {
-                        _this.setUserName(login.data.username);
-
-                        _this.setUserLoggedIn(true);
-
-                        _this.$router.push({
-                          name: 'Welcome'
-                        });
-                      }
-                    }
-                  });
-                });
-
-              case 1:
+              case 2:
               case "end":
                 return _context.stop();
             }
@@ -436,10 +408,7 @@ var render = function() {
                     _vm._v(" "),
                     _vm.hasEmailError
                       ? _c("Alert", {
-                          attrs: {
-                            Msg: _vm.verifiedMsg,
-                            className: _vm.className
-                          }
+                          attrs: { Msg: _vm.verifiedMsg, className: "danger" }
                         })
                       : _vm._e()
                   ],
