@@ -86,18 +86,15 @@
             .food_card{
                 width: 18rem;
                 min-height: 23rem;
-                .food_card_header{
-                    min-height: 170px;
+                &_header{
+                    height: 190px;
                 }
-                .food_card_inner{
+                &_inner{
                     min-height: 130px;
                     .food_card_heading{
                         font-size: 1.2rem;
-                        // padding-bottom: .2rem;
-                        // margin-bottom: 1rem;
                         white-space: normal;
                         text-overflow: unset;
-
                     }
                     .ingredients{
                         h3{

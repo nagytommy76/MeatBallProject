@@ -14,7 +14,7 @@
         <Loading 
             :isLoading="isLoading"
         />
-        <a class="btn-up" href="#top"><i class="fas fa-arrow-circle-up fa-3x"></i></a>
+        <a class="btn-up" href="#top"><font-awesome :icon="['fas', 'arrow-circle-up']" size="3x"/></a>
     </aside>
 </template>
 <script>

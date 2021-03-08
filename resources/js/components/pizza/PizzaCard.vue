@@ -66,7 +66,7 @@ export default {
     };
   },
   computed:{
-      ...mapGetters({
+      ...mapGetters('loginUser',{
           userLoggedIn: 'getUserLoggedIn',
       }),
   },

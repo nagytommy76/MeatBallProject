@@ -37,7 +37,7 @@
                                     <input id="fetchUserToken" type="submit" value="Belépés" @click.prevent="logTheUserIn" class="btn btn-primary" />
                                 </div>
                                 <div class="col">
-                                    <BaseButton v-if="hasEmailError" @click.native="resendEmail" :butonClass="'delete'" :buttonText="'Aktiváló kód újraküldése'"/>
+                                    <BaseButton v-if="hasEmailError" @click.native.prevent="resendEmail" :butonClass="'delete'" :buttonText="'Aktiváló kód újraküldése'"/>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -55,6 +55,11 @@
                                     v-if="hasEmailError"
                                     :Msg="verifiedMsg"
                                     :className="'danger'"
+                                />
+                                <Alert
+                                    v-if="emailResend"
+                                    :Msg="verifiedMsg"
+                                    :className="'success'"
                                 />
                             </div>
                         </div>
@@ -92,28 +97,31 @@ export default {
             hasError: 'getHasError',
             errors: 'getErrorMsgs',
             hasEmailError: 'getHasEmailError',
-            verifiedMsg: 'getVerifiedMsg'
+            verifiedMsg: 'getVerifiedMsg',
+            emailResend: 'getEmailResend'
         }),
     },
     methods:{
         ...mapActions('loginUser', {
-            login: 'login'
+            login: 'login',
+            verificationEmailResend: 'resendVerificationEmail'
         }),
         async logTheUserIn(){
             await this.login(this.formData)
         },
         async resendEmail(){
-            axios.post('email/resend',{
-                formData: this.formData
-            }).then(email => {
-                if (email.data.send) {
-                    this.verifiedMsg = email.data.message
-                    this.className = 'success'
-                }else{
-                    this.verifiedMsg = email.data.message
-                    this.className = 'danger'
-                }
-            })
+            await this.verificationEmailResend(this.formData)
+            // axios.post('email/resend',{
+            //     formData: this.formData
+            // }).then(email => {
+            //     if (email.data.send) {
+            //         this.verifiedMsg = email.data.message
+            //         this.className = 'success'
+            //     }else{
+            //         this.verifiedMsg = email.data.message
+            //         this.className = 'danger'
+            //     }
+            // })
         },
     }
 }

@@ -15,9 +15,7 @@ export default{
             state.showOpenNavbarBtn = payload
         },
         setIsNavbarOpen(state, payload){
-            if (window.innerWidth <= 700) {
-                state.isNavbarOpen = payload 
-            }
+            state.isNavbarOpen = payload 
         },
     },
     actions: {

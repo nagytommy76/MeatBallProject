@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\Events\Verified;
+use Illuminate\Support\Facades\Validator;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
@@ -56,7 +57,7 @@ class VerificationController extends BaseAuthController
        if ($user->markEmailAsVerified()) {
            event(new Verified($user));
        }
-       return redirect(url('meatball/login',['validationSuccess' => true, 'message' => 'A validáció sikeres volt! Mostantólbe tud jelentkezni']));
+       return redirect(url('meatball/login',['validationSuccess' => true, 'message' => 'A validáció sikeres volt! Mostantól be tud jelentkezni']));
     }
 
     /**

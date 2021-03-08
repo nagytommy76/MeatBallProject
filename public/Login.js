@@ -91,6 +91,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Login',
@@ -117,10 +122,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     hasError: 'getHasError',
     errors: 'getErrorMsgs',
     hasEmailError: 'getHasEmailError',
-    verifiedMsg: 'getVerifiedMsg'
+    verifiedMsg: 'getVerifiedMsg',
+    emailResend: 'getEmailResend'
   })),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])('loginUser', {
-    login: 'login'
+    login: 'login',
+    verificationEmailResend: 'resendVerificationEmail'
   }), {
     logTheUserIn: function logTheUserIn() {
       var _this = this;
@@ -149,19 +156,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                axios.post('email/resend', {
-                  formData: _this2.formData
-                }).then(function (email) {
-                  if (email.data.send) {
-                    _this2.verifiedMsg = email.data.message;
-                    _this2.className = 'success';
-                  } else {
-                    _this2.verifiedMsg = email.data.message;
-                    _this2.className = 'danger';
-                  }
-                });
+                _context2.next = 2;
+                return _this2.verificationEmailResend(_this2.formData);
 
-              case 1:
+              case 2:
               case "end":
                 return _context2.stop();
             }
@@ -373,6 +371,7 @@ var render = function() {
                             },
                             nativeOn: {
                               click: function($event) {
+                                $event.preventDefault()
                                 return _vm.resendEmail($event)
                               }
                             }
@@ -409,6 +408,12 @@ var render = function() {
                     _vm.hasEmailError
                       ? _c("Alert", {
                           attrs: { Msg: _vm.verifiedMsg, className: "danger" }
+                        })
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.emailResend
+                      ? _c("Alert", {
+                          attrs: { Msg: _vm.verifiedMsg, className: "success" }
                         })
                       : _vm._e()
                   ],

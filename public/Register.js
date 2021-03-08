@@ -76,8 +76,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Register',
@@ -89,15 +87,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         email: '',
         password: '',
         password_confirmation: ''
-      } // hasError: false,
-      // hasException: false,
-      // exceptionMsg: '',
-      // errors: {
-      //     username: '',
-      //     email: '',
-      //     password: ''
-      // },
-
+      }
     };
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('registerUser', {
@@ -127,17 +117,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           }
         }, _callee);
       }))();
-    } // showErrors(errors){
-    //     this.hasError = true;
-    //     this.errors.username = errors.username;
-    //     this.errors.email = errors.email;
-    //     this.errors.password = errors.password;
-    // },
-    // showException(ex){
-    //     this.hasException = true
-    //     this.exceptionMsg = ex
-    // }
-
+    }
   })
 });
 
@@ -326,30 +306,33 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "card-footer" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("BaseButton", {
-                      attrs: { buttonText: "Regisztráció" },
-                      nativeOn: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.userRegister($event)
+              _c(
+                "div",
+                { staticClass: "card-footer" },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "form-group" },
+                    [
+                      _c("BaseButton", {
+                        attrs: { buttonText: "Regisztráció" },
+                        nativeOn: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.userRegister($event)
+                          }
                         }
-                      }
-                    })
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _vm.hasException
-                  ? _c("div", { staticClass: "alert alert-danger" }, [
-                      _c("p", [_vm._v(_vm._s(_vm.exceptionMsg))])
-                    ])
-                  : _vm._e()
-              ])
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _vm.hasException
+                    ? _c("Alert", { attrs: { msg: _vm.exceptionMsg } })
+                    : _vm._e()
+                ],
+                1
+              )
             ]),
             _vm._v(" "),
             _c("Loading", { attrs: { isLoading: _vm.isLoading } })

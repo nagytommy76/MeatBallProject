@@ -28,6 +28,12 @@
                 <font-awesome class="bootstrap" :icon="['fab', 'bootstrap']" size="2x"/>
             </TechList>
             <TechList 
+                :title="'JS'"
+                :tooltipTitle="'JavaScript'"
+            >
+                <font-awesome class="svg-icon" :icon="['fab', 'js-square']" size="2x"/>
+            </TechList>
+            <TechList 
                 :title="'CSS3'"
                 :tooltipTitle="'CSS3'"
             >
@@ -35,10 +41,9 @@
             </TechList>
         </template>
         <template v-slot:description>
-            <h4>Az oldal még nem működik megfelelően!</h4>
             <p>2019-ben készítettem el első weboldalamat.</p>
-            <!-- <p><a class="primary-color" href="https://www.udemy.com/course/object-oriented-php-mvc/">Brad Traversy</a></p> -->
-            <p></p>
+            <p>A vásárláshoz regisztráció szükséges, valamint a személyes (lakcím, telefonszám) adatokat is meg kell adni.</p>
+            <p>A rendelés leadását követően kapunk egy email-t, amelyben taláható egy, a program áltat generált PDF formátumú számla.</p>
         </template>
     </BaseProject>
 </template>

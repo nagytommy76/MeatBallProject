@@ -234,7 +234,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     setToDefaultUserInfo: 'setToDefaultUserInfo'
   }), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])('loginUser', ['setUserLoggedIn', 'setUserName']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])('Navbar', ['setIsNavbarOpen']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])('navbarDropdown', ['hideProfileDropdown', 'toggleProfileDrop', 'openProfileDrop', 'hideFoodDropdown']), {
     closeNav: function closeNav() {
-      this.setIsNavbarOpen(false);
+      if (window.innerWidth <= 700) {
+        this.setIsNavbarOpen(false);
+      }
     },
     logOut: function logOut() {
       var _this = this;
@@ -341,7 +343,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   })),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])('Navbar', ['setIsNavbarOpen']), {}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])('navbarDropdown', ['toggleFoodDrop', 'openFoodDrop']), {
     closeNavbar: function closeNavbar() {
-      this.setIsNavbarOpen(false);
+      if (window.innerWidth <= 700) {
+        this.setIsNavbarOpen(false);
+      }
     }
   })
 });

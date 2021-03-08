@@ -28,7 +28,6 @@
     }
 }
 .image-slider{
-    // box-shadow: 1px 1px 15px #222;
     position: fixed;
     bottom: 0;
     top: 0;
@@ -38,7 +37,6 @@
     margin: auto;
     width: 95%;
     height: auto;
-    // background: rgb(204, 204, 204);
     .img-container{
         height: 100%;
         width: 100%;
@@ -90,19 +88,22 @@
 }
 @media (max-width: $mobile-width){
     .image-slider{
+        width: 100%;
+        height: 100%;
         .image-close{
             top: 5px;
             right: 5px;
             font-size: 1.1rem;
         }
-        width: 100%;
-        height: 100%;
         .img-container{
             img{
-                object-fit: cover;
+                object-fit: contain;
+                width: 100%;
+                height: 100%;
             }
         }
         .arrow{
+            background-color: rgba($color: $primary, $alpha: 1);
             &-right{
                 padding: .2rem;
             }

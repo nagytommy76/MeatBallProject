@@ -170,7 +170,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".food_card_container {\n  height: 100%;\n  padding: 2rem 0 2rem 0;\n}\n.food_card_container .food_card_content {\n  height: 100%;\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  justify-content: space-evenly;\n  justify-items: center;\n  align-items: center;\n  gap: 1.5rem;\n  margin-bottom: 1rem;\n}\n.food_card_container .food_card_content .food_card {\n  display: flex;\n  flex-direction: column;\n  flex-flow: column;\n  width: 21.7rem;\n  min-height: 42rem;\n  background: #3f3f3f;\n  transition: all 0.1s;\n}\n.food_card_container .food_card_content .food_card_header {\n  width: 100%;\n  height: 300px;\n}\n.food_card_container .food_card_content .food_card_header img {\n  height: 100%;\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.food_card_container .food_card_content .food_card_inner {\n  padding: 0 0.5rem;\n  align-content: center;\n  min-height: 250px;\n}\n.food_card_container .food_card_content .food_card_inner .food_card_heading {\n  white-space: nowrap;\n  width: 100%;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  min-height: 20px;\n  font-size: 1.75rem;\n  padding: 0.6rem 0;\n  margin-bottom: 1.6rem;\n  border-bottom: 1px solid #F7BF00;\n}\n.food_card_container .food_card_content .food_card_inner .ingredients {\n  margin: 0.4rem 0;\n  cursor: default;\n}\n.food_card_container .food_card_content .food_card_footer {\n  align-self: center;\n  margin-top: auto;\n}\n.food_card_container .food_card_content .food_card_footer .price {\n  font-size: 1.3rem;\n}\n.food_card_container .food_card_content .food_card:hover {\n  box-shadow: 3px 3px 15px black;\n  transform: translateY(-0.4rem);\n}\n.food_card_container .food_card_content .food_card:hover .food_card_heading {\n  white-space: normal;\n  text-overflow: unset;\n}\n@media (max-width: 1136px) {\n.food_card_container .food_card_content {\n    grid-template-columns: repeat(2, 1fr);\n    justify-items: center;\n}\n}\n@media (max-width: 720px) {\n.food_card_container {\n    padding: 0;\n}\n.food_card_container .food_card_content {\n    grid-template-columns: 1fr;\n}\n.food_card_container .food_card_content .food_card {\n    width: 18rem;\n    min-height: 23rem;\n}\n.food_card_container .food_card_content .food_card .food_card_header {\n    min-height: 170px;\n}\n.food_card_container .food_card_content .food_card .food_card_inner {\n    min-height: 130px;\n}\n.food_card_container .food_card_content .food_card .food_card_inner .food_card_heading {\n    font-size: 1.2rem;\n    white-space: normal;\n    text-overflow: unset;\n}\n.food_card_container .food_card_content .food_card .food_card_inner .ingredients {\n    margin: 0.1rem 0;\n}\n.food_card_container .food_card_content .food_card .food_card_inner .ingredients h3 {\n    font-size: 1rem;\n    margin-bottom: 0.3rem;\n}\n.food_card_container .food_card_content .food_card .food_card_footer {\n    display: flex;\n    flex-direction: column;\n}\n.food_card_container .food_card_content .food_card .food_card_footer .price {\n    margin: 0 auto 0.5rem auto;\n}\n}", ""]);
+exports.push([module.i, ".food_card_container {\n  height: 100%;\n  padding: 2rem 0 2rem 0;\n}\n.food_card_container .food_card_content {\n  height: 100%;\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  justify-content: space-evenly;\n  justify-items: center;\n  align-items: center;\n  gap: 1.5rem;\n  margin-bottom: 1rem;\n}\n.food_card_container .food_card_content .food_card {\n  display: flex;\n  flex-direction: column;\n  flex-flow: column;\n  width: 21.7rem;\n  min-height: 42rem;\n  background: #3f3f3f;\n  transition: all 0.1s;\n}\n.food_card_container .food_card_content .food_card_header {\n  width: 100%;\n  height: 300px;\n}\n.food_card_container .food_card_content .food_card_header img {\n  height: 100%;\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.food_card_container .food_card_content .food_card_inner {\n  padding: 0 0.5rem;\n  align-content: center;\n  min-height: 250px;\n}\n.food_card_container .food_card_content .food_card_inner .food_card_heading {\n  white-space: nowrap;\n  width: 100%;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  min-height: 20px;\n  font-size: 1.75rem;\n  padding: 0.6rem 0;\n  margin-bottom: 1.6rem;\n  border-bottom: 1px solid #F7BF00;\n}\n.food_card_container .food_card_content .food_card_inner .ingredients {\n  margin: 0.4rem 0;\n  cursor: default;\n}\n.food_card_container .food_card_content .food_card_footer {\n  align-self: center;\n  margin-top: auto;\n}\n.food_card_container .food_card_content .food_card_footer .price {\n  font-size: 1.3rem;\n}\n.food_card_container .food_card_content .food_card:hover {\n  box-shadow: 3px 3px 15px black;\n  transform: translateY(-0.4rem);\n}\n.food_card_container .food_card_content .food_card:hover .food_card_heading {\n  white-space: normal;\n  text-overflow: unset;\n}\n@media (max-width: 1136px) {\n.food_card_container .food_card_content {\n    grid-template-columns: repeat(2, 1fr);\n    justify-items: center;\n}\n}\n@media (max-width: 720px) {\n.food_card_container {\n    padding: 0;\n}\n.food_card_container .food_card_content {\n    grid-template-columns: 1fr;\n}\n.food_card_container .food_card_content .food_card {\n    width: 18rem;\n    min-height: 23rem;\n}\n.food_card_container .food_card_content .food_card_header {\n    height: 190px;\n}\n.food_card_container .food_card_content .food_card_inner {\n    min-height: 130px;\n}\n.food_card_container .food_card_content .food_card_inner .food_card_heading {\n    font-size: 1.2rem;\n    white-space: normal;\n    text-overflow: unset;\n}\n.food_card_container .food_card_content .food_card_inner .ingredients {\n    margin: 0.1rem 0;\n}\n.food_card_container .food_card_content .food_card_inner .ingredients h3 {\n    font-size: 1rem;\n    margin-bottom: 0.3rem;\n}\n.food_card_container .food_card_content .food_card .food_card_footer {\n    display: flex;\n    flex-direction: column;\n}\n.food_card_container .food_card_content .food_card .food_card_footer .price {\n    margin: 0 auto 0.5rem auto;\n}\n}", ""]);
 
 // exports
 
@@ -312,21 +312,21 @@ var render = function() {
       _vm._v(" "),
       _c("Loading", { attrs: { isLoading: _vm.isLoading } }),
       _vm._v(" "),
-      _vm._m(0)
+      _c(
+        "a",
+        { staticClass: "btn-up", attrs: { href: "#top" } },
+        [
+          _c("font-awesome", {
+            attrs: { icon: ["fas", "arrow-circle-up"], size: "3x" }
+          })
+        ],
+        1
+      )
     ],
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "btn-up", attrs: { href: "#top" } }, [
-      _c("i", { staticClass: "fas fa-arrow-circle-up fa-3x" })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

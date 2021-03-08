@@ -44,6 +44,19 @@ $sideWidth: 36%;
             align-items: center;
             justify-content: center;
 
+            &-item{
+                width: 80%;
+                margin: 1rem 0;
+                font-size: 2.8rem;
+                letter-spacing: .2rem;
+                text-transform: uppercase;
+                text-align: left;
+                transition: transform .2s, color .2s;
+                &:hover{
+                    transform: translateY(-3px);
+                    color: $favColor;
+                }
+            }
             .sidenav-contact{
                 width: 80%;
                 text-align: left;
@@ -61,17 +74,24 @@ $sideWidth: 36%;
                     color: $favColor;
                 }
             }
-            &-item{
-                width: 80%;
-                margin: 1rem 0;
-                font-size: 2.8rem;
-                letter-spacing: .2rem;
-                text-transform: uppercase;
-                text-align: left;
-                transition: transform .2s, color .2s;
-                &:hover{
-                    transform: translateY(-3px);
-                    color: $favColor;
+        }
+    }
+}
+
+@media(max-height: 950px){
+    .sidenav{
+        &-nav{
+            .sidenav-contact{
+                &-item{
+                    .svg-icon{
+                        font-size: 2.3rem;
+                    }
+                }
+            }
+            .sidenav-navigation{
+                &-item{
+                    margin: .7rem 0;
+                    font-size: 2rem;
                 }
             }
         }

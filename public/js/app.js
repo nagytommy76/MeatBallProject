@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"Alert":"Alert","BaseButton":"BaseButton","BaseCard":"BaseCard","BaseFilter":"BaseFilter","CartModal":"CartModal","Dessert":"Dessert","Drink":"Drink","ErrorMsg":"ErrorMsg","ImageSlider":"ImageSlider","LoadingOverlay":"LoadingOverlay","Login":"Login","Meal":"Meal","Meatball":"Meatball","OrdersModal":"OrdersModal","PageNotFound":"PageNotFound","Pasta":"Pasta","Pizza":"Pizza","Register":"Register","Soup":"Soup","Tooltip":"Tooltip","WelcomePage":"WelcomePage"}[chunkId]||chunkId) + ".js?id=" + {"Alert":"69bf371839a433411791","BaseButton":"6354e816e4923fcd250b","BaseCard":"809620b1aec5c6507487","BaseFilter":"90027f01cafd44c01088","CartModal":"4d024259532d44a7e266","Dessert":"d6210f588a7cc82e2514","Drink":"37582250de42dea40bf0","ErrorMsg":"cd6a9ec06ef348541f8e","ImageSlider":"7fb366d79c92cc667c41","LoadingOverlay":"8550a2e5dcabf526a9e4","Login":"0eae8a60b3cd15ced5e4","Meal":"f49dee2ae35f912887c8","Meatball":"18c8257614679147417d","OrdersModal":"e815805b0ac029cefd8b","PageNotFound":"360ae16417fb3fb0103f","Pasta":"345de665f1bff0d14a61","Pizza":"0aac546d9729824249d4","Register":"55a78c049bb5071fb3c7","Soup":"b393aa6fdcbaf1ba9adb","Tooltip":"fae05c2b10102772c33b","WelcomePage":"21ae2e86fac6f73f7fb0"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "" + ({"Alert":"Alert","BaseButton":"BaseButton","BaseCard":"BaseCard","BaseFilter":"BaseFilter","CartModal":"CartModal","Dessert":"Dessert","Drink":"Drink","ErrorMsg":"ErrorMsg","ImageSlider":"ImageSlider","LoadingOverlay":"LoadingOverlay","Login":"Login","Meal":"Meal","Meatball":"Meatball","OrdersModal":"OrdersModal","PageNotFound":"PageNotFound","Pasta":"Pasta","Pizza":"Pizza","Register":"Register","Soup":"Soup","Tooltip":"Tooltip","WelcomePage":"WelcomePage"}[chunkId]||chunkId) + ".js?id=" + {"Alert":"69bf371839a433411791","BaseButton":"6354e816e4923fcd250b","BaseCard":"a02150bba76d8ce883d4","BaseFilter":"ea7b334469ffa6536728","CartModal":"4d024259532d44a7e266","Dessert":"d6210f588a7cc82e2514","Drink":"37582250de42dea40bf0","ErrorMsg":"cd6a9ec06ef348541f8e","ImageSlider":"28ad249173111b70fb19","LoadingOverlay":"8550a2e5dcabf526a9e4","Login":"a3fd4abc2dce91fe8858","Meal":"f49dee2ae35f912887c8","Meatball":"9ce0f690682f7deadf89","OrdersModal":"e815805b0ac029cefd8b","PageNotFound":"360ae16417fb3fb0103f","Pasta":"345de665f1bff0d14a61","Pizza":"d096952815b0a45aed8a","Register":"34332984503760c30985","Soup":"b393aa6fdcbaf1ba9adb","Tooltip":"fae05c2b10102772c33b","WelcomePage":"21ae2e86fac6f73f7fb0"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -16744,6 +16744,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -16873,6 +16874,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'SideNavbar',
   computed: {
@@ -16947,6 +16949,11 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _TechListItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TechListItem */ "./resources/js/views/includes/MainPage/includes/projects/TechListItem.vue");
+//
+//
+//
+//
+//
 //
 //
 //
@@ -17225,7 +17232,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".main-content {\n  min-height: 100vh;\n  display: flex;\n}\n.main-content .main-right-content {\n  background-color: #ffffff;\n  color: #333;\n  width: 70%;\n  text-align: justify;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.main-content .main-right-content .main-title-main {\n  color: #333;\n  font-size: 3.4rem;\n  text-align: center;\n  padding: 1rem 0 1rem 0;\n}\n.main-content .main-right-content .main-title-sub {\n  font-size: 2rem;\n  text-align: center;\n  padding-bottom: 2rem;\n}\n.main-content .main-right-content .projects {\n  display: grid;\n  width: 65%;\n  gap: 3rem;\n  grid-template-columns: 47% 47%;\n}\n.main-content .main-right-content .projects p {\n  margin: 0.3rem 0;\n}\n.image-enter-active,\n.image-leave-active {\n  transition: transform 0.4s ease;\n}\n.image-enter,\n.image-leave-to {\n  transform: scale(0, 0);\n}\n.slide-enter-active,\n.slide-leave-active {\n  transition: all 0.4s ease-out;\n}\n.slide-enter,\n.slide-leave-to {\n  opacity: 0;\n}\n@media (max-width: 720px) {\n.main-content {\n    flex-direction: column;\n}\n.main-content .main-right-content {\n    width: auto;\n}\n.main-content .main-right-content .projects {\n    width: 90%;\n    grid-template-columns: 100%;\n    gap: 0rem;\n}\n.main-content .main-right-content .projects .project {\n    width: 100%;\n    margin-bottom: 2rem;\n}\n.main-content .main-right-content .projects .project-title {\n    font-size: 1.5rem;\n    font-weight: 600;\n}\n.main-content .main-right-content .projects .project .thumbnail .icons {\n    bottom: -1px;\n}\n.main-content .main-right-content .projects .project .thumbnail .icons .live-demo {\n    min-width: 30%;\n    font-size: 2em;\n    font-weight: 600;\n}\n.main-content .main-right-content .projects .project .thumbnail .icons .github {\n    min-width: 15%;\n    font-size: 1.2em;\n}\n.main-content .main-right-content .main-title-main {\n    font-size: 2.7rem;\n}\n.main-content .main-right-content .main-title-sub {\n    font-size: 1.5rem;\n}\n.sub-title {\n    padding: 1rem 0 2rem 0;\n}\n}\n@media (max-width: 1136px) {\n.main-right-content .projects {\n    width: 87% !important;\n    grid-template-columns: 100% !important;\n    gap: 0rem;\n}\n.main-right-content .projects .project {\n    margin-bottom: 2rem !important;\n}\n}", ""]);
+exports.push([module.i, ".main-content {\n  min-height: 100vh;\n  display: flex;\n}\n.main-content .main-right-content {\n  background-color: #ffffff;\n  padding-bottom: 1rem;\n  color: #333;\n  width: 70%;\n  text-align: justify;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.main-content .main-right-content .main-title-main {\n  color: #333;\n  font-size: 3.4rem;\n  text-align: center;\n  padding: 1rem 0 1rem 0;\n}\n.main-content .main-right-content .main-title-sub {\n  font-size: 2rem;\n  text-align: center;\n  padding-bottom: 2rem;\n}\n.main-content .main-right-content .projects {\n  display: grid;\n  width: 65%;\n  gap: 3rem;\n  grid-template-columns: 47% 47%;\n}\n.main-content .main-right-content .projects p {\n  margin: 0.3rem 0;\n}\n.image-enter-active,\n.image-leave-active {\n  transition: transform 0.4s ease;\n}\n.image-enter,\n.image-leave-to {\n  transform: scale(0, 0);\n}\n.slide-enter-active,\n.slide-leave-active {\n  transition: all 0.4s ease-out;\n}\n.slide-enter,\n.slide-leave-to {\n  opacity: 0;\n}\n@media (max-width: 1440px) {\n.main-right-content .projects {\n    width: 80% !important;\n    grid-template-columns: 100% !important;\n}\n}\n@media (max-width: 720px) {\n.main-content {\n    flex-direction: column;\n}\n.main-content .main-right-content {\n    width: auto;\n}\n.main-content .main-right-content .projects {\n    width: 90%;\n    grid-template-columns: 100%;\n    gap: 0rem;\n}\n.main-content .main-right-content .projects .project {\n    width: 100%;\n    margin-bottom: 2rem;\n}\n.main-content .main-right-content .projects .project-title {\n    font-size: 1.5rem;\n    font-weight: 600;\n}\n.main-content .main-right-content .projects .project .thumbnail .icons {\n    bottom: -1px;\n}\n.main-content .main-right-content .projects .project .thumbnail .icons .live-demo {\n    min-width: 30%;\n    font-size: 2em;\n    font-weight: 600;\n}\n.main-content .main-right-content .projects .project .thumbnail .icons .github {\n    min-width: 15%;\n    font-size: 1.2em;\n}\n.main-content .main-right-content .main-title-main {\n    font-size: 2.7rem;\n}\n.main-content .main-right-content .main-title-sub {\n    font-size: 1.5rem;\n}\n.sub-title {\n    padding: 1rem 0 2rem 0;\n}\n}\n@media (max-width: 1136px) {\n.main-right-content .projects {\n    width: 87% !important;\n    grid-template-columns: 100% !important;\n    gap: 0rem;\n}\n.main-right-content .projects .project {\n    margin-bottom: 2rem !important;\n}\n}", ""]);
 
 // exports
 
@@ -17339,7 +17346,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../../node_mod
 
 
 // module
-exports.push([module.i, ".sidebar-open {\n  font-size: 1.2rem;\n  position: fixed;\n  top: 15px;\n  right: 15px;\n  z-index: 1;\n  cursor: pointer;\n  padding: 0.5rem;\n  background-color: rgba(0, 0, 0, 0.8);\n  border-radius: 5px;\n  transition: color 0.2s;\n}\n.sidebar-open:hover {\n  color: #ffae00;\n}\n.sidenav {\n  z-index: 3;\n  height: 100%;\n  width: 36%;\n  position: fixed;\n  top: 0;\n  right: 0;\n  background-color: #111;\n}\n.sidenav-close {\n  cursor: pointer;\n  position: absolute;\n  top: 1.2em;\n  right: 1.2em;\n  font-size: 1.4rem;\n  transition: color 0.2s;\n}\n.sidenav-close:hover {\n  color: #C80600;\n}\n.sidenav-nav {\n  height: 100%;\n}\n.sidenav-nav .sidenav-navigation {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n.sidenav-nav .sidenav-navigation .sidenav-contact {\n  width: 80%;\n  text-align: left;\n  margin-top: 0.8rem;\n}\n.sidenav-nav .sidenav-navigation .sidenav-contact-item {\n  margin-right: 1rem;\n  font-size: 1.3rem;\n  transition: color 0.2s;\n}\n.sidenav-nav .sidenav-navigation .sidenav-contact-item:hover {\n  color: #ffae00;\n}\n.sidenav-nav .sidenav-navigation .sidenav-contact h4, .sidenav-nav .sidenav-navigation .sidenav-contact .email {\n  margin-top: 0.5rem;\n  color: #ffae00;\n}\n.sidenav-nav .sidenav-navigation-item {\n  width: 80%;\n  margin: 1rem 0;\n  font-size: 2.8rem;\n  letter-spacing: 0.2rem;\n  text-transform: uppercase;\n  text-align: left;\n  transition: transform 0.2s, color 0.2s;\n}\n.sidenav-nav .sidenav-navigation-item:hover {\n  transform: translateY(-3px);\n  color: #ffae00;\n}\n@media (max-width: 720px) {\n.sidenav {\n    width: 100%;\n}\n.sidenav-nav .sidenav-contact h4 {\n    margin-top: 1.3rem;\n}\n.sidenav-nav .sidenav-contact-item .svg-icon {\n    font-size: 2rem;\n}\n.sidenav-nav .sidenav-navigation-item {\n    margin: 0.7rem 0;\n    font-size: 1.5rem;\n}\n}\n.sidebar-enter-active,\n.sidebar-leave-active {\n  transition: transform 0.3s ease-out;\n}\n.sidebar-enter,\n.sidebar-leave-to {\n  transform: translateX(100%);\n}\n.background-enter-active,\n.background-leave-active {\n  transition: opacity 0.3s ease-out;\n}\n.background-enter,\n.background-leave-to {\n  opacity: 0;\n}\n.nav-underline {\n  width: 80%;\n  border-bottom: 1px solid #ffae00;\n}", ""]);
+exports.push([module.i, ".sidebar-open {\n  font-size: 1.2rem;\n  position: fixed;\n  top: 15px;\n  right: 15px;\n  z-index: 1;\n  cursor: pointer;\n  padding: 0.5rem;\n  background-color: rgba(0, 0, 0, 0.8);\n  border-radius: 5px;\n  transition: color 0.2s;\n}\n.sidebar-open:hover {\n  color: #ffae00;\n}\n.sidenav {\n  z-index: 3;\n  height: 100%;\n  width: 36%;\n  position: fixed;\n  top: 0;\n  right: 0;\n  background-color: #111;\n}\n.sidenav-close {\n  cursor: pointer;\n  position: absolute;\n  top: 1.2em;\n  right: 1.2em;\n  font-size: 1.4rem;\n  transition: color 0.2s;\n}\n.sidenav-close:hover {\n  color: #C80600;\n}\n.sidenav-nav {\n  height: 100%;\n}\n.sidenav-nav .sidenav-navigation {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n.sidenav-nav .sidenav-navigation-item {\n  width: 80%;\n  margin: 1rem 0;\n  font-size: 2.8rem;\n  letter-spacing: 0.2rem;\n  text-transform: uppercase;\n  text-align: left;\n  transition: transform 0.2s, color 0.2s;\n}\n.sidenav-nav .sidenav-navigation-item:hover {\n  transform: translateY(-3px);\n  color: #ffae00;\n}\n.sidenav-nav .sidenav-navigation .sidenav-contact {\n  width: 80%;\n  text-align: left;\n  margin-top: 0.8rem;\n}\n.sidenav-nav .sidenav-navigation .sidenav-contact-item {\n  margin-right: 1rem;\n  font-size: 1.3rem;\n  transition: color 0.2s;\n}\n.sidenav-nav .sidenav-navigation .sidenav-contact-item:hover {\n  color: #ffae00;\n}\n.sidenav-nav .sidenav-navigation .sidenav-contact h4, .sidenav-nav .sidenav-navigation .sidenav-contact .email {\n  margin-top: 0.5rem;\n  color: #ffae00;\n}\n@media (max-height: 950px) {\n.sidenav-nav .sidenav-contact-item .svg-icon {\n    font-size: 2.3rem;\n}\n.sidenav-nav .sidenav-navigation-item {\n    margin: 0.7rem 0;\n    font-size: 2rem;\n}\n}\n@media (max-width: 720px) {\n.sidenav {\n    width: 100%;\n}\n.sidenav-nav .sidenav-contact h4 {\n    margin-top: 1.3rem;\n}\n.sidenav-nav .sidenav-contact-item .svg-icon {\n    font-size: 2rem;\n}\n.sidenav-nav .sidenav-navigation-item {\n    margin: 0.7rem 0;\n    font-size: 1.5rem;\n}\n}\n.sidebar-enter-active,\n.sidebar-leave-active {\n  transition: transform 0.3s ease-out;\n}\n.sidebar-enter,\n.sidebar-leave-to {\n  transform: translateX(100%);\n}\n.background-enter-active,\n.background-leave-active {\n  transition: opacity 0.3s ease-out;\n}\n.background-enter,\n.background-leave-to {\n  opacity: 0;\n}\n.nav-underline {\n  width: 80%;\n  border-bottom: 1px solid #ffae00;\n}", ""]);
 
 // exports
 
@@ -20293,11 +20300,21 @@ var staticRenderFns = [
       _c("div", { staticClass: "summary-body" }, [
         _c("p", [
           _vm._v(
-            "Nagy Tamás vagyok, pályakezdő webfejlesztő. Jelenlegi tudásom nagy részét autodidakta módon szereztem, különböző kurzusok (Udemy) és weboldalak (freeCodeCamp, w3school) segítségével, valamint saját projectek elkészítésével."
+            "Nagy Tamás vagyok, pályakezdő webfejlesztő. Jelenlegi tudásom nagy részét autodidakta módon szereztem, különböző kurzusok (Udemy) és weboldalak (freeCodeCamp, w3schools) segítségével, valamint saját projectek elkészítésével."
           )
         ]),
         _vm._v(" "),
-        _c("p", [_vm._v("Jelenleg Laravelt és Vue.js-t tanulok.")]),
+        _c("p", [
+          _vm._v(
+            "Fő erősségemnek a JavaScript-et és a Vue.js keretrendszert tartom."
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "Jelenleg a Laravel, React és Vue.js keretrendszereket tanulom."
+          )
+        ]),
         _vm._v(" "),
         _c("p", [
           _vm._v(
@@ -20307,7 +20324,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "A jövőt tekintve szeretnék megismerkedni a Node.js-el (valamint Express.js), React-el, és a MongoDB-vel."
+            "A jövőt tekintve szeretnék megismerkedni a Node.js-el (valamint Express.js) és a MongoDB-vel."
           )
         ])
       ])
@@ -20531,6 +20548,18 @@ var render = function() {
               }
             },
             [_vm._v("Recept kereső")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "sidenav-navigation-item",
+              attrs: {
+                target: "_blank",
+                href: "https://pcboltmvc.000webhostapp.com/"
+              }
+            },
+            [_vm._v("Computer Store")]
           ),
           _vm._v(" "),
           _c("div", { staticClass: "nav-underline" }),
@@ -20887,6 +20916,18 @@ var render = function() {
             _vm._v(" "),
             _c(
               "TechList",
+              { attrs: { title: "JS", tooltipTitle: "JavaScript" } },
+              [
+                _c("font-awesome", {
+                  staticClass: "svg-icon",
+                  attrs: { icon: ["fab", "js-square"], size: "2x" }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "TechList",
               { attrs: { title: "CSS3", tooltipTitle: "CSS3" } },
               [
                 _c("font-awesome", {
@@ -20904,11 +20945,19 @@ var render = function() {
         key: "description",
         fn: function() {
           return [
-            _c("h4", [_vm._v("Az oldal még nem működik megfelelően!")]),
-            _vm._v(" "),
             _c("p", [_vm._v("2019-ben készítettem el első weboldalamat.")]),
             _vm._v(" "),
-            _c("p")
+            _c("p", [
+              _vm._v(
+                "A vásárláshoz regisztráció szükséges, valamint a személyes (lakcím, telefonszám) adatokat is meg kell adni."
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "A rendelés leadását követően kapunk egy email-t, amelyben taláható egy, a program áltat generált PDF formátumú számla."
+              )
+            ])
           ]
         },
         proxy: true
@@ -21053,7 +21102,7 @@ var render = function() {
             _vm._v(" "),
             _c("p", [
               _vm._v(
-                "Létrehoztam egy admin felületet is, amin keresztül termékeket lehet bevinni, törölni és módosítani"
+                "Létrehoztam egy admin felületet is, amin keresztül termékeket lehet bevinni, törölni és módosítani."
               )
             ])
           ]
@@ -38049,7 +38098,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__["library"].add(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faGithub"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLinkedin"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faClock"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowLeft"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowRight"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faFacebookSquare"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBars"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faTimesCircle"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faEnvelope"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faPhone"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPhp"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLaravel"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faDatabase"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faJsSquare"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faVuejs"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faBootstrap"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faCss3Alt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faSass"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faHtml5"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faGitAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faWindows"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faNpm"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faPizzaSlice"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faSoap"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBirthdayCake"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faWineGlassAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBacon"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBreadSlice"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faSignOutAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faCartArrowDown"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faShoppingCart"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faTrashAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTripadvisor"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTwitter"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faYoutube"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faInstagram"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faHouseUser"]);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__["library"].add(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faGithub"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLinkedin"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faClock"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowLeft"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowRight"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faFacebookSquare"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBars"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faTimesCircle"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faEnvelope"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faPhone"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPhp"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLaravel"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faDatabase"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faJsSquare"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faVuejs"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faBootstrap"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faCss3Alt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faSass"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faHtml5"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faGitAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faWindows"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faNpm"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faPizzaSlice"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faSoap"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBirthdayCake"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faWineGlassAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBacon"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBreadSlice"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faSignOutAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faCartArrowDown"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faShoppingCart"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faTrashAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTripadvisor"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTwitter"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faYoutube"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faInstagram"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faHouseUser"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowCircleUp"]);
 
 /***/ }),
 
@@ -38312,7 +38361,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (login) {
         if (login.status == 200) {
           if (Object.keys(login.data.hasError).includes("verifiedEmail")) {
-            context.commit('setHasEmailErrorAndVerifienMsg', true, login.data.hasError.verifiedEmail[0]);
+            context.commit('setHasEmailErrorAndVerifienMsg', true, login.data.hasError.email[0]);
           }
 
           if (login.data.hasError.length !== 0) {
@@ -38320,12 +38369,25 @@ __webpack_require__.r(__webpack_exports__);
           } else {
             context.commit('setUserName', login.data.username);
             context.commit('setUserLoggedIn', true);
+            setTimeout(function () {
+              context.commit('resetHasEmailErrorAndVerifienMsg');
+              context.commit('resetResponseErrors');
+            }, 1000);
             _router_router__WEBPACK_IMPORTED_MODULE_0__["default"].push({
               name: 'Welcome'
             });
           }
         }
       });
+    });
+  },
+  resendVerificationEmail: function resendVerificationEmail(context, formData) {
+    axios.post('email/resend', {
+      formData: formData
+    }).then(function (email) {
+      if (email.data.send) {
+        context.commit('setEmailResend', email.data.message);
+      }
     });
   }
 });
@@ -38357,7 +38419,8 @@ __webpack_require__.r(__webpack_exports__);
         password: []
       },
       hasEmailError: false,
-      verifiedMsg: ''
+      verifiedMsg: '',
+      emailResend: false
     };
   },
   getters: {
@@ -38378,6 +38441,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     getVerifiedMsg: function getVerifiedMsg(state) {
       return state.verifiedMsg;
+    },
+    getEmailResend: function getEmailResend(state) {
+      return state.emailResend;
     }
   },
   mutations: _mutations__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -38411,6 +38477,18 @@ __webpack_require__.r(__webpack_exports__);
     state.hasError = error;
     state.errors.email = loginHasError.email;
     state.errors.password = loginHasError.password;
+  },
+  setEmailResend: function setEmailResend(state, msg) {
+    state.emailResend = true, state.verifiedMsg = msg;
+  },
+  resetResponseErrors: function resetResponseErrors(state) {
+    state.hasError = false;
+    state.errors.email = [];
+    state.errors.password = [];
+  },
+  resetHasEmailErrorAndVerifienMsg: function resetHasEmailErrorAndVerifienMsg(state) {
+    state.hasEmailError = false;
+    state.verifiedMsg = '';
   }
 });
 
@@ -38499,9 +38577,7 @@ __webpack_require__.r(__webpack_exports__);
       state.showOpenNavbarBtn = payload;
     },
     setIsNavbarOpen: function setIsNavbarOpen(state, payload) {
-      if (window.innerWidth <= 700) {
-        state.isNavbarOpen = payload;
-      }
+      state.isNavbarOpen = payload;
     }
   },
   actions: {
@@ -38765,6 +38841,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               }).then(function (register) {
                 if (register.data.exception == null) {
                   if (register.data.hasError.length == 0) {
+                    setTimeout(function () {
+                      context.commit('resetErrors');
+                    }, 1000);
                     _router_router__WEBPACK_IMPORTED_MODULE_1__["default"].push({
                       name: 'Login',
                       params: {
@@ -38857,6 +38936,12 @@ __webpack_require__.r(__webpack_exports__);
   showException: function showException(state, ex) {
     state.hasException = true;
     state.exceptionMsg = ex;
+  },
+  resetErrors: function resetErrors(state) {
+    state.hasError = false;
+    state.errors.username = [];
+    state.errors.email = [];
+    state.errors.password = [];
   }
 });
 

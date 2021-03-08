@@ -75,7 +75,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       finalPrice: this.foodPrice
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])({
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])('loginUser', {
     userLoggedIn: 'getUserLoggedIn'
   })),
   props: {

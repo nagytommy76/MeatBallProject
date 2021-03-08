@@ -8,5 +8,12 @@ export default {
     showException(state, ex){
         state.hasException = true
         state.exceptionMsg = ex
-    }
+    },
+
+    resetErrors(state){
+        state.hasError = false
+        state.errors.username = []
+        state.errors.email = []
+        state.errors.password = []
+    },
 }

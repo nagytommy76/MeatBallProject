@@ -19,6 +19,7 @@ import {
     faShoppingCart,
     faTrashAlt,
     faHouseUser,
+    faArrowCircleUp,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { 
@@ -80,4 +81,5 @@ library.add(
     faYoutube,
     faInstagram,
     faHouseUser,
+    faArrowCircleUp,
 )

@@ -98,7 +98,9 @@ export default {
             'hideFoodDropdown'
         ]),
         closeNav(){
-            this.setIsNavbarOpen(false)
+            if (window.innerWidth <= 700) {
+                this.setIsNavbarOpen(false)                
+            }
         },
         async logOut(){
             await axios.post('logout').then(logout =>{

@@ -59,7 +59,9 @@ export default {
             'openFoodDrop',
         ]),
         closeNavbar(){
-            this.setIsNavbarOpen(false)
+            if (window.innerWidth <= 700) {
+                this.setIsNavbarOpen(false)                
+            }
         },
     },
 }

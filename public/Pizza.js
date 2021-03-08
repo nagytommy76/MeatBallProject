@@ -144,7 +144,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       addedToCart: false
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapGetters"])({
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapGetters"])('loginUser', {
     userLoggedIn: 'getUserLoggedIn'
   })),
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapMutations"])(['setCartItems']), {

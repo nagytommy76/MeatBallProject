@@ -14,6 +14,7 @@ export default{
             },
             hasEmailError: false,
             verifiedMsg: '',
+            emailResend: false,
         }
     },
     getters: {
@@ -24,6 +25,8 @@ export default{
         getErrorMsgs: state => state.errors,
         getHasEmailError: state => state.hasEmailError,
         getVerifiedMsg: state => state.verifiedMsg,
+
+        getEmailResend: state => state.emailResend,
     },
     mutations,
     actions,
