@@ -50,7 +50,19 @@ export default {
         object-fit: cover;
         border-radius: 5px;
         cursor: pointer;
-    }                     
+    }    
+    .cld-image{
+        height: 17rem;
+        img{
+            height: 100%;
+            width: 100%;
+            box-shadow: 2px 1px 10px #222; 
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+        }                     
+
+    }
     .icons{
         width: 100%;
         position: absolute;

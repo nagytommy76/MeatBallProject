@@ -342,6 +342,17 @@ webpackContext.id = "./resources/img/comp-store sync recursive \\.jpg$";
 
 /***/ }),
 
+/***/ "./resources/img/comp-store/intro.jpg":
+/*!********************************************!*\
+  !*** ./resources/img/comp-store/intro.jpg ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/intro.jpg?b1465340c806018710c2630c34a399ae";
+
+/***/ }),
+
 /***/ "./resources/img/comp-store/last-orders.jpg":
 /*!**************************************************!*\
   !*** ./resources/img/comp-store/last-orders.jpg ***!

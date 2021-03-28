@@ -10,10 +10,12 @@
     background-color: #222;
     align-items: flex-end;
     color: #FFF;
-    .image{
-        object-fit: cover;
-        width: 200px;
-        border-radius: 50%;
+    .cld-image{
+        img{
+            object-fit: cover;
+            width: 200px;
+            border-radius: 50%;
+        }
     }
     .left-title{
         text-align: right;

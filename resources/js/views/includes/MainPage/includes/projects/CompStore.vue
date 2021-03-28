@@ -6,7 +6,8 @@
         :projectTitle="'Computer Store'"
     >
         <template v-slot:image>
-            <img src="../../../../../../img/comp-store/intro.jpg" alt="Meatball Project" @click="$emit('show-image', 'comp-store')">
+            <!-- <img src="../../../../../../img/comp-store/intro.jpg" alt="Meatball Project" @click="$emit('show-image', 'comp-store')"> -->
+            <CldImage lazy publicId="nagytamas93/PCBoltMVC/intro_ccseyv" @click="$emit('show-image', 'comp-store')" />
         </template>
         <template v-slot:tech-list>
             <TechList 

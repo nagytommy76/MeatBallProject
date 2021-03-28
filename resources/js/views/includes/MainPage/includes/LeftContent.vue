@@ -1,6 +1,6 @@
 <template>
    <aside class="main-left-content">
-        <img class="image" src="../../../../../img/modified.jpg" alt="IAM">
+        <CldImage publicId="nagytamas93/modified_q1vcff" cloudName="domsczfqu" />
         <div class="left-title">
             <span class="primary-color">Nagy Tamás</span>
             <div>Pályakezdő</div>
