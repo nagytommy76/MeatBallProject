@@ -342,17 +342,6 @@ webpackContext.id = "./resources/img/comp-store sync recursive \\.jpg$";
 
 /***/ }),
 
-/***/ "./resources/img/comp-store/intro.jpg":
-/*!********************************************!*\
-  !*** ./resources/img/comp-store/intro.jpg ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/intro.jpg?b1465340c806018710c2630c34a399ae";
-
-/***/ }),
-
 /***/ "./resources/img/comp-store/last-orders.jpg":
 /*!**************************************************!*\
   !*** ./resources/img/comp-store/last-orders.jpg ***!
@@ -476,6 +465,17 @@ module.exports = "/images/input-admin.jpg?5a7cd6ff63ef19e53771583f6bd11362";
 /***/ (function(module, exports) {
 
 module.exports = "/images/meal.jpg?bd177ad1b72ef79a3b33c2aaf2ef0b05";
+
+/***/ }),
+
+/***/ "./resources/img/meatball/meatball-main-page.jpg":
+/*!*******************************************************!*\
+  !*** ./resources/img/meatball/meatball-main-page.jpg ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/meatball-main-page.jpg?a7fa36c945d0da415efa36ea8acc5c58";
 
 /***/ }),
 

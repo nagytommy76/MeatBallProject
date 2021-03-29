@@ -1,6 +1,6 @@
 <template>
    <aside class="main-left-content">
-        <CldImage publicId="nagytamas93/modified_q1vcff" cloudName="domsczfqu" />
+        <CldImage publicId="nagytamas93/modified_q1vcff" class="profile-image" />
         <div class="left-title">
             <span class="primary-color">Nagy Tamás</span>
             <div>Pályakezdő</div>
@@ -78,5 +78,8 @@ export default {
 }
 </script>
 <style lang="scss">
+    @import './Image.scss';
+</style>
+<style lang="scss" scoped>
  @import '../../../../../sass/inc/portfolio/left-content.scss';
 </style>

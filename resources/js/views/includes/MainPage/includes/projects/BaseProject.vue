@@ -37,6 +37,9 @@ export default {
     }
 }
 </script>
+<style lang="scss">
+    @import './Image.scss';
+</style>
 <style lang="scss" scoped>
 @import '../../../../../../sass/variables.scss';
 .thumbnail{ 
@@ -51,18 +54,18 @@ export default {
         border-radius: 5px;
         cursor: pointer;
     }    
-    .cld-image{
-        height: 17rem;
-        img{
-            height: 100%;
-            width: 100%;
-            box-shadow: 2px 1px 10px #222; 
-            object-fit: cover;
-            border-radius: 5px;
-            cursor: pointer;
-        }                     
-
-    }
+    // .semmmi{
+    //     width: 100%;
+    //     height: 100%;
+    //     img{
+    //          height: 100%;
+    //         width: 100%;
+    //         box-shadow: 2px 1px 10px #222; 
+    //         object-fit: cover;
+    //         border-radius: 5px;
+    //         cursor: pointer;
+    //     } 
+    // }
     .icons{
         width: 100%;
         position: absolute;

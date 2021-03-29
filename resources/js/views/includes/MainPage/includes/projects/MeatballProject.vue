@@ -7,7 +7,13 @@
         :projectTitle="'Húsgolyó étterem'"
     >
         <template v-slot:image>
-            <img src="../../../../../../img/meatball/meatball-main-page.jpg" alt="Meatball Project" @click="$emit('show-image', 'meatball')">
+            <CldImage 
+                publicId="nagytamas93/Meatball/meatball-main-page_z2gqjt"
+                @click="$emit('show-image', 'comp-store')" 
+                class="thumbnail-image"
+                loading="lazy"
+            >
+            </CldImage>
         </template>
         <template v-slot:tech-list>
             <TechList 
