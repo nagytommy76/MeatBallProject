@@ -15,6 +15,7 @@ import BaseProject from './views/includes/MainPage/includes/projects/BaseProject
 Vue.component('font-awesome', FontAwesomeIcon)
 Vue.component('BaseProject', BaseProject)
 
+Vue.component('CloudImage', () => import( /* webpackChunkName: "CloudImage" */ './views/includes/MainPage/includes/projects/CloudImage'))
 Vue.component('BaseButton', () => import( /* webpackChunkName: "BaseButton" */ './components/baseComponents/BaseButton'))
 Vue.component('ImageSlider', () => import(/* webpackChunkName: "ImageSlider" */'./views/includes/MainPage/includes/ImageSlider'))
 Vue.component('Tooltip', () => import(/* webpackChunkName: "Tooltip" */'./components/Utility/Tooltip'))

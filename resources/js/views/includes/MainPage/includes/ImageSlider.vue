@@ -3,7 +3,8 @@
         <span @click="$emit('close')" class="image-close"><font-awesome :icon="['far', 'times-circle']" size="2x"/></span>
         <transition v-if="!singleImage" name="slide-image">
             <div @click="$emit('close')" class="img-container" v-for="nth in [step]" :key="nth">
-                <img :src="`/images${images[nth]}`" >        
+                <!-- <img :src="`/images${images[nth]}`" >         -->
+            <CloudImage :folder="imgFolderName" :image="allImages[nth]"/>
             </div>
         </transition>
         <div @click="$emit('close')" class="img-container" v-if="singleImage">
@@ -39,7 +40,7 @@ export default {
             case 'wargaming':
                 this.getWGImagesFromFolderByName()
                 break;
-            case 'meatball':
+            case 'Meatball':
                 this.getMeatBallImagesFromFolderByName()
                 break;
             case 'recipe':
@@ -55,7 +56,8 @@ export default {
             step: 0,
             nextPage: 'Következő',
             prevPage: 'Nincs előző kép',
-            images: [],
+            // images: [],
+            allImages: [],
         }
     },
     methods: {
@@ -65,7 +67,18 @@ export default {
             this.fillImages(require.context(`../../../../../img/wargaming`, true, /\.jpg$/))
         },
         getMeatBallImagesFromFolderByName(){
-            this.fillImages(require.context(`../../../../../img/meatball`, true, /\.jpg$/))
+            const allMeatballImages = [
+                'meatball-main-page_z2gqjt',
+                'pizza_wp57mc',
+                'meal_lpqmay',
+                'cart_s1dxdy',
+                'paypal_ir1kue',
+                'input-admin_rcjs2y',
+                'modify_f1ybut'
+            ]
+            this.fillImages(allMeatballImages)
+            console.log(this.allImages.length)
+            // this.fillImages(require.context(`../../../../../img/meatball`, true, /\.jpg$/))
         },
         getRecipeImagesFromFolderByName(){
             this.fillImages(require.context(`../../../../../img/recipe`, true, /\.jpg$/))
@@ -74,27 +87,28 @@ export default {
             this.fillImages(require.context(`../../../../../img/comp-store`, true, /\.jpg$/))
         },
         fillImages(imagesNameFromFolder){
-            imagesNameFromFolder.keys().forEach(imgName => this.images.push(imgName.substring(1)))
+            imagesNameFromFolder.forEach(imageName => this.allImages.push(imageName))
+            // imagesNameFromFolder.keys().forEach(imgName => this.images.push(imgName.substring(1)))
         },
         increase(){
-            if(this.images[this.step + 1] !== undefined){
+            if(this.allImages[this.step + 1] !== undefined){
                 ++this.step
-                if (this.images[this.step - 1] !== undefined) {
+                if (this.allImages[this.step - 1] !== undefined) {
                     this.prevPage = 'Előző'
                 }
             }
-            if(this.images[this.step + 1] === undefined){
+            if(this.allImages[this.step + 1] === undefined){
                 this.nextPage = 'Nincs több kép'
             }
         },
         decrease(){
-            if (this.images[this.step - 1] !== undefined) {
+            if (this.allImages[this.step - 1] !== undefined) {
                 --this.step
-                if (this.images[this.step + 1] !== undefined) {
+                if (this.allImages[this.step + 1] !== undefined) {
                     this.nextPage = 'Következő'
                 }
             }
-            if(this.images[this.step - 1] === undefined){
+            if(this.allImages[this.step - 1] === undefined){
                 this.prevPage = 'Nincs előző kép'
             }
         },

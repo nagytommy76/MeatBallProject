@@ -6,7 +6,7 @@
         :projectTitle="'Recept Kereső'"
     >
         <template v-slot:image>
-            <img src="../../../../../../img/recipe/Main-page.jpg" alt="Meatball Project" @click="$emit('show-image', 'recipe')">
+            <CloudImage folder="Recipe finder" image="Main-page_a9xjav"/>
         </template>
         <template v-slot:tech-list>
             <TechList 

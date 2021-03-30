@@ -32,6 +32,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     imgFolderName: {
@@ -50,7 +51,7 @@ __webpack_require__.r(__webpack_exports__);
         this.getWGImagesFromFolderByName();
         break;
 
-      case 'meatball':
+      case 'Meatball':
         this.getMeatBallImagesFromFolderByName();
         break;
 
@@ -68,7 +69,8 @@ __webpack_require__.r(__webpack_exports__);
       step: 0,
       nextPage: 'Következő',
       prevPage: 'Nincs előző kép',
-      images: []
+      // images: [],
+      allImages: []
     };
   },
   methods: {
@@ -78,7 +80,9 @@ __webpack_require__.r(__webpack_exports__);
       this.fillImages(__webpack_require__("./resources/img/wargaming sync recursive \\.jpg$"));
     },
     getMeatBallImagesFromFolderByName: function getMeatBallImagesFromFolderByName() {
-      this.fillImages(__webpack_require__("./resources/img/meatball sync recursive \\.jpg$"));
+      var allMeatballImages = ['meatball-main-page_z2gqjt', 'pizza_wp57mc', 'meal_lpqmay', 'cart_s1dxdy', 'paypal_ir1kue', 'input-admin_rcjs2y', 'modify_f1ybut'];
+      this.fillImages(allMeatballImages);
+      console.log(this.allImages.length); // this.fillImages(require.context(`../../../../../img/meatball`, true, /\.jpg$/))
     },
     getRecipeImagesFromFolderByName: function getRecipeImagesFromFolderByName() {
       this.fillImages(__webpack_require__("./resources/img/recipe sync recursive \\.jpg$"));
@@ -89,33 +93,33 @@ __webpack_require__.r(__webpack_exports__);
     fillImages: function fillImages(imagesNameFromFolder) {
       var _this = this;
 
-      imagesNameFromFolder.keys().forEach(function (imgName) {
-        return _this.images.push(imgName.substring(1));
-      });
+      imagesNameFromFolder.forEach(function (imageName) {
+        return _this.allImages.push(imageName);
+      }); // imagesNameFromFolder.keys().forEach(imgName => this.images.push(imgName.substring(1)))
     },
     increase: function increase() {
-      if (this.images[this.step + 1] !== undefined) {
+      if (this.allImages[this.step + 1] !== undefined) {
         ++this.step;
 
-        if (this.images[this.step - 1] !== undefined) {
+        if (this.allImages[this.step - 1] !== undefined) {
           this.prevPage = 'Előző';
         }
       }
 
-      if (this.images[this.step + 1] === undefined) {
+      if (this.allImages[this.step + 1] === undefined) {
         this.nextPage = 'Nincs több kép';
       }
     },
     decrease: function decrease() {
-      if (this.images[this.step - 1] !== undefined) {
+      if (this.allImages[this.step - 1] !== undefined) {
         --this.step;
 
-        if (this.images[this.step + 1] !== undefined) {
+        if (this.allImages[this.step + 1] !== undefined) {
           this.nextPage = 'Következő';
         }
       }
 
-      if (this.images[this.step - 1] === undefined) {
+      if (this.allImages[this.step - 1] === undefined) {
         this.prevPage = 'Nincs előző kép';
       }
     }
@@ -226,7 +230,15 @@ var render = function() {
                     }
                   }
                 },
-                [_c("img", { attrs: { src: "/images" + _vm.images[nth] } })]
+                [
+                  _c("CloudImage", {
+                    attrs: {
+                      folder: _vm.imgFolderName,
+                      image: _vm.allImages[nth]
+                    }
+                  })
+                ],
+                1
               )
             }),
             0
@@ -397,110 +409,6 @@ module.exports = "/images/szamla.jpg?5f785e504377d0979f5f9fad7fbf3752";
 
 /***/ }),
 
-/***/ "./resources/img/meatball sync recursive \\.jpg$":
-/*!********************************************!*\
-  !*** ./resources/img/meatball sync \.jpg$ ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./cart.jpg": "./resources/img/meatball/cart.jpg",
-	"./input-admin.jpg": "./resources/img/meatball/input-admin.jpg",
-	"./meal.jpg": "./resources/img/meatball/meal.jpg",
-	"./meatball-main-page.jpg": "./resources/img/meatball/meatball-main-page.jpg",
-	"./modify.jpg": "./resources/img/meatball/modify.jpg",
-	"./paypal.jpg": "./resources/img/meatball/paypal.jpg"
-};
-
-
-function webpackContext(req) {
-	var id = webpackContextResolve(req);
-	return __webpack_require__(id);
-}
-function webpackContextResolve(req) {
-	if(!__webpack_require__.o(map, req)) {
-		var e = new Error("Cannot find module '" + req + "'");
-		e.code = 'MODULE_NOT_FOUND';
-		throw e;
-	}
-	return map[req];
-}
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = "./resources/img/meatball sync recursive \\.jpg$";
-
-/***/ }),
-
-/***/ "./resources/img/meatball/cart.jpg":
-/*!*****************************************!*\
-  !*** ./resources/img/meatball/cart.jpg ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/cart.jpg?388dd9f85a184cb331ccac8cd2bd0b4b";
-
-/***/ }),
-
-/***/ "./resources/img/meatball/input-admin.jpg":
-/*!************************************************!*\
-  !*** ./resources/img/meatball/input-admin.jpg ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/input-admin.jpg?5a7cd6ff63ef19e53771583f6bd11362";
-
-/***/ }),
-
-/***/ "./resources/img/meatball/meal.jpg":
-/*!*****************************************!*\
-  !*** ./resources/img/meatball/meal.jpg ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/meal.jpg?bd177ad1b72ef79a3b33c2aaf2ef0b05";
-
-/***/ }),
-
-/***/ "./resources/img/meatball/meatball-main-page.jpg":
-/*!*******************************************************!*\
-  !*** ./resources/img/meatball/meatball-main-page.jpg ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/meatball-main-page.jpg?a7fa36c945d0da415efa36ea8acc5c58";
-
-/***/ }),
-
-/***/ "./resources/img/meatball/modify.jpg":
-/*!*******************************************!*\
-  !*** ./resources/img/meatball/modify.jpg ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/modify.jpg?c3797d7d09d72f016634d0e3cf48ff85";
-
-/***/ }),
-
-/***/ "./resources/img/meatball/paypal.jpg":
-/*!*******************************************!*\
-  !*** ./resources/img/meatball/paypal.jpg ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/paypal.jpg?27e8f7afb6d4ab1cf94bddaed2eabe4d";
-
-/***/ }),
-
 /***/ "./resources/img/recipe sync recursive \\.jpg$":
 /*!******************************************!*\
   !*** ./resources/img/recipe sync \.jpg$ ***!
@@ -534,6 +442,17 @@ webpackContext.keys = function webpackContextKeys() {
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
 webpackContext.id = "./resources/img/recipe sync recursive \\.jpg$";
+
+/***/ }),
+
+/***/ "./resources/img/recipe/Main-page.jpg":
+/*!********************************************!*\
+  !*** ./resources/img/recipe/Main-page.jpg ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Main-page.jpg?091de58bc60ce1ee7c9f935e63b8b67c";
 
 /***/ }),
 

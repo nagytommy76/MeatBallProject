@@ -7,13 +7,7 @@
         :projectTitle="'Húsgolyó étterem'"
     >
         <template v-slot:image>
-            <CldImage 
-                publicId="nagytamas93/Meatball/meatball-main-page_z2gqjt"
-                @click="$emit('show-image', 'comp-store')" 
-                class="thumbnail-image"
-                loading="lazy"
-            >
-            </CldImage>
+            <CloudImage folder="Meatball" image="meatball-main-page_z2gqjt" @click.native="$emit('show-image', 'Meatball')"/>
         </template>
         <template v-slot:tech-list>
             <TechList 
@@ -61,7 +55,7 @@
 import TechList from './TechListItem'
 export default {
     components:{
-        TechList,
-    }
+        TechList
+    },
 }
 </script>
