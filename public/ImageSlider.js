@@ -33,6 +33,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     imgFolderName: {
@@ -47,7 +50,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     switch (this.imgFolderName) {
-      case 'wargaming':
+      case 'Wargaming':
         this.getWGImagesFromFolderByName();
         break;
 
@@ -55,11 +58,11 @@ __webpack_require__.r(__webpack_exports__);
         this.getMeatBallImagesFromFolderByName();
         break;
 
-      case 'recipe':
+      case 'Recipe finder':
         this.getRecipeImagesFromFolderByName();
         break;
 
-      case 'comp-store':
+      case 'PCBoltMVC':
         this.getCompStoreImagesFromFolderByName();
         break;
     }
@@ -69,33 +72,34 @@ __webpack_require__.r(__webpack_exports__);
       step: 0,
       nextPage: 'Következő',
       prevPage: 'Nincs előző kép',
-      // images: [],
       allImages: []
     };
   },
   methods: {
     // A require.context() build-elésnél fut le, így nem lehet template literalt használni mert az futási időben "adódik át"
     // Ezért kell 3 vagy több függvény...
-    getWGImagesFromFolderByName: function getWGImagesFromFolderByName() {
-      this.fillImages(__webpack_require__("./resources/img/wargaming sync recursive \\.jpg$"));
-    },
     getMeatBallImagesFromFolderByName: function getMeatBallImagesFromFolderByName() {
       var allMeatballImages = ['meatball-main-page_z2gqjt', 'pizza_wp57mc', 'meal_lpqmay', 'cart_s1dxdy', 'paypal_ir1kue', 'input-admin_rcjs2y', 'modify_f1ybut'];
       this.fillImages(allMeatballImages);
-      console.log(this.allImages.length); // this.fillImages(require.context(`../../../../../img/meatball`, true, /\.jpg$/))
+    },
+    getWGImagesFromFolderByName: function getWGImagesFromFolderByName() {
+      var allWGImages = ['search_evfww8', 'modal_moxvgh'];
+      this.fillImages(allWGImages);
     },
     getRecipeImagesFromFolderByName: function getRecipeImagesFromFolderByName() {
-      this.fillImages(__webpack_require__("./resources/img/recipe sync recursive \\.jpg$"));
+      var allRecipeImages = ['Main-page_a9xjav', 'details_id7qdm', 'details-nutrients_dksgcr', 'ingredient-nutrients_ywfi0v', '404_oe27fc'];
+      this.fillImages(allRecipeImages);
     },
     getCompStoreImagesFromFolderByName: function getCompStoreImagesFromFolderByName() {
-      this.fillImages(__webpack_require__("./resources/img/comp-store sync recursive \\.jpg$"));
+      var allCompStoreImages = ['intro_ccseyv', 'products_ni1ady', 'search_ejkhj0', 'order_bljr98', 'last-orders_pis2fs', 'szamla_gekaid'];
+      this.fillImages(allCompStoreImages);
     },
     fillImages: function fillImages(imagesNameFromFolder) {
       var _this = this;
 
       imagesNameFromFolder.forEach(function (imageName) {
         return _this.allImages.push(imageName);
-      }); // imagesNameFromFolder.keys().forEach(imgName => this.images.push(imgName.substring(1)))
+      });
     },
     increase: function increase() {
       if (this.allImages[this.step + 1] !== undefined) {
@@ -140,7 +144,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".slide-image-enter-active,\n.slide-image-leave-active {\n  transition: all 0.8s ease-out;\n  overflow: hidden;\n  visibility: visible;\n  opacity: 1;\n}\n.slide-image-enter,\n.slide-image-leave-to {\n  opacity: 0;\n  visibility: hidden;\n}\n.image-close {\n  position: absolute;\n  top: 15px;\n  right: 0;\n  color: #ffae00;\n  cursor: pointer;\n  font-size: 1.5rem;\n  transition: color 0.2s;\n  z-index: 5;\n}\n.image-close:hover {\n  color: #C80600;\n}\n.image-slider {\n  position: fixed;\n  bottom: 0;\n  top: 0;\n  right: 0;\n  left: 0;\n  z-index: 4;\n  margin: auto;\n  width: 95%;\n  height: auto;\n}\n.image-slider .img-container {\n  height: 100%;\n  width: 100%;\n  position: absolute;\n  display: flex;\n  align-items: center;\n}\n.image-slider .img-container img {\n  -o-object-fit: scale-down;\n     object-fit: scale-down;\n  width: 100%;\n  height: 100%;\n}\n.image-slider .svg-icon {\n  cursor: pointer;\n}\n.image-slider .arrow-right {\n  position: absolute;\n  right: 0;\n  top: 50%;\n  color: black;\n  background-color: rgba(247, 191, 0, 0.6);\n  border-radius: 7px 0 0 7px;\n  padding: 0.5rem;\n  transition: all 0.2s ease-in;\n  cursor: pointer;\n}\n.image-slider .arrow-right:hover {\n  background-color: #f7bf00;\n  color: white;\n}\n.image-slider .arrow-left {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  color: black;\n  background-color: rgba(247, 191, 0, 0.6);\n  border-radius: 0 7px 7px 0;\n  padding: 0.5rem;\n  transition: all 0.2s ease-in;\n  cursor: pointer;\n}\n.image-slider .arrow-left:hover {\n  background-color: #f7bf00;\n  color: white;\n}\n@media (max-width: 720px) {\n.image-slider {\n    width: 100%;\n    height: 100%;\n}\n.image-slider .image-close {\n    top: 5px;\n    right: 5px;\n    font-size: 1.1rem;\n}\n.image-slider .img-container img {\n    -o-object-fit: contain;\n       object-fit: contain;\n    width: 100%;\n    height: 100%;\n}\n.image-slider .arrow {\n    background-color: #f7bf00;\n}\n.image-slider .arrow-right {\n    padding: 0.2rem;\n}\n.image-slider .arrow-left {\n    padding: 0.2rem;\n}\n}", ""]);
+exports.push([module.i, ".slide-image-enter-active,\n.slide-image-leave-active {\n  transition: all 1s ease-out;\n  overflow: hidden;\n  visibility: visible;\n  opacity: 1;\n}\n.slide-image-enter,\n.slide-image-leave-to {\n  opacity: 0;\n  visibility: hidden;\n}\n.image-close {\n  position: absolute;\n  top: 15px;\n  right: 0;\n  color: #ffae00;\n  cursor: pointer;\n  font-size: 1.5rem;\n  transition: color 0.2s;\n  z-index: 5;\n}\n.image-close:hover {\n  color: #C80600;\n}\n.image-slider {\n  position: fixed;\n  bottom: 0;\n  top: 0;\n  right: 0;\n  left: 0;\n  z-index: 4;\n  margin: auto;\n  width: 95%;\n  height: auto;\n}\n.image-slider .img-container {\n  height: 100%;\n  width: 100%;\n  position: absolute;\n  display: flex;\n  align-items: center;\n}\n.image-slider .img-container img {\n  -o-object-fit: scale-down;\n     object-fit: scale-down;\n  width: 100%;\n  height: 100%;\n}\n.image-slider .svg-icon {\n  cursor: pointer;\n}\n.image-slider .arrow-right {\n  position: absolute;\n  right: 0;\n  top: 50%;\n  color: black;\n  background-color: rgba(247, 191, 0, 0.6);\n  border-radius: 7px 0 0 7px;\n  padding: 0.5rem;\n  transition: all 0.2s ease-in;\n  cursor: pointer;\n}\n.image-slider .arrow-right:hover {\n  background-color: #f7bf00;\n  color: white;\n}\n.image-slider .arrow-left {\n  position: absolute;\n  left: 0;\n  top: 50%;\n  color: black;\n  background-color: rgba(247, 191, 0, 0.6);\n  border-radius: 0 7px 7px 0;\n  padding: 0.5rem;\n  transition: all 0.2s ease-in;\n  cursor: pointer;\n}\n.image-slider .arrow-left:hover {\n  background-color: #f7bf00;\n  color: white;\n}\n@media (max-width: 720px) {\n.image-slider {\n    width: 100%;\n    height: 100%;\n}\n.image-slider .image-close {\n    top: 5px;\n    right: 5px;\n    font-size: 1.1rem;\n}\n.image-slider .img-container img {\n    -o-object-fit: contain;\n       object-fit: contain;\n    width: 100%;\n    height: 100%;\n}\n.image-slider .arrow {\n    background-color: #f7bf00;\n}\n.image-slider .arrow-right {\n    padding: 0.2rem;\n}\n.image-slider .arrow-left {\n    padding: 0.2rem;\n}\n}", ""]);
 
 // exports
 
@@ -219,29 +223,21 @@ var render = function() {
             "transition",
             { attrs: { name: "slide-image" } },
             _vm._l([_vm.step], function(nth) {
-              return _c(
-                "div",
-                {
-                  key: nth,
-                  staticClass: "img-container",
-                  on: {
-                    click: function($event) {
-                      return _vm.$emit("close")
-                    }
-                  }
+              return _c("CloudImage", {
+                key: nth,
+                attrs: {
+                  folder: _vm.imgFolderName,
+                  image: _vm.allImages[nth],
+                  className: "img-container"
                 },
-                [
-                  _c("CloudImage", {
-                    attrs: {
-                      folder: _vm.imgFolderName,
-                      image: _vm.allImages[nth]
-                    }
-                  })
-                ],
-                1
-              )
+                nativeOn: {
+                  click: function($event) {
+                    return _vm.$emit("close")
+                  }
+                }
+              })
             }),
-            0
+            1
           )
         : _vm._e(),
       _vm._v(" "),
@@ -313,224 +309,6 @@ var staticRenderFns = []
 render._withStripped = true
 
 
-
-/***/ }),
-
-/***/ "./resources/img/comp-store sync recursive \\.jpg$":
-/*!**********************************************!*\
-  !*** ./resources/img/comp-store sync \.jpg$ ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./intro.jpg": "./resources/img/comp-store/intro.jpg",
-	"./last-orders.jpg": "./resources/img/comp-store/last-orders.jpg",
-	"./order.jpg": "./resources/img/comp-store/order.jpg",
-	"./products.jpg": "./resources/img/comp-store/products.jpg",
-	"./search.jpg": "./resources/img/comp-store/search.jpg",
-	"./szamla.jpg": "./resources/img/comp-store/szamla.jpg"
-};
-
-
-function webpackContext(req) {
-	var id = webpackContextResolve(req);
-	return __webpack_require__(id);
-}
-function webpackContextResolve(req) {
-	if(!__webpack_require__.o(map, req)) {
-		var e = new Error("Cannot find module '" + req + "'");
-		e.code = 'MODULE_NOT_FOUND';
-		throw e;
-	}
-	return map[req];
-}
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = "./resources/img/comp-store sync recursive \\.jpg$";
-
-/***/ }),
-
-/***/ "./resources/img/comp-store/last-orders.jpg":
-/*!**************************************************!*\
-  !*** ./resources/img/comp-store/last-orders.jpg ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/last-orders.jpg?f5635416392f797f9678595250afab2e";
-
-/***/ }),
-
-/***/ "./resources/img/comp-store/order.jpg":
-/*!********************************************!*\
-  !*** ./resources/img/comp-store/order.jpg ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/order.jpg?8f980282fb3ae0fb9f121348fdfac712";
-
-/***/ }),
-
-/***/ "./resources/img/comp-store/products.jpg":
-/*!***********************************************!*\
-  !*** ./resources/img/comp-store/products.jpg ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/products.jpg?fdf5bbd97c54f76241a4a7ece364e891";
-
-/***/ }),
-
-/***/ "./resources/img/comp-store/search.jpg":
-/*!*********************************************!*\
-  !*** ./resources/img/comp-store/search.jpg ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/search.jpg?dc19ac5293dbca2732b305db34b351c6";
-
-/***/ }),
-
-/***/ "./resources/img/comp-store/szamla.jpg":
-/*!*********************************************!*\
-  !*** ./resources/img/comp-store/szamla.jpg ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/szamla.jpg?5f785e504377d0979f5f9fad7fbf3752";
-
-/***/ }),
-
-/***/ "./resources/img/recipe sync recursive \\.jpg$":
-/*!******************************************!*\
-  !*** ./resources/img/recipe sync \.jpg$ ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./Main-page.jpg": "./resources/img/recipe/Main-page.jpg",
-	"./details.jpg": "./resources/img/recipe/details.jpg",
-	"./error.jpg": "./resources/img/recipe/error.jpg",
-	"./ingredient-nutrients.jpg": "./resources/img/recipe/ingredient-nutrients.jpg"
-};
-
-
-function webpackContext(req) {
-	var id = webpackContextResolve(req);
-	return __webpack_require__(id);
-}
-function webpackContextResolve(req) {
-	if(!__webpack_require__.o(map, req)) {
-		var e = new Error("Cannot find module '" + req + "'");
-		e.code = 'MODULE_NOT_FOUND';
-		throw e;
-	}
-	return map[req];
-}
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = "./resources/img/recipe sync recursive \\.jpg$";
-
-/***/ }),
-
-/***/ "./resources/img/recipe/Main-page.jpg":
-/*!********************************************!*\
-  !*** ./resources/img/recipe/Main-page.jpg ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Main-page.jpg?091de58bc60ce1ee7c9f935e63b8b67c";
-
-/***/ }),
-
-/***/ "./resources/img/recipe/details.jpg":
-/*!******************************************!*\
-  !*** ./resources/img/recipe/details.jpg ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/details.jpg?709d6603d67ea67bc21d2f7480411ee2";
-
-/***/ }),
-
-/***/ "./resources/img/recipe/error.jpg":
-/*!****************************************!*\
-  !*** ./resources/img/recipe/error.jpg ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/error.jpg?d8bb4077f98bcf66cb14daa7b931de04";
-
-/***/ }),
-
-/***/ "./resources/img/recipe/ingredient-nutrients.jpg":
-/*!*******************************************************!*\
-  !*** ./resources/img/recipe/ingredient-nutrients.jpg ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/ingredient-nutrients.jpg?6c47b1ec18e321120c39bc4aed5a07a4";
-
-/***/ }),
-
-/***/ "./resources/img/wargaming sync recursive \\.jpg$":
-/*!*********************************************!*\
-  !*** ./resources/img/wargaming sync \.jpg$ ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./modal.jpg": "./resources/img/wargaming/modal.jpg",
-	"./search.jpg": "./resources/img/wargaming/search.jpg"
-};
-
-
-function webpackContext(req) {
-	var id = webpackContextResolve(req);
-	return __webpack_require__(id);
-}
-function webpackContextResolve(req) {
-	if(!__webpack_require__.o(map, req)) {
-		var e = new Error("Cannot find module '" + req + "'");
-		e.code = 'MODULE_NOT_FOUND';
-		throw e;
-	}
-	return map[req];
-}
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = "./resources/img/wargaming sync recursive \\.jpg$";
-
-/***/ }),
-
-/***/ "./resources/img/wargaming/search.jpg":
-/*!********************************************!*\
-  !*** ./resources/img/wargaming/search.jpg ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/search.jpg?40249ab111fcb05855de24279dd800dd";
 
 /***/ }),
 

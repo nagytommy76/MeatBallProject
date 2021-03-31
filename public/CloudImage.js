@@ -17,6 +17,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     folder: {
@@ -24,8 +25,17 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     image: {
-      type: String,
-      required: true
+      type: String
+    },
+    resize: {
+      type: Boolean,
+      required: false,
+      "default": false
+    },
+    width: {
+      type: Number,
+      required: false,
+      "default": 200
     },
     className: {
       type: String,
@@ -101,10 +111,24 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("CldImage", {
-    class: _vm.className,
-    attrs: { publicId: "nagytamas93/" + _vm.folder + "/" + _vm.image, lazy: "" }
-  })
+  return _c(
+    "CldImage",
+    {
+      class: _vm.className,
+      attrs: {
+        publicId: "nagytamas93/" + _vm.folder + "/" + _vm.image,
+        lazy: ""
+      }
+    },
+    [
+      _vm.resize
+        ? _c("CldTransformation", {
+            attrs: { width: _vm.width, crop: "scale" }
+          })
+        : _vm._e()
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

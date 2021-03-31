@@ -6,7 +6,7 @@
         :projectTitle="'World of Tanks'"
     >
         <template v-slot:image>
-            <img src="../../../../../../img/wargaming/modal.jpg" alt="Wargaming" @click="$emit('show-image', 'wargaming')">
+            <CloudImage folder="Wargaming" image="modal_moxvgh" @click.native="$emit('show-image', 'Wargaming')"/>
         </template>
         <template v-slot:tech-list>
             <TechList 

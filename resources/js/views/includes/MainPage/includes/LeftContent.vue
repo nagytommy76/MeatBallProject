@@ -1,6 +1,8 @@
 <template>
    <aside class="main-left-content">
-        <CldImage publicId="nagytamas93/modified_q1vcff" class="profile-image" />
+        <CldImage publicId="nagytamas93/modified_q1vcff" class="profile-image" >
+            <CldTransformation width="200" crop="scale" />
+        </CldImage>
         <div class="left-title">
             <span class="primary-color">Nagy Tamás</span>
             <div>Pályakezdő</div>

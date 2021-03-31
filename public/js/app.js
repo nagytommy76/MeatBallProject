@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"Alert":"Alert","BaseButton":"BaseButton","BaseCard":"BaseCard","BaseFilter":"BaseFilter","CartModal":"CartModal","CloudImage":"CloudImage","Dessert":"Dessert","Drink":"Drink","ErrorMsg":"ErrorMsg","ImageSlider":"ImageSlider","LoadingOverlay":"LoadingOverlay","Login":"Login","Meal":"Meal","Meatball":"Meatball","OrdersModal":"OrdersModal","PageNotFound":"PageNotFound","Pasta":"Pasta","Pizza":"Pizza","Register":"Register","Soup":"Soup","Tooltip":"Tooltip","WelcomePage":"WelcomePage"}[chunkId]||chunkId) + ".js?id=" + {"Alert":"69bf371839a433411791","BaseButton":"6354e816e4923fcd250b","BaseCard":"a02150bba76d8ce883d4","BaseFilter":"ea7b334469ffa6536728","CartModal":"4d024259532d44a7e266","CloudImage":"caa280f959d86ddf9f84","Dessert":"d6210f588a7cc82e2514","Drink":"37582250de42dea40bf0","ErrorMsg":"cd6a9ec06ef348541f8e","ImageSlider":"992fd06411141a4684ce","LoadingOverlay":"8550a2e5dcabf526a9e4","Login":"a3fd4abc2dce91fe8858","Meal":"f49dee2ae35f912887c8","Meatball":"9ce0f690682f7deadf89","OrdersModal":"e815805b0ac029cefd8b","PageNotFound":"360ae16417fb3fb0103f","Pasta":"345de665f1bff0d14a61","Pizza":"d096952815b0a45aed8a","Register":"34332984503760c30985","Soup":"b393aa6fdcbaf1ba9adb","Tooltip":"fae05c2b10102772c33b","WelcomePage":"21ae2e86fac6f73f7fb0"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "" + ({"Alert":"Alert","BaseButton":"BaseButton","BaseCard":"BaseCard","BaseFilter":"BaseFilter","CartModal":"CartModal","CloudImage":"CloudImage","Dessert":"Dessert","Drink":"Drink","ErrorMsg":"ErrorMsg","ImageSlider":"ImageSlider","LoadingOverlay":"LoadingOverlay","Login":"Login","Meal":"Meal","Meatball":"Meatball","OrdersModal":"OrdersModal","PageNotFound":"PageNotFound","Pasta":"Pasta","Pizza":"Pizza","Register":"Register","Soup":"Soup","Tooltip":"Tooltip","WelcomePage":"WelcomePage"}[chunkId]||chunkId) + ".js?id=" + {"Alert":"69bf371839a433411791","BaseButton":"6354e816e4923fcd250b","BaseCard":"a02150bba76d8ce883d4","BaseFilter":"ea7b334469ffa6536728","CartModal":"4d024259532d44a7e266","CloudImage":"e34ef0283f492b75659e","Dessert":"d6210f588a7cc82e2514","Drink":"37582250de42dea40bf0","ErrorMsg":"cd6a9ec06ef348541f8e","ImageSlider":"b013e13203caf2e92761","LoadingOverlay":"8550a2e5dcabf526a9e4","Login":"a3fd4abc2dce91fe8858","Meal":"f49dee2ae35f912887c8","Meatball":"9ce0f690682f7deadf89","OrdersModal":"e815805b0ac029cefd8b","PageNotFound":"360ae16417fb3fb0103f","Pasta":"345de665f1bff0d14a61","Pizza":"d096952815b0a45aed8a","Register":"34332984503760c30985","Soup":"b393aa6fdcbaf1ba9adb","Tooltip":"fae05c2b10102772c33b","WelcomePage":"21ae2e86fac6f73f7fb0"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -16745,6 +16745,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -16998,9 +17000,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -17020,6 +17019,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _TechListItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TechListItem */ "./resources/js/views/includes/MainPage/includes/projects/TechListItem.vue");
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -32869,7 +32874,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".profile-image img {\n  -o-object-fit: cover;\n     object-fit: cover;\n  width: 200px;\n  border-radius: 50%;\n}", ""]);
+exports.push([module.i, ".profile-image img {\n  -o-object-fit: fill;\n     object-fit: fill;\n  width: 200px;\n  border-radius: 50%;\n}", ""]);
 
 // exports
 
@@ -42098,10 +42103,15 @@ var render = function() {
     "aside",
     { staticClass: "main-left-content" },
     [
-      _c("CldImage", {
-        staticClass: "profile-image",
-        attrs: { publicId: "nagytamas93/modified_q1vcff" }
-      }),
+      _c(
+        "CldImage",
+        {
+          staticClass: "profile-image",
+          attrs: { publicId: "nagytamas93/modified_q1vcff" }
+        },
+        [_c("CldTransformation", { attrs: { width: "200", crop: "scale" } })],
+        1
+      ),
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
@@ -42906,14 +42916,11 @@ var render = function() {
         key: "image",
         fn: function() {
           return [
-            _c("img", {
-              attrs: {
-                src: __webpack_require__(/*! ../../../../../../img/comp-store/intro.jpg */ "./resources/img/comp-store/intro.jpg"),
-                alt: "Meatball Project"
-              },
-              on: {
+            _c("CloudImage", {
+              attrs: { folder: "PCBoltMVC", image: "intro_ccseyv" },
+              nativeOn: {
                 click: function($event) {
-                  return _vm.$emit("show-image", "comp-store")
+                  return _vm.$emit("show-image", "PCBoltMVC")
                 }
               }
             })
@@ -43048,7 +43055,12 @@ var render = function() {
         fn: function() {
           return [
             _c("CloudImage", {
-              attrs: { folder: "Meatball", image: "meatball-main-page_z2gqjt" },
+              attrs: {
+                folder: "Meatball",
+                image: "meatball-main-page_z2gqjt",
+                resize: "",
+                width: 350
+              },
               nativeOn: {
                 click: function($event) {
                   return _vm.$emit("show-image", "Meatball")
@@ -43191,7 +43203,12 @@ var render = function() {
         fn: function() {
           return [
             _c("CloudImage", {
-              attrs: { folder: "Recipe finder", image: "Main-page_a9xjav" }
+              attrs: { folder: "Recipe finder", image: "Main-page_a9xjav" },
+              nativeOn: {
+                click: function($event) {
+                  return _vm.$emit("show-image", "Recipe finder")
+                }
+              }
             })
           ]
         },
@@ -43343,14 +43360,11 @@ var render = function() {
         key: "image",
         fn: function() {
           return [
-            _c("img", {
-              attrs: {
-                src: __webpack_require__(/*! ../../../../../../img/wargaming/modal.jpg */ "./resources/img/wargaming/modal.jpg"),
-                alt: "Wargaming"
-              },
-              on: {
+            _c("CloudImage", {
+              attrs: { folder: "Wargaming", image: "modal_moxvgh" },
+              nativeOn: {
                 click: function($event) {
-                  return _vm.$emit("show-image", "wargaming")
+                  return _vm.$emit("show-image", "Wargaming")
                 }
               }
             })
@@ -60007,28 +60021,6 @@ module.exports = function(module) {
 	return module;
 };
 
-
-/***/ }),
-
-/***/ "./resources/img/comp-store/intro.jpg":
-/*!********************************************!*\
-  !*** ./resources/img/comp-store/intro.jpg ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/intro.jpg?b1465340c806018710c2630c34a399ae";
-
-/***/ }),
-
-/***/ "./resources/img/wargaming/modal.jpg":
-/*!*******************************************!*\
-  !*** ./resources/img/wargaming/modal.jpg ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/modal.jpg?fa2ea8e98cfc337bd9d0ba0971e3cce7";
 
 /***/ }),
 

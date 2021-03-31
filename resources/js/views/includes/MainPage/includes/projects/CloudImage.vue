@@ -4,6 +4,7 @@
         :class="className"
         lazy
     >
+        <CldTransformation v-if="resize" :width="width" crop="scale" />
     </CldImage>
 </template>
 <script>
@@ -15,7 +16,16 @@ export default {
         },
         image: {
             type: String,
-            required: true,
+        },
+        resize:{
+            type: Boolean,
+            required: false,
+            default: false
+        },
+        width:{
+            type: Number,
+            required: false,
+            default: 200
         },
         className: {
             type: String,
@@ -30,7 +40,7 @@ export default {
 width: 100%;
 height: 100%;
     img{
-            height: 100%;
+        height: 100%;
         width: 100%;
         box-shadow: 2px 1px 10px #222; 
         object-fit: cover;

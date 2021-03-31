@@ -2,10 +2,13 @@
     <div class="image-slider">
         <span @click="$emit('close')" class="image-close"><font-awesome :icon="['far', 'times-circle']" size="2x"/></span>
         <transition v-if="!singleImage" name="slide-image">
-            <div @click="$emit('close')" class="img-container" v-for="nth in [step]" :key="nth">
-                <!-- <img :src="`/images${images[nth]}`" >         -->
-            <CloudImage :folder="imgFolderName" :image="allImages[nth]"/>
-            </div>
+            <CloudImage 
+                v-for="nth in [step]" :key="nth"
+                @click.native="$emit('close')"
+                :folder="imgFolderName"
+                :image="allImages[nth]"
+                :className="'img-container'"
+            />
         </transition>
         <div @click="$emit('close')" class="img-container" v-if="singleImage">
             <img :src="`/images/${imgFolderName}.jpg`">
@@ -37,16 +40,16 @@ export default {
     },
     mounted(){
         switch (this.imgFolderName) {
-            case 'wargaming':
+            case 'Wargaming':
                 this.getWGImagesFromFolderByName()
                 break;
             case 'Meatball':
                 this.getMeatBallImagesFromFolderByName()
                 break;
-            case 'recipe':
+            case 'Recipe finder':
                 this.getRecipeImagesFromFolderByName()
                 break;
-            case 'comp-store':
+            case 'PCBoltMVC':
                 this.getCompStoreImagesFromFolderByName()
                 break;
         }
@@ -56,16 +59,12 @@ export default {
             step: 0,
             nextPage: 'Következő',
             prevPage: 'Nincs előző kép',
-            // images: [],
             allImages: [],
         }
     },
     methods: {
         // A require.context() build-elésnél fut le, így nem lehet template literalt használni mert az futási időben "adódik át"
         // Ezért kell 3 vagy több függvény...
-        getWGImagesFromFolderByName(){
-            this.fillImages(require.context(`../../../../../img/wargaming`, true, /\.jpg$/))
-        },
         getMeatBallImagesFromFolderByName(){
             const allMeatballImages = [
                 'meatball-main-page_z2gqjt',
@@ -77,18 +76,34 @@ export default {
                 'modify_f1ybut'
             ]
             this.fillImages(allMeatballImages)
-            console.log(this.allImages.length)
-            // this.fillImages(require.context(`../../../../../img/meatball`, true, /\.jpg$/))
+        },
+        getWGImagesFromFolderByName(){
+            const allWGImages = ['search_evfww8','modal_moxvgh']
+            this.fillImages(allWGImages)
         },
         getRecipeImagesFromFolderByName(){
-            this.fillImages(require.context(`../../../../../img/recipe`, true, /\.jpg$/))
+            const allRecipeImages = [
+                'Main-page_a9xjav',
+                'details_id7qdm',
+                'details-nutrients_dksgcr',
+                'ingredient-nutrients_ywfi0v',
+                '404_oe27fc'
+            ]
+            this.fillImages(allRecipeImages)
         },
         getCompStoreImagesFromFolderByName(){
-            this.fillImages(require.context(`../../../../../img/comp-store`, true, /\.jpg$/))
+            const allCompStoreImages = [
+                'intro_ccseyv',
+                'products_ni1ady',
+                'search_ejkhj0',
+                'order_bljr98',
+                'last-orders_pis2fs',
+                'szamla_gekaid'
+            ]
+            this.fillImages(allCompStoreImages)
         },
         fillImages(imagesNameFromFolder){
             imagesNameFromFolder.forEach(imageName => this.allImages.push(imageName))
-            // imagesNameFromFolder.keys().forEach(imgName => this.images.push(imgName.substring(1)))
         },
         increase(){
             if(this.allImages[this.step + 1] !== undefined){

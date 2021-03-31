@@ -6,7 +6,7 @@
         :projectTitle="'Recept Kereső'"
     >
         <template v-slot:image>
-            <CloudImage folder="Recipe finder" image="Main-page_a9xjav"/>
+            <CloudImage folder="Recipe finder" image="Main-page_a9xjav" @click.native="$emit('show-image', 'Recipe finder')"/>
         </template>
         <template v-slot:tech-list>
             <TechList 

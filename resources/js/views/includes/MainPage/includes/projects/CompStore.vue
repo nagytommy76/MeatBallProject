@@ -6,10 +6,7 @@
         :projectTitle="'Computer Store'"
     >
         <template v-slot:image>
-            <img src="../../../../../../img/comp-store/intro.jpg" alt="Meatball Project" @click="$emit('show-image', 'comp-store')">
-            <!-- <CldImage lazy publicId="nagytamas93/PCBoltMVC/intro_ccseyv" @click="$emit('show-image', 'comp-store')" >
-                <CldTransformation width="400" height="400"/>
-            </CldImage> -->
+            <CloudImage folder="PCBoltMVC" image="intro_ccseyv" @click.native="$emit('show-image', 'PCBoltMVC')"/>
         </template>
         <template v-slot:tech-list>
             <TechList 
