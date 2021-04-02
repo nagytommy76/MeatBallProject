@@ -41,6 +41,7 @@ import {
     faTwitter,
     faYoutube,
     faInstagram,
+    faReact,
 } from '@fortawesome/free-brands-svg-icons'
 
 library.add(
@@ -82,4 +83,5 @@ library.add(
     faInstagram,
     faHouseUser,
     faArrowCircleUp,
+    faReact
 )

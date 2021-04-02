@@ -10,49 +10,52 @@
             <h4 class="icon-title">Backend technológiák</h4>
             <div class="grid-tooltip">
                 <Tooltip :text="'PHP'">
-                    <span><font-awesome class="svg-icon" :icon="['fab', 'php']" size="2x"/></span>
+                    <font-awesome class="svg-icon" :icon="['fab', 'php']" size="2x"/>
                 </Tooltip>
                 <Tooltip :text="'Laravel'">
-                    <span><font-awesome class="svg-icon" :icon="['fab', 'laravel']" size="2x"/></span>
+                    <font-awesome class="svg-icon" :icon="['fab', 'laravel']" size="2x"/>
                 </Tooltip>
                 <Tooltip :text="'MySQL'">
-                    <span><font-awesome class="svg-icon" :icon="['fas', 'database']" size="2x"/></span>
+                    <font-awesome class="svg-icon" :icon="['fas', 'database']" size="2x"/>
                 </Tooltip>
             </div>               
             <h4 class="icon-title">Frontend technológiák</h4>
             <div class="grid-tooltip">
                 <Tooltip :text="'JavaScript'">
-                    <span><font-awesome class="svg-icon" :icon="['fab', 'js-square']" size="2x"/></span>
+                    <font-awesome class="svg-icon" :icon="['fab', 'js-square']" size="2x"/>
                 </Tooltip>
                 <Tooltip :text="'Vue.js'">
-                    <span><font-awesome class="svg-icon" :icon="['fab', 'vuejs']" size="2x"/></span>
+                    <font-awesome class="svg-icon" :icon="['fab', 'vuejs']" size="2x"/>
+                </Tooltip>
+                <Tooltip :text="'React.js'">
+                    <font-awesome class="svg-icon" :icon="['fab', 'react']" size="2x"/>
                 </Tooltip>
                 <Tooltip :text="'Bootstrap 4'">
-                    <span><font-awesome class="svg-icon" :icon="['fab', 'bootstrap']" size="2x"/></span>
+                    <font-awesome class="svg-icon" :icon="['fab', 'bootstrap']" size="2x"/>
                 </Tooltip>
                 <Tooltip :text="'CSS3'">
-                    <span><font-awesome class="svg-icon" :icon="['fab', 'css3-alt']" size="2x"/></span>
+                    <font-awesome class="svg-icon" :icon="['fab', 'css3-alt']" size="2x"/>
                 </Tooltip>
                 <Tooltip :text="'SASS'">
-                    <span><font-awesome class="svg-icon" :icon="['fab', 'sass']" size="2x"/></span>
+                    <font-awesome class="svg-icon" :icon="['fab', 'sass']" size="2x"/>
                 </Tooltip>
                 <Tooltip :text="'HTML5'">
-                    <span><font-awesome class="svg-icon" :icon="['fab', 'html5']" size="2x"/></span>
+                    <font-awesome class="svg-icon" :icon="['fab', 'html5']" size="2x"/>
                 </Tooltip>  
             </div>                            
             <h4 class="icon-title">Egyéb ismeretek</h4>  
             <div class="grid-tooltip">               
                 <Tooltip :text="'GitHub'">
-                    <span><a target="_blank" href="https://github.com/nagytommy76"><font-awesome class="svg-icon" :icon="['fab', 'github']" size="2x"/></a></span>
+                    <a target="_blank" href="https://github.com/nagytommy76"><font-awesome class="svg-icon" :icon="['fab', 'github']" size="2x"/></a>
                 </Tooltip> 
                 <Tooltip :text="'Git'">
-                    <span><font-awesome class="svg-icon" :icon="['fab', 'git-alt']" size="2x"/></span>
+                    <font-awesome class="svg-icon" :icon="['fab', 'git-alt']" size="2x"/>
                 </Tooltip> 
                 <Tooltip :text="'Windows 10'">
-                    <span><font-awesome class="svg-icon" :icon="['fab', 'windows']" size="2x"/></span>
+                    <font-awesome class="svg-icon" :icon="['fab', 'windows']" size="2x"/>
                 </Tooltip>  
                 <Tooltip :text="'Node Package Manager'">
-                    <span><font-awesome class="svg-icon" :icon="['fab', 'npm']" size="2x"/></span>
+                    <font-awesome class="svg-icon" :icon="['fab', 'npm']" size="2x"/>
                 </Tooltip>  
             </div> 
         </div>

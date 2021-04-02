@@ -16745,6 +16745,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -42063,44 +42066,41 @@ var render = function() {
           "div",
           { staticClass: "grid-tooltip" },
           [
-            _c("Tooltip", { attrs: { text: "PHP" } }, [
-              _c(
-                "span",
-                [
-                  _c("font-awesome", {
-                    staticClass: "svg-icon",
-                    attrs: { icon: ["fab", "php"], size: "2x" }
-                  })
-                ],
-                1
-              )
-            ]),
+            _c(
+              "Tooltip",
+              { attrs: { text: "PHP" } },
+              [
+                _c("font-awesome", {
+                  staticClass: "svg-icon",
+                  attrs: { icon: ["fab", "php"], size: "2x" }
+                })
+              ],
+              1
+            ),
             _vm._v(" "),
-            _c("Tooltip", { attrs: { text: "Laravel" } }, [
-              _c(
-                "span",
-                [
-                  _c("font-awesome", {
-                    staticClass: "svg-icon",
-                    attrs: { icon: ["fab", "laravel"], size: "2x" }
-                  })
-                ],
-                1
-              )
-            ]),
+            _c(
+              "Tooltip",
+              { attrs: { text: "Laravel" } },
+              [
+                _c("font-awesome", {
+                  staticClass: "svg-icon",
+                  attrs: { icon: ["fab", "laravel"], size: "2x" }
+                })
+              ],
+              1
+            ),
             _vm._v(" "),
-            _c("Tooltip", { attrs: { text: "MySQL" } }, [
-              _c(
-                "span",
-                [
-                  _c("font-awesome", {
-                    staticClass: "svg-icon",
-                    attrs: { icon: ["fas", "database"], size: "2x" }
-                  })
-                ],
-                1
-              )
-            ])
+            _c(
+              "Tooltip",
+              { attrs: { text: "MySQL" } },
+              [
+                _c("font-awesome", {
+                  staticClass: "svg-icon",
+                  attrs: { icon: ["fas", "database"], size: "2x" }
+                })
+              ],
+              1
+            )
           ],
           1
         ),
@@ -42113,83 +42113,89 @@ var render = function() {
           "div",
           { staticClass: "grid-tooltip" },
           [
-            _c("Tooltip", { attrs: { text: "JavaScript" } }, [
-              _c(
-                "span",
-                [
-                  _c("font-awesome", {
-                    staticClass: "svg-icon",
-                    attrs: { icon: ["fab", "js-square"], size: "2x" }
-                  })
-                ],
-                1
-              )
-            ]),
+            _c(
+              "Tooltip",
+              { attrs: { text: "JavaScript" } },
+              [
+                _c("font-awesome", {
+                  staticClass: "svg-icon",
+                  attrs: { icon: ["fab", "js-square"], size: "2x" }
+                })
+              ],
+              1
+            ),
             _vm._v(" "),
-            _c("Tooltip", { attrs: { text: "Vue.js" } }, [
-              _c(
-                "span",
-                [
-                  _c("font-awesome", {
-                    staticClass: "svg-icon",
-                    attrs: { icon: ["fab", "vuejs"], size: "2x" }
-                  })
-                ],
-                1
-              )
-            ]),
+            _c(
+              "Tooltip",
+              { attrs: { text: "Vue.js" } },
+              [
+                _c("font-awesome", {
+                  staticClass: "svg-icon",
+                  attrs: { icon: ["fab", "vuejs"], size: "2x" }
+                })
+              ],
+              1
+            ),
             _vm._v(" "),
-            _c("Tooltip", { attrs: { text: "Bootstrap 4" } }, [
-              _c(
-                "span",
-                [
-                  _c("font-awesome", {
-                    staticClass: "svg-icon",
-                    attrs: { icon: ["fab", "bootstrap"], size: "2x" }
-                  })
-                ],
-                1
-              )
-            ]),
+            _c(
+              "Tooltip",
+              { attrs: { text: "React.js" } },
+              [
+                _c("font-awesome", {
+                  staticClass: "svg-icon",
+                  attrs: { icon: ["fab", "react"], size: "2x" }
+                })
+              ],
+              1
+            ),
             _vm._v(" "),
-            _c("Tooltip", { attrs: { text: "CSS3" } }, [
-              _c(
-                "span",
-                [
-                  _c("font-awesome", {
-                    staticClass: "svg-icon",
-                    attrs: { icon: ["fab", "css3-alt"], size: "2x" }
-                  })
-                ],
-                1
-              )
-            ]),
+            _c(
+              "Tooltip",
+              { attrs: { text: "Bootstrap 4" } },
+              [
+                _c("font-awesome", {
+                  staticClass: "svg-icon",
+                  attrs: { icon: ["fab", "bootstrap"], size: "2x" }
+                })
+              ],
+              1
+            ),
             _vm._v(" "),
-            _c("Tooltip", { attrs: { text: "SASS" } }, [
-              _c(
-                "span",
-                [
-                  _c("font-awesome", {
-                    staticClass: "svg-icon",
-                    attrs: { icon: ["fab", "sass"], size: "2x" }
-                  })
-                ],
-                1
-              )
-            ]),
+            _c(
+              "Tooltip",
+              { attrs: { text: "CSS3" } },
+              [
+                _c("font-awesome", {
+                  staticClass: "svg-icon",
+                  attrs: { icon: ["fab", "css3-alt"], size: "2x" }
+                })
+              ],
+              1
+            ),
             _vm._v(" "),
-            _c("Tooltip", { attrs: { text: "HTML5" } }, [
-              _c(
-                "span",
-                [
-                  _c("font-awesome", {
-                    staticClass: "svg-icon",
-                    attrs: { icon: ["fab", "html5"], size: "2x" }
-                  })
-                ],
-                1
-              )
-            ])
+            _c(
+              "Tooltip",
+              { attrs: { text: "SASS" } },
+              [
+                _c("font-awesome", {
+                  staticClass: "svg-icon",
+                  attrs: { icon: ["fab", "sass"], size: "2x" }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "Tooltip",
+              { attrs: { text: "HTML5" } },
+              [
+                _c("font-awesome", {
+                  staticClass: "svg-icon",
+                  attrs: { icon: ["fab", "html5"], size: "2x" }
+                })
+              ],
+              1
+            )
           ],
           1
         ),
@@ -42201,64 +42207,59 @@ var render = function() {
           { staticClass: "grid-tooltip" },
           [
             _c("Tooltip", { attrs: { text: "GitHub" } }, [
-              _c("span", [
-                _c(
-                  "a",
-                  {
-                    attrs: {
-                      target: "_blank",
-                      href: "https://github.com/nagytommy76"
-                    }
-                  },
-                  [
-                    _c("font-awesome", {
-                      staticClass: "svg-icon",
-                      attrs: { icon: ["fab", "github"], size: "2x" }
-                    })
-                  ],
-                  1
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("Tooltip", { attrs: { text: "Git" } }, [
               _c(
-                "span",
+                "a",
+                {
+                  attrs: {
+                    target: "_blank",
+                    href: "https://github.com/nagytommy76"
+                  }
+                },
                 [
                   _c("font-awesome", {
                     staticClass: "svg-icon",
-                    attrs: { icon: ["fab", "git-alt"], size: "2x" }
+                    attrs: { icon: ["fab", "github"], size: "2x" }
                   })
                 ],
                 1
               )
             ]),
             _vm._v(" "),
-            _c("Tooltip", { attrs: { text: "Windows 10" } }, [
-              _c(
-                "span",
-                [
-                  _c("font-awesome", {
-                    staticClass: "svg-icon",
-                    attrs: { icon: ["fab", "windows"], size: "2x" }
-                  })
-                ],
-                1
-              )
-            ]),
+            _c(
+              "Tooltip",
+              { attrs: { text: "Git" } },
+              [
+                _c("font-awesome", {
+                  staticClass: "svg-icon",
+                  attrs: { icon: ["fab", "git-alt"], size: "2x" }
+                })
+              ],
+              1
+            ),
             _vm._v(" "),
-            _c("Tooltip", { attrs: { text: "Node Package Manager" } }, [
-              _c(
-                "span",
-                [
-                  _c("font-awesome", {
-                    staticClass: "svg-icon",
-                    attrs: { icon: ["fab", "npm"], size: "2x" }
-                  })
-                ],
-                1
-              )
-            ])
+            _c(
+              "Tooltip",
+              { attrs: { text: "Windows 10" } },
+              [
+                _c("font-awesome", {
+                  staticClass: "svg-icon",
+                  attrs: { icon: ["fab", "windows"], size: "2x" }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "Tooltip",
+              { attrs: { text: "Node Package Manager" } },
+              [
+                _c("font-awesome", {
+                  staticClass: "svg-icon",
+                  attrs: { icon: ["fab", "npm"], size: "2x" }
+                })
+              ],
+              1
+            )
           ],
           1
         )
@@ -60108,9 +60109,9 @@ new Vue({
 /***/ (function(module, exports, __webpack_require__) {
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-window.axios.defaults.baseURL = 'http://meatballproject.hu/api/'; // window.axios.defaults.baseURL = 'https://nagytamas93.hu/api/'
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'; // window.axios.defaults.baseURL = 'http://meatballproject.hu/api/'
 
+window.axios.defaults.baseURL = 'https://nagytamas93.hu/api/';
 window.axios.defaults.withCredentials = true;
 
 /***/ }),
@@ -60160,7 +60161,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__["library"].add(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faGithub"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLinkedin"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faClock"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowLeft"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowRight"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faFacebookSquare"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBars"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faTimesCircle"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faEnvelope"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faPhone"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPhp"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLaravel"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faDatabase"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faJsSquare"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faVuejs"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faBootstrap"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faCss3Alt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faSass"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faHtml5"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faGitAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faWindows"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faNpm"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faPizzaSlice"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faSoap"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBirthdayCake"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faWineGlassAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBacon"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBreadSlice"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faSignOutAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faCartArrowDown"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faShoppingCart"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faTrashAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTripadvisor"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTwitter"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faYoutube"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faInstagram"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faHouseUser"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowCircleUp"]);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__["library"].add(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faGithub"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLinkedin"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faClock"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowLeft"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowRight"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faFacebookSquare"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBars"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faTimesCircle"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faEnvelope"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faPhone"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPhp"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLaravel"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faDatabase"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faJsSquare"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faVuejs"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faBootstrap"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faCss3Alt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faSass"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faHtml5"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faGitAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faWindows"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faNpm"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faPizzaSlice"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faSoap"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBirthdayCake"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faWineGlassAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBacon"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBreadSlice"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faSignOutAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faCartArrowDown"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faShoppingCart"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faTrashAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTripadvisor"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTwitter"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faYoutube"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faInstagram"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faHouseUser"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowCircleUp"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faReact"]);
 
 /***/ }),
 
