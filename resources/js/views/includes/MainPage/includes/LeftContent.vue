@@ -1,8 +1,6 @@
 <template>
    <aside class="main-left-content">
-        <CldImage publicId="nagytamas93/modified_q1vcff" class="profile-image" >
-            <CldTransformation width="200" crop="scale" />
-        </CldImage>
+        <img class="image" src="../../../../../img/modified.jpg" alt="IAM">
         <div class="left-title">
             <span class="primary-color">Nagy Tamás</span>
             <div>Pályakezdő</div>
@@ -79,9 +77,6 @@ export default {
     },
 }
 </script>
-<style lang="scss">
-    @import './Image.scss';
-</style>
 <style lang="scss" scoped>
  @import '../../../../../sass/inc/portfolio/left-content.scss';
 </style>

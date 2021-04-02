@@ -7,13 +7,7 @@
         :projectTitle="'Húsgolyó étterem'"
     >
         <template v-slot:image>
-            <CloudImage 
-                :folder="'Meatball'"
-                :image="'meatball-main-page_z2gqjt'"
-                @click.native="$emit('show-image', 'Meatball')"
-                resize
-                :width="350"
-            />
+            <img src="../../../../../../img/meatball/meatball-thumb.jpg" alt="Meatball Project" @click="$emit('show-image', 'Meatball')">
         </template>
         <template v-slot:tech-list>
             <TechList 

@@ -6,7 +6,7 @@
         :projectTitle="'Computer Store'"
     >
         <template v-slot:image>
-            <CloudImage folder="PCBoltMVC" image="intro_ccseyv" @click.native="$emit('show-image', 'PCBoltMVC')"/>
+            <img src="../../../../../../img/comp-store/intro.jpg" alt="Meatball Project" @click="$emit('show-image', 'PCBoltMVC')">
         </template>
         <template v-slot:tech-list>
             <TechList 

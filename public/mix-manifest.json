@@ -1,5 +1,5 @@
 {
-    "/js/app.js": "/js/app.js?id=0a14f58f88fb5118e68f",
+    "/js/app.js": "/js/app.js?id=47dd2da933b1a01f647b",
     "/css/app.css": "/css/app.css?id=06adc497a3e43618c893",
     "/Alert.js": "/Alert.js?id=8ccb17e9971ecba3bfdc",
     "/BaseButton.js": "/BaseButton.js?id=f315bc1c3d18a4d764d0",
@@ -14,7 +14,7 @@
     "/LoadingOverlay.js": "/LoadingOverlay.js?id=7349e5f7a3c9e01dca9a",
     "/Login.js": "/Login.js?id=127080362d9de21ea7e4",
     "/Meal.js": "/Meal.js?id=3199a6657d1ddab0e328",
-    "/Meatball.js": "/Meatball.js?id=fed1df039081aaf235d2",
+    "/Meatball.js": "/Meatball.js?id=746f098e000aae366063",
     "/OrdersModal.js": "/OrdersModal.js?id=e4ac170a5636b9119b18",
     "/PageNotFound.js": "/PageNotFound.js?id=e247f5f07d134ced9925",
     "/Pasta.js": "/Pasta.js?id=ac33e75645e834f93ade",
@@ -22,5 +22,5 @@
     "/Register.js": "/Register.js?id=50ec4306dbf282a655f9",
     "/Soup.js": "/Soup.js?id=f7c854516f95efd32327",
     "/Tooltip.js": "/Tooltip.js?id=f6718bed92332445936e",
-    "/WelcomePage.js": "/WelcomePage.js?id=9690d18ab01ba7bb45ed"
+    "/WelcomePage.js": "/WelcomePage.js?id=401ffc476d873e64b915"
 }
