@@ -1,6 +1,6 @@
-@import '../../variables';
+@import "../../variables";
 
-.main-left-content{
+.main-left-content {
     border-bottom: 2px solid $favColor;
     padding: 3rem;
     width: 30%;
@@ -8,68 +8,80 @@
     flex-direction: column;
     background-color: #222;
     align-items: flex-end;
-    color: #FFF;
-    .image{
+    color: #fff;
+    .image {
         object-fit: fill;
         width: 200px;
         border-radius: 50%;
     }
-    .left-title{
+    .left-title {
         text-align: right;
         font-size: 2.3rem;
         padding: 1.4rem 0;
     }
-    .stack-icon{
+    .stack-icon {
         text-align: right;
         margin-bottom: 1rem;
-        .icon-title{
-            margin: .5rem 0;
+        .icon-title {
+            margin: 0.5rem 0;
             font-size: 1.1rem;
         }
-        .svg-icon{
-            color: #FFF;
-            margin: .2rem 0.3rem;
+        .svg-icon {
+            color: #fff;
+            margin: 0.2rem 0.3rem;
             font-size: 2.4rem;
+            width: 45px;
+            height: 45px;
+        }
+        img {
+            filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(261deg)
+                brightness(116%) contrast(100%);
+            border-radius: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 45px;
+            height: 45px;
         }
     }
-    .summary{
+    .summary {
         margin-bottom: auto;
         max-width: 20rem;
         border: 1px solid $favColor;
         border-radius: 10px;
         padding: 1rem;
-        &-header{
+        &-header {
             font-size: 1.6rem;
             text-align: right;
         }
-        &-body{
+        &-body {
             text-align: justify;
             line-height: 1.35rem;
         }
     }
 }
 
-@media(max-width: $mobile-width){
-    .grid-tooltip{
+@media (max-width: $mobile-width) {
+    .grid-tooltip {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        .tooltip{
+        .tooltip {
             margin: auto;
-        }        
+        }
     }
-    .icon-title{
+    .icon-title {
         text-align: center;
-        margin-bottom: .5rem;
+        margin-bottom: 0.5rem;
     }
-    .main-left-content{
+    .main-left-content {
         width: auto;
         padding: 2rem;
         align-items: center;
-        .left-title{
+        .left-title {
             text-align: center;
         }
-        .summary{
-            &-header{
+        .summary {
+            &-header {
                 text-align: center;
                 margin-bottom: 1.3rem;
             }

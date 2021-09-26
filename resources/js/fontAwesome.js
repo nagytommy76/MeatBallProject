@@ -1,8 +1,8 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faTimesCircle } from '@fortawesome/free-regular-svg-icons'
-import { 
-    faClock, 
-    faArrowLeft, 
+import {
+    faClock,
+    faArrowLeft,
     faArrowRight,
     faBars,
     faEnvelope,
@@ -22,7 +22,7 @@ import {
     faArrowCircleUp,
 } from '@fortawesome/free-solid-svg-icons'
 
-import { 
+import {
     faGithub,
     faLinkedin,
     faFacebookSquare,
@@ -42,6 +42,7 @@ import {
     faYoutube,
     faInstagram,
     faReact,
+    faNode
 } from '@fortawesome/free-brands-svg-icons'
 
 library.add(
@@ -83,5 +84,6 @@ library.add(
     faInstagram,
     faHouseUser,
     faArrowCircleUp,
-    faReact
+    faReact,
+    faNode
 )
