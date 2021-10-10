@@ -12,9 +12,6 @@
         <Tooltip :text="'Node.js (Express.js)'">
           <font-awesome class="svg-icon" :icon="['fab', 'node']" size="2x" />
         </Tooltip>
-        <!-- <Tooltip :text="'Laravel'">
-          <font-awesome class="svg-icon" :icon="['fab', 'laravel']" size="2x" />
-        </Tooltip> -->
         <Tooltip :text="'MongoDB'">
           <font-awesome
             class="svg-icon"
@@ -74,7 +71,7 @@
       </div>
     </div>
     <section class="summary">
-      <h1 class="summary-header my-0">Rövid bemutatkozás</h1>
+      <h1 class="summary-header">Rövid bemutatkozás</h1>
       <div class="summary-body">
         <p>
           Nagy Tamás vagyok, pályakezdő webfejlesztő. Jelenlegi tudásom nagy
@@ -83,16 +80,16 @@
           projectek elkészítésével.
         </p>
         <p>
-          Fő erősségemnek a JavaScript-et és a Vue.js keretrendszert tartom.
+          Fő erősségemnek a JavaScript-et és a React.js könyvtárat tartom.
         </p>
-        <p>Jelenleg a Laravel, React és Vue.js keretrendszereket tanulom.</p>
+        <p>Jelenleg a MERN (MongoDB, Express.js, React, Node.js) stack-et tanulom, valamint TypeScript-et</p>
         <p>
           Kezdőként forntend területen szeretnék elhelyezkedni, illetve bővíteni
           tudásomat. A későbbiekben a fullstack irány a célom.
         </p>
         <p>
-          A jövőt tekintve szeretnék megismerkedni a Node.js-el (valamint
-          Express.js) és a MongoDB-vel.
+          A jövőt tekintve szeretném mélyíteni a tudásom Node.js-ben (valamint
+          Express.js) és MongoDB-ben.
         </p>
       </div>
     </section>

@@ -16772,9 +16772,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -32897,7 +32894,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".main-left-content[data-v-3b0aedb0] {\n  border-bottom: 2px solid #ffae00;\n  padding: 3rem;\n  width: 30%;\n  display: flex;\n  flex-direction: column;\n  background-color: #222;\n  align-items: flex-end;\n  color: #fff;\n}\n.main-left-content .image[data-v-3b0aedb0] {\n  -o-object-fit: fill;\n     object-fit: fill;\n  width: 200px;\n  border-radius: 50%;\n}\n.main-left-content .left-title[data-v-3b0aedb0] {\n  text-align: right;\n  font-size: 2.3rem;\n  padding: 1.4rem 0;\n}\n.main-left-content .stack-icon[data-v-3b0aedb0] {\n  text-align: right;\n  margin-bottom: 1rem;\n}\n.main-left-content .stack-icon .icon-title[data-v-3b0aedb0] {\n  margin: 0.5rem 0;\n  font-size: 1.1rem;\n}\n.main-left-content .stack-icon .svg-icon[data-v-3b0aedb0] {\n  color: #fff;\n  margin: 0.2rem 0.3rem;\n  font-size: 2.4rem;\n  width: 45px;\n  height: 45px;\n}\n.main-left-content .stack-icon img[data-v-3b0aedb0] {\n  -webkit-filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(261deg) brightness(116%) contrast(100%);\n          filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(261deg) brightness(116%) contrast(100%);\n  border-radius: 3px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 45px;\n  height: 45px;\n}\n.main-left-content .summary[data-v-3b0aedb0] {\n  margin-bottom: auto;\n  max-width: 20rem;\n  border: 1px solid #ffae00;\n  border-radius: 10px;\n  padding: 1rem;\n}\n.main-left-content .summary-header[data-v-3b0aedb0] {\n  font-size: 1.6rem;\n  text-align: right;\n}\n.main-left-content .summary-body[data-v-3b0aedb0] {\n  text-align: justify;\n  line-height: 1.35rem;\n}\n@media (max-width: 720px) {\n.grid-tooltip[data-v-3b0aedb0] {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n}\n.grid-tooltip .tooltip[data-v-3b0aedb0] {\n    margin: auto;\n}\n.icon-title[data-v-3b0aedb0] {\n    text-align: center;\n    margin-bottom: 0.5rem;\n}\n.main-left-content[data-v-3b0aedb0] {\n    width: auto;\n    padding: 2rem;\n    align-items: center;\n}\n.main-left-content .left-title[data-v-3b0aedb0] {\n    text-align: center;\n}\n.main-left-content .summary-header[data-v-3b0aedb0] {\n    text-align: center;\n    margin-bottom: 1.3rem;\n}\n}", ""]);
+exports.push([module.i, ".main-left-content[data-v-3b0aedb0] {\n  border-bottom: 2px solid #ffae00;\n  padding: 3rem;\n  width: 30%;\n  display: flex;\n  flex-direction: column;\n  background-color: #222;\n  align-items: flex-end;\n  color: #fff;\n}\n.main-left-content .image[data-v-3b0aedb0] {\n  -o-object-fit: fill;\n     object-fit: fill;\n  width: 200px;\n  border-radius: 50%;\n}\n.main-left-content .left-title[data-v-3b0aedb0] {\n  text-align: right;\n  font-size: 2.3rem;\n  padding: 1.4rem 0;\n}\n.main-left-content .stack-icon[data-v-3b0aedb0] {\n  text-align: right;\n  margin-bottom: 1rem;\n}\n.main-left-content .stack-icon .icon-title[data-v-3b0aedb0] {\n  margin: 0.5rem 0;\n  font-size: 1.1rem;\n}\n.main-left-content .stack-icon .svg-icon[data-v-3b0aedb0] {\n  color: #fff;\n  margin: 0.2rem 0.3rem;\n  font-size: 2.4rem;\n  width: 45px;\n  height: 45px;\n}\n.main-left-content .stack-icon img[data-v-3b0aedb0] {\n  -webkit-filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(261deg) brightness(116%) contrast(100%);\n          filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(261deg) brightness(116%) contrast(100%);\n  border-radius: 3px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 45px;\n  height: 45px;\n}\n.main-left-content .summary[data-v-3b0aedb0] {\n  margin-bottom: auto;\n  max-width: 20rem;\n  border: 1px solid #ffae00;\n  border-radius: 10px;\n  padding: 1rem;\n}\n.main-left-content .summary-header[data-v-3b0aedb0] {\n  font-size: 1.8rem;\n  text-align: right;\n  margin: 1.4rem 0;\n}\n.main-left-content .summary-body[data-v-3b0aedb0] {\n  text-align: justify;\n  line-height: 1.35rem;\n}\n.main-left-content .summary-body p[data-v-3b0aedb0] {\n  margin: 0.5rem 0;\n}\n@media (max-width: 720px) {\n.grid-tooltip[data-v-3b0aedb0] {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n}\n.grid-tooltip .tooltip[data-v-3b0aedb0] {\n    margin: auto;\n}\n.icon-title[data-v-3b0aedb0] {\n    text-align: center;\n    margin-bottom: 0.5rem;\n}\n.main-left-content[data-v-3b0aedb0] {\n    width: auto;\n    padding: 2rem;\n    align-items: center;\n}\n.main-left-content .left-title[data-v-3b0aedb0] {\n    text-align: center;\n}\n.main-left-content .summary-header[data-v-3b0aedb0] {\n    text-align: center;\n    margin-bottom: 1.3rem;\n}\n}", ""]);
 
 // exports
 
@@ -42300,7 +42297,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("section", { staticClass: "summary" }, [
-      _c("h1", { staticClass: "summary-header my-0" }, [
+      _c("h1", { staticClass: "summary-header" }, [
         _vm._v("Rövid bemutatkozás")
       ]),
       _vm._v(" "),
@@ -42313,13 +42310,13 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "\n        Fő erősségemnek a JavaScript-et és a Vue.js keretrendszert tartom.\n      "
+            "\n        Fő erősségemnek a JavaScript-et és a React.js könyvtárat tartom.\n      "
           )
         ]),
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "Jelenleg a Laravel, React és Vue.js keretrendszereket tanulom."
+            "Jelenleg a MERN (MongoDB, Express.js, React, Node.js) stack-et tanulom, valamint TypeScript-et"
           )
         ]),
         _vm._v(" "),
@@ -42331,7 +42328,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "\n        A jövőt tekintve szeretnék megismerkedni a Node.js-el (valamint\n        Express.js) és a MongoDB-vel.\n      "
+            "\n        A jövőt tekintve szeretném mélyíteni a tudásom Node.js-ben (valamint\n        Express.js) és MongoDB-ben.\n      "
           )
         ])
       ])

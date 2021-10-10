@@ -4,6 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Nagy Tamás portfólió oldala">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Nagy Tamás">
+    <meta property="og:description" content="Nagy Tamás portfólió weboldala">
+    <meta property="og:url" content="https://nagytamas93.hu/">
     <meta keywords="Nagy Tamás, SASS, Vue, Laravel">
 
     <!-- CSRF Token -->

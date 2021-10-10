@@ -144,8 +144,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .btn-confirm {
-  border-color: #2B8600;
-  background-image: linear-gradient(10deg, #2B8600 50%, transparent 50%);
+  border-color: #2b8600;
+  background-image: linear-gradient(10deg, #2b8600 50%, transparent 50%);
   transition: all 400ms ease-in-out;
 }
 
@@ -155,9 +155,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 .btn-confirm-dark {
-  border-color: #2B8600;
-  color: #2B8600;
-  background-image: linear-gradient(10deg, #2B8600 50%, transparent 50%);
+  border-color: #2b8600;
+  color: #2b8600;
+  background-image: linear-gradient(10deg, #2b8600 50%, transparent 50%);
   transition: all 400ms ease-in-out;
 }
 
@@ -185,7 +185,7 @@ body::-webkit-scrollbar-thumb {
 
 .btn-delete-dark:hover {
   background-position: 0;
-  color: #FFF;
+  color: #fff;
 }
 
 .btn-modify {
@@ -194,7 +194,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .btn-modify:hover {
-  background: #F79600;
+  background: #f79600;
   border-color: #F7BF00;
 }
 
@@ -284,6 +284,14 @@ body::-webkit-scrollbar-thumb {
 
 .css {
   color: #264de4;
+}
+
+.react {
+  color: #52dafb;
+}
+
+.node {
+  color: #55a345;
 }
 
 @media (max-width: 720px) {
