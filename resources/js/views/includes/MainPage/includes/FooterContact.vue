@@ -4,10 +4,7 @@
         <div class="contact-icon">
             <Tooltip :text="'nagytommy76@gmail.com'">
                 <span><a class="" href="mailto:nagytommy76@gmail.com"><font-awesome class="svg-icon" :icon="['fas', 'envelope']" size="2x"/></a></span>
-            </Tooltip>  
-            <Tooltip :text="'Tel.: 06307862963'">
-                <span><a class="" href="tel:06307862963"><font-awesome class="svg-icon" :icon="['fas', 'phone']" size="2x"/></a></span>
-            </Tooltip>  
+            </Tooltip>   
             <Tooltip :text="'LinkedIn'">
                 <span><a target="_blank" href="https://www.linkedin.com/in/nagy-tam%C3%A1s-27355116b/"><font-awesome class="svg-icon" :icon="['fab', 'linkedin']" size="2x"/></a></span>
             </Tooltip>  

@@ -16453,7 +16453,7 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _includes_LeftContent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./includes/LeftContent */ "./resources/js/views/includes/MainPage/includes/LeftContent.vue");
 /* harmony import */ var _includes_projects_MeatballProject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./includes/projects/MeatballProject */ "./resources/js/views/includes/MainPage/includes/projects/MeatballProject.vue");
-/* harmony import */ var _includes_projects_RecipeFinder_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./includes/projects/RecipeFinder.vue */ "./resources/js/views/includes/MainPage/includes/projects/RecipeFinder.vue");
+/* harmony import */ var _includes_projects_ReactRecipe_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./includes/projects/ReactRecipe.vue */ "./resources/js/views/includes/MainPage/includes/projects/ReactRecipe.vue");
 /* harmony import */ var _includes_projects_WgProject__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./includes/projects/WgProject */ "./resources/js/views/includes/MainPage/includes/projects/WgProject.vue");
 /* harmony import */ var _includes_projects_CompStore__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./includes/projects/CompStore */ "./resources/js/views/includes/MainPage/includes/projects/CompStore.vue");
 //
@@ -16489,6 +16489,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+ // import RecipeFinder from './includes/projects/RecipeFinder.vue'
 
 
 
@@ -16499,8 +16500,8 @@ __webpack_require__.r(__webpack_exports__);
     LeftContent: _includes_LeftContent__WEBPACK_IMPORTED_MODULE_0__["default"],
     Meatball: _includes_projects_MeatballProject__WEBPACK_IMPORTED_MODULE_1__["default"],
     Wargaming: _includes_projects_WgProject__WEBPACK_IMPORTED_MODULE_3__["default"],
-    RecipeFinder: _includes_projects_RecipeFinder_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    CompStore: _includes_projects_CompStore__WEBPACK_IMPORTED_MODULE_4__["default"]
+    CompStore: _includes_projects_CompStore__WEBPACK_IMPORTED_MODULE_4__["default"],
+    ReactRecipe: _includes_projects_ReactRecipe_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -16635,9 +16636,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
 //
 //
 //
@@ -16899,9 +16897,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'SideNavbar',
   computed: {
@@ -17106,16 +17101,21 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/includes/projects/RecipeFinder.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/includes/MainPage/includes/projects/RecipeFinder.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/includes/projects/ReactRecipe.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/includes/MainPage/includes/projects/ReactRecipe.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _TechListItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TechListItem */ "./resources/js/views/includes/MainPage/includes/projects/TechListItem.vue");
+//
+//
+//
+//
+//
 //
 //
 //
@@ -32894,7 +32894,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".main-left-content[data-v-3b0aedb0] {\n  border-bottom: 2px solid #ffae00;\n  padding: 3rem;\n  width: 30%;\n  display: flex;\n  flex-direction: column;\n  background-color: #222;\n  align-items: flex-end;\n  color: #fff;\n}\n.main-left-content .image[data-v-3b0aedb0] {\n  -o-object-fit: fill;\n     object-fit: fill;\n  width: 200px;\n  border-radius: 50%;\n}\n.main-left-content .left-title[data-v-3b0aedb0] {\n  text-align: right;\n  font-size: 2.3rem;\n  padding: 1.4rem 0;\n}\n.main-left-content .stack-icon[data-v-3b0aedb0] {\n  text-align: right;\n  margin-bottom: 1rem;\n}\n.main-left-content .stack-icon .icon-title[data-v-3b0aedb0] {\n  margin: 0.5rem 0;\n  font-size: 1.1rem;\n}\n.main-left-content .stack-icon .svg-icon[data-v-3b0aedb0] {\n  color: #fff;\n  margin: 0.2rem 0.3rem;\n  font-size: 2.4rem;\n  width: 45px;\n  height: 45px;\n}\n.main-left-content .stack-icon img[data-v-3b0aedb0] {\n  -webkit-filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(261deg) brightness(116%) contrast(100%);\n          filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(261deg) brightness(116%) contrast(100%);\n  border-radius: 3px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 45px;\n  height: 45px;\n}\n.main-left-content .summary[data-v-3b0aedb0] {\n  margin-bottom: auto;\n  max-width: 20rem;\n  border: 1px solid #ffae00;\n  border-radius: 10px;\n  padding: 1rem;\n}\n.main-left-content .summary-header[data-v-3b0aedb0] {\n  font-size: 1.8rem;\n  text-align: right;\n  margin: 1.4rem 0;\n}\n.main-left-content .summary-body[data-v-3b0aedb0] {\n  text-align: justify;\n  line-height: 1.35rem;\n}\n.main-left-content .summary-body p[data-v-3b0aedb0] {\n  margin: 0.5rem 0;\n}\n@media (max-width: 720px) {\n.grid-tooltip[data-v-3b0aedb0] {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n}\n.grid-tooltip .tooltip[data-v-3b0aedb0] {\n    margin: auto;\n}\n.icon-title[data-v-3b0aedb0] {\n    text-align: center;\n    margin-bottom: 0.5rem;\n}\n.main-left-content[data-v-3b0aedb0] {\n    width: auto;\n    padding: 2rem;\n    align-items: center;\n}\n.main-left-content .left-title[data-v-3b0aedb0] {\n    text-align: center;\n}\n.main-left-content .summary-header[data-v-3b0aedb0] {\n    text-align: center;\n    margin-bottom: 1.3rem;\n}\n}", ""]);
+exports.push([module.i, ".main-left-content[data-v-3b0aedb0] {\n  border-bottom: 2px solid #ffae00;\n  padding: 3rem;\n  width: 30%;\n  display: flex;\n  flex-direction: column;\n  background-color: #222;\n  align-items: flex-end;\n  color: #fff;\n}\n.main-left-content .image[data-v-3b0aedb0] {\n  -o-object-fit: fill;\n     object-fit: fill;\n  width: 200px;\n  border-radius: 50%;\n}\n.main-left-content .left-title[data-v-3b0aedb0] {\n  text-align: right;\n  font-size: 2.3rem;\n  padding: 1.4rem 0;\n}\n.main-left-content .stack-icon[data-v-3b0aedb0] {\n  text-align: right;\n  margin-bottom: 1rem;\n}\n.main-left-content .stack-icon .icon-title[data-v-3b0aedb0] {\n  margin: 0.5rem 0;\n  font-size: 1.1rem;\n}\n.main-left-content .stack-icon .svg-icon[data-v-3b0aedb0] {\n  color: #fff;\n  margin: 0.2rem 0.3rem;\n  font-size: 2.4rem;\n  width: 45px;\n  height: 45px;\n}\n.main-left-content .stack-icon img[data-v-3b0aedb0] {\n  -webkit-filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(261deg) brightness(116%) contrast(100%);\n          filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(261deg) brightness(116%) contrast(100%);\n  border-radius: 3px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 45px;\n  height: 45px;\n}\n.main-left-content .summary[data-v-3b0aedb0] {\n  margin-bottom: auto;\n  max-width: 20rem;\n  border: 1px solid #ffae00;\n  border-radius: 10px;\n  padding: 1rem;\n}\n.main-left-content .summary-header[data-v-3b0aedb0] {\n  font-size: 1.6rem;\n  text-align: right;\n  margin: 0 0 1rem 0;\n}\n.main-left-content .summary-body[data-v-3b0aedb0] {\n  text-align: justify;\n  line-height: 1.35rem;\n}\n.main-left-content .summary-body p[data-v-3b0aedb0] {\n  margin: 0.5rem 0;\n}\n@media (max-width: 720px) {\n.grid-tooltip[data-v-3b0aedb0] {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n}\n.grid-tooltip .tooltip[data-v-3b0aedb0] {\n    margin: auto;\n}\n.icon-title[data-v-3b0aedb0] {\n    text-align: center;\n    margin-bottom: 0.5rem;\n}\n.main-left-content[data-v-3b0aedb0] {\n    width: auto;\n    padding: 2rem;\n    align-items: center;\n}\n.main-left-content .left-title[data-v-3b0aedb0] {\n    text-align: center;\n}\n.main-left-content .summary-header[data-v-3b0aedb0] {\n    text-align: center;\n    margin-bottom: 1.3rem;\n}\n}", ""]);
 
 // exports
 
@@ -41681,7 +41681,7 @@ var render = function() {
               _vm._v(" "),
               _c("Wargaming", { on: { "show-image": _vm.openImageSlider } }),
               _vm._v(" "),
-              _c("RecipeFinder", { on: { "show-image": _vm.openImageSlider } }),
+              _c("ReactRecipe", { on: { "show-image": _vm.openImageSlider } }),
               _vm._v(" "),
               _c("CompStore", { on: { "show-image": _vm.openImageSlider } })
             ],
@@ -41952,22 +41952,6 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("Tooltip", { attrs: { text: "Tel.: 06307862963" } }, [
-          _c("span", [
-            _c(
-              "a",
-              { attrs: { href: "tel:06307862963" } },
-              [
-                _c("font-awesome", {
-                  staticClass: "svg-icon",
-                  attrs: { icon: ["fas", "phone"], size: "2x" }
-                })
-              ],
-              1
-            )
-          ])
-        ]),
-        _vm._v(" "),
         _c("Tooltip", { attrs: { text: "LinkedIn" } }, [
           _c("span", [
             _c(
@@ -42139,18 +42123,6 @@ var render = function() {
             _vm._v(" "),
             _c(
               "Tooltip",
-              { attrs: { text: "Vue.js" } },
-              [
-                _c("font-awesome", {
-                  staticClass: "svg-icon",
-                  attrs: { icon: ["fab", "vuejs"], size: "2x" }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "Tooltip",
               { attrs: { text: "React.js" } },
               [
                 _c("font-awesome", {
@@ -42192,6 +42164,18 @@ var render = function() {
                 _c("font-awesome", {
                   staticClass: "svg-icon",
                   attrs: { icon: ["fab", "html5"], size: "2x" }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "Tooltip",
+              { attrs: { text: "Vue.js" } },
+              [
+                _c("font-awesome", {
+                  staticClass: "svg-icon",
+                  attrs: { icon: ["fab", "vuejs"], size: "2x" }
                 })
               ],
               1
@@ -42633,23 +42617,6 @@ var render = function() {
                     _c("font-awesome", {
                       staticClass: "svg-icon",
                       attrs: { icon: ["fas", "envelope"], size: "2x" }
-                    })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("Tooltip", { attrs: { text: "06307862963" } }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "sidenav-contact-item",
-                    attrs: { href: "tel:06307862963" }
-                  },
-                  [
-                    _c("font-awesome", {
-                      staticClass: "svg-icon",
-                      attrs: { icon: ["fas", "phone"], size: "2x" }
                     })
                   ],
                   1
@@ -43123,10 +43090,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/includes/projects/RecipeFinder.vue?vue&type=template&id=50811747&":
-/*!**********************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/includes/MainPage/includes/projects/RecipeFinder.vue?vue&type=template&id=50811747& ***!
-  \**********************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/includes/projects/ReactRecipe.vue?vue&type=template&id=153e854a&":
+/*!*********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/includes/MainPage/includes/projects/ReactRecipe.vue?vue&type=template&id=153e854a& ***!
+  \*********************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -43140,10 +43107,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("BaseProject", {
     attrs: {
-      articleClass: "recipe",
-      demoLink: "https://recipe-finder-app-c0b4e.firebaseapp.com/",
-      githubLink: "https://github.com/nagytommy76/Receipe-and-Food",
-      projectTitle: "Recept Kereső"
+      articleClass: "recipe-react",
+      demoLink: "https://react-recipe-finder.web.app/",
+      githubLink: "https://github.com/nagytommy76/ReactRecipeFinder",
+      projectTitle: "Recept kereső"
     },
     scopedSlots: _vm._u([
       {
@@ -43152,12 +43119,12 @@ var render = function() {
           return [
             _c("img", {
               attrs: {
-                src: __webpack_require__(/*! ../../../../../../img/recipe/Main-page.jpg */ "./resources/img/recipe/Main-page.jpg"),
-                alt: "Recipe Finder"
+                src: __webpack_require__(/*! ../../../../../../img/meatball/meatball-thumb.jpg */ "./resources/img/meatball/meatball-thumb.jpg"),
+                alt: "Meatball Project"
               },
               on: {
                 click: function($event) {
-                  return _vm.$emit("show-image", "Recipe finder")
+                  return _vm.$emit("show-image", "Meatball")
                 }
               }
             })
@@ -43171,27 +43138,27 @@ var render = function() {
           return [
             _c(
               "TechList",
-              { attrs: { title: "Vue.js", tooltipTitle: "Vue.js" } },
+              { attrs: { title: "React.js", tooltipTitle: "React.js" } },
               [
                 _c("font-awesome", {
-                  staticClass: "vue",
-                  attrs: { icon: ["fab", "vuejs"], size: "2x" }
+                  staticClass: "svg-icon",
+                  attrs: { icon: ["fab", "react"], size: "2x" }
                 })
               ],
               1
             ),
             _vm._v(" "),
-            _c(
-              "TechList",
-              { attrs: { title: "SASS", tooltipTitle: "SASS" } },
-              [
-                _c("font-awesome", {
-                  staticClass: "sass",
-                  attrs: { icon: ["fab", "sass"], size: "2x" }
-                })
-              ],
-              1
-            )
+            _c("TechList", {
+              attrs: { title: "Styled-components", isTooltip: false }
+            }),
+            _vm._v(" "),
+            _c("TechList", {
+              attrs: { title: "Spoonacular API", isTooltip: false }
+            }),
+            _vm._v(" "),
+            _c("TechList", {
+              attrs: { title: "Single-Page-Application", isTooltip: false }
+            })
           ]
         },
         proxy: true
@@ -60011,17 +59978,6 @@ module.exports = "/images/modified.jpg?aebd01daa8fdb2bcb46e81372ebc7a26";
 
 /***/ }),
 
-/***/ "./resources/img/recipe/Main-page.jpg":
-/*!********************************************!*\
-  !*** ./resources/img/recipe/Main-page.jpg ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Main-page.jpg?196f7d24341c96cccee4bacfe9ae85a5";
-
-/***/ }),
-
 /***/ "./resources/img/wargaming/modal.jpg":
 /*!*******************************************!*\
   !*** ./resources/img/wargaming/modal.jpg ***!
@@ -60168,7 +60124,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__["library"].add(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faGithub"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLinkedin"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faClock"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowLeft"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowRight"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faFacebookSquare"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBars"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faTimesCircle"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faEnvelope"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faPhone"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPhp"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLaravel"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faDatabase"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faJsSquare"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faVuejs"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faBootstrap"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faCss3Alt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faSass"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faHtml5"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faGitAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faWindows"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faNpm"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faPizzaSlice"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faSoap"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBirthdayCake"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faWineGlassAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBacon"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBreadSlice"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faSignOutAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faCartArrowDown"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faShoppingCart"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faTrashAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTripadvisor"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTwitter"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faYoutube"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faInstagram"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faHouseUser"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowCircleUp"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faReact"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faNode"]);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__["library"].add(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faGithub"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLinkedin"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faClock"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowLeft"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowRight"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faFacebookSquare"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBars"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faTimesCircle"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faEnvelope"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPhp"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLaravel"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faDatabase"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faJsSquare"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faVuejs"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faBootstrap"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faCss3Alt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faSass"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faHtml5"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faGitAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faWindows"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faNpm"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faPizzaSlice"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faSoap"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBirthdayCake"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faWineGlassAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBacon"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBreadSlice"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faSignOutAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faCartArrowDown"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faShoppingCart"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faTrashAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTripadvisor"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTwitter"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faYoutube"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faInstagram"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faHouseUser"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowCircleUp"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faReact"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faNode"]);
 
 /***/ }),
 
@@ -62068,17 +62024,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/views/includes/MainPage/includes/projects/RecipeFinder.vue":
-/*!*********************************************************************************!*\
-  !*** ./resources/js/views/includes/MainPage/includes/projects/RecipeFinder.vue ***!
-  \*********************************************************************************/
+/***/ "./resources/js/views/includes/MainPage/includes/projects/ReactRecipe.vue":
+/*!********************************************************************************!*\
+  !*** ./resources/js/views/includes/MainPage/includes/projects/ReactRecipe.vue ***!
+  \********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _RecipeFinder_vue_vue_type_template_id_50811747___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RecipeFinder.vue?vue&type=template&id=50811747& */ "./resources/js/views/includes/MainPage/includes/projects/RecipeFinder.vue?vue&type=template&id=50811747&");
-/* harmony import */ var _RecipeFinder_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RecipeFinder.vue?vue&type=script&lang=js& */ "./resources/js/views/includes/MainPage/includes/projects/RecipeFinder.vue?vue&type=script&lang=js&");
+/* harmony import */ var _ReactRecipe_vue_vue_type_template_id_153e854a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ReactRecipe.vue?vue&type=template&id=153e854a& */ "./resources/js/views/includes/MainPage/includes/projects/ReactRecipe.vue?vue&type=template&id=153e854a&");
+/* harmony import */ var _ReactRecipe_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ReactRecipe.vue?vue&type=script&lang=js& */ "./resources/js/views/includes/MainPage/includes/projects/ReactRecipe.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -62088,9 +62044,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _RecipeFinder_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _RecipeFinder_vue_vue_type_template_id_50811747___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _RecipeFinder_vue_vue_type_template_id_50811747___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _ReactRecipe_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ReactRecipe_vue_vue_type_template_id_153e854a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ReactRecipe_vue_vue_type_template_id_153e854a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -62100,38 +62056,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/views/includes/MainPage/includes/projects/RecipeFinder.vue"
+component.options.__file = "resources/js/views/includes/MainPage/includes/projects/ReactRecipe.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/views/includes/MainPage/includes/projects/RecipeFinder.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************!*\
-  !*** ./resources/js/views/includes/MainPage/includes/projects/RecipeFinder.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************/
+/***/ "./resources/js/views/includes/MainPage/includes/projects/ReactRecipe.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************!*\
+  !*** ./resources/js/views/includes/MainPage/includes/projects/ReactRecipe.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RecipeFinder_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./RecipeFinder.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/includes/projects/RecipeFinder.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RecipeFinder_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ReactRecipe_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./ReactRecipe.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/includes/projects/ReactRecipe.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ReactRecipe_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/views/includes/MainPage/includes/projects/RecipeFinder.vue?vue&type=template&id=50811747&":
-/*!****************************************************************************************************************!*\
-  !*** ./resources/js/views/includes/MainPage/includes/projects/RecipeFinder.vue?vue&type=template&id=50811747& ***!
-  \****************************************************************************************************************/
+/***/ "./resources/js/views/includes/MainPage/includes/projects/ReactRecipe.vue?vue&type=template&id=153e854a&":
+/*!***************************************************************************************************************!*\
+  !*** ./resources/js/views/includes/MainPage/includes/projects/ReactRecipe.vue?vue&type=template&id=153e854a& ***!
+  \***************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecipeFinder_vue_vue_type_template_id_50811747___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./RecipeFinder.vue?vue&type=template&id=50811747& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/includes/projects/RecipeFinder.vue?vue&type=template&id=50811747&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecipeFinder_vue_vue_type_template_id_50811747___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ReactRecipe_vue_vue_type_template_id_153e854a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./ReactRecipe.vue?vue&type=template&id=153e854a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/includes/projects/ReactRecipe.vue?vue&type=template&id=153e854a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ReactRecipe_vue_vue_type_template_id_153e854a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecipeFinder_vue_vue_type_template_id_50811747___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ReactRecipe_vue_vue_type_template_id_153e854a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

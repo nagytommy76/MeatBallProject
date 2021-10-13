@@ -17,9 +17,6 @@
                     <Tooltip :text="'nagytommy76@gmail.com'">
                         <a href="mailto:nagytommy76@gmail.com" class="sidenav-contact-item"><font-awesome class="svg-icon" :icon="['fas', 'envelope']" size="2x"/></a>
                     </Tooltip>
-                    <Tooltip :text="'06307862963'">
-                        <a href="tel:06307862963" class="sidenav-contact-item"><font-awesome class="svg-icon" :icon="['fas', 'phone']" size="2x"/></a>
-                    </Tooltip>
                     <Tooltip :text="'LinkedIn'">
                         <a target="_blank" href="https://www.linkedin.com/in/nagy-tam%C3%A1s-27355116b/" class="sidenav-contact-item"><font-awesome class="svg-icon" :icon="['fab', 'linkedin']" size="2x"/></a>
                     </Tooltip>

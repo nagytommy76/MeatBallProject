@@ -10,7 +10,7 @@
                 <Wargaming 
                     @show-image="openImageSlider"
                 />
-                <RecipeFinder 
+                <ReactRecipe 
                     @show-image="openImageSlider"
                 />
                 <CompStore 
@@ -33,7 +33,8 @@
 <script>
 import LeftContent from './includes/LeftContent'
 import Meatball from './includes/projects/MeatballProject'
-import RecipeFinder from './includes/projects/RecipeFinder.vue'
+// import RecipeFinder from './includes/projects/RecipeFinder.vue'
+import ReactRecipe from './includes/projects/ReactRecipe.vue'
 import Wargaming from './includes/projects/WgProject'
 import CompStore from './includes/projects/CompStore'
 
@@ -43,8 +44,8 @@ export default {
         LeftContent,
         Meatball,
         Wargaming,
-        RecipeFinder,
         CompStore,
+        ReactRecipe
     },
     data() {
         return {

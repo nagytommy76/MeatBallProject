@@ -29,9 +29,6 @@
             size="2x"
           />
         </Tooltip>
-        <Tooltip :text="'Vue.js'">
-          <font-awesome class="svg-icon" :icon="['fab', 'vuejs']" size="2x" />
-        </Tooltip>
         <Tooltip :text="'React.js'">
           <font-awesome class="svg-icon" :icon="['fab', 'react']" size="2x" />
         </Tooltip>
@@ -47,6 +44,9 @@
         </Tooltip>
         <Tooltip :text="'HTML5'">
           <font-awesome class="svg-icon" :icon="['fab', 'html5']" size="2x" />
+        </Tooltip>
+        <Tooltip :text="'Vue.js'">
+          <font-awesome class="svg-icon" :icon="['fab', 'vuejs']" size="2x" />
         </Tooltip>
       </div>
       <h4 class="icon-title">Egyéb ismeretek</h4>
