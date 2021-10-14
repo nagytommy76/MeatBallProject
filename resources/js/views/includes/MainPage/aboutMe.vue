@@ -7,10 +7,10 @@
                 <Meatball 
                     @show-image="openImageSlider"
                 />
-                <Wargaming 
+                <ReactRecipe 
                     @show-image="openImageSlider"
                 />
-                <ReactRecipe 
+                <Wargaming 
                     @show-image="openImageSlider"
                 />
                 <CompStore 

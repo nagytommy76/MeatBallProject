@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"Alert":"Alert","BaseButton":"BaseButton","BaseCard":"BaseCard","BaseFilter":"BaseFilter","CartModal":"CartModal","CloudImage":"CloudImage","Dessert":"Dessert","Drink":"Drink","ErrorMsg":"ErrorMsg","ImageSlider":"ImageSlider","LoadingOverlay":"LoadingOverlay","Login":"Login","Meal":"Meal","Meatball":"Meatball","OrdersModal":"OrdersModal","PageNotFound":"PageNotFound","Pasta":"Pasta","Pizza":"Pizza","Register":"Register","Soup":"Soup","Tooltip":"Tooltip","WelcomePage":"WelcomePage"}[chunkId]||chunkId) + ".js?id=" + {"Alert":"69bf371839a433411791","BaseButton":"6354e816e4923fcd250b","BaseCard":"a02150bba76d8ce883d4","BaseFilter":"ea7b334469ffa6536728","CartModal":"4d024259532d44a7e266","CloudImage":"e34ef0283f492b75659e","Dessert":"d6210f588a7cc82e2514","Drink":"37582250de42dea40bf0","ErrorMsg":"cd6a9ec06ef348541f8e","ImageSlider":"b013e13203caf2e92761","LoadingOverlay":"8550a2e5dcabf526a9e4","Login":"a3fd4abc2dce91fe8858","Meal":"f49dee2ae35f912887c8","Meatball":"5ce11b48ab3ddce4c44d","OrdersModal":"e815805b0ac029cefd8b","PageNotFound":"360ae16417fb3fb0103f","Pasta":"345de665f1bff0d14a61","Pizza":"d096952815b0a45aed8a","Register":"34332984503760c30985","Soup":"b393aa6fdcbaf1ba9adb","Tooltip":"fae05c2b10102772c33b","WelcomePage":"27455e447f142bac7e40"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "" + ({"Alert":"Alert","BaseButton":"BaseButton","BaseCard":"BaseCard","BaseFilter":"BaseFilter","CartModal":"CartModal","CloudImage":"CloudImage","Dessert":"Dessert","Drink":"Drink","ErrorMsg":"ErrorMsg","ImageSlider":"ImageSlider","LoadingOverlay":"LoadingOverlay","Login":"Login","Meal":"Meal","Meatball":"Meatball","OrdersModal":"OrdersModal","PageNotFound":"PageNotFound","Pasta":"Pasta","Pizza":"Pizza","Register":"Register","Soup":"Soup","Tooltip":"Tooltip","WelcomePage":"WelcomePage"}[chunkId]||chunkId) + ".js?id=" + {"Alert":"69bf371839a433411791","BaseButton":"6354e816e4923fcd250b","BaseCard":"a02150bba76d8ce883d4","BaseFilter":"ea7b334469ffa6536728","CartModal":"4d024259532d44a7e266","CloudImage":"e34ef0283f492b75659e","Dessert":"d6210f588a7cc82e2514","Drink":"37582250de42dea40bf0","ErrorMsg":"cd6a9ec06ef348541f8e","ImageSlider":"198b137109c1db22159d","LoadingOverlay":"8550a2e5dcabf526a9e4","Login":"a3fd4abc2dce91fe8858","Meal":"f49dee2ae35f912887c8","Meatball":"5ce11b48ab3ddce4c44d","OrdersModal":"e815805b0ac029cefd8b","PageNotFound":"360ae16417fb3fb0103f","Pasta":"345de665f1bff0d14a61","Pizza":"d096952815b0a45aed8a","Register":"34332984503760c30985","Soup":"b393aa6fdcbaf1ba9adb","Tooltip":"fae05c2b10102772c33b","WelcomePage":"27455e447f142bac7e40"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -17091,7 +17091,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -17111,6 +17110,14 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _TechListItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TechListItem */ "./resources/js/views/includes/MainPage/includes/projects/TechListItem.vue");
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -41679,9 +41686,9 @@ var render = function() {
             [
               _c("Meatball", { on: { "show-image": _vm.openImageSlider } }),
               _vm._v(" "),
-              _c("Wargaming", { on: { "show-image": _vm.openImageSlider } }),
-              _vm._v(" "),
               _c("ReactRecipe", { on: { "show-image": _vm.openImageSlider } }),
+              _vm._v(" "),
+              _c("Wargaming", { on: { "show-image": _vm.openImageSlider } }),
               _vm._v(" "),
               _c("CompStore", { on: { "show-image": _vm.openImageSlider } })
             ],
@@ -43069,12 +43076,6 @@ var render = function() {
               _vm._v(
                 'A rendelés leadásakor lehetőség van készpénzzel a "futárnál", illetve PayPal-en keresztül fizetni egy sandbox számlával.'
               )
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Létrehoztam egy admin felületet is, amin keresztül termékeket lehet bevinni, törölni és módosítani."
-              )
             ])
           ]
         },
@@ -43119,12 +43120,12 @@ var render = function() {
           return [
             _c("img", {
               attrs: {
-                src: __webpack_require__(/*! ../../../../../../img/meatball/meatball-thumb.jpg */ "./resources/img/meatball/meatball-thumb.jpg"),
-                alt: "Meatball Project"
+                src: __webpack_require__(/*! ../../../../../../img/react-recipe/react-recipe.jpg */ "./resources/img/react-recipe/react-recipe.jpg"),
+                alt: "React Recipe"
               },
               on: {
                 click: function($event) {
-                  return _vm.$emit("show-image", "Meatball")
+                  return _vm.$emit("show-image", "React Recipe")
                 }
               }
             })
@@ -43141,11 +43142,23 @@ var render = function() {
               { attrs: { title: "React.js", tooltipTitle: "React.js" } },
               [
                 _c("font-awesome", {
-                  staticClass: "svg-icon",
+                  staticClass: "react",
                   attrs: { icon: ["fab", "react"], size: "2x" }
                 })
               ],
               1
+            ),
+            _vm._v(" "),
+            _c(
+              "TechList",
+              { attrs: { title: "TypeScript", tooltipTitle: "TypeScript" } },
+              [
+                _c("img", {
+                  staticClass: "svg-icon typescript",
+                  staticStyle: { width: "32px" },
+                  attrs: { src: __webpack_require__(/*! ../typescript_alt_icon.svg */ "./resources/js/views/includes/MainPage/includes/typescript_alt_icon.svg"), alt: "" }
+                })
+              ]
             ),
             _vm._v(" "),
             _c("TechList", {
@@ -43168,7 +43181,7 @@ var render = function() {
         fn: function() {
           return [
             _c("p", [
-              _vm._v("Az oldal a "),
+              _vm._v("A receptek eléréséhez a "),
               _c(
                 "a",
                 {
@@ -43180,23 +43193,11 @@ var render = function() {
                 },
                 [_vm._v("Spoonacular API")]
               ),
-              _vm._v("-t használja.")
+              _vm._v("-t használom.")
             ]),
             _vm._v(" "),
             _c("p", [
-              _vm._v(
-                "Recepteket tudunk keresni név, maximum elkészítési idő, valamint hozzávalók szerint."
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Alapból 10 recept jelenik meg, de ezt a számot tudjuk növelni vagy csökkenteni."
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v("A keresési előzmény mentésre kerül a localStorage-be.")
+              _vm._v("Recepteket, videókat tudunk keresni név alapján.")
             ])
           ]
         },
@@ -59975,6 +59976,17 @@ module.exports = "/images/meatball-thumb.jpg?9b855bf7ee3a51e1c72855465b975e08";
 /***/ (function(module, exports) {
 
 module.exports = "/images/modified.jpg?aebd01daa8fdb2bcb46e81372ebc7a26";
+
+/***/ }),
+
+/***/ "./resources/img/react-recipe/react-recipe.jpg":
+/*!*****************************************************!*\
+  !*** ./resources/img/react-recipe/react-recipe.jpg ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/react-recipe.jpg?f0fb934ed99acb400c9b12652da4f36a";
 
 /***/ }),
 

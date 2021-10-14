@@ -46,8 +46,8 @@ export default {
             case 'Meatball':
                 this.getMeatBallImagesFromFolderByName()
                 break;
-            case 'Recipe finder':
-                this.getRecipeImagesFromFolderByName()
+            case 'React Recipe':
+                this.getReactRecipeImagesFromFolderByName()
                 break;
             case 'PCBoltMVC':
                 this.getCompStoreImagesFromFolderByName()
@@ -81,13 +81,13 @@ export default {
             const allWGImages = ['search_evfww8','modal_moxvgh']
             this.fillImages(allWGImages)
         },
-        getRecipeImagesFromFolderByName(){
+        getReactRecipeImagesFromFolderByName(){
             const allRecipeImages = [
-                'Main-page_a9xjav',
-                'details_id7qdm',
-                'details-nutrients_dksgcr',
-                'ingredient-nutrients_ywfi0v',
-                '404_oe27fc'
+                'React_Recipe_Finder_WelcomePage1_lvecwz',
+                'React_Recipe_Finder_fvspcp',
+                'React_Recipe_Finder_videos_qrclha',
+                'React_Recipe_Finder_menuItems_n0zzc9',
+                'React_Recipe_Finder_details_jci5zy'
             ]
             this.fillImages(allRecipeImages)
         },

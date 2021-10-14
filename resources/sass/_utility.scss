@@ -289,11 +289,21 @@ body {
     color: #264de4;
 }
 .react {
-    color: #52dafb;
+    color: #3498b1;
+    // color: #52dafb;
+    // color: #282c34;
 }
 .node {
     color: #55a345;
 }
+.typescript {
+    // color: #3178c6;
+    filter: invert(43%) sepia(76%) saturate(761%) hue-rotate(178deg)
+        brightness(82%) contrast(86%);
+    margin-left: 0.3rem;
+    margin-top: 0.3rem;
+}
+// https://codepen.io/sosuke/pen/Pjoqqp
 
 @media (max-width: $mobile-width) {
     .btn-up {

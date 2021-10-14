@@ -287,11 +287,18 @@ body::-webkit-scrollbar-thumb {
 }
 
 .react {
-  color: #52dafb;
+  color: #3498b1;
 }
 
 .node {
   color: #55a345;
+}
+
+.typescript {
+  -webkit-filter: invert(43%) sepia(76%) saturate(761%) hue-rotate(178deg) brightness(82%) contrast(86%);
+          filter: invert(43%) sepia(76%) saturate(761%) hue-rotate(178deg) brightness(82%) contrast(86%);
+  margin-left: 0.3rem;
+  margin-top: 0.3rem;
 }
 
 @media (max-width: 720px) {
