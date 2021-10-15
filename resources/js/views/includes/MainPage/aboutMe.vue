@@ -4,6 +4,9 @@
         <section class="main-right-content" id="projects">
             <h3 class="sub-title">Projectek</h3>
             <div class="projects">
+                <ComputerStore 
+                    @show-image="openImageSlider"
+                />
                 <Meatball 
                     @show-image="openImageSlider"
                 />
@@ -11,9 +14,6 @@
                     @show-image="openImageSlider"
                 />
                 <Wargaming 
-                    @show-image="openImageSlider"
-                />
-                <CompStore 
                     @show-image="openImageSlider"
                 />
             </div>
@@ -33,10 +33,11 @@
 <script>
 import LeftContent from './includes/LeftContent'
 import Meatball from './includes/projects/MeatballProject'
-// import RecipeFinder from './includes/projects/RecipeFinder.vue'
-import ReactRecipe from './includes/projects/ReactRecipe.vue'
+import ReactRecipe from './includes/projects/ReactRecipe'
 import Wargaming from './includes/projects/WgProject'
-import CompStore from './includes/projects/CompStore'
+import ComputerStore from './includes/projects/ComputerStore'
+// import RecipeFinder from './includes/projects/RecipeFinder.vue'
+// import CompStore from './includes/projects/CompStore'
 
 export default {
     name: 'AboutMe',
@@ -44,8 +45,8 @@ export default {
         LeftContent,
         Meatball,
         Wargaming,
-        CompStore,
-        ReactRecipe
+        ReactRecipe,
+        ComputerStore
     },
     data() {
         return {

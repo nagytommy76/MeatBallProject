@@ -16453,9 +16453,9 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _includes_LeftContent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./includes/LeftContent */ "./resources/js/views/includes/MainPage/includes/LeftContent.vue");
 /* harmony import */ var _includes_projects_MeatballProject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./includes/projects/MeatballProject */ "./resources/js/views/includes/MainPage/includes/projects/MeatballProject.vue");
-/* harmony import */ var _includes_projects_ReactRecipe_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./includes/projects/ReactRecipe.vue */ "./resources/js/views/includes/MainPage/includes/projects/ReactRecipe.vue");
+/* harmony import */ var _includes_projects_ReactRecipe__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./includes/projects/ReactRecipe */ "./resources/js/views/includes/MainPage/includes/projects/ReactRecipe.vue");
 /* harmony import */ var _includes_projects_WgProject__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./includes/projects/WgProject */ "./resources/js/views/includes/MainPage/includes/projects/WgProject.vue");
-/* harmony import */ var _includes_projects_CompStore__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./includes/projects/CompStore */ "./resources/js/views/includes/MainPage/includes/projects/CompStore.vue");
+/* harmony import */ var _includes_projects_ComputerStore__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./includes/projects/ComputerStore */ "./resources/js/views/includes/MainPage/includes/projects/ComputerStore.vue");
 //
 //
 //
@@ -16488,11 +16488,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+
+
 
  // import RecipeFinder from './includes/projects/RecipeFinder.vue'
-
-
-
+// import CompStore from './includes/projects/CompStore'
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'AboutMe',
@@ -16500,8 +16501,8 @@ __webpack_require__.r(__webpack_exports__);
     LeftContent: _includes_LeftContent__WEBPACK_IMPORTED_MODULE_0__["default"],
     Meatball: _includes_projects_MeatballProject__WEBPACK_IMPORTED_MODULE_1__["default"],
     Wargaming: _includes_projects_WgProject__WEBPACK_IMPORTED_MODULE_3__["default"],
-    CompStore: _includes_projects_CompStore__WEBPACK_IMPORTED_MODULE_4__["default"],
-    ReactRecipe: _includes_projects_ReactRecipe_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    ReactRecipe: _includes_projects_ReactRecipe__WEBPACK_IMPORTED_MODULE_2__["default"],
+    ComputerStore: _includes_projects_ComputerStore__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   data: function data() {
     return {
@@ -16672,7 +16673,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _FooterContact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FooterContact */ "./resources/js/views/includes/MainPage/includes/FooterContact.vue");
-//
 //
 //
 //
@@ -16961,21 +16961,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/includes/projects/CompStore.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/includes/MainPage/includes/projects/CompStore.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/includes/projects/ComputerStore.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/includes/MainPage/includes/projects/ComputerStore.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _TechListItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TechListItem */ "./resources/js/views/includes/MainPage/includes/projects/TechListItem.vue");
-//
-//
-//
-//
-//
 //
 //
 //
@@ -17087,10 +17082,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -17110,12 +17101,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _TechListItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TechListItem */ "./resources/js/views/includes/MainPage/includes/projects/TechListItem.vue");
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -41684,13 +41669,15 @@ var render = function() {
             "div",
             { staticClass: "projects" },
             [
+              _c("ComputerStore", {
+                on: { "show-image": _vm.openImageSlider }
+              }),
+              _vm._v(" "),
               _c("Meatball", { on: { "show-image": _vm.openImageSlider } }),
               _vm._v(" "),
               _c("ReactRecipe", { on: { "show-image": _vm.openImageSlider } }),
               _vm._v(" "),
-              _c("Wargaming", { on: { "show-image": _vm.openImageSlider } }),
-              _vm._v(" "),
-              _c("CompStore", { on: { "show-image": _vm.openImageSlider } })
+              _c("Wargaming", { on: { "show-image": _vm.openImageSlider } })
             ],
             1
           )
@@ -42295,7 +42282,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "summary-body" }, [
         _c("p", [
           _vm._v(
-            "\n        Nagy Tamás vagyok, pályakezdő webfejlesztő. Jelenlegi tudásom nagy\n        részét autodidakta módon szereztem, különböző kurzusok (Udemy) és\n        weboldalak (freeCodeCamp, w3schools) segítségével, valamint saját\n        projectek elkészítésével.\n      "
+            "\n        Nagy Tamás vagyok, pályakezdő webfejlesztő. Jelenlegi tudásom nagy\n        részét autodidakta módon szereztem, különböző kurzusok (Udemy) és\n        weboldalak (freeCodeCamp, w3schools és természetesen StackOverflow 🙂 ) segítségével, valamint saját\n        projectek elkészítésével.\n      "
           )
         ]),
         _vm._v(" "),
@@ -42307,19 +42294,19 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "Jelenleg a MERN (MongoDB, Express.js, React, Node.js) stack-et tanulom, valamint TypeScript-et"
+            "Jelenleg a MERN (MongoDB, Express.js, React, Node.js) stack-et tanulom, valamint TypeScript-et."
           )
         ]),
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "\n        Kezdőként forntend területen szeretnék elhelyezkedni, illetve bővíteni\n        tudásomat. A későbbiekben a fullstack irány a célom.\n      "
+            "\n        Kezdőként forntend, vagy fullstack területen szeretnék elhelyezkedni, illetve bővíteni\n        tudásomat.\n      "
           )
         ]),
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "\n        A jövőt tekintve szeretném mélyíteni a tudásom Node.js-ben (valamint\n        Express.js) és MongoDB-ben.\n      "
+            "\n        A jövőt tekintve szeretném mélyíteni a tudásom Node.js-ben (Express.js) és MongoDB-ben.\n      "
           )
         ])
       ])
@@ -42527,10 +42514,10 @@ var render = function() {
               staticClass: "sidenav-navigation-item",
               attrs: {
                 target: "_blank",
-                href: "https://nagytommy76.github.io/Wargaming/"
+                href: "https://react-recipe-finder.web.app/"
               }
             },
-            [_vm._v("World of Tanks")]
+            [_vm._v("Recept kereső")]
           ),
           _vm._v(" "),
           _c(
@@ -42539,10 +42526,10 @@ var render = function() {
               staticClass: "sidenav-navigation-item",
               attrs: {
                 target: "_blank",
-                href: "https://recipe-finder-app-c0b4e.firebaseapp.com/"
+                href: "https://nagytommy76.github.io/Wargaming/"
               }
             },
-            [_vm._v("Recept kereső")]
+            [_vm._v("World of Tanks")]
           ),
           _vm._v(" "),
           _c(
@@ -42810,10 +42797,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/includes/projects/CompStore.vue?vue&type=template&id=210da32f&":
-/*!*******************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/includes/MainPage/includes/projects/CompStore.vue?vue&type=template&id=210da32f& ***!
-  \*******************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/includes/projects/ComputerStore.vue?vue&type=template&id=2e015623&":
+/*!***********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/includes/MainPage/includes/projects/ComputerStore.vue?vue&type=template&id=2e015623& ***!
+  \***********************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -42827,10 +42814,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("BaseProject", {
     attrs: {
-      articleClass: "comp-store",
-      demoLink: "https://pcboltmvc.000webhostapp.com/",
-      githubLink: "https://github.com/nagytommy76/PCBoltMVC",
-      projectTitle: "Computer Store"
+      articleClass: "recipe-react",
+      demoLink: "",
+      githubLink: "https://github.com/nagytommy76/ComputerStoreMERN",
+      projectTitle: "Számtech webáruház"
     },
     scopedSlots: _vm._u([
       {
@@ -42839,12 +42826,12 @@ var render = function() {
           return [
             _c("img", {
               attrs: {
-                src: __webpack_require__(/*! ../../../../../../img/comp-store/intro.jpg */ "./resources/img/comp-store/intro.jpg"),
-                alt: "Meatball Project"
+                src: __webpack_require__(/*! ../../../../../../img/react-recipe/react-recipe.jpg */ "./resources/img/react-recipe/react-recipe.jpg"),
+                alt: "React Recipe"
               },
               on: {
                 click: function($event) {
-                  return _vm.$emit("show-image", "PCBoltMVC")
+                  return _vm.$emit("show-image", "React Recipe")
                 }
               }
             })
@@ -42858,11 +42845,11 @@ var render = function() {
           return [
             _c(
               "TechList",
-              { attrs: { title: "PHP", tooltipTitle: "PHP" } },
+              { attrs: { title: "React.js", tooltipTitle: "React.js" } },
               [
                 _c("font-awesome", {
-                  staticClass: "php",
-                  attrs: { icon: ["fab", "php"], size: "2x" }
+                  staticClass: "react",
+                  attrs: { icon: ["fab", "react"], size: "2x" }
                 })
               ],
               1
@@ -42870,11 +42857,11 @@ var render = function() {
             _vm._v(" "),
             _c(
               "TechList",
-              { attrs: { title: "MySQL", tooltipTitle: "MySQL" } },
+              { attrs: { title: "Node.js", tooltipTitle: "Node.js" } },
               [
                 _c("font-awesome", {
-                  staticClass: "mysql",
-                  attrs: { icon: ["fas", "database"], size: "2x" }
+                  staticClass: "node",
+                  attrs: { icon: ["fab", "node"], size: "2x" }
                 })
               ],
               1
@@ -42882,39 +42869,23 @@ var render = function() {
             _vm._v(" "),
             _c(
               "TechList",
-              { attrs: { title: "Bootstrap", tooltipTitle: "Bootstrap 4" } },
+              { attrs: { title: "TypeScript", tooltipTitle: "TypeScript" } },
               [
-                _c("font-awesome", {
-                  staticClass: "bootstrap",
-                  attrs: { icon: ["fab", "bootstrap"], size: "2x" }
+                _c("img", {
+                  staticClass: "svg-icon typescript",
+                  staticStyle: { width: "32px", height: "32px" },
+                  attrs: { src: __webpack_require__(/*! ../typescript_alt_icon.svg */ "./resources/js/views/includes/MainPage/includes/typescript_alt_icon.svg"), alt: "" }
                 })
-              ],
-              1
+              ]
             ),
             _vm._v(" "),
-            _c(
-              "TechList",
-              { attrs: { title: "JS", tooltipTitle: "JavaScript" } },
-              [
-                _c("font-awesome", {
-                  staticClass: "svg-icon",
-                  attrs: { icon: ["fab", "js-square"], size: "2x" }
-                })
-              ],
-              1
-            ),
+            _c("TechList", {
+              attrs: { title: "Styled-components", isTooltip: false }
+            }),
             _vm._v(" "),
-            _c(
-              "TechList",
-              { attrs: { title: "CSS3", tooltipTitle: "CSS3" } },
-              [
-                _c("font-awesome", {
-                  staticClass: "css",
-                  attrs: { icon: ["fab", "css3-alt"], size: "2x" }
-                })
-              ],
-              1
-            )
+            _c("TechList", {
+              attrs: { title: "Saját fejlesztésű API", isTooltip: false }
+            })
           ]
         },
         proxy: true
@@ -42923,18 +42894,8 @@ var render = function() {
         key: "description",
         fn: function() {
           return [
-            _c("p", [_vm._v("2019-ben készítettem el első weboldalamat.")]),
-            _vm._v(" "),
             _c("p", [
-              _vm._v(
-                "A vásárláshoz regisztráció szükséges, valamint a személyes (lakcím, telefonszám) adatokat is meg kell adni."
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "A rendelés leadását követően kapunk egy email-t, amelyben taláható egy, a program áltat generált PDF formátumú számla."
-              )
+              _vm._v("Az oldalt jelenleg is fejlesztem és bővítem funkciókkal!")
             ])
           ]
         },
@@ -43047,10 +43008,6 @@ var render = function() {
             _vm._v(" "),
             _c("TechList", {
               attrs: { title: "Saját fejlesztésű API", isTooltip: false }
-            }),
-            _vm._v(" "),
-            _c("TechList", {
-              attrs: { title: "Single-Page-Application", isTooltip: false }
             })
           ]
         },
@@ -43167,10 +43124,6 @@ var render = function() {
             _vm._v(" "),
             _c("TechList", {
               attrs: { title: "Spoonacular API", isTooltip: false }
-            }),
-            _vm._v(" "),
-            _c("TechList", {
-              attrs: { title: "Single-Page-Application", isTooltip: false }
             })
           ]
         },
@@ -43197,8 +43150,12 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("p", [
-              _vm._v("Recepteket, videókat tudunk keresni név alapján.")
-            ])
+              _vm._v(
+                "Recepteket, videókat illetve menüket (MCDonalds, Burger King) tudunk keresni név alapján."
+              )
+            ]),
+            _vm._v(" "),
+            _c("p")
           ]
         },
         proxy: true
@@ -59946,17 +59903,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./resources/img/comp-store/intro.jpg":
-/*!********************************************!*\
-  !*** ./resources/img/comp-store/intro.jpg ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/intro.jpg?a8d6d7e3d9ee638406f3c4fa0a18d942";
-
-/***/ }),
-
 /***/ "./resources/img/meatball/meatball-thumb.jpg":
 /*!***************************************************!*\
   !*** ./resources/img/meatball/meatball-thumb.jpg ***!
@@ -61898,17 +61844,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/views/includes/MainPage/includes/projects/CompStore.vue":
-/*!******************************************************************************!*\
-  !*** ./resources/js/views/includes/MainPage/includes/projects/CompStore.vue ***!
-  \******************************************************************************/
+/***/ "./resources/js/views/includes/MainPage/includes/projects/ComputerStore.vue":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/views/includes/MainPage/includes/projects/ComputerStore.vue ***!
+  \**********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _CompStore_vue_vue_type_template_id_210da32f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CompStore.vue?vue&type=template&id=210da32f& */ "./resources/js/views/includes/MainPage/includes/projects/CompStore.vue?vue&type=template&id=210da32f&");
-/* harmony import */ var _CompStore_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CompStore.vue?vue&type=script&lang=js& */ "./resources/js/views/includes/MainPage/includes/projects/CompStore.vue?vue&type=script&lang=js&");
+/* harmony import */ var _ComputerStore_vue_vue_type_template_id_2e015623___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ComputerStore.vue?vue&type=template&id=2e015623& */ "./resources/js/views/includes/MainPage/includes/projects/ComputerStore.vue?vue&type=template&id=2e015623&");
+/* harmony import */ var _ComputerStore_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ComputerStore.vue?vue&type=script&lang=js& */ "./resources/js/views/includes/MainPage/includes/projects/ComputerStore.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -61918,9 +61864,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _CompStore_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _CompStore_vue_vue_type_template_id_210da32f___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _CompStore_vue_vue_type_template_id_210da32f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _ComputerStore_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ComputerStore_vue_vue_type_template_id_2e015623___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ComputerStore_vue_vue_type_template_id_2e015623___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -61930,38 +61876,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/views/includes/MainPage/includes/projects/CompStore.vue"
+component.options.__file = "resources/js/views/includes/MainPage/includes/projects/ComputerStore.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/views/includes/MainPage/includes/projects/CompStore.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************************************!*\
-  !*** ./resources/js/views/includes/MainPage/includes/projects/CompStore.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************************/
+/***/ "./resources/js/views/includes/MainPage/includes/projects/ComputerStore.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************!*\
+  !*** ./resources/js/views/includes/MainPage/includes/projects/ComputerStore.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CompStore_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./CompStore.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/includes/projects/CompStore.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CompStore_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ComputerStore_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./ComputerStore.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/includes/projects/ComputerStore.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ComputerStore_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/views/includes/MainPage/includes/projects/CompStore.vue?vue&type=template&id=210da32f&":
-/*!*************************************************************************************************************!*\
-  !*** ./resources/js/views/includes/MainPage/includes/projects/CompStore.vue?vue&type=template&id=210da32f& ***!
-  \*************************************************************************************************************/
+/***/ "./resources/js/views/includes/MainPage/includes/projects/ComputerStore.vue?vue&type=template&id=2e015623&":
+/*!*****************************************************************************************************************!*\
+  !*** ./resources/js/views/includes/MainPage/includes/projects/ComputerStore.vue?vue&type=template&id=2e015623& ***!
+  \*****************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CompStore_vue_vue_type_template_id_210da32f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./CompStore.vue?vue&type=template&id=210da32f& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/includes/projects/CompStore.vue?vue&type=template&id=210da32f&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CompStore_vue_vue_type_template_id_210da32f___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ComputerStore_vue_vue_type_template_id_2e015623___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./ComputerStore.vue?vue&type=template&id=2e015623& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/includes/MainPage/includes/projects/ComputerStore.vue?vue&type=template&id=2e015623&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ComputerStore_vue_vue_type_template_id_2e015623___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CompStore_vue_vue_type_template_id_210da32f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ComputerStore_vue_vue_type_template_id_2e015623___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

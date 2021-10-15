@@ -38,10 +38,6 @@
                 :title="'Saját fejlesztésű API'"
                 :isTooltip="false"
             />
-            <TechList 
-                :title="'Single-Page-Application'"
-                :isTooltip="false"
-            />
         </template>
         <template v-slot:description>
             <p>A weboldal egy kitalált étterem honlapja, ahol lehetőség van ételeket rendelni.</p>

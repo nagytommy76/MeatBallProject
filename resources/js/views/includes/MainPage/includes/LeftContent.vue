@@ -76,20 +76,19 @@
         <p>
           Nagy Tamás vagyok, pályakezdő webfejlesztő. Jelenlegi tudásom nagy
           részét autodidakta módon szereztem, különböző kurzusok (Udemy) és
-          weboldalak (freeCodeCamp, w3schools) segítségével, valamint saját
+          weboldalak (freeCodeCamp, w3schools és természetesen StackOverflow &#128578; ) segítségével, valamint saját
           projectek elkészítésével.
         </p>
         <p>
           Fő erősségemnek a JavaScript-et és a React.js könyvtárat tartom.
         </p>
-        <p>Jelenleg a MERN (MongoDB, Express.js, React, Node.js) stack-et tanulom, valamint TypeScript-et</p>
+        <p>Jelenleg a MERN (MongoDB, Express.js, React, Node.js) stack-et tanulom, valamint TypeScript-et.</p>
         <p>
-          Kezdőként forntend területen szeretnék elhelyezkedni, illetve bővíteni
-          tudásomat. A későbbiekben a fullstack irány a célom.
+          Kezdőként forntend, vagy fullstack területen szeretnék elhelyezkedni, illetve bővíteni
+          tudásomat.
         </p>
         <p>
-          A jövőt tekintve szeretném mélyíteni a tudásom Node.js-ben (valamint
-          Express.js) és MongoDB-ben.
+          A jövőt tekintve szeretném mélyíteni a tudásom Node.js-ben (Express.js) és MongoDB-ben.
         </p>
       </div>
     </section>

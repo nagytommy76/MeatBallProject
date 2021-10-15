@@ -279,6 +279,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .bootstrap {
+  margin-left: 0.3rem;
   color: #7952b3;
 }
 
