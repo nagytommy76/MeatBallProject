@@ -3,10 +3,10 @@
         :articleClass="'recipe-react'"
         :demoLink="''"
         :githubLink="'https://github.com/nagytommy76/ComputerStoreMERN'"
-        :projectTitle="'Számtech webáruház'"
+        :projectTitle="'Számtech webáruház (!)'"
     >
         <template v-slot:image>
-            <img src="../../../../../../img/react-recipe/react-recipe.jpg" alt="React Recipe" @click="$emit('show-image', 'React Recipe')">
+            <img src="../../../../../../img/comp-mern/comp-thumb.jpg" alt="Computer Store" @click="$emit('show-image', 'CompStoreMERN')">
         </template>
         <template v-slot:tech-list>
             <TechList 
@@ -31,13 +31,21 @@
                 :title="'Styled-components'"
                 :isTooltip="false"
             />
+            <TechList 
+                :title="'MaterialUI'"
+                :isTooltip="false"
+            />
                 <TechList 
                 :title="'Saját fejlesztésű API'"
                 :isTooltip="false"
             />
         </template>
         <template v-slot:description>
-            <p>Az oldalt jelenleg is fejlesztem és bővítem funkciókkal!</p>
+            <h3>Az oldalt jelenleg is fejlesztem és bővítem új funkciókkal!</h3>
+            <p>Egy számítástechnikai webáruház, melyben egyelőre az alap funkciók működnek:</p>
+            <p>Felhasználó regisztráció, belépés</p>
+            <p>CPU/VGA termékek megjelenítése.</p>
+            <p>Szűrés ár intervallum, illetve gyártők szerint. Rendezés ár szerint és termékek oldalankénti számának állítási lehetősége</p>
         </template>
     </BaseProject>
 </template>

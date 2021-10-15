@@ -62,7 +62,7 @@ __webpack_require__.r(__webpack_exports__);
         this.getReactRecipeImagesFromFolderByName();
         break;
 
-      case 'PCBoltMVC':
+      case 'CompStoreMERN':
         this.getCompStoreImagesFromFolderByName();
         break;
     }
@@ -91,7 +91,7 @@ __webpack_require__.r(__webpack_exports__);
       this.fillImages(allRecipeImages);
     },
     getCompStoreImagesFromFolderByName: function getCompStoreImagesFromFolderByName() {
-      var allCompStoreImages = ['intro_ccseyv', 'products_ni1ady', 'search_ejkhj0', 'order_bljr98', 'last-orders_pis2fs', 'szamla_gekaid'];
+      var allCompStoreImages = ['login_qmhzu5', 'cpu_yom9xn', 'cart_ttz7ga', 'admin-vga-modify_wjrbhi', 'full-height-cpu_qfz5ay'];
       this.fillImages(allCompStoreImages);
     },
     fillImages: function fillImages(imagesNameFromFolder) {

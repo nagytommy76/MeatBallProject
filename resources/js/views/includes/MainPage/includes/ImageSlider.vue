@@ -49,7 +49,7 @@ export default {
             case 'React Recipe':
                 this.getReactRecipeImagesFromFolderByName()
                 break;
-            case 'PCBoltMVC':
+            case 'CompStoreMERN':
                 this.getCompStoreImagesFromFolderByName()
                 break;
         }
@@ -93,12 +93,11 @@ export default {
         },
         getCompStoreImagesFromFolderByName(){
             const allCompStoreImages = [
-                'intro_ccseyv',
-                'products_ni1ady',
-                'search_ejkhj0',
-                'order_bljr98',
-                'last-orders_pis2fs',
-                'szamla_gekaid'
+                'login_qmhzu5',
+                'cpu_yom9xn',
+                'cart_ttz7ga',
+                'admin-vga-modify_wjrbhi',
+                'full-height-cpu_qfz5ay',
             ]
             this.fillImages(allCompStoreImages)
         },

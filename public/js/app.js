@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"Alert":"Alert","BaseButton":"BaseButton","BaseCard":"BaseCard","BaseFilter":"BaseFilter","CartModal":"CartModal","CloudImage":"CloudImage","Dessert":"Dessert","Drink":"Drink","ErrorMsg":"ErrorMsg","ImageSlider":"ImageSlider","LoadingOverlay":"LoadingOverlay","Login":"Login","Meal":"Meal","Meatball":"Meatball","OrdersModal":"OrdersModal","PageNotFound":"PageNotFound","Pasta":"Pasta","Pizza":"Pizza","Register":"Register","Soup":"Soup","Tooltip":"Tooltip","WelcomePage":"WelcomePage"}[chunkId]||chunkId) + ".js?id=" + {"Alert":"69bf371839a433411791","BaseButton":"6354e816e4923fcd250b","BaseCard":"a02150bba76d8ce883d4","BaseFilter":"ea7b334469ffa6536728","CartModal":"4d024259532d44a7e266","CloudImage":"e34ef0283f492b75659e","Dessert":"d6210f588a7cc82e2514","Drink":"37582250de42dea40bf0","ErrorMsg":"cd6a9ec06ef348541f8e","ImageSlider":"198b137109c1db22159d","LoadingOverlay":"8550a2e5dcabf526a9e4","Login":"a3fd4abc2dce91fe8858","Meal":"f49dee2ae35f912887c8","Meatball":"5ce11b48ab3ddce4c44d","OrdersModal":"e815805b0ac029cefd8b","PageNotFound":"360ae16417fb3fb0103f","Pasta":"345de665f1bff0d14a61","Pizza":"d096952815b0a45aed8a","Register":"34332984503760c30985","Soup":"b393aa6fdcbaf1ba9adb","Tooltip":"fae05c2b10102772c33b","WelcomePage":"27455e447f142bac7e40"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "" + ({"Alert":"Alert","BaseButton":"BaseButton","BaseCard":"BaseCard","BaseFilter":"BaseFilter","CartModal":"CartModal","CloudImage":"CloudImage","Dessert":"Dessert","Drink":"Drink","ErrorMsg":"ErrorMsg","ImageSlider":"ImageSlider","LoadingOverlay":"LoadingOverlay","Login":"Login","Meal":"Meal","Meatball":"Meatball","OrdersModal":"OrdersModal","PageNotFound":"PageNotFound","Pasta":"Pasta","Pizza":"Pizza","Register":"Register","Soup":"Soup","Tooltip":"Tooltip","WelcomePage":"WelcomePage"}[chunkId]||chunkId) + ".js?id=" + {"Alert":"69bf371839a433411791","BaseButton":"6354e816e4923fcd250b","BaseCard":"a02150bba76d8ce883d4","BaseFilter":"ea7b334469ffa6536728","CartModal":"4d024259532d44a7e266","CloudImage":"e34ef0283f492b75659e","Dessert":"d6210f588a7cc82e2514","Drink":"37582250de42dea40bf0","ErrorMsg":"cd6a9ec06ef348541f8e","ImageSlider":"47e0babd8242469d78de","LoadingOverlay":"8550a2e5dcabf526a9e4","Login":"a3fd4abc2dce91fe8858","Meal":"f49dee2ae35f912887c8","Meatball":"5ce11b48ab3ddce4c44d","OrdersModal":"e815805b0ac029cefd8b","PageNotFound":"360ae16417fb3fb0103f","Pasta":"345de665f1bff0d14a61","Pizza":"d096952815b0a45aed8a","Register":"34332984503760c30985","Soup":"b393aa6fdcbaf1ba9adb","Tooltip":"fae05c2b10102772c33b","WelcomePage":"27455e447f142bac7e40"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -16971,6 +16971,14 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _TechListItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TechListItem */ "./resources/js/views/includes/MainPage/includes/projects/TechListItem.vue");
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -42817,7 +42825,7 @@ var render = function() {
       articleClass: "recipe-react",
       demoLink: "",
       githubLink: "https://github.com/nagytommy76/ComputerStoreMERN",
-      projectTitle: "Számtech webáruház"
+      projectTitle: "Számtech webáruház (!)"
     },
     scopedSlots: _vm._u([
       {
@@ -42826,12 +42834,12 @@ var render = function() {
           return [
             _c("img", {
               attrs: {
-                src: __webpack_require__(/*! ../../../../../../img/react-recipe/react-recipe.jpg */ "./resources/img/react-recipe/react-recipe.jpg"),
-                alt: "React Recipe"
+                src: __webpack_require__(/*! ../../../../../../img/comp-mern/comp-thumb.jpg */ "./resources/img/comp-mern/comp-thumb.jpg"),
+                alt: "Computer Store"
               },
               on: {
                 click: function($event) {
-                  return _vm.$emit("show-image", "React Recipe")
+                  return _vm.$emit("show-image", "CompStoreMERN")
                 }
               }
             })
@@ -42884,6 +42892,10 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("TechList", {
+              attrs: { title: "MaterialUI", isTooltip: false }
+            }),
+            _vm._v(" "),
+            _c("TechList", {
               attrs: { title: "Saját fejlesztésű API", isTooltip: false }
             })
           ]
@@ -42894,8 +42906,26 @@ var render = function() {
         key: "description",
         fn: function() {
           return [
+            _c("h3", [
+              _vm._v(
+                "Az oldalt jelenleg is fejlesztem és bővítem új funkciókkal!"
+              )
+            ]),
+            _vm._v(" "),
             _c("p", [
-              _vm._v("Az oldalt jelenleg is fejlesztem és bővítem funkciókkal!")
+              _vm._v(
+                "Egy számítástechnikai webáruház, melyben egyelőre az alap funkciók működnek:"
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", [_vm._v("Felhasználó regisztráció, belépés")]),
+            _vm._v(" "),
+            _c("p", [_vm._v("CPU/VGA termékek megjelenítése.")]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Szűrés ár intervallum, illetve gyártők szerint. Rendezés ár szerint és termékek oldalankénti számának állítási lehetősége"
+              )
             ])
           ]
         },
@@ -59900,6 +59930,17 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+
+/***/ "./resources/img/comp-mern/comp-thumb.jpg":
+/*!************************************************!*\
+  !*** ./resources/img/comp-mern/comp-thumb.jpg ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/comp-thumb.jpg?681f6d1f9891eafc064d62acde492129";
 
 /***/ }),
 
