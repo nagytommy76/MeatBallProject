@@ -10,10 +10,10 @@ import router from './router/router';
 import App from './views/App'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import BaseProject from './views/includes/MainPage/includes/projects/BaseProject'
+// import BaseProject from './views/includes/MainPage/includes/projects/BaseProject'
 
 Vue.component('font-awesome', FontAwesomeIcon)
-Vue.component('BaseProject', BaseProject)
+Vue.component('BaseProject', () => import(/* webpackChunkName: "BaseProject" */'./views/includes/MainPage/includes/projects/BaseProject'))
 
 Vue.component('CloudImage', () => import( /* webpackChunkName: "CloudImage" */ './views/includes/MainPage/includes/projects/CloudImage'))
 Vue.component('BaseButton', () => import( /* webpackChunkName: "BaseButton" */ './components/baseComponents/BaseButton'))
