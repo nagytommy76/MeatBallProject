@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"Alert":"Alert","BaseButton":"BaseButton","BaseCard":"BaseCard","BaseFilter":"BaseFilter","BaseProject":"BaseProject","CartModal":"CartModal","CloudImage":"CloudImage","Dessert":"Dessert","Drink":"Drink","ErrorMsg":"ErrorMsg","ImageSlider":"ImageSlider","LoadingOverlay":"LoadingOverlay","Login":"Login","Meal":"Meal","Meatball":"Meatball","OrdersModal":"OrdersModal","PageNotFound":"PageNotFound","Pasta":"Pasta","Pizza":"Pizza","Register":"Register","Soup":"Soup","Tooltip":"Tooltip","WelcomePage":"WelcomePage"}[chunkId]||chunkId) + ".js?id=" + {"Alert":"69bf371839a433411791","BaseButton":"6354e816e4923fcd250b","BaseCard":"a02150bba76d8ce883d4","BaseFilter":"ea7b334469ffa6536728","BaseProject":"3c45ce8a43500da2f962","CartModal":"4d024259532d44a7e266","CloudImage":"e34ef0283f492b75659e","Dessert":"d6210f588a7cc82e2514","Drink":"37582250de42dea40bf0","ErrorMsg":"cd6a9ec06ef348541f8e","ImageSlider":"47e0babd8242469d78de","LoadingOverlay":"8550a2e5dcabf526a9e4","Login":"a3fd4abc2dce91fe8858","Meal":"f49dee2ae35f912887c8","Meatball":"5ce11b48ab3ddce4c44d","OrdersModal":"e815805b0ac029cefd8b","PageNotFound":"360ae16417fb3fb0103f","Pasta":"345de665f1bff0d14a61","Pizza":"d096952815b0a45aed8a","Register":"34332984503760c30985","Soup":"b393aa6fdcbaf1ba9adb","Tooltip":"fae05c2b10102772c33b","WelcomePage":"27455e447f142bac7e40"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "" + ({"Alert":"Alert","BaseButton":"BaseButton","BaseCard":"BaseCard","BaseFilter":"BaseFilter","BaseProject":"BaseProject","CartModal":"CartModal","CloudImage":"CloudImage","Dessert":"Dessert","Drink":"Drink","ErrorMsg":"ErrorMsg","ImageSlider":"ImageSlider","LoadingOverlay":"LoadingOverlay","Login":"Login","Meal":"Meal","Meatball":"Meatball","OrdersModal":"OrdersModal","PageNotFound":"PageNotFound","Pasta":"Pasta","Pizza":"Pizza","Register":"Register","Soup":"Soup","Tooltip":"Tooltip","WelcomePage":"WelcomePage"}[chunkId]||chunkId) + ".js?id=" + {"Alert":"ad3ce1f3523269a4cebe","BaseButton":"3bd129f96dfa357a4df5","BaseCard":"0131619f630b1961be17","BaseFilter":"9f11fe2287c765f24c77","BaseProject":"d37f3e8dbed356ddc350","CartModal":"6a4047b50d33d5dc736f","CloudImage":"0d86c4ee1fbf4a85c37d","Dessert":"f14b1b498862830deee7","Drink":"3e53694d6fdde8e4c3ce","ErrorMsg":"7fada3c5f36811280228","ImageSlider":"e6b6f93341f91c1a6d9d","LoadingOverlay":"fa6a7667fab8a18e9353","Login":"668e68285665fbc5686a","Meal":"709441e9116ed4015067","Meatball":"70f83f8e316159182a6d","OrdersModal":"e3594792b24b4c1383e4","PageNotFound":"5efc8487a22fb0c7a515","Pasta":"be5a68dcf95445dcc7a8","Pizza":"ed685d9ac6741020892e","Register":"e168ae07e2ee7ee52efb","Soup":"4f3871c5c5aa86ba56ff","Tooltip":"edf05e963bab5501db7d","WelcomePage":"1d634d0e32cb0694a53e"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -16484,19 +16484,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
 
 
- // import RecipeFinder from './includes/projects/RecipeFinder.vue'
-// import CompStore from './includes/projects/CompStore'
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'AboutMe',
+  name: "AboutMe",
   components: {
     LeftContent: _includes_LeftContent__WEBPACK_IMPORTED_MODULE_0__["default"],
     Meatball: _includes_projects_MeatballProject__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -16507,7 +16501,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       showImageSlider: false,
-      imgFolderName: ''
+      imgFolderName: ""
     };
   },
   methods: {
@@ -16657,8 +16651,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'FooterContact'
+  name: "FooterContact"
 });
 
 /***/ }),
@@ -16673,6 +16695,56 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _FooterContact__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FooterContact */ "./resources/js/views/includes/MainPage/includes/FooterContact.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -16897,8 +16969,74 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'SideNavbar',
+  name: "SideNavbar",
   computed: {
     mobileView: function mobileView() {
       return window.innerWidth <= 600 ? true : false;
@@ -16906,7 +17044,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     closeNav: function closeNav() {
-      this.$emit('close');
+      this.$emit("close");
     }
   }
 });
@@ -16923,6 +17061,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _TechListItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TechListItem */ "./resources/js/views/includes/MainPage/includes/projects/TechListItem.vue");
+//
 //
 //
 //
@@ -17061,6 +17200,17 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _TechListItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TechListItem */ "./resources/js/views/includes/MainPage/includes/projects/TechListItem.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -32827,7 +32977,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".footer-contact[data-v-7037737a] {\n  margin: auto 0 1rem 0;\n}\n.footer-contact .icon-title[data-v-7037737a] {\n  text-align: right;\n}\n.footer-contact .contact-icon[data-v-7037737a] {\n  margin-bottom: 0.5rem;\n}\n.footer-contact .contact-icon .svg-icon[data-v-7037737a] {\n  color: #FFF;\n  font-size: 2.4rem;\n  margin: 0.2rem 0.3rem;\n}\n.footer-contact .email[data-v-7037737a], .footer-contact a[data-v-7037737a] {\n  color: #ffae00;\n  text-align: right;\n}\n@media (max-width: 720px) {\n.footer-contact[data-v-7037737a] {\n    margin-top: 1rem;\n}\n.footer-contact .icon-title[data-v-7037737a] {\n    text-align: center;\n    margin-bottom: 0.7rem;\n}\n.footer-contact .contact-icon[data-v-7037737a] {\n    margin-bottom: 1rem;\n}\n.footer-contact .email[data-v-7037737a] {\n    text-align: center;\n}\n}", ""]);
+exports.push([module.i, ".footer-contact[data-v-7037737a] {\n  margin: auto 0 1rem 0;\n}\n.footer-contact .icon-title[data-v-7037737a] {\n  text-align: right;\n}\n.footer-contact .contact-icon[data-v-7037737a] {\n  margin-bottom: 0.5rem;\n}\n.footer-contact .contact-icon .svg-icon[data-v-7037737a] {\n  color: #fff;\n  font-size: 2.4rem;\n  margin: 0.2rem 0.3rem;\n}\n.footer-contact .email[data-v-7037737a],\n.footer-contact a[data-v-7037737a] {\n  color: #ffae00;\n  text-align: right;\n}\n@media (max-width: 720px) {\n.footer-contact[data-v-7037737a] {\n    margin-top: 1rem;\n}\n.footer-contact .icon-title[data-v-7037737a] {\n    text-align: center;\n    margin-bottom: 0.7rem;\n}\n.footer-contact .contact-icon[data-v-7037737a] {\n    margin-bottom: 1rem;\n}\n.footer-contact .email[data-v-7037737a] {\n    text-align: center;\n}\n}", ""]);
 
 // exports
 
@@ -32846,7 +32996,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".main-left-content[data-v-3b0aedb0] {\n  border-bottom: 2px solid #ffae00;\n  padding: 3rem;\n  width: 30%;\n  display: flex;\n  flex-direction: column;\n  background-color: #222;\n  align-items: flex-end;\n  color: #fff;\n}\n.main-left-content .image[data-v-3b0aedb0] {\n  -o-object-fit: fill;\n     object-fit: fill;\n  width: 200px;\n  border-radius: 50%;\n}\n.main-left-content .left-title[data-v-3b0aedb0] {\n  text-align: right;\n  font-size: 2.3rem;\n  padding: 1.4rem 0;\n}\n.main-left-content .stack-icon[data-v-3b0aedb0] {\n  text-align: right;\n  margin-bottom: 1rem;\n}\n.main-left-content .stack-icon .icon-title[data-v-3b0aedb0] {\n  margin: 0.5rem 0;\n  font-size: 1.1rem;\n}\n.main-left-content .stack-icon .svg-icon[data-v-3b0aedb0] {\n  color: #fff;\n  margin: 0.2rem 0.3rem;\n  font-size: 2.4rem;\n  width: 45px;\n  height: 45px;\n}\n.main-left-content .stack-icon img[data-v-3b0aedb0] {\n  -webkit-filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(261deg) brightness(116%) contrast(100%);\n          filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(261deg) brightness(116%) contrast(100%);\n  border-radius: 3px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 45px;\n  height: 45px;\n}\n.main-left-content .summary[data-v-3b0aedb0] {\n  margin-bottom: auto;\n  max-width: 20rem;\n  border: 1px solid #ffae00;\n  border-radius: 10px;\n  padding: 1rem;\n}\n.main-left-content .summary-header[data-v-3b0aedb0] {\n  font-size: 1.6rem;\n  text-align: right;\n  margin: 0 0 1rem 0;\n}\n.main-left-content .summary-body[data-v-3b0aedb0] {\n  text-align: justify;\n  line-height: 1.35rem;\n}\n.main-left-content .summary-body p[data-v-3b0aedb0] {\n  margin: 0.5rem 0;\n}\n@media (max-width: 720px) {\n.grid-tooltip[data-v-3b0aedb0] {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n}\n.grid-tooltip .tooltip[data-v-3b0aedb0] {\n    margin: auto;\n}\n.icon-title[data-v-3b0aedb0] {\n    text-align: center;\n    margin-bottom: 0.5rem;\n}\n.main-left-content[data-v-3b0aedb0] {\n    width: auto;\n    padding: 2rem;\n    align-items: center;\n}\n.main-left-content .left-title[data-v-3b0aedb0] {\n    text-align: center;\n}\n.main-left-content .summary-header[data-v-3b0aedb0] {\n    text-align: center;\n    margin-bottom: 1.3rem;\n}\n}", ""]);
+exports.push([module.i, ".main-left-content[data-v-3b0aedb0] {\n  border-bottom: 2px solid #ffae00;\n  padding: 3rem;\n  width: 30%;\n  display: flex;\n  flex-direction: column;\n  background-color: #222;\n  align-items: flex-end;\n  color: #fff;\n}\n.main-left-content .image[data-v-3b0aedb0] {\n  margin-top: 0.7rem;\n  width: 255px;\n  height: 255px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center 14%;\n     object-position: center 14%;\n}\n.main-left-content .left-title[data-v-3b0aedb0] {\n  text-align: right;\n  font-size: 2.3rem;\n  padding: 1.4rem 0;\n}\n.main-left-content .stack-icon[data-v-3b0aedb0] {\n  text-align: right;\n  margin-bottom: 1rem;\n}\n.main-left-content .stack-icon .icon-title[data-v-3b0aedb0] {\n  margin: 0.5rem 0;\n  font-size: 1.1rem;\n}\n.main-left-content .stack-icon .svg-icon[data-v-3b0aedb0] {\n  color: #fff;\n  margin: 0.2rem 0.3rem;\n  font-size: 2.4rem;\n  width: 45px;\n  height: 45px;\n}\n.main-left-content .stack-icon img[data-v-3b0aedb0] {\n  -webkit-filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(261deg) brightness(116%) contrast(100%);\n          filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(261deg) brightness(116%) contrast(100%);\n  border-radius: 3px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 45px;\n  height: 45px;\n}\n.main-left-content .summary[data-v-3b0aedb0] {\n  margin-bottom: auto;\n  max-width: 20rem;\n  border: 1px solid #ffae00;\n  border-radius: 10px;\n  padding: 1rem;\n}\n.main-left-content .summary-header[data-v-3b0aedb0] {\n  font-size: 1.6rem;\n  text-align: right;\n  margin: 0 0 1rem 0;\n}\n.main-left-content .summary-body[data-v-3b0aedb0] {\n  text-align: justify;\n  line-height: 1.35rem;\n}\n.main-left-content .summary-body p[data-v-3b0aedb0] {\n  margin: 0.5rem 0;\n}\n@media (max-width: 720px) {\n.grid-tooltip[data-v-3b0aedb0] {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n}\n.grid-tooltip .tooltip[data-v-3b0aedb0] {\n    margin: auto;\n}\n.icon-title[data-v-3b0aedb0] {\n    text-align: center;\n    margin-bottom: 0.5rem;\n}\n.main-left-content[data-v-3b0aedb0] {\n    width: auto;\n    padding: 2rem;\n    align-items: center;\n}\n.main-left-content .left-title[data-v-3b0aedb0] {\n    text-align: center;\n}\n.main-left-content .summary-header[data-v-3b0aedb0] {\n    text-align: center;\n    margin-bottom: 1.3rem;\n}\n}", ""]);
 
 // exports
 
@@ -41584,9 +41734,9 @@ var render = function() {
                 on: { "show-image": _vm.openImageSlider }
               }),
               _vm._v(" "),
-              _c("Meatball", { on: { "show-image": _vm.openImageSlider } }),
-              _vm._v(" "),
               _c("ReactRecipe", { on: { "show-image": _vm.openImageSlider } }),
+              _vm._v(" "),
+              _c("Meatball", { on: { "show-image": _vm.openImageSlider } }),
               _vm._v(" "),
               _c("Wargaming", { on: { "show-image": _vm.openImageSlider } })
             ],
@@ -41899,20 +42049,15 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("Tooltip", { attrs: { text: "Facebook: Nagy Tamás" } }, [
+        _c("Tooltip", { attrs: { text: "0630 786 2963" } }, [
           _c("span", [
             _c(
               "a",
-              {
-                attrs: {
-                  target: "_blank",
-                  href: "https://www.facebook.com/tamas.nagy.1029"
-                }
-              },
+              { attrs: { href: "tel:06307862963" } },
               [
                 _c("font-awesome", {
                   staticClass: "svg-icon",
-                  attrs: { icon: ["fab", "facebook-square"], size: "2x" }
+                  attrs: { icon: ["fa", "phone"], size: "2x" }
                 })
               ],
               1
@@ -41965,7 +42110,10 @@ var render = function() {
     [
       _c("img", {
         staticClass: "image",
-        attrs: { src: __webpack_require__(/*! ../../../../../img/modified.jpg */ "./resources/img/modified.jpg"), alt: "IAM" }
+        attrs: {
+          src: __webpack_require__(/*! ../../../../../img/me_modified_final.jpg */ "./resources/img/me_modified_final.jpg"),
+          alt: "IAM"
+        }
       }),
       _vm._v(" "),
       _vm._m(0),
@@ -42129,6 +42277,7 @@ var render = function() {
             _c("Tooltip", { attrs: { text: "TypeScript" } }, [
               _c("img", {
                 staticClass: "svg-icon",
+                staticStyle: { width: "40px", height: "40px" },
                 attrs: { src: __webpack_require__(/*! ./typescript_alt_icon.svg */ "./resources/js/views/includes/MainPage/includes/typescript_alt_icon.svg"), alt: "" }
               })
             ]),
@@ -42193,31 +42342,31 @@ var staticRenderFns = [
       _c("div", { staticClass: "summary-body" }, [
         _c("p", [
           _vm._v(
-            "\n        Nagy Tamás vagyok, pályakezdő webfejlesztő. Jelenlegi tudásom nagy\n        részét autodidakta módon szereztem, különböző kurzusok (Udemy) és\n        weboldalak (freeCodeCamp, w3schools és természetesen StackOverflow 🙂 ) segítségével, valamint saját\n        projectek elkészítésével.\n      "
+            "\n                Nagy Tamás vagyok, pályakezdő webfejlesztő. Jelenlegi\n                tudásom nagy részét autodidakta módon szereztem, különböző\n                kurzusok (Udemy) és weboldalak (freeCodeCamp, w3schools és\n                természetesen StackOverflow 🙂 ) segítségével,\n                valamint saját projectek elkészítésével.\n            "
           )
         ]),
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "\n        Fő erősségemnek a JavaScript-et és a React.js könyvtárat tartom.\n      "
+            "\n                Fő erősségemnek a JavaScript-et és a React.js könyvtárat\n                tartom.\n            "
           )
         ]),
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "Jelenleg a MERN (MongoDB, Express.js, React, Node.js) stack-et tanulom, valamint TypeScript-et."
+            "\n                Jelenleg a MERN (MongoDB, Express.js, React, Node.js)\n                stack-et tanulom, valamint TypeScript-et.\n            "
           )
         ]),
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "\n        Kezdőként forntend, vagy fullstack területen szeretnék elhelyezkedni, illetve bővíteni\n        tudásomat.\n      "
+            "\n                Kezdőként forntend, vagy fullstack területen szeretnék\n                elhelyezkedni, illetve bővíteni tudásomat.\n            "
           )
         ]),
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "\n        A jövőt tekintve szeretném mélyíteni a tudásom Node.js-ben (Express.js) és MongoDB-ben.\n      "
+            "\n                A jövőt tekintve szeretném mélyíteni a tudásom Node.js-ben\n                (Express.js) és MongoDB-ben.\n            "
           )
         ])
       ])
@@ -42411,12 +42560,15 @@ var render = function() {
         { staticClass: "sidenav-navigation" },
         [
           _c(
-            "router-link",
+            "a",
             {
               staticClass: "sidenav-navigation-item",
-              attrs: { to: { name: "Welcome" } }
+              attrs: {
+                target: "_blank",
+                href: "https://computerstorebackend.firebaseapp.com/"
+              }
             },
-            [_vm._v("Húsgolyó Étterem")]
+            [_vm._v("Computer Store")]
           ),
           _vm._v(" "),
           _c(
@@ -42432,6 +42584,15 @@ var render = function() {
           ),
           _vm._v(" "),
           _c(
+            "router-link",
+            {
+              staticClass: "sidenav-navigation-item",
+              attrs: { to: { name: "Welcome" } }
+            },
+            [_vm._v("Húsgolyó Étterem")]
+          ),
+          _vm._v(" "),
+          _c(
             "a",
             {
               staticClass: "sidenav-navigation-item",
@@ -42441,18 +42602,6 @@ var render = function() {
               }
             },
             [_vm._v("World of Tanks")]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "sidenav-navigation-item",
-              attrs: {
-                target: "_blank",
-                href: "https://pcboltmvc.000webhostapp.com/"
-              }
-            },
-            [_vm._v("Computer Store")]
           ),
           _vm._v(" "),
           _c("div", { staticClass: "nav-underline" }),
@@ -42501,9 +42650,18 @@ var render = function() {
             [_vm._v("Tanulmányok")]
           ),
           _vm._v(" "),
-          _c("a", { staticClass: "sidenav-navigation-item" }, [
-            _vm._v("Önéletrajz")
-          ]),
+          _c(
+            "a",
+            {
+              staticClass: "sidenav-navigation-item",
+              attrs: {
+                target: "_blank",
+                href:
+                  "https://drive.google.com/drive/folders/1-kAtpIRgO-xTEtikH-HyR4HCJm_HuhFu?usp=sharing"
+              }
+            },
+            [_vm._v("Önéletrajz")]
+          ),
           _vm._v(" "),
           _c("div", { staticClass: "nav-underline" }),
           _vm._v(" "),
@@ -42536,7 +42694,7 @@ var render = function() {
                     attrs: {
                       target: "_blank",
                       href:
-                        "https://www.linkedin.com/in/nagy-tam%C3%A1s-27355116b/"
+                        "https://www.linkedin.com/in/tam%C3%A1s-nagy-27355116b/"
                     }
                   },
                   [
@@ -42563,26 +42721,6 @@ var render = function() {
                     _c("font-awesome", {
                       staticClass: "svg-icon",
                       attrs: { icon: ["fab", "github"], size: "2x" }
-                    })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c("Tooltip", { attrs: { text: "Facebook" } }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "sidenav-contact-item",
-                    attrs: {
-                      target: "_blank",
-                      href: "https://www.facebook.com/tamas.nagy.1029"
-                    }
-                  },
-                  [
-                    _c("font-awesome", {
-                      staticClass: "svg-icon",
-                      attrs: { icon: ["fab", "facebook-square"], size: "2x" }
                     })
                   ],
                   1
@@ -42642,7 +42780,7 @@ var render = function() {
       articleClass: "recipe-react",
       demoLink: "",
       githubLink: "https://github.com/nagytommy76/ComputerStoreMERN",
-      projectTitle: "Számtech webáruház (!)"
+      projectTitle: "Számtech webáruház"
     },
     scopedSlots: _vm._u([
       {
@@ -42698,7 +42836,7 @@ var render = function() {
               [
                 _c("img", {
                   staticClass: "svg-icon typescript",
-                  staticStyle: { width: "32px", height: "32px" },
+                  staticStyle: { width: "26px", height: "26px" },
                   attrs: { src: __webpack_require__(/*! ../typescript_alt_icon.svg */ "./resources/js/views/includes/MainPage/includes/typescript_alt_icon.svg"), alt: "" }
                 })
               ]
@@ -42723,25 +42861,15 @@ var render = function() {
         key: "description",
         fn: function() {
           return [
-            _c("h3", [
+            _c("p", [
               _vm._v(
-                "Az oldalt jelenleg is fejlesztem és bővítem új funkciókkal!"
+                "\n            Jelenleg ezen a hobby projekten dolgozom ami egy PC\n            alkatrészeket árusító, MERN stack applikáció (MongoDB,\n            Express.Js, React, Node.js).\n        "
               )
             ]),
             _vm._v(" "),
             _c("p", [
               _vm._v(
-                "Egy számítástechnikai webáruház, melyben egyelőre az alap funkciók működnek:"
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Felhasználó regisztráció, belépés")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("CPU/VGA termékek megjelenítése.")]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Szűrés ár intervallum, illetve gyártők szerint. Rendezés ár szerint és termékek oldalankénti számának állítási lehetősége"
+                "\n            A felhasználók a regisztráció és email cím megerősítése után\n            bejelentkezhetnek, majd vásárolhatnak különböző termékeket (pl.\n            CPU, VGA, HDD, RAM). Később tervezem bővíteni a termékek\n            listáját.\n        "
               )
             ])
           ]
@@ -42959,7 +43087,7 @@ var render = function() {
               [
                 _c("img", {
                   staticClass: "svg-icon typescript",
-                  staticStyle: { width: "32px" },
+                  staticStyle: { width: "26px", height: "26px" },
                   attrs: { src: __webpack_require__(/*! ../typescript_alt_icon.svg */ "./resources/js/views/includes/MainPage/includes/typescript_alt_icon.svg"), alt: "" }
                 })
               ]
@@ -42981,7 +43109,7 @@ var render = function() {
         fn: function() {
           return [
             _c("p", [
-              _vm._v("A receptek eléréséhez a "),
+              _vm._v("\n            A receptek eléréséhez a\n            "),
               _c(
                 "a",
                 {
@@ -42993,12 +43121,12 @@ var render = function() {
                 },
                 [_vm._v("Spoonacular API")]
               ),
-              _vm._v("-t használom.")
+              _vm._v("-t használom.\n        ")
             ]),
             _vm._v(" "),
             _c("p", [
               _vm._v(
-                "Recepteket, videókat illetve menüket (MCDonalds, Burger King) tudunk keresni név alapján."
+                "\n            Recepteket, videókat illetve menüket (MCDonalds, Burger King)\n            tudunk keresni név, illetve hosszávalók alapján.\n        "
               )
             ]),
             _vm._v(" "),
@@ -59761,6 +59889,17 @@ module.exports = "/images/comp-thumb.jpg?681f6d1f9891eafc064d62acde492129";
 
 /***/ }),
 
+/***/ "./resources/img/me_modified_final.jpg":
+/*!*********************************************!*\
+  !*** ./resources/img/me_modified_final.jpg ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/me_modified_final.jpg?ccf953247d42071244b2f65949a075e9";
+
+/***/ }),
+
 /***/ "./resources/img/meatball/meatball-thumb.jpg":
 /*!***************************************************!*\
   !*** ./resources/img/meatball/meatball-thumb.jpg ***!
@@ -59769,17 +59908,6 @@ module.exports = "/images/comp-thumb.jpg?681f6d1f9891eafc064d62acde492129";
 /***/ (function(module, exports) {
 
 module.exports = "/images/meatball-thumb.jpg?9b855bf7ee3a51e1c72855465b975e08";
-
-/***/ }),
-
-/***/ "./resources/img/modified.jpg":
-/*!************************************!*\
-  !*** ./resources/img/modified.jpg ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/modified.jpg?aebd01daa8fdb2bcb46e81372ebc7a26";
 
 /***/ }),
 
@@ -59889,9 +60017,9 @@ new Vue({
 /***/ (function(module, exports, __webpack_require__) {
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'; // window.axios.defaults.baseURL = 'http://meatballproject.hu/api/'
+window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+window.axios.defaults.baseURL = "http://meatballproject.hu/api/"; // window.axios.defaults.baseURL = "https://nagytamas93.hu/api/";
 
-window.axios.defaults.baseURL = 'https://nagytamas93.hu/api/';
 window.axios.defaults.withCredentials = true;
 
 /***/ }),
@@ -59941,7 +60069,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__["library"].add(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faGithub"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLinkedin"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faClock"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowLeft"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowRight"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faFacebookSquare"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBars"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faTimesCircle"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faEnvelope"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPhp"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLaravel"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faDatabase"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faJsSquare"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faVuejs"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faBootstrap"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faCss3Alt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faSass"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faHtml5"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faGitAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faWindows"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faNpm"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faPizzaSlice"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faSoap"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBirthdayCake"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faWineGlassAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBacon"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBreadSlice"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faSignOutAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faCartArrowDown"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faShoppingCart"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faTrashAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTripadvisor"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTwitter"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faYoutube"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faInstagram"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faHouseUser"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowCircleUp"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faReact"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faNode"]);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__["library"].add(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faGithub"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLinkedin"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faClock"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowLeft"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowRight"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faFacebookSquare"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBars"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faTimesCircle"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faEnvelope"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPhp"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faLaravel"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faDatabase"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faJsSquare"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faVuejs"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faBootstrap"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faCss3Alt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faSass"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faHtml5"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faGitAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faWindows"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faNpm"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faPizzaSlice"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faSoap"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBirthdayCake"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faWineGlassAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBacon"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faBreadSlice"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faSignOutAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faCartArrowDown"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faShoppingCart"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faTrashAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTripadvisor"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTwitter"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faYoutube"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faInstagram"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faHouseUser"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowCircleUp"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faReact"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faNode"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faPhone"]);
 
 /***/ }),
 
@@ -62008,8 +62136,8 @@ module.exports = "/images/typescript_alt_icon.svg?3025c6faac964673745134d58a40d6
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\MeatBallProject\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\MeatBallProject\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\xampp\htdocs\MeatBallProject\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\xampp\htdocs\MeatBallProject\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

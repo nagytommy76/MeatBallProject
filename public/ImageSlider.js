@@ -36,6 +36,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     imgFolderName: {
@@ -50,19 +61,19 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     switch (this.imgFolderName) {
-      case 'Wargaming':
+      case "Wargaming":
         this.getWGImagesFromFolderByName();
         break;
 
-      case 'Meatball':
+      case "Meatball":
         this.getMeatBallImagesFromFolderByName();
         break;
 
-      case 'React Recipe':
+      case "React Recipe":
         this.getReactRecipeImagesFromFolderByName();
         break;
 
-      case 'CompStoreMERN':
+      case "CompStoreMERN":
         this.getCompStoreImagesFromFolderByName();
         break;
     }
@@ -70,8 +81,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       step: 0,
-      nextPage: 'Következő',
-      prevPage: 'Nincs előző kép',
+      nextPage: "Következő",
+      prevPage: "Nincs előző kép",
       allImages: []
     };
   },
@@ -79,19 +90,24 @@ __webpack_require__.r(__webpack_exports__);
     // A require.context() build-elésnél fut le, így nem lehet template literalt használni mert az futási időben "adódik át"
     // Ezért kell 3 vagy több függvény...
     getMeatBallImagesFromFolderByName: function getMeatBallImagesFromFolderByName() {
-      var allMeatballImages = ['meatball-main-page_z2gqjt', 'pizza_wp57mc', 'meal_lpqmay', 'cart_s1dxdy', 'paypal_ir1kue', 'input-admin_rcjs2y', 'modify_f1ybut'];
+      var allMeatballImages = ["meatball-main-page_z2gqjt", "pizza_wp57mc", "meal_lpqmay", "cart_s1dxdy", "paypal_ir1kue", "input-admin_rcjs2y", "modify_f1ybut"];
       this.fillImages(allMeatballImages);
     },
     getWGImagesFromFolderByName: function getWGImagesFromFolderByName() {
-      var allWGImages = ['search_evfww8', 'modal_moxvgh'];
+      var allWGImages = ["search_evfww8", "modal_moxvgh"];
       this.fillImages(allWGImages);
     },
     getReactRecipeImagesFromFolderByName: function getReactRecipeImagesFromFolderByName() {
-      var allRecipeImages = ['React_Recipe_Finder_WelcomePage1_lvecwz', 'React_Recipe_Finder_fvspcp', 'React_Recipe_Finder_videos_qrclha', 'React_Recipe_Finder_menuItems_n0zzc9', 'React_Recipe_Finder_details_jci5zy'];
+      var allRecipeImages = ["React_Recipe_Finder_WelcomePage1_lvecwz", "React_Recipe_Finder_fvspcp", "React_Recipe_Finder_videos_qrclha", "React_Recipe_Finder_menuItems_n0zzc9", "React_Recipe_Finder_details_jci5zy"];
       this.fillImages(allRecipeImages);
     },
     getCompStoreImagesFromFolderByName: function getCompStoreImagesFromFolderByName() {
-      var allCompStoreImages = ['login_qmhzu5', 'cpu_yom9xn', 'cart_ttz7ga', 'admin-vga-modify_wjrbhi', 'full-height-cpu_qfz5ay'];
+      var allCompStoreImages = [// "login_qmhzu5",
+      // "cpu_yom9xn",
+      // "cart_ttz7ga",
+      // "admin-vga-modify_wjrbhi",
+      // "full-height-cpu_qfz5ay"
+      "CPUShop_pdvn8x", "HDDShop_eg6zkt", "cart_ttz7ga", "Details_jfyguo", "Admin_uig7lb", "OrderSummary_gx3nwo"];
       this.fillImages(allCompStoreImages);
     },
     fillImages: function fillImages(imagesNameFromFolder) {
@@ -106,12 +122,12 @@ __webpack_require__.r(__webpack_exports__);
         ++this.step;
 
         if (this.allImages[this.step - 1] !== undefined) {
-          this.prevPage = 'Előző';
+          this.prevPage = "Előző";
         }
       }
 
       if (this.allImages[this.step + 1] === undefined) {
-        this.nextPage = 'Nincs több kép';
+        this.nextPage = "Nincs több kép";
       }
     },
     decrease: function decrease() {
@@ -119,12 +135,12 @@ __webpack_require__.r(__webpack_exports__);
         --this.step;
 
         if (this.allImages[this.step + 1] !== undefined) {
-          this.nextPage = 'Következő';
+          this.nextPage = "Következő";
         }
       }
 
       if (this.allImages[this.step - 1] === undefined) {
-        this.prevPage = 'Nincs előző kép';
+        this.prevPage = "Nincs előző kép";
       }
     }
   }
