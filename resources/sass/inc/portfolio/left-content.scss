@@ -10,9 +10,16 @@
     align-items: flex-end;
     color: #fff;
     .image {
-        object-fit: fill;
-        width: 200px;
+        // object-fit: fill;
+        // width: 250px;
+        // height: 250px;
+        // border-radius: 50%;
+        margin-top: 0.7rem;
+        width: 255px;
+        height: 255px;
         border-radius: 50%;
+        object-fit: cover;
+        object-position: center 14%;
     }
     .left-title {
         text-align: right;
