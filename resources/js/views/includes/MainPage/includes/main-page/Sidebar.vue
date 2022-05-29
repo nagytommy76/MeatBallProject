@@ -88,6 +88,15 @@
                                 size="2x"
                         /></a>
                     </Tooltip>
+                    <Tooltip :text="'0630 786 2963'">
+                        <span
+                            ><a href="tel:06307862963"
+                                ><font-awesome
+                                    class="svg-icon"
+                                    :icon="['fa', 'phone']"
+                                    size="2x"/></a
+                        ></span>
+                    </Tooltip>
                     <h4>
                         <a class="email" href="mailto:nagytommy76@gmail.com"
                             >nagytommy76@gmail.com</a
