@@ -90,6 +90,9 @@
                         size="2x"
                     />
                 </Tooltip>
+                <Tooltip :text="'Docker: alap tudás'">
+                    <font-awesome class="svg-icon" :icon="['fab', 'docker']" />
+                </Tooltip>
                 <Tooltip :text="'TypeScript'">
                     <img
                         class="svg-icon"
@@ -129,16 +132,17 @@
                     tartom.
                 </p>
                 <p>
-                    Jelenleg a MERN (MongoDB, Express.js, React, Node.js)
-                    stack-et tanulom, valamint TypeScript-et.
+                    Jelenleg TypeScript-et, illetve Dockert tanulom.
                 </p>
                 <p>
-                    Kezdőként forntend, vagy fullstack területen szeretnék
-                    elhelyezkedni, illetve bővíteni tudásomat.
+                    Kezdőként forntend (React) területen szeretnék
+                    elhelyezkedni, illetve bővíteni tudásomat. Fullstack
+                    lehetőségek is érdekelnek.
                 </p>
                 <p>
                     A jövőt tekintve szeretném mélyíteni a tudásom Node.js-ben
-                    (Express.js) és MongoDB-ben.
+                    (Express.js) és MongoDB-ben, valamint szeretnék
+                    megismerkedni a mobilfejlesztéssel is (ReactNative/Flutter).
                 </p>
             </div>
         </section>
@@ -146,12 +150,15 @@
     </aside>
 </template>
 <script>
+import Tooltip from "../../../../components/Utility/Tooltip.vue";
 import FooterContact from "./FooterContact";
 export default {
     components: {
         FooterContact
     }
 };
+
+Tooltip;
 </script>
 <style lang="scss" scoped>
 @import "../../../../../sass/inc/portfolio/left-content.scss";

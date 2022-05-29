@@ -42,7 +42,8 @@ import {
     faYoutube,
     faInstagram,
     faReact,
-    faNode
+    faNode,
+    faDocker
 } from "@fortawesome/free-brands-svg-icons";
 
 library.add(
@@ -85,5 +86,6 @@ library.add(
     faArrowCircleUp,
     faReact,
     faNode,
-    faPhone
+    faPhone,
+    faDocker
 );
