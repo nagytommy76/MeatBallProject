@@ -102,12 +102,7 @@ __webpack_require__.r(__webpack_exports__);
       this.fillImages(allRecipeImages);
     },
     getCompStoreImagesFromFolderByName: function getCompStoreImagesFromFolderByName() {
-      var allCompStoreImages = [// "login_qmhzu5",
-      // "cpu_yom9xn",
-      // "cart_ttz7ga",
-      // "admin-vga-modify_wjrbhi",
-      // "full-height-cpu_qfz5ay"
-      "CPUShop_pdvn8x", "HDDShop_eg6zkt", "cart_ttz7ga", "Details_jfyguo", "Admin_uig7lb", "OrderSummary_gx3nwo"];
+      var allCompStoreImages = ["welcome_cwzwvv", "cpu_ll1tf7", "vga_kxxyxh", "HDDShop_eg6zkt", "Details_jfyguo", "cart_bi5zvy", "checkout_tco1nl", "email_lfrjji"];
       this.fillImages(allCompStoreImages);
     },
     fillImages: function fillImages(imagesNameFromFolder) {

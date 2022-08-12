@@ -1,5 +1,5 @@
 {
-    "/js/app.js": "/js/app.js?id=73d9dbe87087ad601711",
+    "/js/app.js": "/js/app.js?id=f6e97bb3a9d415694df8",
     "/css/app.css": "/css/app.css?id=43a4283776fed4edb8d8",
     "/Alert.js": "/Alert.js?id=8ccb17e9971ecba3bfdc",
     "/BaseButton.js": "/BaseButton.js?id=f315bc1c3d18a4d764d0",
@@ -11,7 +11,7 @@
     "/Dessert.js": "/Dessert.js?id=0dfafcdcd63f13227ac0",
     "/Drink.js": "/Drink.js?id=7587802b30fa6608fb82",
     "/ErrorMsg.js": "/ErrorMsg.js?id=29d3b6feac400c7d2373",
-    "/ImageSlider.js": "/ImageSlider.js?id=48997c5f13db39e553b4",
+    "/ImageSlider.js": "/ImageSlider.js?id=6f75eaa326c7ac88bd72",
     "/LoadingOverlay.js": "/LoadingOverlay.js?id=7349e5f7a3c9e01dca9a",
     "/Login.js": "/Login.js?id=127080362d9de21ea7e4",
     "/Meal.js": "/Meal.js?id=3199a6657d1ddab0e328",
@@ -22,6 +22,5 @@
     "/Pizza.js": "/Pizza.js?id=54f381a4ef1ac1d99d47",
     "/Register.js": "/Register.js?id=50ec4306dbf282a655f9",
     "/Soup.js": "/Soup.js?id=f7c854516f95efd32327",
-    "/Tooltip.js": "/Tooltip.js?id=f6718bed92332445936e",
     "/WelcomePage.js": "/WelcomePage.js?id=401ffc476d873e64b915"
 }
