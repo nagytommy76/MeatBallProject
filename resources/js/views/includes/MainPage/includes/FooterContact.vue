@@ -31,7 +31,7 @@
                             size="2x"/></a
                 ></span>
             </Tooltip>
-            <Tooltip :text="'0630 786 2963'">
+            <!-- <Tooltip :text="'0630 786 2963'">
                 <span
                     ><a href="tel:06307862963"
                         ><font-awesome
@@ -39,7 +39,7 @@
                             :icon="['fa', 'phone']"
                             size="2x"/></a
                 ></span>
-            </Tooltip>
+            </Tooltip> -->
         </div>
         <h4 class="email">
             <a href="mailto:nagytommy76@gmail.com">nagytommy76@gmail.com</a>
@@ -59,6 +59,8 @@ export default {
         text-align: right;
     }
     .contact-icon {
+        display: flex;
+        justify-content: flex-end;
         margin-bottom: 0.5rem;
         .svg-icon {
             color: #fff;

@@ -16876,6 +16876,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -33040,7 +33057,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".footer-contact[data-v-7037737a] {\n  margin: auto 0 1rem 0;\n}\n.footer-contact .icon-title[data-v-7037737a] {\n  text-align: right;\n}\n.footer-contact .contact-icon[data-v-7037737a] {\n  margin-bottom: 0.5rem;\n}\n.footer-contact .contact-icon .svg-icon[data-v-7037737a] {\n  color: #fff;\n  font-size: 2.4rem;\n  margin: 0.2rem 0.3rem;\n}\n.footer-contact .email[data-v-7037737a],\n.footer-contact a[data-v-7037737a] {\n  color: #ffae00;\n  text-align: right;\n}\n@media (max-width: 720px) {\n.footer-contact[data-v-7037737a] {\n    margin-top: 1rem;\n}\n.footer-contact .icon-title[data-v-7037737a] {\n    text-align: center;\n    margin-bottom: 0.7rem;\n}\n.footer-contact .contact-icon[data-v-7037737a] {\n    margin-bottom: 1rem;\n}\n.footer-contact .email[data-v-7037737a] {\n    text-align: center;\n}\n}", ""]);
+exports.push([module.i, ".footer-contact[data-v-7037737a] {\n  margin: auto 0 1rem 0;\n}\n.footer-contact .icon-title[data-v-7037737a] {\n  text-align: right;\n}\n.footer-contact .contact-icon[data-v-7037737a] {\n  display: flex;\n  justify-content: flex-end;\n  margin-bottom: 0.5rem;\n}\n.footer-contact .contact-icon .svg-icon[data-v-7037737a] {\n  color: #fff;\n  font-size: 2.4rem;\n  margin: 0.2rem 0.3rem;\n}\n.footer-contact .email[data-v-7037737a],\n.footer-contact a[data-v-7037737a] {\n  color: #ffae00;\n  text-align: right;\n}\n@media (max-width: 720px) {\n.footer-contact[data-v-7037737a] {\n    margin-top: 1rem;\n}\n.footer-contact .icon-title[data-v-7037737a] {\n    text-align: center;\n    margin-bottom: 0.7rem;\n}\n.footer-contact .contact-icon[data-v-7037737a] {\n    margin-bottom: 1rem;\n}\n.footer-contact .email[data-v-7037737a] {\n    text-align: center;\n}\n}", ""]);
 
 // exports
 
@@ -33059,7 +33076,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".main-left-content[data-v-3b0aedb0] {\n  border-bottom: 2px solid #ffae00;\n  padding: 3rem;\n  width: 30%;\n  display: flex;\n  flex-direction: column;\n  background-color: #222;\n  align-items: flex-end;\n  color: #fff;\n}\n.main-left-content .image[data-v-3b0aedb0] {\n  width: 210px;\n  height: 210px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center 34%;\n     object-position: center 34%;\n}\n.main-left-content .left-title[data-v-3b0aedb0] {\n  text-align: right;\n  font-size: 2.3rem;\n  padding: 1.4rem 0;\n}\n.main-left-content .stack-icon[data-v-3b0aedb0] {\n  text-align: right;\n  margin-bottom: 1rem;\n}\n.main-left-content .stack-icon .icon-title[data-v-3b0aedb0] {\n  margin: 0.5rem 0;\n  font-size: 1.1rem;\n}\n.main-left-content .stack-icon .svg-icon[data-v-3b0aedb0] {\n  color: #fff;\n  margin: 0.2rem 0.3rem;\n  font-size: 2.4rem;\n  width: 45px;\n  height: 45px;\n}\n.main-left-content .stack-icon img[data-v-3b0aedb0] {\n  -webkit-filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(261deg) brightness(116%) contrast(100%);\n          filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(261deg) brightness(116%) contrast(100%);\n  border-radius: 3px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 45px;\n  height: 45px;\n}\n.main-left-content .summary[data-v-3b0aedb0] {\n  margin-bottom: auto;\n  max-width: 20rem;\n  border: 1px solid #ffae00;\n  border-radius: 10px;\n  padding: 1rem;\n}\n.main-left-content .summary-header[data-v-3b0aedb0] {\n  font-size: 1.6rem;\n  text-align: right;\n  margin: 0 0 1rem 0;\n}\n.main-left-content .summary-body[data-v-3b0aedb0] {\n  text-align: justify;\n  line-height: 1.35rem;\n}\n.main-left-content .summary-body p[data-v-3b0aedb0] {\n  margin: 0.5rem 0;\n}\n@media (max-width: 720px) {\n.grid-tooltip[data-v-3b0aedb0] {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n}\n.grid-tooltip .tooltip[data-v-3b0aedb0] {\n    margin: auto;\n}\n.icon-title[data-v-3b0aedb0] {\n    text-align: center;\n    margin-bottom: 0.5rem;\n}\n.main-left-content[data-v-3b0aedb0] {\n    width: auto;\n    padding: 2rem;\n    align-items: center;\n}\n.main-left-content .left-title[data-v-3b0aedb0] {\n    text-align: center;\n}\n.main-left-content .summary-header[data-v-3b0aedb0] {\n    text-align: center;\n    margin-bottom: 1.3rem;\n}\n}", ""]);
+exports.push([module.i, ".main-left-content[data-v-3b0aedb0] {\n  border-bottom: 2px solid #ffae00;\n  padding: 3rem;\n  width: 30%;\n  display: flex;\n  flex-direction: column;\n  background-color: #222;\n  align-items: flex-end;\n  color: #fff;\n}\n.main-left-content .image[data-v-3b0aedb0] {\n  width: 210px;\n  height: 210px;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center 34%;\n     object-position: center 34%;\n}\n.main-left-content .left-title[data-v-3b0aedb0] {\n  text-align: right;\n  font-size: 2.3rem;\n  padding: 1.4rem 0;\n}\n.main-left-content .stack-icon[data-v-3b0aedb0] {\n  text-align: right;\n  margin-bottom: 1rem;\n}\n.main-left-content .stack-icon .icon-title[data-v-3b0aedb0] {\n  margin: 0.5rem 0;\n  font-size: 1.1rem;\n}\n.main-left-content .stack-icon .svg-icon[data-v-3b0aedb0] {\n  color: #fff;\n  margin: 0.2rem 0.3rem;\n  font-size: 2.4rem;\n  width: 45px;\n  height: 45px;\n}\n.main-left-content .stack-icon img[data-v-3b0aedb0] {\n  -webkit-filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(261deg) brightness(116%) contrast(100%);\n          filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(261deg) brightness(116%) contrast(100%);\n  border-radius: 3px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 45px;\n  height: 45px;\n}\n.main-left-content .summary[data-v-3b0aedb0] {\n  margin-top: 2rem;\n  margin-bottom: auto;\n  max-width: 20rem;\n  border: 1px solid #ffae00;\n  border-radius: 10px;\n  padding: 1rem;\n}\n.main-left-content .summary-header[data-v-3b0aedb0] {\n  font-size: 1.6rem;\n  text-align: right;\n  margin: 0 0 1rem 0;\n}\n.main-left-content .summary-body[data-v-3b0aedb0] {\n  text-align: justify;\n  line-height: 1.35rem;\n}\n.main-left-content .summary-body p[data-v-3b0aedb0] {\n  margin: 0.5rem 0;\n}\n@media (max-width: 720px) {\n.grid-tooltip[data-v-3b0aedb0] {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n}\n.grid-tooltip .tooltip[data-v-3b0aedb0] {\n    margin: auto;\n}\n.icon-title[data-v-3b0aedb0] {\n    text-align: center;\n    margin-bottom: 0.5rem;\n}\n.main-left-content[data-v-3b0aedb0] {\n    width: auto;\n    padding: 2rem;\n    align-items: center;\n}\n.main-left-content .left-title[data-v-3b0aedb0] {\n    text-align: center;\n}\n.main-left-content .summary-header[data-v-3b0aedb0] {\n    text-align: center;\n    margin-bottom: 1.3rem;\n}\n}", ""]);
 
 // exports
 
@@ -42175,22 +42192,6 @@ var render = function() {
               1
             )
           ])
-        ]),
-        _vm._v(" "),
-        _c("Tooltip", { attrs: { text: "0630 786 2963" } }, [
-          _c("span", [
-            _c(
-              "a",
-              { attrs: { href: "tel:06307862963" } },
-              [
-                _c("font-awesome", {
-                  staticClass: "svg-icon",
-                  attrs: { icon: ["fa", "phone"], size: "2x" }
-                })
-              ],
-              1
-            )
-          ])
         ])
       ],
       1
@@ -42465,9 +42466,9 @@ var staticRenderFns = [
     return _c("div", { staticClass: "left-title" }, [
       _c("span", { staticClass: "primary-color" }, [_vm._v("Nagy Tamás")]),
       _vm._v(" "),
-      _c("div", [_vm._v("Pályakezdő")]),
+      _c("div", [_vm._v("Junior")]),
       _vm._v(" "),
-      _c("div", [_vm._v("Frontend fejlesztő")])
+      _c("div", [_vm._v("Frontend Fejlesztő")])
     ])
   },
   function() {
@@ -42482,31 +42483,37 @@ var staticRenderFns = [
       _c("div", { staticClass: "summary-body" }, [
         _c("p", [
           _vm._v(
-            "\n                Nagy Tamás vagyok, pályakezdő webfejlesztő. Jelenlegi\n                tudásom nagy részét autodidakta módon szereztem, különböző\n                kurzusok (Udemy) és weboldalak (freeCodeCamp, w3schools és\n                természetesen StackOverflow 🙂 ) segítségével,\n                valamint saját projectek elkészítésével.\n            "
+            "\n                Nagy Tamás vagyok, pályakezdő React Fejlesztő.\n            "
           )
         ]),
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "\n                Fő erősségemnek a JavaScript-et és a React.js könyvtárat\n                tartom.\n            "
+            "\n                Jelenlegi tudásom nagy részét autodidakta módon, Udemy\n                kurzusok segítségével, valamint hobby projectek\n                elkészítésével szereztem.\n            "
           )
         ]),
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "\n                Jelenleg TypeScript-et, illetve Dockert tanulom.\n            "
+            "\n                Körülbelül 2 éve foglalkozom rendszeresen programozással\n                szabadidőmben.\n            "
           )
         ]),
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "\n                Kezdőként forntend (React) területen szeretnék\n                elhelyezkedni, illetve bővíteni tudásomat. Fullstack\n                lehetőségek is érdekelnek.\n            "
+            "\n                Kezdőként Forntend (React) területen szeretnék\n                elhelyezkedni, illetve bővíteni tudásomat, de Fullstack\n                lehetőségek is érdekelnek (MERN stack).\n            "
           )
         ]),
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "\n                A jövőt tekintve szeretném mélyíteni a tudásom Node.js-ben\n                (Express.js) és MongoDB-ben, valamint szeretnék\n                megismerkedni a mobilfejlesztéssel is (ReactNative/Flutter).\n            "
+            "\n                A jövőt tekintve szeretném mélyíteni a tudásom Node.js-ben\n                (Express.js) és MongoDB-ben, valamint szeretnék\n                megismerkedni a mobilfejlesztéssel is (ReactNative vagy\n                Flutter).\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "\n                Az angol tudásom szövegértésben, olvasásban jó, de a\n                kommunikációban fejlődnöm kell.\n            "
           )
         ])
       ])
@@ -42865,22 +42872,6 @@ var render = function() {
                   ],
                   1
                 )
-              ]),
-              _vm._v(" "),
-              _c("Tooltip", { attrs: { text: "0630 786 2963" } }, [
-                _c("span", [
-                  _c(
-                    "a",
-                    { attrs: { href: "tel:06307862963" } },
-                    [
-                      _c("font-awesome", {
-                        staticClass: "svg-icon",
-                        attrs: { icon: ["fa", "phone"], size: "2x" }
-                      })
-                    ],
-                    1
-                  )
-                ])
               ]),
               _vm._v(" "),
               _vm._m(0)

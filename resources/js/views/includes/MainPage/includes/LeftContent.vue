@@ -7,8 +7,8 @@
         />
         <div class="left-title">
             <span class="primary-color">Nagy Tamás</span>
-            <div>Pályakezdő</div>
-            <div>Frontend fejlesztő</div>
+            <div>Junior</div>
+            <div>Frontend Fejlesztő</div>
         </div>
         <div class="stack-icon">
             <h4 class="icon-title">Backend technológiák</h4>
@@ -121,28 +121,45 @@
             <h1 class="summary-header">Rövid bemutatkozás</h1>
             <div class="summary-body">
                 <p>
+                    Nagy Tamás vagyok, pályakezdő React Fejlesztő.
+                </p>
+                <p>
+                    Jelenlegi tudásom nagy részét autodidakta módon, Udemy
+                    kurzusok segítségével, valamint hobby projectek
+                    elkészítésével szereztem.
+                </p>
+                <p>
+                    Körülbelül 2 éve foglalkozom rendszeresen programozással
+                    szabadidőmben.
+                </p>
+                <!-- <p>
                     Nagy Tamás vagyok, pályakezdő webfejlesztő. Jelenlegi
                     tudásom nagy részét autodidakta módon szereztem, különböző
                     kurzusok (Udemy) és weboldalak (freeCodeCamp, w3schools és
                     természetesen StackOverflow &#128578; ) segítségével,
                     valamint saját projectek elkészítésével.
-                </p>
-                <p>
-                    Fő erősségemnek a JavaScript-et és a React.js könyvtárat
-                    tartom.
-                </p>
-                <p>
+                </p> -->
+                <!-- <p>
+                    Fő erősségemnek a JavaScript/TypeScript-et és a React.js
+                    könyvtárat tartom.
+                </p> -->
+                <!-- <p>
                     Jelenleg TypeScript-et, illetve Dockert tanulom.
-                </p>
+                </p> -->
                 <p>
-                    Kezdőként forntend (React) területen szeretnék
-                    elhelyezkedni, illetve bővíteni tudásomat. Fullstack
-                    lehetőségek is érdekelnek.
+                    Kezdőként Forntend (React) területen szeretnék
+                    elhelyezkedni, illetve bővíteni tudásomat, de Fullstack
+                    lehetőségek is érdekelnek (MERN stack).
                 </p>
                 <p>
                     A jövőt tekintve szeretném mélyíteni a tudásom Node.js-ben
                     (Express.js) és MongoDB-ben, valamint szeretnék
-                    megismerkedni a mobilfejlesztéssel is (ReactNative/Flutter).
+                    megismerkedni a mobilfejlesztéssel is (ReactNative vagy
+                    Flutter).
+                </p>
+                <p>
+                    Az angol tudásom szövegértésben, olvasásban jó, de a
+                    kommunikációban fejlődnöm kell.
                 </p>
             </div>
         </section>
