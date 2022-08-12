@@ -1,13 +1,13 @@
 <template>
     <BaseProject
         :articleClass="'recipe-react'"
-        :demoLink="''"
+        :demoLink="'https://computerstorebackend.firebaseapp.com/'"
         :githubLink="'https://github.com/nagytommy76/ComputerStoreMERN'"
         :projectTitle="'Számtech webáruház'"
     >
         <template v-slot:image>
             <img
-                src="../../../../../../img/comp-mern/comp-thumb.jpg"
+                src="../../../../../../img/comp-mern/welcome_thumb.jpg"
                 alt="Computer Store"
                 @click="$emit('show-image', 'CompStoreMERN')"
             />
@@ -44,8 +44,7 @@
             <p>
                 A felhasználók a regisztráció és email cím megerősítése után
                 bejelentkezhetnek, majd vásárolhatnak különböző termékeket (pl.
-                CPU, VGA, HDD, RAM). Később tervezem bővíteni a termékek
-                listáját.
+                CPU, VGA, HDD, SSD, RAM).
             </p>
         </template>
     </BaseProject>
