@@ -82,6 +82,7 @@ export default {
         }
         .contact-icon {
             margin-bottom: 1rem;
+            justify-content: center;
         }
         .email {
             text-align: center;
